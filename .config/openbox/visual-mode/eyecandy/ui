@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Eyecandy Theme UI
+
+# Background Handler
+nitrogen --set-zoom-fill --save ~/.wallpaper/sky.jpg
+
+# Panel
+tint2 -c ~/.config/tint2/eyecandy-1.tint2rc &
+sleep .2s
+tint2 -c ~/.config/tint2/eyecandy-2.tint2rc &
+sleep .2s
+tint2 -c ~/.config/tint2/eyecandy-3.tint2rc &
+sleep .2s
+tint2 -c ~/.config/tint2/eyecandy-4.tint2rc &
+
+# Notification Daemon
+dunst -config ~/.config/dunst/dunstrc &

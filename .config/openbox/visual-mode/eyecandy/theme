@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Eyecandy Theme Setter
+
+# Use sed for replace string on specified line
+# example:
+#
+# sed -i 's_BEFORE_AFTER_' file
+# sed -i 'LINENUMBERs_BEFORE_AFTER_' file
+#
+# can use "\" or "_" to avoid errors
+# use ".*" instead of "*"
+
+# GTK
+sed -i '5s_gtk-theme-name=.*_gtk-theme-name="Sweetly"_' ~/.gtkrc-2.0
+sed -i '10s_gtk-theme-name=.*_gtk-theme-name=Sweetly_' ~/.config/gtk-3.0/settings.ini
+
+# Icon
+sed -i '6s_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Custom"_' ~/.gtkrc-2.0
+sed -i '8s_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Custom_' ~/.config/gtk-3.0/settings.ini
+sed -i '4s\icon_theme=.*\icon_theme=Papirus-Custom\' ~/.config/qt5ct/qt5ct.conf
+
+# Openbox
+sed -i '34s_<name>.*_<name>Lovely</name>_' ~/.config/openbox/rc.xml
+
+# Rofi
+sed -i '5s_fullscreen-dark_fullscreen_' ~/.config/rofi/themes/shared/settings.rasi
+sed -i '5s_sidebar-dark_sidebar_' ~/.config/rofi/themes/sidebar/colors.rasi
+
+# Set Openbox Margin
+sed -i '130s_<left>.*_<left>10</left>_' ~/.config/openbox/rc.xml
+sed -i '129s_<bottom>.*_<bottom>55</bottom>_' ~/.config/openbox/rc.xml
+
+# Reconfigure Openbox
+openbox --reconfigure

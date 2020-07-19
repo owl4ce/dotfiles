@@ -1,0 +1,59 @@
+# Nano Config - Minimal
+# ---------------------
+
+# FUNCTION
+set smooth
+set autoindent
+#set backup
+#set backupdir "/home/user/nano-backups"
+#set casesensitive
+#set historylog
+set morespace
+#set nohelp
+set tabsize 4
+set tabstospaces
+#set mouse
+set linenumbers
+set softwrap
+
+# COLOR SCHEME
+set titlecolor white,black
+set statuscolor magenta
+set keycolor blue
+set functioncolor white
+set numbercolor white
+
+# SYNTAX HIGHTLIGHTING
+syntax "comments" ".*"
+color blue "^#.*"
+
+## Nanorc files
+include "/usr/share/nano/nanorc.nanorc"
+## C/C++
+include "/usr/share/nano/c.nanorc"
+## HTML
+include "/usr/share/nano/html.nanorc"
+## TeX
+include "/usr/share/nano/tex.nanorc"
+## Quoted emails (under e.g. mutt)
+include "/usr/share/nano/mutt.nanorc"
+## Patch files
+include "/usr/share/nano/patch.nanorc"
+## Manpages
+include "/usr/share/nano/man.nanorc"
+## Groff
+include "/usr/share/nano/groff.nanorc"
+## Perl
+include "/usr/share/nano/perl.nanorc"
+## Python
+include "/usr/share/nano/python.nanorc"
+## Ruby
+include "/usr/share/nano/ruby.nanorc"
+## Java
+include "/usr/share/nano/java.nanorc"
+## Assembler
+include "/usr/share/nano/asm.nanorc"
+## Bourne shell scripts
+include "/usr/share/nano/sh.nanorc"
+## POV-Ray
+include "/usr/share/nano/pov.nanorc"

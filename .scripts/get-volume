@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Get volume/muted using pamixer
+notify-send -u low -t 1024 -i applications-multimedia "Media Volume" "On Level `pamixer --get-volume-human`"

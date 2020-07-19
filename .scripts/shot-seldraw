@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Screenshot select window or draw
+sleep .5s
+scrot -s -e 'mv $f ~/Pictures/' && notify-send -i deepin-screenshot -u low "Screenshot" "Saved in\n<u>`pwd`/Pictures/</u>"

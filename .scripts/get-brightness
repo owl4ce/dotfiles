@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Get brightness level using brightnessctl
+notify-send -u low -t 1024 -i brightnesssettings "Brightness" "On Level `brightnessctl g`/255"

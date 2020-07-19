@@ -1,0 +1,1593 @@
+#! perl
+# TabbedEx plugin for rxvt-unicode; based on original tabbed plugin.
+# https://github.com/mina86/urxvt-tabbedex
+# Copyright 2006-2019 tabbed and tabbedex authors
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+=head1 NAME
+
+tabbedex - tabbed interface to urxvt; extended
+
+=head1 DESCRIPTION
+
+This extension implements a tabbed terminal.  Once rxvt-unicode starts, slave
+terminals can be started in their own tabs and switched between.  At each point
+only one terminal is visible.  rxvt-unicode exits once all tabs are closed.
+
+Once at least two tabs are created a tab bar is displayed at the top of the
+window which lists all the slave terminals.  Clicking on a number/name of a tab
+on that bar switches to it.
+
+tabbedex is an extended version of the tabbed plugin distributed with urxvt.
+
+=head2 Key bindings
+
+Creating new tabs, switching between them and moving them around can be
+performed through the following key bindings:
+
+=over
+
+=item B<Shift-Down>
+
+Creates a new tab.
+
+=item B<Shift-Left> and B<Shift-Right>
+
+Switches to the tab on the left or on the right of the current tab.  Movement
+wraps around once at the first or last tab.
+
+=item B<Meta-F1> through B<Meta-F12>
+
+Switches to the first through twelfth tab.
+
+=item B<Control-Left> and B<Control-right>
+
+Move current tab to the left or right.  Wraps around on the first and last
+position.
+
+=item B<Shift-Up>
+
+Allows current tab to be renamed.  Tab bar is shown if it was hidden, current
+tab's name (if any) is cleared and cursor is displayed in its place.  Typing
+text renames the tab, backspace or Ctrl+H delete the last character, Escape or
+Ctrl+C aborts the rename operation and Enter accepts the new name.
+
+=back
+
+Default key bindings can be disabled using B<no-tabbedex-keys> resource (see
+below) and replaced with custom ones using urxvt's B<keysym> resource.
+
+=head1 CONFIGURATION
+
+The extension can be configured with X resources just like urxvt itself, for
+example:
+
+    URxvt.tabbedex.tabbar-fg: 4
+    URxvt.tabbedex.tabbar-bg: 0
+
+Tabbedex recognises the following resources:
+
+=over
+
+=item B<autohide>: I<boolean>
+
+If set (the default), the tab bar will be hidden unless there are at least two
+tabs open.  This is irrespective of whether C<NEW> button or tab's title is
+displayed.
+
+=item B<new-button>: I<boolean>
+
+If set, a C<NEW> button will be displayed on the left of the tab bar.  Clicking
+the button creates a new tab.  It is not displayed by default.
+
+=item B<title>: I<boolean>
+
+If set (the default), when tab bar is visible and there is enough space left,
+current tab's title will be displayed after the last tab.
+
+=item B<tabbar-fg>:   [I<style>] I<colour>  and  B<tabbar-bg>:   I<colour>
+
+=item B<tab-fg>:      [I<style>] I<colour>  and  B<tab-bg>:      I<colour>
+
+=item B<bell-fg>:     [I<style>] I<colour>  and  B<bell-bg>:     I<colour>
+
+=item B<bell-tab-fg>: [I<style>] I<colour>  and  B<bell-tab-bg>: I<colour>
+
+=item B<title-fg>:    [I<style>] I<colour>  and  B<title-bg>:    I<colour>
+
+Foreground and background styles of respectively: the tab bar (including
+inactive tabs), the current/active tab on the tab bar and new button, an
+inactive tab on which bell has rung, an active tab on which bell has rung and
+finally the tab title.
+
+Colours can be specified as: I<-2> meaning default foreground, I<-1> meaning
+default background, an integer between B<0> and B<255> specifying index in
+terminal' colour palette or any other string which X11 recognises as a colour
+(e.g. B<#1155CC>).
+
+Furthermore, the B<-fg> resource can be prefixed by combination of B<bold>,
+B<italic>, B<blink>, B<reverse-video> and B<underline> which specify the
+font-style of the text.
+
+The default values for the settings are as follows:
+
+    Component | *-fg          | *-bg | Description
+    ----------+---------------+------+----------------------
+    tabbar    |             3 |    0 | brown text on black
+    tab       | bold        0 |    1 | black text on red
+    bell      |      italic 0 |    3 | black text on brown
+    bell-tab  | bold italic 5 |    4 | magenta text on blue
+    title     |      italic 2 |    0 | green text on black
+
+=item B<bell-timeout>: I<number>
+
+Time in seconds, one second by default, a bell is said to be ringing on current
+tab for after it was rung.  Setting this to zero essentially disables the
+B<bell-tab-(fg|bg)> styling of tabs.
+
+=item B<tab-arguments>: I<string>
+
+Arguments passed when starting a slave tabs.  If not specified, I<-e B<command>>
+switch used when starting urxvt command is used (if any).  If specified, the
+value is first expanded (see below), then split into words using shell quoting
+rules and those are passed as arguments to slave terminals when they are
+started.
+
+This resource can be used to pass any arguments however doing so may have
+unintended consequences.  Options such as I<-bw> or I<-geometry> are especially
+problematic but others may cause issues as well.  Because of this, only I<-e
+B>command arguments>> is officially supported.
+
+The value is expanded by replacing two-character sequences starting with
+a percent sign as follows:
+
+=over
+
+=item I<%%>
+
+Replaced by a literal percent sign.
+
+=item I<%e>
+
+Replaced by properly quoted I<-e B<command>> arguments if they were given when
+urxvt was started or an empty string otherwise.  See also I<%E> which may be
+easier for some uses.
+
+Remember that if neither I<%e> nor I<%E> is used, I<-e> switch passed when
+starting urxvt will be completely ignored.
+
+=item I<%E>
+
+Similar to I<%e> but I<-e> is not included in the expansion and if I<%e> would
+expand to an empty string I<%E> expands to value of SHELL environment variable
+or I</bin/sh> if that's empty.  This means that I<%E> is always a valid command.
+
+For example, here's how the sequence can be used to set TABBEDEX_NUM environment
+variables when running a command:
+
+    URxvt.tabbedex.tab-arguments: \
+        -e /usr/bin/env TABBEDEX_NUM=%n %E
+
+=item I<%n>
+
+Replaced by the total number of tabs opened during the lifetime of the
+extension.  Not to be confused with number of tabs currently open.  The counter
+starts at zero and always increments for each subsequent tab.
+
+=item I<%p>
+
+Replaced by ID of a process group which is running in foreground of the pseudo
+terminal in the current tab (as in, not the new tab being created but the tab
+where the new tab request originated from) or -1 if there are no active tabs (or
+that information could not be determined).
+
+This can be used to guess the current working directory of current tab.
+
+=item I<%~>
+
+Replaced by a properly quoted value of HOME environment variable or I</> if it's
+not set.
+
+=back
+
+Unrecognised sequences are replaced with an empty string.
+
+See B<command-runner.sample> file distributed with this extension for some ideas
+how this resource can be used to start different commands in different tabs or
+how to use the same current working directory for new tabs as the active tab
+has.
+
+=item B<no-tabbedex-keys>: I<boolean>
+
+If set, the default key bindings (described at the beginning of this document)
+are not set up.  The mappings can be recreated using urxvt's B<keysym.*>
+resources:
+
+    URxvt.tabbedex.no-tabbedex-keys: yes
+    URxvt.keysym.Shift-Left:    tabbedex:prev_tab
+    URxvt.keysym.Shift-Right:   tabbedex:next_tab
+    URxvt.keysym.Shift-Down:    tabbedex:new_tab
+    URxvt.keysym.Shift-Up:      tabbedex:rename_tab
+    URxvt.keysym.Control-Left:  tabbedex:move_tab_left
+    URxvt.keysym.Control-Right: tabbedex:move_tab_right
+    URxvt.keysym.Meta-F1:       tabbedex:goto_tab_1
+    URxvt.keysym.Meta-F2:       tabbedex:goto_tab_2
+    URxvt.keysym.Meta-F3:       tabbedex:goto_tab_3
+    URxvt.keysym.Meta-F4:       tabbedex:goto_tab_4
+    URxvt.keysym.Meta-F5:       tabbedex:goto_tab_5
+    URxvt.keysym.Meta-F6:       tabbedex:goto_tab_6
+    URxvt.keysym.Meta-F7:       tabbedex:goto_tab_7
+    URxvt.keysym.Meta-F8:       tabbedex:goto_tab_8
+    URxvt.keysym.Meta-F9:       tabbedex:goto_tab_9
+    URxvt.keysym.Meta-F10:      tabbedex:goto_tab_10
+    URxvt.keysym.Meta-F11:      tabbedex:goto_tab_11
+    URxvt.keysym.Meta-F12:      tabbedex:goto_tab_12
+
+See I<ACTIONS AND USER COMMANDS> below for list of available actions.
+
+=item B<perl-ext-blacklist>: I<string>
+
+A comma-separated list of extensions that must not be loaded into the slave
+terminals (tabs).  tabbedex plugin is implicitly added onto the list.
+
+=item B<reopen-on-close>: I<boolean>
+
+If set, whenever last tab is destroyed a new one will be created.
+
+=item B<tabbar-timeouts>: I<string>
+
+When new text is written to an inactive tab, activity marks are displayed around
+its number (or name if it has one) on the tab bar.  By default Unicode
+characters are used to display a block which grows with time the longer it was
+since last time there was any activity in the tab.
+
+This resource allows for this to be customised.  It's format is
+
+    ( <timeout> ":" <char> <char>? ":" )* <timeout> ":" <char> <char>? ":"
+
+where <timeout> is timeout in seconds and <char> is an activity character.  If
+two characters are given, they specify left and right activity marks.  If one
+character is given, it specifies both.  For example:
+
+    URxvt.tabbedex.tabbar-timeouts: 0:|:3:():6:[]:9:{}:12:<>
+
+As a deprecated feature, if a single character is given and it's (, [, { or <,
+matching closing brace will be used for right activity mark.  This is feature
+will be removed in the future.
+
+=item B<tabbed.tabbedex-rs-prefix>: I<string>
+
+A B<deprecated> alternative resource name prefix.  It's always specified with
+C<tabbed> prefix which is also its default value.
+
+If resource using extension's name as well as one using the alternate prefix are
+found, the former takes precedence.  If only the latter is present, its value is
+used but a warning is issued as well, for example:
+
+    URxvt.tabbed.tabbar-fg:   5   -- ignored
+    URxvt.tabbed.tabbar-bg:   0   -- used but issues a warning
+    URxvt.tabbedex.tabbar-fg: 4   -- used
+
+For best backwards compatibility, all options should use C<tabbedex> prefix and
+the <tabbedex-rs-prefix> resource should be to percent sign as in:
+
+    URxvt.tabbed.tabbedex-rs-prefix: %
+
+=back
+
+Extension's behaviour is also influenced by some of URxvt's configuration
+options as well.  (See I<RESOURCES> in the L<urxvt(1)> manpage for more
+information about them).  The options include:
+
+=over
+
+=item B<mapAlert>
+
+If set, when bell rings in an inactive tab, the tab is made active.
+
+=item B<urgentOnBell>
+
+If set, when bell rings in an inactive tab, the master terminal's urgency hint
+is set.
+
+=back
+
+=head1 ACTIONS AND USER COMMANDS
+
+tabbedex supports actions which can be bound to keystrokes using
+B<URxvt.keysym>.I<keysym> resource.  For example:
+
+    URxvt.keysym.Control-t:            tabbedex:new_tab
+    URxvt.keysym.Control-Tab:          tabbedex:next_tab
+    URxvt.keysym.Control-Shift-Tab:    tabbedex:prev_tab
+    ! Shift-Tab is often bound to ISO_Left_Tab in X keyboard
+    ! layouts.  In those layouts Control-Shift-Tab won't
+    ! work and Control-ISO_Left_Tab is needed instead:
+    URxvt.keysym.Control-ISO_Left_Tab: tabbedex:prev_tab
+
+makes I<Ctrl+T> create a new tab and I<Ctrl+Tab> and I<Ctrl+Shift+Tab> switch
+between existing tabs.  Using the name of the extension as the prefix of the
+keysym binding is preferred but when running an ancient urxvt (i.e. anything
+prior to 9.21) an alternative B<perl:tabbedex> must be used instead.
+
+Supported actions are:
+
+=over
+
+=item B<tabbedex:new_tab> and B<tabbedex:new_tab:>I<arguments>
+
+Creates a new tab, puts it at the end of the tab list and switches to it.  In
+the second form, I<arguments> temporarily override value of the B<tab-arguments>
+resource.  This makes it possible to create bindings which start particular
+commands, for example:
+
+    URxvt.keysym.F1:    tabbedex:new_tab:-e info
+
+makes it such that pressing F1 will open a new tab running B<info> command.
+(Remember that I<arguments> are passed as arguments to urxvt so to run a command
+B<-e> is required as in example above).
+
+=item B<tabbedex:new_tab_>I<side>B<_this> and B<tabbedex:new_tab_>I<side>B<_this:>I<arguments>
+
+Like B<tabbedex:new_tab> but puts the new tab before (if I<side> is B<before>)
+or after (if I<side> is B<after>) the current tab on the tab list.  For example,
+
+    URxvt.keysym.C-t:   tabbedex:new_tab_after_this
+
+makes I<Ctrl+T> start a new tab next to the current one.
+
+=item B<tabbedex:next_tab> and B<tabbedex:prev_tab>
+
+Switches to the tab on the right or left of the current tab.
+
+=item B<tabbedex:move_tab_left> and B<tabbedex:move_tab_right>
+
+Moves the current tab left or right.
+
+=item B<goto_tab_>I<N>
+
+If I<N> is a positive integer, switches to the I<N>th tab.  If I<N> is negative,
+switches to the -I<N>th tab counting from the last one.
+
+=item B<tabbedex:kill_tab>
+
+Kills/destroys current tab.
+
+=item B<tabbedex:rename_tab>
+
+Start renaming the tab.
+
+=back
+
+=head1 OSC SEQUENCES
+
+tabbedex supports a single OSC sequence which can be invoked by programs running
+in the terminal by writing a special sequence, namely I<ESC ] 777 ; string ST>
+where I<string> is the command to execute.  For example:
+
+    printf '\033]777;tabbedex;set_tab_name;%s\007' "foo"
+
+=over
+
+=item B<tabbedex;set_tab_name;>I<name>
+
+Sets name of the current tab to I<name>.
+
+=back
+
+=head1 SEE ALSO
+
+L<urxvt(1)>, L<urxvt-tabbed(1)>, L<tabbedex-command-runner(1)> and
+L<tabbedex-pgid-cd(1)>
+
+=head1 COPYRIGHT
+
+Copyright 2006-2019 tabbed and tabbedex authors
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
+
+=head1 AUTHOR
+
+tabbedex has been created (as a fork of L<urxvt-tabbed(1)>) and is maintained by
+Michal Nazarewicz.  For list of authors see B<AUTHORS> file distributed with the
+extension.  Send bug reports and comments to mina86@mina86.com or file them at
+L<https://github.com/mina86/urxvt-tabbedex>.
+
+=cut
+
+use Scalar::Util;
+use Text::ParseWords;
+
+
+# An initialisation hook which is called in root/master and slave tabs.  It’s
+# purpose is to determine which one the object is and call that type’s
+# initialisation code.
+#
+# The reason we do it this way rather than directly pointing urxvt at correct
+# package is that we want urxvt to think that master and slave tabs both use
+# ‘tabbedex’ extension.  Previously, the code would point tabs to
+# a ‘urxvt::ext::tabbedex::tab’ extension but that resulted in terminal thinking
+# the extension is ‘tabbedex::tab’ (actually it was even more complicated than
+# that) and actions weren’t dispatched correctly.
+#
+# Now, no matter if it’s root or not, from urxvt’s point of view it’s all
+# ‘tebbedex’ plugin.
+sub on_init {
+	my ($self) = @_;
+
+	# If we are root tab, then terminal’s 'tabbedex-root-tab' property is
+	# not set.  Otherwise it is set and it points to the root tab.
+	my $root = delete $self->{term}{'tabbedex-root-tab'};
+	my $type = 'root';
+	if (defined $root) {
+		$type = 'tab';
+		$self->{root} = $root;
+	}
+
+	# Copy ISA so things behave the same way.
+	my $pkg = Scalar::Util::blessed($self);
+	@{"urxvt::ext::tabbedex::$type\::ISA"} = @{"$pkg\::ISA"};
+
+	# Change type of the object so methods in proper package are used.
+	bless $self, "urxvt::ext::tabbedex::$type";
+
+	# And continue initialisation.
+	my $supports_action = enable_action_hooks($self, !defined $root);
+	$self->enable_hooks;
+	$self->init;
+	if ($root->{register_keysyms}) {
+		register_keysyms($self, $supports_action);
+	}
+
+	()
+}
+
+sub register_keysyms {
+	my ($self, $supports_action) = @_;
+	my $prefix = ($supports_action && $self->{_name}) || 'perl:tabbedex';
+	$self->parse_keysym('Shift-Left', $prefix . ':prev_tab');
+	$self->parse_keysym('Shift-Right', $prefix . ':next_tab');
+	$self->parse_keysym('Shift-Down', $prefix . ':new_tab');
+	$self->parse_keysym('Shift-Up', $prefix . ':rename_tab');
+	$self->parse_keysym('Control-Left', $prefix . ':move_tab_left');
+	$self->parse_keysym('Control-Right', $prefix . ':move_tab_right');
+	for my $num (1..12) {
+		$self->parse_keysym('Meta-F' . $num,
+				    $prefix . ':goto_tab_' . $num);
+	}
+}
+
+# Install handlers for ‘action’ and ‘user_command’ hooks.  This subroutine means
+# that root and tab packages should not touch those hooks themselves.  This is
+# here mostly because ancient urxvt errors out when trying to define ‘action’
+# hook.  As I didn’t want to duplicate handling of that, I moved it here where
+# both packages are handled.  And since ‘user_command’ is closely related, why
+# not handle it here as well?  A µoptimisation is that whatever way an action
+# reaches the plugin, there’s just one hop till ‘tab_action’ is called.
+sub enable_action_hooks {
+	my ($self, $isroot) = @_;
+	$self->enable(user_command => $isroot ? sub {
+		if ($_[1] =~ s/^tabbedex://) {
+			splice @_, 1, 0, $_[0]{cur};
+			goto \&urxvt::ext::tabbedex::root::tab_action;
+		}
+	} : sub {
+		if ($_[1] =~ s/^tabbedex://) {
+			unshift @_, $_[0]{root};
+			goto \&urxvt::ext::tabbedex::root::tab_action;
+		}
+	});
+	# Guard against ancient urxvts which do not support ‘action’ hook.  We
+	# probably shouldn’t bother, but oh well…
+	eval {
+		$self->enable(action => $isroot ? sub {
+			splice @_, 1, 0, $_[0]{cur};
+			goto \&urxvt::ext::tabbedex::root::tab_action;
+		} : sub {
+			unshift @_, $_[0]{root};
+			goto \&urxvt::ext::tabbedex::root::tab_action;
+		});
+		1
+	} // 0
+}
+
+
+package urxvt::ext::tabbedex::root;
+
+use Encode qw(decode);
+
+{
+	my %hooks;
+
+	sub _on($&) {
+		my ($hook, $sub) = @_;
+		$hooks{$hook} = $sub
+	}
+
+	sub enable_hooks {
+		my ($root) = @_;
+		$root->enable(%hooks);
+	}
+}
+
+
+sub warn {
+	my $root = shift;
+	urxvt::warn(join '', $root->{_name} // 'tabbedex', ': ', @_, "\n");
+}
+
+
+sub tab_activity_marks {
+	my ($root, $tab, $now) = @_;
+	if (!defined($tab->{last_activity})) {
+		return (' ', ' ');
+	}
+	my $diff = $now - $tab->{last_activity};
+	my $prev;
+	for my $spec (@{ $root->{timeouts} }) {
+		my ($time, $left, $right) = @$spec;
+		if ($diff >= $time) {
+			my $next = defined $prev ? $prev - $diff : undef;
+			return ($left, $right, $next);
+		}
+		$prev = $time;
+	}
+	('!', '!')  # we should never be here
+}
+
+
+# Returns a ($first_idx, $last_idx) list indicating index of first and last
+# (inclusive) tab to be shown in the tabbar.
+sub _tabbar_range {
+	my ($root, $ncol, $new_button, $names, $first_idx) = @_;
+	my $last_idx = $first_idx;
+
+	my $max = int(($ncol - 1) / 3) - 3;
+	$max = $max < 2 ? 1 : $max;
+	my $width = length $names->[$first_idx];
+	$ncol -= (($width < $max ? $width : $max) + 2 +  # name and marks
+	          ($first_idx > 0 && !$new_button) +  # left arrow
+	          ($last_idx < $#$names));  # right arrow
+
+	my $try_add = sub {
+		my $idx = shift;
+		if ($idx >= 0 && $idx <= $#$names) {
+			my $length = length $names->[$idx];
+			my $n = $ncol - (($length < $max ? $length : $max) + 2);
+			$n -= ($idx > 0) && ($idx < $#$names);
+			if ($n > 0) {
+				$ncol = $n;
+				return 1;
+			}
+		}
+		0
+	};
+
+	if ($try_add->($last_idx + 1)) {
+		++$last_idx;
+	}
+	while ($try_add->($first_idx - 1)) {
+		--$first_idx;
+	}
+	while ($try_add->($last_idx + 1)) {
+		++$last_idx;
+	}
+
+	($first_idx, $last_idx)
+}
+
+# Truncates names of the tabs so that all tabs visible in the tabbar (specified
+# by the [$first_idx..$last_idx] range) can all fit.  Tries to keep as much of
+# the names of all tabs as possible.
+sub _tabbar_truncate_names {
+	my ($root, $ncol, $new_button, $names, $first_idx, $last_idx) = @_;
+
+	$ncol -= (3 * ($last_idx - $first_idx) + 2 +  # pipes and marks
+	          ($first_idx > 0 && !$new_button) +  # left arrow
+	          ($last_idx < $#$names));  # right arrow
+	my $max = int($ncol / ($last_idx - $first_idx + 1));
+	my $cur_max = $max;
+
+	if ($max > 0 && $first_idx < $last_idx) {
+		my @lengths = sort { $b <=> $a }
+		              grep { $_ <= $max ? (($ncol -= $_), 0) : 1 }
+		              map  length, @{ $names }[$first_idx .. $last_idx];
+		while (@lengths &&
+		       $lengths[$#lengths] <= ($max = int($ncol / @lengths))) {
+			do {
+				$ncol -= pop @lengths;
+			} while (@lengths && $lengths[$#lengths] <= $max);
+		}
+		$cur_max = $max + $ncol - $max * @lengths;
+	}
+
+	for my $idx ($first_idx .. $last_idx) {
+		my $width = $root->{cur} == $root->{tabs}[$idx]
+			? $cur_max : $max;
+		if (length(my $name = $names->[$idx]) <= $width) {
+			# nop
+		} elsif ($width >= 2) {
+			$names->[$idx] = '…' . substr $name, -($width - 1);
+		} elsif ($width >= 1) {
+			$names->[$idx] = substr $name, -1;
+		} else {  # extremely narrow window
+			$names->[$idx] = '';
+		}
+	}
+}
+
+# Determines layout of the tabbar.  Returns a ($new_button, $first_idx,
+# $last_idx, \@names) list where:
+# - $new_button specifies text of the NEW button or is an empty string,
+# - $first_idx is an index of the first visible tab,
+# - $last_idx is an index of the last visible tab and
+# - \@names is an array of (possibly truncated) names of the tabs.
+sub _tabbar_layout {
+	my ($root) = @_;
+
+	my $ncol = $root->ncol;
+	my $new_button = '';
+	if ($root->{new_button}) {
+		if ($ncol >= 60) {
+			$new_button = '[NEW]';
+		} elsif ($ncol >= 30) {
+			$new_button = 'NEW';
+		} elsif ($ncol >= 13) {
+			$new_button = '+';
+		}
+	}
+	$ncol -= !!$new_button + length $new_button;
+
+	my $max = int(($ncol - 1) / 3) - 3;
+	$max = $max < 2 ? 1 : $max;
+	my ($total_truncated, $total_full, $cur_idx) = (-1, -1);
+	my @names = map {
+		my $tab = $root->{tabs}[$_];
+		if ($tab == $root->{cur}) {
+			$cur_idx = $_;
+		}
+		my $name      = $tab->{name} || '' . ($_ + 1);
+		my $length    = length $name;
+		$total_full      += 3 + $length;
+		$total_truncated += 3 + ($length < $max ? $length : $max);
+		$name
+	} 0..$#{ $root->{tabs} };
+
+	my ($first_idx, $last_idx) = (0, $#names);
+	if ($ncol < $total_full) {
+		if ($ncol < $total_truncated) {
+			($first_idx, $last_idx) = $root->_tabbar_range(
+				$ncol, !!$new_button, \@names, $cur_idx);
+		}
+		$root->_tabbar_truncate_names(
+			$ncol, !!$new_button, \@names, $first_idx, $last_idx);
+	}
+
+	($new_button, $first_idx, $last_idx, \@names)
+}
+
+sub min {
+	@_ = grep { defined && $_ > 0 } @_;
+	my $best = shift;
+	for my $n (@_) {
+		if ($n < $best) {
+			$best = $n;
+		}
+	}
+	$best;
+}
+
+sub refresh {
+	my ($root, $now) = @_;
+
+	my $visible = (!$root->{autohide} ||
+	               @{ $root->{tabs} } > 1 ||
+	               $root->{cur}->is_being_renamed);
+	if ($visible != !!$root->{tabheight}) {
+		$root->{tabheight} = $visible * $root->{maxtabheight};
+		$root->configure;
+		$root->copy_properties;
+	}
+	if (!$visible) {
+		return;
+	}
+
+	my ($new_button, $first_idx, $last_idx, $names) = $root->_tabbar_layout;
+	my $bar = new urxvt::ext::tabbedex::tabbar($root);
+
+	if ($new_button) {
+		$bar->add_button($new_button, 1, -1);
+	}
+	if ($first_idx) {
+		$bar->add_arrow(-1);
+	}
+
+	if (!defined $now) {
+		$now = urxvt::NOW;
+	}
+	my $min_delay;
+	for my $idx ($first_idx .. $last_idx) {
+		my $tab = $root->{tabs}[$idx];
+		my ($left, $right, $delay) =
+			$root->tab_activity_marks($tab, $now);
+		$bar->add_button(
+			$left . $names->[$idx] . $right,
+			($tab == $root->{cur}) + 2 * ($now < $tab->{bell_ends}),
+			$idx);
+		if ($tab->is_being_renamed) {
+			$bar->put_cursor(-2);
+		}
+		$min_delay = min $min_delay, $delay, $tab->{bell_ends} - $now;
+	}
+
+	if ($last_idx < $#$names) {
+		$bar->add_arrow(1);
+	}
+
+	if ($root->{tab_title} && $bar->space_left > 0) {
+		my @str = $root->XGetWindowProperty(
+			$root->parent, $root->{tab_title});
+		if (@str && $str[2]) {
+			my $str = decode('utf8', $str[2]);
+			$bar->add_title($root->special_encode($str));
+		}
+	}
+
+	$bar->apply;
+	$root->want_refresh;
+	if (defined $min_delay) {
+		$root->{timer}->start($now + $min_delay);
+	}
+}
+
+sub tab_term_init {
+	my ($root, $term, $index) = @_;
+	$term->{'tabbedex-root-tab'} = $root;
+	$term->{'tabbedex-tab-index'} = $index;
+
+	for (0 .. urxvt::NUM_RESOURCES - 1) {
+		if (defined(my $value = $root->{resource}[$_])) {
+			$term->resource("+$_" => $value);
+		}
+	}
+
+	foreach my $key (values %urxvt::OPTION) {
+		my $val = exists $root->{option}{$key}
+		  ? $root->{option}{$key} : $root->option($key);
+		$term->option($key, $val);
+	}
+
+	if (defined(my $blacklist = $root->{perl_ext_blacklist})) {
+		$term->resource(perl_ext_2 =>
+			$term->resource('perl_ext_2') . $blacklist);
+	}
+}
+
+sub quote_words {
+	join ' ', map {
+		my $v = $_;
+		$v =~ s/'/'\\''/g;
+		"'$v'";
+	} @_
+}
+
+sub args_percent_substitution {
+	my ($root, $ch, $tab) = @_;
+	if ($ch eq '%') {
+		$ch
+	} elsif ($ch eq 'e') {
+		quote_words @{ $root->{argv} }
+	} elsif ($ch eq 'E') {
+		quote_words @{ $root->{argv} }
+			? @{ $root->{argv} }[1..$#$root->{argv}]
+			: ($ENV{SHELL} || '/bin/sh')
+	} elsif ($ch eq 'p') {
+		$tab ? $tab->foreground_pgid : -1
+	} elsif ($ch eq 'n') {
+		$root->{total_tabs_open} // 0
+	} elsif ($ch eq '~') {
+		exists $ENV{'HOME'} ? quote_words $ENV{'HOME'} : '/'
+	} else {
+		$root->warn('unrecognised substitution in ‘tab-arguments’: ',
+			    '‘%', $ch, '’; will substitute with empty string');
+		''
+	}
+}
+
+sub new_tab {
+	my ($root, $tab, $args, $index) = @_;
+
+	if (!defined $args) {
+		$args = $root->{tab_arguments};
+	}
+	$args =~ s/^\s+|\s+$//g;
+	if ($args eq '' || $args eq '%e') {
+		$args = $root->{argv};
+	} else {
+		$args =~ s/%(.)/
+			$root->args_percent_substitution($1, $tab)
+		/ge;
+		if (defined Text::ParseWords::shellwords($args)) {
+			$args = [Text::ParseWords::shellwords($args)];
+		} else {
+			$root->warn('error parsing ‘tab-arguments’ value: ‘',
+				    $args, '’; ignoring');
+			$args = $root->{argv};
+		}
+	}
+
+	push @urxvt::TERM_INIT, sub { $root->tab_term_init($_[0], $index) };
+	push @urxvt::TERM_EXT, urxvt::ext::tabbedex::;
+	new urxvt::term
+		$root->env, $urxvt::RXVTNAME,
+		-embed => $root->parent,
+		@{ $args }
+}
+
+
+sub configure {
+   my ($root) = @_;
+
+   my $tab = $root->{cur};
+
+   # this is an extremely dirty way to force a configurenotify, but who cares
+   $tab->XMoveResizeWindow (
+      $tab->parent,
+      0, $root->{tabheight} + 1,
+      $root->width, $root->height - $root->{tabheight}
+   );
+   $tab->XMoveResizeWindow (
+      $tab->parent,
+      0, $root->{tabheight},
+      $root->width, $root->height - $root->{tabheight}
+   );
+}
+
+
+sub copy_properties {
+   my ($root) = @_;
+   my $tab = $root->{cur};
+
+   my $wm_normal_hints = $root->XInternAtom ("WM_NORMAL_HINTS");
+
+   my $current = delete $root->{current_properties};
+
+   # pass 1: copy over properties different or nonexisting
+   for my $atom ($tab->XListProperties ($tab->parent)) {
+      my ($type, $format, $items) = $root->XGetWindowProperty ($tab->parent,
+                                                               $atom);
+
+      # fix up size hints
+      if ($atom == $wm_normal_hints) {
+         my (@hints) = unpack "l!*", $items;
+
+         $hints[$_] += $root->{tabheight} for (4, 6, 16);
+
+         $items = pack "l!*", @hints;
+      }
+
+      my $cur = delete $current->{$atom};
+
+      # update if changed, we assume empty items and zero type and
+      # format will not happen
+      $root->XChangeProperty ($root->parent, $atom, $type, $format, $items)
+         if $cur->[0] != $type or $cur->[1] != $format or $cur->[2] ne $items;
+
+      $root->{current_properties}{$atom} = [$type, $format, $items];
+   }
+
+   # pass 2, delete all extraneous properties
+   $root->XDeleteProperty ($root->parent, $_) for keys %$current;
+}
+
+
+sub make_current {
+	my ($root, $tab, $bell_ends) = @_;
+
+	if (!ref $tab) {
+		$tab = $root->{tabs}[$tab];
+	}
+
+	my $cur = $root->{cur};
+	if ($cur == $tab) {
+		return;
+	}
+
+	if ($cur) {
+		if ($cur->is_being_renamed) {
+			return;
+		}
+		delete $cur->{last_activity};
+		$cur->{bell_ends} = 0;
+		$cur->XUnmapWindow ($cur->parent) if $cur->mapped;
+		$cur->focus_out;
+	}
+
+	$root->{cur} = $tab;
+
+	$root->configure;
+	$root->copy_properties;
+
+	$tab->focus_out; # just in case, should be a nop
+	$tab->focus_in if $root->focus;
+
+	$tab->XMapWindow ($tab->parent);
+	delete $tab->{last_activity};
+	$tab->{bell_ends} = $bell_ends // 0;
+
+	$root->refresh;
+}
+
+
+_on focus_in => sub {
+   my ($root, $event) = @_;
+   $root->{cur}->focus_in;
+   ();
+};
+
+_on focus_out => sub {
+   my ($root, $event) = @_;
+   $root->{cur}->focus_out;
+   ();
+};
+
+_on tt_write => sub {
+    my ($root, $octets) = @_;
+    $root->{cur}->tt_write ($octets);
+    1
+};
+
+_on key_press => sub {
+   my ($root, $event) = @_;
+   $root->key_event('key_press', $event);
+};
+
+_on key_release => sub {
+   my ($root, $event) = @_;
+   $root->key_event('key_release', $event);
+};
+
+sub key_event {
+	my ($root, $type, $event) = @_;
+	my $tab = $root->{cur};
+	$tab->$type($event->{state}, $event->{keycode}, $event->{time});
+
+	# refresh_check is available since rxvt-unicode 9.22.  For some reason
+	# $tab->can('refresh_check') doesn’t work which is why eval block is
+	# used to silence warnings.
+	eval {
+		$tab->refresh_check;
+	};
+	if ($@ && $@ !~ /refresh_check/) {
+		# If there was a warning unrelated to refresh_check propagate
+		# it.  Otherwise ignore.
+		warn "$@";
+	}
+	1;
+}
+
+_on button_release => sub {
+	my ($root, $event) = @_;
+
+	if ($root->{cur}->is_being_renamed || $event->{row} != 0 ||
+	    $event->{button} != 1) {
+		return ();
+	}
+
+	my $col = $event->{col};
+	for my $button (@{ $root->{tabofs} }) {
+		if ($col < $button->[0]) {
+			last;
+		} elsif ($col >= $button->[1]) {
+			# nop
+		} elsif ($button->[2] == -1) {
+			$root->new_tab($root->{cur});
+		} else {
+			$root->make_current($button->[2]);
+		}
+	}
+	1;
+};
+
+
+{
+
+# TODO: Add a warning in late 2020 or thereabouts if this is used and then
+# remove completely a year later or such.
+my %matching_marks = ('[' => ']', '{' => '}', '(' => ')', '<' => '>');
+
+sub parse_timeouts {
+	my ($root, $timeouts) = @_;
+	my $char = eval { qr/\X/ } // qr/./;
+	my @timeouts;
+	while ($timeouts =~ /\G(\d*\.\d+|\d+):($char)($char)?(?::|$)/g) {
+		my $left = $root->special_encode($2);
+		my $right = $root->special_encode(
+			$3 // $matching_marks{$2} // $2);
+		push @timeouts, [$1 + 0, $left, $right];
+	}
+	@timeouts = sort { $b->[0] <=> $a->[0] } @timeouts;
+	if (!@timeouts || $timeouts[$#timeouts][0] > 0) {
+		push @timeouts, [0, '*', '*'];
+	}
+	\@timeouts
+}
+
+}
+
+sub init {
+   my ($root) = @_;
+
+   $root->{resource} = [map $root->resource ("+$_"),
+                            0 .. urxvt::NUM_RESOURCES - 1];
+
+   $root->resource (int_bwidth => 0);
+   $root->resource (pty_fd => -1);
+
+   if (defined(my $key = $urxvt::OPTION{scrollBar})) {
+      $root->{option}{$key} = $root->option($key, 0);
+   }
+   # Disable ‘intensityStyles’ so that bold, blink etc. specified in tabbar
+   # styles don’t affect the colours.
+   if (defined(my $key = $urxvt::OPTION{intensityStyles})) {
+      $root->{option}{$key} = $root->option($key, 0);
+   }
+
+   my $rs = new urxvt::ext::tabbedex::rs_reader($root);
+
+   $root->{timeouts} = $root->parse_timeouts($rs->text(
+      'tabbar-timeouts', '0:▁:3:▂:6:▃:9:▄:12:▅:15:▆:18:▇:21:█'));
+   $root->{bell_timeout}     = $rs->text('bell-timeout', 1) + 0;
+   $root->{new_button}       = $rs->bool('new-button', 0);
+   $root->{tab_title}        = $rs->bool('title', 1);
+   $root->{autohide}         = $rs->bool('autohide', 1);
+   $root->{register_keysyms} = !$rs->bool('no-tabbedex-keys', 0);
+   $root->{reopen_on_close}  = $rs->bool('reopen-on-close', 0);
+   $root->{tab_arguments}    = $rs->text('tab-arguments', '');
+
+   # TODO: Remove the warning in late 2020.
+   if (defined $rs->text('new-tab-command')) {
+      $root->warn('‘new-tab-command’ resource is no longer recognised; ',
+                  'use ‘tab-arguments’ instead');
+   }
+
+   if (my $blacklist = $rs->text('perl-ext-blacklist')) {
+       $blacklist =~ s/,/,-/;
+       $root->{perl_ext_blacklist} = ',-' . $blacklist;
+   }
+
+   my ($colours, $cmd) = $rs->colours(['            3', '0', 'tabbar'],
+                                      ['bold        0', '1', 'tab'],
+                                      ['     italic 0', '3', 'bell'],
+                                      ['bold italic 5', '4', 'bell-tab'],
+                                      ['     italic 2', '0', 'title']);
+   $root->{init_cmd} = $cmd . "\033[?25l";
+   $root->{rs_colours} = $colours;
+
+   $root->{timer} = urxvt::timer->new->cb ( sub { $root->refresh; } );
+}
+
+_on start => sub {
+   my ($root) = @_;
+
+   $root->{maxtabheight} =
+      $root->int_bwidth + $root->fheight + $root->lineSpace;
+   $root->{tabheight} = $root->{autohide} ? 0 : $root->{maxtabheight};
+
+   $root->cmd_parse(delete $root->{init_cmd});
+
+   my @argv = $root->argv;
+   do {
+      shift @argv;
+   } while @argv && $argv[0] ne "-e";
+   $root->{argv} = \@argv;
+
+   if ($root->{tab_title}) {
+      $root->{tab_title} = $root->XInternAtom("_NET_WM_NAME", 1);
+   }
+
+   $root->new_tab;
+
+   ();
+};
+
+
+_on configure_notify => sub {
+   my ($root, $event) = @_;
+   $root->configure;
+   $root->refresh;
+   ();
+};
+
+
+_on wm_delete_window => sub {
+	my ($root) = @_;
+	# Disable reopen-on-close so we respect delete window request.  If
+	# reopen-on-close was to remain true, as soon as last tab was closed
+	# a new would be created and we would never exit.
+	$root->{reopen_on_close} = 0;
+	$_->destroy for @{ $root->{tabs} };
+	1;
+};
+
+
+sub tab_start {
+	my ($root, $tab) = @_;
+	my $index = delete $tab->{term}{'tabbedex-tab-index'};
+	$tab->XChangeInput ($tab->parent, urxvt::PropertyChangeMask);
+	if (defined $index && $index < @{ $root->{tabs} }) {
+		splice @{ $root->{tabs} }, $index, 0, $tab;
+	} else {
+		push @{ $root->{tabs} }, $tab;
+	}
+	++$root->{total_tabs_open};
+	$root->make_current($tab);
+	();
+}
+
+
+sub tab_destroy {
+	my ($root, $tab) = @_;
+
+	my $idx = $tab->index;
+	splice @{ $root->{tabs} }, $idx, 1;
+
+	if (!@{ $root->{tabs} }) {
+		if (!$root->{reopen_on_close}) {
+			# Delay destruction a tiny bit.
+			$root->{destroy} = urxvt::iw->new->start->cb(sub {
+				$root->{timer}->stop;
+				$root->destroy;
+			});
+			return ();
+		}
+		$root->new_tab;
+	}
+
+	if ($root->{cur} == $tab) {
+		delete $root->{cur};
+		$root->make_current($idx < @{ $root->{tabs} } ? $idx : -1);
+	} else {
+		$root->refresh;
+	}
+
+	();
+}
+
+
+sub tab_property_notify {
+   my ($root, $tab, $event) = @_;
+
+   $root->copy_properties
+      if $event->{window} == $tab->parent;
+
+   ();
+}
+
+
+sub tab_bell {
+	my ($root, $tab, $event) = @_;
+	my $now = urxvt::NOW;
+
+	my $key = $urxvt::OPTION{urgentOnBell};
+	if (defined($key) && $tab->option($key) && !$root->focus) {
+		$root->set_urgency(1);
+	}
+
+	if ($tab == $root->{cur}) {
+		$tab->{bell_ends} = $now + $root->{bell_timeout};
+	} elsif (defined($key = $urxvt::OPTION{mapAlert}) &&
+	         $tab->option($key)) {
+		$root->make_current($tab, $now + $root->{bell_timeout});
+		return;
+	} else {
+		$tab->{bell_ends} = ~0;
+	}
+
+	# refresh called to update rendering (if bell wasn’t active in the tab)
+	# and update timer’s timeout.
+	$root->refresh($now);
+
+	();
+}
+
+
+sub tab_add_lines {
+	my ($root, $tab) = @_;
+	if ($tab != $root->{cur}) {
+		my $now = urxvt::NOW;
+		my @pre = $root->tab_activity_marks($tab, $now);
+		$tab->{last_activity} = $now;
+		my @post = $root->tab_activity_marks($tab, $now);
+		if ($pre[0] ne $post[0] || $pre[1] ne $post[1]) {
+			$root->refresh($now);
+		}
+	}
+	();
+}
+
+
+sub tab_action {
+	my ($root, $tab, $cmd) = @_;
+	if ($cmd =~ /^new_tab(?:_(before|after)_this)?(?::(.*))?$/) {
+		if (!$root->{cur}->is_being_renamed) {
+			my $index;
+			if (defined $1) {
+				$index = $tab->index + ($1 eq 'after');
+			}
+			$root->new_tab($tab, $2, $index);
+		}
+	} elsif ($cmd eq 'next_tab') {
+		$root->make_current(($tab->index + 1) % @{ $root->{tabs} });
+	} elsif ($cmd eq 'prev_tab') {
+		$root->make_current($tab->index - 1);
+	} elsif ($cmd eq 'move_tab_left') {
+		$root->move_tab($tab, -1);
+	} elsif ($cmd eq 'move_tab_right') {
+		$root->move_tab($tab, 1);
+	} elsif ($cmd =~ /^goto_tab[_:](-?)(0*[1-9]\d*)$/) {
+		if ($2 <= @{ $root->{tabs} }) {
+			$root->make_current($1 eq '' ? $2 - 1 : -$2);
+		}
+	} elsif ($cmd eq 'rename_tab') {
+		if ($tab == $root->{cur} && $tab->start_rename_tab) {
+			$root->refresh;
+		}
+	} elsif ($cmd eq 'kill_tab') {
+		$tab->destroy;
+	} else {
+		$root->warn('unrecognised action: ‘', $cmd, '’; ignoring');
+	}
+	()
+}
+
+sub move_tab {
+	my ($root, $tab, $direction) = @_;
+	if (@{ $root->{tabs} } < 2) {
+		return;
+	}
+
+	my $last = $#{$root->{tabs}};
+	my $idx = $tab->index;
+
+	if ($idx == 0 && $direction == -1) {
+		push @{$root->{tabs}}, shift @{$root->{tabs}};
+		$idx = $last;
+	} elsif ($idx == $last && $direction == 1) {
+		unshift @{$root->{tabs}}, pop @{$root->{tabs}};
+		$idx = 0;
+	} else {
+		($root->{tabs}[$idx], $root->{tabs}[$idx + $direction]) =
+			($root->{tabs}[$idx + $direction], $root->{tabs}[$idx]);
+		$idx += $direction;
+	}
+	$root->refresh;
+}
+
+
+sub tab_osc_seq_perl {
+	my ($root, $tab, $osc) = @_;
+
+	# For historical reasons, we also accept misspelled "tabbedx" prefix.
+	if ($osc =~ /^tabbede?x;set_tab_name;(.*)$/) {
+		my $name = $root->locale_decode($1);
+		if ($tab->set_name($root->special_encode($name))) {
+			$root->refresh;
+		}
+		1;
+	}
+}
+
+
+package urxvt::ext::tabbedex::tab;
+
+use POSIX qw/tcgetpgrp/;
+
+# helper extension implementing the subwindows of a tabbed terminal.
+# simply proxies all interesting calls back to the tabbedex class.
+
+
+sub enable_hooks {
+	for my $hook (qw(start destroy property_notify add_lines
+	                 bell osc_seq_perl)) {
+		my $name = "urxvt::ext::tabbedex::root::tab_$hook";
+		$_[0]->enable($hook => sub {
+			unshift @_, $_[0]{root};
+			goto &$name;
+		});
+	};
+}
+
+sub init {
+	$_[0]{bell_ends} = 0;
+}
+
+
+sub index {
+	my ($tab) = @_;
+	my $tabs = $tab->{root}{tabs};
+	my $idx = 0;
+	++$idx while $tabs->[$idx] != $tab;
+	$idx;
+}
+
+
+sub foreground_pgid {
+	my $n = $_[0]->pty_fd;
+	$n < 0 || ($n = tcgetpgrp($n)) < 0 ? -1 : $n
+}
+
+
+sub start_rename_tab {
+	my ($tab) = @_;
+	if ($tab->is_being_renamed) {
+		return 0;
+	}
+	$tab->{old_name} = $tab->{name};
+	$tab->{name} = ' ';
+	$tab->enable('key_press', \&_rename_tab_key_press);
+	1
+}
+
+sub finish_rename_tab {
+	my ($tab, $accept) = @_;
+	if (!$tab->is_being_renamed) {
+		$tab->{root}->warn('finish_rename_tab called on tab which is ',
+				   'not being renamed; this is an internal ',
+				   'error, please report it');
+		return;
+	}
+	if ($accept) {
+		substr $tab->{name}, -1, 1, '';
+	} else {
+		$tab->{name} = $tab->{old_name};
+	}
+	delete $tab->{old_name};
+	$tab->disable('key_press');
+}
+
+sub set_name {
+	my ($tab, $name) = @_;
+	if ($tab->is_being_renamed) {
+		$tab->{old_name} = $name;
+		0
+	} else {
+		$tab->{name} = $name;
+		1
+	}
+}
+
+sub is_being_renamed { exists $_[0]{old_name} }
+
+sub _is_escape($$) {
+	my ($event, $keysym) = @_;
+	return 1 if $keysym == 0xff1b;  # Escape
+	return 0 unless $event->{state} & urxvt::ControlMask;
+	$keysym == 99 || $keysym == 67;  # Ctrl+C
+}
+
+sub _is_backspace($$) {
+	my ($event, $keysym) = @_;
+	return 1 if $keysym == 0xff08;  # Backspace
+	return 0 unless $event->{state} & urxvt::ControlMask;
+	$keysym == 104 || $keysym == 72;  # Ctrl+H
+}
+
+sub _rename_tab_key_press {
+	my ($tab, $event, $keysym, $octets) = @_;
+
+	# rxvt-unicode-scroll-bug-fix.patch causes early key_press events to be
+	# passed without $keysym or $octects arguments passed.  Work around it
+	# by ignoring such invocations; we’ll be called again soon with all
+	# those arguments.  The patch shouldn’t be used any more anyway.
+	if (!defined $keysym) {
+		return 0;
+	}
+
+	my $is_enter = $keysym == 0xff0d || $keysym == 0xff8d;
+	if ($is_enter || _is_escape $event, $keysym) {
+		$tab->finish_rename_tab($is_enter);
+	} elsif (_is_backspace $event, $keysym) {
+		substr $tab->{name}, -2, 1, '';
+	} elsif ($octets !~ /[\x00-\x1f]/) {
+		my $text = $tab->locale_decode($octets);
+		substr $tab->{name}, -1, 0, $tab->special_encode($text);
+	} else {
+		return 1;
+	}
+
+	$tab->{root}->refresh;
+	1
+}
+
+
+## Class for getting data from resources.  Most notably, it handles the
+## deprecated ‘tabbedex-rs-prefix’ resource and parsing of colours.
+package urxvt::ext::tabbedex::rs_reader;
+
+sub new {
+	my ($class, $root) = @_;
+	my $prefix = $root->x_resource('tabbed.tabbedex-rs-prefix') // 'tabbed';
+	my $extname = $root->{_name};
+	my $rs = [$root, $extname];
+	if ($prefix ne '%' && $prefix ne $extname) {
+		push @$rs, $prefix;
+	}
+	bless $rs, $class
+}
+
+sub text {
+	my ($rs, $name, $default) = @_;
+	my ($root, $extname, $prefix) = @$rs;
+	my $value = $root->x_resource("%.$name");
+	if (!defined $value && defined $prefix) {
+		$value = $root->x_resource("$prefix.$name");
+		if (defined $value) {
+			$root->warn("‘$prefix.$name’ resource uses deprecated " .
+			            "prefix. Use ‘$extname.$name’ instead.");
+		}
+	}
+	defined $value ? $root->locale_decode($value) : $default
+}
+
+sub bool {
+	my $value = $_[0]->text($_[1]);
+	defined $value ? $value !~ /^(?:false|0|no|off)$/i : $_[2];
+}
+
+sub colours {
+	my $rs = shift;
+
+	my %styles = (
+		bold            => urxvt::RS_Bold,
+		italic          => urxvt::RS_Italic,
+		blink           => urxvt::RS_Blink,
+		'reverse-video' => urxvt::RS_RVid,
+		underline       => urxvt::RS_Uline
+	);
+	my $styles = join '|', keys %styles;
+
+	my (@suffix, @styles, %used) = ('-fg', '-bg');
+	for my $c (@_) {
+		my $style = urxvt::DEFAULT_RSTYLE;
+		for my $i (0, 1) {
+			my $value = $rs->text($c->[2] . $suffix[$i], $c->[$i]);
+			$value =~ s/\s+/ /g;
+			$value =~ s/^ | $//g;
+			while ($i == 0 && $value =~ s/^($styles) //) {
+				$style |= $styles{$1};
+			}
+			if ($value =~ /^[-#a-zA-Z0-9 ]/) {
+				$c->[$i] = $value;
+			}
+			$used{$c->[$i]} = undef;
+		}
+		push @styles, $style;
+	}
+
+	my ($i, $cmd) = (0, '');
+	for my $key (keys %used) {
+		if ($key =~ /^-?\d+$/ && -2 <= $key && $key <= 255) {
+			$used{$key} = $key + 2;
+		} else {
+			++$i while exists $used{$i};
+			$cmd .= ';' . $i . ';' . $key;
+			$used{$key} = $used{$i} = $i + 2;
+		}
+	}
+
+	for $i (0..$#_) {
+		my ($fg, $bg) = @{ $_[$i] };
+		$styles[$i] = urxvt::SET_COLOR $styles[$i], $used{$fg}, $used{$bg};
+	}
+
+	(\@styles, $cmd ? "\e]4$cmd\a" : '')
+}
+
+
+## Class for building up the tabbar.
+package urxvt::ext::tabbedex::tabbar;
+
+sub new {
+	my ($class, $root) = @_;
+	$#{ $root->{tabofs} } = -1;
+	bless {
+		root => $root,
+		text => '',
+		rend => [],
+		ncol => $root->ncol,
+		buttons => $root->{tabofs},
+		pipe_pending => 0,
+		pad_colour => 0,
+	}, $class;
+}
+
+sub _append {
+	my ($bar, $text, $c) = @_;
+	$bar->{text} .= $text;
+	push @{$bar->{rend}}, ($bar->{root}{rs_colours}[$c]) x length $text;
+}
+
+sub _append_pending_pipe_maybe {
+	my ($bar) = @_;
+	if ($bar->{pipe_pending}) {
+		$bar->_append('|');
+		$bar->{pipe_pending} = 0;
+	}
+}
+
+sub space_left {
+	my ($bar) = @_;
+	$bar->{ncol} - $bar->{pipe_pending} - length $bar->{text};
+}
+
+sub add_button {
+	my ($bar, $text, $color_idx, $code) = @_;
+	$bar->_append_pending_pipe_maybe;
+	my $start = length $bar->{text};
+	$bar->_append($text, $color_idx);
+	push @{ $bar->{buttons} }, [$start, length $bar->{text}, $code];
+	$bar->{pipe_pending} = 1;
+}
+
+sub add_title {
+	my ($bar, $text) = @_;
+	$bar->_append_pending_pipe_maybe;
+	my $available = $bar->space_left;
+	if (length $text < $available) {
+		$text = ' ' . $text;
+	} elsif (length $text > $available && $available > 1) {
+		substr($text, $available - 1) = '…';
+	}
+	$bar->_append($text, 4);
+	$bar->{pad_colour} = 4;
+}
+
+sub add_arrow {
+	my ($bar, $direction) = @_;
+	$bar->_append($direction < 0 ? '←' : '→');
+	$bar->{pipe_pending} = 0;
+}
+
+sub put_cursor {
+	my ($bar, $dx) = @_;
+	$bar->{cursor} = length($bar->{text}) + $dx + 1;
+}
+
+sub apply {
+	my ($bar) = @_;
+	$bar->{pipe_pending} = 0;
+	if ($bar->{ncol} > length $bar->{text}) {
+		$bar->_append(' ' x ($bar->{ncol} - length $bar->{text}),
+		              $bar->{pad_colour});
+	} elsif ($bar->{ncol} < length $bar->{text}) {
+		$bar->{text} = substr $bar->{text}, 0, $bar->{ncol};
+		splice @{ $bar->{rend} }, $bar->{ncol};
+	}
+	my ($term, $cur) = ($bar->{root}{term}, $bar->{cursor});
+	$term->cmd_parse(defined($cur) ? "\e[1;${cur}f\e[?25h" : "\e[?25l");
+	$term->ROW_t(0, $bar->{text});
+	$term->ROW_r(0, $bar->{rend});
+}

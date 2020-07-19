@@ -1,0 +1,8 @@
+[Desktop Entry]
+Comment=Play music on NCMPCPP with Album Art
+Terminal=false
+Name=NCMPCPP Album Art
+Categories=AudioVideo;Audio;Player;
+Exec=bash -c '~/.ncmpcpp/launch/ncmpcpp-album'
+Type=Application
+Icon=mpd
