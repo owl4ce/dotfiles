@@ -1,6 +1,3 @@
-# Load Xresources
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
-
 # Use QT5CT Settings for QT Themes
 export QT_QPA_PLATFORMTHEME=qt5ct
 
