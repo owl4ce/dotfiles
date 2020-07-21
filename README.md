@@ -72,4 +72,4 @@ Here are some details about my setup:
 - [Aditya Shakya](https://github.com/adi1090x)
 - Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart) and [r/unixporn](https://www.reddit.com/r/unixporn/).
 - Some people in the forum who provide solutions.
-- All artists (especially (Kuvshinov Ilya)[https://www.artstation.com/kuvshinov_ilya] for his work that I show on the Thunar sidebar) who make pictures, illustrations, and wallpapers. By the way [this](https://drive.google.com/drive/folders/1fFseELgArlOGAAeUY32EO98dAU0ITjJ2?usp=sharing) is my wallpaper collection.
+- All artists (especially [Kuvshinov Ilya](https://www.artstation.com/kuvshinov_ilya) for his work that I show on the Thunar sidebar) who make pictures, illustrations, and wallpapers. By the way [this](https://drive.google.com/drive/folders/1fFseELgArlOGAAeUY32EO98dAU0ITjJ2?usp=sharing) is my wallpaper collection.
