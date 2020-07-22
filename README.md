@@ -38,12 +38,13 @@ Here are some details about my setup:
 |:---------------------:|:----------------------------------------------------------------------------------------------------:|
 | Lockscreen            | `slimlock` from SLiM                                                                                 |
 | QT Themer             | [qt5ct](https://wiki.archlinux.org/index.php/Qt#GTK_and_Qt)                                          |
-| Authentication Agent  | polkit-gnome-authentication-agent-1 ([polkit-gnome](https://wiki.archlinux.org/index.php/Polkit))    |
+| GTK Themer            | lxappearance                                                                                         |
+| Authentication Agent  | polkit-gnome-authentication-agent-1                                                                  |
 | Power Manager         | xfce4-power-manager                                                                                  |
 | Sessions Auto Locker  | xss-lock                                                                                             |
 | Brightness Handler    | brightnessctl                                                                                        |
 | Sound Mixer           | Pulseaudio                                                                                           |
-| Sound Control         | Pavucontrol                                                                                          |
+| Volume Control        | Pavucontrol                                                                                          |
 | CLI Sound Control     | [pamixer](https://github.com/cdemoulins/pamixer)                                                     |
 | CLI Audio Visualizer  | [cava](https://github.com/karlstav/cava)                                                             |
 | Network Manager       | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
