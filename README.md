@@ -22,43 +22,45 @@ Here are some details about my setup:
 - **Shell**                        : [zsh](https://wiki.archlinux.org/index.php/zsh) :wrench: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
 - **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)
 - **Openbox Menu**                 : [obmenu-generator](https://github.com/trizen/obmenu-generator)
+- **Panel**                        : [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
 - **Compositor**                   : [Ibhagwan Picom](https://github.com/ibhagwan/picom) :doughnut: rounded corners!
 - **Notify Daemon**                : [Dunst](https://wiki.archlinux.org/index.php/Dunst) :bookmark: minimalist!
-- **Panel**                        : [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
-- **Launcher**                     : [Rofi](https://github.com/davatorium/rofi) :rocket: apps launcher & sidebar menu!
+- **Application Launcher**         : [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar)
-- **Text Editor**                  : [Geany](https://www.geany.org/)
+- **Text Editor**                  : [Geany](https://www.geany.org/), Nano, Vim
 
 ## Setup
 # <p align="center">:construction_worker: README UNDER MAINTENANCE :construction_worker:</p>
 
 ## Notes
 ### <p align="center">Detailed Environment</p>
-| Items/Components      | Values/Dependencies                                                                                  |
-|:---------------------:|:----------------------------------------------------------------------------------------------------:|
-| Lockscreen            | `slimlock` from SLiM                                                                                 |
-| QT Themer             | [qt5ct](https://wiki.archlinux.org/index.php/Qt#GTK_and_Qt)                                          |
-| GTK Themer            | lxappearance                                                                                         |
-| Authentication Agent  | polkit-gnome-authentication-agent-1                                                                  |
-| Power Manager         | xfce4-power-manager                                                                                  |
-| Sessions Auto Locker  | xss-lock                                                                                             |
-| Brightness Handler    | brightnessctl                                                                                        |
-| Sound Mixer           | Pulseaudio                                                                                           |
-| Volume Control        | Pavucontrol                                                                                          |
-| CLI Sound Control     | [pamixer](https://github.com/cdemoulins/pamixer)                                                     |
-| CLI Audio Visualizer  | [cava](https://github.com/karlstav/cava)                                                             |
-| Network Manager       | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
-| Clipboard Manager     | clipit                                                                                               |
-| Screenshot App        | scrot                                                                                                |
-| Browser               | google-chrome-stable                                                                                 |
-| Image Viewer          | Viewnior                                                                                             |
-| CLI File Manager      | ranger                                                                                               |
-| Music Player          | Audacious & Spotify + [Spicetify](https://github.com/khanhas/spicetify-cli)                          |
-| CLI Music Player      | MPD + MPC, Ncmpcpp                                                                                   |
-| Video Player          | MPV                                                                                                  |
-| Graphic Editor        | GIMP-2.10                                                                                            |
-| CLI System Monitor    | htop                                                                                                 |
-| CLI Sytem Information | neofetch                                                                                             |
+| Items                  | Values                                                                                               |
+|------------------------|------------------------------------------------------------------------------------------------------|
+| Audio Volume Control   | [pamixer](https://github.com/cdemoulins/pamixer)                                                     |
+| Sound Mixer            | pulseaudio                                                                                           |
+| Volume Control         | pavucontrol                                                                                          |
+| Brightness Handler     | brightnessctl                                                                                        |
+| Wallpaper Setter       | nitrogen                                                                                             |
+| Power Manager          | xfce4-power-manager                                                                                  |
+| Lockscreen             | slimlock (from SLiM Display Manager)                                                                 |
+| Sessions Locker        | xss-lock                                                                                             |
+| Clipboard Manager      | clipit                                                                                               |
+| Calendar Pop-up        | gsimplecal (for pop-up from Tint2)                                                                   |
+| Authentication Agent   | polkit-gnome-authentication-agent-1                                                                  |
+| Network Manager        | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
+| QT Themer              | qt5ct (adapted to the GTK Theme)                                                                     |
+| GTK Themer             | lxappearance                                                                                         |
+| Audio Visualizer       | [cava](https://github.com/karlstav/cava)                                                             |
+| Screenshot App         | scrot                                                                                                |
+| Web Browser            | google-chrome-stable                                                                                 |
+| Image Viewer           | viewnior                                                                                             |
+| Music Player           | audacious & spotify + [spicetify](https://github.com/khanhas/spicetify-cli)                          |
+| Video Player           | mpv                                                                                                  |
+| Graphic Editor         | gimp-2.10                                                                                            |
+| CLI Music Player       | mpd, mpc, ncmpcpp                                                                                    |
+| CLI File Manager       | ranger                                                                                               |
+| CLI System Monitor     | htop                                                                                                 |
+| CLI System Information | neofetch                                                                                             |
 ##  
 ### <p align="center">Color Scheme
 <p align="center"><a name="top" href="#notes"><img height="60%" width="100%" src="https://i.ibb.co/kHRHZfX/color-scheme.png"></a></p>
