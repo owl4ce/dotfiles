@@ -810,6 +810,9 @@
       <maximized>true</maximized>
     </application>
     -->
+    <application class="mpv" type="normal">
+      <maximized>true</maximized>
+    </application>
     <application class="Geany" type="normal">
       <maximized>true</maximized>
     </application>
