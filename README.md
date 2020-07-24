@@ -22,12 +22,12 @@ Here are some details about my setup:
 - **Shell**                        : [zsh](https://wiki.archlinux.org/index.php/zsh) :wrench: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
 - **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)
 - **Openbox Menu**                 : [obmenu-generator](https://github.com/trizen/obmenu-generator)
-- **Panel**                        : [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
+- **Panel**                        : [tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
 - **Compositor**                   : [Ibhagwan Picom](https://github.com/ibhagwan/picom) :doughnut: rounded corners!
-- **Notify Daemon**                : [Dunst](https://wiki.archlinux.org/index.php/Dunst) :bookmark: minimalist!
-- **Application Launcher**         : [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
+- **Notify Daemon**                : [dunst](https://wiki.archlinux.org/index.php/Dunst) :bookmark: minimalist!
+- **Application Launcher**         : [rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar)
-- **Text Editor**                  : [Geany](https://www.geany.org/), Nano, Vim
+- **Text Editor**                  : [Geany](https://www.geany.org/), nano, vim
 
 ## Setup
 # <p align="center">:construction_worker: README UNDER MAINTENANCE :construction_worker:</p>
@@ -39,13 +39,13 @@ Here are some details about my setup:
 | Audio Volume Control   | [pamixer](https://github.com/cdemoulins/pamixer)                                                     |
 | Sound Mixer            | pulseaudio                                                                                           |
 | Volume Control         | pavucontrol                                                                                          |
-| Brightness Handler     | brightnessctl                                                                                        |
+| Brightness Handler     | [brightnessctl](https://github.com/Hummer12007/brightnessctl)                                        |
 | Wallpaper Setter       | nitrogen                                                                                             |
 | Power Manager          | xfce4-power-manager                                                                                  |
-| Lockscreen             | slimlock (from SLiM Display Manager)                                                                 |
-| Sessions Locker        | xss-lock                                                                                             |
+| Lockscreen             | slimlock (from slim display manager)                                                                 |
+| Sessions Locker        | [xss-lock](https://wiki.archlinux.org/index.php/Session_lock#xss-lock)                               |
 | Clipboard Manager      | clipit                                                                                               |
-| Calendar Pop-up        | gsimplecal (for pop-up from Tint2)                                                                   |
+| Calendar Pop-up        | gsimplecal (for pop-up from tint2)                                                                   |
 | Authentication Agent   | polkit-gnome-authentication-agent-1                                                                  |
 | Network Manager        | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
 | QT Themer              | qt5ct (adapted to the GTK Theme)                                                                     |
