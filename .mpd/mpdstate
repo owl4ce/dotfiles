@@ -1,6 +1,6 @@
 sw_volume: 100
-audio_device_state:1:Pulse Audio
-audio_device_state:1:FIFO Visualizer
+audio_device_state:1:Pulseaudio
+audio_device_state:1:Visualizer
 state: stop
 random: 0
 repeat: 1
