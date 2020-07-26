@@ -30,7 +30,10 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), nano, vim
 
 ## Setup
-# <p align="center">:construction_worker: README UNDER MAINTENANCE :construction_worker:</p>
+## <p align="center">:construction_worker: README UNDER MAINTENANCE :construction_worker:</p>
+<p align="center"><a name="top" href="https://rykmyid.github.io/build-openbox-wm">How to setup in Indonesian here</a></p>
+
+## <p align="center">:tada:<a name="top" href="https://www.youtube.com/watch?v=wpy-ccF4gfw">Video Preview</a>:tada:</p>
 
 ## Notes
 ### <p align="center">Detailed Environment</p>
@@ -61,8 +64,6 @@ Here are some details about my setup:
 | CLI File Manager       | ranger                                                                                               |
 | CLI System Monitor     | htop                                                                                                 |
 | CLI System Information | neofetch                                                                                             |
-##  
-## <p align="center">:tada:<a name="top" href="https://www.youtube.com/watch?v=wpy-ccF4gfw">Video Preview</a>:tada:</p>
 ##  
 ### <p align="center">Color Scheme</p>
 <p align="center"><a name="top" href="#notes"><img height="60%" width="100%" src="https://i.ibb.co/kHRHZfX/color-scheme.png"></a></p>
