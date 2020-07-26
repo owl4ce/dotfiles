@@ -47,7 +47,7 @@ Here are some details about my setup:
 | Power Manager          | xfce4-power-manager                                                                                  |
 | Lockscreen             | slimlock (from slim display manager)                                                                 |
 | Sessions Locker        | [xss-lock](https://wiki.archlinux.org/index.php/Session_lock#xss-lock)                               |
-| Clipboard Manager      | clipit                                                                                               |
+| Clipboard Manager      | clipit, xclip                                                                                        |
 | Calendar Pop-up        | gsimplecal (for pop-up from tint2)                                                                   |
 | Authentication Agent   | polkit-gnome-authentication-agent-1                                                                  |
 | Network Manager        | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
