@@ -62,7 +62,9 @@ Here are some details about my setup:
 | CLI System Monitor     | htop                                                                                                 |
 | CLI System Information | neofetch                                                                                             |
 ##  
-### <p align="center">Color Scheme
+## <p align="center">:tada:<a name="top" href="https://www.youtube.com/watch?v=wpy-ccF4gfw">Video Preview</a>:tada:</p>
+##  
+### <p align="center">Color Scheme</p>
 <p align="center"><a name="top" href="#notes"><img height="60%" width="100%" src="https://i.ibb.co/kHRHZfX/color-scheme.png"></a></p>
 
 ## Credits / Thanks
