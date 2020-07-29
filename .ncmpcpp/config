@@ -72,7 +72,7 @@ current_item_prefix = "$/b$3"
 
 song_columns_list_format = "(4f)[red]{NE} (15)[white]{a} (50)[]{t|f:Title} (15)[magenta]{b} (4f)[white]{lr}"
 
-song_list_format = " {%t $R$6    $8%a$8}|{%f $R$6   $8%l$8}$8"
+song_list_format = " {%t $R$6    $8%a$8}|{%f $R$6   $8%l$8} $8"
 
 song_status_format = "{$b$2 $8%a $3 $8%t $3 $6%b}|{$b$2 $8%f}"
 
