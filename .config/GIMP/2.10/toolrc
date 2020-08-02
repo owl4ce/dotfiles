@@ -24,7 +24,7 @@
             (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
-    (active-tool "gimp-iscissors-tool")
+    (active-tool "gimp-free-select-tool")
     (children
         (GimpToolInfo "gimp-free-select-tool"
             (icon-name "gimp-tool-free-select")

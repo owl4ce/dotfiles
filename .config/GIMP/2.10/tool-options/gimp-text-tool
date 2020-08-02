@@ -1,9 +1,9 @@
 # GIMP gimp-text-tool options
 
-(foreground (color-rgb 0.90588235294117647 0.96862745098039216 0.96862745098039216))
+(foreground (color-rgb 0.92941176470588238 0.99607843137254903 0.99607843137254903))
 (palette "Default")
-(font "Comfortaa")
-(font-size 15)
+(font "Cantarell")
+(font-size 20)
 (hint-style full)
 (justify center)
 

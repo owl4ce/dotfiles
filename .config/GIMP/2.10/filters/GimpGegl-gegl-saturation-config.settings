@@ -1,5 +1,9 @@
 # settings
 
+(GimpGegl-gegl-saturation-config "2020-07-23 12:26:51"
+    (time 1595482011)
+    (scale 1.25)
+    (colorspace Native))
 (GimpGegl-gegl-saturation-config "2020-07-12 16:17:27"
     (time 1594545447)
     (scale 0.80000000000000004)
@@ -35,10 +39,6 @@
 (GimpGegl-gegl-saturation-config "2020-03-20 03:54:07"
     (time 1584651247)
     (scale 0)
-    (colorspace Native))
-(GimpGegl-gegl-saturation-config "2019-11-25 19:32:07"
-    (time 1574685127)
-    (scale 1.5000000000000007)
     (colorspace Native))
 
 # end of settings

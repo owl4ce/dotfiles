@@ -1,6 +1,6 @@
 # GIMP gimp-crop-tool options
 
-(aspect-denominator 1665)
-(aspect-numerator 2960)
+(aspect-denominator 60)
+(aspect-numerator 250)
 
 # end of gimp-crop-tool options

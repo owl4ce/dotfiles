@@ -1,13 +1,13 @@
 # settings
 
+(GimpGegl-gegl-hue-chroma-config "2020-07-19 02:01:40"
+    (time 1595098900)
+    (hue -10)
+    (chroma 0)
+    (lightness 0))
 (GimpGegl-gegl-hue-chroma-config "2020-07-05 03:13:58"
     (time 1593893638)
     (hue 10)
-    (chroma 0)
-    (lightness 0))
-(GimpGegl-gegl-hue-chroma-config "2020-07-05 03:00:49"
-    (time 1593892849)
-    (hue -10)
     (chroma 0)
     (lightness 0))
 (GimpGegl-gegl-hue-chroma-config "2020-04-08 18:15:59"

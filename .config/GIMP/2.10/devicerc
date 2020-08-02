@@ -3,11 +3,9 @@
 (GimpDeviceInfo "Core Pointer"
     (icon-name "gimp-cursor")
     (name "Core Pointer")
-    (tool-options "GimpRectangleSelectOptions"
-        (fixed-rule size)
-        (tool "gimp-rect-select-tool")
-        (feather-radius 47.600000000000001)
-        (corner-radius 8))
+    (tool-options "GimpMoveOptions"
+        (tool "gimp-move-tool")
+        (move-current yes))
     (use-fg-bg no)
     (use-opacity-paint-mode no)
     (use-brush no)

@@ -86,7 +86,7 @@
     (position 532 171))
 (session-info "toplevel"
     (factory-entry "gimp-preferences-dialog")
-    (position 160 0)
+    (position 213 0)
     (size 685 871))
 (session-info "toplevel"
     (factory-entry "gimp-image-new-dialog")
@@ -105,7 +105,7 @@
     (position 843 239))
 (session-info "toplevel"
     (factory-entry "gimp-operation-tool-dialog")
-    (position 916 88))
+    (position 978 94))
 (session-info "toplevel"
     (factory-entry "gimp-offset-tool-dialog")
     (position 467 238))
@@ -115,7 +115,7 @@
     (size 166 30))
 (session-info "toplevel"
     (factory-entry "gimp-levels-tool-dialog")
-    (position 468 10)
+    (position 786 52)
     (size 442 612))
 (session-info "toplevel"
     (factory-entry "gimp-threshold-tool-dialog")

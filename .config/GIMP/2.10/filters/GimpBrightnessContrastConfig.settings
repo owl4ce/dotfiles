@@ -1,5 +1,29 @@
 # settings
 
+(GimpBrightnessContrastConfig "2020-08-02 06:47:05"
+    (time 1596325625)
+    (brightness 1)
+    (contrast 0))
+(GimpBrightnessContrastConfig "2020-07-23 12:34:45"
+    (time 1595482485)
+    (brightness 0.07874015748031496)
+    (contrast 0.07874015748031496))
+(GimpBrightnessContrastConfig "2020-07-23 12:26:18"
+    (time 1595481978)
+    (brightness 0.39370078740157483)
+    (contrast 0.07874015748031496))
+(GimpBrightnessContrastConfig "2020-07-23 12:10:35"
+    (time 1595481035)
+    (brightness 0.23622047244094488)
+    (contrast 0.07874015748031496))
+(GimpBrightnessContrastConfig "2020-07-19 02:01:19"
+    (time 1595098879)
+    (brightness 0.31496062992125984)
+    (contrast 0.15748031496062992))
+(GimpBrightnessContrastConfig "2020-07-18 17:44:37"
+    (time 1595069077)
+    (brightness -0.07874015748031496)
+    (contrast 0))
 (GimpBrightnessContrastConfig "2020-07-13 05:03:20"
     (time 1594591400)
     (brightness -0.15748031496062992)
@@ -15,30 +39,6 @@
 (GimpBrightnessContrastConfig "2020-07-12 16:07:42"
     (time 1594544862)
     (brightness -0.23622047244094488)
-    (contrast -0.07874015748031496))
-(GimpBrightnessContrastConfig "2020-07-12 15:29:51"
-    (time 1594542591)
-    (brightness -0.19685039370078741)
-    (contrast 0.07874015748031496))
-(GimpBrightnessContrastConfig "2020-07-05 07:13:35"
-    (time 1593908015)
-    (brightness -0.07874015748031496)
-    (contrast 0.15748031496062992))
-(GimpBrightnessContrastConfig "2020-07-05 06:28:17"
-    (time 1593905297)
-    (brightness 0.15748031496062992)
-    (contrast 0))
-(GimpBrightnessContrastConfig "2020-07-05 04:53:39"
-    (time 1593899619)
-    (brightness 0.03937007874015748)
-    (contrast 0.03937007874015748))
-(GimpBrightnessContrastConfig "2020-07-05 04:22:55"
-    (time 1593897775)
-    (brightness 0.03937007874015748)
-    (contrast -0.03937007874015748))
-(GimpBrightnessContrastConfig "2020-07-05 03:31:06"
-    (time 1593894666)
-    (brightness -0.03937007874015748)
     (contrast -0.07874015748031496))
 
 # end of settings

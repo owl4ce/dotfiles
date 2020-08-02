@@ -2,6 +2,6 @@
 
 (antialias no)
 (select-transparent no)
-(threshold 50)
+(threshold 45.700000000000003)
 
 # end of gimp-fuzzy-select-tool options
