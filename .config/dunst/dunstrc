@@ -1,6 +1,3 @@
-# Dunst Config - Light
-# --------------------
-
 [global]
 title = Dunst
 class = Dunst
