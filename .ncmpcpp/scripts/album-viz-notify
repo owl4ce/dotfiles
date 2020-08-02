@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MUSIC_DIR=~/Music/ # Your music directory
+MUSIC_DIR=/media/ryk/AllMedia/MUSIC/ # Your music directory
 COVER=/tmp/cover.jpg
 
 function reset_background
@@ -35,10 +35,11 @@ function reset_background
     
     # For Notifications
     if [[ -n "$src" ]] ; then
-        # Resize the image's width to 64px
-        convert "$src" -resize 64x "$COVER"
-        if [[ -f "$COVER" ]] ; then
-            notify-send -u normal -i ${COVER} "  Now Playing" "`mpc current`"
-        fi
+        # Resize the image's width to 70px
+        convert "$src" -resize 70x "$COVER"
+        notify-send -u normal -i ${COVER} "  Now Playing" "`mpc --format '[%artist%\n%title% | %file%]' current`"
+    else
+        # Fallback
+        notify-send -u normal -i musique "Now Playing" "`mpc --format '[%artist%\n%title% | %file%]' current`"
     fi
 } &
