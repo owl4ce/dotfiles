@@ -1,7 +1,7 @@
 [Desktop Entry]
-Comment=Play music on NCMPCPP Visualizer Screen with Album Art
+Comment=Play music on NCMPCPP with Album Art and Vizualizer
 Terminal=false
-Name=NCMPCPP Viz Album Art
+Name=NCMPCPP Album Art and Vizualizer
 Categories=AudioVideo;Audio;Player;
 Exec=bash -c '~/.ncmpcpp/launch/ncmpcpp-album-viz'
 Type=Application
