@@ -1,5 +1,5 @@
 # MPD
-mpd_music_dir = "/media/ryk/AllMedia/MUSIC/"
+mpd_music_dir = "~/Music/"
 mpd_host = "127.0.0.1"
 mpd_port = "6600"
 

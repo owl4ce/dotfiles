@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MUSIC_DIR=/media/ryk/AllMedia/MUSIC/ # Your music directory
+MUSIC_DIR=~/Music/ # Your music directory
 COVER=/tmp/cover.jpg
 
 {
