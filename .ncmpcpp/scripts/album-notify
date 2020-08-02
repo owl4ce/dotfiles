@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MUSIC_DIR=~/Music/ # Your music directory
+MUSIC_DIR="$(cat ~/.ncmpcpp/albumart | grep 'mpd_music_dir' | awk -F'"' '{print $2}')"
 COVER=/tmp/cover.jpg
 
 function reset_background
