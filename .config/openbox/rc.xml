@@ -32,7 +32,7 @@
   </placement>
   <theme>
     <name>Lovely</name>
-    <titleLayout>IMC</titleLayout>
+    <titleLayout>LIMC</titleLayout>
     <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
@@ -174,7 +174,7 @@
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>pamixer -t</command>
+        <command>bash -c 'pamixer -t ; ~/.scripts/get-volume'</command>
       </action>
     </keybind>
     <!-- MPD control -->
@@ -438,6 +438,11 @@
     <keybind key="W-m">
       <action name="Execute">
         <command>bash -c '~/.ncmpcpp/scripts/notify'</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-m">
+      <action name="Execute">
+        <command>bash -c '~/.config/rofi/scripts/mpd.sh'</command>
       </action>
     </keybind>
     <keybind key="Print">
@@ -786,7 +791,7 @@
     <!-- You can specify more than one menu file in here and they are all loaded, just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <!-- system menu files on Debian systems -->
-    <file>/var/lib/openbox/debian-menu.xml</file>
+    <!-- <file>/var/lib/openbox/debian-menu.xml</file> -->
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the menu is hidden again -->
@@ -798,28 +803,28 @@
     <!-- time to delay before hiding a submenu when selecting another entry in parent menu if this is a negative value, then the delay is infinite and the submenu will not be hidden until a different submenu is opened -->
     <showIcons>yes</showIcons>
     <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
+    <manageDesktops>no</manageDesktops>
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+    <!--
     <application class="URxvt" type="normal">
       <decor>no</decor>
     </application>
-    <!--
     <application class="Thunar" type="normal">
-      <maximized>true</maximized>
-    </application>
-    -->
-    <application class="mpv" type="normal">
-      <maximized>true</maximized>
-    </application>
-    <application class="Geany" type="normal">
       <maximized>true</maximized>
     </application>
     <application class="code-oss" type="normal">
       <maximized>true</maximized>
     </application>
     <application class="Atom" type="normal">
+      <maximized>true</maximized>
+    </application>
+    <application class="Geany" type="normal">
+      <maximized>true</maximized>
+    </application>
+    -->
+    <application class="mpv" type="normal">
       <maximized>true</maximized>
     </application>
     <application class="kdenlive" type="normal">
