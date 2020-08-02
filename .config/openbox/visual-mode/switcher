@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Visual Mode switcher between Mechanical Theme and Eyecandy Theme
+
+# Kill Current
+bash -c '~/.config/openbox/visual-mode/kill-ui'
+    
+current="$(cat ~/.config/openbox/visual-mode/current)"
+
+if [[ $current != *"mechanical"* ]]; then
+        
+    # Set Theme & UI
+    bash -c '~/.config/openbox/visual-mode/mechanical/theme'
+    bash -c '~/.config/openbox/visual-mode/mechanical/ui'
+    
+    # Write Current
+    echo "mechanical" > ~/.config/openbox/visual-mode/current
+
+    # Notify Success
+    notify-send -u low -i lookswitcher "Visual Mode" "Mechanical Theme applied"
+
+else
+    
+    # Set Theme & UI
+    bash -c '~/.config/openbox/visual-mode/eyecandy/theme'
+    bash -c '~/.config/openbox/visual-mode/eyecandy/ui'
+    
+    # Write Current
+    echo "eyecandy" > ~/.config/openbox/visual-mode/current
+
+    # Notify Success
+    notify-send -u low -i lookswitcher "Visual Mode" "Eyecandy Theme applied"
+    
+fi
+
+# Start Tray
+bash -c '~/.config/openbox/tray'

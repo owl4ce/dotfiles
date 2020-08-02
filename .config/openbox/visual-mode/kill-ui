@@ -4,11 +4,11 @@
 
 tray="$(cat ~/.config/openbox/tray | awk -F' ' '{print $1}')"
 
-## Panel
+# Panel
 killall tint2
 
-## Tray
-killall  $tray
+# Tray
+killall $tray
 
 # Notification Daemon
 killall dunst
