@@ -31,60 +31,38 @@ our $SCHEMA = [
 
 	{sep => "QUICK START"},
     
-    #          COMMAND                                     LABEL                ICON
-    {item => ["exo-open --launch TerminalEmulator",       "Open Terminal",         "utilities-terminal"]},
-    
-    {beg  => ["Launch Apps", "launch"]},
-    #          NAME            LABEL                ICON
-    {cat => ["utility",     "Accessories", "applications-utilities"]},
-    {cat => ["development", "Development", "applications-development"]},
-    {cat => ["education",   "Education",   "applications-science"]},
-    {cat => ["game",        "Games",       "applications-games"]},
-    {cat => ["graphics",    "Graphics",    "applications-graphics"]},
-    {cat => ["audiovideo",  "Multimedia",  "applications-multimedia"]},
-    {cat => ["network",     "Network",     "applications-internet"]},
-    {cat => ["office",      "Office",      "applications-office"]},
-    {cat => ["other",       "Other",       "applications-other"]},
-    {cat => ["settings",    "Settings",    "applications-accessories"]},
-    {cat => ["system",      "System",      "applications-system"]},
-    {end  => undef},
+    #         COMMAND                                             LABEL                     ICON
+    {item => ["bash -c '~/.config/rofi/scripts/appsmenu.sh'",     "Launch Apps",            "preferences-system-login"]},    
+    {item => ["exo-open --launch TerminalEmulator",               "Open Terminal",          "utilities-terminal"]},
     
     {sep  => undef},
     
-    # Visual Mode
-    {beg  => ["Visual Mode", "lookswitcher"]},
-    {item => ["bash -c '~/.config/openbox/visual-mode/set-mechanical'" , "Mechanical Theme" , "keyboard"]},
-    {item => ["bash -c '~/.config/openbox/visual-mode/set-eyecandy'"   , "Eyecandy Theme"   , "applications-graphics"]},
+    # Screenshot Menu
+    {beg  => ["Screenshot",                                                                 "deepin-screenshot"]},
+    {item => ["bash -c '~/.scripts/shot-now'",                    "Now",                    "deepin-screenshot"]},
+    {item => ["bash -c '~/.scripts/shot-5sec'",                   "After 5s",               "deepin-screenshot"]},
+    {item => ["bash -c '~/.scripts/shot-seldraw'",                "Select window or draw",  "deepin-screenshot"]},
     {end  => undef},
+
+    {pipe => ["python2 ~/.config/openbox/pipe-menu/ob-randr.py",  "Monitor Settings",       "preferences-desktop-display"]},
+    {obgenmenu => ["Advanced Settings",                                                     "preferences-system"]},
     
-    {pipe => ["python2 ~/.config/openbox/pipe-menu/ob-randr.py", "Monitor Settings", "system-config-display"]},
-    {obgenmenu => ["Advanced Settings", "applications-engineering"]},
+    {sep  => undef},
     
-    # SESSIONS
     {sep => "SESSIONS"},
     
-    # Pipe Menu
-    #{pipe => ["~/.config/openbox/pipe-menu/date-menu.sh"                    , "Show Date"           , "date"]},
-    #{pipe => ["bash -c '~/.config/openbox/pipe-menu/battery.sh'"            , "Battery Info"        , "battery"]},
-    #{pipe => ["python2 ~/.config/openbox/pipe-menu/show_ob_keybindings.py"  , "Show Keybindings"    , "keyboard"]},
-    #{pipe => ["python2 ~/.config/openbox/pipe-menu/ob-cpufreq.py"           , "HW Info"      , "cpu"]},
-    #{pipe => ["perl ~/.config/openbox/pipe-menu/ob-sysinfo.pl"              , "System Info"         , "dialog-information"]},
-    
-    # Screenshot Menu
-    {beg  => ["Screenshot"                                                    , "deepin-screenshot"]},
-    {item => ["bash -c '~/.scripts/shot-now'"     , "Shot now"                , "deepin-screenshot"]},
-    {item => ["bash -c '~/.scripts/shot-5sec'"    , "Shot in 5s"              , "deepin-screenshot"]},
-    {item => ["bash -c '~/.scripts/shot-seldraw'" , "Select window or draw"   , "deepin-screenshot"]},
-    {end  => undef},
+    # Switcher Visual Mode & OB Button location
+    {item => ["bash -c '~/.scripts/ob-button-switcher'"         , "Switch Button L/R" ,     "preferences-desktop-theme-windowdecorations"]},
+    {item => ["bash -c '~/.config/openbox/visual-mode/switcher'", "Change Visual Mode",     "preferences-desktop-theme"]},
     
     {sep  => undef},
     
     # Lockscreen Menu
-    {item => ["bash -c '~/.scripts/lockscreen'", "Lockscreen", "system-lock-screen"]},
+    {item => ["bash -c '~/.scripts/lockscreen'",                   "Lockscreen",            "system-lock-screen"]},
     
     # Logout Menu    
-    {exit => ["Exit Openbox", "application-exit"]},
+    {exit => ["Exit Openbox",                                                               "system-log-out"]},
 
-    ## This uses the "oblogout" menu
-    # {item => ["oblogout", "Exit", "application-exit"]},
+    # This uses the "oblogout" menu
+    #{item => ["oblogout", "Exit", "application-exit"]},
 ]
