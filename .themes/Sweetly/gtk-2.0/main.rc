@@ -21,7 +21,6 @@ style "default" {
   GtkToolbar::internal-padding = 2
   GtkToolButton::icon-spacing  = 4
 
-  GtkWidget::tooltip-radius    = 6
   GtkWidget::tooltip-alpha     = 230
   GtkWidget::new-tooltip-style = 1 #for compatibility
 

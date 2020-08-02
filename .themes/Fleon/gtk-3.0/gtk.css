@@ -3472,7 +3472,6 @@ infobar.info > label, infobar.info, infobar.question > label, infobar.question, 
  * Tooltips *
  ************/
 tooltip {
-  border-radius: 6px;
   box-shadow: none;
 }
 

@@ -1,7 +1,7 @@
 # Based on Bridge by ScionicSpectre and Adwaita by GNOME
 # vim:set ts=2 sw=2 sts=2 ai et:
 #
-# This is the GTK+ 2 version of Sweetly. It's whole purpose is to look as the
+# This is the GTK+ 2 version of Sweetly (C) owl4ce. It's whole purpose is to look as the
 # GTK+ 3 version as much as possible until GTK+ 2 dies completely.
 #
 # Note: comments for explaining styles are on the bottom of each file beside the
@@ -12,13 +12,15 @@
 # order to not mess up the dark theme.
 
 # Text/base
-gtk-color-scheme = "text_color:#373E4D\nbase_color:#EEFFFF"
+gtk-color-scheme = "text_color:#373E4D\nbase_color:#EDFEFE"
 # Foreground/background
-gtk-color-scheme = "fg_color:#373E4D\nbg_color:#EEFFFF"
+gtk-color-scheme = "fg_color:#373E4D\nbg_color:#EDFEFE"
 # Selected foreground/background
-gtk-color-scheme = "selected_fg_color:#EEFFFF\nselected_bg_color:#FA74B2"
+gtk-color-scheme = "selected_fg_color:#EDFEFE\nselected_bg_color:#FA74B2"
 # Titlebar foreground/background
-gtk-color-scheme = "titlebar_fg_color:#373E4D\ntitlebar_bg_color:#EEFFFF"
+gtk-color-scheme = "titlebar_fg_color:#373E4D\ntitlebar_bg_color:#EDFEFE"
+# Tooltips foreground/background
+gtk-color-scheme = "tooltip_fg_color:#373E4D\ntooltip_bg_color:#E2F3F3"
 # Links
 gtk-color-scheme = "link_color:#FA74B2\nvisited_link_color:#FF61AA"
 
