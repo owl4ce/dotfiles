@@ -1,6 +1,3 @@
-" Vim Config - Minimal
-" --------------------
-
 " Set compatibility to Vim only.
 set nocompatible
 
