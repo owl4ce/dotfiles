@@ -4,6 +4,7 @@
 #    and format output. Make sure to output the reset sequence after 
 #    colors (f = foreground, b = background), and use the 'off'
 #    feature for anything you turn on.
+
 clear
 
 initializeANSI()
@@ -35,8 +36,9 @@ initializeANSI
 
 cat << EOF
 
-${blackf}11111111${reset} ${redf}22222222${reset} ${greenf}33333333${reset} ${yellowf}44444444${reset} ${bluef}55555555${reset} ${purplef}66666666${reset} ${cyanf}77777777${reset} {whitef}88888888${reset}
-${blackb}11111111${reset} ${redb}22222222${reset} ${greenb}33333333${reset} ${yellowb}44444444${reset} ${blueb}55555555${reset} ${purpleb}66666666${reset} ${cyanb}77777777${reset} {whiteb}88888888${reset}
+        ${blackf}1111${reset}${blackb}1111${reset} ${redf}2222${reset}${redb}2222${reset} ${greenf}3333${reset}${greenb}3333${reset} ${yellowf}4444${reset}${yellowb}4444${reset} ${bluef}5555${reset}${blueb}5555${reset} ${purplef}6666${reset}${purpleb}6666${reset} ${cyanf}7777${reset}${cyanb}7777${reset}
+        ${blackf}1111${reset}${blackb}1111${reset} ${redf}2222${reset}${redb}2222${reset} ${greenf}3333${reset}${greenb}3333${reset} ${yellowf}4444${reset}${yellowb}4444${reset} ${bluef}5555${reset}${blueb}5555${reset} ${purplef}6666${reset}${purpleb}6666${reset} ${cyanf}7777${reset}${cyanb}7777${reset}
+        ${whitef}8888${reset}${whiteb}8888${reset} ${whitef}8888${reset}${whiteb}8888${reset} ${whitef}8888${reset}${whiteb}8888${reset} ${whitef}8888${reset}${whiteb}8888${reset} ${whitef}8888${reset}${whiteb}8888${reset} ${whitef}8888${reset}${whiteb}8888${reset} ${whitef}8888${reset}${whiteb}8888${reset}
 
 EOF
 
@@ -48,9 +50,9 @@ initializeANSI
 
 cat << EOF
 
-${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
-${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
-${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
+        ${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset}
+        ${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset}
+        ${whitef}████${reset}${whiteb}████${reset} ${whitef}████${reset}${whiteb}████${reset} ${whitef}████${reset}${whiteb}████${reset} ${whitef}████${reset}${whiteb}████${reset} ${whitef}████${reset}${whiteb}████${reset} ${whitef}████${reset}${whiteb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
 
 EOF
 
