@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-# Screenshot now
+# Take screenshot
+# See scrot manual
+
 sleep .5s
-scrot -e 'mv $f ~/Pictures/' && notify-send -i deepin-screenshot -u low "Screenshot" "Saved in\n<u>`pwd`/Pictures/</u>"
+scrot -e 'mv $f ~/Pictures/'
+
+notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>`pwd`/Pictures/</u>"

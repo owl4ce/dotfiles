@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 # Get brightness level using brightnessctl
-notify-send -u low -t 1024 -i brightnesssettings "Brightness" "On Level `brightnessctl i | awk -F' ' '{print $4}' | head -n 2 | grep '%'`"
+
+notify-send -u low -t 768 -i brightnesssettings "Brightness" "On Level `brightnessctl i | awk -F' ' '{print $4}' | head -n2 | grep '%'`"

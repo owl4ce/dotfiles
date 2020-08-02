@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
-# Screenshot 5s with notification
+# Take screenshot after 5s
+# See scrot manual
+
 sleep .5s
-scrot -d 5 -e 'mv $f ~/Pictures/' && notify-send -i deepin-screenshot -u low "Screenshot" "Saved in\n<u>`pwd`/Pictures/</u>"
+notify-send -t 768 -i deepin-screenshot -u low "Screenshot" "5sec ..."
+
+scrot -d 5 -e 'mv $f ~/Pictures/'
+
+notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>`pwd`/Pictures/</u>"

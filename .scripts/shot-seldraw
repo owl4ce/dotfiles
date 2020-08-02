@@ -1,5 +1,29 @@
 #!/usr/bin/env bash
 
-# Screenshot select window or draw
+# Select window or draw and add borders then show preview
+# See scrot manual
+
 sleep .5s
-scrot -s -e 'mv $f ~/Pictures/' && notify-send -i deepin-screenshot -u low "Screenshot" "Saved in\n<u>`pwd`/Pictures/</u>"
+scrot -s -f -b -e 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" && \
+
+notify-send -t 768 -i deepin-screenshot -u low "Screenshot" "Processing captured image"
+
+# Use imagemagick to add border
+current="$(ls /tmp/ | grep 'scrot')"
+
+convert /tmp/$current \( +clone -background black -shadow 30x10+0+0 \) \
++swap -background none -layers merge +repage /tmp/$current-shadow.png
+
+convert /tmp/$current-shadow.png -bordercolor white \
+-border 10 ~/Pictures/$current
+
+# Deleting temporary files
+rm /tmp/$current
+rm /tmp/$current-shadow.png
+
+[[ -f ~/Pictures/$current ]] && \
+
+notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>`pwd`/Pictures/</u>" && \
+
+# Open final result
+viewnior ~/Pictures/$current
