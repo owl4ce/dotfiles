@@ -22,4 +22,3 @@ case $chosen in
         brightnessctl set 5% ; ~/.scripts/get-brightness
         ;;
 esac
-

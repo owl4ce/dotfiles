@@ -22,4 +22,3 @@ case $chosen in
         ~/.scripts/shot-5sec
         ;;
 esac
-

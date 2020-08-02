@@ -25,11 +25,9 @@ case $chosen in
         ;;
     $suspend)
         mpc -q pause
-        amixer set Master mute
         systemctl suspend
         ;;
     $logout)
         ~/.config/rofi/scripts/promptmenu.sh --yes-command "pkill -KILL -u $(whoami)" --query "Logout?"
         ;;
 esac
-

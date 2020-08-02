@@ -54,4 +54,3 @@ entry {
   border-color: @background;
   border-radius: 8px;
 }
-

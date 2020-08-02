@@ -55,4 +55,3 @@ case $chosen in
         eval "$no_command"
         ;;
 esac
-

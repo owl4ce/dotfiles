@@ -22,4 +22,3 @@ case $chosen in
         pamixer -t ; ~/.scripts/get-volume
         ;;
 esac
-

@@ -41,4 +41,3 @@ element.selected.active {
   background-color: @background;
   text-color: @accent;
 }
-

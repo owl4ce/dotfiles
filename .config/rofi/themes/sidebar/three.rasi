@@ -36,7 +36,6 @@
 
 #element {
   border: 0px;
-  border-radius: 8px;
   padding: @option-element-padding;
   background-color: @background-light;
 }
