@@ -23,7 +23,7 @@ Here are some details about my setup:
 - **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)
 - **Openbox Menu**                 : [obmenu-generator](https://github.com/trizen/obmenu-generator)
 - **Panel**                        : [tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
-- **Compositor**                   : [Ibhagwan Picom](https://github.com/ibhagwan/picom) :doughnut: rounded corners!
+- **Compositor**                   : [Picom](https://github.com/yshui/picom)
 - **Notify Daemon**                : [dunst](https://wiki.archlinux.org/index.php/Dunst) :bookmark: minimalist!
 - **Application Launcher**         : [rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar)
