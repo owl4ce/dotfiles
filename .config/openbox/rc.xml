@@ -32,7 +32,7 @@
   </placement>
   <theme>
     <name>Lovely</name>
-    <titleLayout>LIMC</titleLayout>
+    <titleLayout>CIML</titleLayout>
     <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
