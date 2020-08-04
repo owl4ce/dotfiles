@@ -33,17 +33,18 @@ our $SCHEMA = [
     
     #         COMMAND                                             LABEL                     ICON
     {item => ["bash -c '~/.config/rofi/scripts/appsmenu.sh'",     "Launch Apps",            "preferences-system-login"]},    
-    {item => ["exo-open --launch TerminalEmulator",               "Open Terminal",          "utilities-terminal"]},
+    {item => ["urxvt",                                            "Open Terminal",          "utilities-terminal"]},
     
     {sep  => undef},
     
-    # Screenshot Menu
     {beg  => ["Screenshot",                                                                 "deepin-screenshot"]},
     {item => ["bash -c '~/.scripts/shot-now'",                    "Now",                    "deepin-screenshot"]},
     {item => ["bash -c '~/.scripts/shot-5sec'",                   "After 5s",               "deepin-screenshot"]},
     {item => ["bash -c '~/.scripts/shot-seldraw'",                "Select window or draw",  "deepin-screenshot"]},
     {end  => undef},
-
+    
+    {sep  => undef},
+    
     {pipe => ["python2 ~/.config/openbox/pipe-menu/ob-randr.py",  "Monitor Settings",       "preferences-desktop-display"]},
     {obgenmenu => ["Advanced Settings",                                                     "preferences-system"]},
     
@@ -51,18 +52,17 @@ our $SCHEMA = [
     
     {sep => "SESSIONS"},
     
-    # Switcher Visual Mode & OB Button location
-    {item => ["bash -c '~/.scripts/ob-button-switcher'"         , "Switch Button L/R" ,     "preferences-desktop-theme-windowdecorations"]},
-    {item => ["bash -c '~/.config/openbox/visual-mode/switcher'", "Change Visual Mode",     "preferences-desktop-theme"]},
+    {item => ["urxvt -e ~/.config/openbox/visual-mode/wally"    , "Change Wallpaper" ,      "wallpapoz"]},
     
     {sep  => undef},
     
-    # Lockscreen Menu
+    {item => ["bash -c '~/.scripts/ob-button-switcher'"         , "Switch Button L/R" ,     "postr"]},
+    {item => ["bash -c '~/.config/openbox/visual-mode/switcher'", "Switch Visual Mode",     "preferences-desktop-theme"]},
+    
+    {sep  => undef},
+    
     {item => ["bash -c '~/.scripts/lockscreen'",                   "Lockscreen",            "system-lock-screen"]},
     
-    # Logout Menu    
     {exit => ["Exit Openbox",                                                               "system-log-out"]},
 
-    # This uses the "oblogout" menu
-    #{item => ["oblogout", "Exit", "application-exit"]},
 ]
