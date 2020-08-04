@@ -2,8 +2,10 @@
 
 # Mechanical Theme UI
 
+wall="$(cat ~/.config/openbox/visual-mode/mechanical/wall)"
+
 # Background Handler
-nitrogen --set-zoom-fill --save ~/.wallpaper/mech-key.jpg
+nitrogen --set-zoom-fill --save ~/.wallpaper/mechanical/$wall
 
 # Panel
 tint2 -c ~/.config/tint2/mech.tint2rc &

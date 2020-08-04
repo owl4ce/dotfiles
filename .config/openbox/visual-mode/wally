@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+
+# Wallpaper setter for Mechanical Theme and Eyecandy Theme
+
+clear
+
+# Colored output
+RED='\033[1;31m'
+CYAN='\033[1;36m'
+GREEN='\033[1;32m'
+MAGENTA='\033[1;35m'
+NC='\033[0m' # No Color
+
+# Default wallpaper directory
+dir=~/.wallpaper
+
+current="$(cat ~/.config/openbox/visual-mode/current)"
+
+if [[ $current != *"eyecandy"* ]]; then
+
+    echo -e "${CYAN}Select wallpaper for Mechanical Theme:"
+    n=0
+    for img in $dir/mechanical/*
+    do
+        n=$((n+1))
+        printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$img"
+        eval "img${n}=\$img"
+    done
+    
+    if [ "$n" -eq 0 ]
+    then
+        printf >&2 "\n${RED}No images found.\n"
+        exit
+    fi
+    
+    printf '\nEnter File Index ID (1 to %s): ' "$n"
+    read -n 1 -r num
+    num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+    
+    if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+    then
+        printf >&2 "\n${RED}Wrong selection.\n"
+        exit 1
+    else
+        eval "IMG=\$img${num}"
+        nitrogen --set-zoom-fill $IMG
+        
+        # Write selected wallpaper
+        selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
+        echo "$selected" > ~/.config/openbox/visual-mode/mechanical/wall
+        
+        printf "\n${CYAN}Selected wallpaper: ${NC}$IMG\n"
+    fi
+
+else
+
+    echo -e "${CYAN}Select wallpaper for Eyecandy Theme:"
+    n=0
+    for img in $dir/eyecandy/*
+    do
+        n=$((n+1))
+        printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$img"
+        eval "img${n}=\$img"
+    done
+
+    if [ "$n" -eq 0 ]
+    then
+        printf >&2 "\n${RED}No images found.\n"
+        exit
+    fi
+
+    printf '\nEnter File Index ID (1 to %s): ' "$n"
+    read -n 1 -r num
+    num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+
+    if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+    then
+        printf >&2 "\n${RED}Wrong selection.\n"
+        exit 1
+    else
+        eval "IMG=\$img${num}"
+        nitrogen --set-zoom-fill $IMG
+        
+        # Write selected wallpaper
+        selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
+        echo "$selected" > ~/.config/openbox/visual-mode/eyecandy/wall
+        
+        printf "\n${CYAN}Selected wallpaper: ${NC}$IMG\n"
+    fi
+    
+fi
