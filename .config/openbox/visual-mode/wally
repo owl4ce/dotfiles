@@ -11,7 +11,7 @@ GREEN='\033[1;32m'
 MAGENTA='\033[1;35m'
 NC='\033[0m' # No Color
 
-# Default wallpaper directory
+# Default Wall Directory
 dir=~/.wallpaper
 
 current="$(cat ~/.config/openbox/visual-mode/current)"
@@ -29,7 +29,7 @@ if [[ $current != *"eyecandy"* ]]; then
     
     if [ "$n" -eq 0 ]
     then
-        printf >&2 "\n${RED}No images found.\n"
+        printf >&2 "\n${RED}No images found\n"
         exit
     fi
     
@@ -39,17 +39,20 @@ if [[ $current != *"eyecandy"* ]]; then
     
     if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
     then
-        printf >&2 "\n${RED}Wrong selection.\n"
+        printf >&2 "\n${RED}Wrong selection\n"
         exit 1
     else
         eval "IMG=\$img${num}"
         nitrogen --set-zoom-fill --save $IMG
         
-        # Write selected wallpaper
+        # Write Selected
         selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
         echo "$selected" > ~/.config/openbox/visual-mode/mechanical/wall
         
-        printf "\n${CYAN}Selected wallpaper: ${NC}$IMG\n"
+        printf "\n${CYAN}Selected wallpaper: ${NC}$(cat ~/.config/openbox/visual-mode/eyecandy/wall)\n"
+        
+        # Notify Success
+        notify-send -u low -i wallpapoz "Wallpaper" "Applied: $(cat ~/.config/openbox/visual-mode/mechanical/wall)"
     fi
 
 else
@@ -65,7 +68,7 @@ else
 
     if [ "$n" -eq 0 ]
     then
-        printf >&2 "\n${RED}No images found.\n"
+        printf >&2 "\n${RED}No images found\n"
         exit
     fi
 
@@ -75,17 +78,20 @@ else
 
     if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
     then
-        printf >&2 "\n${RED}Wrong selection.\n"
+        printf >&2 "\n${RED}Wrong selection\n"
         exit 1
     else
         eval "IMG=\$img${num}"
         nitrogen --set-zoom-fill --save $IMG
         
-        # Write selected wallpaper
+        # Write Selected
         selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
         echo "$selected" > ~/.config/openbox/visual-mode/eyecandy/wall
         
-        printf "\n${CYAN}Selected wallpaper: ${NC}$IMG\n"
+        printf "\n${CYAN}Selected wallpaper: ${NC}$(cat ~/.config/openbox/visual-mode/eyecandy/wall)\n"
+        
+        # Notify Success
+        notify-send -u low -i wallpapoz "Wallpaper" "Applied: $(cat ~/.config/openbox/visual-mode/eyecandy/wall)"
     fi
     
 fi
