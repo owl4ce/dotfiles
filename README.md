@@ -30,14 +30,14 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), nano, vim
 
 ## Changelogs
-- New scripts:
+- **New scripts**:
 1. OB button location switcher
 2. Wallpaper changer
 3. Add border background with shadow in scrot selection mode
                
-- New wallpapers (can be added by yourself)
+- **New wallpapers** (can be added by yourself)
 
-- Reconfigure:
+- **Reconfigure**:
 1. Openbox (default location of ob button & wallpaper) \
    Can be changed easily!
 2. Tint2 (new look on eyecandy on the right side) \
@@ -62,7 +62,7 @@ Fix the blind color scheme and plugin.
 13. Sweetly GTK Theme \
 Fix wrong color hex.
                    
-- Delete all unnecessary comments on the scripts
+- **Delete all unnecessary comments on the scripts**
 
 Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t=3s) for more details.
 
