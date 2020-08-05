@@ -30,33 +30,36 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), nano, vim
 
 ## Changelogs
-- New scripts: 1. OB button location switcher
-               2. Wallpaper changer
+- New scripts: 1. OB button location switcher  
+               2. Wallpaper changer  
                3. Add border background with shadow in scrot selection mode
+               
 - New wallpapers (can be added by yourself)
+
 - Reconfigure: 1. Openbox (default location of ob button & wallpaper)  
-                  Can be changed easily!
+                  Can be changed easily!  
                2. Tint2 (new look on eyecandy on the right side)  
-                  Add new scripts shortcut for OB button location switcher & wallpaper changer.
-               3. GIMP-2.10 (little changes)
-               4. SLiM (font size & location)
+                  Add new scripts shortcut for OB button location switcher & wallpaper changer.  
+               3. GIMP-2.10 (little changes)  
+               4. SLiM (font size & location)  
                5. Cava default color (red)  
-                  Not using gradients anymore so you can change color with the <kbd>F</kbd> key.
+                  Not using gradients anymore so you can change color with the <kbd>F</kbd> key.  
                6. Color Toys (bloks)  
-                  Like addy-dclxvi style!
+                  Like addy-dclxvi style!  
                7. Picom  
-                  Using picom instead of picom rounded from ibhagwan and sdhand because some devices have memory leak.
+                  Using picom instead of picom rounded from ibhagwan and sdhand because some devices have memory leak.  
                8. Obmenu-generator (new look)  
-                  Add new scripts shortcut for OB button location switcher & wallpaper changer.
+                  Add new scripts shortcut for OB button location switcher & wallpaper changer.  
                9. Ncmcpcpp album art scripts  
-                  Linked mpd dir to every ncmpcpp config.
+                  Linked mpd dir to every ncmpcpp config.  
                10. Get brightness scripts  
-                   Display percentages well.
-               11. Zsh theme (new look)
+                   Display percentages well.  
+               11. Zsh theme (new look)  
                12. Geany  
-                   Fix the blind color scheme and plugin.
+                   Fix the blind color scheme and plugin.  
                13. Sweetly GTK Theme  
                    Fix wrong color hex.
+                   
 - Delete all unnecessary comments on the scripts
 
 Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t=3s) for more details.
