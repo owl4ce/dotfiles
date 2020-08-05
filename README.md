@@ -30,9 +30,10 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), nano, vim
 
 ## Changelogs
-- New scripts: 1. OB button location switcher  
-               2. Wallpaper changer  
-               3. Add border background with shadow in scrot selection mode
+- New scripts:
+  1. OB button location switcher
+  2. Wallpaper changer
+  3. Add border background with shadow in scrot selection mode
                
 - New wallpapers (can be added by yourself)
 
