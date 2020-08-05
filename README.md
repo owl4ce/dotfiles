@@ -31,16 +31,17 @@ Here are some details about my setup:
 
 ## Changelogs
 - New scripts:
-  1. OB button location switcher
-  2. Wallpaper changer
-  3. Add border background with shadow in scrot selection mode
+1. OB button location switcher
+2. Wallpaper changer
+3. Add border background with shadow in scrot selection mode
                
 - New wallpapers (can be added by yourself)
 
-- Reconfigure: 1. Openbox (default location of ob button & wallpaper)  
-                  Can be changed easily!  
-               2. Tint2 (new look on eyecandy on the right side)  
-                  Add new scripts shortcut for OB button location switcher & wallpaper changer.  
+- Reconfigure:
+1. Openbox (default location of ob button & wallpaper) \
+   Can be changed easily!
+2. Tint2 (new look on eyecandy on the right side) \
+Add new scripts shortcut for OB button location switcher & wallpaper changer.
                3. GIMP-2.10 (little changes)  
                4. SLiM (font size & location)  
                5. Cava default color (red)  
