@@ -42,25 +42,25 @@ Here are some details about my setup:
    Can be changed easily!
 2. Tint2 (new look on eyecandy on the right side) \
 Add new scripts shortcut for OB button location switcher & wallpaper changer.
-               3. GIMP-2.10 (little changes)  
-               4. SLiM (font size & location)  
-               5. Cava default color (red)  
-                  Not using gradients anymore so you can change color with the <kbd>F</kbd> key.  
-               6. Color Toys (bloks)  
-                  Like addy-dclxvi style!  
-               7. Picom  
-                  Using picom instead of picom rounded from ibhagwan and sdhand because some devices have memory leak.  
-               8. Obmenu-generator (new look)  
-                  Add new scripts shortcut for OB button location switcher & wallpaper changer.  
-               9. Ncmcpcpp album art scripts  
-                  Linked mpd dir to every ncmpcpp config.  
-               10. Get brightness scripts  
-                   Display percentages well.  
-               11. Zsh theme (new look)  
-               12. Geany  
-                   Fix the blind color scheme and plugin.  
-               13. Sweetly GTK Theme  
-                   Fix wrong color hex.
+3. GIMP-2.10 (little changes)
+4. SLiM (font size & location)
+5. Cava default color (red) \
+Not using gradients anymore so you can change color with the <kbd>F</kbd> key.
+6. Color Toys (bloks) \
+Like addy-dclxvi style!
+7. Picom \
+Using picom instead of picom rounded from ibhagwan and sdhand because some devices have memory leak.
+8. Obmenu-generator (new look) \
+Add new scripts shortcut for OB button location switcher & wallpaper changer.
+9. Ncmcpcpp album art scripts \
+Linked mpd dir to every ncmpcpp config.
+10. Get brightness scripts \
+Display percentages well.
+11. Zsh theme (new look)
+12. Geany \
+Fix the blind color scheme and plugin.
+13. Sweetly GTK Theme \
+Fix wrong color hex.
                    
 - Delete all unnecessary comments on the scripts
 
