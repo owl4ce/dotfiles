@@ -10,7 +10,7 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting!
 
-<img src="https://i.ibb.co/d7nx57K/X.png" alt="stuck-in-stack" align="right" width="400px">
+<img src="https://i.ibb.co/QcYdfx8/X-Thumbnail.jpg" alt="stuck-in-stack.thumbnail" align="right" width="400px">
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
