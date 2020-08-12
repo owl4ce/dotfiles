@@ -27,5 +27,8 @@ xfce4-power-manager &
 # Lock Screen Handler
 xss-lock -- /usr/bin/slimlock &
 
-# Apps & Others (ie:mpd)
+# Apps & Others (e.g:mpd)
 mpd
+bash ~/.xinput
+
+notify-send -i ~/.violet.png "Violet Evergarden" "Welcome back <b><u>$(whoami)</u></b> @ `date +'%R'`\n<i>`date +'%A, %d %B %Y'`</i>"
