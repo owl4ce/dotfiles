@@ -82,9 +82,7 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 ### <p align="center">Detailed Environment</p>
 | Items                  | Values                                                                                               |
 |------------------------|------------------------------------------------------------------------------------------------------|
-| Audio Volume Control   | [pamixer](https://github.com/cdemoulins/pamixer)                                                     |
-| Sound Mixer            | pulseaudio                                                                                           |
-| Volume Control         | pavucontrol                                                                                          |
+| Audio Volume Control   | amixer, pavucontrol                                                                                  |
 | Brightness Handler     | [brightnessctl](https://github.com/Hummer12007/brightnessctl)                                        |
 | Wallpaper Setter       | nitrogen                                                                                             |
 | Power Manager          | xfce4-power-manager                                                                                  |
