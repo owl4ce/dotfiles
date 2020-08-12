@@ -108,9 +108,10 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 ##  
 ### <p align="center">Color Scheme</p>
 <img src="https://i.ibb.co/kHRHZfX/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%">
+
 ##  
-<p align="center">Am I really using Gentoo Linux? Of course not! This only changes the os-release</p>
-<img src="https://i.ibb.co/2KZG10J/FETCH.png" alt="neofetch" align="center" height="60%" width="100%">
+<p align="center">Am I really using Gentoo Linux? Of course not! This only changes the <u>os-release</u></p>
+<img src="https://i.ibb.co/2KZG10J/FETCH.png" alt="neofetch" align="center" width="75%">
 
 ## Credits / Thanks
 - [Elenapan](https://github.com/elenapan)
