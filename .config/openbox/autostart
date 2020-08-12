@@ -12,7 +12,7 @@
 current="$(cat ~/.config/openbox/visual-mode/current)"
 bash ~/.config/openbox/visual-mode/$current/ui
 
-# Tray
+# Start Tray
 bash ~/.config/openbox/tray
 
 # Compositor
@@ -27,5 +27,5 @@ xfce4-power-manager &
 # Lock Screen Handler
 xss-lock -- /usr/bin/slimlock &
 
-# Apps & Others (ex:mpd)
+# Apps & Others (ie:mpd)
 mpd

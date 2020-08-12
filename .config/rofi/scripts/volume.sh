@@ -13,12 +13,12 @@ options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
 case $chosen in
     $ICON_UP)
-        pamixer -i 5 ; ~/.scripts/get-volume
+        ~/.scripts/notify/change-volume up
         ;;
     $ICON_DOWN)
-        pamixer -d 5 ; ~/.scripts/get-volume
+        ~/.scripts/notify/change-volume down
         ;;
     $ICON_MUTED)
-        pamixer -t ; ~/.scripts/get-volume
+        ~/.scripts/notify/change-volume mute
         ;;
 esac

@@ -13,12 +13,12 @@ options="$ICON_UP\n$ICON_OPT\n$ICON_DOWN"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
 case $chosen in
     $ICON_UP)
-        brightnessctl set 5%+ ; ~/.scripts/get-brightness
+        ~/.scripts/notify/change-brightness up
         ;;
     $ICON_DOWN)
-        brightnessctl set 5%- ; ~/.scripts/get-brightness
+        ~/.scripts/notify/change-brightness down
         ;;
     $ICON_OPT)
-        brightnessctl set 5% ; ~/.scripts/get-brightness
+        ~/.scripts/notify/change-brightness optimal
         ;;
 esac

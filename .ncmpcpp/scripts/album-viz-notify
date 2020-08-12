@@ -37,9 +37,9 @@ function reset_background
     if [[ -n "$src" ]] ; then
         # Resize the image's width to 70px
         convert "$src" -resize 70x "$COVER"
-        notify-send -u normal -i ${COVER} "  Now Playing" "`mpc --format '[%artist%\n%title% | %file%]' current`"
+        ~/.scripts/notify/notify-send.sh -u normal -r 7777 -i ${COVER} "  Now Playing" "`mpc --format '[%artist%\n%title% | %file%]' current`"
     else
         # Fallback
-        notify-send -u normal -i musique "Now Playing" "`mpc --format '[%artist%\n%title% | %file%]' current`"
+        ~/.scripts/notify/notify-send.sh -u normal -r 7777 -i musique "Now Playing" "`mpc --format '[%artist%\n%title% | %file%]' current`"
     fi
 } &

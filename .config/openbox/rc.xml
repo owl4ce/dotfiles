@@ -153,28 +153,28 @@
     <!-- brightness controls -->
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command>bash -c 'brightnessctl set 5%+ ; ~/.scripts/get-brightness'</command>
+        <command>bash -c '~/.scripts/notify/change-brightness up'</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command>bash -c 'brightnessctl set 5%- ; ~/.scripts/get-brightness'</command>
+        <command>bash -c '~/.scripts/notify/change-brightness down'</command>
       </action>
     </keybind>
     <!-- volume control -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>bash -c 'pamixer -i 5 ; ~/.scripts/get-volume'</command>
+        <command>bash -c '~/.scripts/notify/change-volume up'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>bash -c 'pamixer -d 5 ; ~/.scripts/get-volume'</command>
+        <command>bash -c '~/.scripts/notify/change-volume down'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>bash -c 'pamixer -t ; ~/.scripts/get-volume'</command>
+        <command>bash -c '~/.scripts/notify/change-volume mute'</command>
       </action>
     </keybind>
     <!-- MPD control -->
