@@ -33,7 +33,8 @@ Here are some details about my setup:
 - **New scripts**:
 1. [Notify-send](https://github.com/vlevit/notify-send.sh) with more features \
 *E.g replacing the previous notification*
-<img src="https://i.ibb.co/yhgkmtH/notify.gif" alt="notify" align="right" width="400px">
+<img src="https://i.ibb.co/yhgkmtH/notify.gif" alt="notify" align="right" width="250px">
+
 2. Volume and brightness changer with the script above
 3. OB button location switcher
 4. Wallpaper changer
