@@ -31,11 +31,15 @@ Here are some details about my setup:
 
 ## Changelogs
 - **New scripts**:
-1. OB button location switcher
-2. Wallpaper changer
-3. Add border background with shadow in scrot selection mode
+1. [Notify-send](https://github.com/vlevit/notify-send.sh) with more features \
+*E.g replacing the previous notification*
+<img src="https://i.ibb.co/yhgkmtH/notify.gif" alt="notify" align="right" width="400px">
+2. Volume and brightness changer with the script above
+3. OB button location switcher
+4. Wallpaper changer
+5. Add border background with shadow in scrot selection mode
                
-- **New wallpapers** (can be added by yourself)
+- **New wallpapers** (can be [added](./.wallpapers/) by yourself)
 
 - **Reconfigure**:
 1. Openbox (default location of ob button & wallpaper) \
@@ -61,6 +65,10 @@ Here are some details about my setup:
 *Fix the blind color scheme and plugin.*
 13. Sweetly GTK Theme \
 *Fix wrong color hex.*
+14. All Papirus Custom Icons \
+*Customize notification icons for volume and brightness*
+15. Clipit \
+*New configuration rules*
                    
 - **Delete all unnecessary comments on the scripts**
 
