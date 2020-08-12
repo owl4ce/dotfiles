@@ -111,7 +111,7 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 
 ##  
 ##### <p align="center">Am I really using Gentoo Linux? Of course not! This only changes the **os-release**</p>
-<p align="center"><a name="top" href="#am-i-really-using-gentoo-linux-of-course-not-this-only-changes-the-os-release"><img src="https://i.ibb.co/2KZG10J/FETCH.png" alt="neofetch"  width="60%"></p>
+<p align="center"><a name="top" href="#am-i-really-using-gentoo-linux-of-course-not-this-only-changes-the-os-release"><img src="https://i.ibb.co/2KZG10J/FETCH.png" alt="neofetch"  width="70%"></p>
 
 ## Credits / Thanks
 - [Elenapan](https://github.com/elenapan)
