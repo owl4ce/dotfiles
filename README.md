@@ -31,10 +31,11 @@ Here are some details about my setup:
 
 ## Changelogs
 - **New scripts**:
-1. [Notify-send](https://github.com/vlevit/notify-send.sh) with more features \
-*E.g replacing the previous notification*
-<img src="https://i.ibb.co/yhgkmtH/notify.gif" alt="notify" align="right" width="250px">
 
+<img src="https://i.ibb.co/yhgkmtH/notify.gif" alt="notify" align="right" width="400px">
+
+1. [Notify-send](https://github.com/vlevit/notify-send.sh) with more features \
+*E.g replacing the previous notification.*
 2. Volume and brightness changer with the script above
 3. OB button location switcher
 4. Wallpaper changer
@@ -67,9 +68,9 @@ Here are some details about my setup:
 13. Sweetly GTK Theme \
 *Fix wrong color hex.*
 14. All Papirus Custom Icons \
-*Customize notification icons for volume and brightness*
+*Customize notification icons for volume and brightness.*
 15. Clipit \
-*New configuration rules*
+*New configuration rules.*
                    
 - **Delete all unnecessary comments on the scripts**
 
