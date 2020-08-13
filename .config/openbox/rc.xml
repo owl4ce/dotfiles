@@ -180,7 +180,7 @@
     <!-- MPD control -->
     <keybind key="XF86AudioStop">
       <action name="Execute">
-        <command>bash -c 'mpc -q stop ; notify-send -u low -i mpd "MPD" "Music Stopped"'</command>
+        <command>bash -c 'mpc -q stop ; ~/.scripts/notify/notify-send.sh -u low -i mpd -r 8888 "MPD" "Music Stopped"'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPlay">

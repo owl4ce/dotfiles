@@ -56,7 +56,7 @@ case $chosen in
         mpc -q toggle
         ;;
     $stop)
-        mpc -q stop ; notify-send -u low -i mpd "MPD" "Music Stopped"
+        mpc -q stop ; ~/.scripts/notify/notify-send.sh -u low -i mpd -r 8888 "MPD" "Music Stopped"
         ;;
     $next)
         mpc -q next ; ~/.ncmpcpp/scripts/notify
