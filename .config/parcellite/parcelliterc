@@ -1,8 +1,8 @@
 [rc]
 RCVersion=1
 use_copy=true
-use_primary=true
-synchronize=true
+use_primary=false
+synchronize=false
 save_history=false
 history_pos=false
 history_x=1
