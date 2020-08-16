@@ -5,7 +5,7 @@
 wall="$(cat ~/.config/openbox/visual-mode/eyecandy/wall)"
 
 # Background Handler
-nitrogen --set-zoom-fill --save ~/.wallpaper/eyecandy/$wall
+nitrogen --set-zoom-fill --save ~/.wallpaper/eyecandy/$wall &> /dev/null
 
 # Panel
 tint2 -c ~/.config/tint2/eyecandy-1.tint2rc &

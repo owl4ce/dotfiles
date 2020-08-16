@@ -5,7 +5,7 @@
 wall="$(cat ~/.config/openbox/visual-mode/mechanical/wall)"
 
 # Background Handler
-nitrogen --set-zoom-fill --save ~/.wallpaper/mechanical/$wall
+nitrogen --set-zoom-fill --save ~/.wallpaper/mechanical/$wall &> /dev/null
 
 # Panel
 tint2 -c ~/.config/tint2/mech.tint2rc &
