@@ -26,4 +26,4 @@ rm /tmp/$current-shadow.png
 notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>`pwd`/Pictures/</u>" && \
 
 # Open final result
-viewnior ~/Pictures/$current
+viewnior ~/Pictures/$current &> /dev/null
