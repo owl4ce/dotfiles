@@ -3,15 +3,15 @@
 # Visual Mode switcher between Mechanical Theme and Eyecandy Theme
 
 # Kill Current
-bash -c '~/.config/openbox/visual-mode/kill-ui'
+bash -c '~/.config/openbox/visual-mode/kill-ui' &> /dev/null
     
 current="$(cat ~/.config/openbox/visual-mode/current)"
 
 if [[ $current != *"mechanical"* ]]; then
         
     # Set Theme & UI
-    bash -c '~/.config/openbox/visual-mode/mechanical/theme'
-    bash -c '~/.config/openbox/visual-mode/mechanical/ui'
+    bash -c '~/.config/openbox/visual-mode/mechanical/theme' &> /dev/null
+    bash -c '~/.config/openbox/visual-mode/mechanical/ui' &> /dev/null
     
     # Write Current
     echo "mechanical" > ~/.config/openbox/visual-mode/current
@@ -22,8 +22,8 @@ if [[ $current != *"mechanical"* ]]; then
 else
     
     # Set Theme & UI
-    bash -c '~/.config/openbox/visual-mode/eyecandy/theme'
-    bash -c '~/.config/openbox/visual-mode/eyecandy/ui'
+    bash -c '~/.config/openbox/visual-mode/eyecandy/theme' &> /dev/null
+    bash -c '~/.config/openbox/visual-mode/eyecandy/ui' &> /dev/null
     
     # Write Current
     echo "eyecandy" > ~/.config/openbox/visual-mode/current
@@ -34,4 +34,4 @@ else
 fi
 
 # Start Tray
-bash -c '~/.config/openbox/tray'
+bash -c '~/.config/openbox/tray' &> /dev/null

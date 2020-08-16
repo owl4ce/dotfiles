@@ -37,17 +37,17 @@ function notify {
 case $1 in
     up)
 	# +5%
-	brightnessctl set 5%+
+	brightnessctl set 5%+ > /dev/null
 	notify
 	;;
     down)
     # -5%
-    brightnessctl set 5%-
+    brightnessctl set 5%- > /dev/null
 	notify
 	;;
     optimal)
     # Toggle optimal
-	brightnessctl set 25%
+	brightnessctl set 25% > /dev/null
     notify
 	;;
 esac    

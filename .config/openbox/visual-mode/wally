@@ -43,7 +43,7 @@ if [[ $current != *"eyecandy"* ]]; then
         exit 1
     else
         eval "IMG=\$img${num}"
-        nitrogen --set-zoom-fill --save $IMG
+        nitrogen --set-zoom-fill --save $IMG &> /dev/null
         
         # Write Selected
         selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
@@ -82,7 +82,7 @@ else
         exit 1
     else
         eval "IMG=\$img${num}"
-        nitrogen --set-zoom-fill --save $IMG
+        nitrogen --set-zoom-fill --save $IMG &> /dev/null
         
         # Write Selected
         selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
