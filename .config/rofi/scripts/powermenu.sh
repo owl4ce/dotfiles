@@ -15,10 +15,10 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
-        ~/.config/rofi/scripts/promptmenu.sh --yes-command "poweroff" --query "Are you sure want to Poweroff?"
+        ~/.config/rofi/scripts/promptmenu.sh --yes-command "poweroff" --query "Poweroff?"
         ;;
     $reboot)
-        ~/.config/rofi/scripts/promptmenu.sh --yes-command "reboot" --query "Are you sure want to Reboot?"
+        ~/.config/rofi/scripts/promptmenu.sh --yes-command "reboot" --query "Reboot?"
         ;;
     $lock)
         ~/.scripts/lockscreen
