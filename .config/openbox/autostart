@@ -10,10 +10,10 @@ xrdb ~/.Xresources
 
 # UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
 current="$(cat ~/.config/openbox/visual-mode/current)"
-bash ~/.config/openbox/visual-mode/$current/ui
+bash ~/.config/openbox/visual-mode/$current/ui &> /dev/null
 
 # Start Tray
-bash ~/.config/openbox/tray
+bash ~/.config/openbox/tray &> /dev/null
 
 # Compositor
 picom -C -b
@@ -28,4 +28,4 @@ lxpolkit &
 xautolock -time 3 -locker "slimlock" -detectsleep &
 
 # Others (e.g: mpd)
-mpd
+mpd &> /dev/null
