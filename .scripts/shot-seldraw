@@ -6,7 +6,7 @@
 sleep .5s
 scrot -s -f -b -e 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" && \
 
-notify-send -t 768 -i deepin-screenshot -u low "Screenshot" "Processing captured image"
+notify-send -t 750 -i deepin-screenshot -u low "Screenshot" "Processing captured image"
 
 # Use imagemagick to add border
 current="$(ls /tmp/ | grep 'scrot')"
@@ -23,7 +23,7 @@ rm /tmp/$current-shadow.png
 
 [[ -f ~/Pictures/$current ]] && \
 
-notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>`pwd`/Pictures/</u>" && \
+notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>/home/`whoami`/Pictures/</u>" && \
 
 # Open final result
 viewnior ~/Pictures/$current &> /dev/null

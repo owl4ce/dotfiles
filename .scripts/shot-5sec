@@ -4,8 +4,8 @@
 # See scrot manual
 
 sleep .5s
-notify-send -t 768 -i deepin-screenshot -u low "Screenshot" "5sec ..."
+notify-send -t 1000 -i deepin-screenshot -u low "Screenshot" "5sec ..."
 
 scrot -d 5 -e 'mv $f ~/Pictures/'
 
-notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>`pwd`/Pictures/</u>"
+notify-send -i deepin-screenshot -u low "Screenshot" "Saved in <u>/home/`whoami`/Pictures/</u>"
