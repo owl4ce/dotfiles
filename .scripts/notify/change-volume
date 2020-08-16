@@ -2,8 +2,6 @@
 
 # Audio volume changer using alsa mixer
 
-notify-send="$(~/.scripts/notify/notify-send.sh)"
-
 function cvol {
     amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'
 }
