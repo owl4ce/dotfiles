@@ -109,7 +109,7 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 ### <p align="center">Color Scheme</p>
 <p align="center"><a name="top" href="#color-scheme"><img src="https://i.ibb.co/kHRHZfX/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
-## :love_letter:
+### <p align="center">:love_letter:</p>
 <p align="center">Please don't underestimate, I've configured them all since April 2020 and have been studying them since October 2019. Awesome open source. If you support it, star it or make a pull request. Or if there is a problem you can make an issue here. Thank you!</p>
 
 ## Credits / Thanks
