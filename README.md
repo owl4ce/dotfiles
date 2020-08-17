@@ -43,7 +43,7 @@ Here are some details about my setup:
 - **New wallpapers** (can be [added](./.wallpaper/) by yourself)
 
 - **Reconfigure**:
-<img src="https://i.ibb.co/4FYKFfP/better-promptmenu.gif" alt="better-promptmenu" align="right" width="200px">
+<img src="https://user-images.githubusercontent.com/53987136/90441592-6ee6ea80-e103-11ea-96b5-e604efa9d3f2.gif" alt="better-promptmenu" align="right" width="200px">
 
 1. Rofi Promptmenu \
 *Better promptmenu from [ekaunt](https://github.com/owl4ce/dotfiles/pull/2).*
