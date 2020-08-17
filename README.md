@@ -46,7 +46,7 @@ Here are some details about my setup:
 <img src="https://i.ibb.co/4FYKFfP/better-promptmenu.gif" alt="better-promptmenu" align="right" width="200px">
 
 1. Rofi Promptmenu \
-*Better promptmenu from [ekaunt](https://github.com/owl4ce/dotfiles/pull/2)*
+*Better promptmenu from [ekaunt](https://github.com/owl4ce/dotfiles/pull/2).*
 2. Cava default color (red) \
 *Not using gradients anymore so you can change color with the <kbd>F</kbd> key.*
 3. Color Toys (bloks) \
@@ -63,7 +63,7 @@ Add new scripts shortcut for OB button location switcher & wallpaper changer.*
 9. Parcellite - Clipboard Manager \
 *New configuration rules.*
                    
-- **Delete all unnecessary comments on the scripts**
+- **Make less output by redirecting to /dev/null**
 
 Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t=3s) for more details.
 
