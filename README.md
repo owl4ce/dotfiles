@@ -45,8 +45,8 @@ Here are some details about my setup:
 - **Reconfigure**:
 <img src="https://i.ibb.co/4FYKFfP/better-promptmenu.gif" alt="better-promptmenu" align="right" width="200px">
 
-1. Rofi Promptmenu
-*Better <u>promptmenu</u> from [ekaunt](https://github.com/owl4ce/dotfiles/pull/2)*
+1. Rofi Promptmenu \
+*Better promptmenu from [ekaunt](https://github.com/owl4ce/dotfiles/pull/2)*
 2. Cava default color (red) \
 *Not using gradients anymore so you can change color with the <kbd>F</kbd> key.*
 3. Color Toys (bloks) \
