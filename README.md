@@ -30,9 +30,9 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), nano, vim
 
 ## Changelogs
+- **New scripts**:
 <img src="https://i.ibb.co/yhgkmtH/notify.gif" alt="notify" align="right" width="200px">
 
-- **New scripts**:
 1. [Notify-send](https://github.com/vlevit/notify-send.sh) with more features \
 *E.g replacing previous notification.*
 2. Volume and brightness changer with the script above
