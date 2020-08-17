@@ -43,32 +43,24 @@ Here are some details about my setup:
 - **New wallpapers** (can be [added](./.wallpaper/) by yourself)
 
 - **Reconfigure**:
-1. Openbox (default location of ob button & wallpaper) \
-*Can be changed easily!*
-2. Tint2 (new look on eyecandy on the right side) \
-*Add new scripts shortcut for OB button location switcher & wallpaper changer.*
-3. GIMP-2.10 (little changes)
-4. SLiM (font size & location)
-5. Cava default color (red) \
+<img src="https://i.ibb.co/4FYKFfP/better-promptmenu.gif" alt="better-promptmenu" align="right" width="200px">
+
+1. Rofi Promptmenu
+*Better <u>promptmenu</u> from [ekaunt](https://github.com/owl4ce/dotfiles/pull/2)*
+2. Cava default color (red) \
 *Not using gradients anymore so you can change color with the <kbd>F</kbd> key.*
-6. Color Toys (bloks) \
+3. Color Toys (bloks) \
 *Like addy-dclxvi style!*
-7. Picom \
+4. Picom \
 *Using picom instead of picom rounded from ibhagwan and sdhand because some devices have memory leak.*
-8. Obmenu-generator (new look) \
-*Add new scripts shortcut for OB button location switcher & wallpaper changer.*
-9. Ncmcpcpp album art scripts \
+5. Obmenu-generator (new look) \
+Add new scripts shortcut for OB button location switcher & wallpaper changer.*
+6. Ncmcpcpp album art scripts \
 *Linked mpd dir to every ncmpcpp config.*
-10. Get brightness scripts \
-*Display percentages well.*
-11. Zsh theme (new look)
-12. Geany \
-*Fix the blind color scheme and plugin.*
-13. Sweetly GTK Theme \
-*Fix wrong color hex.*
-14. All Papirus Custom Icons \
+7. Zsh theme (new look)
+8. All Papirus Custom Icons \
 *Customize notification icons for volume and brightness.*
-15. Clipit - Clipboard Manager \
+9. Parcellite - Clipboard Manager \
 *New configuration rules.*
                    
 - **Delete all unnecessary comments on the scripts**
@@ -92,7 +84,7 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 | Calendar Pop-up        | gsimplecal (for pop-up from tint2)                                                                   |
 | Authentication Agent   | [lxpolkit](https://wiki.archlinux.org/index.php/Polkit)                                              |
 | Network Manager        | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
-| QT Themer              | qt5ct,qt5-styleplugins (adapted to the GTK Theme)                                                    |
+| QT Themer              | qt5ct, qt5-styleplugins (adapted to the GTK Theme)                                                   |
 | GTK Themer             | lxappearance                                                                                         |
 | Audio Visualizer       | [cava](https://github.com/karlstav/cava)                                                             |
 | Screenshot App         | scrot                                                                                                |
@@ -110,7 +102,7 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 <p align="center"><a name="top" href="#color-scheme"><img src="https://i.ibb.co/kHRHZfX/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
 ### <p align="center">:love_letter:</p>
-<p align="center">Please don't underestimate, I've configured them all since April 2020 and have been studying them since October 2019. Awesome open source. If you support it, star it or make a pull request. Or if there is a problem you can make an issue here. Thank you!</p>
+<p align="center">Please don't underestimate, I've configured them all since April 2020 and have been studying them since October 2019. Awesome open-source. If you support it, star it or make a pull request. Or if there is a problem you can make an issue here. Thank you!</p>
 
 ## Credits / Thanks
 - [Elenapan](https://github.com/elenapan)
