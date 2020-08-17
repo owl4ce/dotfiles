@@ -87,12 +87,12 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 | Wallpaper Setter       | nitrogen                                                                                             |
 | Power Manager          | xfce4-power-manager                                                                                  |
 | Lockscreen             | slimlock (from slim display manager)                                                                 |
-| Sessions Locker        | [xss-lock](https://wiki.archlinux.org/index.php/Session_lock#xss-lock)                               |
-| Clipboard Manager      | clipit, xclip                                                                                        |
+| Sessions Locker        | [xautolock](https://wiki.archlinux.org/index.php/Session_lock#xautolock)                             |
+| Clipboard Manager      | parcellite, xclip                                                                                    |
 | Calendar Pop-up        | gsimplecal (for pop-up from tint2)                                                                   |
-| Authentication Agent   | polkit-gnome-authentication-agent-1                                                                  |
+| Authentication Agent   | [lxpolkit](https://wiki.archlinux.org/index.php/Polkit)                                              |
 | Network Manager        | NetworkManager + [networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)           |
-| QT Themer              | qt5ct (adapted to the GTK Theme)                                                                     |
+| QT Themer              | qt5ct,qt5-styleplugins (adapted to the GTK Theme)                                                    |
 | GTK Themer             | lxappearance                                                                                         |
 | Audio Visualizer       | [cava](https://github.com/karlstav/cava)                                                             |
 | Screenshot App         | scrot                                                                                                |
@@ -110,8 +110,7 @@ Look in the gallery and [workflow](https://www.youtube.com/watch?v=5zLJO6UyZFw&t
 <p align="center"><a name="top" href="#color-scheme"><img src="https://i.ibb.co/kHRHZfX/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
 ##  
-##### <p align="center">Am I really using Gentoo Linux? Of course not! This only changes the **os-release**</p>
-<p align="center"><a name="top" href="#am-i-really-using-gentoo-linux-of-course-not-this-only-changes-the-os-release"><img src="https://i.ibb.co/2KZG10J/FETCH.png" alt="neofetch"  width="70%"></p>
+<p align="center">Please don't underestimate, I've configured them all since April 2020 and have been studying them since October 2019. Awesome open source. If you support it, star it or make a pull request. Or if there is a problem you can make an issue here. Thank you! :love_letter:</p>
 
 ## Credits / Thanks
 - [Elenapan](https://github.com/elenapan)
