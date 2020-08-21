@@ -24,5 +24,4 @@ set numbercolor white
 syntax "comments" ".*"
 color blue "^#.*"
 
-## Nanorc files
 include /usr/share/nano-syntax-highlighting/*.nanorc
