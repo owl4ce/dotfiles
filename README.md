@@ -51,17 +51,10 @@ Here are some details about my setup:
 *Not using gradients anymore so you can change color with the <kbd>F</kbd> key.*
 3. Color Toys (bloks) \
 *Like addy-dclxvi style!*
-4. Picom \
-*Using picom instead of picom rounded from ibhagwan and sdhand because some devices have memory leak.*
-5. Obmenu-generator (new look) \
-Add new scripts shortcut for OB button location switcher & wallpaper changer.*
-6. Ncmcpcpp album art scripts \
+4. Ncmcpcpp album art scripts \
 *Linked mpd dir to every ncmpcpp config.*
-7. Zsh theme (new look)
-8. All Papirus Custom Icons \
+5. All Papirus Custom Icons \
 *Customize notification icons for volume and brightness.*
-9. Parcellite - Clipboard Manager \
-*New configuration rules.*
                    
 - **Make less output by redirecting to /dev/null**
 
