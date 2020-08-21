@@ -51,10 +51,10 @@ Here are some details about my setup:
 *Not using gradients anymore so you can change color with the <kbd>F</kbd> key.*
 3. Color Toys (bloks) \
 *Like addy-dclxvi style!*
-4. Ncmcpcpp album art scripts \
-*Linked mpd dir to every ncmpcpp config.*
-5. All Papirus Custom Icons \
+4. All Papirus Custom Icons \
 *Customize notification icons for volume and brightness.*
+5. Nanorc \
+*Change the color scheme and use [scopatz/nanorc](https://github.com/scopatz/nanorc) as syntax highlighting.*
                    
 - **Make less output by redirecting to /dev/null**
 
