@@ -10,7 +10,7 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting!
 
-<a href=""><img src="https://i.ibb.co/jkFJDw8/SLi-M-CHESS.gif" alt="thumbnail" align="right" width="400px"></a>
+<a href="https://youtu.be/BrivcfEEAqs"><img src="https://i.ibb.co/jkFJDw8/SLi-M-CHESS.gif" alt="thumbnail" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
