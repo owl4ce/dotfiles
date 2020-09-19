@@ -250,7 +250,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   ```bash
   sudo chmod u+s /bin/{poweroff,reboot,brightnessctl}
   ```
-  > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
+  > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
   
 - **Default Lockscreen** \
   `~/.config/openbox/lockscreen`
