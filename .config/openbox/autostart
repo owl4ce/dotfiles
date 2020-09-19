@@ -1,0 +1,32 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+# ---
+
+# Load Xresources
+xrdb ~/.Xresources
+
+# UI Appearance - Open Last Theme
+bash -c '~/.config/openbox/visual-mode/startup'
+
+# Start Tray
+bash -c '~/.config/openbox/tray' &> /dev/null
+
+# Compositor
+picom -b
+
+# Authentication Agent - PolicyKit
+lxpolkit &
+
+# Power Manager
+#xfce4-power-manager &
+
+# Sessions Lock (time: minute)
+ls="$(cat ~/.config/openbox/lockscreen)"
+xautolock -time 3 -locker "$ls" -detectsleep &
+
+# Others (e.g: mpd)
+mpd &> /dev/null
+bash -c '~/.ncmpcpp/scripts/track-change-detector' &

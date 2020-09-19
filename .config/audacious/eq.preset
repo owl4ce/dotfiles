@@ -1,0 +1,15 @@
+[Presets]
+Preset0=Soft Rock
+
+[Soft Rock]
+Preamp=-12
+Band0=9
+Band1=8
+Band2=5
+Band3=1
+Band4=-1
+Band5=-2
+Band6=-1
+Band7=1
+Band8=5
+Band9=11

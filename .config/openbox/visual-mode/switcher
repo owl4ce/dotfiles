@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+# Visual Mode switcher between Mechanical Theme and Eyecandy Theme and both Minimal Mode
+
+current="$(cat ~/.config/openbox/visual-mode/current)"
+chkmin="$(cat ~/.config/openbox/visual-mode/current | grep 'minimal')"
+
+mech="~/.icons/gladient/mech.png"
+eyc="~/.icons/gladient/eyc.png"
+mechmin="~/.icons/gladient/mech-min.png"
+eycmin="~/.icons/gladient/eyc-min.png"
+
+function kill {
+    bash -c '~/.config/openbox/visual-mode/kill-ui' &> /dev/null
+}
+
+function mechanical {
+    kill
+    # Set Theme & UI
+    bash -c '~/.config/openbox/visual-mode/mechanical/theme'
+    bash -c '~/.config/openbox/visual-mode/mechanical/ui' &> /dev/null
+        
+    # Write Current
+    echo "mechanical" > ~/.config/openbox/visual-mode/current
+
+    # Notify Success
+    notify-send -u low -i $mech "Visual Mode" "Mechanical Theme applied"
+}
+
+function mechanicalmin {
+    kill
+            
+    # Set Theme & UI
+    bash -c '~/.config/openbox/visual-mode/mechanical/theme-minimal'
+    bash -c '~/.config/openbox/visual-mode/mechanical/ui-minimal' &> /dev/null
+    
+    # Write Current
+    echo "mechanical" > ~/.config/openbox/visual-mode/current
+    echo "minimal" >> ~/.config/openbox/visual-mode/current
+    
+    # Notify Success
+    notify-send -u low -i $mechmin "Minimal Mode" "Mechanical Theme enabled"
+}
+
+function eyecandy {
+    kill
+    # Set Theme & UI
+    bash -c '~/.config/openbox/visual-mode/eyecandy/theme'
+    bash -c '~/.config/openbox/visual-mode/eyecandy/ui' &> /dev/null
+    
+    # Write Current
+    echo "eyecandy" > ~/.config/openbox/visual-mode/current
+
+    # Notify Success
+    notify-send -u low -i $eyc "Visual Mode" "Eyecandy Theme applied"
+}
+
+function eyecandymin {
+    kill
+    # Set Theme & UI
+    bash -c '~/.config/openbox/visual-mode/eyecandy/theme-minimal'
+    bash -c '~/.config/openbox/visual-mode/eyecandy/ui-minimal' &> /dev/null
+            
+    # Write Current
+    echo "eyecandy" > ~/.config/openbox/visual-mode/current
+    echo "minimal" >> ~/.config/openbox/visual-mode/current
+    
+    # Notify Success
+    notify-send -u low -i $eycmin "Minimal Mode" "Eyecandy Theme enabled"
+}
+
+case $1 in
+    minimal)
+    if [[ $current = *"mechanical"* ]]; then
+        if [[ $chkmin != *"minimal"* ]]; then
+            mechanicalmin
+        else
+            mechanical
+        fi
+    else
+        if [[ $chkmin != *"minimal"* ]]; then
+            eyecandymin
+        else
+            eyecandy
+        fi
+    fi
+    
+    ;;
+    *)
+    if [[ $current != *"mechanical"* ]]; then
+        if [[ $chkmin = *"minimal"* ]]; then
+            mechanicalmin
+        else
+            mechanical
+        fi
+    else
+        if [[ $chkmin = *"minimal"* ]]; then
+            eyecandymin
+        else
+            eyecandy
+        fi
+    fi
+	;;
+esac    
+
+# Start Tray
+bash -c '~/.config/openbox/tray' &> /dev/null

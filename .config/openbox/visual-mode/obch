@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+
+# Openbox button style changer (Fleon-Sweetly)
+
+clear
+
+# Colored output
+RED='\033[1;31m'
+CYAN='\033[1;36m'
+GREEN='\033[1;32m'
+MAGENTA='\033[1;35m'
+NC='\033[0m' # No Color
+
+dir=~/.themes/Buttons
+
+icon="~/.icons/gladient/obt-c.png"
+
+current="$(cat ~/.config/openbox/visual-mode/current)"
+chkmin="$(cat ~/.config/openbox/visual-mode/current | grep 'minimal')"
+
+if [[ $chkmin != *"minimal"* ]]; then
+
+    if [[ $current == *"mechanical"* ]]; then
+        echo -e "${CYAN}Select button style for Mechanical Theme:"
+        n=0
+        for button in $dir/*
+        do
+            n=$((n+1))
+            printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$button"
+            eval "button${n}=\$button"
+        done
+        
+        if [ "$n" -eq 0 ]
+        then
+            printf >&2 "\n${RED}Nothing found\n"
+            exit
+        fi
+        
+        printf '\nEnter File Index ID (1 to %s): ' "$n"
+        read -n 1 -r num
+        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+        
+        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+        then
+            printf >&2 "\n${RED}Wrong selection\n"
+            exit 1
+        else
+            eval "BTN=\$button${num}"
+            cp $BTN/* ~/.themes/Fleon/openbox-3/
+            openbox --reconfigure
+            
+            printf "\n${CYAN}Selected button style: ${NC}$BTN\n"
+        fi
+    else
+        echo -e "${CYAN}Select button style for Eyecandy Theme:"
+        n=0
+        for button in $dir/*
+        do
+            n=$((n+1))
+            printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$button"
+            eval "button${n}=\$button"
+        done
+
+        if [ "$n" -eq 0 ]
+        then
+            printf >&2 "\n${RED}Nothing found\n"
+            exit
+        fi
+
+        printf '\nEnter File Index ID (1 to %s): ' "$n"
+        read -n 1 -r num
+        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+
+        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+        then
+            printf >&2 "\n${RED}Wrong selection\n"
+            exit 1
+        else
+            eval "BTN=\$button${num}"
+            cp $BTN/* ~/.themes/Sweetly/openbox-3/
+            openbox --reconfigure
+            
+            printf "\n${CYAN}Selected button style: ${NC}$BTN\n"
+        fi
+    fi
+    
+else
+
+    notify-send -u low -i $icon "OB Button Style Changer" "Disable Minimal Mode to change button style"
+
+fi

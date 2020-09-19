@@ -1,0 +1,32 @@
+# recently closed docks
+
+(GimpSessionInfo "Channels, Paths, Undo - Brushes, Patterns, Gradients"
+    (factory-entry "gimp-dock-window")
+    (position 1103 387)
+    (size 210 820)
+    (open-on-exit)
+    (aux-info
+        (show-image-menu "false")
+        (follow-active-image "true"))
+    (gimp-dock
+        (book
+            (current-page 2)
+            (dockable "gimp-channel-list"
+                (tab-style automatic)
+                (preview-size 32))
+            (dockable "gimp-vectors-list"
+                (tab-style automatic)
+                (preview-size 32))
+            (dockable "gimp-undo-history"
+                (tab-style automatic)))
+        (book
+            (position 420)
+            (current-page 0)
+            (dockable "gimp-brush-grid"
+                (tab-style automatic))
+            (dockable "gimp-pattern-grid"
+                (tab-style automatic))
+            (dockable "gimp-gradient-list"
+                (tab-style automatic)))))
+
+# end of recently closed docks

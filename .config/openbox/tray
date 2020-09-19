@@ -1,0 +1,8 @@
+#
+# This tray will restart after changing visual mode
+# Please add "&" after command
+#
+# ---
+
+parcellite &
+#nm-applet &

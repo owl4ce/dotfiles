@@ -1,0 +1,88 @@
+# GIMP gimprc
+# 
+# This is your personal gimprc file.  Any variable defined in this file takes
+# precedence over the value defined in the system-wide gimprc:
+# /etc/gimp/2.0/gimprc
+# Most values can be set within GIMP by changing some options in the
+# Preferences dialog.
+
+(default-image
+    (width 1920)
+    (height 1080)
+    (unit pixels)
+    (xresolution 300)
+    (yresolution 300)
+    (resolution-unit inches)
+    (image-type rgb)
+    (precision u8-gamma)
+    (color-managed yes)
+    (color-profile NULL)
+    (fill-type white)
+    (comment "Copyright OWL4CE"))
+(undo-preview-size medium)
+(save-document-history no)
+(import-raw-plug-in "${gimp_plug_in_dir}/plug-ins/file-raw-placeholder/file-raw-placeholder")
+(snap-distance 4)
+(monitor-xresolution 101)
+(monitor-yresolution 101)
+(default-view
+    (show-menubar yes)
+    (show-statusbar yes)
+    (show-rulers yes)
+    (show-scrollbars yes)
+    (show-selection yes)
+    (show-layer-boundary no)
+    (show-canvas-boundary yes)
+    (show-guides yes)
+    (show-grid no)
+    (show-sample-points yes)
+    (snap-to-guides yes)
+    (snap-to-grid no)
+    (snap-to-canvas no)
+    (snap-to-path no)
+    (padding-mode default)
+    (padding-color (color-rgb 0.14901960784313725 0.19607843137254902 0.2196078431372549))
+    (padding-in-show-all no))
+(default-fullscreen-view
+    (show-menubar yes)
+    (show-statusbar yes)
+    (show-rulers yes)
+    (show-scrollbars yes)
+    (show-selection yes)
+    (show-layer-boundary no)
+    (show-canvas-boundary yes)
+    (show-guides yes)
+    (show-grid no)
+    (show-sample-points yes)
+    (snap-to-guides yes)
+    (snap-to-grid no)
+    (snap-to-canvas no)
+    (snap-to-path no)
+    (padding-mode default)
+    (padding-color (color-rgb 0.14901960784313725 0.19607843137254902 0.2196078431372549))
+    (padding-in-show-all no))
+(theme "System")
+(icon-size small)
+(layer-new-name "New Layer")
+(fill-options
+    (style solid)
+    (antialias yes)
+    (feather no)
+    (feather-radius 10))
+(stroke-options
+    (style solid)
+    (antialias yes)
+    (feather no)
+    (feather-radius 10)
+    (method line)
+    (width 6)
+    (unit pixels)
+    (cap-style butt)
+    (join-style miter)
+    (miter-limit 10)
+    (dash-offset 0)
+    (dash-info 0)
+    (emulate-brush-dynamics no))
+
+
+# end of gimprc

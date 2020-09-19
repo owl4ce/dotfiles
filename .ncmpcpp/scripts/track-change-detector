@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Notify when mpd song changed
+
+while true
+do
+
+mpc current > ~/.ncmpcpp/scripts/current-track
+current="$(cat ~/.ncmpcpp/scripts/current-track)"
+mpc idle &> /dev/null
+
+if [[ $current != *"$(mpc current)"* ]]; then
+    bash -c '~/.ncmpcpp/scripts/notify'
+fi
+
+done

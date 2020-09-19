@@ -1,0 +1,16 @@
+# GIMP user context
+
+(tool "gimp-rect-select-tool")
+(paint-info "gimp-paintbrush")
+(foreground (color-rgb 0.21568627450980393 0.24313725490196078 0.30196078431372547))
+(background (color-rgb 0.97647064924240112 0.97647064924240112 0.97647064924240112))
+(brush "2. Hardness 075")
+(dynamics "Dynamics Off")
+(mybrush "100% Opaque")
+(pattern "Pine")
+(gradient "Custom")
+(palette "Default")
+(font "Material")
+(tool-preset "Core Pointer")
+
+# end of user context

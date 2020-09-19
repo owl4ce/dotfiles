@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# MPD Toggle button for panel
+# Requires Material (Icomoon) Font
+
+status="$(mpc status)"
+
+if [[ $status == *"[playing]"* ]]; then
+    echo ""
+else
+    echo ""
+fi

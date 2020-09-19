@@ -1,0 +1,7 @@
+# GIMP gimp-fuzzy-select-tool options
+
+(antialias no)
+(select-transparent no)
+(threshold 100)
+
+# end of gimp-fuzzy-select-tool options

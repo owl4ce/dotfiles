@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Start Last Theme and Mode
+
+current="$(cat ~/.config/openbox/visual-mode/current)"
+chkmin="$(cat ~/.config/openbox/visual-mode/current | grep 'minimal')"
+
+if [[ $chkmin = *"minimal"* ]]; then
+
+    if [[ $current = *"mechanical"* ]]; then
+        bash -c '~/.config/openbox/visual-mode/mechanical/ui-minimal' &> /dev/null
+    else
+        bash -c '~/.config/openbox/visual-mode/eyecandy/ui-minimal' &> /dev/null
+    fi
+    
+else
+
+    if [[ $current = *"mechanical"* ]]; then
+        bash -c '~/.config/openbox/visual-mode/mechanical/ui' &> /dev/null
+    else
+        bash -c '~/.config/openbox/visual-mode/eyecandy/ui' &> /dev/null
+    fi
+    
+fi

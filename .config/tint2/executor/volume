@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# Audio status and volume changer for panel
+# Requires Material (Icomoon) Font
+
+function cvol {
+    amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'
+}
+
+chkmute="$(amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off | head -n1)"
+
+function current {
+    volume=`cvol`
+    echo "$volume%"
+}
+
+function icon {
+    volume=`cvol`
+    
+    if [ "$volume" = "0" ]; then
+        icon=""
+    else    
+        if [  "$volume" -lt "10" ]; then
+            icon=""
+        else
+            if [ "$volume" -lt "30" ]; then
+                icon=""
+            else
+                if [ "$volume" -lt "70" ]; then
+                    icon=""
+                else
+                    icon=""
+                fi
+            fi
+        fi
+    fi
+
+    echo "$icon"
+}
+
+case $1 in
+    percent)
+    if [[ $chkmute = *"[off]"* ]]; then
+        echo "Muted"
+    else
+        current
+    fi
+    ;;
+    icon)
+    if [[ $chkmute = *"[off]"* ]]; then
+        echo ""
+    else
+        icon
+    fi
+	;;
+    up)
+    # Unmute
+	amixer -D pulse set Master on > /dev/null
+	# +5%
+	amixer -D pulse sset Master 5%+ > /dev/null
+    ;;
+    down)
+    amixer -D pulse set Master on > /dev/null
+    # -5%
+	amixer -D pulse sset Master 5%- > /dev/null
+    ;;
+    mute)
+    # Toggle mute
+	amixer -D pulse set Master 1+ toggle > /dev/null
+	if $chkmute ; then
+    icon=""
+    echo "$icon"
+	else
+	    icon
+	fi
+esac    

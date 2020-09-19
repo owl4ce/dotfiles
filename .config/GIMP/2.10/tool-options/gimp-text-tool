@@ -1,0 +1,10 @@
+# GIMP gimp-text-tool options
+
+(foreground (color-rgb 0.21568627450980393 0.24313725490196078 0.30196078431372547))
+(palette "Default")
+(font "Material")
+(font-size 25)
+(hint-style full)
+(justify center)
+
+# end of gimp-text-tool options

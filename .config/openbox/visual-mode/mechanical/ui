@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Mechanical Theme UI
+
+wall="$(cat ~/.config/openbox/visual-mode/mechanical/wall)"
+
+# Background Handler
+nitrogen --set-zoom-fill --save ~/.wallpaper/mechanical/$wall &> /dev/null
+
+# Panel
+tint2 -c ~/.config/tint2/mech.tint2rc &
+
+# Notification Daemon
+dunst -config ~/.config/dunst/dunstrc-dark-right &

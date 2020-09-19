@@ -1,0 +1,81 @@
+# Values for Messages - Color/Font/Posision/Shadow (ie: shutting down)
+msg_color                       #F9F9F9
+msg_font                        San Francisco Display:size=13:Bold
+msg_x                           50%
+msg_y                           50%
+
+#msg_shadow_xoffset              1
+#msg_shadow_yoffset              1
+#msg_shadow_color                #AAAAAA
+
+
+# Values for Session List - Color/Font/Posision/Shadow
+session_color                   #F9F9F9
+session_msg                     *		
+session_font                    San Francisco Display:size=12:Bold
+session_x                       93%
+session_y                       97%
+
+#session_shadow_xoffset          1
+#session_shadow_yoffset          1
+#session_shadow_color            #AAAAAA
+
+# Values for Style of Background: 'stretch', 'tile', 'center', 'color'
+background_style                stretch
+background_color                #000000
+
+# Values for Input Panel - Posision/Font/Color/Shadow
+input_panel_x                   50%
+input_panel_y                   60%
+
+input_name_x                    163
+input_name_y                    187
+input_pass_x                    163
+input_pass_y                    187
+	
+input_font                      San Francisco Display:size=12
+input_color                     #96979A
+
+input_shadow_xoffset            1
+input_shadow_yoffset            1
+input_shadow_color              #AAAAAA
+
+# Values for Welcome Message - Posision/Font/Color/Shadow
+#welcome_x                      50%
+#welcome_y                      12
+
+welcome_font                    San Francisco Display:size=13:Bold
+welcome_msg                     Welcome to the Machine
+welcome_color                   #F9F9F9
+
+#welcome_shadow_xoffset          1
+#welcome_shadow_yoffset          1
+#welcome_shadow_color            #AAAAAA
+
+# Values for Username/Password - Font/Color/Shadow/Posision/Labels
+username_font                   San Francisco Display:size=12:Bold
+username_color                  #F9F9F9
+
+#username_shadow_xoffset         1
+#username_shadow_yoffset         1
+#username_shadow_color           #AAAAAA
+
+username_x                      191
+username_y                      230
+password_x                      191
+password_y                      230
+
+username_msg                    Username
+password_msg                    Password
+
+show_username                   0
+
+passwd_feedback_x               50%
+passwd_feedback_y               19%
+passwd_feedback_msg             Wrong Password
+passwd_feedback_capslock        Wrong Password [CL]
+
+wrong_passwd_timeout            0
+
+shutdown_msg                    Poweroff the system ...
+reboot_msg                      Rebooting the system ...

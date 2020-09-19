@@ -1,0 +1,20 @@
+* {
+  prompt-menu-font:                     "Comfortaa Bold 9";
+  text-font:                            "Comfortaa Bold 12";
+  inputbar-margin:                      4px 4px;
+  prompt-padding:                       16px 20px;
+  entry-padding:                        18px 16px 16px 0px;
+  prompt-window-height:                 300px;
+  prompt-window-width:                  627px;
+  prompt-window-border:                 2px;
+  prompt-prompt-padding:                20px 30px;
+  prompt-prompt-margin:                 8px;
+  prompt-listview-padding:              60px 114px 0px 114px;
+  prompt-element-padding:               26px  29px  24px  2px;
+  list-element-padding:                 20px;
+  list-element-margin:                  @inputbar-margin;
+  list-element-border:                  0px 8px 0px 8px;
+  list-8-window-padding:                219px 360px;
+  apps-textbox-prompt-colon-padding:    16px;
+  network-textbox-prompt-colon-padding: 14px 10px 10px 10px;
+}

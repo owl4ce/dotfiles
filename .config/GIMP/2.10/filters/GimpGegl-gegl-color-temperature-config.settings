@@ -1,0 +1,44 @@
+# settings
+
+(GimpGegl-gegl-color-temperature-config "2020-09-12 14:37:25"
+    (time 1599896245)
+    (original-temperature 8000)
+    (intended-temperature 6500))
+(GimpGegl-gegl-color-temperature-config "2020-08-18 00:40:56"
+    (time 1597686056)
+    (original-temperature 6000)
+    (intended-temperature 4000))
+(GimpGegl-gegl-color-temperature-config "2020-07-25 01:54:44"
+    (time 1595616884)
+    (original-temperature 6500)
+    (intended-temperature 6540))
+(GimpGegl-gegl-color-temperature-config "2020-07-25 01:30:37"
+    (time 1595615437)
+    (original-temperature 6500)
+    (intended-temperature 4875.8000000000002))
+(GimpGegl-gegl-color-temperature-config "2020-07-23 12:26:34"
+    (time 1595481994)
+    (original-temperature 12000)
+    (intended-temperature 6500))
+(GimpGegl-gegl-color-temperature-config "2020-07-23 12:21:49"
+    (time 1595481709)
+    (original-temperature 12000)
+    (intended-temperature 6000))
+(GimpGegl-gegl-color-temperature-config "2020-07-23 12:14:38"
+    (time 1595481278)
+    (original-temperature 6500)
+    (intended-temperature 2500))
+(GimpGegl-gegl-color-temperature-config "2020-07-12 16:21:13"
+    (time 1594545673)
+    (original-temperature 8500)
+    (intended-temperature 6500))
+(GimpGegl-gegl-color-temperature-config "2020-07-05 07:47:33"
+    (time 1593910053)
+    (original-temperature 6500)
+    (intended-temperature 7000))
+(GimpGegl-gegl-color-temperature-config "2020-07-05 05:07:07"
+    (time 1593900427)
+    (original-temperature 7000)
+    (intended-temperature 6000))
+
+# end of settings

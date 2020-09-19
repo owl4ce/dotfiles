@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Eyecandy Theme UI (Minimal Mode)
+
+wall="$(cat ~/.config/openbox/visual-mode/eyecandy/wall-minimal)"
+
+# Background Handler
+nitrogen --set-zoom-fill --save ~/.wallpaper/eyecandy/$wall &> /dev/null
+
+# Panel
+tint2 -c ~/.config/tint2/statint.tint2rc &
+
+# Notification Daemon
+dunst -config ~/.config/dunst/dunstrc-left &

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Openbox window button location switcher
+
+current="$(cat ~/.config/openbox/rc.xml | grep '<titleLayout>' | awk -F' ' '{print $1}')"
+chkmin="$(cat ~/.config/openbox/visual-mode/current | grep 'minimal')"
+
+icon="~/.icons/gladient/obt-s.png"
+
+if [[ $chkmin != *"minimal"* ]]; then
+
+    if [[ $current != *"<titleLayout>LIMC</titleLayout>"* ]]; then
+        sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' ~/.config/openbox/rc.xml
+        openbox --reconfigure
+    else
+        sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' ~/.config/openbox/rc.xml
+        openbox --reconfigure
+    fi
+    
+else
+
+    notify-send -u low -i $icon "OB Button Switcher" "Disable Minimal Mode to switch button"
+    
+fi
