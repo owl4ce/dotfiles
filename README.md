@@ -34,14 +34,14 @@ Here are some details about my setup:
 
 - **UI Enlargement**: Fonts, etc. - [See gallery](https://github.com/owl4ce/dotfiles/wiki/Gallery)
 - **GTK+ Theme**: Google-chrome / Chromium - [See tip](#some-user-configuration)
-- **Ncmpcpp**: FFmpeg as image converter and new looks
-- **New Icons**: [Gladient](https://play.google.com/store/apps/details?id=com.maxghani.gladient&hl=en) for desktop menu and notification ( **©** )
 - **New Scripts**:
   - [Openbox button style changer](./.config/openbox/visual-mode/obch)
   - [MPD track change detector](./.ncmpcpp/scripts/track-change-detector)
+- **New Icons**: [Gladient](https://play.google.com/store/apps/details?id=com.maxghani.gladient&hl=en) ( **©** )
 - **New Wallpapers** (can be [added](./.wallpaper/) by yourself)
-- **Major Changes**: Reconfigure all files (scripting algorithms, etc.)
+- **Ncmpcpp**: New looks
 - **SliM**: New looks
+- **Major Changes**: Reconfigure all files (scripting algorithms, etc.)
 
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
