@@ -226,7 +226,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   
   Tabliss -  Widgets Font
   - Greeting, Message: [Youth Touch DEMO](https://www.dafont.com/youth-touch.font)
-  - Time, Search Box, Weather: [SNFS Display](./Others/slim/fonts)
+  - Time, Search Box, Weather: [SFNS Display](./Others/slim/fonts)
 
 - **Screenshots (now, select/draw, timer)** \
   `~/.scripts/shot-now` \
