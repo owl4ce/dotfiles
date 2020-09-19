@@ -8,7 +8,7 @@
 </p>
 
 ##  
-### :octocat: Hi there! Thanks for visiting!
+## :octocat: Hi there! Thanks for visiting!
 
 <a href="https://youtu.be/BrivcfEEAqs"><img src="https://i.ibb.co/jkFJDw8/SLi-M-CHESS.gif" alt="thumbnail" align="right" width="400px"></a>
 
@@ -169,7 +169,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   <br>
   
-  **Optional**: [audacious](https://audacious-media-player.org/), [cava](https://github.com/karlstav/cava), [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu), [ranger](https://github.com/ranger/ranger), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/id/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
+  **Optional**: [audacious](https://audacious-media-player.org/), [cava](https://github.com/karlstav/cava), [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/id/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
 
 ### Installation (dotfiles)
   <details open>
