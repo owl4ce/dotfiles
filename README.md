@@ -8,7 +8,7 @@
 </p>
 
 ##  
-## :octocat: Hi there! Thanks for visiting!
+### :octocat: Hi there! Thanks for visiting!
 
 <a href="https://youtu.be/BrivcfEEAqs"><img src="https://i.ibb.co/jkFJDw8/SLi-M-CHESS.gif" alt="thumbnail" align="right" width="400px"></a>
 
