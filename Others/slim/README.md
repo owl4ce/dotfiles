@@ -18,12 +18,14 @@ More information is available on the [Arch Wiki](https://wiki.archlinux.org/inde
 
 ## Additional configuration
 > Edit the **slim.conf** file.
-- Screenshots
+- Screenshots - <kbd>F11</kbd>
   ```cfg
   screenshot_cmd      scrot -e 'mv $f /home/username/Pictures/'
   ```
 
 <img src="https://i.ibb.co/dWKLVQc/2020-09-19-012206-1366x768-scrot.png" alt="custom.slim" align="center">
+
+<br>
 
 If you want a slim **bluesky** theme it's also available at [bluesky.tar.xz](./bluesky.tar.xz).
 <img src="https://i.ibb.co/YbmmDvk/SLi-M-Bluesky.png" alt="bluesky.slimlock" align="center">
