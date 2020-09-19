@@ -40,7 +40,7 @@ Here are some details about my setup:
 - **New Icons**: [Gladient](https://play.google.com/store/apps/details?id=com.maxghani.gladient&hl=en) ( **©** )
 - **New Wallpapers** (can be [added](./.wallpaper/) by yourself)
 - **Ncmpcpp**: New looks
-- **SliM**: New looks
+- **SLiM**: New looks
 - **Major Changes**: Reconfigure all files (scripting algorithms, etc.)
 
 ## :rice_scene:  Setup
