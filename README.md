@@ -8,7 +8,7 @@
 </p>
 
 ##  
-### :octocat: Hi there! Thanks for visiting!
+### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 <a href="https://youtu.be/BrivcfEEAqs"><img src="https://i.ibb.co/jkFJDw8/SLi-M-CHESS.gif" alt="thumbnail" align="right" width="400px"></a>
 
