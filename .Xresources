@@ -22,9 +22,9 @@ URxvt.tabbedex.new-button:        false
 URXvt.tabbedex.reopen-on-close:   yes
 URxvt.tabbedex.autohide:          yes
 
-URxvt.tabbedex.tabbar-fg:         4
+URxvt.tabbedex.tabbar-fg:         1
 URxvt.tabbedex.tabbar-bg:         0
-URxvt.tabbedex.tab-fg:            7
+URxvt.tabbedex.tab-fg:            4
 URxvt.tabbedex.tab-bg:            0
 URxvt.tabbedex.bell-fg:           0
 URxvt.tabbedex.bell-bg:           0
