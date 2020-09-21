@@ -33,9 +33,9 @@ Here are some details about my setup:
 <img src="https://i.ibb.co/92bZ9Br/2020-09-19-183802-1366x768-scrot.png" alt="google-chrome.thumbnail" align="right" width="400px">
 
 - **UI Enlargement**: Fonts, etc. - [See gallery](https://github.com/owl4ce/dotfiles/wiki/Gallery)
-- **GTK+ Theme**: Google-chrome / Chromium - [See tip](#some-user-configuration)
+- **GTK+ Theme**: Google-chrome / Chromium - [See tip](#user-configuration)
 - **New Scripts**:
-  - [Openbox button style changer](./.config/openbox/visual-mode/obch)
+  - [Openbox button style changer](./.config/openbox/visual-mode/obch) - [See buttons](./.themes/Buttons)
   - [MPD track change detector](./.ncmpcpp/scripts/track-change-detector)
 - **New Icons**: [Gladient](https://play.google.com/store/apps/details?id=com.maxghani.gladient&hl=en) ( **©** )
 - **New Wallpapers** (can be [added](./.wallpaper/) by yourself)
@@ -169,7 +169,10 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   <br>
   
-  **Optional**: [audacious](https://audacious-media-player.org/), [cava](https://github.com/karlstav/cava), [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/id/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
+  **Optional**: [audacious](https://audacious-media-player.org/), [cava](https://github.com/karlstav/cava), [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu), [slim](https://wiki.archlinux.org/index.php/SLiM), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
+
+### Detailed environment
+Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 ### Installation (dotfiles)
   <details open>
@@ -212,10 +215,7 @@ fc-cache -rv
 ```
 The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./Others/slim).
 
-### Detailed environment
-Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
-
-### Some user configuration
+### User configuration
 - **Google-chrome / Chromium (tip)** \
   Settings: `chrome://settings/`
   - Themes: `Use GTK+`
@@ -248,7 +248,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   - `brightnessctl`
   - *others if needed*
   ```bash
-  sudo chmod u+s /bin/{poweroff,reboot,brightnessctl}
+  sudo chmod u+s /usr/bin/{poweroff,reboot,brightnessctl}
   ```
   > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
   
@@ -348,6 +348,9 @@ It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder w
 - [Aditya Shakya](https://github.com/adi1090x)
 - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
 - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
+- [Themix-Project](https://github.com/themix-project) - [Oomox](https://github.com/themix-project/oomox)
+- [Nana-4](https://github.com/nana-4) - [Materia-theme](https://github.com/nana-4/materia-theme)
+- [Papirus Development Team](https://github.com/PapirusDevelopmentTeam) - [Papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+- [Slava Levit](https://github.com/vlevit) - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
 - Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart) and [r/unixporn](https://www.reddit.com/r/unixporn/).
-- Some people in the forum who provide solutions.
-- All artists who make pictures, illustrations, and wallpapers ( **©** ).
+- All artists who make icon, illustrations, and wallpapers ( **©** ).
