@@ -183,7 +183,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
      git clone https://github.com/owl4ce/dotfiles.git
      ```
    - ```bash
-     cd dotfiles/ && cp -r * ~/
+     cd dotfiles/ && cp -r {.*,*} ~/
      ```
    - ```bash
      rm -r ~/{README.md,LICENSE,.git} # Delete unnecessary files
@@ -204,7 +204,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
      sudo cp -r {Papirus-Custom,Papirus-Dark-Custom} /usr/share/icons/
      ```
    - ```bash
-     rm ~/.icons/{Papirus-Custom,Papirus-Dark-Custom}.tar.xz # Delete unnecessary archives
+     rm -r ~/.icons/{Papirus-Custom,Papirus-Dark-Custom,*.tar.xz} # Delete unnecessary archives
      ```
      
    </details>
