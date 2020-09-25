@@ -177,25 +177,25 @@
         <command>bash -c '~/.scripts/notify/change-volume mute'</command>
       </action>
     </keybind>
-    <!-- MPD control -->
+    <!-- music control -->
     <keybind key="XF86AudioStop">
       <action name="Execute">
-        <command>bash -c 'mpc -q stop ; ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "MPD" "Music Stopped"'</command>
+        <command>bash -c '~/.scripts/music-controller stop'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>mpc -q toggle</command>
+        <command>bash -c '~/.scripts/music-controller toggle'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPrev">
       <action name="Execute">
-        <command>mpc -q prev</command>
+        <command>bash -c '~/.scripts/music-controller prev'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
       <action name="Execute">
-        <command>mpc -q next</command>
+        <command>bash -c '~/.scripts/music-controller next'</command>
       </action>
     </keybind>
     <!-- window switching with the arrow keys -->
@@ -435,14 +435,9 @@
         <command>thunar</command>
       </action>
     </keybind>
-    <keybind key="W-m">
+   <keybind key="W-m">
       <action name="Execute">
-        <command>bash -c '~/.ncmpcpp/scripts/notify'</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-m">
-      <action name="Execute">
-        <command>bash -c '~/.config/rofi/scripts/mpd.sh'</command>
+        <command>bash -c '~/.config/rofi/scripts/$(cat ~/.config/openbox/music-player).sh'</command>
       </action>
     </keybind>
     <keybind key="Print">

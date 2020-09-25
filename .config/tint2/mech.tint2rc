@@ -259,18 +259,18 @@ ac_disconnected_cmd =
 #-------------------------------------
 # Executor 1
 execp = new
-execp_command = ~/.config/tint2/executor/mpd
+execp_command = .scripts/music-controller icon
 execp_interval = 1
 execp_has_icon = 0
 execp_cache_icon = 0
 execp_continuous = 0
 execp_markup = 0
-execp_tooltip = Toggle pause/play │Notify current song │Open MPD Menu
-execp_lclick_command = mpc toggle
-execp_rclick_command = ~/.config/rofi/scripts/mpd.sh
-execp_mclick_command = ~/.ncmpcpp/scripts/notify
-execp_uwheel_command = ~/.scripts/notify/change-volume up
-execp_dwheel_command = ~/.scripts/notify/change-volume down
+execp_tooltip = Toggle play/pause │Open Menu │Scroll to switch music player between mpd and spotify
+execp_lclick_command = ~/.scripts/music-controller toggle
+execp_rclick_command = ~/.config/rofi/scripts/$(cat ~/.config/openbox/music-player).sh
+execp_mclick_command = 
+execp_uwheel_command = ~/.scripts/music-controller switchpl
+execp_dwheel_command = ~/.scripts/music-controller switchpl
 execp_font = Material 15
 execp_font_color = #f9f9f9 100
 execp_padding = 5 0
