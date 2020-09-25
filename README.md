@@ -342,6 +342,7 @@ It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder w
 <p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a PR. Or if there is a problem with configuration you can make an issue here.</p><p align="center"><b>Thank you!</b></p>
 
 ## :hearts:  Credits / Thanks
+- [Openbox Wiki](http://openbox.org/wiki/Help:Themes)
 - [Elenapan](https://github.com/elenapan)
 - [Adhi Pambudi](https://github.com/addy-dclxvi)
 - [Fikri Omar](https://github.com/fikriomar16)
@@ -356,4 +357,4 @@ It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder w
 - [Papirus Development Team](https://github.com/PapirusDevelopmentTeam) - [Papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 - [Slava Levit](https://github.com/vlevit) - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
 - Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart) and [r/unixporn](https://www.reddit.com/r/unixporn/).
-- All artists who make icon, illustrations, and wallpapers ( **©** ).
+- All artists who make icons, illustrations, and wallpapers ( **©** ).
