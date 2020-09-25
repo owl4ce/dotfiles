@@ -36,8 +36,8 @@ Here are some details about my setup:
 - **GTK+ Theme**: Google-chrome / Chromium - [See tip](#user-configuration)
 - **New Scripts**:
   - [Openbox button style changer](./.config/openbox/visual-mode/obch) - [See buttons](./.themes/Buttons)
+  - [Music controller](./.scripts/music-controller) - [MPD/Spotify](https://github.com/owl4ce/dotfiles/issues/7)
   - [MPD track change detector](./.ncmpcpp/scripts/track-change-detector)
-  - [Music controller](./scripts/music-controller)
 - **New Icons**: [Gladient](https://play.google.com/store/apps/details?id=com.maxghani.gladient&hl=en) ( **©** )
 - **New Wallpapers** (can be [added](./.wallpaper/) by yourself)
 - **Ncmpcpp**: New looks
