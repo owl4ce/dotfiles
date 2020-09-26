@@ -5,10 +5,10 @@
 current="$(cat ~/.config/openbox/music-player)"
 
 if [[ $current == *"mpd"* ]]; then
-    prev="mpc prev"
-    toggle="mpc toggle"
-    stop="mpc stop"
-    next="mpc next"
+    prev="mpc -q prev"
+    toggle="mpc -q toggle"
+    stop="mpc -q stop"
+    next="mpc -q next"
     status="mpc status"
     title="$(mpc current)"
 else
