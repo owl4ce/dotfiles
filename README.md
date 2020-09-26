@@ -1,4 +1,4 @@
-<p align="center"><a name="top" href="#octocat-hi-there-thanks-for-visiting"><img height="60%" width="100%" src="https://i.ibb.co/k4PbLjv/dotfiles.png"></a></p>
+<p align="center"><a name="top" href="#octocat-hi-there-thanks-for-visiting-"><img height="60%" width="100%" src="https://i.ibb.co/k4PbLjv/dotfiles.png"></a></p>
 
 <p align="center">
 <a href="#rice_scene--setup"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b5DYRxb/setup.png"></a>
@@ -262,7 +262,7 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   - `brightnessctl`
   - *others if needed*
   ```bash
-  sudo chmod u+s /usr/bin/{poweroff,reboot,brightnessctl}
+  sudo chmod u+s /usr/{bin,sbin}/{poweroff,reboot,brightnessctl}
   ```
   > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
   
