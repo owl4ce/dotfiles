@@ -346,7 +346,7 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   ```
   
 > **How to use ncmpcpp albumart?** \
-It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more.
+It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
