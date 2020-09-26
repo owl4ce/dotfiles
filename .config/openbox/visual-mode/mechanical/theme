@@ -40,7 +40,7 @@ sed -i '41s_<size>.*_<size>10</size>_' ~/.config/openbox/rc.xml
 sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' ~/.config/openbox/rc.xml
 
 # Set Openbox Window Decoration
-sed -i '811s_<decor>.*_<decor>yes</decor>_' ~/.config/openbox/rc.xml
+sed -i '806s_<decor>.*_<decor>yes</decor>_' ~/.config/openbox/rc.xml
 
 # Reconfigure Openbox
 openbox --reconfigure --restart
