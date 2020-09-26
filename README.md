@@ -65,7 +65,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>oh-my-zsh & plugins</summary>
   
   - ```bash
-    chsh -s /usr/bin/zsh # Change the default shell to zsh for current user
+    chsh -s /usr/bin/zsh # Change default shell to zsh for current user
     ```
   - ```bash
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -154,7 +154,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>oh-my-zsh & plugins</summary>
   
   - ```bash
-    chsh -s /usr/bin/zsh # Change the default shell to zsh for current user
+    chsh -s /usr/bin/zsh # Change default shell to zsh for current user
     ```
   - ```bash
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -229,6 +229,19 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   - Greeting, Message: [Youth Touch DEMO](https://www.dafont.com/youth-touch.font)
   - Time, Search Box, Weather: [SFNS Display](./Others/slim/fonts)
 
+- **Dunst Action: Default Web Browser (`middle click`)** \
+  `~/.config/dunst/dunstrc-left` \
+  `~/.config/dunst/dunstrc-right` \
+  `~/.config/dunst/dunstrc-dark-left` \
+  `~/.config/dunst/dunstrc-dark-right`
+  ```cfg
+  ...
+  
+  browser = google-chrome-stable
+  
+  ...
+  ```
+  
 - **Screenshots (now, select/draw, timer)** \
   `~/.scripts/shot-now` \
   `~/.scripts/shot-seldraw` \
