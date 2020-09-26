@@ -259,7 +259,7 @@ ac_disconnected_cmd =
 #-------------------------------------
 # Executor 1
 execp = new
-execp_command = .scripts/music-controller icon
+execp_command = ~/.scripts/music-controller icon
 execp_interval = 1
 execp_has_icon = 0
 execp_cache_icon = 0

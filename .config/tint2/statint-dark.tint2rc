@@ -374,13 +374,13 @@ separator_padding = 0 0
 #-------------------------------------
 # Executor 1
 execp = new
-execp_command = .scripts/music-controller icon
+execp_command = ~/.scripts/music-controller icon
 execp_interval = 1
 execp_has_icon = 0
 execp_cache_icon = 0
 execp_continuous = 0
 execp_markup = 0
-execp_tooltip = Toggle play/pause │Open Menu │Scroll to switch music player between mpd and spotify
+execp_tooltip = Toggle play/pause │Scroll to switch music player between mpd and spotify │Open Menu
 execp_lclick_command = ~/.scripts/music-controller toggle
 execp_rclick_command = ~/.config/rofi/scripts/$(cat ~/.config/openbox/music-player).sh
 execp_mclick_command = 
@@ -397,7 +397,7 @@ execp_icon_h = 0
 #-------------------------------------
 # Executor 2
 execp = new
-execp_command = .scripts/music-controller title
+execp_command = ~/.scripts/music-controller title
 execp_interval = 1
 execp_has_icon = 0
 execp_cache_icon = 0
