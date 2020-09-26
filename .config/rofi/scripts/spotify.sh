@@ -38,12 +38,12 @@ case $chosen in
         playerctl -p spotify play-pause
         ;;
     $stop)
-        playerctl -p spotify stop ; ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
+        playerctl -p spotify stop && ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
         ;;
     $next)
         playerctl -p spotify next
         ;;
     $tog_stream)
-        echo "mpd" > ~/.config/openbox/music-player ; ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Set <u>`cat ~/.config/openbox/music-player`</u> as default"
+        echo "mpd" > ~/.config/openbox/music-player && ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Set <u>`cat ~/.config/openbox/music-player`</u> as default"
         ;;
 esac

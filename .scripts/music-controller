@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Music (spotify-mpd) controller
+# Music (mpd/spotify) controller
 
 current="$(cat ~/.config/openbox/music-player)"
 
@@ -46,7 +46,7 @@ case $1 in
     bash -c "$toggle"
     ;;
     stop)
-    bash -c "$stop" ; ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
+    bash -c "$stop" && ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
     ;;
     next)
     bash -c "$next"

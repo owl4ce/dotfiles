@@ -48,7 +48,7 @@ case $chosen in
         mpc -q toggle
         ;;
     $stop)
-        mpc -q stop ; ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
+        mpc -q stop && ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
         ;;
     $next)
         mpc -q next
@@ -57,6 +57,6 @@ case $chosen in
         mpc -q single
         ;;
     $tog_stream)
-        echo "spotify" > ~/.config/openbox/music-player ; ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Set <u>`cat ~/.config/openbox/music-player`</u> as default"
+        echo "spotify" > ~/.config/openbox/music-player && ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Set <u>`cat ~/.config/openbox/music-player`</u> as default"
         ;;
 esac
