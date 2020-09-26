@@ -133,7 +133,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
     apt install obmenu-generator libgtk2-perl
     ```
     
-  - [Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md)
+  - [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md)
   
   </details>
   
@@ -210,7 +210,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
      
    </details>
 
-For refresh font cache do: 
+For refresh font cache do
 ```bash
 fc-cache -rv
 ```
@@ -277,7 +277,7 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   ```cfg
   ...
   
-  URxvt.iconFile:                   /home/yuuto/.icons/gladient/term.png
+  URxvt.iconFile:                   /home/username/.icons/gladient/term.png
   
   ...
   ```
