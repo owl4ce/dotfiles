@@ -65,7 +65,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>oh-my-zsh & plugins</summary>
   
   - ```bash
-    chsh -s /usr/bin/zsh
+    chsh -s /usr/bin/zsh # Change the default shell to zsh for current user
     ```
   - ```bash
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -154,7 +154,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>oh-my-zsh & plugins</summary>
   
   - ```bash
-    chsh -s /usr/bin/zsh
+    chsh -s /usr/bin/zsh # Change the default shell to zsh for current user
     ```
   - ```bash
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -170,7 +170,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   <br>
   
-  **Optional**: [audacious](https://audacious-media-player.org/), [cava](https://github.com/karlstav/cava), [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
+  **Optional**: [cava](https://github.com/karlstav/cava), [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
 
 ### Detailed environment
 Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
@@ -205,7 +205,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
      sudo cp -r {Papirus-Custom,Papirus-Dark-Custom} /usr/share/icons/
      ```
    - ```bash
-     rm -r ~/.icons/{Papirus-Custom,Papirus-Dark-Custom,*.tar.xz} # Delete unnecessary archives
+     rm -r ~/.icons/{Papirus-Custom,Papirus-Dark-Custom,*.tar.xz} # Delete unnecessary files
      ```
      
    </details>
