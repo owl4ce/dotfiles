@@ -21,11 +21,10 @@ else
         title="$(playerctl -p spotify metadata -f '{{artist}} - {{title}}')"
     else
         prev=""
-        play=""
+        toggle=""
         stop=""
         next=""
         status=""
-        toggle=""
         title="There is no mpd or spotify installed"
     fi
 fi

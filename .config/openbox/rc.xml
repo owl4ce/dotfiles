@@ -435,7 +435,7 @@
         <command>thunar</command>
       </action>
     </keybind>
-   <keybind key="W-m">
+    <keybind key="W-m">
       <action name="Execute">
         <command>bash -c '~/.config/rofi/scripts/$(cat ~/.config/openbox/music-player).sh'</command>
       </action>
