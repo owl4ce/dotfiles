@@ -60,6 +60,7 @@ case $1 in
 	amixer -D pulse sset Master 5%+ -q
     ;;
     down)
+    # Unmute
     amixer -D pulse set Master on -q
     # -5%
 	amixer -D pulse sset Master 5%- -q
@@ -67,10 +68,5 @@ case $1 in
     mute)
     # Toggle mute
 	amixer -D pulse set Master 1+ toggle -q
-	if $chkmute ; then
-    icon=""
-    echo "$icon"
-	else
-	    icon
-	fi
+	;;
 esac    
