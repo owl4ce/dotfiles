@@ -229,6 +229,12 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   - Greeting, Message: [Youth Touch DEMO](https://www.dafont.com/youth-touch.font)
   - Time, Search Box, Weather: [SFNS Display](./Others/slim/fonts)
 
+- **Spotify - Spicetify Theme (tip)**
+
+  <img src="https://i.ibb.co/gyWPy39/2020-09-30-013453-1366x768-scrot.png" alt="horizon.thumbnail" align="center" width="100%">
+  
+  [Dribbblish - Horizon](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish#horizon)
+  
 - **Dunst Action: Default Web Browser (`middle click`)** \
   `~/.config/dunst/dunstrc-left` \
   `~/.config/dunst/dunstrc-right` \
