@@ -30,7 +30,7 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/)
 
 ## :gift: Changelogs
-<img src="https://i.ibb.co/92bZ9Br/2020-09-19-183802-1366x768-scrot.png" alt="google-chrome.thumbnail" align="right" width="400px">
+<img src="https://i.ibb.co/ZT8GbLj/Rike-Koi-Eng-owl4ce.png" alt="RikeKoi.owl4ce" align="right" width="400px">
 
 - **UI Enlargement**: Fonts, etc. - [See gallery](https://github.com/owl4ce/dotfiles/wiki/Gallery)
 - **GTK+ Theme**: Google-chrome / Chromium - [See tip](#user-configuration)
@@ -217,7 +217,10 @@ fc-cache -rv
 The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./Others/slim).
 
 ### User configuration
-- **Google-chrome / Chromium (tip)** \
+- **Google-chrome / Chromium (tip)**
+
+  <img src="https://i.ibb.co/92bZ9Br/2020-09-19-183802-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%">
+
   Settings: `chrome://settings/`
   - Themes: `Use GTK+`
   - `Use system title bar and borders`
