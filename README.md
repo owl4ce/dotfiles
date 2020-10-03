@@ -42,7 +42,12 @@ Here are some details about my setup:
 - **New Wallpapers** (can be [added](./.wallpaper/) by yourself)
 - **Ncmpcpp**: New looks
 - **SLiM**: New looks
-- **Major Changes**: Reconfigure all files (scripting algorithms, etc.)
+- **Major Changes**: Reconfigure all files
+
+<br>
+<br>
+<br>
+<br>
 
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
