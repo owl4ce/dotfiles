@@ -30,7 +30,7 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/)
 
 ## :gift: Changelogs
-<img src="https://i.ibb.co/ZT8GbLj/Rike-Koi-Eng-owl4ce.png" alt="RikeKoi.owl4ce" align="right" width="400px">
+<img src="https://i.ibb.co/grQBY3Y/Rike-Koi-owl4ce.png" alt="RikeKoi.owl4ce" align="right" width="400px">
 
 - **UI Enlargement**: Fonts, etc. - [See gallery](https://github.com/owl4ce/dotfiles/wiki/Gallery)
 - **GTK+ Theme**: Google-chrome / Chromium - [See tip](#user-configuration)
