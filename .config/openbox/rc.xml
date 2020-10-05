@@ -453,27 +453,27 @@
         <command>bash -c '~/.scripts/shot-now'</command>
       </action>
     </keybind>
-     <keybind key="Print-S">
+     <keybind key="C-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-now -C'</command>
       </action>
     </keybind>
-    <keybind key="Print-C">
+    <keybind key="S-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-seldraw'</command>
       </action>
     </keybind>
-    <keybind key="Print-C-S">
+    <keybind key="S-C-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-seldraw -C'</command>
       </action>
     </keybind>
-    <keybind key="Print-C-S-f">
+    <keybind key="S-C-f-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-seldraw -C -F'</command>
       </action>
     </keybind>
-    <keybind key="Print-C-f">
+    <keybind key="S-f-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-seldraw -F'</command>
       </action>
