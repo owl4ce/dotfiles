@@ -26,13 +26,13 @@
     <!-- whether to place windows in the center of the free area found or the top left corner -->
     <monitor>Mouse</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where the active window is, 'Primary' - only on the primary monitor -->
-    <primaryMonitor>1</primaryMonitor>
+    <primaryMonitor>1</primaryMonitor>1
     <!-- The monitor where Openbox should place popup dialogs such as the focus cycling popup, or the desktop switch popup. It can be an index from 1, specifying a particular monitor. Or it can be one of the following: 'Mouse' - where the mouse is, or
     'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Sweetly</name>
-    <titleLayout>CIML</titleLayout>
+    <name>Fleon</name>
+    <titleLayout>LIMC</titleLayout>
     <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
@@ -117,18 +117,18 @@
     <!-- 'Center', 'Top', or 'Fixed' -->
     <popupFixedPosition>
       <!-- these are used if popupPosition is set to 'Fixed' -->
-      <x>10</x>
+      <x>0</x>
       <!-- positive number for distance from left edge, negative number for distance from right edge, or 'Center' -->
-      <y>10</y>
+      <y>0</y>
       <!-- positive number for distance from top edge, negative number for distance from bottom edge, or 'Center' -->
     </popupFixedPosition>
   </resize>
   <!-- You can reserve a portion of your screen where windows will not cover when they are maximized, or when they are initially placed. Many programs reserve space automatically, but you can use this in other cases. -->
   <margins>
     <top>10</top>
-    <bottom>55</bottom>
-    <left>10</left>
-    <right>10</right>
+    <bottom>10</bottom>
+    <left>55</left>
+    <right>0</right>
   </margins>
   <dock>
     <position>Bottom</position>
@@ -231,7 +231,7 @@
     <keybind key="W-S-Left">
       <action name="MoveResizeTo">
         <x>0</x>
-        <y>0</y>
+        <y>-10</y>
         <width>1/2</width>
         <height>1/1</height>
       </action>
@@ -239,14 +239,14 @@
     <keybind key="W-S-Right">
       <action name="MoveResizeTo">
         <x>-0</x>
-        <y>0</y>
+        <y>-10</y>
         <width>1/2</width>
         <height>1/1</height>
       </action>
     </keybind>
     <keybind key="W-S-Up">
       <action name="MoveResizeTo">
-        <y>0</y>
+        <y>-10</y>
         <width>1/2</width>
         <height>1/2</height>
       </action>
@@ -258,6 +258,14 @@
         <height>1/2</height>
       </action>
     </keybind>
+        <keybind key="W-S-space">
+        <action name="MoveResizeTo">
+        <x>-10</x>
+        <y>-10</y>
+        <width>1/1</width>
+        <height>1/1</height>
+  </action>
+</keybind>
     <!-- desktop switching -->
     <keybind key="W-1">
       <action name="GoToDesktop">
@@ -443,6 +451,31 @@
     <keybind key="Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-now'</command>
+      </action>
+    </keybind>
+     <keybind key="Print-S">
+      <action name="Execute">
+        <command>bash -c '~/.scripts/shot-now -C'</command>
+      </action>
+    </keybind>
+    <keybind key="Print-C">
+      <action name="Execute">
+        <command>bash -c '~/.scripts/shot-seldraw'</command>
+      </action>
+    </keybind>
+    <keybind key="Print-C-S">
+      <action name="Execute">
+        <command>bash -c '~/.scripts/shot-seldraw -C'</command>
+      </action>
+    </keybind>
+    <keybind key="Print-C-S-f">
+      <action name="Execute">
+        <command>bash -c '~/.scripts/shot-seldraw -C -F'</command>
+      </action>
+    </keybind>
+    <keybind key="Print-C-f">
+      <action name="Execute">
+        <command>bash -c '~/.scripts/shot-seldraw -F'</command>
       </action>
     </keybind>
     <keybind key="W-Print">

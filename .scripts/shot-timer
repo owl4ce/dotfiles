@@ -7,6 +7,13 @@ savedir=~/Pictures
 sec="5"
 
 icon="~/.icons/gladient/shot.png"
+copy=0
+for flag in "$@"
+do
+  case $flag in
+     -C ) copy=1                                ;;
+  esac
+done
 
 # Begin
 notify-send -t 1000 -i $icon -u low "Screenshot" "In $(echo $sec)s .."
@@ -14,7 +21,11 @@ notify-send -t 1000 -i $icon -u low "Screenshot" "In $(echo $sec)s .."
 rm /tmp/*_scrot*.png
 scrot -d $sec -e 'mv $f /tmp/'
 current="$(ls /tmp/ | grep 'scrot')"
-cp /tmp/$current $savedir
-rm /tmp/*_scrot*.png
+mv /tmp/$current $savedir
+if [ $copy -eq 1 ]
+then
+    xclip -selection clipboard -t image/png -i $savedir/$current
+fi
 
 notify-send -i $icon -u low "Screenshot" "Saved in\n<u>$savedir/</u>"
+exit 0

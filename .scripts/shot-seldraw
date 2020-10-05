@@ -2,11 +2,22 @@
 
 # Select window or draw and add borders then show preview
 # See scrot manual
-
+echo "$@"
 savedir=~/Pictures
 bordercolor="#ffffff"
 
 icon="~/.icons/gladient/shot.png"
+framed=0
+copy=0
+for flag in "$@"
+do
+  case $flag in
+     -F ) framed=1                              ;;
+     -C ) copy=1                                ;;
+  esac
+done
+echo $framed
+echo $copy
 
 # Begin
 rm /tmp/*_scrot*.png
@@ -18,21 +29,33 @@ notify-send -t 750 -i $icon -u low "Screenshot" "Processing captured image"
 # Use imagemagick to add border
 current="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
 
-convert /tmp/$current.png \( +clone -background black -shadow 30x10+0+0 \) \
-+swap -background none -layers merge +repage /tmp/$current-shadow.png
+if [ $framed -eq 1 ]
+then
+    convert /tmp/$current.png \( +clone -background black -shadow 30x10+0+0 \) \
+    +swap -background none -layers merge +repage /tmp/$current-shadow.png
 
-convert /tmp/$current-shadow.png -bordercolor $bordercolor \
--border 5 $savedir/$current-framed.png
+    convert /tmp/$current-shadow.png -bordercolor $bordercolor \
+    -border 5 $savedir/$current-framed.png
+fi
+# Moving original file
+mv /tmp/$current.png $savedir
 
-# Copy original file
-cp /tmp/$current.png $savedir
-
-rm /tmp/*_scrot*.png
+if [ $copy -eq 1 ]
+then
+    if [ $framed -eq 1 ]
+    then
+        xclip -selection clipboard -t image/png -i $savedir/$current-framed.png
+    else
+        xclip -selection clipboard -t image/png -i $savedir/$current.png
+    fi
+fi
 
 # Checking final file
 [[ -f $savedir/$current-framed.png ]] && \
+[[ -f $savedir/$current.png ]] && \
 
-notify-send -i $icon -u low "Screenshot" "Saved in\n<u>$savedir/</u>" && \
+notify-send -i $icon -u low "Screenshot" "Saved in\n<u>$savedir/$current.png</u>" && \
 
 # Open final result
-viewnior $savedir/$current-framed.png &> /dev/null
+#viewnior $savedir/$current-framed.png &> /dev/null
+exit 0

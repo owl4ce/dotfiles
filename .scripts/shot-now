@@ -7,20 +7,26 @@ savedir=~/Pictures
 
 icon="~/.icons/gladient/shot.png"
 
+copy=0
+for flag in "$@"
+do
+  case $flag in
+     -C ) copy=1                                ;;
+  esac
+done
 # Begin
 rm /tmp/*_scrot*.png
 
-case $1 in
-    delay)
-    sleep .5s
-    ;;
-    *)
-    ;;
-esac
 
 scrot -e 'mv $f /tmp/'
-current="$(ls /tmp/ | grep 'scrot')"
-cp /tmp/$current $savedir
-rm /tmp/*_scrot*.png
+current="$(ls /tmp/ | grep 'scrot**.png')"
+mv /tmp/$current $savedir
+if [ $copy -eq 1 ]
+then
+    xclip -selection clipboard -t image/png -i $savedir/$current
+fi
 
 notify-send -i $icon -u low "Screenshot" "Saved in\n<u>$savedir/</u>"
+
+
+exit 0
