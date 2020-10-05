@@ -125,9 +125,9 @@
   </resize>
   <!-- You can reserve a portion of your screen where windows will not cover when they are maximized, or when they are initially placed. Many programs reserve space automatically, but you can use this in other cases. -->
   <margins>
-    <top>10</top>
-    <bottom>10</bottom>
-    <left>55</left>
+    <top>0</top>
+    <bottom>0</bottom>
+    <left>0</left>
     <right>0</right>
   </margins>
   <dock>
@@ -231,7 +231,7 @@
     <keybind key="W-S-Left">
       <action name="MoveResizeTo">
         <x>0</x>
-        <y>-10</y>
+        <y>0</y>
         <width>1/2</width>
         <height>1/1</height>
       </action>
@@ -239,14 +239,14 @@
     <keybind key="W-S-Right">
       <action name="MoveResizeTo">
         <x>-0</x>
-        <y>-10</y>
+        <y>0</y>
         <width>1/2</width>
         <height>1/1</height>
       </action>
     </keybind>
     <keybind key="W-S-Up">
       <action name="MoveResizeTo">
-        <y>-10</y>
+        <y>0</y>
         <width>1/2</width>
         <height>1/2</height>
       </action>
@@ -260,8 +260,8 @@
     </keybind>
         <keybind key="W-S-space">
         <action name="MoveResizeTo">
-        <x>-10</x>
-        <y>-10</y>
+        <x>0</x>
+        <y>0</y>
         <width>1/1</width>
         <height>1/1</height>
   </action>
