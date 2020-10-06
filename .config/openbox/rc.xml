@@ -468,12 +468,12 @@
         <command>bash -c '~/.scripts/shot-seldraw -C'</command>
       </action>
     </keybind>
-    <keybind key="S-C-f-Print">
+    <keybind key="S-C-W-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-seldraw -C -F'</command>
       </action>
     </keybind>
-    <keybind key="S-f-Print">
+    <keybind key="S-W-Print">
       <action name="Execute">
         <command>bash -c '~/.scripts/shot-seldraw -F'</command>
       </action>
