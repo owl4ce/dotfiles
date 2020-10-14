@@ -3,14 +3,14 @@
 <p align="center">
 <a href="#rice_scene--setup"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b5DYRxb/setup.png"></a>
 <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/VVc5S9d/keybinds.png"></a>
-<a href="https://www.deviantart.com/owl4ce/gallery/75407376/joyful-desktop-screenshots"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/C1sdMw9/gallery.png"></a>
+<a href="https://www.deviantart.com/owl4ce/gallery/75428915/joyful-desktop-v2"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/C1sdMw9/gallery.png"></a>
 <a href="#memo--notes"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/g75Z25g/notes.png"></a>
 </p>
 
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/gallery/75407376/joyful-desktop-screenshots"><img src="https://i.ibb.co/qxWFfk1/preview.gif" alt="preview" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/gallery/75428915/joyful-desktop-v2"><img src="https://i.ibb.co/qxWFfk1/preview.gif" alt="preview" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
