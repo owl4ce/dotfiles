@@ -30,11 +30,11 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/)
 
 ## :gift: Changelogs v2
-<!-- <img src="" alt="" align="right" width="400px"> -->
+<a href="https://youtu.be/_PTp5mh5_vQ"><img src="https://i.ibb.co/Ph343p2/click-yt.png" alt="" align="right" width="400px"></a>
 
 - **Minimal Mode**:
   - Better Tint2 (rounded, etc.)
-  - Decorated like no in minimal mode (crossover button style)
+  - Decorated like in non-minimal mode (crossover button style)
 - **New Scripts**:
   - [Reverse URxvt Black/White](./.scripts/reverse-urxvt-bw) - [See commit](https://github.com/owl4ce/dotfiles/commit/172c3e7c6a6a66683d1fa7a6a13398f6cdd4cb14)
 - **New Wallpaper**: [Better Resolution](./.wallpaper/) (HD-8K)
@@ -326,9 +326,9 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   
   ...
   ```
-Arch|Artix|Bedrock|Gentoo|Openbox|Ubuntu|Void
+Arch|Artix|Bedrock|Gentoo|LoFi|Ubuntu|Void
 |-------|-------|-------|-------|-------|-------|-------|
-![Arch](./.config/neofetch/arch.png)|![Artix](./.config/neofetch/artix.png)|![Bedrock](./.config/neofetch/bedrock.png)|![Gentoo](./.config/neofetch/gentoo.png)|![Openbox](./.config/neofetch/ob.png)|![Ubuntu](./.config/neofetch/ubuntu.png)|![Void](./.config/neofetch/void.png)
+![Arch](./.config/neofetch/arch.png)|![Artix](./.config/neofetch/artix.png)|![Bedrock](./.config/neofetch/bedrock.png)|![Gentoo](./.config/neofetch/gentoo.png)|![LoFi](./.config/neofetch/lofi.png)|![Ubuntu](./.config/neofetch/ubuntu.png)|![Void](./.config/neofetch/void.png)
   
 - **MPD Music Directory** \
   `~/.mpd/mpd.conf`
