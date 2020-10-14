@@ -1,0 +1,8 @@
+[Desktop Entry]
+Comment=Play music on Ncmpcpp with Album Art and Vizualizer
+Terminal=false
+Name=Ncmpcpp - Album Art and Vizualizer
+Categories=AudioVideo;Audio;Player;
+Exec=bash -c '~/.ncmpcpp/launch/ncmpcpp-album-viz'
+Type=Application
+Icon=musique

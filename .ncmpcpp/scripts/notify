@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+MUSIC_DIR="$(cat ~/.ncmpcpp/config | grep 'mpd_music_dir' | awk -F'"' '{print $2}')"
+COVER="/tmp/cover-notify.jpg"
+
+{
+    album="$(mpc --format %album% current -p 6600)"
+    file="$(mpc --format %file% current -p 6600)"
+    album_dir="${file%/*}"
+    [[ -z "$album_dir" ]] && exit 1
+    album_dir="$MUSIC_DIR/$album_dir"
+    
+    covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
+    src="$(echo -n "$covers" | head -n1)"
+    rm -f "$COVER" 
+    
+    # Notify
+    if [[ -n "$src" ]] ; then
+        # Resize the image's width to 80px (ffmpeg/imagemagick)
+        ffmpeg -i "$src" -vf scale=80:80 "$COVER" &> /dev/null
+        #convert "$src" -resize 80x "$COVER" &> /dev/null
+
+        ~/.scripts/notify/notify-send.sh -u normal -r 7777 -i $COVER "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
+    else
+        fallback="~/.icons/gladient/music.png"
+        ~/.scripts/notify/notify-send.sh -u normal -r 7777 -i $fallback "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
+    fi
+    
+} &

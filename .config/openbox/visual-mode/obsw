@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Openbox window button location switcher
+
+current="$(cat ~/.config/openbox/rc.xml | grep '<titleLayout>' | awk -F' ' '{print $1}')"
+
+icon="~/.icons/gladient/obt-s.png"
+
+if [[ $current != *"<titleLayout>LIMC</titleLayout>"* ]]; then
+    sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' ~/.config/openbox/rc.xml
+    openbox --reconfigure
+else
+    sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' ~/.config/openbox/rc.xml
+    openbox --reconfigure
+fi

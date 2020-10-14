@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Network status for panel
+# Requires Material (Icomoon) Font
+
+intwifi="wlan0"
+intether="eth0"
+
+wifi=""
+wifidisabled=""
+lan=""
+
+case $1 in
+    status)
+    if [[ $(iwgetid | grep 'ESSID' | awk -F'ESSID' '{print $1}') = *"$intwifi"* ]]; then
+        iwgetid | awk -F'"' '{print $2}'
+    else
+        if [[ $(ip addr | grep $intether | grep 'inet' | awk -F' ' '{print $1}') = *"inet"* ]]; then
+            echo "$(ip addr | grep $intether | grep 'inet' | awk -F'inet ' '{print $2}' | awk -F'/' '{print $1}')"
+        else
+            echo "Disconnected"
+        fi
+    fi
+    ;;
+    icon)
+    if [[ $(iwgetid) = *"$intwifi"* ]]; then
+        echo "$wifi"
+    else
+        if [[ $(ip addr | grep $intether | grep 'inet' | awk -F' ' '{print $1}') = *"inet"* ]]; then
+            echo ""
+        else
+            echo "$wifidisabled"
+        fi
+    fi
+    ;;
+esac

@@ -1,0 +1,47 @@
+# settings
+
+(GimpGegl-gegl-color-temperature-config "2020-10-14 15:04:56"
+    (time 1602662696)
+    (original-temperature 6500)
+    (intended-temperature 6000))
+(GimpGegl-gegl-color-temperature-config "2020-10-14 15:04:02"
+    (time 1602662642)
+    (original-temperature 6500)
+    (intended-temperature 7000))
+(GimpGegl-gegl-color-temperature-config "2020-10-14 15:03:10"
+    (time 1602662590)
+    (original-temperature 6500)
+    (intended-temperature 5500))
+(GimpGegl-gegl-color-temperature-config "2020-10-14 13:50:42"
+    (time 1602658242)
+    (gimp-opacity 0.75)
+    (original-temperature 6500)
+    (intended-temperature 6000))
+(GimpGegl-gegl-color-temperature-config "2020-10-14 13:49:39"
+    (time 1602658179)
+    (gimp-opacity 0.75)
+    (original-temperature 6500)
+    (intended-temperature 5500))
+(GimpGegl-gegl-color-temperature-config "2020-10-12 14:07:33"
+    (time 1602486453)
+    (original-temperature 6500)
+    (intended-temperature 6250))
+(GimpGegl-gegl-color-temperature-config "2020-10-06 14:59:20"
+    (time 1601971160)
+    (original-temperature 6500)
+    (intended-temperature 5000))
+(GimpGegl-gegl-color-temperature-config "2020-10-05 23:21:28"
+    (time 1601914888)
+    (original-temperature 6500)
+    (intended-temperature 6400))
+(GimpGegl-gegl-color-temperature-config "2020-10-02 23:47:04"
+    (time 1601657224)
+    (original-temperature 6500)
+    (intended-temperature 5750))
+(GimpGegl-gegl-color-temperature-config "2020-10-01 21:50:25"
+    (time 1601563825)
+    (gimp-mode dissolve)
+    (original-temperature 6500)
+    (intended-temperature 7000))
+
+# end of settings

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+urxvt -g 84x12 -e ncmpcpp -c ~/.ncmpcpp/albumart
+exit 0

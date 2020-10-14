@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Fleon
+Comment=A Flat Material Dark GTK Theme (C) owl4ce
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Fleon
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

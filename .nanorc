@@ -1,0 +1,27 @@
+# FUNCTION
+set smooth
+set autoindent
+#set backup
+#set backupdir "/home/username/nano-backups"
+#set casesensitive
+#set historylog
+set morespace
+#set nohelp
+set tabsize 4
+set tabstospaces
+#set mouse
+set linenumbers
+set softwrap
+
+# COLOR SCHEME
+set titlecolor white,red
+set statuscolor magenta
+set keycolor blue
+set functioncolor white
+set numbercolor white
+
+# SYNTAX HIGHTLIGHTING
+syntax "comments" ".*"
+color blue "^#.*"
+
+include /usr/share/nano-syntax-highlighting/*.nanorc

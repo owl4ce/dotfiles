@@ -1,0 +1,176 @@
+#!/usr/bin/env bash
+
+# Wallpaper changer for Mechanical Theme and Eyecandy Theme and both Minimal Mode
+
+clear
+
+# Colored output
+RED='\033[1;31m'
+CYAN='\033[1;36m'
+GREEN='\033[1;32m'
+MAGENTA='\033[1;35m'
+NC='\033[0m' # No Color
+
+dir=~/.wallpaper
+icon="~/.icons/gladient/wally.png"
+
+current="$(cat ~/.config/openbox/visual-mode/current)"
+chkmin="$(cat ~/.config/openbox/visual-mode/current | grep 'minimal')"
+
+if [[ $chkmin == *"minimal"* ]]; then
+
+    if [[ $current == *"mechanical"* ]]; then
+        echo -e "${CYAN}Select wallpaper for Mechanical Theme [Minimal]:"
+        n=0
+        for img in $dir/mechanical/*
+        do
+            n=$((n+1))
+            printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$img"
+            eval "img${n}=\$img"
+        done
+        
+        if [ "$n" -eq 0 ]
+        then
+            printf >&2 "\n${RED}No images found\n"
+            exit
+        fi
+        
+        printf '\nEnter File Index ID (1 to %s): ' "$n"
+        read -n 1 -r num
+        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+        
+        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+        then
+            printf >&2 "\n${RED}Wrong selection\n"
+            exit 1
+        else
+            eval "IMG=\$img${num}"
+            nitrogen --set-zoom-fill --save $IMG &> /dev/null
+            
+            # Write selected
+            selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
+            echo "$selected" > ~/.config/openbox/visual-mode/mechanical/wall-minimal
+            
+            printf "\n${CYAN}Selected wallpaper: ${NC}$(cat ~/.config/openbox/visual-mode/eyecandy/wall-minimal)\n"
+            
+            # Notify success
+            notify-send -u low -i $icon "Wallpaper" "Applied: <u>$(cat ~/.config/openbox/visual-mode/mechanical/wall-minimal)</u>"
+        fi
+    else
+        echo -e "${CYAN}Select wallpaper for Eyecandy Theme [Minimal]:"
+        n=0
+        for img in $dir/eyecandy/*
+        do
+            n=$((n+1))
+            printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$img"
+            eval "img${n}=\$img"
+        done
+
+        if [ "$n" -eq 0 ]
+        then
+            printf >&2 "\n${RED}No images found\n"
+            exit
+        fi
+
+        printf '\nEnter File Index ID (1 to %s): ' "$n"
+        read -n 1 -r num
+        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+
+        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+        then
+            printf >&2 "\n${RED}Wrong selection\n"
+            exit 1
+        else
+            eval "IMG=\$img${num}"
+            nitrogen --set-zoom-fill --save $IMG &> /dev/null
+            
+            # Write selected
+            selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
+            echo "$selected" > ~/.config/openbox/visual-mode/eyecandy/wall-minimal
+            
+            printf "\n${CYAN}Selected wallpaper: ${NC}$(cat ~/.config/openbox/visual-mode/eyecandy/wall-minimal)\n"
+            
+            # Notify success
+            notify-send -u low -i $icon "Wallpaper" "Applied: <u>$(cat ~/.config/openbox/visual-mode/eyecandy/wall-minimal)</u>"
+        fi
+    fi
+    
+else
+
+    if [[ $current == *"mechanical"* ]]; then
+        echo -e "${CYAN}Select wallpaper for Mechanical Theme:"
+        n=0
+        for img in $dir/mechanical/*
+        do
+            n=$((n+1))
+            printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$img"
+            eval "img${n}=\$img"
+        done
+        
+        if [ "$n" -eq 0 ]
+        then
+            printf >&2 "\n${RED}No images found\n"
+            exit
+        fi
+        
+        printf '\nEnter File Index ID (1 to %s): ' "$n"
+        read -n 1 -r num
+        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+        
+        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+        then
+            printf >&2 "\n${RED}Wrong selection\n"
+            exit 1
+        else
+            eval "IMG=\$img${num}"
+            nitrogen --set-zoom-fill --save $IMG &> /dev/null
+            
+            # Write selected
+            selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
+            echo "$selected" > ~/.config/openbox/visual-mode/mechanical/wall
+            
+            printf "\n${CYAN}Selected wallpaper: ${NC}$(cat ~/.config/openbox/visual-mode/eyecandy/wall)\n"
+            
+            # Notify success
+            notify-send -u low -i $icon "Wallpaper" "Applied: <u>$(cat ~/.config/openbox/visual-mode/mechanical/wall)</u>"
+        fi
+    else
+        echo -e "${CYAN}Select wallpaper for Eyecandy Theme:"
+        n=0
+        for img in $dir/eyecandy/*
+        do
+            n=$((n+1))
+            printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$img"
+            eval "img${n}=\$img"
+        done
+
+        if [ "$n" -eq 0 ]
+        then
+            printf >&2 "\n${RED}No images found\n"
+            exit
+        fi
+
+        printf '\nEnter File Index ID (1 to %s): ' "$n"
+        read -n 1 -r num
+        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
+
+        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
+        then
+            printf >&2 "\n${RED}Wrong selection\n"
+            exit 1
+        else
+            eval "IMG=\$img${num}"
+            nitrogen --set-zoom-fill --save $IMG &> /dev/null
+            
+            # Write selected
+            selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
+            echo "$selected" > ~/.config/openbox/visual-mode/eyecandy/wall
+            
+            printf "\n${CYAN}Selected wallpaper: ${NC}$(cat ~/.config/openbox/visual-mode/eyecandy/wall)\n"
+            
+            # Notify success
+            notify-send -u low -i $icon "Wallpaper" "Applied: <u>$(cat ~/.config/openbox/visual-mode/eyecandy/wall)</u>"
+        fi
+    fi
+    
+fi

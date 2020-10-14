@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Music (mpd/spotify) controller
+
+current="$(cat ~/.config/openbox/music-player)"
+
+if [[ $current == *"mpd"* ]]; then
+    prev="mpc -q prev"
+    toggle="mpc -q toggle"
+    stop="mpc -q stop"
+    next="mpc -q next"
+    status="mpc status"
+    title="$(mpc --format '[%title%|%file%]' current)"
+else
+    if [[ $current == *"spotify"* ]]; then
+        prev="playerctl -p spotify previous"
+        toggle="playerctl -p spotify play-pause"
+        stop="playerctl -p spotify stop"
+        next="playerctl -p spotify next"
+        status="playerctl -p spotify status"
+        title="$(playerctl -p spotify metadata -f '{{title}}')"
+    else
+        prev=""
+        toggle=""
+        stop=""
+        next=""
+        status=""
+        title="There is no mpd or spotify installed"
+    fi
+fi
+    
+case $1 in
+    icon)
+    # For playback status on the panel
+    # Requires Material (Icomoon) Font
+    if [[ $($status) == *"laying"* ]]; then
+        echo ""
+    else
+        echo ""
+    fi
+    ;;
+    prev)
+    bash -c "$prev"
+    ;;
+    toggle)
+    bash -c "$toggle"
+    ;;
+    stop)
+    bash -c "$stop" && ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Stopped"
+    ;;
+    next)
+    bash -c "$next"
+    ;;
+    title)
+    # For song title on the panel
+    echo "$title"
+    ;;
+    switchpl)
+    # Switch music player between mpd and spotify
+    if [[ $current == *"mpd"* ]]; then
+        echo "spotify" > ~/.config/openbox/music-player
+    else
+        echo "mpd" > ~/.config/openbox/music-player
+    fi
+    ~/.scripts/notify/notify-send.sh -u low -i "~/.icons/gladient/music.png" -r 8888 "Music Player" "Set <u>`cat ~/.config/openbox/music-player`</u> as default"
+    ;;
+esac

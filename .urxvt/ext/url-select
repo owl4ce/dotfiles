@@ -1,0 +1,408 @@
+#! perl -w
+# Author:   Bert Muennich
+# Website:  http://www.github.com/muennich/urxvt-perls
+# Based on: http://www.jukie.net/~bart/blog/urxvt-url-yank
+# License:  GPLv2
+
+# Use keyboard shortcuts to select URLs.
+# This should be used as a replacement for the default matcher extension,
+# it also makes URLs clickable with the middle mouse button.
+
+# Usage: put the following lines in your .Xdefaults/.Xresources:
+#   URxvt.perl-ext-common: ...,url-select
+#   URxvt.keysym.M-u: perl:url-select:select_next
+
+# Use Meta-u to activate URL selection mode, then use the following keys:
+#   j/k:      Select next downward/upward URL (also with arrow keys)
+#   g/G:      Select first/last URL (also with home/end key)
+#   o/Return: Open selected URL in browser, Return: deactivate afterwards
+#   y:        Copy (yank) selected URL and deactivate selection mode
+#   q/Escape: Deactivate URL selection mode
+
+# Options:
+#   URxvt.url-select.autocopy:  If true, selected URLs are copied to PRIMARY
+#   URvxt.url-select.button:    Mouse button to click-open URLs (default: 2)
+#   URxvt.url-select.launcher:  Browser/command to open selected URL with
+#   URxvt.url-select.underline: If set to true, all URLs get underlined
+
+use strict;
+
+# The custom rendition bit to use for marking the cell as being underlined
+# by us so we can unset it again after a line has changed.
+use constant UNDERLINED => 1<<3; # arbitrarily chosen in hope of no collision
+
+sub on_start {
+	my ($self) = @_;
+
+	# read resource settings
+	if ($self->x_resource('url-select.launcher')) {
+		@{$self->{browser}} = split /\s+/, $self->x_resource('url-select.launcher');
+	} else {
+		@{$self->{browser}} = ('x-www-browser');
+	}
+	if ($self->x_resource('url-select.underline') eq 'true') {
+		$self->enable(line_update => \&line_update);
+	}
+	if ($self->x_resource('url-select.autocopy') eq 'true') {
+		$self->{autocopy} = 1;
+	}
+
+	$self->{state} = 0;
+
+	for my $mod (split '', $self->x_resource("url-select.button") ||
+	                       $self->x_resource("matcher.button") || 2) {
+		if ($mod =~ /^\d+$/) {
+			$self->{button} = $mod;
+		} elsif ($mod eq "C") {
+			$self->{state} |= urxvt::ControlMask;
+		} elsif ($mod eq "S") {
+			$self->{state} |= urxvt::ShiftMask;
+		} elsif ($mod eq "M") {
+			$self->{state} |= $self->ModMetaMask;
+		} elsif ($mod ne "-" && $mod ne " ") {
+			warn("invalid button/modifier in $self->{_name}<$self->{argv}[0]>: $mod\n");
+		}
+	}
+
+	if ($self->x_resource('matcher.pattern')) {
+		@{$self->{pattern}} = ($self->x_resource('matcher.pattern'));
+	} elsif ($self->x_resource('matcher.pattern.0')) {
+		my $current = 0;
+
+		while (defined (my $res = $self->x_resource("matcher.pattern.$current"))) {
+			$res = $self->locale_decode($res);
+			utf8::encode $res;
+			push @{$self->{pattern}}, qr($res)x;
+			$current++;
+		}
+	} else {
+		@{$self->{pattern}} = qr{
+			(?:https?://|ftp://|news://|mailto:|file://|\bwww\.)
+			[\w\-\@;\/?:&=%\$.+!*\x27,~#]*
+			(
+				\([\w\-\@;\/?:&=%\$.+!*\x27,~#]*\)   # Allow a pair of matched parentheses
+				|                                    #
+				[\w\-\@;\/?:&=%\$+*~]                # exclude some trailing characters (heuristic)
+			)+
+		}x;
+	}
+
+	()
+}
+
+
+sub line_update {
+	my ($self, $row) = @_;
+
+	my $line = $self->line($row);
+	my $text = $line->t;
+	my $rend = $line->r;
+
+	# clear all underlines that were set by us
+	for (@$rend) {
+		if (urxvt::GET_CUSTOM($_) & UNDERLINED) {
+			$_ = urxvt::SET_CUSTOM($_, urxvt::GET_CUSTOM($_) & ~UNDERLINED) &
+			     ~urxvt::RS_Uline;
+		}
+	}
+
+	for my $pattern (@{$self->{pattern}}) {
+		while ($text =~ /$pattern/g) {
+			my $url = $&;
+			my ($beg, $end) = ($-[0], $+[0] - 1);
+
+			for (@{$rend}[$beg .. $end]) {
+				unless ($_ & urxvt::RS_Uline) {
+					$_ = urxvt::SET_CUSTOM($_, urxvt::GET_CUSTOM($_) | UNDERLINED);
+					$_ |= urxvt::RS_Uline;
+				}
+			}
+		}
+	}
+
+	$line->r($rend);
+
+	()
+}
+
+sub on_action {
+    my ($self, $action) = @_;
+
+    on_user_command($self, "url-select:" . $action);
+}
+
+
+sub on_user_command {
+	my ($self, $cmd) = @_;
+
+	if ($cmd eq 'url-select:select_next') {
+		if (not $self->{active}) {
+			activate($self);
+		}
+		select_next($self, -1);
+	}
+
+	()
+}
+
+
+sub key_press {
+	my ($self, $event, $keysym) = @_;
+	my $char = chr($keysym);
+
+	if ($keysym == 0xff1b || lc($char) eq 'q' ||
+	    (lc($char) eq 'c' && $event->{state} & urxvt::ControlMask)) {
+		deactivate($self);
+	} elsif ($keysym == 0xff0d || $char eq 'o' ||
+			(lc($char) eq 'm' && $event->{state} & urxvt::ControlMask)) {
+		$self->exec_async(@{$self->{browser}}, ${$self->{found}[$self->{n}]}[4]);
+		deactivate($self) unless $char eq 'o';
+	} elsif ($char eq 'y') {
+		my $found = $self->{found}[$self->{n}];
+		$self->selection_beg(${$found}[0], ${$found}[1]);
+		$self->selection_end(${$found}[2], ${$found}[3]);
+		$self->selection_make($event->{time});
+		$self->selection_beg(1, 0);
+		$self->selection_end(1, 0);
+		deactivate($self);
+	} elsif ($char eq 'k' || $keysym == 0xff52 || $keysym == 0xff51) {
+		select_next($self, -1, $event);
+	} elsif ($char eq 'j' || $keysym == 0xff54 || $keysym == 0xff53) {
+		select_next($self, 1, $event);
+	} elsif ($char eq 'g' || $keysym == 0xff50) {
+		$self->{row} = $self->top_row - 1;
+		delete $self->{found};
+		select_next($self, 1, $event);
+	} elsif ($char eq 'G' || $keysym == 0xff57) {
+		$self->{row} = $self->nrow;
+		delete $self->{found};
+		select_next($self, -1, $event);
+	}
+
+	return 1;
+}
+
+
+sub on_button_press {
+	my ($self, $event) = @_;
+
+	my $mask = $self->ModLevel3Mask | $self->ModMetaMask |
+	           urxvt::ShiftMask | urxvt::ControlMask;
+
+	if ($event->{button} == $self->{button} && ($event->{state} & $mask) == $self->{state}) {
+		my $col = $event->{col};
+		my $row = $event->{row};
+		my $line = $self->line($row);
+		my $text = $line->t;
+
+		for my $pattern (@{$self->{pattern}}) {
+			while ($text =~ /$pattern/g) {
+				my ($url, $beg, $end) = ($&, $-[0], $+[0]);
+				--$end if $url =~ s/["')]$//;
+
+				if ($col >= $beg && $col <= $end) {
+					$self->{button_pressed} = 1;
+					$self->{button_col} = $col;
+					$self->{button_row} = $row;
+					$self->{button_url} = $url;
+					return 1;
+				}
+			}
+		}
+	}
+
+	()
+}
+
+sub on_button_release {
+	my ($self, $event) = @_;
+
+	if ($self->{button_pressed} && $event->{button} == $self->{button}) {
+		my $col = $event->{col};
+		my $row = $event->{row};
+
+		$self->{button_pressed} = 0;
+
+		if ($col == $self->{button_col} && $row == $self->{button_row}) {
+			$self->exec_async(@{$self->{browser}}, $self->{button_url});
+			return 1;
+		}
+	}
+
+	()
+}
+
+
+sub select_next {
+	# $dir < 0: up, > 0: down
+	my ($self, $dir, $event) = @_;
+	my $row = $self->{row};
+
+	if (($dir < 0 && $self->{n} > 0) ||
+			($dir > 0 && $self->{n} < $#{ $self->{found} })) {
+		# another url on current line
+		$self->{n} += $dir;
+		hilight($self);
+		if ($self->{autocopy}) {
+			my $found = $self->{found}[$self->{n}];
+			$self->selection_beg(${$found}[0], ${$found}[1]);
+			$self->selection_end(${$found}[2], ${$found}[3]);
+			$self->selection_make($event->{time});
+			$self->selection_beg(1, 0);
+			$self->selection_end(1, 0);
+		}
+		return;
+	}
+
+	while (($dir < 0 && $row > $self->top_row) ||
+	       ($dir > 0 && $row < $self->nrow - 1)) {
+		my $line = $self->line($row);
+		$row = ($dir < 0 ? $line->beg : $line->end) + $dir;
+		$line = $self->line($row);
+		my $text = $line->t;
+
+		for my $pattern (@{$self->{pattern}}) {
+			if ($text =~ /$pattern/g) {
+				delete $self->{found};
+
+				do {
+					my ($beg, $end) = ($-[0], $+[0]);
+					push @{$self->{found}}, [$line->coord_of($beg),
+							$line->coord_of($end), substr($text, $beg, $end - $beg)];
+				} while ($text =~ /$pattern/g);
+
+				$self->{row} = $row;
+				$self->{n} = $dir < 0 ? $#{$self->{found}} : 0;
+				hilight($self);
+				if ($self->{autocopy}) {
+					my $found = $self->{found}[$self->{n}];
+					$self->selection_beg(${$found}[0], ${$found}[1]);
+					$self->selection_end(${$found}[2], ${$found}[3]);
+					$self->selection_make($event->{time});
+					$self->selection_beg(1, 0);
+					$self->selection_end(1, 0);
+				}
+				return;
+			}
+		}
+	}
+
+	deactivate($self) unless $self->{found};
+
+	()
+}
+
+
+sub hilight {
+	my ($self) = @_;
+
+	if ($self->{found}) {
+		if ($self->{row} < $self->view_start() ||
+				$self->{row} >= $self->view_start() + $self->nrow) {
+			# scroll selected url into visible area
+			my $top = $self->{row} - ($self->nrow >> 1);
+			$self->view_start($top < 0 ? $top : 0);
+		}
+
+		status_area($self);
+		$self->want_refresh();
+	}
+
+	()
+}
+
+
+sub refresh {
+	my ($self) = @_;
+
+	if ($self->{found}) {
+		if ($self->x_resource('highlightColor')) {
+			$self->scr_xor_span(@{$self->{found}[$self->{n}]}[0 .. 3], urxvt::RS_Sel);
+		} else {
+			$self->scr_xor_span(@{$self->{found}[$self->{n}]}[0 .. 3], urxvt::RS_RVid);
+		}
+	}
+
+	()
+}
+
+
+sub status_area {
+	my ($self) = @_;
+
+	my $row = $self->{row} < 0 ?
+			$self->{row} - $self->top_row : abs($self->top_row) + $self->{row};
+	my $text = sprintf("%d,%d ", $row + 1, $self->{n} + 1);
+
+	if ($self->top_row == 0) {
+		$text .= "All";
+	} elsif ($self->view_start() == $self->top_row) {
+		$text .= "Top";
+	} elsif ($self->view_start() == 0) {
+		$text .= "Bot";
+	} else {
+		$text .= sprintf("%2d%",
+				($self->top_row - $self->view_start) * 100 / $self->top_row);
+	}
+
+	my $text_len = length($text);
+
+	if ($self->{overlay_len} != $text_len) {
+		delete $self->{overlay} if $self->{overlay};
+		$self->{overlay} = $self->overlay(-1, -1, $text_len, 1,
+				urxvt::OVERLAY_RSTYLE, 0);
+		$self->{overlay_len} = $text_len;
+	}
+
+	$self->{overlay}->set(0, 0, $self->special_encode($text));
+	$self->{overlay}->show();
+
+	()
+}
+
+
+sub tt_write {
+	return 1;
+}
+
+
+sub activate {
+	my ($self) = @_;
+
+	$self->{active} = 1;
+
+	$self->{row} = $self->view_start() + $self->nrow;
+	$self->{n} = 0;
+	$self->{overlay_len} = 0;
+	$self->{button_pressed} = 0;
+
+	$self->{view_start} = $self->view_start();
+	$self->{pty_ev_events} = $self->pty_ev_events(urxvt::EV_NONE);
+
+	$self->enable(
+		key_press     => \&key_press,
+		refresh_begin => \&refresh,
+		refresh_end   => \&refresh,
+		tt_write      => \&tt_write,
+	);
+
+	()
+}
+
+
+sub deactivate {
+	my ($self) = @_;
+
+	$self->disable("key_press", "refresh_begin", "refresh_end", "tt_write");
+	$self->view_start($self->{view_start});
+	$self->pty_ev_events($self->{pty_ev_events});
+
+	delete $self->{overlay} if $self->{overlay};
+	delete $self->{found} if $self->{found};
+
+	$self->want_refresh();
+
+	$self->{active} = 0;
+
+	()
+}

@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Reverse urxvt color between black and white
+
+current="$(cat ~/.Xresources | grep "foreground" | head -n1 | grep '!')"
+
+if [[  $current != *"!"* ]]; then
+
+    sed -i '96s_*_!*_' ~/.Xresources
+    sed -i '97s_*_!*_' ~/.Xresources
+    sed -i '98s_*_!*_' ~/.Xresources
+    sed -i '100s_*_!*_' ~/.Xresources
+    sed -i '101s_*_!*_' ~/.Xresources
+    sed -i '103s_*_!*_' ~/.Xresources
+    sed -i '104s_*_!*_' ~/.Xresources
+    
+    sed -i '106s_!__' ~/.Xresources
+    sed -i '107s_!__' ~/.Xresources
+    sed -i '108s_!__' ~/.Xresources
+    sed -i '110s_!__' ~/.Xresources
+    sed -i '111s_!__' ~/.Xresources
+    sed -i '113s_!__' ~/.Xresources
+    sed -i '114s_!__' ~/.Xresources
+    xrdb ~/.Xresources &
+    
+else
+
+    sed -i '96s_!__' ~/.Xresources
+    sed -i '97s_!__' ~/.Xresources
+    sed -i '98s_!__' ~/.Xresources
+    sed -i '100s_!__' ~/.Xresources
+    sed -i '101s_!__' ~/.Xresources
+    sed -i '103s_!__' ~/.Xresources
+    sed -i '104s_!__' ~/.Xresources
+    
+    sed -i '106s_*_!*_' ~/.Xresources
+    sed -i '107s_*_!*_' ~/.Xresources
+    sed -i '108s_*_!*_' ~/.Xresources
+    sed -i '110s_*_!*_' ~/.Xresources
+    sed -i '111s_*_!*_' ~/.Xresources
+    sed -i '113s_*_!*_' ~/.Xresources
+    sed -i '114s_*_!*_' ~/.Xresources
+    xrdb ~/.Xresources &
+    
+fi
+

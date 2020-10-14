@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Sweetly
+Comment=A Flat Material Light GTK Theme (C) owl4ce
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Sweetly
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

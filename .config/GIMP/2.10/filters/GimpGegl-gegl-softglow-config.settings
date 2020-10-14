@@ -1,0 +1,14 @@
+# settings
+
+(GimpGegl-gegl-softglow-config "2020-04-27 10:30:55"
+    (time 1587958255)
+    (glow-radius 10)
+    (brightness 0.20000000000000001)
+    (sharpness 1))
+(GimpGegl-gegl-softglow-config "2020-04-27 10:28:53"
+    (time 1587958133)
+    (glow-radius 10)
+    (brightness 0.5)
+    (sharpness 1))
+
+# end of settings

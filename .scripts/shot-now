@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Take screenshot
+# See scrot manual
+
+savedir=~/Pictures
+
+icon="~/.icons/gladient/shot.png"
+
+# Begin
+rm /tmp/*_scrot*.png
+
+case $1 in
+    delay)
+    sleep .5s
+    ;;
+    *)
+    ;;
+esac
+
+scrot -e 'mv $f /tmp/'
+current="$(ls /tmp/ | grep 'scrot')"
+cp /tmp/$current $savedir
+rm /tmp/*_scrot*.png
+
+notify-send -i $icon -u low "Screenshot" "Saved in\n<u>$savedir/</u>"
