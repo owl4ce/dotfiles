@@ -10,7 +10,7 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/gallery/75428915/joyful-desktop-v2"><img src="https://i.ibb.co/qxWFfk1/preview.gif" alt="preview" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208"><img src="https://i.ibb.co/qxWFfk1/preview.gif" alt="preview" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
