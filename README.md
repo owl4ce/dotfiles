@@ -36,7 +36,7 @@ Here are some details about my setup:
   - Better Tint2 (rounded, etc.)
   - Decorated like in non-minimal mode (crossover button style)
 - **New Scripts**:
-  - [Reverse URxvt Black/White](./.scripts/reverse-urxvt-bw) - [See commit](https://github.com/owl4ce/dotfiles/commit/172c3e7c6a6a66683d1fa7a6a13398f6cdd4cb14)
+  - [Reverse URxvt Black/White](./.scripts/reverse-urxvt-bw)
 - **New Wallpaper**: [Better Resolution](./.wallpaper/) (HD-8K)
 - **New Neofetch Image**: [LoFi Mode On](./.config/neofetch/lofi.png)
 
