@@ -29,7 +29,7 @@ Here are some details about my setup:
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/)
 
-## :gift: Changelogs v2
+## :gift: Changelogs v2 <img alt="Repo Size" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
 <a href="https://youtu.be/_PTp5mh5_vQ"><img src="https://i.ibb.co/Ph343p2/click-yt.png" alt="" align="right" width="400px"></a>
 
 - **Minimal Mode**:
