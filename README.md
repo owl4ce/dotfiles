@@ -320,7 +320,7 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
   #image_source="${HOME}/.config/neofetch/artix.png"
   #image_source="${HOME}/.config/neofetch/bedrock.png"
   #image_source="${HOME}/.config/neofetch/gentoo.png"
-  #image_source="${HOME}/.config/neofetch/ob.png"
+  #image_source="${HOME}/.config/neofetch/lofi.png"
   #image_source="${HOME}/.config/neofetch/ubuntu.png"
   #image_source="${HOME}/.config/neofetch/void.png"
   
