@@ -12,3 +12,6 @@ killall $tray
 
 # Notification Daemon
 killall dunst
+
+# Xsettingsd
+killall xsettingsd

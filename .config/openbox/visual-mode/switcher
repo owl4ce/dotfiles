@@ -29,7 +29,6 @@ function mechanical {
 
 function mechanicalmin {
     kill
-            
     # Set Theme & UI
     bash -c '~/.config/openbox/visual-mode/mechanical/theme-minimal'
     bash -c '~/.config/openbox/visual-mode/mechanical/ui-minimal' &> /dev/null
