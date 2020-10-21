@@ -10,7 +10,7 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208"><img src="https://i.ibb.co/qxWFfk1/preview.gif" alt="preview" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v2-1-858789495"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de7au7r-95cac470-af65-4e15-84ff-63f1213d0797.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTdhdTdyLTk1Y2FjNDcwLWFmNjUtNGUxNS04NGZmLTYzZjEyMTNkMDc5Ny5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.jPpMfv6ZU8NBvRZBhQ3qRTuMJNrq-pyaFDwBCV75keI" alt="preview" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
@@ -29,9 +29,10 @@ Here are some details about my setup:
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/)
 
-## :gift: Changelogs v2 <img alt="Repo Size" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
+## :gift: Changelogs <img alt="Repo Size" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
 <a href="https://youtu.be/_PTp5mh5_vQ"><img src="https://i.ibb.co/Ph343p2/click-yt.png" alt="" align="right" width="400px"></a>
 
+*v2.0*
 - **Minimal Mode**:
   - Better Tint2 (rounded, etc.)
   - Decorated like in non-minimal mode (crossover button style)
@@ -39,6 +40,10 @@ Here are some details about my setup:
   - [Reverse URxvt Black/White](./.scripts/reverse-urxvt-bw)
 - **New Wallpaper**: [Better Resolution](./.wallpaper/) (HD-8K)
 - **New Neofetch Image**: [LoFi Mode On](./.config/neofetch/lofi.png)
+
+*v2.1*
+- **New Thunar Sidebar**: Not curve anymore
+- **GTK+ Live Reload**: Depends on [xsettingsd](https://github.com/derat/xsettingsd)
 
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
@@ -52,7 +57,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano vim viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh imagemagick ffmpeg playerctl
+  sudo apt install openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano vim viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -138,7 +143,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano vim viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl
+  yay -S openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano vim viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
   ```
   
   </details>
