@@ -232,9 +232,11 @@ The [Others](./Others/) folder contains slim themes. SLiM themes read [this](./O
 
 - **Spotify - Spicetify Theme (tip)**
 
-  <img src="https://i.ibb.co/db0HKKj/2020-10-15-023615-1366x768-scrot.png" alt="spicetify.dribbblish-horizon" align="center" width="100%">
+  <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical" align="center" width="100%">
   
-  [Dribbblish - Horizon](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish#horizon)
+  <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy" align="center" width="100%">
+  
+  [Dribbblish](https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#Mechanical)
   
 - **Battery Indicator** \
   Because on the tint2 panel I turned off the battery status. Alternatively, install xfce4-power-manager and turn it on *~/.config/openbox/autostart* then enable system tray icon in xfce4-power-manager-settings.
