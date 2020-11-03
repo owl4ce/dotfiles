@@ -27,6 +27,9 @@ lxpolkit &
 ls="$(cat ~/.config/openbox/lockscreen)"
 xautolock -time 3 -locker "$ls" -detectsleep &
 
+# PulseAudio
+pulseaudio --start --log-target=syslog
+
 # Others (e.g: mpd)
 mpd &> /dev/null
 bash -c '~/.ncmpcpp/scripts/track-change-detector' &
