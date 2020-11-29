@@ -33,27 +33,26 @@ Here are some details about my setup:
 <a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-10c7a4fd-ba9d-46ec-8193-559793ddc2c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLTEwYzdhNGZkLWJhOWQtNDZlYy04MTkzLTU1OTc5M2RkYzJjOS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.rg0jBXM8ozYxUuJqLe7Ogjdpzh2ZjdLWm-SJMkYTgk0" alt="" align="right" width="400px"></a>
 
 *v3.0*
-- **Major Changes**:
-  - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
-  - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
-  - Reverse terminal background and foreground (urxvt/termite)
-  - Supported Rofi to version 1.6.0
-  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
-  - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-  - URxvt font resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
-  - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
-  - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-  - New Ncmpcpp UI
-  - New Wallpapers
-  - Neofetch Images
-
 - **Visual Mode**:
   - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
   - Removed eyecandy tint2 from Joyful Desktop v2
   - Better Tint2 (added temp executor, etc.)
   - Added rotation mode (crossover)
   
-
+- **Major Changes**:
+  - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
+  - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
+  - Reverse terminal background and foreground (urxvt/termite)
+  - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
+  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)  
+  - URxvt font resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
+  - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
+  - Supported Rofi to version 1.6.0
+  - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
+  - New Ncmpcpp UI
+  - Neofetch Images
+  - New Wallpapers
+  
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
 
