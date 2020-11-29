@@ -44,16 +44,17 @@ Here are some details about my setup:
   - Better Tint2 (added temp executor, etc.)
   - Added rotation mode (crossover)
   - Removed eyecandy tint2 from Joyful Desktop v2
-
-- Remove some unnecessary files/config
-- Supported rofi to version 1.6.0
-- Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
-- Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-- Nvim config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-- SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
-- New Wallpapers
-- New Ncmpcpp UI
-- Neofetch Images
+  
+- **Others**:
+  - Remove some unnecessary files/config
+  - Supported rofi to version 1.6.0
+  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
+  - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
+  - Nvim config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
+  - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
+  - New Wallpapers
+  - New Ncmpcpp UI
+  - Neofetch Images
 
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
