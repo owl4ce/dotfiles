@@ -35,22 +35,22 @@ Here are some details about my setup:
 *v3.0*
 - **Major Changes**:
   - All scripts are reproduced all with central variables in one [file](./.owl4ce_var).
-  - Reverse terminal Background and foreground (urxvt/termite)
+  - Reverse terminal background and foreground (urxvt/termite)
   - URxvt font resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
   - Removed SLiM sync background
 
 - **Visual Mode**:
-  - Both modes (minimal) has its own window button style, margins, rofi sidebar and dunst layout.
+  - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
   - Better Tint2 (added temp executor, etc.)
   - Added rotation mode (crossover)
   - Removed eyecandy tint2 from Joyful Desktop v2
   
 - **Others**:
   - Remove some unnecessary files/config
-  - Supported rofi to version 1.6.0
+  - Supported Rofi to version 1.6.0
   - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
   - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-  - Nvim config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
+  - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
   - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
   - New Wallpapers
   - New Ncmpcpp UI
