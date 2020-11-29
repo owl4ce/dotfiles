@@ -111,7 +111,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
     ```
     
     If you want rounded ones.
-  > I don't recommend it, because I experience a memory leak.
+    > I don't recommend it, because I experience a memory leak.
   
   - ```bash
     sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
@@ -171,6 +171,10 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   ```bash
   yay -S python2 psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
+  ```
+  If you want rounded windows, but I don't recommend it because I experience a memory leak.
+  ```bash
+  yay -S picom-ibhagwan-git
   ```
   
   </details>
