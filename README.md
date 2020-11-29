@@ -262,7 +262,7 @@ fc-cache -rv
   - `Use system title bar and borders`
   
   **New Tab**
-  - Extension**: [Tabliss - A Beautiful New Tab](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp?hl=en)
+  - Extension: [Tabliss - A Beautiful New Tab](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp?hl=en)
   
   **Tabliss** -  Widgets Font
   - Greeting, Message: [Youth Touch DEMO](https://www.dafont.com/youth-touch.font)
