@@ -67,7 +67,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh  ffmpeg playerctl xsettingsd
+  sudo apt install psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -284,7 +284,7 @@ fc-cache -rv
   ```cfg
   ...
   
-  browser = chromium
+  42 browser = chromium
   
   ...
   ```
@@ -294,7 +294,7 @@ fc-cache -rv
   ```cfg
   ...
   
-   92 #-\------------------------------------------------------------------------#
+   92 #-------------------------------------------------------------------------#
    93 # TINT2 EXECUTOR                                                          #
    94 #-------------------------------------------------------------------------#
    95
@@ -311,7 +311,7 @@ fc-cache -rv
   106
   107 SAVE_DIR="$HOME/Pictures"
   108 TIMER_SEC="5"
-    
+  
   ...
   ```
   
@@ -333,10 +333,10 @@ fc-cache -rv
   - File Manager: Anything
   
   ```cfg
-  terminal="urxvt"
-  lockscreen="slimlock"
-  musicpl="mpd"
-  filemanager="thunar"
+  1 terminal="urxvt"
+  2 lockscreen="slimlock"
+  3 musicpl="mpd"
+  4 filemanager="thunar"
   ```
   
 - **Tray** \
@@ -360,7 +360,7 @@ fc-cache -rv
   ```cfg
   ...
   
-  music_directory     "~/Music"
+  6 music_directory     "~/Music"
   
   ...
   ```
