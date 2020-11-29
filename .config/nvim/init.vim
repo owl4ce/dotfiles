@@ -1,5 +1,5 @@
 " ~~~ Plugins ~~~
-call plug#begin('~/.local/share/nvim/plugged')
+"call plug#begin('~/.local/share/nvim/plugged')
 "Plug 'shougo/deoplete.nvim'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'ryanoasis/vim-devicons'
@@ -12,7 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 "Plug 'vimwiki/vimwiki'
 "Plug 'tpope/vim-markdown'
 "Plug 'nelstrom/vim-markdown-folding'
-call plug#end()
+"call plug#end()
 
 " Highlight the line on which the cursor lives.
 set nocursorline
