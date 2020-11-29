@@ -10,7 +10,7 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href=https://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236""><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-f66852c5-811c-46af-88d8-7db6de5855b4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLWY2Njg1MmM1LTgxMWMtNDZhZi04OGQ4LTdkYjZkZTU4NTViNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.hMZbKXsm1r074uq4Rb5x5c-lyo1QGz0kEnW-NhgPIRk" alt="preview" align="right" width="400px"></a>
+<a href="ttps://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-f66852c5-811c-46af-88d8-7db6de5855b4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLWY2Njg1MmM1LTgxMWMtNDZhZi04OGQ4LTdkYjZkZTU4NTViNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.hMZbKXsm1r074uq4Rb5x5c-lyo1QGz0kEnW-NhgPIRk" alt="preview" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
@@ -45,15 +45,15 @@ Here are some details about my setup:
   - Added rotation mode (crossover)
   - Removed eyecandy tint2 from Joyful Desktop v2
 
-- **Remove some unnecessary files/config**
-- **Supported rofi to version 1.6.0**
-- **Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)**
-- **Oh My ZSH Theme**: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-- **Nvim config** - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-- **SLiM Themes** - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
-- **New Wallpapers**
-- **New Ncmpcpp UI**
-- **Neofetch Images**
+- Remove some unnecessary files/config
+- Supported rofi to version 1.6.0
+- Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
+- Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
+- Nvim config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
+- SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
+- New Wallpapers
+- New Ncmpcpp UI
+- Neofetch Images
 
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
@@ -245,7 +245,7 @@ fc-cache -rv
 ```
 
 ### User configuration
-- **SLiM Themes**
+- **SLiM Themes** \
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-ab1d83c2-591f-4af5-8cd3-7cca470b003c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWFiMWQ4M2MyLTU5MWYtNGFmNS04Y2QzLTdjY2E0NzBiMDAzYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.L3u8o56igDJEb2od0AXm_JpBAtzBSU7kg3wOPq3GL34" alt="floflo-batik" align="center" width="100%">
   
   Wait for 30 stars, I will upload the file and make a guide [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439).
@@ -345,7 +345,7 @@ fc-cache -rv
   ```cfg
   ...
   
-  URxvt.iconFile:                   /home/username/.icons/gladient/term.png
+    17 URxvt.iconFile:                   /home/username/.icons/gladient/term.png
   
   ...
   ```
@@ -355,30 +355,30 @@ fc-cache -rv
   ```cfg
   ...
   
-  # Image Source
-  #
-  # Which image or ascii file to display.
-  #
-  # Default:  'auto'
-  # Values:   'auto', 'ascii', 'wallpaper', '/path/to/img', '/path/to/ascii', '/path/to/dir/'
-  #           'command output (neofetch --ascii "$(fortune | cowsay -W 30)")'
-  # Flag:     --source
-  #
-  # NOTE: 'auto' will pick the best image source for whatever image backend is used.
-  #       In ascii mode, distro ascii art will be used and in an image mode, your
-  #       wallpaper will be used.
-  #image_source="auto"
-  #image_source="${HOME}/.config/neofetch/images/arch.png"
-  #image_source="${HOME}/.config/neofetch/images/arch_dark.png"
-  #image_source="${HOME}/.config/neofetch/images/artix.png"
-  #image_source="${HOME}/.config/neofetch/images/bedrock.png"
-  #image_source="${HOME}/.config/neofetch/images/gentoo.png"
-  #image_source="${HOME}/.config/neofetch/images/gentoo_dark.png"
-  image_source="${HOME}/.config/neofetch/images/lofi.png"
-  #image_source="${HOME}/.config/neofetch/images/ubuntu.png"
-  #image_source="${HOME}/.config/neofetch/images/ubuntu_dark.png"
-  #image_source="${HOME}/.config/neofetch/images/void.png"
-  #image_source="${HOME}/.config/neofetch/images/void_dark.png"
+  641 # Image Source
+  642 #
+  643 # Which image or ascii file to display.
+  644 #
+  645 # Default:  'auto'
+  646 # Values:   'auto', 'ascii', 'wallpaper', '/path/to/img', '/path/to/ascii', '/path/to/dir/'
+  647 #           'command output (neofetch --ascii "$(fortune | cowsay -W 30)")'
+  648 # Flag:     --source
+  649 #
+  650 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
+  651 #       In ascii mode, distro ascii art will be used and in an image mode, your
+  652 #       wallpaper will be used.
+  653 #image_source="auto"
+  654 #image_source="${HOME}/.config/neofetch/images/arch.png"
+  655 #image_source="${HOME}/.config/neofetch/images/arch_dark.png"
+  656 #image_source="${HOME}/.config/neofetch/images/artix.png"
+  657 #image_source="${HOME}/.config/neofetch/images/bedrock.png"
+  658 #image_source="${HOME}/.config/neofetch/images/gentoo.png"
+  659 #image_source="${HOME}/.config/neofetch/images/gentoo_dark.png"
+  660 image_source="${HOME}/.config/neofetch/images/lofi.png"
+  661 #image_source="${HOME}/.config/neofetch/images/ubuntu.png"
+  662 #image_source="${HOME}/.config/neofetch/images/ubuntu_dark.png"
+  663 #image_source="${HOME}/.config/neofetch/images/void.png"
+  664 #image_source="${HOME}/.config/neofetch/images/void_dark.png"
   
   ...
   ```
