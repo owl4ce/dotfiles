@@ -374,8 +374,8 @@ fc-cache -rv
 - **Ncmpcpp Music Directory** \
   Auto connect with MPD
   
-> **How to use ncmpcpp albumart?** \
-It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
+  > **How to use ncmpcpp albumart?** \
+  It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
 - **Neofetch Image (w3m)** \
   `~/.config/neofetch/config.conf`
