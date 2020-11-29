@@ -37,7 +37,7 @@ Here are some details about my setup:
   - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
   - Removed eyecandy tint2 from Joyful Desktop v2
   - Better Tint2 (added temp executor, etc.)
-  - Added rotation mode (crossover)
+  - Added rotation mode (crossover, except minimal mode.)
   
 - **Major Changes**:
   - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
