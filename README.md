@@ -47,8 +47,8 @@ Here are some details about my setup:
   - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)  
   - URxvt font resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
   - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-  - Supported Rofi to version 1.6.0
   - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
+  - Rofi v1.6.0 Supported
   - New Ncmpcpp UI
   - Neofetch Images
   - New Wallpapers
