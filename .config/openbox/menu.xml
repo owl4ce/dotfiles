@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://openbox.org/">
+    <menu id="root-menu" label="obmenu-generator" execute="/usr/bin/obmenu-generator -i" />
+</openbox_menu>

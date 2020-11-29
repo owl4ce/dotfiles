@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+source $HOME/.owl4ce_var
+
+bordercolor="#ffffff"
+
+[[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
+rm /tmp/*_scrot*.png
+sleep .5s
+scrot -s -f -b -e 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" && \
+
+notify-send -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
+
+# Use imagemagick to add border
+current="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
+
+convert /tmp/$current.png \( +clone -background black -shadow 25x10+0+5 \) \
++swap -background none -layers merge +repage /tmp/$current-shadow.png
+
+convert /tmp/$current-shadow.png -bordercolor $bordercolor \
+-border 5 $SAVE_DIR/Screenshots/$current-wFRAME.png
+
+# Copy original file
+cp /tmp/$current.png $SAVE_DIR/Screenshots
+
+rm /tmp/*_scrot*.png
+
+# Checking final file
+[[ -f $SAVE_DIR/Screenshots/$current-wFRAME.png ]] && \
+notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
+
+# Open final result
+viewnior $SAVE_DIR/Screenshots/$current-wFRAME.png &> /dev/null

@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+source $HOME/.owl4ce_var
+
+function kill {
+    # Panel
+    killall tint2
+    
+    # Tray
+    killall $CHK_TRAY &> /dev/null
+    
+    # Notification Daemon
+    killall dunst
+}
+
+function mech {
+    # Write Current
+    echo "mechanical" > $MOD_FILE
+    
+    # Set Theme & UI
+    bash -c "$VISMOD_DIR/mechanical/theme"
+    bash -c "$VISMOD_DIR/mechanical/ui" &> /dev/null
+    
+    # Notify Success
+    notify-send -u low -i $NOTIF_MECH_ICON "Visual Mode" "Mechanical Theme applied"
+}
+
+function mech_min {
+    # Write Current
+    echo "mechanical" > $MOD_FILE
+    echo "minimal" >> $MOD_FILE
+    
+    # Set Theme & UI
+    bash -c "$VISMOD_DIR/mechanical/theme-minimal"
+    bash -c "$VISMOD_DIR/mechanical/ui-minimal" &> /dev/null
+    
+    # Notify Success
+    notify-send -u low -i $NOTIF_MECH_MIN_ICON "Minimal Mode" "Mechanical Theme enabled"
+}
+
+function eyc {
+    # Write Current
+    echo "eyecandy" > $MOD_FILE
+    
+    # Set Theme & UI
+    bash -c "$VISMOD_DIR/eyecandy/theme"
+    bash -c "$VISMOD_DIR/eyecandy/ui" &> /dev/null
+
+    # Notify Success
+    notify-send -u low -i $NOTIF_EYC_ICON "Visual Mode" "Eyecandy Theme applied"
+}
+
+function eyc_min {
+    # Write Current
+    echo "eyecandy" > $MOD_FILE
+    echo "minimal" >> $MOD_FILE
+    
+    # Set Theme & UI
+    bash -c "$VISMOD_DIR/eyecandy/theme-minimal"
+    bash -c "$VISMOD_DIR/eyecandy/ui-minimal" &> /dev/null
+    
+    # Notify Success
+    notify-send -u low -i $NOTIF_EYC_MIN_ICON "Minimal Mode" "Eyecandy Theme enabled"
+}
+
+case $1 in
+    minimal)
+        source $HOME/.owl4ce_var
+        kill
+        if [[ $CHK_VISMOD = *"mechanical"* ]]; then
+            if [[ $CHK_MINMOD != *"minimal"* ]]; then
+                mech_min
+            else
+                mech
+            fi
+        else
+            if [[ $CHK_MINMOD != *"minimal"* ]]; then
+                eyc_min
+            else
+                eyc
+            fi
+        fi
+    ;;
+    startup)
+        source $HOME/.owl4ce_var
+        xrdb ~/.Xresources
+        if [[ $CHK_MINMOD = *"minimal"* ]]; then
+            bash -c "$VISMOD_DIR/$CHK_VISMOD/ui-minimal" &> /dev/null
+        else
+            bash -c "$VISMOD_DIR/$CHK_VISMOD/ui" &> /dev/null
+        fi
+    ;;
+    *)
+        source $HOME/.owl4ce_var
+        kill
+        if [[ $CHK_VISMOD != *"mechanical"* ]]; then
+            if [[ $CHK_MINMOD = *"minimal"* ]]; then
+                mech_min
+            else
+                mech
+            fi
+        else
+            if [[ $CHK_MINMOD = *"minimal"* ]]; then
+                eyc_min
+            else
+                eyc
+            fi
+        fi
+	;;
+esac    
+
+# Start Tray
+bash -c "$OB_TRAY" &> /dev/null

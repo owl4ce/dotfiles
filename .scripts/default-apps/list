@@ -1,0 +1,4 @@
+terminal="urxvt"
+lockscreen="slimlock"
+musicpl="mpd"
+filemanager="thunar"

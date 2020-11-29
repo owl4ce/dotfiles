@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+source $HOME/.owl4ce_var
+
+# GTK Theme
+sed -i '5s_gtk-theme-name=.*_gtk-theme-name="Sweetly"_' $GTK2_CONFIG
+sed -i '10s_gtk-theme-name=.*_gtk-theme-name=Sweetly_' $GTK3_CONFIG
+sed -i '1s_Net/IconThemeName.*_Net/IconThemeName "Papirus-Custom"_' $XSETTINGSD_CONFIG
+sed -i '2s_Net/ThemeName.*_Net/ThemeName "Sweetly"_' $XSETTINGSD_CONFIG
+xsettingsd &> /dev/null &
+sleep 3s && killall xsettingsd &
+
+# Set Openbox Margin
+bash -c "$VISMOD_DIR/margin-dunst-rofi minmod"
+openbox --reconfigure
+
+# Icon Theme
+sed -i '6s_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Custom"_' $GTK2_CONFIG
+sed -i '8s_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Custom_' $GTK3_CONFIG
+sed -i '4s\icon_theme=.*\icon_theme=Papirus-Custom\' $QT5CT_CONFIG
+
+# Rofi Color Scheme
+sed -i '5s_colorschemes/.*.rasi_colorschemes/fullscreen.rasi_' $ROFI_FULLSCREEN_CONFIG
+sed -i '5s_colorschemes/.*.rasi_colorschemes/sidebar.rasi_' $ROFI_SIDEBAR_CONFIG
+
+# Set Openbox Button Layout
+sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' $OB_CONFIG
+
+# Openbox Theme & Buttons
+cp $OB_BUTTON_DIR/$CHK_MINMOD_BUTTON/* $EYC_BUTTON_DIR
+sed -i '34s_<name>.*_<name>Sweetly</name>_' $OB_CONFIG
+
+# Reconfigure Openbox (realistic theme)
+sleep .4s && openbox --reconfigure &

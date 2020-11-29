@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=Play music on Ncmpcpp with Album Art
+Terminal=false
+Name=Ncmpcpp - Album Art
+GenericName=Music Player: URxvt
+Categories=AudioVideo;Audio;Player;
+Exec=bash -c "urxvt -g 84x13 -e ncmpcpp -c ~/.ncmpcpp/albumart && exit 0"
+Type=Application
+Icon=musique

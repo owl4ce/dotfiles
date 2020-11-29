@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+source $HOME/.owl4ce_var
+
+function kill {
+    killall tint2
+    killall dunst
+}
+
+if [[ $CHK_MINMOD = *"minimal"* ]]; then
+    echo "" > /dev/null
+else
+    case $1 in
+        lrtb)
+            source $HOME/.owl4ce_var
+            MECH_PANEL="$TINT2_DIR/mechanical-$CHK_ORT.tint2rc"
+            EYC_PANEL="$TINT2_DIR/eyecandy-$CHK_ORT.tint2rc"
+            CURRENT_PANEL="$TINT2_DIR/$CHK_VISMOD-$CHK_ORT.tint2rc"
+            kill
+            if [[ $CHK_ORT = *"vertical"* ]]; then
+                if [[ $CHK_ORT_V = *"left"* ]]; then
+                    sed -i '2s_vertical=".*"_vertical="right"_' $ORT_FILE
+                    bash -c "$VISMOD_DIR/margin-dunst-rofi v_right"
+                    openbox --reconfigure
+                    sed -i 's\panel_position = center .* vertical\panel_position = center right vertical\' $MECH_PANEL
+                    sed -i 's\panel_position = center .* vertical\panel_position = center right vertical\' $EYC_PANEL
+                    dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                    tint2 -c $CURRENT_PANEL &> /dev/null &
+                else
+                    if [[ $CHK_ORT_V = *"right"* ]]; then
+                        sed -i '2s_vertical=".*"_vertical="left"_' $ORT_FILE
+                        bash -c "$VISMOD_DIR/margin-dunst-rofi v_left"
+                        openbox --reconfigure
+                        sed -i 's\panel_position = center .* vertical\panel_position = center left vertical\' $MECH_PANEL
+                        sed -i 's\panel_position = center .* vertical\panel_position = center left vertical\' $EYC_PANEL
+                        dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                        tint2 -c $CURRENT_PANEL &> /dev/null &
+                    fi
+                fi
+            else
+                if [[ $CHK_ORT = *"horizontal"* ]]; then
+                    if [[ $CHK_ORT_H = *"bottom"* ]]; then
+                        sed -i '3s_horizontal=".*"_horizontal="top"_' $ORT_FILE
+                        bash -c "$VISMOD_DIR/margin-dunst-rofi h_top"
+                        openbox --reconfigure
+                        sed -i 's\panel_position = .* center horizontal\panel_position = top center horizontal\' $MECH_PANEL
+                        sed -i 's\panel_position = .* center horizontal\panel_position = top center horizontal\' $EYC_PANEL
+                        dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                        tint2 -c $CURRENT_PANEL &> /dev/null &
+                    else
+                        if [[ $CHK_ORT_H = *"top"* ]]; then
+                            sed -i '3s_horizontal=".*"_horizontal="bottom"_' $ORT_FILE
+                            bash -c "$VISMOD_DIR/margin-dunst-rofi h_bottom"
+                            openbox --reconfigure
+                            sed -i 's\panel_position = .* center horizontal\panel_position = bottom center horizontal\' $MECH_PANEL
+                            sed -i 's\panel_position = .* center horizontal\panel_position = bottom center horizontal\' $EYC_PANEL
+                            dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                            tint2 -c $CURRENT_PANEL &> /dev/null &
+                        fi
+                    fi
+                fi
+            fi            
+        ;;
+        ort)
+            source $HOME/.owl4ce_var
+            MECH_PANEL="$TINT2_DIR/mechanical-$CHK_ORT.tint2rc"
+            EYC_PANEL="$TINT2_DIR/eyecandy-$CHK_ORT.tint2rc"
+            CURRENT_PANEL="$TINT2_DIR/$CHK_VISMOD-$CHK_ORT.tint2rc"
+            kill
+            if [[ $CHK_ORT != *"vertical"* ]]; then
+                sed -i '1s_state=".*"_state="vertical"_' $ORT_FILE
+                source $HOME/.owl4ce_var
+                CURRENT_PANEL="$TINT2_DIR/$CHK_VISMOD-$CHK_ORT.tint2rc"
+                if [[ $CHK_ORT_V = *"right"* ]]; then
+                    sed -i '2s_vertical=".*"_vertical="right"_' $ORT_FILE
+                    bash -c "$VISMOD_DIR/margin-dunst-rofi v_right"
+                    openbox --reconfigure
+                    sed -i 's\panel_position = center .* vertical\panel_position = center right vertical\' $MECH_PANEL
+                    sed -i 's\panel_position = center .* vertical\panel_position = center right vertical\' $EYC_PANEL
+                    dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                    tint2 -c $CURRENT_PANEL &> /dev/null &
+                else
+                    if [[ $CHK_ORT_V = *"left"* ]]; then
+                        sed -i '2s_vertical=".*"_vertical="left"_' $ORT_FILE
+                        bash -c "$VISMOD_DIR/margin-dunst-rofi v_left"
+                        openbox --reconfigure
+                        sed -i 's\panel_position = center .* vertical\panel_position = center left vertical\' $MECH_PANEL
+                        sed -i 's\panel_position = center .* vertical\panel_position = center left vertical\' $EYC_PANEL
+                        dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                        tint2 -c $CURRENT_PANEL &> /dev/null &
+                    fi
+                fi
+            else
+                if [[ $CHK_ORT != *"horizontal"* ]]; then
+                    sed -i '1s_state=".*"_state="horizontal"_' $ORT_FILE
+                    source $HOME/.owl4ce_var
+                    CURRENT_PANEL="$TINT2_DIR/$CHK_VISMOD-$CHK_ORT.tint2rc"
+                    if [[ $CHK_ORT_H = *"top"* ]]; then
+                        sed -i '3s_horizontal=".*"_horizontal="top"_' $ORT_FILE
+                        bash -c "$VISMOD_DIR/margin-dunst-rofi h_top"
+                        openbox --reconfigure
+                        sed -i 's\panel_position = .* center horizontal\panel_position = top center horizontal\' $MECH_PANEL
+                        sed -i 's\panel_position = .* center horizontal\panel_position = top center horizontal\' $EYC_PANEL
+                        dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                        tint2 -c $CURRENT_PANEL &> /dev/null &
+                    else
+                        if [[ $CHK_ORT_H = *"bottom"* ]]; then
+                            sed -i '3s_horizontal=".*"_horizontal="bottom"_' $ORT_FILE
+                            bash -c "$VISMOD_DIR/margin-dunst-rofi h_bottom"
+                            openbox --reconfigure
+                            sed -i 's\panel_position = .* center horizontal\panel_position = bottom center horizontal\' $MECH_PANEL
+                            sed -i 's\panel_position = .* center horizontal\panel_position = bottom center horizontal\' $EYC_PANEL
+                            dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+                            tint2 -c $CURRENT_PANEL &> /dev/null &
+                        fi
+                    fi
+                fi
+            fi
+        ;;
+        vismod_spawn)
+            source $HOME/.owl4ce_var
+            if [[ $CHK_ORT = *"vertical"* ]]; then
+                sed -i '1s_state=".*"_state="vertical"_' $ORT_FILE
+                source $HOME/.owl4ce_var
+                if [[ $CHK_ORT_V = *"right"* ]]; then
+                    sed -i '2s_vertical=".*"_vertical="right"_' $ORT_FILE
+                    bash -c "$VISMOD_DIR/margin-dunst-rofi v_right"
+                    
+                else
+                    if [[ $CHK_ORT_V = *"left"* ]]; then
+                        sed -i '2s_vertical=".*"_vertical="left"_' $ORT_FILE
+                        bash -c "$VISMOD_DIR/margin-dunst-rofi v_left"
+                    fi
+                fi
+            else
+                if [[ $CHK_ORT = *"horizontal"* ]]; then
+                    sed -i '1s_state=".*"_state="horizontal"_' $ORT_FILE
+                    if [[ $CHK_ORT_H = *"top"* ]]; then
+                        sed -i '3s_horizontal=".*"_horizontal="top"_' $ORT_FILE
+                        bash -c "$VISMOD_DIR/margin-dunst-rofi h_top"
+                    else
+                        if [[ $CHK_ORT_H = *"bottom"* ]]; then
+                            sed -i '3s_horizontal=".*"_horizontal="bottom"_' $ORT_FILE
+                            bash -c "$VISMOD_DIR/margin-dunst-rofi h_bottom"
+                        fi
+                    fi
+                fi
+            fi
+        ;;
+    esac
+fi

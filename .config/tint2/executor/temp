@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+source $HOME/.owl4ce_var
+
+function get_temp {
+    CEL=$'\xc2\xb0C'
+    temp="$(cat /sys/devices/virtual/thermal/$TEMP_DEV/temp)"
+    temp=`expr $temp / 1000`
+    echo "$temp$CEL"
+}
+
+get_temp

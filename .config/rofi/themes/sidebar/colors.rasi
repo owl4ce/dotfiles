@@ -1,0 +1,5 @@
+/*
+ * Change the colorscheme for every menu simply by editing this file...
+ */
+
+@import "themes/shared/colorschemes/sidebar-dark.rasi"

@@ -1,0 +1,41 @@
+# settings
+
+(GimpGegl-gegl-bloom-config "2020-11-17 19:11:08"
+    (time 1605615068)
+    (threshold 50)
+    (softness 25)
+    (radius 10)
+    (strength 50)
+    (limit-exposure no))
+(GimpGegl-gegl-bloom-config "2020-10-05 23:56:38"
+    (time 1601916998)
+    (gimp-opacity 0.5)
+    (threshold 50)
+    (softness 25)
+    (radius 10)
+    (strength 50)
+    (limit-exposure no))
+(GimpGegl-gegl-bloom-config "2020-10-05 23:41:05"
+    (time 1601916065)
+    (gimp-opacity 0.25)
+    (threshold 50)
+    (softness 25)
+    (radius 10)
+    (strength 50)
+    (limit-exposure no))
+(GimpGegl-gegl-bloom-config "2020-10-03 12:39:06"
+    (time 1601703546)
+    (threshold 50)
+    (softness 25)
+    (radius 10)
+    (strength 50)
+    (limit-exposure yes))
+(GimpGegl-gegl-bloom-config "2020-10-01 21:49:48"
+    (time 1601563788)
+    (threshold 25)
+    (softness 25)
+    (radius 10)
+    (strength 50)
+    (limit-exposure no))
+
+# end of settings

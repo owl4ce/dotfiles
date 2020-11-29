@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+function current_vol {
+    amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'
+}
+
+chk_mute="$(amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off | head -n1)"
+
+function current {
+    volume=`current_vol`
+    echo "$volume%"
+}
+
+function icon {
+    volume=`current_vol`
+    
+    if [ "$volume" = "0" ]; then
+        icon=""
+    else    
+        if [  "$volume" -lt "10" ]; then
+            icon=""
+        else
+            if [ "$volume" -lt "30" ]; then
+                icon=""
+            else
+                if [ "$volume" -lt "70" ]; then
+                    icon=""
+                else
+                    icon=""
+                fi
+            fi
+        fi
+    fi
+
+    echo "$icon"
+}
+
+case $1 in
+    percent)
+        if [[ $chk_mute = *"[off]"* ]]; then
+            echo "Muted"
+        else
+            current
+        fi
+    ;;
+    icon)
+        if [[ $chk_mute = *"[off]"* ]]; then
+            echo ""
+        else
+            icon
+        fi
+	;;
+    up)
+        # Unmute
+        amixer -D pulse set Master on -q
+        # +5%
+        amixer -D pulse sset Master 5%+ -q
+    ;;
+    down)
+        # Unmute
+        amixer -D pulse set Master on -q
+        # -5%
+        amixer -D pulse sset Master 5%- -q
+    ;;
+    mute)
+        # Toggle mute
+        amixer -D pulse set Master 1+ toggle -q
+	;;
+esac    

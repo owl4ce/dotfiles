@@ -1,0 +1,24 @@
+# settings
+
+(GimpGegl-gegl-cartoon-config "2020-10-03 11:26:10"
+    (time 1601699170)
+    (gimp-opacity 0.10000000000000001)
+    (mask-radius 7)
+    (pct-black 0.20000000000000001))
+(GimpGegl-gegl-cartoon-config "2020-10-03 09:42:07"
+    (time 1601692927)
+    (gimp-opacity 0.25)
+    (mask-radius 7)
+    (pct-black 0.20000000000000001))
+(GimpGegl-gegl-cartoon-config "2020-10-03 00:03:27"
+    (time 1601658207)
+    (gimp-opacity 0.14999999999999999)
+    (mask-radius 7)
+    (pct-black 0.20000000000000001))
+(GimpGegl-gegl-cartoon-config "2020-10-01 21:45:00"
+    (time 1601563500)
+    (gimp-opacity 0.40000000000000002)
+    (mask-radius 2.222)
+    (pct-black 0.20000000000000001))
+
+# end of settings

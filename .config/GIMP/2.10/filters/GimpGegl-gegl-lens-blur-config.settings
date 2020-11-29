@@ -1,0 +1,28 @@
+# settings
+
+(GimpGegl-gegl-lens-blur-config "2020-11-21 17:13:42"
+    (time 1605953622)
+    (radius 10)
+    (highlight-factor 0)
+    (highlight-threshold-low 0)
+    (highlight-threshold-high 1)
+    (clip yes)
+    (linear-mask no))
+(GimpGegl-gegl-lens-blur-config "2020-11-17 19:12:49"
+    (time 1605615169)
+    (radius 20)
+    (highlight-factor 0)
+    (highlight-threshold-low 0)
+    (highlight-threshold-high 1)
+    (clip yes)
+    (linear-mask no))
+(GimpGegl-gegl-lens-blur-config "2020-08-29 15:11:02"
+    (time 1598688662)
+    (radius 75)
+    (highlight-factor 0)
+    (highlight-threshold-low 0)
+    (highlight-threshold-high 1)
+    (clip yes)
+    (linear-mask no))
+
+# end of settings
