@@ -328,10 +328,10 @@ fc-cache -rv
   
 - **Default Supported Apps** \
   `~/.config/openbox/lockscreen`
-  - Terminal: urxvt / termite
-  - Lockscreen: Anything
-  - Music Player: mpd / spotify
-  - File Manager: Anything
+  - **Terminal**: urxvt/termite
+  - **Lockscreen**: anything
+  - **Music Player**: mpd/spotify
+  - **File Manager**: anything
   
   ```cfg
   1 terminal="urxvt"
