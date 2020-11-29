@@ -16,7 +16,7 @@ URxvt.depth:                      24
 URxvt.iso14755:                   false
 URxvt.iconFile:                   /home/violet/.icons/gladient/term.png
 ! Uncomment if to much font spacing
-URxvt.letterSpace: -1
+!URxvt.letterSpace: -1
 
 ! URXVT EXTENSIONS
 URxvt.perl-ext-common:            default,clipboard,keyboard-select,url-select,tabbedex
