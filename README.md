@@ -246,7 +246,10 @@ fc-cache -rv
 ```
 
 ### User configuration
-- **SLiM Themes** \
+- **SLiM Themes**
+
+  <br>
+  
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-ab1d83c2-591f-4af5-8cd3-7cca470b003c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWFiMWQ4M2MyLTU5MWYtNGFmNS04Y2QzLTdjY2E0NzBiMDAzYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.L3u8o56igDJEb2od0AXm_JpBAtzBSU7kg3wOPq3GL34" alt="floflo-batik" align="center" width="100%">
   
   Wait for 30 stars, I will upload the file and make a guide [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439).
@@ -291,27 +294,27 @@ fc-cache -rv
 - **Screenshots & Tint2 Executor** \
   `~/.owl4ce_var`
   ```cfg
-    ...
+  ...
+  
+   92 #-\------------------------------------------------------------------------#
+   93 # TINT2 EXECUTOR                                                          #
+   94 #-------------------------------------------------------------------------#
+   95
+   96 INT_ETH="enp4s0"
+   97 INT_WIFI="wlp3s0"
+   98
+   99 TEMP_DEV="thermal_zone0"
+  100
+  101 #-------------------------------------------------------------------------#
+  102 # SCREENSHOT OPTIONS                                                      #
+  103 #-------------------------------------------------------------------------#
+  104 # This will create "Screenshots" folder inside SAVE_DIR                   #
+  105 #-------------------------------------------------------------------------#
+  106
+  107 SAVE_DIR="$HOME/Pictures"
+  108 TIMER_SEC="5"
     
-     92 #-------------------------------------------------------------------------#
-     93 # TINT2 EXECUTOR                                                          #
-     94 #-------------------------------------------------------------------------#
-     95
-     96 INT_ETH="enp4s0"
-     97 INT_WIFI="wlp3s0"
-     98
-     99 TEMP_DEV="thermal_zone0"
-    100
-    101 #-------------------------------------------------------------------------#
-    102 # SCREENSHOT OPTIONS                                                      #
-    103 #-------------------------------------------------------------------------#
-    104 # This will create "Screenshots" folder inside SAVE_DIR                   #
-    105 #-------------------------------------------------------------------------#
-    106
-    107 SAVE_DIR="$HOME/Pictures"
-    108 TIMER_SEC="5"
-    
-    ...
+  ...
   ```
   
 - **Root Privileges ([SUID](https://en.wikipedia.org/wiki/Setuid))**
@@ -346,11 +349,30 @@ fc-cache -rv
   ```cfg
   ...
   
-    17 URxvt.iconFile:                   /home/username/.icons/gladient/term.png
+  17 URxvt.iconFile:                   /home/username/.icons/gladient/term.png
   
   ...
   ```
   
+- **Neovim** \
+  You know what to do with [Vim-plug](https://github.com/junegunn/vim-plug).
+  
+- **MPD Music Directory** \
+  `~/.mpd/mpd.conf`
+  ```cfg
+  ...
+  
+  music_directory     "~/Music"
+  
+  ...
+  ```
+  
+- **Ncmpcpp Music Directory** \
+  Auto connect with MPD
+  
+> **How to use ncmpcpp albumart?** \
+It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
+
 - **Neofetch Image (w3m)** \
   `~/.config/neofetch/config.conf`
   ```cfg
@@ -390,25 +412,6 @@ Arch|Artix|Bedrock|Gentoo|LoFi|Ubuntu|Void
 Arch Dark|Gentoo Dark|Ubuntu Dark|Void Dark
 |----|----|----|----|
 ![Arch](./.config/neofetch/images/arch_dark.png)|![Gentoo](./.config/neofetch/images/gentoo_dark.png)|![Ubuntu](./.config/neofetch/images/ubuntu_dark.png)|![Void](./.config/neofetch/images/void_dark.png)
-  
-- **Neovim** \
-  You know what to do with [Vim-plug](https://github.com/junegunn/vim-plug).
-  
-- **MPD Music Directory** \
-  `~/.mpd/mpd.conf`
-  ```cfg
-  ...
-  
-  music_directory     "~/Music"
-  
-  ...
-  ```
-  
-- **Ncmpcpp Music Directory** \
-  Auto connect with MPD
-  
-> **How to use ncmpcpp albumart?** \
-It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
