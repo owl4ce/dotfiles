@@ -2,7 +2,7 @@
 # owl4ce/dotfiles global variables                                        #
 #-------------------------------------------------------------------------#
 # Does not affect to all files. For example tint2rc, ob rc.xml,           #
-#obmenu perl, etc will use absolute path and using ~ directly.            #
+# obmenu perl, etc will use absolute path and using ~ directly.           #
 #                                                                         #
 # DO NOT CHANGE/REORDER VARIABLES UNLESS YOU KNOW                         #
 #-------------------------------------------------------------------------#
