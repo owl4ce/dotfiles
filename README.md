@@ -34,27 +34,25 @@ Here are some details about my setup:
 
 *v3.0*
 - **Major Changes**:
-  - All scripts are reproduced all with central variables in one [file](./.owl4ce_var).
+  - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
+  - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
   - Reverse terminal background and foreground (urxvt/termite)
+  - Supported Rofi to version 1.6.0
+  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
+  - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
   - URxvt font resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
-  - Removed SLiM sync background
+  - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
+  - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
+  - New Ncmpcpp UI
+  - New Wallpapers
+  - Neofetch Images
 
 - **Visual Mode**:
   - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
+  - Removed eyecandy tint2 from Joyful Desktop v2
   - Better Tint2 (added temp executor, etc.)
   - Added rotation mode (crossover)
-  - Removed eyecandy tint2 from Joyful Desktop v2
   
-- **Others**:
-  - Remove some unnecessary files/config
-  - Supported Rofi to version 1.6.0
-  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
-  - Oh My ZSH Theme: [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-  - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-  - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
-  - New Wallpapers
-  - New Ncmpcpp UI
-  - Neofetch Images
 
 ## :rice_scene:  Setup
 This is how to install this dotfiles for openbox automated setup.
@@ -67,7 +65,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
+  sudo apt install python2 psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -173,7 +171,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
+  yay -S python2 psmisc openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
   ```
   
   </details>
