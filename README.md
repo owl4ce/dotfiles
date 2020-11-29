@@ -257,14 +257,14 @@ fc-cache -rv
 
   <img src="https://i.ibb.co/4sqygH8/2020-10-15-023421-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%">
 
-  Settings: `chrome://settings/`
+  **Settings**: `chrome://settings/`
   - Themes: `Use GTK+`
   - `Use system title bar and borders`
   
-  New Tab
-  - Extension: [Tabliss - A Beautiful New Tab](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp?hl=en)
+  **New Tab**
+  - Extension**: [Tabliss - A Beautiful New Tab](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp?hl=en)
   
-  Tabliss -  Widgets Font
+  **Tabliss** -  Widgets Font
   - Greeting, Message: [Youth Touch DEMO](https://www.dafont.com/youth-touch.font)
   - Time, Search Box, Weather: [SFNS Display](https://fontsgeek.com/fonts/sfns-display-regular)
 
@@ -316,6 +316,10 @@ fc-cache -rv
   
   ...
   ```
+  > **TEMP_DEV**: Check here
+  > ```bash
+  > /sys/devices/virtual/thermal/
+  > ```
   
 - **Root Privileges ([SUID](https://en.wikipedia.org/wiki/Setuid))**
   - `poweroff`
