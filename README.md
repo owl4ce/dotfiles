@@ -439,4 +439,4 @@ Arch Dark|Gentoo Dark|Ubuntu Dark|Void Dark
 - [Papirus Development Team](https://github.com/PapirusDevelopmentTeam) - [Papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 - [Slava Levit](https://github.com/vlevit) - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
 - Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart) and [r/unixporn](https://www.reddit.com/r/unixporn/).
-- All artists who make icons, illustrations, and wallpapers ( **©** ).
+- © All artists who make icons, illustrations, and wallpapers.
