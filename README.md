@@ -205,7 +205,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
 Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 ### Installation (dotfiles)
-  If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles files manually instead of putting all of them directly into the user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files / config from v2 which were removed from v3.
+  If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles files manually instead of putting all of them directly into the user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
   
   <details open>
   <summary><strong>Most of the files</strong></summary>
