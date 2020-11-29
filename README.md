@@ -442,5 +442,6 @@ Arch Dark|Gentoo Dark|Ubuntu Dark|Void Dark
 - [Nana-4](https://github.com/nana-4) - [Materia-theme](https://github.com/nana-4/materia-theme)
 - [Papirus Development Team](https://github.com/PapirusDevelopmentTeam) - [Papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 - [Slava Levit](https://github.com/vlevit) - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
+- [Scott Hansen](https://github.com/firecat53) - [Networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)
 - Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart) and [r/unixporn](https://www.reddit.com/r/unixporn/).
 - © All artists who make icons, illustrations, and wallpapers.
