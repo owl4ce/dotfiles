@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-MUSIC_DIR="$(cat $MPD_CONFIG | grep 'music_directory' | awk -F'"' '{print $2}')"
+if [[ $CHK_MPD_MUSIC_DIR = "~"* ]]; then
+    MUSIC_DIR="$(echo "$HOME" && $CHK_MPD_MUSIC_DIR)"
+else
+    MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
+fi
+
 COVER="$NCMPCPP_COVER"
 
 function reset_background {

@@ -27,6 +27,9 @@ MPD_CONFIG="$MPD_DIR/mpd.conf"
 NCMPCPP_COVER="/tmp/cover.jpg"
 NCMPCPP_NOTIF_COVER="/tmp/cover-notify.jpg"
 
+GET_MPD_MUSIC_DIR="$(cat $MPD_CONFIG | grep 'music_directory' | awk -F'"' '{print $2}')"
+CHK_MPD_MUSIC_DIR="$(bash -c "echo $GET_MPD_MUSIC_DIR")"
+
 OB_CONFIG="$OB_DIR/rc.xml"
 GTK2_CONFIG="$HOME/.gtkrc-2.0"
 GTK3_CONFIG="$HOME/.config/gtk-3.0/settings.ini"
