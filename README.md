@@ -44,9 +44,9 @@ Here are some details about my setup:
   - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
   - Reverse terminal background and foreground (urxvt/termite)
   - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)  
-  - URxvt Font Resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
+  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
   - Oh My ZSH Theme - [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
+  - URxvt Font Resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
   - SLiM Themes - See [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439)  
   - Rofi v1.6.0 Supported
   - New Ncmpcpp UI
