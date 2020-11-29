@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-if [[ $CHK_MPD_MUSIC_DIR = "~"* ]]; then
-    MUSIC_DIR="$(echo "$HOME" && $CHK_MPD_MUSIC_DIR)"
-else
-    MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
-fi
+MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 
 COVER="$NCMPCPP_NOTIF_COVER"
 
