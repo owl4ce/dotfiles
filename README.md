@@ -247,8 +247,6 @@ fc-cache -rv
 
 ### User configuration
 - **SLiM Themes**
-
-  <br>
   
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-ab1d83c2-591f-4af5-8cd3-7cca470b003c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWFiMWQ4M2MyLTU5MWYtNGFmNS04Y2QzLTdjY2E0NzBiMDAzYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.L3u8o56igDJEb2od0AXm_JpBAtzBSU7kg3wOPq3GL34" alt="floflo-batik" align="center" width="100%">
   
