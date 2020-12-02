@@ -10,14 +10,14 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="ttps://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-f66852c5-811c-46af-88d8-7db6de5855b4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLWY2Njg1MmM1LTgxMWMtNDZhZi04OGQ4LTdkYjZkZTU4NTViNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.hMZbKXsm1r074uq4Rb5x5c-lyo1QGz0kEnW-NhgPIRk" alt="preview" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-f66852c5-811c-46af-88d8-7db6de5855b4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLWY2Njg1MmM1LTgxMWMtNDZhZi04OGQ4LTdkYjZkZTU4NTViNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.hMZbKXsm1r074uq4Rb5x5c-lyo1QGz0kEnW-NhgPIRk" alt="preview" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
 I hope you understand everything here. :wink:
 
 Here are some details about my setup:
-- **WM**                           : [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable themes/mode!
+- **WM**                           : [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable themes / mode!
 - **DM**                           : [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI!
 - **Shell**                        : [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
 - **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) (supported)
@@ -32,7 +32,7 @@ Here are some details about my setup:
 ## :gift: Changelogs <img alt="Repo Size" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
 <a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-10c7a4fd-ba9d-46ec-8193-559793ddc2c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLTEwYzdhNGZkLWJhOWQtNDZlYy04MTkzLTU1OTc5M2RkYzJjOS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.rg0jBXM8ozYxUuJqLe7Ogjdpzh2ZjdLWm-SJMkYTgk0" alt="" align="right" width="400px"></a>
 
-*v3.0*
+[v3.0](https://youtu.be/spbtriublqu)
 - **Visual Mode**:
   - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
   - Removed eyecandy tint2 from Joyful Desktop v2
@@ -44,10 +44,10 @@ Here are some details about my setup:
   - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
   - Reverse terminal background and foreground (urxvt/termite)
   - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
+  - SLiM Themes (optional) - See [here](#user-configuration)
   - URxvt Font Resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
   - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
   - Oh My ZSH Theme - [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-  - SLiM Themes - See [here](#user-configuration)
   - Rofi v1.6.0 Supported
   - New Ncmpcpp UI
   - Neofetch Images
@@ -274,7 +274,7 @@ fc-cache -rv
   [Dribbblish](https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical)
   
 - **Battery Indicator** \
-  Because on the tint2 panel I turned off the battery status. Alternatively, install xfce4-power-manager and turn it on *~/.config/openbox/autostart* then enable system tray icon in xfce4-power-manager-settings.
+  Because on the tint2 panel I turned off the battery status. Alternatively, install `xfce4-power-manager` and turn it on [~/.config/openbox/autostart](./.config/openbox/autostart) then enable system tray icon in `xfce4-power-manager-settings`.
   
 - **Dunst Action: Default Web Browser (`middle click`)** \
   `~/.config/dunst/dunstrc-mech` \
