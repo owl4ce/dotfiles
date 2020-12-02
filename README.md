@@ -247,12 +247,10 @@ fc-cache -rv
 ```
 
 ### User configuration
-- **SLiM Themes**
+- **SLiM Themes (optional)**
   
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-ab1d83c2-591f-4af5-8cd3-7cca470b003c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWFiMWQ4M2MyLTU5MWYtNGFmNS04Y2QzLTdjY2E0NzBiMDAzYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.L3u8o56igDJEb2od0AXm_JpBAtzBSU7kg3wOPq3GL34" alt="floflo-batik" align="center" width="100%">
-  
-  Wait for 30 stars, I will upload the file and make a guide [here](https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439).
-  
+  <a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center" width="100%"></a>
+
 - **Google-chrome / Chromium (tip)**
 
   <img src="https://i.ibb.co/4sqygH8/2020-10-15-023421-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%">
@@ -296,23 +294,23 @@ fc-cache -rv
   ```cfg
   ...
   
-   92 #-------------------------------------------------------------------------#
-   93 # TINT2 EXECUTOR                                                          #
-   94 #-------------------------------------------------------------------------#
-   95
-   96 INT_ETH="enp4s0"
-   97 INT_WIFI="wlp3s0"
+   95 #-------------------------------------------------------------------------#
+   96 # TINT2 EXECUTOR                                                          #
+   97 #-------------------------------------------------------------------------#
    98
-   99 TEMP_DEV="thermal_zone0"
-  100
-  101 #-------------------------------------------------------------------------#
-  102 # SCREENSHOT OPTIONS                                                      #
-  103 #-------------------------------------------------------------------------#
-  104 # This will create "Screenshots" folder inside SAVE_DIR                   #
-  105 #-------------------------------------------------------------------------#
-  106
-  107 SAVE_DIR="$HOME/Pictures"
-  108 TIMER_SEC="5"
+   99 INT_ETH="enp4s0"
+  100 INT_WIFI="wlp3s0"
+  101
+  102 TEMP_DEV="thermal_zone0"
+  103
+  104 #-------------------------------------------------------------------------#
+  105 # SCREENSHOT OPTIONS                                                      #
+  106 #-------------------------------------------------------------------------#
+  107 # This will create "Screenshots" folder inside SAVE_DIR                   #
+  108 #-------------------------------------------------------------------------#
+  109
+  110 SAVE_DIR="$HOME/Pictures"
+  111 TIMER_SEC="5"
   
   ...
   ```
