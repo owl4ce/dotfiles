@@ -289,7 +289,7 @@ fc-cache -rv
   ...
   ```
   
-- **Screenshots & Tint2 Executor** \
+- **Screenshots, Tint2 Executor, and Autolock** \
   `~/.owl4ce_var`
   ```cfg
   ...
@@ -311,6 +311,12 @@ fc-cache -rv
   109
   110 SAVE_DIR="$HOME/Pictures"
   111 TIMER_SEC="5"
+  112 
+  113 #-------------------------------------------------------------------------#
+  114 # XAUTOLOCK - 5 means 5 minutes                                           #
+  115 #-------------------------------------------------------------------------#
+  116 
+  117 AUTOLOCK_MINUTE="5"
   
   ...
   ```
