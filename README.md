@@ -330,7 +330,7 @@ fc-cache -rv
   > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
   
 - **Default Supported Apps** \
-  `~/.config/openbox/lockscreen`
+  ` ~/.scripts/default-apps/list`
   - **Terminal**: urxvt/termite
   - **Lockscreen**: anything
   - **Music Player**: mpd/spotify
