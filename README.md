@@ -407,13 +407,18 @@ fc-cache -rv
   
   ...
   ```
-Arch|Artix|Bedrock|Gentoo|LoFi|Ubuntu|Void
-|-------|-------|-------|-------|-------|-------|-------|
-![Arch](./.config/neofetch/images/arch.png)|![Artix](./.config/neofetch/images/artix.png)|![Bedrock](./.config/neofetch/images/bedrock.png)|![Gentoo](./.config/neofetch/images/gentoo.png)|![LoFi](./.config/neofetch/images/lofi.png)|![Ubuntu](./.config/neofetch/images/ubuntu.png)|![Void](./.config/neofetch/images/void.png)
+Arch|Gentoo|Ubuntu|Void
+|----|----|----|----|
+![Arch](./.config/neofetch/images/arch.png)|![Gentoo](./.config/neofetch/images/gentoo.png)|![Ubuntu](./.config/neofetch/images/ubuntu.png)|![Void](./.config/neofetch/images/void.png)
 
 Arch Dark|Gentoo Dark|Ubuntu Dark|Void Dark
 |----|----|----|----|
 ![Arch](./.config/neofetch/images/arch_dark.png)|![Gentoo](./.config/neofetch/images/gentoo_dark.png)|![Ubuntu](./.config/neofetch/images/ubuntu_dark.png)|![Void](./.config/neofetch/images/void_dark.png)
+
+Artix|LoFi|Bedrock
+|---|---|---|
+![Artix](./.config/neofetch/images/artix.png)|![LoFi](./.config/neofetch/images/lofi.png)|![Bedrock](./.config/neofetch/images/bedrock.png)
+
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
