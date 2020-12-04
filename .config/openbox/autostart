@@ -21,8 +21,8 @@ lxpolkit &
 # Power Manager
 #xfce4-power-manager &
 
-# Sessions Autolock (time: minute)
-xautolock -time 5 -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep &
+# Sessions Autolock
+xautolock -time $AUTOLOCK_MINUTE -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep &
 
 # Others
 # Below will autostart mpd
