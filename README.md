@@ -59,12 +59,15 @@ This is how to install this dotfiles for openbox automated setup.
 ### Introduction of Linux Rice
 Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html) and [this](https://jie-fang.github.io/blog/basics-of-ricing).
 
+### Detailed environment
+Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
+
 ### Installation (dependencies)
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install rsync python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
+  sudo apt install rsync python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -170,7 +173,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S rsync python2 python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
+  yay -S rsync python2 python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
   ```
   If you want rounded corners, but I don't recommend it because I experience a memory leak.
   ```bash
@@ -199,10 +202,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   <br>
   
-  **Optional**: [gimp](https://www.gimp.org/), [improved nano syntax highlighting](https://github.com/scopatz/nanorc), [mpv](https://mpv.io/), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started), [zathura](https://pwmt.org/projects/zathura/).
-
-### Detailed environment
-Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
+  **Optional**: [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
 
 ### Installation (dotfiles)
   If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles files manually instead of putting all of them directly into the user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
