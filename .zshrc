@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -118,6 +119,7 @@ alias emergecuse="$PRIV emerge -av --update --changed-use --deep @world"
 alias pingoogle="ping 8.8.8.8"
 alias trimall="$PRIV fstrim -va"
 alias nanosu="$PRIV nano"
+alias nvimsu="$PRIV nvim"
 
 # Color toys aliases
 alias bloks="~/.color-toys/bloks"
