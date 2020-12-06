@@ -347,7 +347,19 @@ fc-cache -rv
   ```
   
 - **Tray** \
-  `~/.config/openbox/tray`
+  `~/.config/openbox/tray` \
+  An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead (<kbd>F12</kbd>). Remove hashtags before nm-applet.
+  ```cfg
+  1 #
+  2 # This tray will restart after changing visual mode
+  3 # Please add "&" after command
+  4 #
+  5 # ---
+  6
+  7 parcellite &
+  8 #nm-applet &
+
+  ```
   
 - **URxvt Icon** \
   `~/.Xresources`
