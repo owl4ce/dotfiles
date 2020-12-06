@@ -54,7 +54,7 @@ Here are some details about my setup:
   - New Wallpapers
   
 ## :rice_scene:  Setup
-This is how to install this dotfiles for openbox automated setup.
+This is how to install these dotfiles for automatic settings OpenboxWM custom environment.
 
 ### Introduction of Linux Rice
 Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html) and [this](https://jie-fang.github.io/blog/basics-of-ricing).
