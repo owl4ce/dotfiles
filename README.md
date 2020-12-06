@@ -64,7 +64,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
+  sudo apt install rsync python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -170,7 +170,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S python2 python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
+  yay -S rsync python2 python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany nano viewnior mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
   ```
   If you want rounded corners, but I don't recommend it because I experience a memory leak.
   ```bash
@@ -212,31 +212,28 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory or ( **~** ).
    - ```bash
-     git clone https://github.com/owl4ce/dotfiles.git
+     git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles
      ```
    - ```bash
-     cd dotfiles/ && cp -r {.*,*} ~/
+     rsync -avzP --exclude '.git*' .* ~/
      ```
-   - ```bash
-     rm -rf ~/{README.md,LICENSE,.git} # Delete unnecessary files
-     ```
-   
+  
   </details>
 
   <details open>
   <summary><strong>Icons</strong></summary>
   
    - ```bash
-     cd ~/.icons/
+     cd ~/.icons
      ```
    - ```bash
      tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
      ```
    - ```bash
-     sudo cp -r {Papirus-Custom,Papirus-Dark-Custom} /usr/share/icons/
+     sudo rsync -avzP Papirus-{Custom,Dark-Custom} /usr/share/icons/
      ```
    - ```bash
-     rm -r ~/.icons/{Papirus-Custom,Papirus-Dark-Custom,*.tar.xz} # Delete unnecessary files
+     rm -r ~/.icons/Papirus-* # Delete unnecessary files
      ```
      
    </details>
