@@ -67,7 +67,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install rsync python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh ffmpeg playerctl xsettingsd
+  sudo apt install rsync python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>

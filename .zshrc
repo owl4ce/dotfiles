@@ -69,7 +69,7 @@ ZSH_THEME="rounded"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions bgnotify)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions bgnotify)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
@@ -116,6 +116,10 @@ alias emergeupg="$PRIV emerge -av --update --deep --changed-use @world"
 alias emergedepc="$PRIV emerge --depclean -av"
 alias emergenuse="$PRIV emerge -av --update --newuse --deep @world"
 alias emergecuse="$PRIV emerge -av --update --changed-use --deep @world"
+alias ecleandist="$PRIV eclean-dist --deep"
+alias ecleankern="$PRIV eclean-kernel -n 3"
+alias rc-service="$PRIV rc-service"
+alias rc-update="$PRIV rc-update"
 alias pingoogle="ping 8.8.8.8"
 alias trimall="$PRIV fstrim -va"
 alias nanosu="$PRIV nano"

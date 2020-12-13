@@ -14,14 +14,11 @@ set linenumbers
 set softwrap
 
 # COLOR SCHEME
-set titlecolor white,red
+set titlecolor black,red
 set statuscolor magenta
 set keycolor blue
 set functioncolor white
 set numbercolor white
 
 # SYNTAX HIGHTLIGHTING
-syntax "comments" ".*"
-color blue "^#.*"
-
 #include "~/.nano/*.nanorc"
