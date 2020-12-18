@@ -210,7 +210,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   <details open>
   <summary><strong>Most of the files</strong></summary>
   
-   You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory or ( **~** ).
+   You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
    - ```bash
      git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles
      ```
@@ -236,13 +236,31 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
      rm -r ~/.icons/Papirus-* # Delete unnecessary files
      ```
      
-   </details>
+  </details>
 
-For refresh font cache do
-```bash
-fc-cache -rv
-```
+  <details open>
+  <summary><strong>Refresh Font Cache</strong></summary>
+  
+   ```bash
+   fc-cache -rv
+   ```
+    
+  </details>
 
+  <details open>
+  <summary><strong>Root Privileges</strong></summary>
+  
+   - `poweroff`
+   - `reboot`
+   - `brightnessctl`
+   - *others if needed*
+   ```bash
+   sudo chmod u+s $(which {poweroff,reboot,brightnessctl})
+   ```
+   > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
+    
+  </details>
+    
 ### User configuration
 - **SLiM Themes (optional)**
   
@@ -321,16 +339,6 @@ fc-cache -rv
   > ```bash
   > /sys/devices/virtual/thermal/
   > ```
-  
-- **Root Privileges ([SUID](https://en.wikipedia.org/wiki/Setuid))**
-  - `poweroff`
-  - `reboot`
-  - `brightnessctl`
-  - *others if needed*
-  ```bash
-  sudo chmod u+s $(where {poweroff,reboot,brightnessctl})
-  ```
-  > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
   
 - **Default Supported Apps** \
   ` ~/.scripts/default-apps/list`
