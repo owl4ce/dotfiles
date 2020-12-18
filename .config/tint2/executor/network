@@ -22,7 +22,7 @@ case $1 in
             echo "$wifi"
         else
             if [[ $(ip addr | grep $INT_ETH | grep 'inet' | awk -F' ' '{print $1}') = *"inet"* ]]; then
-                echo ""
+                echo "$lan"
             else
                 echo "$wifi_disabled"
             fi

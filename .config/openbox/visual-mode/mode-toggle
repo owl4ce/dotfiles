@@ -82,7 +82,7 @@ case $1 in
     ;;
     startup)
         source $HOME/.owl4ce_var
-        xrdb ~/.Xresources
+        xrdb $HOME/.Xresources
         if [[ $CHK_MINMOD = *"minimal"* ]]; then
             bash -c "$VISMOD_DIR/$CHK_VISMOD/ui-minimal" &> /dev/null
         else

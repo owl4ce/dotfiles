@@ -21,9 +21,8 @@ COVER="$NCMPCPP_NOTIF_COVER"
         # Resize the image's width to 80px (ffmpeg/imagemagick)
         ffmpeg -i "$src" -vf scale=80:80 "$COVER" &> /dev/null
         #convert "$src" -resize 80x "$COVER" &> /dev/null
-        $HOME/.scripts/notify/notify-send.sh -u normal -r 7777 -i $COVER "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
+        $EXNOTIFY_SEND -u normal -r 7777 -i $COVER "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
     else
-        fallback="~/.icons/gladient/music.png"
-        $HOME/.scripts/notify/notify-send.sh -u normal -r 7777 -i $fallback "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
+        $EXNOTIFY_SEND -u normal -r 7777 -i $NOTIF_MUSIC_ICON "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
     fi
 } &
