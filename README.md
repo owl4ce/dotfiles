@@ -465,7 +465,10 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
-<p align="center"><a name="top" href="#color-scheme"><img src="https://i.ibb.co/9TDTqsy/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
+<p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/9TDTqsy/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
+
+### <p align="center">Why use this setup?</p>
+<p align="center"><img src="https://i.ibb.co/wL526r4/ps-mem.png" alt="ps_mem"></p>
 
 ### <p align="center">:love_letter:</p>
 <p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a PR. Or if there is a problem with configuration you can make an issue here.</p><p align="center"><b>Thank you!</b></p>
