@@ -6,8 +6,7 @@
 # ---
 source $HOME/.owl4ce_var
 
-# Start pulseaudio if not started automatically
-pulseaudio --start --log-target=syslog &
+# there was once a pulseaudio here
 
 # UI Appearance
 bash -c "$VISMOD_DIR/mode-toggle startup"
