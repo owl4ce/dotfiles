@@ -292,10 +292,10 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   Because on the tint2 panel I turned off the battery status. Alternatively, install `xfce4-power-manager` and turn it on [~/.config/openbox/autostart](./.config/openbox/autostart) then enable system tray icon in `xfce4-power-manager-settings`.
   
 - **Dunst Action: Default Web Browser (`middle click`)** \
-  `~/.config/dunst/dunstrc-mech` \
-  `~/.config/dunst/dunstrc-mech-MINMOD` \
-  `~/.config/dunst/dunstrc-eyc` \
-  `~/.config/dunst/dunstrc-eyc-MINMOD`
+  [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech) \
+  [`~/.config/dunst/dunstrc-mech-MINMOD`](./.config/dunst/dunstrc-mech-MINMOD) \
+  [`~/.config/dunst/dunstrc-eyc`](./.config/dunst/dunstrc-eyc) \
+  [`~/.config/dunst/dunstrc-eyc-MINMOD`](./.config/dunst/dunstrc-eyc-MINMOD)
   ```cfg
   ...
   
@@ -305,7 +305,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   ```
   
 - **Screenshots, Tint2 Executor, and Autolock** \
-  `~/.owl4ce_var`
+  [`~/.owl4ce_var`](./.owl4ce_var)
   ```cfg
   ...
   
@@ -341,7 +341,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   > ```
   
 - **Default Supported Apps** \
-  ` ~/.scripts/default-apps/list`
+  [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
   - **Terminal**: urxvt/termite
   - **Lockscreen**: anything
   - **Music Player**: mpd/spotify
@@ -355,7 +355,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   ```
   
 - **Tray** \
-  `~/.config/openbox/tray` \
+  [`~/.config/openbox/tray`](./.config/openbox/tray) \
   An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead (<kbd>F12</kbd>). Remove hashtags before nm-applet.
   ```cfg
   1 #
@@ -370,7 +370,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   ```
   
 - **URxvt Icon** \
-  `~/.Xresources`
+  [`~/.Xresources`](./.Xresources)
   ```cfg
   ...
   
@@ -380,10 +380,11 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   ```
   
 - **Neovim** \
+  [`~/.config/nvim/`](./.config/nvim/) \
   You know what to do with [Vim-plug](https://github.com/junegunn/vim-plug).
   
 - **MPD Music Directory** \
-  `~/.mpd/mpd.conf`
+  [`~/.mpd/mpd.conf`](./.mpd/mpd.conf)
   ```cfg
   ...
   
@@ -398,8 +399,22 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   > **How to use ncmpcpp albumart?** \
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
+- **Pulseaudio (without service)** \
+  [`~/.config/openbox/autostart`](./.config/openbox/autostart) \
+  This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing the audio volume.
+  ```cfg
+  ...
+  
+  9  # there was once a pulseaudio here
+  10 if [[ $(pstree) = *"pulseaudio"* ]]; then
+  11   pulseaudio --start --log-target=syslog &
+  12 fi
+  
+  ...
+  ```
+
 - **Neofetch Image (w3m)** \
-  `~/.config/neofetch/config.conf`
+  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
   ```cfg
   ...
   
