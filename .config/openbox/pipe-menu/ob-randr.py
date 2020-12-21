@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # The script base is taken from http://openbox.org/wiki/Openbox:Pipemenus
 
@@ -43,15 +43,12 @@ TODO:
 AUTHOR = 'Seth House <seth@eseth.com>, Petr Penzin <penzin.dev@gmail.com>'
 VERSION = '0.2'
 
-import ConfigParser
+import configparser
 import os
 import subprocess
 import sys
 
-try:
-    from xml.etree import cElementTree as etree
-except ImportError:
-    from xml.etree import ElementTree as etree
+from xml.etree import ElementTree as etree
 
 HOME = os.path.expanduser('~')
 RCFILE = '.ob-randrrc'
@@ -71,7 +68,7 @@ def mk_exe_node(output, name, command):
 
 def get_rc_menu():
     """Read the user's rc file and return XML for menu entries."""
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read(os.path.join(HOME, RCFILE))
 
     menus = []
@@ -123,8 +120,11 @@ def get_xml():
     then build an XML tree suitable for passing to OpenBox.
 
     """
-    xrandr = subprocess.Popen(['xrandr', '-q'], stdout=subprocess.PIPE)
-    xrandr_lines = xrandr.stdout.readlines()
+    xrandr = subprocess.Popen(['xrandr', '-q'], stdout=subprocess.PIPE, universal_newlines=True)
+    xrandr_lines = ""
+
+    for line in iter(xrandr.stdout.readline, ''):
+        xrandr_lines += line
 
     root = etree.Element('openbox_pipe_menu')
 
@@ -231,4 +231,4 @@ def get_xml():
 
 if __name__ == '__main__':
     ob_menu = get_xml()
-    sys.stdout.write(etree.tostring(ob_menu) + '\n')
+    sys.stdout.write(etree.tostring(ob_menu).decode() + '\n')
