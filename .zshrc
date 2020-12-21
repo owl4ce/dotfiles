@@ -72,7 +72,7 @@ ZSH_THEME="rounded"
 plugins=(zsh-syntax-highlighting zsh-autosuggestions bgnotify)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-
+setopt INC_APPEND_HISTORY
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -135,5 +135,3 @@ alias panes="~/.color-toys/panes"
 alias pipes1="~/.color-toys/pipes1"
 alias pipes2="~/.color-toys/pipes2"
 alias pipes2-slim="~/.color-toys/pipes2-slim"
-
-setopt INC_APPEND_HISTORY

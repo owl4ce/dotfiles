@@ -64,7 +64,7 @@ song_columns_list_format = "(50)[]{tr|fr:Title} (45)[magenta]{a}"
 
 song_list_format = ""
 
-song_status_format = "{$b$7[$8      $7] $2$8}"
+song_status_format = "{$b$7[$8      $7] $2 $8}"
 
 song_window_title_format = "Now Playing .."
 

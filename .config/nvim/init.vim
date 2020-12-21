@@ -367,7 +367,6 @@ source $HOME/.config/nvim/statusline.vim
 set guicursor=n-ci:hor30-iCursor-blinkwait300-blinkon200-blinkoff150
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 map <C-n> :NERDTreeToggle<CR>
 

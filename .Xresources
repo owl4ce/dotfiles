@@ -1,8 +1,8 @@
 ! DO NOT CHANGE THE ORDER
 
 ! URXVT APPEARANCE
-URxvt.font:                       xft:mplus Nerd Font Mono:style:regular:size=10
-URxvt.geometry:                   84x15
+URxvt.font:                       xft:mplus Nerd Font Mono:style:regular:size=11
+URxvt.geometry:                   84x16
 URxvt.internalBorder:             20
 URxvt.cursorBlink:                true
 URxvt.cursorUnderline:            true
@@ -34,7 +34,7 @@ URxvt.tabbedex.bell-fg:           0
 URxvt.tabbedex.bell-bg:           0
 URxvt.tabbedex.bell-tab-fg:       0
 URxvt.tabbedex.bell-tab-bg:       0
-URxvt.tabbedex.title-fg:          0
+URxvt.tabbedex.title-fg:          14
 URxvt.tabbedex.title-bg:          0
 
 URxvt.keysym.Control-Shift-T:     perl:tabbedex:new_tab

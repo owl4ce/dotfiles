@@ -27,7 +27,7 @@ autocenter_mode = "yes"
 centered_cursor = "yes"
 user_interface = "classic"
 follow_now_playing_lyrics = "yes"
-locked_screen_width_part = "63"
+locked_screen_width_part = "71"
 ask_for_locked_screen_width_part = "yes"
 display_bitrate = "no"
 external_editor = "nano"
@@ -43,7 +43,7 @@ progressbar_color = "black"
 # UI VISIBILITY
 header_visibility = "no"
 statusbar_visibility = "yes"
-titles_visibility = "no"
+titles_visibility = "yes"
 enable_window_title = "yes"
 
 # COLOR
@@ -52,16 +52,16 @@ color1 = "white"
 color2 = "blue"
 
 # UI FORMAT
-now_playing_prefix = "$b$8                  "
-now_playing_suffix = "$/b$8 $b[ $3$8 ]$/b                            "
-current_item_prefix = "$/b$b[ $7$8 ]$/b "
-current_item_suffix = "            $8"
+now_playing_prefix = "$b$8               "
+now_playing_suffix = "$/b$8 $b[ $3$8 ]$/b                      "
+current_item_prefix = "$/b$b[ $7$8 ]$/b  "
+current_item_suffix = "             $8"
 
 song_columns_list_format = "(35)[]{t|fr:Title} (45)[magenta]{a}"
 
 song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $R$8│                            "
 
-song_status_format = "{$b$7[$8      $7] $2 $7$8 %b $7$8}|{$b$7[$8      $7] $2 $7$8 %f $7$8}"
+song_status_format = "{$b$7[$8      $7] $2 $7$8 %b $7 $8}|{$b$7[$8      $7] $2 $7$8 %f $7 $8}"
 
 song_window_title_format = "Now Playing .."
 

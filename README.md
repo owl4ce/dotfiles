@@ -10,7 +10,7 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-f66852c5-811c-46af-88d8-7db6de5855b4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLWY2Njg1MmM1LTgxMWMtNDZhZi04OGQ4LTdkYjZkZTU4NTViNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.hMZbKXsm1r074uq4Rb5x5c-lyo1QGz0kEnW-NhgPIRk" alt="preview" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-73fff2d2-b57b-4f37-a7b9-d9efe6d62c15.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLTczZmZmMmQyLWI1N2ItNGYzNy1hN2I5LWQ5ZWZlNmQ2MmMxNS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.jVInTfBnRLlqPbvTfPf5XJ_VSsAiUiF-niGlkFOg_-I" alt="owl4ce/dotfiles.minimal" align="right" width="400px"></a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
@@ -30,28 +30,40 @@ Here are some details about my setup:
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="Repo Size" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
-<a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-10c7a4fd-ba9d-46ec-8193-559793ddc2c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLTEwYzdhNGZkLWJhOWQtNDZlYy04MTkzLTU1OTc5M2RkYzJjOS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.rg0jBXM8ozYxUuJqLe7Ogjdpzh2ZjdLWm-SJMkYTgk0" alt="" align="right" width="400px"></a>
+<a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-9d0c65c9-6615-42e7-a5a1-e97fcf57d196.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLTlkMGM2NWM5LTY2MTUtNDJlNy1hNWExLWU5N2ZjZjU3ZDE5Ni5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.uai71P0pF-4yQjKryay087dqCvPKpABLYA9B5wGuPi4" alt="owl4ce/dotfiles" align="right" width="400px"></a>
 
-[v3.0](https://youtu.be/sPBTRiuBLqU)
-- **Visual Mode**:
-  - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
-  - Removed eyecandy tint2 from Joyful Desktop v2
-  - Better Tint2 (added temp executor, etc.)
-  - Added rotation mode (crossover, except minimal mode.)
+<details>
+  <summary><strong>v3.0</strong></summary>
   
-- **Major Changes**:
-  - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
-  - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
-  - Reverse terminal background and foreground (urxvt/termite)
-  - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-  - SLiM Themes (optional) - See [here](#user-configuration)
-  - URxvt Font Resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
-  - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
-  - Oh My ZSH Theme - [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
-  - Rofi v1.6.0 Supported
-  - New Ncmpcpp UI
-  - Neofetch Images
-  - New Wallpapers
+  - **Visual Mode**:
+    - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
+    - Removed eyecandy tint2 from Joyful Desktop v2
+    - Better Tint2 (added temp executor, etc.)
+    - Added rotation mode (crossover, except minimal mode.)
+
+  - **Major Changes**:
+    - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
+    - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
+    - Reverse terminal background and foreground (urxvt/termite)
+    - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
+    - SLiM Themes (optional) - See [here](#user-configuration)
+    - URxvt Font Resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
+    - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
+    - Oh My ZSH Theme - [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
+    - Rofi v1.6.0 Supported
+    - New Ncmpcpp UI
+    - Neofetch Images
+    - New Wallpapers
+    
+</details>
+
+<details open>
+  <summary><strong>v3.1</strong></summary>
+  
+  - Terminal UI improvements, particularly font size.
+  - Bug fixes and improvements.
+  
+</details>
   
 ## :rice_scene:  Setup
 This is how to install these dotfiles for automatic settings OpenboxWM custom environment.
@@ -67,7 +79,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install rsync python2 python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh imagemagick ffmpeg playerctl xsettingsd
+  sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -76,7 +88,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   <summary>oh-my-zsh & plugins</summary>
   
   - ```bash
-    chsh -s /usr/bin/zsh # Change default shell to zsh for current user
+    chsh -s `which zsh` # Change default shell to zsh for current user
     ```
   - ```bash
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -113,8 +125,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
     ninja -C build install
     ```
     
-    If you want rounded ones.
-    > I don't recommend it, because I experience a memory leak.
+    If you want rounded corners, but I don't recommend it because I experience a memory leak.
   
   - ```bash
     sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
@@ -173,7 +184,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S rsync python2 python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
+  yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
   ```
   If you want rounded corners, but I don't recommend it because I experience a memory leak.
   ```bash
@@ -186,7 +197,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   <summary>oh-my-zsh & plugins</summary>
   
   - ```bash
-    chsh -s /usr/bin/zsh # Change default shell to zsh for current user
+    chsh -s `which zsh` # Change default shell to zsh for current user
     ```
   - ```bash
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -255,9 +266,9 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
    - `brightnessctl`
    - *others if needed*
    ```bash
-   sudo chmod u+s $(which {poweroff,reboot,brightnessctl})
+   sudo chmod u+s `which {poweroff,reboot,brightnessctl}`
    ```
-   > For `brightnessctl` I recommend [adding users to the group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management) `video`.
+   > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
     
   </details>
     
@@ -465,10 +476,10 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
-<p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/9TDTqsy/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
+<p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/BB95x2b/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
 ### <p align="center">Why use this setup?</p>
-<p align="center"><img src="https://i.ibb.co/wL526r4/ps-mem.png" alt="ps_mem"></p>
+<p align="center"><a href="#why-use-this-setup"<img src="https://i.ibb.co/LhHHytr/ps-mem.png" alt="owl4ce.ps_mem"></a></p>
 
 ### <p align="center">:love_letter:</p>
 <p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a PR. Or if there is a problem with configuration you can make an issue here.</p><p align="center"><b>Thank you!</b></p>

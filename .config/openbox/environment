@@ -4,9 +4,5 @@
 #
 # ---
 
-# GTK3 noCSD
-export GTK_CSD=0
-export LD_PRELOAD="$HOME/.themes/libgtk3-nocsd.so.0"
-  
 # Use QT5CT Settings for QT Themes
 export QT_QPA_PLATFORMTHEME=qt5ct

@@ -15,7 +15,7 @@ frame_width = 6
 frame_color = "#3b4252"
 separator_color = "#404859"
 
-font = mplus nerd font 10
+font = mplus Nerd Font 10
 
 line_height = 0
 markup = full
