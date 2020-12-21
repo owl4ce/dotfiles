@@ -121,10 +121,7 @@ def get_xml():
 
     """
     xrandr = subprocess.Popen(['xrandr', '-q'], stdout=subprocess.PIPE, universal_newlines=True)
-    xrandr_lines = ""
-
-    for line in iter(xrandr.stdout.readline, ''):
-        xrandr_lines += line
+    xrandr_lines = xrandr.stdout.readlines()
 
     root = etree.Element('openbox_pipe_menu')
 
@@ -231,4 +228,4 @@ def get_xml():
 
 if __name__ == '__main__':
     ob_menu = get_xml()
-    sys.stdout.write(etree.tostring(ob_menu).decode() + '\n')
+    sys.stdout.write(etree.tostring(ob_menu).decode())
