@@ -23,7 +23,7 @@ Here are some details about my setup:
 - **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) (supported)
 - **Openbox Menu**                 : [Obmenu-generator](https://github.com/trizen/obmenu-generator)
 - **Panel**                        : [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
-- **Compositor**                   : [Picom](https://github.com/yshui/picom) / [Picom-rounded](https://github.com/ibhagwan/picom)
+- **Compositor**                   : [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
 - **Notify Daemon**                : [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
 - **Application Launcher**         : [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
@@ -195,7 +195,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   **Optional**: [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
 
 ### Installation (dotfiles)
-  If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles files manually instead of putting all of them directly into the user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
+  If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles manually instead of putting all of them directly into user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
   
   <details open>
   <summary><strong>Most of the files</strong></summary>
