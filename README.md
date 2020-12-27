@@ -59,6 +59,7 @@ Here are some details about my setup:
 <details open>
   <summary><strong>v3.1</strong></summary>
   
+  - **Screenshot Script**: Rounded corners.
   - Terminal UI improvements, particularly font size.
   - Bug fixes and improvements.
   - Rounded picom as default.
