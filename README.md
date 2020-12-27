@@ -8,7 +8,7 @@
 </p>
 
 ##  
-### :octocat: Hi there! Thanks for visiting! <img alt="Visits" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
+### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=success&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 <a href="https://www.deviantart.com/owl4ce/art/Minimal-Mode-862551236"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9jgsk-73fff2d2-b57b-4f37-a7b9-d9efe6d62c15.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlqZ3NrLTczZmZmMmQyLWI1N2ItNGYzNy1hN2I5LWQ5ZWZlNmQ2MmMxNS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.jVInTfBnRLlqPbvTfPf5XJ_VSsAiUiF-niGlkFOg_-I" alt="owl4ce/dotfiles.minimal" align="right" width="400px"></a>
 
@@ -29,7 +29,7 @@ Here are some details about my setup:
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [neovim](https://neovim.io/)
 
-## :gift: Changelogs <img alt="Repo Size" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
+## :gift: Changelogs <img alt="" align="right" src="https://github-size-badge.herokuapp.com/owl4ce/dotfiles.svg"/>
 <a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-9d0c65c9-6615-42e7-a5a1-e97fcf57d196.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLTlkMGM2NWM5LTY2MTUtNDJlNy1hNWExLWU5N2ZjZjU3ZDE5Ni5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.uai71P0pF-4yQjKryay087dqCvPKpABLYA9B5wGuPi4" alt="" align="right" width="400px"></a>
 
 <details>
