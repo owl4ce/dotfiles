@@ -13,20 +13,23 @@ notify-send -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured im
 # Use imagemagick to add border
 current="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
 
-convert /tmp/$current.png \( +clone -background black -shadow 25x10+0+5 \) \
+# Convert into rounded corners
+convert /tmp/$current.png \
+\( +clone  -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+\( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
+-alpha off -compose CopyOpacity -composite /tmp/$current-rounded.png
+
+convert /tmp/$current-rounded.png \( +clone -background black -shadow 25x10+0+5 \) \
 +swap -background none -layers merge +repage /tmp/$current-shadow.png
 
 convert /tmp/$current-shadow.png -bordercolor $bordercolor \
--border 5 $SAVE_DIR/Screenshots/$current-wFRAME.png
-
-# Copy original file
-cp /tmp/$current.png $SAVE_DIR/Screenshots
+-border 5 $SAVE_DIR/Screenshots/$current.png
 
 rm /tmp/*_scrot*.png
 
 # Checking final file
-[[ -f $SAVE_DIR/Screenshots/$current-wFRAME.png ]] && \
+[[ -f $SAVE_DIR/Screenshots/$current.png ]] && \
 notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
 
 # Open final result
-viewnior $SAVE_DIR/Screenshots/$current-wFRAME.png &> /dev/null
+viewnior $SAVE_DIR/Screenshots/$current.png &> /dev/null
