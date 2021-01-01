@@ -83,14 +83,16 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop zsh imagemagick ffmpeg playerctl xsettingsd
+  sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
   
   <details>
-  <summary>oh-my-zsh & plugins</summary>
-  
+  <summary>oh-my-zsh & plugins (optional)</summary>
+  - ```bash
+    sudo apt install zsh
+    ```
   - ```bash
     chsh -s `which zsh` # Change default shell to zsh for current user
     ```
@@ -167,14 +169,17 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl zsh zsh-completions imagemagick ffmpeg playerctl xsettingsd
+  yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
   
   <details>
-  <summary>oh-my-zsh & plugins</summary>
+  <summary>oh-my-zsh & plugins (optional)</summary>
   
+  - ```bash
+    sudo pacman -S zsh zsh-completions
+    ```
   - ```bash
     chsh -s `which zsh` # Change default shell to zsh for current user
     ```
@@ -195,7 +200,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   **Optional**: [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
 
 ### Installation (dotfiles)
-  If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles manually instead of putting all of them directly into user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
+If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles manually instead of putting all of them directly into user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
   
   <details open>
   <summary><strong>Most of the files</strong></summary>
@@ -250,7 +255,20 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
    > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
     
   </details>
-    
+  
+### The step you are waiting for
+The final step is login into Openbox session, basically login from the Display Manager you use such as LightDM, SLiM, etc. If you are using `~/.xinitrc`, simply add
+- **Systemd Linux Distros**
+  ```cfg
+  exec openbox-session
+  ```
+- **Non-Systemd Linux Distros**
+  ```cfg
+  exec dbus-launch --exit-with-session openbox-session
+  ```
+
+---
+
 ### User configuration
 - **SLiM Themes (optional)**
   
