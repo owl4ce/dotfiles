@@ -74,9 +74,10 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 
 ### Introduction of Linux Rice
 Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html) and [this](https://jie-fang.github.io/blog/basics-of-ricing).
+<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="*nixporn"></a></p>
 
 ### Installation (dependencies)
-> **Note**: Please adjust your choice with the dependencies below, this is my complete setup as I use a single openboxwm with the multimedia application I use.
+> **Note**: Please adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application I use.
 > #### Detailed environment
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
