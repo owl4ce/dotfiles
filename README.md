@@ -200,7 +200,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   <br>
   
-  **Optional**: [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  **Optional**: [betterdiscord](https://betterdiscord.net/), [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
 
 ### Installation (dotfiles)
 If you are already using v2, it is advisable to match the files in v2 and v3 then install the dotfiles manually instead of putting all of them directly into user homedir. Due to the many changes here, these suggestions are meant to avoid conflicts and remove files/config from v2 which were removed from v3.
