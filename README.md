@@ -201,10 +201,12 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <details>
   <summary><strong>Another Linux Distribution</strong></summary>
   
-  Customize/port dependencies yourself! 
-  > **E.g**: - [Gentoo](https://packages.gentoo.org/)  
-  >          - [Void](https://voidlinux.org/packages/)  
-  > If it's not there, compile it manually from git source code or from elsewhere.
+  Customize/port dependencies yourself!  
+  **For example**:  
+  - [Gentoo](https://packages.gentoo.org/)
+  - [Void](https://voidlinux.org/packages/)
+  
+  If it's not there, compile it manually from git source code or from elsewhere.
   
   </details
   
