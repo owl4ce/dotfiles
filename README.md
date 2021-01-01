@@ -90,6 +90,7 @@ Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/w
   
   <details>
   <summary>oh-my-zsh & plugins (optional)</summary>
+  
   - ```bash
     sudo apt install zsh
     ```
