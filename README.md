@@ -197,9 +197,19 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
     ```
   
   </details>
+
+  <details>
+  <summary><strong>Another Linux Distribution</strong></summary>
+  
+  Customize/port dependencies yourself! 
+  > **E.g**: - [Gentoo](https://packages.gentoo.org/)  
+  >          - [Void](https://voidlinux.org/packages/)  
+  > If it's not there, compile it manually from git source code or from elsewhere.
+  
+  </details
   
   <br>
-  
+    
   **Optional**: [betterdiscord](https://betterdiscord.net/), [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
 
 ### Installation (dotfiles)
@@ -261,11 +271,11 @@ If you are already using v2, it is advisable to match the files in v2 and v3 the
   
 ### The step you are waiting for
 The final step is login into Openbox session, basically login from the Display Manager you use such as LightDM, SLiM, etc. If you are using `~/.xinitrc`, simply add
-- **Systemd Linux Distros**
+- **Systemd Linux Distribution**
   ```cfg
   exec openbox-session
   ```
-- **Non-Systemd Linux Distros**
+- **Non-Systemd Linux Distribution**
   ```cfg
   exec dbus-launch --exit-with-session openbox-session
   ```
