@@ -24,7 +24,7 @@ COVER="$NCMPCPP_NOTIF_COVER"
         #convert "$src" -resize 80x "$COVER" &> /dev/null
         # Convert into rounded corners
         convert "$COVER" \
-        \( +clone  -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+        \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
         -alpha off -compose CopyOpacity -composite "$COVER.png"
         rm -f "$COVER"
