@@ -17,12 +17,16 @@
 inputbar,
 prompt,
 textbox-prompt-colon,
+indicator,
+num-filtered-rows,
+textbox-sep,
+num-rows,
 entry {
   background-color: @background-light;
 }
 
 #inputbar {
-  children: [ prompt, textbox-prompt-colon, entry ];
+  children: [  prompt, textbox-prompt-colon, entry, indicator ];
   margin: @inputbar-margin;
   border-radius: 8px;
 }
@@ -43,6 +47,24 @@ entry {
 #entry {
   text-color: @foreground;
   padding: @entry-padding;
+}
+
+#indicator {
+  children: [ num-filtered-rows, textbox-sep, num-rows];
+  orientation: horizontal;
+  expand: false;
+  padding: 0 10px;
+}
+
+num-filtered-rows,
+textbox-sep,
+num-rows {
+  font: @entry-icon-font;
+  text-color: @accent;
+  expand: false;
+  str: "/";
+  vertical-align: 0.58;
+  padding: 0 2px;
 }
 
 #element {
