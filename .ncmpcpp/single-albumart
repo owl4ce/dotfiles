@@ -5,11 +5,11 @@ mpd_port = "6600"
 mpd_crossfade_time = 2
 
 # VISUALIZER
-visualizer_in_stereo = "no"
+visualizer_in_stereo = "yes"
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_fps = 60
 visualizer_output_name = "Visualizer"
-visualizer_type = "wave_filled"
+visualizer_type = "spectrum"
 visualizer_look = "▗"
 visualizer_color = "black"
 
