@@ -8,7 +8,6 @@ mpd_crossfade_time = 2
 visualizer_in_stereo = "no"
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "Visualizer"
-visualizer_sync_interval = "10"
 visualizer_type = "wave_filled"
 visualizer_look = "▗"
 visualizer_color = "black"
