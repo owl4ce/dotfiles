@@ -258,7 +258,7 @@ If you are already using v2, it is advisable to match the files in v2 and v3 the
   </details>
 
   <details open>
-  <summary><strong>Root Privileges</strong></summary>
+  <summary><strong>Root Privileges with SUID</strong></summary>
   
    - `poweroff`
    - `reboot`
@@ -420,7 +420,8 @@ The final step is login into Openbox session, basically login from the Display M
   Auto connect with MPD
   
   > **How to use ncmpcpp albumart?** \
-  It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
+  It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)  
+  > **Issue**: [execute_on_song_change can't execute printf/echo command (0.9.x)](https://github.com/ncmpcpp/ncmpcpp/issues/435)
 
 - **Pulseaudio (without service)** \
   [`~/.config/openbox/autostart`](./.config/openbox/autostart) \
