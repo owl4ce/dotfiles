@@ -26,7 +26,7 @@ entry {
 }
 
 #inputbar {
-  children: [  prompt, textbox-prompt-colon, entry, indicator ];
+  children: [ prompt, textbox-prompt-colon, entry, indicator ];
   margin: @inputbar-margin;
   border-radius: 8px;
 }

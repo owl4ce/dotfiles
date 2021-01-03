@@ -15,7 +15,7 @@ current="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
 
 # Convert into rounded corners
 convert /tmp/$current.png \
-\( +clone  -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+\( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
 \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
 -alpha off -compose CopyOpacity -composite /tmp/$current-rounded.png
 
