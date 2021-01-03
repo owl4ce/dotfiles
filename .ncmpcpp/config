@@ -7,12 +7,14 @@ mpd_crossfade_time = 2
 # VISUALIZER
 visualizer_in_stereo = "no"
 visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_fps = 60
 visualizer_output_name = "Visualizer"
 visualizer_type = "wave"
 visualizer_look = "▗"
 visualizer_color = "red,magenta,cyan,green,yellow"
 
 # GLOBAL
+cyclic_scrolling = "yes"
 mouse_support = "yes"
 mouse_list_scroll_whole_page = "yes"
 lines_scrolled = "1"
