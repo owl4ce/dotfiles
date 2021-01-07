@@ -220,29 +220,34 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Most of the files</strong></summary>
   
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
+   > I recommend with rsync
    - ```bash
      git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles
      ```
    - ```bash
-     rsync -avzP --exclude '.git*' .* ~/
+     rsync -avxHAXP --exclude '.git*' .* ~/
      ```
+     > -a  : all files, with permissions, etc..  
+     > -v  : verbose, mention files  
+     > -x  : stay on one file system  
+     > -H  : preserve hard links (not included with -a)  
+     > -A  : preserve ACLs/permissions (not included with -a)  
+     > -X  : preserve extended attributes (not included with -a)  
+     > -P  : show progress  
   
   </details>
 
   <details open>
   <summary><strong>Icons</strong></summary>
-  
+
    - ```bash
-     cd ~/.icons
+     cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
      ```
    - ```bash
-     tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
+     sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom
      ```
    - ```bash
-     sudo rsync -avzP Papirus-{Custom,Dark-Custom} /usr/share/icons/
-     ```
-   - ```bash
-     rm -r ~/.icons/Papirus-* # Delete unnecessary files
+     sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
      ```
      
   </details>
