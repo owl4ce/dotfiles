@@ -58,7 +58,9 @@ case $1 in
         echo "$title"
     ;;
     switchpl)
-        bash -c "$toggle"
+        if [[ $status = *"laying"* ]]; then
+            bash -c "$toggle"
+        fi
         # Switch music player between mpd and spotify
         if [[ $CURRENT_MUSICPL = *"mpd"* ]]; then
             sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
