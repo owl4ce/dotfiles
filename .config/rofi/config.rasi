@@ -8,5 +8,6 @@ configuration {
   display-drun:       "";
   display-run:        "";
   display-window:     "";
+  display-calc:       "";
   columns: 3;
 }
