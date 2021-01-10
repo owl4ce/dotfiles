@@ -18,11 +18,11 @@ picom -b
 lxpolkit &
 
 # Power Manager
-#xfce4-power-manager &
+[[ -f "`which xfce4-power-manager`" ]] && xfce4-power-manager &
 
 # Sessions Autolock
-xautolock -time $AUTOLOCK_MINUTE -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep &
+[[ -f "`which xautolock`" ]] && xautolock -time $AUTOLOCK_MINUTE -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep &
 
 # Others
 # Below will autostart mpd
-bash -c "$MPD_TCD"
+[[ -f "`which mpd`" ]] && bash -c "$MPD_TCD"

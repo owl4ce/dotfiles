@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-bordercolor="#ffffff"
-
 [[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
-rm /tmp/*_scrot*.png
+rm /tmp/*_scrot*.png &> /dev/null
 sleep .5s
 scrot -s -f -b -e 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" && \
 
@@ -17,15 +15,15 @@ current="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
 convert /tmp/$current.png \
 \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
 \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
--alpha off -compose CopyOpacity -composite /tmp/$current-rounded.png
+-alpha off -compose CopyOpacity -composite /tmp/$current-rounded.png &> /dev/null
 
 convert /tmp/$current-rounded.png \( +clone -background black -shadow 25x10+0+5 \) \
-+swap -background none -layers merge +repage /tmp/$current-shadow.png
++swap -background none -layers merge +repage /tmp/$current-shadow.png &> /dev/null
 
-convert /tmp/$current-shadow.png -bordercolor $bordercolor \
--border 5 $SAVE_DIR/Screenshots/$current.png
+convert /tmp/$current-shadow.png -bordercolor $FRAME_COLOR \
+-border 5 $SAVE_DIR/Screenshots/$current.png &> /dev/null
 
-rm /tmp/*_scrot*.png
+rm /tmp/*_scrot*.png &> /dev/null
 
 # Checking final file
 [[ -f $SAVE_DIR/Screenshots/$current.png ]] && \
