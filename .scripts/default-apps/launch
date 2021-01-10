@@ -9,7 +9,7 @@ MAGENTA='\033[1;35m'
 NC='\033[0m' # No Color
 
 function checkdep {
-    which $1 2> /dev/null || err "$1 is not installed. Please install it first!"
+    which $1 > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
 }
 
 function err {
@@ -62,7 +62,7 @@ case $1 in
             [[ ! -z $2 ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
             [[ ! -z $1 ]] && bash -c "$filt &> /dev/null &"
         else
-            which $1 2> /dev/null || err "$1 is not in database. Please define it first \"--edit\"!"
+            which $1 > /dev/null 2>&1 || err "$1 is not in database. Please define it first \"--edit\"!"
         fi
     ;;
 esac
