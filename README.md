@@ -30,7 +30,7 @@ This is my personal configuration for my favorite openbox window manager and som
 
 I hope you understand everything here. :wink:
 
-Here are some details about my setup:
+Here are some details about my setup
 - **WM**                           : [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable themes / mode!
 - **DM**                           : [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! (optional)
 - **Shell**                        : [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
@@ -77,10 +77,10 @@ Here are some details about my setup:
 <details open>
   <summary><strong>v3.1</strong></summary>
   
-  - **Screenshot Script**: Rounded corners.
-  - Terminal UI improvements, particularly font size.
-  - Bug fixes and improvements.
-  - Rounded picom as default.
+  - **Screenshot Script**: Rounded corners
+  - Terminal UI improvements, particularly font size
+  - Bug fixes and improvements
+  - Rounded picom as default
   - New Wallpapers
   
 </details>
@@ -90,10 +90,10 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 
 ### Introduction of Linux Rice
 Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html) and [this](https://jie-fang.github.io/blog/basics-of-ricing).
-<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="*nixporn"></a></p>
+<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="*nixporn"/></a></p>
 
 ### Installation (dependencies)
-> **Note**: Please adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application I use.
+> Please adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application I use.
 > #### Detailed environment
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
@@ -101,7 +101,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
+  $ sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -110,19 +110,19 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>oh-my-zsh & plugins (optional)</summary>
   
   - ```bash
-    sudo apt install zsh
+    $ sudo apt install zsh
     ```
   - ```bash
-    chsh -s `which zsh` # Change default shell to zsh for current user
+    $ chsh -s `which zsh` # Change default shell to zsh for current user
     ```
   - ```bash
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    $ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     ```
   - ```bash
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
   - ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     ```
   - [zsh-completions](https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-completions&package=zsh-completions)
   
@@ -132,22 +132,22 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>picom</summary>
     
   - ```bash
-    sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+    $ sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
     ```
   - ```bash
-    git clone https://github.com/yshui/picom.git && cd picom/
+    $ git clone https://github.com/yshui/picom.git && cd picom/
     ```
   - ```bash
-    git submodule update --init --recursive
+    $ git submodule update --init --recursive
     ```
   - ```bash
-    meson --buildtype=release . build
+    $ meson --buildtype=release . build
     ```
   - ```bash
-    ninja -C build
+    $ ninja -C build
     ```
   - ```bash
-    ninja -C build install
+    $ ninja -C build install
     ```
 
   </details>
@@ -158,7 +158,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   > I haven't tested it yet.
   
   - ```bash
-    sudo su
+    $ sudo su
      ```
   - ```bash
     echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list
@@ -188,7 +188,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   > Make sure your **AUR Helper** is *yay*.
   
   ```bash
-  yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
+  $ yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -197,19 +197,19 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary>oh-my-zsh & plugins (optional)</summary>
   
   - ```bash
-    sudo pacman -S zsh zsh-completions
+    $ sudo pacman -S zsh zsh-completions
     ```
   - ```bash
-    chsh -s `which zsh` # Change default shell to zsh for current user
+    $ chsh -s `which zsh` # Change default shell to zsh for current user
     ```
   - ```bash
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    $ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     ```
   - ```bash
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
   - ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     ```
   
   </details>
@@ -233,15 +233,15 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
 ### Installation (dotfiles)
   
   <details open>
-  <summary><strong>Most of the files</strong></summary>
+  <summary><strong>Most of .files</strong></summary>
   
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
    > I recommend with rsync
    - ```bash
-     git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles
+     $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles
      ```
    - ```bash
-     rsync -avxHAXP --exclude '.git*' .* ~/
+     $ rsync -avxHAXP --exclude '.git*' .* ~/
      ```
      > -a  : all files, with permissions, etc..  
      > -v  : verbose, mention files  
@@ -257,14 +257,18 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Icons</strong></summary>
 
    - ```bash
-     cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
+     $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
      ```
    - ```bash
-     sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom
+     $ sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom
      ```
    - ```bash
-     sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
+     $ sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
      ```
+     > **Why I need to link icons to user system resources?**  
+       That's needed by dunst in order to display most of icon from notification that spawned by application.  
+     > **Why not just move it directly to user system resources?**  
+       Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using Arch on top of other linux distributions with same homedir. More effective than copying icons to both roots.
      
   </details>
 
@@ -272,7 +276,7 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   <summary><strong>Refresh Font Cache</strong></summary>
   
    ```bash
-   fc-cache -rv
+   $ fc-cache -rv
    ```
     
   </details>
@@ -285,14 +289,14 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
    - `brightnessctl`
    - *others if needed*
    ```bash
-   sudo chmod u+s `which {poweroff,reboot,brightnessctl}`
+   $ sudo chmod u+s `which {poweroff,reboot,brightnessctl}`
    ```
-   > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
+   > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_ma</strong>nagement).
     
   </details>
   
 ### The step you are waiting for
-The final step is login into Openbox session, basically login from Display Manager you use such as LightDM, SLiM, etc. If you are using `~/.xinitrc`, simply add
+The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc. If you are using `~/.xinitrc`, simply add
 - **Systemd Linux Distribution**
   ```cfg
   exec openbox-session
@@ -307,7 +311,7 @@ The final step is login into Openbox session, basically login from Display Manag
 ### User configuration
 - **SLiM Themes (optional)**
   <details>
-  <summary>See</summary>
+  <summary><strong>See</strong></summary>
     I use SLiM just for lockscreen BTW.
   
     <a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
@@ -320,7 +324,7 @@ The final step is login into Openbox session, basically login from Display Manag
 
 - **Google-chrome / Chromium (tip)**
   <details>
-  <summary>See</summary>
+  <summary><strong>See</strong></summary>
   
     <img src="https://i.ibb.co/4sqygH8/2020-10-15-023421-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%"/>
 
@@ -339,7 +343,7 @@ The final step is login into Openbox session, basically login from Display Manag
   
 - **Spotify - Spicetify Theme (tip)**
   <details>
-  <summary>See</summary>
+  <summary><strong>See</strong></summary>
   
     <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical" align="center" width="100%"/>
     <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy" align="center" width="100%"/>
@@ -348,13 +352,13 @@ The final step is login into Openbox session, basically login from Display Manag
     
   </details>
   
-- **Battery Indicator** \
+- **Battery Indicator**  
   Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
   
-- **Dunst Action: Default Web Browser (`middle click`)** \
-  [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech) \
-  [`~/.config/dunst/dunstrc-mech-MINMOD`](./.config/dunst/dunstrc-mech-MINMOD) \
-  [`~/.config/dunst/dunstrc-eyc`](./.config/dunst/dunstrc-eyc) \
+- **Dunst Action: Default Web Browser (`middle click`)**  
+  [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech)  
+  [`~/.config/dunst/dunstrc-mech-MINMOD`](./.config/dunst/dunstrc-mech-MINMOD)  
+  [`~/.config/dunst/dunstrc-eyc`](./.config/dunst/dunstrc-eyc)  
   [`~/.config/dunst/dunstrc-eyc-MINMOD`](./.config/dunst/dunstrc-eyc-MINMOD)
   ```cfg
   ...
@@ -364,7 +368,7 @@ The final step is login into Openbox session, basically login from Display Manag
   ...
   ```
   
-- **Screenshots, Tint2 Executor, and Autolock** \
+- **Screenshots, Tint2 Executor, and Autolock**  
   [`~/.owl4ce_var`](./.owl4ce_var)
   ```cfg
   ...
@@ -401,7 +405,7 @@ The final step is login into Openbox session, basically login from Display Manag
   > /sys/devices/virtual/thermal/
   > ```
   
-- **Default Supported Apps** \
+- **Default Supported Apps**  
   [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
   - **Terminal**: urxvt/termite
   - **Lockscreen**: anything
@@ -415,8 +419,8 @@ The final step is login into Openbox session, basically login from Display Manag
   4 filemanager="thunar"
   ```
   
-- **Tray** \
-  [`~/.config/openbox/tray`](./.config/openbox/tray) \
+- **Tray**  
+  [`~/.config/openbox/tray`](./.config/openbox/tray)  
   An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead (<kbd>F12</kbd>). Remove hashtags before nm-applet.
   ```cfg
   1 #
@@ -430,7 +434,7 @@ The final step is login into Openbox session, basically login from Display Manag
 
   ```
   
-- **URxvt Icon** \
+- **URxvt Icon**  
   [`~/.Xresources`](./.Xresources)
   ```cfg
   ...
@@ -440,11 +444,11 @@ The final step is login into Openbox session, basically login from Display Manag
   ...
   ```
   
-- **Neovim** \
-  [`~/.config/nvim/`](./.config/nvim/) \
+- **Neovim**  
+  [`~/.config/nvim/`](./.config/nvim/)  
   You know what to do with [Vim-plug](https://github.com/junegunn/vim-plug).
   
-- **MPD Music Directory** \
+- **MPD Music Directory**  
   [`~/.mpd/mpd.conf`](./.mpd/mpd.conf)
   ```cfg
   ...
@@ -454,14 +458,14 @@ The final step is login into Openbox session, basically login from Display Manag
   ...
   ```
   
-- **Ncmpcpp Music Directory** \
+- **Ncmpcpp Music Directory**  
   Auto connect with MPD
   
-  > **How to use ncmpcpp albumart?** \
+  > **How to use ncmpcpp albumart?**  
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
-- **Pulseaudio (without service)** \
-  [`~/.config/openbox/autostart`](./.config/openbox/autostart) \
+- **Pulseaudio (without service)**  
+  [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
   This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.
   ```cfg
   ...
@@ -474,7 +478,7 @@ The final step is login into Openbox session, basically login from Display Manag
   ...
   ```
 
-- **Neofetch Image (w3m)** \
+- **Neofetch Image (w3m)**  
   [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
   ```cfg
   ...
