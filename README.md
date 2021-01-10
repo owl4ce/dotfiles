@@ -1,16 +1,30 @@
-<p align="center"><a name="top" href="#octocat-hi-there-thanks-for-visiting-"><img height="60%" width="100%" src="https://i.ibb.co/k4PbLjv/dotfiles.png"></a></p>
+<p align="center">
+  <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
+     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/k4PbLjv/dotfiles.png"/>
+  </a>
+</p>
 
 <p align="center">
-<a href="#rice_scene--setup"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b5DYRxb/setup.png"></a>
-<a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/VVc5S9d/keybinds.png"></a>
-<a href="https://www.deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/C1sdMw9/gallery.png"></a>
-<a href="#memo--notes"><img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/g75Z25g/notes.png"></a>
+  <a href="#rice_scene--setup">
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b5DYRxb/setup.png"/>
+  </a>
+  <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/VVc5S9d/keybinds.png"/>
+  </a>
+  <a href="https://www.deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/C1sdMw9/gallery.png"/>
+  </a>
+  <a href="#memo--notes">
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/g75Z25g/notes.png"/>
+  </a>
 </p>
 
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/art/U-n-t-i-t-l-e-d-865257047"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/deb5glz-9cbd5bec-efeb-4631-a87a-13380633cc48.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWI1Z2x6LTljYmQ1YmVjLWVmZWItNDYzMS1hODdhLTEzMzgwNjMzY2M0OC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.PScw6CPguJWLtacMxqLr_ZM2FhzqJyjt-4Z4c3LANIs" alt="owl4ce/dotfiles.minimal" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/art/U-n-t-i-t-l-e-d-865257047">
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/deb5glz-9cbd5bec-efeb-4631-a87a-13380633cc48.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWI1Z2x6LTljYmQ1YmVjLWVmZWItNDYzMS1hODdhLTEzMzgwNjMzY2M0OC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.PScw6CPguJWLtacMxqLr_ZM2FhzqJyjt-4Z4c3LANIs" alt="owl4ce/dotfiles.u n t i t l e d" align="right" width="400px"/>
+</a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
 
@@ -31,7 +45,9 @@ Here are some details about my setup:
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Dotfiles%20Size&color=cf8ef4&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-b1122b6b-6d37-43d6-a727-cf63df935e6d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLWIxMTIyYjZiLTZkMzctNDNkNi1hNzI3LWNmNjNkZjkzNWU2ZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.tEYdZ6q3iLK_X3f4gQer7Sn23nWGk_lA9JsGThIIbis" alt="owl4ce/dotfiles.u n t i t l e d" align="right" width="400px"></a>
+<a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153">
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-b1122b6b-6d37-43d6-a727-cf63df935e6d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLWIxMTIyYjZiLTZkMzctNDNkNi1hNzI3LWNmNjNkZjkzNWU2ZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.tEYdZ6q3iLK_X3f4gQer7Sn23nWGk_lA9JsGThIIbis" alt="owl4ce/dotfiles" align="right" width="400px"/>
+</a>
 
 <details>
   <summary><strong>v3.0</strong></summary>
@@ -294,15 +310,19 @@ The final step is login into Openbox session, basically login from Display Manag
   <summary>See</summary>
     I use SLiM just for lockscreen BTW.
   
-    <a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center" width="100%"></a>
-
+    <a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
+      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center" width="100%"/>
+    </a>
+    
+    Just click on the image above!
+    
   </details>
 
 - **Google-chrome / Chromium (tip)**
   <details>
   <summary>See</summary>
   
-    <img src="https://i.ibb.co/4sqygH8/2020-10-15-023421-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%">
+    <img src="https://i.ibb.co/4sqygH8/2020-10-15-023421-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%"/>
 
     **Settings**: `chrome://settings/`
     - Themes: `Use GTK+`
@@ -321,8 +341,8 @@ The final step is login into Openbox session, basically login from Display Manag
   <details>
   <summary>See</summary>
   
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical" align="center" width="100%">
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy" align="center" width="100%">
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical" align="center" width="100%"/>
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy" align="center" width="100%"/>
   
     [Dribbblish](https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical)
     
@@ -486,8 +506,8 @@ The final step is login into Openbox session, basically login from Display Manag
   
   ...
   ```
-  <details open>
-  <summary><strong>List</strong></summary>
+  <details>
+  <summary><strong>See Images</strong></summary>
   
   Arch|Gentoo|Ubuntu|Void
   |----|----|----|----|
@@ -516,7 +536,7 @@ The final step is login into Openbox session, basically login from Display Manag
 [![Stargazers over time](https://starchart.cc/owl4ce/dotfiles.svg)](https://starchart.cc/owl4ce/dotfiles)
 
 ## :hearts:  Credits / Thanks
-- Inspiration and resources
+- **Inspiration and resources**
   - [Elena](https://github.com/elenapan)
   - [Adhi Pambudi](https://github.com/addy-dclxvi)
   - [Fikri Omar](https://github.com/fikriomar16)
@@ -525,25 +545,25 @@ The final step is login into Openbox session, basically login from Display Manag
   - [Ghani Rafif](https://github.com/ekickx)
   - [Aditya Shakya](https://github.com/adi1090x)
 
-- Knowledge and other resources
+- **Knowledge and other resources**
   - [Openbox/Wiki](http://openbox.org/wiki/Help:Themes)
   - [Pure-Bash-Bible](https://github.com/dylanaraps/pure-bash-bible)
   - [Color-Scripts](https://github.com/stark/Color-Scripts)
   - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
   - [Networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)
-  - Many GNU/Linux & Unix forums
+  - Many GNU/Linux & Unix forums.
   
-- Contributor
+- **Contributor**
   - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
   - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
   - [...](https://github.com/owl4ce/dotfiles/graphs/contributors)
   
-- Software
+- **Software**
   - [Geany](https://www.geany.org/)
   - [Gpick](https://www.google.com/search?q=gpick)
   - [Gimp](https://www.gimp.org/)
   - [Oomox](https://github.com/themix-project/oomox)
   - etc.
 
-- Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart), [@dotfiles_id](https://t.me/dotfiles_id), and [r/unixporn](https://www.reddit.com/r/unixporn/).
-- © All artists who make icons, illustrations, and wallpapers.
+- **Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart), [@dotfiles_id](https://t.me/dotfiles_id), and [r/unixporn](https://www.reddit.com/r/unixporn/).**
+- **© All artists who make icons, illustrations, and wallpapers.**
