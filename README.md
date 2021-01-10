@@ -503,7 +503,6 @@ The final step is login into Openbox session, basically login from Display Manag
   
   </details>
 
-
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
 <p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/sJ5tzXP/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
@@ -517,21 +516,34 @@ The final step is login into Openbox session, basically login from Display Manag
 [![Stargazers over time](https://starchart.cc/owl4ce/dotfiles.svg)](https://starchart.cc/owl4ce/dotfiles)
 
 ## :hearts:  Credits / Thanks
-- [Openbox Wiki](http://openbox.org/wiki/Help:Themes)
-- [Elenapan](https://github.com/elenapan)
-- [Adhi Pambudi](https://github.com/addy-dclxvi)
-- [Fikri Omar](https://github.com/fikriomar16)
-- [Rizqi Nur Assyaufi](https://github.com/bandithijo)
-- [Muktazam Hasbi Ashidiqi](https://github.com/reorr)
-- [Ghani Rafif](https://github.com/ekickx)
-- [Aditya Shakya](https://github.com/adi1090x)
-- [Stark](https://github.com/stark) - [Color-Scripts](https://github.com/stark/Color-Scripts)
-- [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
-- [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
-- [Themix-Project](https://github.com/themix-project) - [Oomox](https://github.com/themix-project/oomox)
-- [Nana-4](https://github.com/nana-4) - [Materia-theme](https://github.com/nana-4/materia-theme)
-- [Papirus Development Team](https://github.com/PapirusDevelopmentTeam) - [Papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-- [Slava Levit](https://github.com/vlevit) - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
-- [Scott Hansen](https://github.com/firecat53) - [Networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)
-- Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart) and [r/unixporn](https://www.reddit.com/r/unixporn/).
+- Inspiration and resources
+  - [Elena](https://github.com/elenapan)
+  - [Adhi Pambudi](https://github.com/addy-dclxvi)
+  - [Fikri Omar](https://github.com/fikriomar16)
+  - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
+  - [Muktazam Hasbi Ashidiqi](https://github.com/reorr)
+  - [Ghani Rafif](https://github.com/ekickx)
+  - [Aditya Shakya](https://github.com/adi1090x)
+
+- Knowledge and other resources
+  - [Openbox/Wiki](http://openbox.org/wiki/Help:Themes)
+  - [Pure-Bash-Bible](https://github.com/dylanaraps/pure-bash-bible)
+  - [Color-Scripts](https://github.com/stark/Color-Scripts)
+  - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
+  - [Networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)
+  - Many GNU/Linux & Unix forums
+  
+- Contributor
+  - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
+  - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
+  - [...](https://github.com/owl4ce/dotfiles/graphs/contributors)
+  
+- Software
+  - [Geany](https://www.geany.org/)
+  - [Gpick](https://www.google.com/search?q=gpick)
+  - [Gimp](https://www.gimp.org/)
+  - [Oomox](https://github.com/themix-project/oomox)
+  - etc.
+
+- Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart), [@dotfiles_id](https://t.me/dotfiles_id), and [r/unixporn](https://www.reddit.com/r/unixporn/).
 - © All artists who make icons, illustrations, and wallpapers.
