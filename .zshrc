@@ -126,6 +126,7 @@ alias nanosu="$PRIV nano"
 alias nvimsu="$PRIV nvim"
 
 # Color toys aliases
+alias 256colors2="~/.color-toys/256colors2.pl"
 alias bloks="~/.color-toys/bloks"
 alias colortest="~/.color-toys/colortest"
 alias colortest-slim="~/.color-toys/colortest-slim"
