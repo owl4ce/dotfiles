@@ -2,7 +2,6 @@
 source $HOME/.owl4ce_var
 
 MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
-
 COVER="$NCMPCPP_NOTIF_COVER"
 
 {
@@ -17,7 +16,7 @@ COVER="$NCMPCPP_NOTIF_COVER"
     rm -f "$COVER.png"
     
     # Notify
-    if [[ -n "$src" ]] ; then
+    if [[ -n "$src" ]]; then
         # Resize the image's width to 80px (ffmpeg/imagemagick)
         # ffmpeg for fast conversion
         ffmpeg -i "$src" -vf scale=80:80 "$COVER" &> /dev/null

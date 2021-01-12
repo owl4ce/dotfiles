@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-function kill {
-    killall tint2
-    killall dunst
-}
+kill() { killall tint2; killall dunst; }
 
 if [[ $CHK_MINMOD = *"minimal"* ]]; then
-    echo "" > /dev/null
+    exit 1
 else
     case $1 in
         lrtb)

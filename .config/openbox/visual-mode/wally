@@ -5,7 +5,6 @@ clear
 # Colored output
 RED='\033[1;31m'
 CYAN='\033[1;36m'
-GREEN='\033[1;32m'
 MAGENTA='\033[1;35m'
 NC='\033[0m' # No Color
 
@@ -43,7 +42,6 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             # Write selected
             selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
             echo "$selected" > $MINMOD_WALL_FILE
-            
             printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
             
             # Notify success
@@ -82,7 +80,6 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             # Write selected
             selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
             echo "$selected" > $MINMOD_WALL_FILE
-            
             printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
             
             # Notify success
@@ -123,7 +120,6 @@ else
             # Write selected
             selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
             echo "$selected" > $VISMOD_WALL_FILE
-            
             printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
             
             # Notify success
@@ -162,7 +158,6 @@ else
             # Write selected
             selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
             echo "$selected" > $VISMOD_WALL_FILE
-            
             printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
             
             # Notify success

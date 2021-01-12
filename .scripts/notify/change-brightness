@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-function CURRENT_BRIGHTNESS {
-    brightnessctl i | grep '%' | awk -F'(' '{print $2}' | awk -F'%' '{print $1}'
-}
+CURRENT_BRIGHTNESS() { brightnessctl i | grep '%' | awk -F'(' '{print $2}' | awk -F'%' '{print $1}'; }
 
-function notify {
-    brightness=`CURRENT_BRIGHTNESS`
+notify() {
+    brightness="$(CURRENT_BRIGHTNESS)"
     
     if [ "$brightness" = "0" ]; then
         icon_name="notification-display-brightness-off"
@@ -29,8 +27,7 @@ function notify {
             fi
         fi
     fi
-
-    $EXNOTIFY_SEND -i $icon_name -t 2000 -r 1234 "$brightness "
+    $EXNOTIFY_SEND -i "$icon_name" -t 2000 -r 1234 "$brightness "
 }
 
 case $1 in
