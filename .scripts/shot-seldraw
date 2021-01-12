@@ -24,6 +24,6 @@ source $HOME/.owl4ce_var
 
     rm /tmp/*_scrot*.png &> /dev/null
     [[ -f $SAVE_DIR/Screenshots/$CURRENT.png ]] && \
-    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
     [[ -x "$(which "viewnior" 2> /dev/null)" ]] && viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
 } &
