@@ -1,20 +1,9 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-[[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
-rm /tmp/*_scrot*.png &> /dev/null
-
-case $1 in
-    delay)
-    sleep .5s
-    ;;
-    *)
-    ;;
-esac
-
-scrot -e 'mv $f /tmp/'
-current="$(ls /tmp/ | grep 'scrot')"
-cp /tmp/$current $SAVE_DIR/Screenshots
-rm /tmp/*_scrot*.png &> /dev/null
-
-notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+{
+    [[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
+    [[ $1 = "delay" ]] && sleep .5s
+    scrot -e "mv '\$f' $SAVE_DIR/Screenshots" &> /dev/null
+    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+} &

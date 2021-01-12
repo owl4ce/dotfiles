@@ -1,33 +1,29 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-[[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
-rm /tmp/*_scrot*.png &> /dev/null
-sleep .5s
-scrot -s -f -b -e 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" && \
+{
+    [[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
+    sleep .5s
+    
+    rm /tmp/*_scrot*.png &> /dev/null
+    scrot -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
+    notify-send -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
+    
+    CURRENT="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
 
-notify-send -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
+    convert /tmp/$CURRENT.png \
+    \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+    \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
+    -alpha off -compose CopyOpacity -composite /tmp/$CURRENT-rounded.png &> /dev/null
 
-# Use imagemagick to add border
-current="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
+    convert /tmp/$CURRENT-rounded.png \( +clone -background black -shadow 25x10+0+5 \) \
+    +swap -background none -layers merge +repage /tmp/$CURRENT-shadow.png &> /dev/null
 
-# Convert into rounded corners
-convert /tmp/$current.png \
-\( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
-\( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
--alpha off -compose CopyOpacity -composite /tmp/$current-rounded.png &> /dev/null
+    convert /tmp/$CURRENT-shadow.png -bordercolor $FRAME_COLOR \
+    -border 5 $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
 
-convert /tmp/$current-rounded.png \( +clone -background black -shadow 25x10+0+5 \) \
-+swap -background none -layers merge +repage /tmp/$current-shadow.png &> /dev/null
-
-convert /tmp/$current-shadow.png -bordercolor $FRAME_COLOR \
--border 5 $SAVE_DIR/Screenshots/$current.png &> /dev/null
-
-rm /tmp/*_scrot*.png &> /dev/null
-
-# Checking final file
-[[ -f $SAVE_DIR/Screenshots/$current.png ]] && \
-notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
-
-# Open final result
-viewnior $SAVE_DIR/Screenshots/$current.png &> /dev/null
+    rm /tmp/*_scrot*.png &> /dev/null
+    [[ -f $SAVE_DIR/Screenshots/$CURRENT.png ]] && \
+    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+    [[ -x "$(which "viewnior" 2> /dev/null)" ]] && viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
+} &

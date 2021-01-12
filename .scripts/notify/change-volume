@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-function CURRENT_VOL {
-    amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'
-}
+CURRENT_VOL() { amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'; }
+CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
 
-function CHK_MUTE {
-    amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off
-}
-
-function notify {
-    volume=`CURRENT_VOL`
+notify() {
+    volume="$(CURRENT_VOL)"
     
     if [ "$volume" = "0" ]; then
         icon_name="notification-audio-volume-muted"
@@ -29,8 +24,7 @@ function notify {
             fi
         fi
     fi
-
-    $EXNOTIFY_SEND -i $icon_name -t 2000 -r 123 "$volume "
+    $EXNOTIFY_SEND -i "$icon_name" -t 2000 -r 123 "$volume "
 }
 
 case $1 in
@@ -49,11 +43,10 @@ case $1 in
         notify
 	;;
     mute)
-        # Toggle mute
         amixer -D pulse set Master 1+ toggle -q
-        if CHK_MUTE ; then
+        if CHK_MUTE; then
             icon_name="notification-audio-volume-muted"
-            $EXNOTIFY_SEND -i $icon_name -t 2000 -r 123 "Muted "
+            $EXNOTIFY_SEND -i "$icon_name" -t 2000 -r 123 "Muted "
         else
             notify
         fi

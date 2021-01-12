@@ -1,25 +1,18 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-function checkmpd {
-    which mpd > /dev/null 2>&1 || exit 1
-}
-
-function run {
+run() {
     while true
     do
         mpc current > $NCMPCPP_SCRIPTS_DIR/current-track
-        current="$(cat $NCMPCPP_SCRIPTS_DIR/current-track)"
         mpc idle &> /dev/null
-        if [[ $current != *"$(mpc current)"* ]]; then
-            $NCMPCPP_SCRIPTS_DIR/notify
-        fi
+        [[ "$(cat $NCMPCPP_SCRIPTS_DIR/current-track)" != *"$(mpc current)"* ]] && bash -c "$NCMPCPP_SCRIPTS_DIR/notify"
     done
 }
 
-checkmpd
 {
-    if [[ $(pstree | grep 'mpd') = *"mpd"* ]]; then
+    which mpd > /dev/null 2>&1 || exit 1
+    if [[ "$(pstree | grep 'mpd')" = *"mpd"* ]]; then
         run
     else
         mpd &> /dev/null

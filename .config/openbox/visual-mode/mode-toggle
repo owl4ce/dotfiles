@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-function kill {
-    # Panel
-    killall tint2
-    
-    # Tray
-    killall $CHK_TRAY &> /dev/null
-    
-    # Notification Daemon
-    killall dunst
-}
+kill() { killall tint2; killall $CHK_TRAY &> /dev/null; killall dunst; }
 
-function mech {
+mech() {
     # Write Current
     echo "mechanical" > $MOD_FILE
     
@@ -24,7 +15,7 @@ function mech {
     notify-send -u low -i $NOTIF_MECH_ICON "Visual Mode" "Mechanical Theme applied"
 }
 
-function mech_min {
+mech_min() {
     # Write Current
     echo "mechanical" > $MOD_FILE
     echo "minimal" >> $MOD_FILE
@@ -37,7 +28,7 @@ function mech_min {
     notify-send -u low -i $NOTIF_MECH_MIN_ICON "Minimal Mode" "Mechanical Theme enabled"
 }
 
-function eyc {
+eyc() {
     # Write Current
     echo "eyecandy" > $MOD_FILE
     
@@ -49,7 +40,7 @@ function eyc {
     notify-send -u low -i $NOTIF_EYC_ICON "Visual Mode" "Eyecandy Theme applied"
 }
 
-function eyc_min {
+eyc_min() {
     # Write Current
     echo "eyecandy" > $MOD_FILE
     echo "minimal" >> $MOD_FILE

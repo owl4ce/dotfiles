@@ -3,7 +3,7 @@ source $HOME/.owl4ce_var
 
 CURRENT_MUSICPL="$($DEFAPPS_EXEC -g musicpl)"
 
-if [[ $CURRENT_MUSICPL = *"mpd"* ]]; then
+if [[ $CURRENT_MUSICPL = "mpd" ]]; then
     prev="mpc -q prev"
     toggle="mpc -q toggle"
     stop="mpc -q stop"
@@ -11,7 +11,7 @@ if [[ $CURRENT_MUSICPL = *"mpd"* ]]; then
     status="mpc status"
     title="$(mpc --format '[%title%|%file%]' current)"
 else
-    if [[ $CURRENT_MUSICPL = *"spotify"* ]]; then
+    if [[ $CURRENT_MUSICPL = "spotify" ]]; then
         prev="playerctl -p spotify previous"
         toggle="playerctl -p spotify play-pause"
         stop="playerctl -p spotify stop"
@@ -38,34 +38,24 @@ case $1 in
             echo ""
         fi
     ;;
-    prev)
-        bash -c "$prev"
+    prev) bash -c "$prev"
     ;;
-    toggle)
-        bash -c "$toggle"
+    toggle) bash -c "$toggle"
     ;;
-    stop)
-        bash -c "$stop"
+    stop) bash -c "$stop"
     ;;
-    next)
-        bash -c "$next"
+    next) bash -c "$next"
     ;;
-    status)
-        echo "$status"
+    status) echo "$status"
     ;;
-    title)
-        # For song title on the panel
-        echo "$title"
+    title) echo "$title"
     ;;
     switchpl)
-        if [[ $status = *"laying"* ]]; then
-            bash -c "$toggle"
-        fi
-        # Switch music player between mpd and spotify
-        if [[ $CURRENT_MUSICPL = *"mpd"* ]]; then
+        [[ $status = *"laying"* ]] && bash -c "$toggle"
+        if [[ $CURRENT_MUSICPL = "mpd" ]]; then
             sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
         else
-            if [[ $CURRENT_MUSICPL = *"spotify"* ]]; then
+            if [[ $CURRENT_MUSICPL = "spotify" ]]; then
                 sed -i 's_musicpl=".*"_musicpl="mpd"_' $DEFAPPS_FILE
             fi
         fi

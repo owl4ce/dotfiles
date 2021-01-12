@@ -5,7 +5,6 @@ clear
 # Colored output
 RED='\033[1;31m'
 CYAN='\033[1;36m'
-GREEN='\033[1;32m'
 MAGENTA='\033[1;35m'
 NC='\033[0m' # No Color
 
@@ -51,7 +50,6 @@ case $1 in
                     eval "BTN=\$button${num}"
                     cp $BTN/* $MECH_BUTTON_DIR/
                     openbox --reconfigure
-                    
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $MINMOD_BUTTON_FILE
                     printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
@@ -86,7 +84,6 @@ case $1 in
                     eval "BTN=\$button${num}"
                     cp $BTN/* $EYC_BUTTON_DIR/
                     openbox --reconfigure
-                    
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $MINMOD_BUTTON_FILE
                     printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
@@ -123,7 +120,6 @@ case $1 in
                     eval "BTN=\$button${num}"
                     cp $BTN/* $MECH_BUTTON_DIR/
                     openbox --reconfigure
-                    
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $VISMOD_BUTTON_FILE
                     printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
@@ -158,7 +154,6 @@ case $1 in
                     eval "BTN=\$button${num}"
                     cp $BTN/* $EYC_BUTTON_DIR/
                     openbox --reconfigure
-                    
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $VISMOD_BUTTON_FILE
                     printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"

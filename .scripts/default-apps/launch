@@ -2,22 +2,15 @@
 source $HOME/.owl4ce_var
 
 # Colored output
-RED='\033[1;31m'
 CYAN='\033[1;36m'
 GREEN='\033[1;32m'
 MAGENTA='\033[1;35m'
 NC='\033[0m' # No Color
 
-function checkdep {
-    which $1 > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
-}
+checkdep() { which $1 > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"; }
+err() { echo -e "$(tput bold)$(tput setaf 1)==> Error:$(tput sgr0) $@" && exit 1; }
 
-function err {
-    echo -e "$(tput bold)$(tput setaf 1)==> Error:$(tput sgr0) $@"
-    exit 1
-}
-
-function apps {
+apps() {
     echo -e "${CYAN}USAGE:${NC} launch apps"
     echo -e "${CYAN}Available apps: "
     n=0
@@ -52,11 +45,9 @@ case $1 in
         checkdep $TEXT_EDITOR
         $TEXT_EDITOR $DEFAPPS_FILE || exit 1
     ;;
-    ""|-h|--help)
-        apps
+    ""|-h|--help) apps
     ;;
-    *)
-        if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
+    *)  if [[ $1 = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
             filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}')"
             opt="$(echo $@ | tr ' ' '\ 'i)"
             [[ ! -z $2 ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
