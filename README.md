@@ -266,9 +266,10 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
      $ sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
      ```
      > **Why I need to link icons to user system resources?**  
-       That's needed by dunst in order to display most of icon from notification that spawned by application.  
+       That's needed by dunst in order to display most of icon from notification that spawned by application.
+     >
      > **Why not just move it directly to user system resources?**  
-       Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using Arch on top of other linux distributions with same homedir. More effective than copying icons to both roots.
+       Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
      
   </details>
 
@@ -312,43 +313,42 @@ The final step is login into openbox-session, basically login from display manag
 - **SLiM Themes (optional)**
   <details>
   <summary><strong>See</strong></summary>
-    I use SLiM just for lockscreen BTW.
+  
+    <p align="center">I use SLiM just for lockscreen BTW.</p>
   
     <a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
       <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center" width="100%"/>
     </a>
     
-    Just click on the image above!
+    <p align="center">Just click on the image above!</p>
     
   </details>
 
-- **Google-chrome / Chromium (tip)**
+- **Chromium-based browser (suggested)**
   <details>
   <summary><strong>See</strong></summary>
   
-    <img src="https://i.ibb.co/4sqygH8/2020-10-15-023421-1366x768-scrot.png" alt="google-chrome.thumbnail" align="center" width="100%"/>
-
     **Settings**: `chrome://settings/`
     - Themes: `Use GTK+`
-    - `Use system title bar and borders`
-
-    **New Tab**
-    - Extension: [Tabliss - A Beautiful New Tab](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp?hl=en)
-
-    **Tabliss** -  Widgets Font
-    - Greeting, Message: [Youth Touch DEMO](https://www.dafont.com/youth-touch.font)
-    - Time, Search Box, Weather: [SFNS Display](https://fontsgeek.com/fonts/sfns-display-regular)
+    - `Use system title bar and borders` (I don't use this)  
+    
+    <a href="#"><img src="https://i.ibb.co/0GGwnsy/2021-01-13-104105-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
+    <p align="center"><a href="https://brave.com/">Brave</a></p>
 
   </details>
   
-- **Spotify - Spicetify Theme (tip)**
+- **Spotify - Spicetify Theme (suggested)**
   <details>
   <summary><strong>See</strong></summary>
   
+    <a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical">
     <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical" align="center" width="100%"/>
+    </a>
+    <a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#eyecandy">
     <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy" align="center" width="100%"/>
-  
-    [Dribbblish](https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical)
+    </a>
+    
+    <p align="center">Just click on the image above!</p>
     
   </details>
   
