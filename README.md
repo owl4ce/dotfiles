@@ -43,7 +43,7 @@ Here are some details about my setup
 - **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
 - **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [neovim](https://neovim.io/)
 
-## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Dotfiles%20Size&color=cf8ef4&labelColor=373e4d"/>
+## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Repo%20Size&color=cf8ef4&labelColor=373e4d"/>
 
 <a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153">
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-b1122b6b-6d37-43d6-a727-cf63df935e6d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLWIxMTIyYjZiLTZkMzctNDNkNi1hNzI3LWNmNjNkZjkzNWU2ZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.tEYdZ6q3iLK_X3f4gQer7Sn23nWGk_lA9JsGThIIbis" alt="owl4ce/dotfiles" align="right" width="400px"/>
@@ -214,6 +214,8 @@ Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html
   
   </details>
 
+  <br>
+  
   <details>
   <summary><strong>Another Linux Distribution</strong></summary>
   
@@ -332,7 +334,7 @@ The final step is login into openbox-session, basically login from display manag
     - Themes: `Use GTK+`
     - `Use system title bar and borders` (I don't use this)  
     
-    <a href="#"><img src="https://i.ibb.co/0GGwnsy/2021-01-13-104105-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
+    <a href=""><img src="https://i.ibb.co/0GGwnsy/2021-01-13-104105-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
     <p align="center"><a href="https://brave.com/">Brave</a></p>
 
   </details>
@@ -363,7 +365,7 @@ The final step is login into openbox-session, basically login from display manag
   ```cfg
   ...
   
-  42 browser = chromium
+  42 browser = brave-bin
   
   ...
   ```
@@ -472,7 +474,7 @@ The final step is login into openbox-session, basically login from display manag
   
   9  # there was once a pulseaudio here
   10 if [[ $(pstree) = *"pulseaudio"* ]]; then
-  11   pulseaudio --start --log-target=syslog &
+  11    pulseaudio --start --log-target=syslog &
   12 fi
   
   ...
@@ -563,9 +565,10 @@ The final step is login into openbox-session, basically login from display manag
   - [...](https://github.com/owl4ce/dotfiles/graphs/contributors)
   
 - **Software**
+  - [Bash](https://www.gnu.org/software/bash/)
   - [Geany](https://www.geany.org/)
-  - [Gpick](https://www.google.com/search?q=gpick)
   - [Gimp](https://www.gimp.org/)
+  - [Gpick](http://www.gpick.org/)
   - [Oomox](https://github.com/themix-project/oomox)
   - etc.
 
