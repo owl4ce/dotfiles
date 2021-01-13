@@ -2,10 +2,9 @@
 
 CURRENT_VOL() { amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'; }
 CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
+volume="$(CURRENT_VOL)"
 
 icon() {
-    volume="$(echo "$(CURRENT_VOL)%")"
-    
     if [ "$volume" = "0" ]; then
         icon=""
     else    
@@ -28,14 +27,14 @@ icon() {
 
 case $1 in
     percent)
-        if [[ $CHK_MUTE = *"[off]"* ]]; then
+        if CHK_MUTE &> /dev/null; then
             echo "Muted"
         else
-            current
+            echo "$volume%"
         fi
     ;;
     icon)
-        if [[ $CHK_MUTE = *"[off]"* ]]; then
+        if CHK_MUTE &> /dev/null; then
             echo ""
         else
             icon

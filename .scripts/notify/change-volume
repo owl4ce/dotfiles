@@ -29,14 +29,12 @@ notify() {
 
 case $1 in
     up)
-        # Unmute
         amixer -D pulse set Master on -q
         # +5%
         amixer -D pulse sset Master 5%+ -q
         notify
 	;;
     down)
-        # Unmute
         amixer -D pulse set Master on -q
         # -5%
         amixer -D pulse sset Master 5%- -q
@@ -44,7 +42,7 @@ case $1 in
 	;;
     mute)
         amixer -D pulse set Master 1+ toggle -q
-        if CHK_MUTE; then
+        if CHK_MUTE &> /dev/null; then
             icon_name="notification-audio-volume-muted"
             $EXNOTIFY_SEND -i "$icon_name" -t 2000 -r 123 "Muted "
         else
