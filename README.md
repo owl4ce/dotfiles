@@ -357,7 +357,7 @@ The final step is login into openbox-session, basically login from display manag
 - **Battery Indicator**  
   Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
   
-- **Dunst Action: Default Web Browser (`middle click`)**  
+- **Dunst Action: Default Web Browser `middle click`**  
   [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech)  
   [`~/.config/dunst/dunstrc-mech-MINMOD`](./.config/dunst/dunstrc-mech-MINMOD)  
   [`~/.config/dunst/dunstrc-eyc`](./.config/dunst/dunstrc-eyc)  
@@ -399,8 +399,6 @@ The final step is login into openbox-session, basically login from display manag
   116 #-------------------------------------------------------------------------#
   117 
   118 AUTOLOCK_MINUTE="5"
-  
-  ...
   ```
   > **TEMP_DEV**: Check here
   > ```bash
