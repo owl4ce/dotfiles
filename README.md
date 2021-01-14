@@ -464,19 +464,43 @@ The final step is login into openbox-session, basically login from display manag
   > **How to use ncmpcpp albumart?**  
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
-- **Pulseaudio (without service)**  
+- **Audio Server (without service)**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
   This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.
-  ```cfg
-  ...
-  
-  9  # there was once a pulseaudio here
-  10 if [[ $(pstree) = *"pulseaudio"* ]]; then
-  11    pulseaudio --start --log-target=syslog &
-  12 fi
-  
-  ...
-  ```
+  - **Pulseaudio**
+    ```cfg
+    ...
+
+    9  # there was once a pulseaudio here
+    10 if [[ $(pstree) != *"pulseaudio"* ]]; then
+    11    pulseaudio --start --log-target=syslog &
+    12 fi
+
+    ...
+    ```
+    
+    Or if you use [pipewire](https://github.com/PipeWire/pipewire) as pulseaudio.
+  - **Pipewire** (low-latency)
+    >  Make sure pulseaudio is uninstalled or disable autospawn.  
+    > `/etc/pulse/client.conf`
+    > ```cfg
+    > ...
+    >
+    > 25  autospawn = no
+    >
+    > ...
+    > ```
+    
+    ```cfg
+    ...
+
+    9  # there was once a pulseaudio here
+    10 if [[ $(pstree) != *"pipewire"* ]]; then
+    11    pipewire &> /dev/null &
+    12 fi
+
+    ...
+    ```
 
 - **Neofetch Image (w3m)**  
   [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
