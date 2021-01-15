@@ -62,6 +62,6 @@ song_columns_list_format = "(50)[]{t|fr:Title} (45)[magenta]{a}"
 
 song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $8"
 
-song_status_format = "{$b$7[$8      $7] $2 $7$8 %b $7 $8}|{$b$7[$8      $7] $2 $7$8 %f $7 $8}"
+song_status_format = "{$b$7[$8      $7] $2 $7$8 %b $7 $8}|{$b$7[$8      $7] $2 $7$8 %t $7 $8}|{$b$7[$8      $7] $2 $7$8 %f $7 $8}"
 
 song_window_title_format = "Now Playing .."
