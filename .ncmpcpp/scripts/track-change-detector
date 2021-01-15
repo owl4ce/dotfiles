@@ -11,8 +11,8 @@ run() {
 }
 
 {
-    which mpd > /dev/null 2>&1 || exit 1
-    if [[ "$(pstree | grep 'mpd')" = *"mpd"* ]]; then
+    which {mpd,mpc} > /dev/null 2>&1 || exit 1
+    if [[ "$(pstree)" = *"mpd"* ]]; then
         run
     else
         mpd &> /dev/null
