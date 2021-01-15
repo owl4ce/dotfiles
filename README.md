@@ -334,7 +334,7 @@ The final step is login into openbox-session, basically login from display manag
     - Themes: `Use GTK+`
     - `Use system title bar and borders` (I don't use this)  
     
-    <a href=""><img src="https://i.ibb.co/0GGwnsy/2021-01-13-104105-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
+    <a href=""><img src="https://i.ibb.co/qdgXnhR/2021-01-15-070154-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
     <p align="center"><a href="https://brave.com/">Brave</a></p>
 
   </details>
