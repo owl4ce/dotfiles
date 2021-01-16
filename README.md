@@ -478,7 +478,8 @@ The final step is login into openbox-session, basically login from display manag
     ```
     
     Or if you use [pipewire](https://github.com/PipeWire/pipewire) as pulseaudio.
-  - **Pipewire** (low-latency)
+  - **Pipewire as Pulseaudio** (low-latency)
+    > More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
     >  Make sure pulseaudio is uninstalled or disable autospawn.  
     > `/etc/pulse/client.conf`
     > ```cfg
