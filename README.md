@@ -379,7 +379,7 @@ The final step is login into openbox-session, basically login from display manag
   
   ...
   ```
-  See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt).
+  [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
   
 - **URxvt Icon**  
   [`~/.Xresources`](./.Xresources)
