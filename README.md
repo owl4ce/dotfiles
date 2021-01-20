@@ -77,7 +77,7 @@ Here are some details about my setup
 <details open>
   <summary><strong>v3.1</strong></summary>
   
-  - **Screenshot Script**: Rounded corners
+  - **Screenshot Script**: Rounded corners & Quality
   - Terminal UI improvements, particularly font size
   - Bug fixes and improvements
   - Rounded picom as default
@@ -370,6 +370,27 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
   
+- **URxvt Action: Default Web Browser `middle click`**  
+  [`~/.Xresources`](./.Xresources)
+  ```cfg
+  ...
+  
+  63 URxvt.url-select.launcher:        brave-bin
+  
+  ...
+  ```
+  See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt).
+  
+- **URxvt Icon**  
+  [`~/.Xresources`](./.Xresources)
+  ```cfg
+  ...
+  
+  17 URxvt.iconFile:                   /home/username/.icons/gladient/term.png
+  
+  ...
+  ```
+
 - **Screenshots, Tint2 Executor, and Autolock**  
   [`~/.owl4ce_var`](./.owl4ce_var)
   ```cfg
@@ -393,12 +414,13 @@ The final step is login into openbox-session, basically login from display manag
   110 SAVE_DIR="$HOME/Pictures"
   111 FRAME_COLOR="#ffffff" # RGBA supported
   112 TIMER_SEC="5"
-  113 
-  114 #-------------------------------------------------------------------------#
-  115 # XAUTOLOCK - 5 means 5 minutes                                           #
-  116 #-------------------------------------------------------------------------#
-  117 
-  118 AUTOLOCK_MINUTE="5"
+  113 QUALITY="100" # 1-100, high value means high size low compression
+  114
+  115 #-------------------------------------------------------------------------#
+  116 # XAUTOLOCK - 5 means 5 minutes                                           #
+  117 #-------------------------------------------------------------------------#
+  118
+  119 AUTOLOCK_MINUTE="5"
   ```
   > **TEMP_DEV**: Check here
   > ```bash
@@ -433,17 +455,7 @@ The final step is login into openbox-session, basically login from display manag
   8 #nm-applet &
 
   ```
-  
-- **URxvt Icon**  
-  [`~/.Xresources`](./.Xresources)
-  ```cfg
-  ...
-  
-  17 URxvt.iconFile:                   /home/username/.icons/gladient/term.png
-  
-  ...
-  ```
-  
+
 - **Neovim**  
   [`~/.config/nvim/`](./.config/nvim/)  
   You know what to do with [Vim-plug](https://github.com/junegunn/vim-plug).

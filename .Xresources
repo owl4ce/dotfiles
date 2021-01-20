@@ -19,13 +19,13 @@ URxvt.iconFile:                   /home/violet/.icons/gladient/term.png
 !URxvt.letterSpace: -1
 
 ! URXVT EXTENSIONS
-URxvt.perl-ext-common:            default,clipboard,keyboard-select,url-select,tabbedex
+URxvt.perl-ext-common:            default,clipboard,url-select,tabbedex
 
+! TABBEDEX
 URxvt.tabbedex.no-tabbedex-keys:  yes
 URxvt.tabbedex.new-button:        false
 URXvt.tabbedex.reopen-on-close:   yes
 URxvt.tabbedex.autohide:          yes
-
 URxvt.tabbedex.tabbar-fg:         5
 URxvt.tabbedex.tabbar-bg:         0
 URxvt.tabbedex.tab-fg:            10
@@ -36,7 +36,6 @@ URxvt.tabbedex.bell-tab-fg:       0
 URxvt.tabbedex.bell-tab-bg:       0
 URxvt.tabbedex.title-fg:          14
 URxvt.tabbedex.title-bg:          0
-
 URxvt.keysym.Control-Shift-T:     perl:tabbedex:new_tab
 URxvt.keysym.Control-Shift-R:     perl:tabbedex:rename_tab
 URxvt.keysym.Control-Shift-W:     perl:tabbedex:kill_tab
@@ -45,22 +44,24 @@ URxvt.keysym.Control-Prior:       perl:tabbedex:prev_tab
 URxvt.keysym.Control-Shift-Next:  perl:tabbedex:move_tab_right
 URxvt.keysym.Control-Shift-Prior: perl:tabbedex:move_tab_left
 
+! FONT
 URxvt.resize-font.step: 1
 URxvt.keysym.Control-minus:       resize-font:smaller
 URxvt.keysym.Control-plus:        resize-font:bigger
 URxvt.keysym.Control-equal:       resize-font:reset
 URxvt.keysym.Control-question:    resize-font:show
 
+! CLIPBOARD
 URxvt.clipboard.copycmd:          xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:         xclip -o -selection clipboard
 URxvt.keysym.M-c:                 perl:clipboard:copy
 URxvt.keysym.M-v:                 perl:clipboard:paste
-URxvt.keysym.M-Escape:            perl:keyboard-select:activate
-URxvt.keysym.M-s:                 perl:keyboard-select:search
 
-URxvt.urlLauncher:                chromium
-URxvt.underlineURLs:              true
-URxvt.urlButton:                  1
+! URL
+URxvt.keysym.M-u:                 perl:url-select:select_next
+URvxt.url-select.button:          2
+URxvt.url-select.launcher:        brave-bin
+URxvt.url-select.underline:       true
 
 ! COLOR SCHEME
 ! black > red > green > yellow > blue > magenta > cyan > white
@@ -98,8 +99,7 @@ URxvt.urlButton:                  1
 *.color13:                        magenta1
 *.color14:                        cyan1
 
-! FOR REVERSING ONLY (BLACK-WHITE)
-! --------------------------------
+! FOR REVERSING ONLY (INVERT BG/FG)
 *.foreground:                     white0
 *.background:                     black0
 *.cursorColor:                    white0

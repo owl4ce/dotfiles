@@ -97,7 +97,7 @@ MPD_TCD="$NCMPCPP_SCRIPTS_DIR/track-change-detector"
 #-------------------------------------------------------------------------#
 
 INT_ETH="enp4s0"
-INT_WIFI="wlp3s0"
+INT_WIFI="wlan0"
 
 TEMP_DEV="thermal_zone0"
 
@@ -110,6 +110,7 @@ TEMP_DEV="thermal_zone0"
 SAVE_DIR="$HOME/Pictures"
 FRAME_COLOR="#ffffff" # RGBA supported
 TIMER_SEC="5"
+QUALITY="100" # 1-100, high value means high size low compression
 
 #-------------------------------------------------------------------------#
 # XAUTOLOCK - 5 means 5 minutes                                           #

@@ -6,7 +6,7 @@ source $HOME/.owl4ce_var
     sleep .5s
     
     rm /tmp/*_scrot*.png &> /dev/null
-    scrot -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
+    scrot -q $QUALITY -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
     notify-send -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
     
     CURRENT="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
