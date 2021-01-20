@@ -22,8 +22,8 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://www.deviantart.com/owl4ce/art/U-n-t-i-t-l-e-d-865257047">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/deb5glz-9cbd5bec-efeb-4631-a87a-13380633cc48.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWI1Z2x6LTljYmQ1YmVjLWVmZWItNDYzMS1hODdhLTEzMzgwNjMzY2M0OC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.PScw6CPguJWLtacMxqLr_ZM2FhzqJyjt-4Z4c3LANIs" alt="owl4ce/dotfiles.u n t i t l e d" align="right" width="400px"/>
+<a href="https://github.com/owl4ce/dotfiles/releases/tag/3.1">
+  <img src="https://user-images.githubusercontent.com/53987136/105129801-70846680-5b18-11eb-95b4-2794c679a68d.png" alt="owl4ce/dotfiles.minimal" align="right" width="400px"/>
 </a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
