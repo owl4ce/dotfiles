@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source $HOME/.owl4ce_var
 
 CURRENT_VOL() { amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'; }
 CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
@@ -43,12 +44,12 @@ case $1 in
     up)
         amixer -D pulse set Master on -q
         # +5%
-        amixer -D pulse sset Master 5%+ -q
+        amixer -D pulse sset Master $AUDIO_STEPS%+ -q
     ;;
     down)
         amixer -D pulse set Master on -q
         # -5%
-        amixer -D pulse sset Master 5%- -q
+        amixer -D pulse sset Master $AUDIO_STEPS%- -q
     ;;
     mute)
         amixer -D pulse set Master 1+ toggle -q

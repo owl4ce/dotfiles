@@ -33,12 +33,12 @@ notify() {
 case $1 in
     up)
         # +5%
-        brightnessctl set 5%+ -q
+        brightnessctl set $BRIGHTNESS_STEPS%+ -q
         notify
 	;;
     down)
         # -5%
-        brightnessctl set 5%- -q
+        brightnessctl set $BRIGHTNESS_STEPS%- -q
         notify
 	;;
     optimal)

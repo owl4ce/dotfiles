@@ -97,7 +97,7 @@ MPD_TCD="$NCMPCPP_SCRIPTS_DIR/track-change-detector"
 #-------------------------------------------------------------------------#
 
 INT_ETH="enp4s0"
-INT_WIFI="wlan0"
+INT_WIFI="wlp3s0"
 
 TEMP_DEV="thermal_zone0"
 
@@ -117,3 +117,10 @@ QUALITY="100" # 1-100, high value means high size low compression
 #-------------------------------------------------------------------------#
 
 AUTOLOCK_MINUTE="5"
+
+#-------------------------------------------------------------------------#
+# BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
+#-------------------------------------------------------------------------#
+
+AUDIO_STEPS="5" # Real value
+BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%

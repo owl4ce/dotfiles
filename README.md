@@ -332,7 +332,7 @@ The final step is login into openbox-session, basically login from display manag
   
     **Settings**: `chrome://settings/`
     - Themes: `Use GTK+`
-    - `Use system title bar and borders` (I don't use this)  
+    - `Use system title bar and borders`
     
     <a href=""><img src="https://i.ibb.co/qdgXnhR/2021-01-15-070154-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
     <p align="center"><a href="https://brave.com/">Brave</a></p>
@@ -391,7 +391,7 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
 
-- **Screenshots, Tint2 Executor, and Autolock**  
+- **Global Variables**  
   [`~/.owl4ce_var`](./.owl4ce_var)
   ```cfg
   ...
@@ -419,8 +419,15 @@ The final step is login into openbox-session, basically login from display manag
   115 #-------------------------------------------------------------------------#
   116 # XAUTOLOCK - 5 means 5 minutes                                           #
   117 #-------------------------------------------------------------------------#
-  118
+  118 
   119 AUTOLOCK_MINUTE="5"
+  120
+  121 #-------------------------------------------------------------------------#
+  122 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
+  123 #-------------------------------------------------------------------------#
+  124
+  125 AUDIO_STEPS="5" # Real value
+  126 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
   ```
   > **TEMP_DEV**: Check here
   > ```bash
@@ -453,7 +460,6 @@ The final step is login into openbox-session, basically login from display manag
   6
   7 parcellite &
   8 #nm-applet &
-
   ```
 
 - **Neovim**  
