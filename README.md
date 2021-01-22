@@ -317,10 +317,10 @@ The final step is login into openbox-session, basically login from display manag
   <summary><strong>See</strong></summary>
   
     <p align="center">I use SLiM just for lockscreen BTW.</p>
-  
-    <a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
-      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center" width="100%"/>
-    </a>
+    
+    <p align="center"><a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
+      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center"/>
+    </a></p>
     
     <p align="center">Just click on the image above!</p>
     
@@ -334,7 +334,9 @@ The final step is login into openbox-session, basically login from display manag
     - Themes: `Use GTK+`
     - `Use system title bar and borders`
     
-    <a href=""><img src="https://i.ibb.co/qdgXnhR/2021-01-15-070154-1366x768-scrot.png" alt="brave.thumbnail" align="center" width="100%"/></a>
+    <br>
+    
+    <p align="center"><a href=""><img src="https://i.ibb.co/qdgXnhR/2021-01-15-070154-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
     <p align="center"><a href="https://brave.com/">Brave</a></p>
 
   </details>
@@ -343,12 +345,14 @@ The final step is login into openbox-session, basically login from display manag
   <details>
   <summary><strong>See</strong></summary>
   
-    <a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical">
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical" align="center" width="100%"/>
-    </a>
-    <a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#eyecandy">
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy" align="center" width="100%"/>
-    </a>
+    <br>
+    
+    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical">
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical"/>
+    </a></p>
+    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#eyecandy">
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy"/>
+    </a></p>
     
     <p align="center">Just click on the image above!</p>
     
@@ -390,7 +394,39 @@ The final step is login into openbox-session, basically login from display manag
   
   ...
   ```
+  
+- **URxvt Transparent Background (tips)**    
+  <details>
+  <summary>If you want to turn on transparency on urxvt, follow this step.</summary>
+  
+    [`~/.Xresources`](./.Xresources)
+  
+    ```cfg
+    ...
 
+    15 URxvt.depth:                      32
+
+    ...
+
+    68 #define black0                    [90]#373E4D
+
+    ...
+
+    84 #define white0                    [90]#F9F9F9
+
+    ...
+    ```
+    `[90]` is the opacity level that will be applied to urxvt. After that do this to reload configuration.
+    ```bash
+    $ xrdb ~/.Xresources
+    ```
+    <p align="center"><img src="https://i.ibb.co/WPM2qBs/2021-01-22-112512-954x467-scrot.png" alt="urxvt.transparency"/></p>
+
+    The issue is when displaying an image from pixmap (pixbuf) it becomes completely transparent except for internalBorder. So if you don't use ncmpcpp albumart, you can ignore it.
+    <p align="center"><img src="https://i.ibb.co/98MfvF8/2021-01-22-113147-581x309-scrot.png" alt="urxvt.transparency.issues"/></p>
+    
+  </details>
+  
 - **Global Variables**  
   [`~/.owl4ce_var`](./.owl4ce_var)
   ```cfg
