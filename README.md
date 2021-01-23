@@ -490,7 +490,7 @@ The final step is login into openbox-session, basically login from display manag
   
 - **Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
-  An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead (<kbd>F12</kbd>). Remove hashtags before nm-applet.
+  An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead. Remove hashtags before nm-applet.
   ```cfg
   1 #
   2 # This tray will restart after changing visual mode
