@@ -32,9 +32,9 @@ I hope you understand everything here. :wink:
 
 Here are some details about my setup
 - **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable mode!
-- **Display Manager**              • [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! (depracated)
-- **Shell**                        • [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! (optional)
-- **Terminal**                     • [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) (available)
+- **Display Manager**              • [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! <kbd>depracated</kbd>
+- **Shell**                        • [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
+- **Terminal**                     • [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) <kbd>available</kbd>
 - **Openbox Menu**                 • [Obmenu-generator](https://github.com/trizen/obmenu-generator)
 - **Panel**                        • [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
@@ -312,7 +312,7 @@ The final step is login into openbox-session, basically login from display manag
 ---
 
 ### User configuration
-- **SLiM Themes <kbd>`optional`</kbd>**
+- **SLiM Themes <kbd>optional</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -326,7 +326,7 @@ The final step is login into openbox-session, basically login from display manag
     
   </details>
 
-- **Chromium-based browser <kbd>`suggested`</kbd>**
+- **Chromium-based browser <kbd>suggested</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -341,7 +341,7 @@ The final step is login into openbox-session, basically login from display manag
 
   </details>
   
-- **Spotify - Spicetify Theme <kbd>`suggested`</kbd>**
+- **Spotify - Spicetify Theme <kbd>suggested</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -358,7 +358,7 @@ The final step is login into openbox-session, basically login from display manag
     
   </details>
   
-- **Battery Indicator <kbd>`optional`</kbd>**  
+- **Battery Indicator <kbd>optional</kbd>**  
   Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
   
 - **Dunst Action: Default Web Browser**  
@@ -399,7 +399,7 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
   
-- **URxvt Transparent Background <kbd>`optional`</kbd>**    
+- **URxvt Transparent Background <kbd>optional</kbd>**    
   <details>
   <summary>If you want to turn on transparency on urxvt, follow this step.</summary>
   
@@ -522,7 +522,7 @@ The final step is login into openbox-session, basically login from display manag
   > **How to use ncmpcpp albumart?**  
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
-- **Audio Server <kbd>`optional`</kbd>**  
+- **Audio Server <kbd>optional</kbd>**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
   This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.
   - **Pulseaudio**
