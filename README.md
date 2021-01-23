@@ -31,17 +31,18 @@ This is my personal configuration for my favorite openbox window manager and som
 I hope you understand everything here. :wink:
 
 Here are some details about my setup
-- **WM**                           : [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable themes / mode!
-- **DM**                           : [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! (optional)
-- **Shell**                        : [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
-- **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) (supported)
-- **Openbox Menu**                 : [Obmenu-generator](https://github.com/trizen/obmenu-generator)
-- **Panel**                        : [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
-- **Compositor**                   : [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
-- **Notify Daemon**                : [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
-- **Application Launcher**         : [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
-- **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
-- **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [neovim](https://neovim.io/)
+- **Window Manager**:                [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable themes / mode!
+- **Display Manager**:               [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! ᵈᵉᵖʳᵉᶜᵃᵗᵉᵈ
+- **Shell**:                         [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! ᵒᵖᵗⁱᵒⁿᵃˡ
+- **Terminal**:                      [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) ᵃᵛᵃⁱˡᵃᵇˡᵉ
+
+- **Openbox Menu**:                  [Obmenu-generator](https://github.com/trizen/obmenu-generator)
+- **Panel**:                         [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
+- **Compositor**:                    [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
+- **Notify Daemon**:                 [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
+- **Application Launcher**:          [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
+- **File Manager**:                  [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
+- **GUI & CLI IDE**:                 [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Repo%20Size&color=cf8ef4&labelColor=373e4d"/>
 
