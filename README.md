@@ -31,17 +31,17 @@ This is my personal configuration for my favorite openbox window manager and som
 I hope you understand everything here. :wink:
 
 Here are some details about my setup
-- **WM**                           : [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable themes / mode!
-- **DM**                           : [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! (optional)
-- **Shell**                        : [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
-- **Terminal**                     : [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) (supported)
-- **Openbox Menu**                 : [Obmenu-generator](https://github.com/trizen/obmenu-generator)
-- **Panel**                        : [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
-- **Compositor**                   : [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
-- **Notify Daemon**                : [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
-- **Application Launcher**         : [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
-- **File Manager**                 : [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
-- **Text Editor**                  : [Geany](https://www.geany.org/), [nano](https://www.nano-editor.org/), [neovim](https://neovim.io/)
+- **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable mode!
+- **Display Manager**              • [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! (depracated)
+- **Shell**                        • [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! (optional)
+- **Terminal**                     • [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) (available)
+- **Openbox Menu**                 • [Obmenu-generator](https://github.com/trizen/obmenu-generator)
+- **Panel**                        • [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
+- **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
+- **Notify Daemon**                • [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
+- **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
+- **File Manager**                 • [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
+- **GUI & CLI IDE**                • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Repo%20Size&color=cf8ef4&labelColor=373e4d"/>
 
@@ -312,11 +312,11 @@ The final step is login into openbox-session, basically login from display manag
 ---
 
 ### User configuration
-- **SLiM Themes (optional)**
+- **SLiM Themes <kbd>`optional`</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
-    <p align="center">I use SLiM just for lockscreen BTW.</p>
+    <p align="center">In fact, I use SLiM just for lockscreen.</p>
     
     <p align="center"><a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
       <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center"/>
@@ -326,7 +326,7 @@ The final step is login into openbox-session, basically login from display manag
     
   </details>
 
-- **Chromium-based browser (suggested)**
+- **Chromium-based browser <kbd>`suggested`</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -341,7 +341,7 @@ The final step is login into openbox-session, basically login from display manag
 
   </details>
   
-- **Spotify - Spicetify Theme (suggested)**
+- **Spotify - Spicetify Theme <kbd>`suggested`</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -358,10 +358,12 @@ The final step is login into openbox-session, basically login from display manag
     
   </details>
   
-- **Battery Indicator**  
+- **Battery Indicator <kbd>`optional`</kbd>**  
   Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
   
-- **Dunst Action: Default Web Browser `middle click`**  
+- **Dunst Action: Default Web Browser**  
+  > <kbd>`middle click`</kbd>
+  
   [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech)  
   [`~/.config/dunst/dunstrc-mech-MINMOD`](./.config/dunst/dunstrc-mech-MINMOD)  
   [`~/.config/dunst/dunstrc-eyc`](./.config/dunst/dunstrc-eyc)  
@@ -374,7 +376,9 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
   
-- **URxvt Action: Default Web Browser `middle click`**  
+- **URxvt Action: Default Web Browser**  
+  > <kbd>`middle click`</kbd>
+  
   [`~/.Xresources`](./.Xresources)
   ```cfg
   ...
@@ -395,7 +399,7 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
   
-- **URxvt Transparent Background (tips)**    
+- **URxvt Transparent Background <kbd>`optional`</kbd>**    
   <details>
   <summary>If you want to turn on transparency on urxvt, follow this step.</summary>
   
@@ -470,7 +474,7 @@ The final step is login into openbox-session, basically login from display manag
   > /sys/devices/virtual/thermal/
   > ```
   
-- **Default Supported Apps**  
+- **Available Default Apps**  
   [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
   - **Terminal**: urxvt/termite
   - **Lockscreen**: anything
@@ -484,7 +488,7 @@ The final step is login into openbox-session, basically login from display manag
   4 filemanager="thunar"
   ```
   
-- **Tray**  
+- **Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
   An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead (<kbd>F12</kbd>). Remove hashtags before nm-applet.
   ```cfg
@@ -518,7 +522,7 @@ The final step is login into openbox-session, basically login from display manag
   > **How to use ncmpcpp albumart?**  
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
-- **Audio Server (without service)**  
+- **Audio Server <kbd>`optional`</kbd>**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
   This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.
   - **Pulseaudio**
@@ -532,8 +536,8 @@ The final step is login into openbox-session, basically login from display manag
     ```
     
     Or if you use [pipewire](https://github.com/PipeWire/pipewire) as pulseaudio.
-  - **Pipewire as Pulseaudio** (low-latency)
-    > More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
+  - **Pipewire as Pulseaudio**
+    > Realtime and low-latency. More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
     >  Make sure pulseaudio is uninstalled or disable autospawn.  
     > `/etc/pulse/client.conf`
     > ```cfg
@@ -553,7 +557,7 @@ The final step is login into openbox-session, basically login from display manag
     ...
     ```
 
-- **Neofetch Image (w3m)**  
+- **Neofetch Image**  
   [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
   ```cfg
   ...
