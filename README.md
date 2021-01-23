@@ -361,7 +361,7 @@ The final step is login into openbox-session, basically login from display manag
 - **Battery Indicator <kbd>optional</kbd>**  
   Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
   
-- **Dunst Action: Default Web Browser**  
+- **Dunst Notification Action - Default Web Browser**  
   > <kbd>`middle click`</kbd>
   
   [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech)  
@@ -376,7 +376,7 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
   
-- **URxvt Action: Default Web Browser**  
+- **URxvt - Default Web Browser**  
   > <kbd>`middle click`</kbd>
   
   [`~/.Xresources`](./.Xresources)
@@ -389,7 +389,7 @@ The final step is login into openbox-session, basically login from display manag
   ```
   [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
   
-- **URxvt Icon**  
+- **URxvt - Application Icon**  
   [`~/.Xresources`](./.Xresources)
   ```cfg
   ...
@@ -399,7 +399,7 @@ The final step is login into openbox-session, basically login from display manag
   ...
   ```
   
-- **URxvt Transparent Background <kbd>optional</kbd>**    
+- **URxvt - Transparent Background <kbd>optional</kbd>**    
   <details>
   <summary>If you want to turn on transparency on urxvt, follow this step.</summary>
   
