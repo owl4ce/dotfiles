@@ -39,7 +39,7 @@ Here are some details about my setup
 - **Panel**                        • [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
 - **Notify Daemon**                • [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
-- **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: apps & sidebar menu!
+- **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
 - **GUI & CLI IDE**                • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
