@@ -1,37 +1,31 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-# Colored output
-CYAN='\033[1;36m'
-GREEN='\033[1;32m'
-MAGENTA='\033[1;35m'
-NC='\033[0m' # No Color
+C='\033[1;36m'
+G='\033[1;32m'
+M='\033[1;35m'
+NC='\033[0m'
 
-checkdep() { which $1 > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"; }
 err() { echo -e "$(tput bold)$(tput setaf 1)==> Error:$(tput sgr0) $@" && exit 1; }
 
 apps() {
-    echo -e "${CYAN}USAGE:${NC} launch apps"
-    echo -e "${CYAN}Available apps: "
+    echo -e "${C}USAGE:${NC} launch apps\n${C}Available apps: "
     n=0
-    for list in $(cat $DEFAPPS_FILE | awk -F'=' '{print $1}')
-    do
-        n=$((n+1))
-        printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$list"
+    for list in $(cat $DEFAPPS_FILE | awk -F'=' '{print $1}'); do
+        n="$((n+1))"
+        printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$list"
         eval "list${n}=\$list"
     done && \
-    echo -e "${CYAN}---"
-    echo -e "${CYAN}Will run: "
+    echo -e "${C}---\nWill run: "
     n=0
-    for openlist in $(cat $DEFAPPS_FILE | awk -F'"' '{print $2}')
-    do
-        n=$((n+1))
-        printf "${MAGENTA}[%s] ${NC}%s\n" "$n" "$openlist"
+    for openlist in $(cat $DEFAPPS_FILE | awk -F'"' '{print $2}'); do
+        n="$((n+1))"
+        printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$openlist"
         eval "openlist${n}=\$openlist"
     done
-    echo -e "${CYAN}---"
-    echo -e "${GREEN}Use \"${NC}-e | --edit${GREEN}\" to edit apps database."
-    echo -e "${GREEN}Use \"${NC}-g | --get apps${GREEN}\" to get current default apps.${NC}"
+    echo -e "${C}---"
+    echo -e "${G}Use ${NC}-e, --edit${G} to edit apps list."
+    echo -e "${G}Use ${NC}-g, --get apps${G} to get current default apps.${NC}"
 }
 
 case $1 in
@@ -40,12 +34,13 @@ case $1 in
         echo "$filt"
     ;;
     -e|--edit)
-        echo -n "Editor of your choice (e.g: nvim): "
+        echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
         read TEXT_EDITOR
-        checkdep $TEXT_EDITOR
+        which $TEXT_EDITOR > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
         $TEXT_EDITOR $DEFAPPS_FILE || exit 1
     ;;
-    ""|-h|--help) apps
+    ""|-h|--help)
+        apps
     ;;
     *)  if [[ $1 = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
             filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}')"
@@ -53,7 +48,7 @@ case $1 in
             [[ ! -z $2 ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
             [[ ! -z $1 ]] && bash -c "$filt &> /dev/null &"
         else
-            which $1 > /dev/null 2>&1 || err "$1 is not in database. Please define it first \"--edit\"!"
+            which $1 > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
         fi
     ;;
 esac

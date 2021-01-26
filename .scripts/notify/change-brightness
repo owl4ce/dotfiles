@@ -27,7 +27,7 @@ notify() {
             fi
         fi
     fi
-    $EXNOTIFY_SEND -i "$icon_name" -t 2000 -r 1234 "$brightness "
+    $EXNOTIFY_SEND -i "$icon_name" -t 500 -r 1234 "$brightness "
 }
 
 case $1 in

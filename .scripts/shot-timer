@@ -3,7 +3,7 @@ source $HOME/.owl4ce_var
 
 {
     [[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
-    notify-send -t 1000 -i $NOTIF_SS_ICON -u low "Screenshot" "In $(echo $TIMER_SEC)s .."
+    $EXNOTIFY_SEND -r 13 -t 1000 -i $NOTIF_SS_ICON -u low "Screenshot" "In $(echo $TIMER_SEC)s .."
     scrot -q $QUALITY -d $TIMER_SEC -e "mv '\$f' $SAVE_DIR/Screenshots" &> /dev/null
-    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+    $EXNOTIFY_SEND -r 13 -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
 } &

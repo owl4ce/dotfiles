@@ -2,11 +2,10 @@
 source $HOME/.owl4ce_var
 clear
 
-# Colored output
-RED='\033[1;31m'
-CYAN='\033[1;36m'
-MAGENTA='\033[1;35m'
-NC='\033[0m' # No Color
+R='\033[1;31m'
+C='\033[1;36m'
+M='\033[1;35m'
+NC='\033[0m'
 
 case $1 in
     swap)
@@ -21,30 +20,19 @@ case $1 in
     *)
         if [[ $CHK_MINMOD = *"minimal"* ]]; then
             if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-                echo -e "${CYAN}Select button style for Minimal Mechanical Theme:"
+                echo -e "${C}Select button style for Minimal Mechanical Theme:"
                 n=0
-                for button in $OB_BUTTON_DIR/*
-                do
-                    n=$((n+1))
+                for button in $OB_BUTTON_DIR/*; do
+                    n="$((n+1))"
                     buttonfilt="$(echo $button | grep -oE '[^/]+$' $1)"
-                    printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$buttonfilt"
+                    printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
                     eval "button${n}=\$button"
                 done
-                
-                if [ "$n" -eq 0 ]
-                then
-                    printf >&2 "\n${RED}Nothing found\n"
-                    exit
-                fi
-                
-                printf "${CYAN}---${NC}"
-                printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+                printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
                 read -n 1 -r num
-                num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-                
-                if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-                then
-                    printf >&2 "\n${RED}Wrong selection\n"
+                num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"                
+                if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+                    printf >&2 "\n${R}Wrong selection\n"
                     exit 1
                 else
                     eval "BTN=\$button${num}"
@@ -52,33 +40,22 @@ case $1 in
                     openbox --reconfigure
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $MINMOD_BUTTON_FILE
-                    printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
+                    printf "\n${C}Selected button style: ${NC}$buttonselfilt\n"
                 fi
             else
-                echo -e "${CYAN}Select button style for Minimal Eyecandy Theme:"
+                echo -e "${C}Select button style for Minimal Eyecandy Theme:"
                 n=0
-                for button in $OB_BUTTON_DIR/*
-                do
-                    n=$((n+1))
+                for button in $OB_BUTTON_DIR/*; do
+                    n="$((n+1))"
                     buttonfilt="$(echo $button | grep -oE '[^/]+$' $1)"
-                    printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$buttonfilt"
+                    printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
                     eval "button${n}=\$button"
                 done
-        
-                if [ "$n" -eq 0 ]
-                then
-                    printf >&2 "\n${RED}Nothing found\n"
-                    exit
-                fi
-        
-                printf "${CYAN}---${NC}"
-                printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+                printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
                 read -n 1 -r num
-                num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-        
-                if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-                then
-                    printf >&2 "\n${RED}Wrong selection\n"
+                num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"        
+                if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+                    printf >&2 "\n${R}Wrong selection\n"
                     exit 1
                 else
                     eval "BTN=\$button${num}"
@@ -86,35 +63,24 @@ case $1 in
                     openbox --reconfigure
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $MINMOD_BUTTON_FILE
-                    printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
+                    printf "\n${C}Selected button style: ${NC}$buttonselfilt\n"
                 fi
             fi
         else
             if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-                echo -e "${CYAN}Select button style for Mechanical Theme:"
+                echo -e "${C}Select button style for Mechanical Theme:"
                 n=0
-                for button in $OB_BUTTON_DIR/*
-                do
-                    n=$((n+1))
+                for button in $OB_BUTTON_DIR/*; do
+                    n="$((n+1))"
                     buttonfilt="$(echo $button | grep -oE '[^/]+$' $1)"
-                    printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$buttonfilt"
+                    printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
                     eval "button${n}=\$button"
                 done
-                
-                if [ "$n" -eq 0 ]
-                then
-                    printf >&2 "\n${RED}Nothing found\n"
-                    exit
-                fi
-                
-                printf "${CYAN}---${NC}"
-                printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+                printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
                 read -n 1 -r num
-                num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-                
-                if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-                then
-                    printf >&2 "\n${RED}Wrong selection\n"
+                num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+                if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+                    printf >&2 "\n${R}Wrong selection\n"
                     exit 1
                 else
                     eval "BTN=\$button${num}"
@@ -122,33 +88,22 @@ case $1 in
                     openbox --reconfigure
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $VISMOD_BUTTON_FILE
-                    printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
+                    printf "\n${C}Selected button style: ${NC}$buttonselfilt\n"
                 fi
             else
-                echo -e "${CYAN}Select button style for Eyecandy Theme:"
+                echo -e "${C}Select button style for Eyecandy Theme:"
                 n=0
-                for button in $OB_BUTTON_DIR/*
-                do
-                    n=$((n+1))
+                for button in $OB_BUTTON_DIR/*; do
+                    n="$((n+1))"
                     buttonfilt="$(echo $button | grep -oE '[^/]+$' $1)"
-                    printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$buttonfilt"
+                    printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
                     eval "button${n}=\$button"
                 done
-        
-                if [ "$n" -eq 0 ]
-                then
-                    printf >&2 "\n${RED}Nothing found\n"
-                    exit
-                fi
-        
-                printf "${CYAN}---${NC}"
-                printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+                printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
                 read -n 1 -r num
-                num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-        
-                if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-                then
-                    printf >&2 "\n${RED}Wrong selection\n"
+                num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+                if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+                    printf >&2 "\n${R}Wrong selection\n"
                     exit 1
                 else
                     eval "BTN=\$button${num}"
@@ -156,7 +111,7 @@ case $1 in
                     openbox --reconfigure
                     buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
                     echo "$buttonselfilt" > $VISMOD_BUTTON_FILE
-                    printf "\n${CYAN}Selected button style: ${NC}$buttonselfilt\n"
+                    printf "\n${C}Selected button style: ${NC}$buttonselfilt\n"
                 fi
             fi
         fi

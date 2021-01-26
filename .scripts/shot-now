@@ -5,5 +5,5 @@ source $HOME/.owl4ce_var
     [[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
     [[ $1 = "delay" ]] && sleep .5s
     scrot -q $QUALITY -e "mv '\$f' $SAVE_DIR/Screenshots" &> /dev/null
-    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+    $EXNOTIFY_SEND -r 11 -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
 } &

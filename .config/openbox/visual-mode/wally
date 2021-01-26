@@ -2,166 +2,113 @@
 source $HOME/.owl4ce_var
 clear
 
-# Colored output
-RED='\033[1;31m'
-CYAN='\033[1;36m'
-MAGENTA='\033[1;35m'
-NC='\033[0m' # No Color
+R='\033[1;31m'
+C='\033[1;36m'
+M='\033[1;35m'
+NC='\033[0m'
 
 if [[ $CHK_MINMOD = *"minimal"* ]]; then
     if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-        echo -e "${CYAN}Select wallpaper for Minimal Mechanical Theme:"
+        echo -e "${C}Select wallpaper for Minimal Mechanical Theme:"
         n=0
-        for img in $WALL_DIR/*
-        do
-            n=$((n+1))
+        for img in $WALL_DIR/*; do
+            n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-        
-        if [ "$n" -eq 0 ]
-        then
-            printf >&2 "\n${RED}No images found\n"
-            exit
-        fi
-        
-        printf "${CYAN}---${NC}"
-        printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
         read -n 1 -r num
-        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-        
-        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-        then
-            printf >&2 "\n${RED}Wrong selection\n"
+        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+            printf >&2 "\n${R}Wrong selection\n"
             exit 1
         else
             eval "IMG=\$img${num}"
             nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            
             # Write selected
             selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
             echo "$selected" > $MINMOD_WALL_FILE
-            printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
-            
+            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            notify-send -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
         fi
     else
-        echo -e "${CYAN}Select wallpaper for Minimal Eyecandy Theme:"
+        echo -e "${C}Select wallpaper for Minimal Eyecandy Theme:"
         n=0
-        for img in $WALL_DIR/*
-        do
-            n=$((n+1))
+        for img in $WALL_DIR/*; do
+            n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-
-        if [ "$n" -eq 0 ]
-        then
-            printf >&2 "\n${RED}No images found\n"
-            exit
-        fi
-
-        printf "${CYAN}---${NC}"
-        printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
         read -n 1 -r num
-        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-
-        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-        then
-            printf >&2 "\n${RED}Wrong selection\n"
+        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+            printf >&2 "\n${R}Wrong selection\n"
             exit 1
         else
             eval "IMG=\$img${num}"
             nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            
             # Write selected
             selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
             echo "$selected" > $MINMOD_WALL_FILE
-            printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
-            
+            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            notify-send -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
         fi
     fi
 else
     if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-        echo -e "${CYAN}Select wallpaper for Mechanical Theme:"
+        echo -e "${C}Select wallpaper for Mechanical Theme:"
         n=0
-        for img in $WALL_DIR/*
-        do
-            n=$((n+1))
+        for img in $WALL_DIR/*; do
+            n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-        
-        if [ "$n" -eq 0 ]
-        then
-            printf >&2 "\n${RED}No images found\n"
-            exit
-        fi
-        
-        printf "${CYAN}---${NC}"
-        printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
         read -n 1 -r num
-        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-        
-        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-        then
-            printf >&2 "\n${RED}Wrong selection\n"
+        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+            printf >&2 "\n${R}Wrong selection\n"
             exit 1
         else
             eval "IMG=\$img${num}"
             nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            
             # Write selected
             selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
             echo "$selected" > $VISMOD_WALL_FILE
-            printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
-            
+            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            notify-send -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
         fi
     else
-        echo -e "${CYAN}Select wallpaper for Eyecandy Theme:"
+        echo -e "${C}Select wallpaper for Eyecandy Theme:"
         n=0
-        for img in $WALL_DIR/*
-        do
-            n=$((n+1))
+        for img in $WALL_DIR/*; do
+            n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${MAGENTA}[${CYAN}%s${MAGENTA}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-
-        if [ "$n" -eq 0 ]
-        then
-            printf >&2 "\n${RED}No images found\n"
-            exit
-        fi
-
-        printf "${CYAN}---${NC}"
-        printf "\nEnter File Index ID ${MAGENTA}[${CYAN}1${MAGENTA}] ${NC}to ${MAGENTA}[${CYAN}%s${MAGENTA}]${NC}: " "$n"
+        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
         read -n 1 -r num
-        num=$(printf '%s\n' "$num" | tr -dc '[:digit:]')
-
-        if [ "$num" -le 0 ] || [ "$num" -gt "$n" ]
-        then
-            printf >&2 "\n${RED}Wrong selection\n"
+        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+            printf >&2 "\n${R}Wrong selection\n"
             exit 1
         else
             eval "IMG=\$img${num}"
             nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            
             # Write selected
             selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
             echo "$selected" > $VISMOD_WALL_FILE
-            printf "\n${CYAN}Selected wallpaper: ${NC}$selected\n"
-            
+            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            notify-send -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
         fi
     fi
 fi

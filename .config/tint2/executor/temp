@@ -4,7 +4,7 @@ source $HOME/.owl4ce_var
 get_temp() {
     CEL=$'\xc2\xb0C'
     temp="$(cat /sys/devices/virtual/thermal/$TEMP_DEV/temp)"
-    temp=`expr $temp / 1000`
+    temp="$(expr $temp / 1000)"
     echo "$temp$CEL"
 }
 

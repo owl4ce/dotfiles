@@ -7,7 +7,7 @@ source $HOME/.owl4ce_var
     
     rm /tmp/*_scrot*.png &> /dev/null
     scrot -q $QUALITY -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
-    notify-send -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
+    $EXNOTIFY_SEND -r 12 -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
     
     CURRENT="$(ls /tmp/ | grep 'scrot' | awk -F'.png' '{print $1}')"
 
@@ -24,6 +24,6 @@ source $HOME/.owl4ce_var
 
     rm /tmp/*_scrot*.png &> /dev/null
     [[ -f $SAVE_DIR/Screenshots/$CURRENT.png ]] && \
-    notify-send -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
+    $EXNOTIFY_SEND -r 12 -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
     [[ -x "$(which "viewnior" 2> /dev/null)" ]] && viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
 } &
