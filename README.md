@@ -79,7 +79,7 @@ Here are some details about my setup
   
   - **Screenshot Script**: Rounded corners & Quality
   - Terminal UI improvements, particularly font size
-  - Bug fixes and improvements
+  - Bug fixes and improvements <kbd>keep looking</kbd>
   - Rounded picom as default
   - New Wallpapers
   
@@ -89,8 +89,15 @@ Here are some details about my setup
 This is how to install these dotfiles for automatic settings OpenboxWM custom environment.
 
 ### Introduction of Linux Rice
-Please read [this](https://crispgm.com/page/the-fascinating-arch-linux-rice.html) and [this](https://jie-fang.github.io/blog/basics-of-ricing).
+
+<details>
+<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
+  
+<br>
+
 <p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="*nixporn"/></a></p>
+
+</details>
 
 ### Installation (dependencies)
 > Please adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application I use.
