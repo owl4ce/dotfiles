@@ -537,7 +537,8 @@ The final step is login into openbox-session, basically login from display manag
     ...
 
     9  # there was once a pulseaudio here
-    10 [[ "$(pstree)" != *"pulseaudio"* ]] && pulseaudio --start --log-target=syslog &
+    10 [[ "$(pstree)" != *"pulseaudio"* ]] && \
+    11 pulseaudio --start --log-target=syslog &> /dev/null &
 
     ...
     ```
@@ -559,7 +560,8 @@ The final step is login into openbox-session, basically login from display manag
     ...
 
     9  # there was once a pulseaudio here
-    10 [[ "$(pstree)" != *"pipewire"* ]] && pipewire &> /dev/null &
+    10 [[ "$(pstree)" != *"pipewire"* ]] && \
+    11 pipewire &> /dev/null &
     
     ...
     ```

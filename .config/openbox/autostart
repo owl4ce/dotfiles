@@ -1,4 +1,4 @@
-#
+#!/usr/bin/env bash
 # These things are run when an Openbox X Session is started.
 # You may place a similar script in $HOME/.config/openbox/autostart
 # to run user-specific things.
@@ -12,17 +12,23 @@ source $HOME/.owl4ce_var
 bash -c "$VISMOD_DIR/mode-toggle startup"
 
 # Compositor
-[[ -f "$(which "picom" 2> /dev/null)" ]] && picom -b
+[[ -f "$(which "picom" 2> /dev/null)" ]] && \
+picom -b &> /dev/null
 
 # Authentication Agent - PolicyKit
-[[ -f "$(which "lxpolkit" 2> /dev/null)" ]] && lxpolkit &
+[[ -f "$(which "lxpolkit" 2> /dev/null)" ]] && \
+lxpolkit &> /dev/null &
 
 # Power Manager
-[[ -f "$(which "xfce4-power-manager" 2> /dev/null)" ]] && xfce4-power-manager &
+[[ -f "$(which "xfce4-power-manager" 2> /dev/null)" ]] && \
+xfce4-power-manager &> /dev/null &
 
 # Sessions Autolock
-[[ -f "$(which "xautolock" 2> /dev/null)" ]] && xautolock -time $AUTOLOCK_MINUTE -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep &
+[[ -f "$(which "xautolock" 2> /dev/null)" ]] && \
+xautolock -time $AUTOLOCK_MINUTE -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep -resetsaver -corners 00-- -cornersize 1000 \
+-notifier "$EXNOTIFY_SEND -i $ICON_GLADIENT_DIR/lock.png 'Lockscreen' 'Will be locked in 5s from now'" -notify 5 &> /dev/null &
 
 # Others
 # Below will autostart mpd
-[[ -f "$(which "mpd" 2> /dev/null)" ]] && bash -c "$MPD_TCD"
+[[ -f "$(which "mpd" 2> /dev/null)" ]] && \
+bash -c "$MPD_TCD"
