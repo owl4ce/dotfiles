@@ -13,7 +13,7 @@ bash -c "$VISMOD_DIR/mode-toggle startup"
 
 # Compositor
 [[ -f "$(which "picom" 2> /dev/null)" ]] && \
-picom -b &> /dev/null
+picom -b &> /dev/null &
 
 # Authentication Agent - PolicyKit
 [[ -f "$(which "lxpolkit" 2> /dev/null)" ]] && \
