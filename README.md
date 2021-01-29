@@ -114,7 +114,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   </details>
   
   <details>
-  <summary>oh-my-zsh & plugins (optional)</summary>
+  <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
   - ```bash
     $ sudo apt install zsh
@@ -192,7 +192,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <details open>
   <summary><strong>Arch Linux (and all based distributions)</strong></summary>
   
-  > Make sure your **AUR Helper** is *yay*.
+  > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
   ```bash
   $ yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
@@ -201,7 +201,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   </details>
   
   <details>
-  <summary>oh-my-zsh & plugins (optional)</summary>
+  <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
   - ```bash
     $ sudo pacman -S zsh zsh-completions
@@ -238,6 +238,28 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <br>
     
   **Optional**: [betterdiscord](https://betterdiscord.net/), [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  
+  **Suggested replacement command**:
+  - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
+  
+    [`~/.zshrc`](./.zshrc)  
+    ```cfg    
+    ...
+    
+    127 alias ls="exa -lgh --icons --group-directories-first"
+    128 alias la="exa -lgha --icons --group-directories-first"
+    
+    ...
+    ```
+    
+  - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)  
+  
+    [`~/.zshrc`](./.zshrc)  
+    ```cfg    
+    ...
+    
+    140 export BAT_THEME="base16"
+    ```
 
 ### Installation (dotfiles)
   
@@ -247,7 +269,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
    > I recommend with rsync
    - ```bash
-     $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles
+     $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
      ```
    - ```bash
      $ rsync -avxHAXP --exclude '.git*' .* ~/
