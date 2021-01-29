@@ -17,8 +17,13 @@ background_jobs="%(1j.%F{2}%f.)"
 non_zero_return_value="%(0?..%F{1}%f)"
 
 # Left part of prompt
-PROMPT='$user_symbol '
+PROMPT='$(git_prompt_info) $user_symbol '
 # Right part of prompt
 RPROMPT=' $background_jobs $non_zero_return_value $dir_path'
 # Input in bold
 zle_highlight=(default:bold)
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{8}%K{8}%F{4} %K{0} %F{white}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{%k%}%F{0}%f"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{1}*%f"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
