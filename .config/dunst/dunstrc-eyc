@@ -19,7 +19,7 @@ font = mplus Nerd Font 10
 
 line_height = 0
 markup = full
-format = "<span size='x-large' font_desc='Cantarell 9' weight='bold' foreground='#63c5ea'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#63c5ea'>%s</span>\n%b"
 alignment = center
 
 idle_threshold = 120
