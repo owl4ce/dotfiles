@@ -3,8 +3,8 @@ source $HOME/.owl4ce_var
 clear
 
 R='\033[1;31m'
-C='\033[1;36m'
 M='\033[1;35m'
+C='\033[1;36m'
 NC='\033[0m'
 
 case $1 in

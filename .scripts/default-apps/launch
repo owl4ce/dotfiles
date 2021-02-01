@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-C='\033[1;36m'
+R='\033[1;31m'
 G='\033[1;32m'
 M='\033[1;35m'
+C='\033[1;36m'
 NC='\033[0m'
 
-err() { echo -e "$(tput bold)$(tput setaf 1)==> Error:$(tput sgr0) $@" && exit 1; }
+err() { echo -e "${R}==> Error:${NC} $@" && exit 1; }
 
 apps() {
     echo -e "${C}USAGE:${NC} launch apps\n${C}Available apps: "
@@ -23,8 +24,7 @@ apps() {
         printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$openlist"
         eval "openlist${n}=\$openlist"
     done
-    echo -e "${C}---"
-    echo -e "${G}Use ${NC}-e, --edit${G} to edit apps list."
+    echo -e "${C}---\n${G}Use ${NC}-e, --edit${G} to edit apps list."
     echo -e "${G}Use ${NC}-g, --get apps${G} to get current default apps.${NC}"
 }
 
@@ -46,7 +46,7 @@ case $1 in
             filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}')"
             opt="$(echo $@ | tr ' ' '\ 'i)"
             [[ ! -z $2 ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
-            [[ ! -z $1 ]] && bash -c "$filt &> /dev/null &"
+            [[ ! -z $1 ]] && bash -c "$filt &> /dev/null &" && exit 0
         else
             which $1 > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
         fi
