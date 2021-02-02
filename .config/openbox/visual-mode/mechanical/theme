@@ -16,7 +16,6 @@ openbox --reconfigure
 # Icon Theme
 sed -i '6s_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Dark-Custom"_' $GTK2_CONFIG
 sed -i '8s_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Dark-Custom_' $GTK3_CONFIG
-sed -i '4s\icon_theme=.*\icon_theme=Papirus-Dark-Custom\' $QT5CT_CONFIG
 
 # Rofi Color Scheme
 sed -i '5s_colorschemes/.*.rasi_colorschemes/fullscreen-dark.rasi_' $ROFI_FULLSCREEN_CONFIG
