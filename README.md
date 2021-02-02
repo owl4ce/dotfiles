@@ -108,7 +108,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  $ sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
+  $ sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -195,7 +195,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
   ```bash
-  $ yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5ct qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
+  $ yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -355,7 +355,7 @@ The final step is login into openbox-session, basically login from display manag
     
   </details>
 
-- **Chromium-based browser <kbd>suggested</kbd>**
+- **Chromium-based web browser <kbd>suggested</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -365,7 +365,7 @@ The final step is login into openbox-session, basically login from display manag
     
     <br>
     
-    <p align="center"><a href=""><img src="https://i.ibb.co/qdgXnhR/2021-01-15-070154-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
+    <p align="center"><a href=""><img src="https://i.ibb.co/55fvV30/2021-02-02-153019-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
     <p align="center"><a href="https://brave.com/">Brave</a></p>
 
   </details>
