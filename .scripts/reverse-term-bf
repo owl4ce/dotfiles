@@ -36,39 +36,37 @@ if [[ $($DEFAPPS_EXEC -g terminal) = "urxvt" ]]; then
         sed -i '121s_*_!*_' $HOME/.Xresources
         xrdb $HOME/.Xresources &
     fi
-else
-    if [[ $($DEFAPPS_EXEC -g terminal) = "termite" ]]; then
-        current="$(cat $HOME/.config/termite/config | grep "#foreground = " | head -n1)"
-        if [[  $current != *"#foreground = #F9F9F9"* ]]; then
-            sed -i '79s_foreground_#foreground_' $HOME/.config/termite/config
-            sed -i '80s_foreground_#foreground_' $HOME/.config/termite/config
-            sed -i '81s_background_#background_' $HOME/.config/termite/config
-            sed -i '90s_#foreground_foreground_' $HOME/.config/termite/config
-            sed -i '91s_#foreground_foreground_' $HOME/.config/termite/config
-            sed -i '92s_#background_background_' $HOME/.config/termite/config
-            sed -i '93s_color_#color_' $HOME/.config/termite/config
-            sed -i '94s_color_#color_' $HOME/.config/termite/config
-            sed -i '86s_color_#color_' $HOME/.config/termite/config
-            sed -i '87s_color_#color_' $HOME/.config/termite/config
-            sed -i '94s_#color_color_' $HOME/.config/termite/config
-            sed -i '95s_#color_color_' $HOME/.config/termite/config
-            sed -i '97s_#color_color_' $HOME/.config/termite/config
-            sed -i '98s_#color_color_' $HOME/.config/termite/config
-        else
-            sed -i '79s_#foreground_foreground_' $HOME/.config/termite/config
-            sed -i '80s_#foreground_foreground_' $HOME/.config/termite/config
-            sed -i '81s_#background_background_' $HOME/.config/termite/config
-            sed -i '90s_foreground_#foreground_' $HOME/.config/termite/config
-            sed -i '91s_foreground_#foreground_' $HOME/.config/termite/config
-            sed -i '92s_background_#background_' $HOME/.config/termite/config
-            sed -i '93s_#color_color_' $HOME/.config/termite/config
-            sed -i '94s_#color_color_' $HOME/.config/termite/config
-            sed -i '86s_#color_color_' $HOME/.config/termite/config
-            sed -i '87s_#color_color_' $HOME/.config/termite/config
-            sed -i '94s_color_#color_' $HOME/.config/termite/config
-            sed -i '95s_color_#color_' $HOME/.config/termite/config
-            sed -i '97s_color_#color_' $HOME/.config/termite/config
-            sed -i '98s_color_#color_' $HOME/.config/termite/config
-        fi
+elif [[ $($DEFAPPS_EXEC -g terminal) = "termite" ]]; then
+    current="$(cat $HOME/.config/termite/config | grep "#foreground = " | head -n1)"
+    if [[  $current != *"#foreground = #F9F9F9"* ]]; then
+        sed -i '79s_foreground_#foreground_' $HOME/.config/termite/config
+        sed -i '80s_foreground_#foreground_' $HOME/.config/termite/config
+        sed -i '81s_background_#background_' $HOME/.config/termite/config
+        sed -i '90s_#foreground_foreground_' $HOME/.config/termite/config
+        sed -i '91s_#foreground_foreground_' $HOME/.config/termite/config
+        sed -i '92s_#background_background_' $HOME/.config/termite/config
+        sed -i '93s_color_#color_' $HOME/.config/termite/config
+        sed -i '94s_color_#color_' $HOME/.config/termite/config
+        sed -i '86s_color_#color_' $HOME/.config/termite/config
+        sed -i '87s_color_#color_' $HOME/.config/termite/config
+        sed -i '94s_#color_color_' $HOME/.config/termite/config
+        sed -i '95s_#color_color_' $HOME/.config/termite/config
+        sed -i '97s_#color_color_' $HOME/.config/termite/config
+        sed -i '98s_#color_color_' $HOME/.config/termite/config
+    else
+        sed -i '79s_#foreground_foreground_' $HOME/.config/termite/config
+        sed -i '80s_#foreground_foreground_' $HOME/.config/termite/config
+        sed -i '81s_#background_background_' $HOME/.config/termite/config
+        sed -i '90s_foreground_#foreground_' $HOME/.config/termite/config
+        sed -i '91s_foreground_#foreground_' $HOME/.config/termite/config
+        sed -i '92s_background_#background_' $HOME/.config/termite/config
+        sed -i '93s_#color_color_' $HOME/.config/termite/config
+        sed -i '94s_#color_color_' $HOME/.config/termite/config
+        sed -i '86s_#color_color_' $HOME/.config/termite/config
+        sed -i '87s_#color_color_' $HOME/.config/termite/config
+        sed -i '94s_color_#color_' $HOME/.config/termite/config
+        sed -i '95s_color_#color_' $HOME/.config/termite/config
+        sed -i '97s_color_#color_' $HOME/.config/termite/config
+        sed -i '98s_color_#color_' $HOME/.config/termite/config
     fi
 fi

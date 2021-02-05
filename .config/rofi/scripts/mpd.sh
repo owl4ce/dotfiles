@@ -5,6 +5,7 @@ rofi_command="rofi -theme themes/sidebar/six-$CHK_ROFI_MOD.rasi"
 
 # Gets the current status of mpd (for us to parse it later on)
 status="$($MUSIC_CONTROLLER status)"
+
 # Defines the Play / Pause option content
 if [[ $status = *"laying"* ]]; then
     play_pause=""
@@ -23,7 +24,7 @@ elif [[ $status = *"single: off"* ]]; then
 else
     tog_repeat=""
 fi
-[ -n "$urgent" ] && urgent+=",5" || urgent="-u 5"
+[[ -n "$urgent" ]] && urgent+=",5" || urgent="-u 5"
 stop=""
 next=""
 previous=""
@@ -34,10 +35,9 @@ options="$previous\n$play_pause\n$stop\n$next\n$tog_repeat\n$tog_stream"
 
 # Get the current playing song
 current="$($MUSIC_CONTROLLER title)"
+
 # If mpd isn't running it will return an empty string, we don't want to display that
-if [[ -z "$current" ]]; then
-    current="-"
-fi
+[[ -z "$current" ]] && current="-"
 
 # Spawn the mpd menu with the "Play / Pause" entry selected by default
 chosen="$(echo -e "$options" | $rofi_command -dmenu $active $urgent -selected-row 1)"

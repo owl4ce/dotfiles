@@ -33,7 +33,7 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             # Notify success
             $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
         fi
-    else
+    elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
         echo -e "${C}Select wallpaper for Minimal Eyecandy Theme:"
         n=0
         for img in $WALL_DIR/*; do
@@ -85,7 +85,7 @@ else
             # Notify success
             $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
         fi
-    else
+    elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
         echo -e "${C}Select wallpaper for Eyecandy Theme:"
         n=0
         for img in $WALL_DIR/*; do

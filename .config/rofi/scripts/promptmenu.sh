@@ -6,6 +6,7 @@ rofi_command="rofi -theme themes/promptmenu.rasi"
 yes_text=""
 no_text=""
 query="Are you sure?"
+
 # Parse the args
 if [[ $# -eq 0 ]]; then
     echo -e "Usage: \e[100m \e[32mpromptmenu\e[39;100m -y <command> \e[0m"
@@ -17,32 +18,33 @@ if [[ $# -eq 0 ]]; then
         "\e[34mOPTIONNAL \e[39;100m [ -q | --query ] txt \e[0m"
     exit 1
 else
-    while [ $# -ne 0 ]; do
+    while [[ $# -ne 0 ]]; do
         case "$1" in
-            -o | --yes-text) # Optional
-                [ -n "$2" ] && yes_text="$2" || yes_text=""
+            -o|--yes-text) # Optional
+                [[ -n "$2" ]] && yes_text="$2" || yes_text=""
                 shift
             ;;
-            -c | --no-text) # Optional
-                [ -n "$2" ] && no_text="$2" || no_text=""
+            -c|--no-text) # Optional
+                [[ -n "$2" ]] && no_text="$2" || no_text=""
                 shift
             ;;
-            -y | --yes-command) # Required
-                [ -n "$2" ] && yes_command="$2"
+            -y|--yes-command) # Required
+                [[ -n "$2" ]] && yes_command="$2"
                 shift
             ;;
-            -n | --no-command) # Optional
-                [ -n "$2" ] && no_command="$2"
+            -n|--no-command) # Optional
+                [[ -n "$2" ]] && no_command="$2"
                 shift
             ;;
-            -q | --query) # Optional
-                [ -n "$2" ] && query="$2"
+            -q|--query) # Optional
+                [[ -n "$2" ]] && query="$2"
                 shift
             ;;
         esac
         shift
     done
 fi
+
 # Variable passed to rofi
 options="$yes_text\n$no_text"
 
