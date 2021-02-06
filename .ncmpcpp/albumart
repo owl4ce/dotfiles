@@ -40,7 +40,7 @@ startup_slave_screen_focus = no
 # PROGRESSBAR
 progressbar_look = "━━━"
 #progressbar_look = "▃▃▃"
-progressbar_elapsed_color = 7
+progressbar_elapsed_color = 5
 progressbar_color = "black"
 
 # UI VISIBILITY
