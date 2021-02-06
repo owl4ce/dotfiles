@@ -32,15 +32,15 @@ I hope you understand everything here. :wink:
 
 Here are some details about my setup
 - **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable mode!
-- **Display Manager**              • [SLiM](https://wiki.archlinux.org/index.php/SLiM) :blossom: beautiful UI! <kbd>deprecated</kbd>
-- **Shell**                        • [Zsh](https://wiki.archlinux.org/index.php/zsh) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
-- **Terminal**                     • [URxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode), [Termite](https://wiki.archlinux.org/index.php/Termite) <kbd>available</kbd>
+- **Display Manager**              • [SLiM](https://github.com/iwamatsu/slim) :blossom: beautiful UI! <kbd>deprecated</kbd>
+- **Shell**                        • [Zsh](https://www.zsh.org/) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
+- **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>available</kbd>
 - **Openbox Menu**                 • [Obmenu-generator](https://github.com/trizen/obmenu-generator)
-- **Panel**                        • [Tint2](https://wiki.archlinux.org/index.php/Tint2) :shaved_ice: material icon font!
+- **Panel**                        • [Tint2](https://gitlab.com/o9000/tint2) :shaved_ice: material icon font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
-- **Notify Daemon**                • [Dunst](https://wiki.archlinux.org/index.php/Dunst) :leaves: minimalism!
+- **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
-- **File Manager**                 • [Thunar](https://wiki.archlinux.org/index.php/Thunar) :bookmark: customized sidebar & icon!
+- **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
 - **GUI & CLI IDE**                • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Repo%20Size&color=cf8ef4&labelColor=373e4d"/>
