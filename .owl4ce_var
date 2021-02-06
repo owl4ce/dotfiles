@@ -98,7 +98,6 @@ MPD_TCD="$NCMPCPP_SCRIPTS_DIR/track-change-detector"
 
 INT_ETH="enp4s0"
 INT_WIFI="wlp3s0"
-
 TEMP_DEV="thermal_zone0"
 
 #-------------------------------------------------------------------------#
@@ -107,10 +106,12 @@ TEMP_DEV="thermal_zone0"
 # This will create "Screenshots" folder inside SAVE_DIR                   #
 #-------------------------------------------------------------------------#
 
+TIMER_SEC="5"
 SAVE_DIR="$HOME/Pictures"
 FRAME_COLOR="#ffffff" # RGBA supported
-TIMER_SEC="5"
-QUALITY="100" # 1-100, high value means high size low compression
+COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
+OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
+QUALITY="100" # 1-100, high value means high size with low compression
 
 #-------------------------------------------------------------------------#
 # XAUTOLOCK - 5 means 5 minutes                                           #

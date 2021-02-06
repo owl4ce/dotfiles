@@ -63,7 +63,7 @@ case $1 in
             else
                 mech
             fi
-        else
+        elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
             if [[ $CHK_MINMOD != *"minimal"* ]]; then
                 eyc_min
             else
@@ -80,8 +80,7 @@ case $1 in
             bash -c "$VISMOD_DIR/$CHK_VISMOD/ui" &> /dev/null
         fi
     ;;
-    *)
-        source $HOME/.owl4ce_var
+    *)  source $HOME/.owl4ce_var
         kill
         if [[ $CHK_VISMOD != *"mechanical"* ]]; then
             if [[ $CHK_MINMOD = *"minimal"* ]]; then
@@ -89,7 +88,7 @@ case $1 in
             else
                 mech
             fi
-        else
+        elif [[ $CHK_VISMOD != *"eyecandy"* ]]; then
             if [[ $CHK_MINMOD = *"minimal"* ]]; then
                 eyc_min
             else

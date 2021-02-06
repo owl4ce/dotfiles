@@ -5,13 +5,14 @@ mpd_port = "6600"
 mpd_crossfade_time = 2
 
 # VISUALIZER
-visualizer_in_stereo = "yes"
+visualizer_in_stereo = "no"
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_fps = 60
 visualizer_output_name = "Visualizer"
-visualizer_type = "spectrum"
-visualizer_look = "▗"
+visualizer_type = "ellipse"
+visualizer_look = "▐"
 visualizer_color = "black"
+visualizer_spectrum_smooth_look = no
 
 # GLOBAL
 cyclic_scrolling = "yes"
@@ -33,7 +34,6 @@ ask_for_locked_screen_width_part = "no"
 display_bitrate = "no"
 external_editor = "nano"
 main_window_color = "default"
-#main_window_highlight_color = 7
 
 # PROGRESSBAR
 progressbar_look = "━━━"
@@ -56,18 +56,12 @@ color2 = "blue"
 now_playing_prefix = ""
 now_playing_suffix = "$/b"
 current_item_prefix = "$/b$6"
-#now_playing_prefix = "$b$8      "
-#now_playing_suffix = "$/b$8 $b[ $3$8 ]$/b"
-#current_item_prefix = "$/b$b[ $7$8 ]$/b "
-#current_item_suffix = "      $8"
-
-song_columns_list_format = "(50)[]{tr|fr:Title} (45)[magenta]{a}"
 
 song_list_format = ""
 
-song_status_format = "{$b$7[$8      $7] $2 $8}"
+song_status_format = "$b$2$6 $7[$8      $7] $2 $8"
 
 song_window_title_format = "Now Playing .."
 
 # EXEC SCRIPT
-execute_on_song_change="bash -c \"$HOME/.ncmpcpp/scripts/single-album\""
+execute_on_song_change = "bash -c \"$HOME/.ncmpcpp/scripts/single-album\""

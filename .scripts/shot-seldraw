@@ -2,7 +2,7 @@
 source $HOME/.owl4ce_var
 
 {
-    [[ ! -e $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
+    [[ ! -d $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
     sleep .5s
     
     rm /tmp/*_scrot*.png &> /dev/null
@@ -23,7 +23,10 @@ source $HOME/.owl4ce_var
     -border 5 $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
 
     rm /tmp/*_scrot*.png &> /dev/null
+    
     [[ -f $SAVE_DIR/Screenshots/$CURRENT.png ]] && \
     $EXNOTIFY_SEND -r 12 -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
-    [[ -x "$(which "viewnior" 2> /dev/null)" ]] && viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
+    [[ "$COPY_FRAMED" = "yes" ]] && xclip -selection clipboard -target image/png -i $SAVE_DIR/Screenshots/$CURRENT.png && \
+    [[ "$OPEN_FRAMED" = "yes" ]] && [[ -x "$(which "viewnior" 2> /dev/null)" ]] && \
+    viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
 } &

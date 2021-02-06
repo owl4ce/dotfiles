@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+source $HOME/.owl4ce_var
+
+{
+    case $1 in
+        albumart)
+            urxvt -g 84x13 -e ncmpcpp -c $NCMPCPP_DIR/albumart
+        ;;
+        single-albumart)
+            urxvt -g 47x18 -e ncmpcpp -c $NCMPCPP_DIR/single-albumart
+        ;;
+    esac
+    exit 0
+} &

@@ -7,24 +7,19 @@ CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep of
 notify() {
     volume="$(CURRENT_VOL)"
     
-    if [ "$volume" = "0" ]; then
+    if [[ "$volume" = "0" ]]; then
         icon_name="notification-audio-volume-muted"
-    else    
-        if [  "$volume" -lt "10" ]; then
-            icon_name="notification-audio-volume-low"
-        else
-            if [ "$volume" -lt "30" ]; then
-                icon_name="notification-audio-volume-low"
-            else
-                if [ "$volume" -lt "70" ]; then
-                    icon_name="notification-audio-volume-medium"
-                else
-                    icon_name="notification-audio-volume-high"
-                fi
-            fi
-        fi
+    elif [[  "$volume" -lt "10" ]]; then
+        icon_name="notification-audio-volume-low"
+    elif [[ "$volume" -lt "30" ]]; then
+        icon_name="notification-audio-volume-low"
+    elif [[ "$volume" -lt "70" ]]; then
+        icon_name="notification-audio-volume-medium"
+    else
+        icon_name="notification-audio-volume-high"
     fi
-    $EXNOTIFY_SEND -i "$icon_name" -t 500 -r 123 "$volume "
+    
+    $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "$volume "
 }
 
 case $1 in
@@ -44,7 +39,7 @@ case $1 in
         amixer -D pulse set Master 1+ toggle -q
         if CHK_MUTE &> /dev/null; then
             icon_name="notification-audio-volume-muted"
-            $EXNOTIFY_SEND -i "$icon_name" -t 500 -r 123 "Muted "
+            $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "Muted "
         else
             notify
         fi

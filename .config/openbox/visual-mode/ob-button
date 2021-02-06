@@ -2,23 +2,22 @@
 source $HOME/.owl4ce_var
 clear
 
-R='\033[1;31m'
-M='\033[1;35m'
-C='\033[1;36m'
-NC='\033[0m'
+R='\e[1;31m'
+M='\e[1;35m'
+C='\e[1;36m'
+NC='\e[0m'
 
 case $1 in
     swap)
         if [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>LIMC</titleLayout>"* ]]; then
             sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' $OB_CONFIG
             openbox --reconfigure
-        else
+        elif [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>CIML</titleLayout>"* ]]; then
             sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' $OB_CONFIG
             openbox --reconfigure
         fi    
     ;;
-    *)
-        if [[ $CHK_MINMOD = *"minimal"* ]]; then
+    *)  if [[ $CHK_MINMOD = *"minimal"* ]]; then
             if [[ $CHK_VISMOD = *"mechanical"* ]]; then
                 echo -e "${C}Select button style for Minimal Mechanical Theme:"
                 n=0
@@ -42,7 +41,7 @@ case $1 in
                     echo "$buttonselfilt" > $MINMOD_BUTTON_FILE
                     printf "\n${C}Selected button style: ${NC}$buttonselfilt\n"
                 fi
-            else
+            elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
                 echo -e "${C}Select button style for Minimal Eyecandy Theme:"
                 n=0
                 for button in $OB_BUTTON_DIR/*; do
@@ -90,7 +89,7 @@ case $1 in
                     echo "$buttonselfilt" > $VISMOD_BUTTON_FILE
                     printf "\n${C}Selected button style: ${NC}$buttonselfilt\n"
                 fi
-            else
+            elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
                 echo -e "${C}Select button style for Eyecandy Theme:"
                 n=0
                 for button in $OB_BUTTON_DIR/*; do

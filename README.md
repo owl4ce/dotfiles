@@ -23,7 +23,7 @@
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 <a href="https://github.com/owl4ce/dotfiles/releases/tag/3.1">
-  <img src="https://user-images.githubusercontent.com/53987136/105129801-70846680-5b18-11eb-95b4-2794c679a68d.png" alt="owl4ce/dotfiles.minimal" align="right" width="400px"/>
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/dednsbl-fb9e8515-7350-449c-86ad-a6486750f6dc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWRuc2JsLWZiOWU4NTE1LTczNTAtNDQ5Yy04NmFkLWE2NDg2NzUwZjZkYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.njiKkfQ-ZufdwgSFn_y-KsGhGdtJqVi-ew_bnstSdbc" alt="owl4ce/dotfiles.minimal" align="right" width="400px"/>
 </a>
 
 This is my personal configuration for my favorite openbox window manager and some applications too.
@@ -79,7 +79,7 @@ Here are some details about my setup
   
   - **Screenshot Script**: Rounded corners & Quality
   - Terminal UI improvements, particularly font size
-  - Bug fixes and improvements <kbd>keep looking</kbd>
+  - Bug fixes and improvements [<kbd>keep looking</kbd>](https://github.com/owl4ce/dotfiles/commits/main)
   - Rounded picom as default
   - New Wallpapers
   
@@ -246,8 +246,8 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     ```cfg    
     ...
     
-    127 alias ls="exa -lgh --icons --group-directories-first"
-    128 alias la="exa -lgha --icons --group-directories-first"
+    130 alias ls="exa -lgh --icons --group-directories-first"
+    131 alias la="exa -lgha --icons --group-directories-first"
     
     ...
     ```
@@ -258,7 +258,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     ```cfg    
     ...
     
-    140 export BAT_THEME="base16"
+    146 export BAT_THEME="base16"
     ```
 
 ### Installation (dotfiles)
@@ -471,32 +471,33 @@ The final step is login into openbox-session, basically login from display manag
    98
    99 INT_ETH="enp4s0"
   100 INT_WIFI="wlp3s0"
-  101
-  102 TEMP_DEV="thermal_zone0"
-  103
-  104 #-------------------------------------------------------------------------#
-  105 # SCREENSHOT OPTIONS                                                      #
-  106 #-------------------------------------------------------------------------#
-  107 # This will create "Screenshots" folder inside SAVE_DIR                   #
-  108 #-------------------------------------------------------------------------#
-  109
+  101 TEMP_DEV="thermal_zone0"
+  102
+  103 #-------------------------------------------------------------------------#
+  104 # SCREENSHOT OPTIONS                                                      #
+  105 #-------------------------------------------------------------------------#
+  106 # This will create "Screenshots" folder inside SAVE_DIR                   #
+  107 #-------------------------------------------------------------------------#
+  108
+  109 TIMER_SEC="5"
   110 SAVE_DIR="$HOME/Pictures"
   111 FRAME_COLOR="#ffffff" # RGBA supported
-  112 TIMER_SEC="5"
-  113 QUALITY="100" # 1-100, high value means high size low compression
-  114
-  115 #-------------------------------------------------------------------------#
-  116 # XAUTOLOCK - 5 means 5 minutes                                           #
-  117 #-------------------------------------------------------------------------#
-  118 
-  119 AUTOLOCK_MINUTE="5"
-  120
-  121 #-------------------------------------------------------------------------#
-  122 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
-  123 #-------------------------------------------------------------------------#
-  124
-  125 AUDIO_STEPS="5" # Real value
-  126 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
+  112 COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
+  113 OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
+  114 QUALITY="100" # 1-100, high value means high size with low compression
+  115
+  116 #-------------------------------------------------------------------------#
+  117 # XAUTOLOCK - 5 means 5 minutes                                           #
+  118 #-------------------------------------------------------------------------#
+  119 
+  120 AUTOLOCK_MINUTE="5"
+  121
+  122 #-------------------------------------------------------------------------#
+  123 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
+  124 #-------------------------------------------------------------------------#
+  125
+  126 AUDIO_STEPS="5" # Real value
+  127 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
   ```
   > **TEMP_DEV**: Check here
   > ```bash
@@ -559,15 +560,14 @@ The final step is login into openbox-session, basically login from display manag
     ...
 
     9  # there was once a pulseaudio here
-    10 [[ "$(pstree)" != *"pulseaudio"* ]] && \
-    11 pulseaudio --start --log-target=syslog &> /dev/null &
+    10 pulseaudio --start --log-target=syslog &> /dev/null &
 
     ...
     ```
     
     Or if you use [pipewire](https://github.com/PipeWire/pipewire) as pulseaudio.
   - **Pipewire as Pulseaudio**
-    > Realtime and low-latency. More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
+    > More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
     >  Make sure pulseaudio is uninstalled or disable autospawn.  
     > `/etc/pulse/client.conf`
     > ```cfg
@@ -582,8 +582,7 @@ The final step is login into openbox-session, basically login from display manag
     ...
 
     9  # there was once a pulseaudio here
-    10 [[ "$(pstree)" != *"pipewire"* ]] && \
-    11 pipewire &> /dev/null &
+    10 pipewire &> /dev/null &
     
     ...
     ```
@@ -642,7 +641,7 @@ The final step is login into openbox-session, basically login from display manag
 <p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/sJ5tzXP/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
 ### <p align="center">Why use this setup?</p>
-<p align="center"><a href="#why-use-this-setup"><img src="https://i.ibb.co/FhYF0zf/ps-mem.png" alt="owl4ce.ps_mem"></a></p>
+<p align="center"><a href="#why-use-this-setup"><img src="https://i.ibb.co/v44N9jt/2021-02-06-165824-378x330-scrot.png" alt="owl4ce.ps_mem"></a></p>
 
 ### <p align="center">:love_letter:</p>
 <p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a PR. Or if there is a problem with configuration you can make an issue here.</p><p align="center"><b>Thank you!</b></p><p align="center">Feel free to modify..</p>
@@ -660,8 +659,9 @@ The final step is login into openbox-session, basically login from display manag
   - [Aditya Shakya](https://github.com/adi1090x)
 
 - **Knowledge and other resources**
-  - [Openbox/Wiki](http://openbox.org/wiki/Help:Themes)
-  - [Pure-Bash-Bible](https://github.com/dylanaraps/pure-bash-bible)
+  - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
+  - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
+  - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
   - [Color-Scripts](https://github.com/stark/Color-Scripts)
   - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
   - [Networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)

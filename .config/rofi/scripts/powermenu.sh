@@ -25,10 +25,10 @@ case $chosen in
         $DEFAPPS_EXEC lockscreen
     ;;
     $suspend)
-        $MUSIC_CONTROLLER toggle
-        # SystemD systemctl
+        [[ "$($MUSIC_CONTROLLER status)" = *"laying"* ]] && $MUSIC_CONTROLLER toggle
+        # Systemd (systemctl)
         systemctl suspend
-        # elogind loginctl (NoSystemD)
+        # elogind (loginctl)
         #loginctl suspend
     ;;
     $logout)

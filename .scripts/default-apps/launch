@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-R='\033[1;31m'
-G='\033[1;32m'
-M='\033[1;35m'
-C='\033[1;36m'
-NC='\033[0m'
+R='\e[1;31m'
+G='\e[1;32m'
+M='\e[1;35m'
+C='\e[1;36m'
+NC='\e[0m'
 
 err() { echo -e "${R}==> Error:${NC} $@" && exit 1; }
 
@@ -42,13 +42,13 @@ case $1 in
     ""|-h|--help)
         apps
     ;;
-    *)  if [[ $1 = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
+    *)  if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
             filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}')"
             opt="$(echo $@ | tr ' ' '\ 'i)"
-            [[ ! -z $2 ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
-            [[ ! -z $1 ]] && bash -c "$filt &> /dev/null &" && exit 0
+            [[ ! -z "$2" ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
+            [[ ! -z "$1" ]] && bash -c "$filt &> /dev/null &" && exit 0
         else
-            which $1 > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
+            which "$1" > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
         fi
     ;;
 esac

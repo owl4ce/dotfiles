@@ -10,22 +10,20 @@ if [[ $CURRENT_MUSICPL = "mpd" ]]; then
     next="mpc -q next"
     status="mpc status"
     title="$(mpc --format '[%title%|%file%]' current)"
+elif [[ $CURRENT_MUSICPL = "spotify" ]]; then
+    prev="playerctl -p spotify previous"
+    toggle="playerctl -p spotify play-pause"
+    stop="playerctl -p spotify stop"
+    next="playerctl -p spotify next"
+    status="playerctl -p spotify status"
+    title="$(playerctl -p spotify metadata -f '{{title}}')"
 else
-    if [[ $CURRENT_MUSICPL = "spotify" ]]; then
-        prev="playerctl -p spotify previous"
-        toggle="playerctl -p spotify play-pause"
-        stop="playerctl -p spotify stop"
-        next="playerctl -p spotify next"
-        status="playerctl -p spotify status"
-        title="$(playerctl -p spotify metadata -f '{{title}}')"
-    else
-        prev=""
-        toggle=""
-        stop=""
-        next=""
-        status=""
-        title="There is no mpd or spotify installed"
-    fi
+    prev=""
+    toggle=""
+    stop=""
+    next=""
+    status=""
+    title="There is no mpd or spotify installed"
 fi
 
 status="$($status)"
@@ -54,10 +52,8 @@ case $1 in
         [[ $status = *"laying"* ]] && bash -c "$toggle"
         if [[ $CURRENT_MUSICPL = "mpd" ]]; then
             sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
-        else
-            if [[ $CURRENT_MUSICPL = "spotify" ]]; then
+        elif [[ $CURRENT_MUSICPL = "spotify" ]]; then
                 sed -i 's_musicpl=".*"_musicpl="mpd"_' $DEFAPPS_FILE
-            fi
         fi
         $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "Set <u>`$DEFAPPS_EXEC -g musicpl`</u> as default"
     ;;
