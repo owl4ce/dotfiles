@@ -365,8 +365,7 @@ The final step is login into openbox-session, basically login from display manag
     
     <br>
     
-    <p align="center"><a href=""><img src="https://i.ibb.co/55fvV30/2021-02-02-153019-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
-    <p align="center"><a href="https://brave.com/">Brave</a></p>
+    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/55fvV30/2021-02-02-153019-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
 
   </details>
   
@@ -644,7 +643,7 @@ The final step is login into openbox-session, basically login from display manag
 <p align="center"><a href="#why-use-this-setup"><img src="https://i.ibb.co/v44N9jt/2021-02-06-165824-378x330-scrot.png" alt="owl4ce.ps_mem"></a></p>
 
 ### <p align="center">:love_letter:</p>
-<p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a PR. Or if there is a problem with configuration you can make an issue here.</p><p align="center"><b>Thank you!</b></p><p align="center">Feel free to modify..</p>
+<p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a PR. Or if there is a problem with configuration you can make an issue here.</p><p align="center"><b>Thank you!</b></p><p align="center">Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p>
 
 [![Stargazers over time](https://starchart.cc/owl4ce/dotfiles.svg)](https://starchart.cc/owl4ce/dotfiles)
 
@@ -662,9 +661,10 @@ The final step is login into openbox-session, basically login from display manag
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
   - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
   - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
-  - [Color-Scripts](https://github.com/stark/Color-Scripts)
-  - [Notify-send.sh](https://github.com/vlevit/notify-send.sh)
-  - [Networkmanager_dmenu](https://github.com/firecat53/networkmanager-dmenu)
+  - [Stark's Color Scripts](https://github.com/stark/Color-Scripts)
+  - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh)
+  - [NetworkManager Dmenu](https://github.com/firecat53/networkmanager-dmenu)
+  - [Showing Album Cover in Ncmpcpp](https://marcocheung.wordpress.com/2015/08/09/showing-album-cover-in-ncmpcpp/)
   - Many GNU/Linux & Unix forums.
   
 - **Contributor**
