@@ -22,7 +22,7 @@ reset_background() { printf "\e]20;;100x100+1000+1000\a"; }
         ffmpeg -i "$src" -vf scale=500:500 "$COVER" &> /dev/null
         #convert "$src" -resize 500x "$COVER" &> /dev/null
         if [[ -f "$COVER" ]]; then
-            printf "\e]20;${COVER};52x52+90+34:op=keep-aspect\a"
+            printf "\e]20;${COVER};67x67+90+00:op=keep-aspect\a"
         else
             reset_background
         fi

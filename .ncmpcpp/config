@@ -10,8 +10,9 @@ visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_fps = 60
 visualizer_output_name = "Visualizer"
 visualizer_type = "wave"
-visualizer_look = "▗"
+visualizer_look = "▐"
 visualizer_color = "red,magenta,cyan,green,yellow"
+visualizer_spectrum_smooth_look = no
 
 # GLOBAL
 cyclic_scrolling = "yes"
@@ -28,12 +29,11 @@ autocenter_mode = "yes"
 centered_cursor = "yes"
 user_interface = "classic"
 follow_now_playing_lyrics = "yes"
-locked_screen_width_part = "63"
+locked_screen_width_part = "50"
 ask_for_locked_screen_width_part = "yes"
 display_bitrate = "no"
 external_editor = "nano"
 main_window_color = "default"
-#main_window_highlight_color = 7
 
 # PROGRESSBAR
 progressbar_look = "━━━"
@@ -44,7 +44,7 @@ progressbar_color = "black"
 # UI VISIBILITY
 header_visibility = "no"
 statusbar_visibility = "yes"
-titles_visibility = "yes"
+titles_visibility = "no"
 enable_window_title = "yes"
 
 # COLOR
@@ -53,15 +53,15 @@ color1 = "white"
 color2 = "blue"
 
 # UI FORMAT
-now_playing_prefix = "$b$8      "
-now_playing_suffix = "$/b$8 $b[ $3$8 ]$/b"
-current_item_prefix = "$/b$b[ $7$8 ]$/b "
-current_item_suffix = "      $8"
+now_playing_prefix = "$b$7  "
+now_playing_suffix = "$/b $b$2$8$/b"
+current_item_prefix = "$/b$b$7$8 $/b"
+current_item_suffix = "  $8"
 
-song_columns_list_format = "(50)[]{t|fr:Title} (45)[magenta]{a}"
+song_columns_list_format = "(50)[]{t|fr:Title} (0)[magenta]{a}"
 
 song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $8"
 
-song_status_format = "{$b$7[$8      $7] $2 $7$8 %b $7 $8}|{$b$7[$8      $7] $2 $7$8 %t $7 $8}|{$b$7[$8      $7] $2 $7$8 %f $7 $8}"
+song_status_format = "$b$2$6 $7[$8      $7] $2 $7{$8 %b }|{$8 %t }|{$8 %f }$7 $8"
 
 song_window_title_format = "Now Playing .."
