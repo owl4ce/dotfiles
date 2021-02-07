@@ -5,17 +5,17 @@
 </p>
 
 <p align="center">
-  <a href="#rice_scene--setup">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b5DYRxb/setup.png"/>
+  <a href="#user-configuration">
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/5Fp2pMD/setup.png"/>
   </a>
   <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/VVc5S9d/keybinds.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/D47CsG8/keybinds.png"/>
   </a>
   <a href="https://www.deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/C1sdMw9/gallery.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/LJpDrkL/gallery.png"/>
   </a>
   <a href="#memo--notes">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/g75Z25g/notes.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/y04BhBs/user-conf.png"/>
   </a>
 </p>
 
@@ -108,7 +108,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  $ sudo apt install rsync python psmisc wireless-tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi  qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
+  $ sudo apt install rsync python psmisc wireless-tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -637,7 +637,7 @@ The final step is login into openbox-session, basically login from display manag
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
-<p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/sJ5tzXP/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
+<p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/XDjndMJ/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
 ### <p align="center">Why use this setup?</p>
 <p align="center"><a href="#why-use-this-setup"><img src="https://i.ibb.co/v44N9jt/2021-02-06-165824-378x330-scrot.png" alt="owl4ce.ps_mem"></a></p>
