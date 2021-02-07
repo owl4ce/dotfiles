@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="#user-configuration">
+  <a href="#rice_scene--setup">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/5Fp2pMD/setup.png"/>
   </a>
   <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
@@ -14,7 +14,7 @@
   <a href="https://www.deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/LJpDrkL/gallery.png"/>
   </a>
-  <a href="#memo--notes">
+  <a href="#user-configuration">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/y04BhBs/user-conf.png"/>
   </a>
 </p>
