@@ -108,7 +108,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
   ```bash
-  $ sudo apt install rsync python psmisc wireless-tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
+  $ sudo apt install rsync python psmisc wireless-tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi  qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -195,7 +195,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
   ```bash
-  $ yay -S rsync python psmisc wireless_tools openbox obconf alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi lxappearance qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
+  $ yay -S rsync python psmisc wireless_tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler w3m geany viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch htop picom-git obmenu-generator gtk2-perl imagemagick ffmpeg playerctl xsettingsd
   ```
 
   </details>
@@ -237,7 +237,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   
   <br>
     
-  **Optional**: [betterdiscord](https://betterdiscord.net/), [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  **Optional**: [betterdiscord](https://betterdiscord.net/), [gimp](https://www.gimp.org/), [lxappearance](https://wiki.lxde.org/en/LXAppearance), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [obconf](http://openbox.org/wiki/ObConf:About), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
   **Suggested replacement command**:
   - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
