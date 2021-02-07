@@ -2,10 +2,10 @@
 source $HOME/.owl4ce_var
 clear
 
-R='\033[1;31m'
-M='\033[1;35m'
-C='\033[1;36m'
-NC='\033[0m'
+R='\e[1;31m'
+M='\e[1;35m'
+C='\e[1;36m'
+NC='\e[0m'
 
 if [[ $CHK_MINMOD = *"minimal"* ]]; then
     if [[ $CHK_VISMOD = *"mechanical"* ]]; then
