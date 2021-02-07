@@ -6,16 +6,16 @@
 
 <p align="center">
   <a href="#rice_scene--setup">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/5Fp2pMD/setup.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b2VzWrg/setup.png"/>
   </a>
   <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/D47CsG8/keybinds.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/Fgpgc2C/keybinds.png"/>
   </a>
-  <a href="https://www.deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/LJpDrkL/gallery.png"/>
+  <a href="https://deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/ZKTbkRy/gallery.png"/>
   </a>
   <a href="#user-configuration">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/y04BhBs/user-conf.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/RznJp0s/user-conf.png"/>
   </a>
 </p>
 
