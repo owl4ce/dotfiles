@@ -18,7 +18,7 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             eval "img${n}=\$img"
         done
         printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
-        read -n 1 -r num
+        read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
             printf >&2 "\n${R}Wrong selection\n"
@@ -43,7 +43,7 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             eval "img${n}=\$img"
         done
         printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
-        read -n 1 -r num
+        read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
             printf >&2 "\n${R}Wrong selection\n"
@@ -70,7 +70,7 @@ else
             eval "img${n}=\$img"
         done
         printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
-        read -n 1 -r num
+        read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
             printf >&2 "\n${R}Wrong selection\n"
@@ -95,7 +95,7 @@ else
             eval "img${n}=\$img"
         done
         printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
-        read -n 1 -r num
+        read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
             printf >&2 "\n${R}Wrong selection\n"
