@@ -1,0 +1,10 @@
+//META{"name":"sweety-discord","description":"github.com/maccree","author":"@maccree","version":"2.0"}*//
+@import url("https://codedotspectra.github.io/themes/nocturnal/importCSS/core.css");
+@import url("https://monstrousdev.github.io/themes/addons/user-tags.css");
+@import url("https://codedotspectra.github.io/themes/core/badges.css");
+:root {
+--primary: #CF8EF4;
+--primaryGradient2: #6EBDEB;
+--backgroundDark: rgba(55,62,77,0.8);
+--backgroundDarker: rgba(67,76,94,0.05);
+}
