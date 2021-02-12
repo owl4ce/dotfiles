@@ -123,7 +123,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     $ chsh -s `which zsh` # Change default shell to zsh for current user
     ```
   - ```bash
-    $ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
   - ```bash
     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -131,8 +131,10 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   - ```bash
     $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     ```
-  - [zsh-completions](https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-completions&package=zsh-completions)
-  
+  - ```bash
+    $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+    ```
+    
   </details>
   
   <details>
@@ -204,19 +206,22 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
   - ```bash
-    $ sudo pacman -S zsh zsh-completions
+    $ sudo pacman -S zsh
     ```
   - ```bash
     $ chsh -s `which zsh` # Change default shell to zsh for current user
     ```
   - ```bash
-    $ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
   - ```bash
     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
   - ```bash
     $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+  - ```bash
+    $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
     ```
   
   </details>
