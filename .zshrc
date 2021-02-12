@@ -69,7 +69,7 @@ ZSH_THEME="ar-round"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting zsh-autosuggestions bgnotify)
+plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting bgnotify)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 setopt INC_APPEND_HISTORY
