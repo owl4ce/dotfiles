@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
+noterr() { $EXNOTIFY_SEND -u low -r 15 "Install alsa-utils!"; exit 1; }
+command -v "amixer" > /dev/null 2>&1 || noterr
+
 CURRENT_VOL() { amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'; }
 CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
 

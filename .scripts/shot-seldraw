@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
+noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
+command -v "scrot" > /dev/null 2>&1 || noterr
+
 {
     [[ ! -d $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
     sleep .5s
@@ -27,6 +30,6 @@ source $HOME/.owl4ce_var
     [[ -f $SAVE_DIR/Screenshots/$CURRENT.png ]] && \
     $EXNOTIFY_SEND -r 12 -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
     [[ "$COPY_FRAMED" = "yes" ]] && xclip -selection clipboard -target image/png -i $SAVE_DIR/Screenshots/$CURRENT.png && \
-    [[ "$OPEN_FRAMED" = "yes" ]] && [[ -x "$(which "viewnior" 2> /dev/null)" ]] && \
+    [[ "$OPEN_FRAMED" = "yes" ]] && [[ -x "$(command -v viewnior 2> /dev/null)" ]] && \
     viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
 } &
