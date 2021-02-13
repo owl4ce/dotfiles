@@ -271,31 +271,32 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <details open>
   <summary><strong>Most of .files</strong></summary>
   
-   You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory. I recommend with rsync.
+   You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
    - ```bash
      $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
      ```
+   I recommend with rsync.
    - ```bash
      $ rsync -avxHAXP --exclude '.git*' .* ~/
      ```
      > #### Explanation
-     > | Options | Function                                            |
-     > |:-------:|-----------------------------------------------------|
-     > | -a      | all files, with permissions, etc..                  |
-     > | -v      | verbose, mention files                              |
-     > | -x      | stay on one file system                             |
-     > | -H      | preserve hard links (not included with -a)          |
-     > | -A      | preserve ACLs/permissions (not included with -a)    |
-     > | -X      | preserve extended attributes (not included with -a) |
-     > | -P      | show progress                                       |
+     > | Options   | Function                                            |
+     > |:---------:|-----------------------------------------------------|
+     > | -a        | all files, with permissions, etc..                  |
+     > | -v        | verbose, mention files                              |
+     > | -x        | stay on one file system                             |
+     > | -H        | preserve hard links (not included with -a)          |
+     > | -A        | preserve ACLs/permissions (not included with -a)    |
+     > | -X        | preserve extended attributes (not included with -a) |
+     > | -P        | show progress                                       |
+     > | --exclude | exclude files matching PATTERN                      |
      >
      > #### Differences
      > - `cp` is for duplicating stuff and by default only ensures files have unique full path names.
      > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
      >
      > ####  
-     > I recommend not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier.  
-     > Read the [update](#update) section.
+     > I recommend not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
   
   </details>
 
@@ -352,6 +353,8 @@ The final step is login into openbox-session, basically login from display manag
   ```cfg
   exec dbus-launch --exit-with-session openbox-session
   ```
+
+---
 
 ### Update
 Since I suggested using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
