@@ -1,27 +1,24 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
+noterr() { echo "Install alsa-utils!"; exit 1; }
+command -v "amixer" > /dev/null 2>&1 || noterr
+
 CURRENT_VOL() { amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'; }
 CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
 volume="$(CURRENT_VOL)"
 
 icon() {
-    if [ "$volume" = "0" ]; then
+    if [[ "$volume" = "0" ]]; then
         icon=""
-    else    
-        if [  "$volume" -lt "10" ]; then
-            icon=""
-        else
-            if [ "$volume" -lt "30" ]; then
-                icon=""
-            else
-                if [ "$volume" -lt "70" ]; then
-                    icon=""
-                else
-                    icon=""
-                fi
-            fi
-        fi
+    elif [[  "$volume" -lt "10" ]]; then
+        icon=""
+    elif [[ "$volume" -lt "30" ]]; then
+        icon=""
+    elif [[ "$volume" -lt "70" ]]; then
+        icon=""
+    else
+        icon=""
     fi
     echo "$icon"
 }

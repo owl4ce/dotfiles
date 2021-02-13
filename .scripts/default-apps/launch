@@ -35,8 +35,8 @@ case $1 in
     ;;
     -e|--edit)
         echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
-        read TEXT_EDITOR
-        which $TEXT_EDITOR > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
+        read "TEXT_EDITOR"
+        command -v "$TEXT_EDITOR" > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
         $TEXT_EDITOR $DEFAPPS_FILE || exit 1
     ;;
     ""|-h|--help)
@@ -48,7 +48,7 @@ case $1 in
             [[ ! -z "$2" ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
             [[ ! -z "$1" ]] && bash -c "$filt &> /dev/null &" && exit 0
         else
-            which "$1" > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
+            command -v "$1" > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
         fi
     ;;
 esac

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
+noterr() { $EXNOTIFY_SEND -u low -r 11 "Install scrot!"; exit 1; }
+command -v "scrot" > /dev/null 2>&1 || noterr
+
 {
     [[ ! -d $SAVE_DIR/Screenshots ]] && mkdir $SAVE_DIR/Screenshots
     [[ $1 = "delay" ]] && sleep .5s

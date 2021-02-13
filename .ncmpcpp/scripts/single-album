@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
+command -v {"mpd","mpc"} > /dev/null 2>&1 || exit 1
+
 MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_COVER"
 reset_background() { printf "\e]20;;100x100+1000+1000\a"; }
