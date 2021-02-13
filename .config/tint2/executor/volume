@@ -11,7 +11,7 @@ volume="$(CURRENT_VOL)"
 icon() {
     if [[ "$volume" = "0" ]]; then
         icon=""
-    elif [[  "$volume" -lt "10" ]]; then
+    elif [[ "$volume" -lt "10" ]]; then
         icon=""
     elif [[ "$volume" -lt "30" ]]; then
         icon=""

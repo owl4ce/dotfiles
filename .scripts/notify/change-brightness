@@ -11,7 +11,7 @@ notify() {
     
     if [[ "$brightness" = "0" ]]; then
         icon_name="notification-display-brightness-off"
-    elif [[  "$brightness" -lt "10" ]]; then
+    elif [[ "$brightness" -lt "10" ]]; then
         icon_name="notification-display-brightness-low"
     elif [[ "$brightness" -lt "30" ]]; then
         icon_name="notification-display-brightness-medium"
