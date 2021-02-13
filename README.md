@@ -107,85 +107,85 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
-  ```bash
-  $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
-  ```
+   ```bash
+   $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
+   ```
 
   </details>
   
   <details>
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
-  - ```bash
-    $ sudo apt install zsh
-    ```
-  - ```bash
-    $ chsh -s `which zsh` # Change default shell to zsh for current user
-    ```
-  - ```bash
-    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
-  - ```bash
-    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    ```
-  - ```bash
-    $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    ```
-  - ```bash
-    $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-    ```
+   ```bash
+   $ sudo apt install zsh
+   ```
+   ```bash
+   $ chsh -s `which zsh` # Change default shell to zsh for current user
+   ```
+   ```bash
+   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
+   ```bash
+   $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   ```
+   ```bash
+   $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   ```
+   ```bash
+   $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+   ```
     
   </details>
   
   <details>
   <summary>picom</summary>
     
-  - ```bash
-    $ sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-    ```
-  - ```bash
-    $ git clone https://github.com/yshui/picom.git && cd picom/
-    ```
-  - ```bash
-    $ git submodule update --init --recursive
-    ```
-  - ```bash
-    $ meson --buildtype=release . build
-    ```
-  - ```bash
-    $ ninja -C build
-    ```
-  - ```bash
-    $ ninja -C build install
-    ```
+   ```bash
+   $ sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+   ```
+   ```bash
+   $ git clone https://github.com/yshui/picom.git && cd picom/
+   ```
+   ```bash
+   $ git submodule update --init --recursive
+   ```
+   ```bash
+   $ meson --buildtype=release . build
+   ```
+   ```bash
+   $ ninja -C build
+   ```
+   ```bash
+   $ ninja -C build install
+   ```
 
   </details>
 
   <details>
   <summary>obmenu-generator</summary>
   
-  > I haven't tested it yet.
+   > I haven't tested it yet.
   
-  - ```bash
-    $ sudo su
-     ```
-  - ```bash
-    echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list
-    ```
-  - ```bash
-    wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key
-    ```
-  - ```bash
-    apt-key add - < Release.key
-    ```
-  - ```bash
-    apt update
-    ```
-  - ```bash
-    apt install obmenu-generator libgtk2-perl
-    ```
+   ```bash
+   $ sudo su
+   ```
+   ```bash
+   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list
+   ```
+   ```bash
+   wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key
+   ```
+   ```bash
+   apt-key add - < Release.key
+   ```
+   ```bash
+   apt update
+   ```
+   ```bash
+   apt install obmenu-generator libgtk2-perl
+   ```
     
-  - [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md)
+   [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md)
   
   </details>
   
@@ -194,35 +194,35 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <details open>
   <summary><strong>Arch Linux (and all based distributions)</strong></summary>
   
-  > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
+   > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
-  ```bash
-  $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
-  ```
+   ```bash
+   $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
+   ```
 
   </details>
   
   <details>
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
-  - ```bash
-    $ sudo pacman -S zsh
-    ```
-  - ```bash
-    $ chsh -s `which zsh` # Change default shell to zsh for current user
-    ```
-  - ```bash
-    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
-  - ```bash
-    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    ```
-  - ```bash
-    $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    ```
-  - ```bash
-    $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-    ```
+   ```bash
+   $ sudo pacman -S zsh
+   ```
+   ```bash
+   $ chsh -s `which zsh` # Change default shell to zsh for current user
+   ```
+   ```bash
+   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
+   ```bash
+   $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   ```
+   ```bash
+   $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   ```
+   ```bash
+   $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+   ```
   
   </details>
 
@@ -231,12 +231,12 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <details>
   <summary><strong>Another Linux Distribution</strong></summary>
   
-  Customize/port dependencies yourself!  
-  **For example**:  
-  - [Gentoo](https://packages.gentoo.org/)
-  - [Void](https://voidlinux.org/packages/)
+   Customize/port dependencies yourself!  
+   **For example**:  
+   - [Gentoo](https://packages.gentoo.org/)
+   - [Void](https://voidlinux.org/packages/)
   
-  If it's not there, compile it manually from git source code or from elsewhere.
+   If it's not there, compile it manually from git source code or from elsewhere.
   
   </details
   
@@ -244,7 +244,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     
   **Optional**: [betterdiscord](https://betterdiscord.net/), [geany](https://geany.org/) + [geany plugins](https://plugins.geany.org/), [gimp](https://www.gimp.org/), [lxappearance](https://wiki.lxde.org/en/LXAppearance), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [obconf](http://openbox.org/wiki/ObConf:About), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
-  **Suggested replacement command**:
+  **Suggested replacement command**
   - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
   
     [`~/.zshrc`](./.zshrc)  
@@ -272,51 +272,52 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary><strong>Most of .files</strong></summary>
   
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
-   - ```bash
-     $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
-     ```
+   ```bash
+   $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
+   ```
+   
    I recommend with rsync.
-   - ```bash
-     $ rsync -avxHAXP --exclude '.git*' .* ~/
-     ```
-     > #### Explanation
-     > | Options   | Function                                            |
-     > |:---------:|-----------------------------------------------------|
-     > | -a        | all files, with permissions, etc..                  |
-     > | -v        | verbose, mention files                              |
-     > | -x        | stay on one file system                             |
-     > | -H        | preserve hard links (not included with -a)          |
-     > | -A        | preserve ACLs/permissions (not included with -a)    |
-     > | -X        | preserve extended attributes (not included with -a) |
-     > | -P        | show progress                                       |
-     > | --exclude | exclude files matching PATTERN                      |
-     >
-     > #### Differences
-     > - `cp` is for duplicating stuff and by default only ensures files have unique full path names.
-     > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
-     >
-     > ####  
-     > I recommend not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
+   ```bash
+   $ rsync -avxHAXP --exclude '.git*' .* ~/
+   ```
+   > #### Explanation
+   > | Options   | Function                                            |
+   > |:---------:|-----------------------------------------------------|
+   > | -a        | all files, with permissions, etc..                  |
+   > | -v        | verbose, mention files                              |
+   > | -x        | stay on one file system                             |
+   > | -H        | preserve hard links (not included with -a)          |
+   > | -A        | preserve ACLs/permissions (not included with -a)    |
+   > | -X        | preserve extended attributes (not included with -a) |
+   > | -P        | show progress                                       |
+   > | --exclude | exclude files matching PATTERN                      |
+   >
+   > #### Differences
+   > - `cp` is for duplicating stuff and by default only ensures files have unique full path names.
+   > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
+   >
+   > ####  
+   > I recommend not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
   
   </details>
 
   <details open>
   <summary><strong>Icons</strong></summary>
 
-   - ```bash
-     $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
-     ```
-   - ```bash
-     $ sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom
-     ```
-   - ```bash
-     $ sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
-     ```
-     > **Why I need to link icons to user system resources?**  
-       That's needed by dunst in order to display most of icon from notification that spawned by application.
-     >
-     > **Why not just move it directly to user system resources?**  
-       Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
+   ```bash
+   $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
+   ```
+   ```bash
+   $ sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom
+   ```
+   ```bash
+   $ sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
+   ```
+   > **Why I need to link icons to user system resources?**  
+     That's needed by dunst in order to display most of icon from notification that spawned by application.
+   >
+   > **Why not just move it directly to user system resources?**  
+     Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
      
   </details>
 
@@ -345,14 +346,16 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   
 ### The step you are waiting for
 The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc. If you are using `~/.xinitrc`, simply add
-- **Systemd Linux Distribution**
-  ```cfg
-  exec openbox-session
-  ```
-- **Non-Systemd Linux Distribution**
-  ```cfg
-  exec dbus-launch --exit-with-session openbox-session
-  ```
+
+**Systemd Linux Distribution**  
+```cfg
+exec openbox-session
+```
+
+**Non-Systemd Linux Distribution**  
+```cfg
+exec dbus-launch --exit-with-session openbox-session
+```
 
 ---
 
