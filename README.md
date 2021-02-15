@@ -77,7 +77,7 @@ Here are some details about my setup
 <details open>
   <summary><strong>v3.1</strong></summary>
   
-  - **Screenshot Script**: Rounded corners & Quality
+  - **Screenshot Script**: Rounded corners, quality, shadows.
   - Terminal UI improvements, particularly font size
   - Bug fixes and improvements [<kbd>keep looking</kbd>](https://github.com/owl4ce/dotfiles/commits/main)
   - Rounded picom as default
@@ -530,20 +530,21 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   111 FRAME_COLOR="#ffffff" # RGBA supported
   112 COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
   113 OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
-  114 QUALITY="100" # 1-100, high value means high size with low compression
-  115
-  116 #-------------------------------------------------------------------------#
-  117 # XAUTOLOCK - 5 means 5 minutes                                           #
-  118 #-------------------------------------------------------------------------#
-  119 
-  120 AUTOLOCK_MINUTE="5"
-  121
-  122 #-------------------------------------------------------------------------#
-  123 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
-  124 #-------------------------------------------------------------------------#
-  125
-  126 AUDIO_STEPS="5" # Real value
-  127 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
+  114 FRAMED_SHADOW_OPACITY="25" # 0-100, high value means thick shadows
+  115 QUALITY="100" # 1-100, high value means high size with low compression
+  116
+  117 #-------------------------------------------------------------------------#
+  118 # XAUTOLOCK - 5 means 5 minutes                                           #
+  119 #-------------------------------------------------------------------------#
+  120 
+  121 AUTOLOCK_MINUTE="5"
+  122
+  123 #-------------------------------------------------------------------------#
+  124 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
+  125 #-------------------------------------------------------------------------#
+  126
+  127 AUDIO_STEPS="5" # Real value
+  128 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
   ```
   > **TEMP_DEV**: Check here
   > ```bash
