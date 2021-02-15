@@ -100,8 +100,9 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 </details>
 
 ### Installation (dependencies)
-> Please adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application I use.
-> #### Detailed environment
+> Adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application that I use.
+>   
+> **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
   <details open>
@@ -232,7 +233,8 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary><strong>Another Linux Distribution</strong></summary>
   
    Customize/port dependencies yourself!  
-   **For example**:  
+   
+   **For example**  
    - [Gentoo](https://packages.gentoo.org/)
    - [Void](https://voidlinux.org/packages/)
   
@@ -244,7 +246,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     
   **Optional**: [betterdiscord](https://betterdiscord.net/), [geany](https://geany.org/) + [geany plugins](https://plugins.geany.org/), [gimp](https://www.gimp.org/), [lxappearance](https://wiki.lxde.org/en/LXAppearance), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [obconf](http://openbox.org/wiki/ObConf:About), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
-  **Suggested replacement command**
+  **Suggested replacement commands**
   - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
   
     [`~/.zshrc`](./.zshrc)  
@@ -280,7 +282,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
    ```bash
    $ rsync -avxHAXP --exclude '.git*' .* ~/
    ```
-   > #### Explanation
+   > **Explanation**
    > | Options   | Function                                            |
    > |:---------:|-----------------------------------------------------|
    > | -a        | all files, with permissions, etc..                  |
@@ -292,11 +294,11 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
    > | -P        | show progress                                       |
    > | --exclude | exclude files matching PATTERN                      |
    >
-   > #### Differences
+   > **Differences**  
    > - `cp` is for duplicating stuff and by default only ensures files have unique full path names.
    > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
    >
-   > ####  
+   >   
    > I recommend not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
   
   </details>
@@ -315,7 +317,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
    ```
    > **Why I need to link icons to user system resources?**  
      That's needed by dunst in order to display most of icon from notification that spawned by application.
-   >
+   >   
    > **Why not just move it directly to user system resources?**  
      Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
      
@@ -702,6 +704,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   - [Galih Wisnuaji](https://github.com/nekonako)
   - [Ghani Rafif](https://github.com/ekickx)
   - [Aditya Shakya](https://github.com/adi1090x)
+  - ?
 
 - **Knowledge and other resources**
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
@@ -711,19 +714,19 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh)
   - [NetworkManager Dmenu](https://github.com/firecat53/networkmanager-dmenu)
   - [Showing Album Cover in Ncmpcpp](https://marcocheung.wordpress.com/2015/08/09/showing-album-cover-in-ncmpcpp/)
+  - [Complete List of GitHub Markdown Emoji Markup](https://gist.github.com/rxaviers/7360908)
   - Many GNU/Linux & Unix forums.
   
-- **Contributor**
+- **Contributors**
   - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
   - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
   - [...](https://github.com/owl4ce/dotfiles/graphs/contributors)
   
-- **Software**
-  - [Bash](https://www.gnu.org/software/bash/)
-  - [Geany](https://www.geany.org/)
-  - [Gimp](https://www.gimp.org/)
-  - [Gpick](http://www.gpick.org/)
-  - [Oomox](https://github.com/themix-project/oomox)
+- **Softwares**
+  - [Geany - The Flyweight IDE](https://www.geany.org/)
+  - [GIMP - GNU Image Manipulation Program](https://www.gimp.org/)
+  - [Gpick - Advanced Color Picker](http://www.gpick.org/)
+  - [Themix - GUI Theme Designer](https://github.com/themix-project/oomox)
   - etc.
 
 - **Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart), [@dotfiles_id](https://t.me/dotfiles_id), and [r/unixporn](https://www.reddit.com/r/unixporn/).**
