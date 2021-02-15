@@ -26,10 +26,11 @@ case $chosen in
     ;;
     $suspend)
         [[ "$($MUSIC_CONTROLLER status)" = *"laying"* ]] && $MUSIC_CONTROLLER toggle
-        # Systemd (systemctl)
-        systemctl suspend
-        # elogind (loginctl)
-        #loginctl suspend
+        if command -v "systemctl" &> /dev/null; then
+            systemctl suspend
+        elif command -v "loginctl" &> /dev/null; then
+            loginctl suspend
+        fi
     ;;
     $logout)
         $ROFI_DIR/scripts/promptmenu.sh --yes-command "pkill -KILL -u $(whoami)" --query "      Logout?"
