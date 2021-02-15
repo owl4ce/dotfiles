@@ -111,6 +111,7 @@ SAVE_DIR="$HOME/Pictures"
 FRAME_COLOR="#ffffff" # RGBA supported
 COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
 OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
+FRAMED_SHADOW_OPACITY="25" # 0-100, high value means thick shadows
 QUALITY="100" # 1-100, high value means high size with low compression
 
 #-------------------------------------------------------------------------#

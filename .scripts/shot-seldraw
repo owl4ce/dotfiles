@@ -21,7 +21,7 @@ command -v "scrot" > /dev/null 2>&1 || noterr
     \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
     -alpha off -compose CopyOpacity -composite /tmp/$CURRENT-rounded.png &> /dev/null
 
-    convert /tmp/$CURRENT-rounded.png \( +clone -background black -shadow 25x10+0+5 \) \
+    convert /tmp/$CURRENT-rounded.png \( +clone -background black -shadow "$FRAMED_SHADOW_OPACITY"x10+0+5 \) \
     +swap -background none -layers merge +repage /tmp/$CURRENT-shadow.png &> /dev/null
 
     convert /tmp/$CURRENT-shadow.png -bordercolor $FRAME_COLOR \
