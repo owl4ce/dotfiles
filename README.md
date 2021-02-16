@@ -433,6 +433,23 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
     
   </details>
   
+- **Capitaine Cursors Theme <kbd>suggested</kbd>**
+  <details>
+  <summary><strong>See</strong></summary>
+  
+    <br>
+    
+    <p align="center"><a href="https://www.pling.com/p/1148692">
+    <img src="https://cdn.pling.com/img/4/8/3/5/e6df21a4d723a4e21a1b85f9ae5979f6fb25.png" alt="capitaine-cursors"/>
+    </a></p>
+    <p align="center"><a href="https://www.pling.com/p/1148692">
+    <img src="https://cdn.pling.com/img/6/8/5/6/0e64785edeb13cf2527cb2fd0f29774af6c4.png" alt="capitaine-cursors"/>
+    </a></p>
+    
+    <p align="center">Just click on the image above!</p>
+    
+  </details>
+  
 - **Battery Indicator <kbd>optional</kbd>**  
   Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
   
