@@ -7,7 +7,7 @@ MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_NOTIF_COVER"
 
 notify_noalbum() {
-    $EXNOTIFY_SEND -u normal -r 7777 -i $NOTIF_MUSIC_ICON "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
+    $EXNOTIFY_SEND -u normal -r 7777 -i "$NOTIF_MUSIC_ICON" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
 {
@@ -19,7 +19,7 @@ notify_noalbum() {
     
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
     src="$(echo -n "$covers" | head -n1)"
-    rm -f "$COVER.png"
+    rm -f "$COVER.png" &> /dev/null
     
     # Notify
     if [[ -n "$src" ]]; then
@@ -32,9 +32,9 @@ notify_noalbum() {
         \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
         -alpha off -compose CopyOpacity -composite "$COVER.png" &> /dev/null
-        rm -f "$COVER"
+        rm -f "$COVER" &> /dev/null
         if [[ -f "$COVER.png" ]]; then
-            $EXNOTIFY_SEND -u normal -r 7777 -i $COVER.png "" "<span size='small'>`mpc --format '[%artist%|%file%]' current`</span>\n`mpc --format '[%title%]' current`"
+            $EXNOTIFY_SEND -u normal -r 7777 -i "$COVER.png" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
         else
             notify_noalbum
         fi

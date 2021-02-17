@@ -1,37 +1,33 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-R='\e[1;31m'
-G='\e[1;32m'
-M='\e[1;35m'
-C='\e[1;36m'
-NC='\e[0m'
+R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; NC="\e[0m"
 
 err() { echo -e "${R}==> Error:${NC} $@" && exit 1; }
 
 apps() {
-    echo -e "${C}USAGE:${NC} launch apps\n${C}Available apps: "
+    echo -e "${G}USAGE:${NC} launch ${M}<apps>\n${C}Available apps: "
     n=0
     for list in $(cat $DEFAPPS_FILE | awk -F'=' '{print $1}'); do
         n="$((n+1))"
-        printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$list"
+        printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$list"
         eval "list${n}=\$list"
     done && \
-    echo -e "${C}---\nWill run: "
+    echo -e "${R}---\n${C}Will run: "
     n=0
     for openlist in $(cat $DEFAPPS_FILE | awk -F'"' '{print $2}'); do
         n="$((n+1))"
-        printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$openlist"
+        printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$openlist"
         eval "openlist${n}=\$openlist"
     done
-    echo -e "${C}---\n${G}Use ${NC}-e, --edit${G} to edit apps list."
+    echo -e "${R}---\n${G}Use ${NC}-e, --edit${G} to edit apps list."
     echo -e "${G}Use ${NC}-g, --get apps${G} to get current default apps.${NC}"
 }
 
 case $1 in
     -g|--get)
-        filt="$(cat $DEFAPPS_FILE | grep "$2" | awk -F'"' '{print $2}')"
-        echo "$filt"
+        [[ "${*:2}" = "" ]] && exit 1
+        echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}' 2> /dev/null)"
     ;;
     -e|--edit)
         echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
@@ -42,13 +38,13 @@ case $1 in
     ""|-h|--help)
         apps
     ;;
-    *)  if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
-            filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}')"
+    *)  if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1" 2> /dev/null)" ]]; then
+            filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}' 2> /dev/null)"
             opt="$(echo $@ | tr ' ' '\ 'i)"
             [[ ! -z "$2" ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
             [[ ! -z "$1" ]] && bash -c "$filt &> /dev/null &" && exit 0
         else
-            command -v "$1" > /dev/null 2>&1 || err "$1 is not in list. Please define it first!"
+            command -v "$1" > /dev/null 2>&1 || err "${M}$1${NC} is not in list. Please define it first!"
         fi
     ;;
 esac

@@ -12,11 +12,10 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
 else
     case $1 in
         lrtb)
-            source $HOME/.owl4ce_var
+            source $HOME/.owl4ce_var && kill
             MECH_PANEL="$TINT2_DIR/mechanical-$CHK_ORT.tint2rc"
             EYC_PANEL="$TINT2_DIR/eyecandy-$CHK_ORT.tint2rc"
             CURRENT_PANEL="$TINT2_DIR/$CHK_VISMOD-$CHK_ORT.tint2rc"
-            kill
             if [[ $CHK_ORT = *"vertical"* ]]; then
                 if [[ $CHK_ORT_V = *"left"* ]]; then
                     sed -i '2s_vertical=".*"_vertical="right"_' $ORT_FILE
@@ -52,11 +51,10 @@ else
             fi            
         ;;
         ort)
-            source $HOME/.owl4ce_var
+            source $HOME/.owl4ce_var && kill
             MECH_PANEL="$TINT2_DIR/mechanical-$CHK_ORT.tint2rc"
             EYC_PANEL="$TINT2_DIR/eyecandy-$CHK_ORT.tint2rc"
             CURRENT_PANEL="$TINT2_DIR/$CHK_VISMOD-$CHK_ORT.tint2rc"
-            kill
             if [[ $CHK_ORT != *"vertical"* ]]; then
                 sed -i '1s_state=".*"_state="vertical"_' $ORT_FILE
                 source $HOME/.owl4ce_var

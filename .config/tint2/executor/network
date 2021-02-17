@@ -4,7 +4,6 @@ source $HOME/.owl4ce_var
 noterr() { echo "Install iproute2/wireless-tools!"; exit 1; }
 command -v {"ip","iwgetid"} > /dev/null 2>&1 || noterr
 
-# Icons
 wifi=""
 wifi_noip=""
 wifi_disabled=""

@@ -6,11 +6,11 @@ command -v {"urxvt","ncmpcpp"} > /dev/null 2>&1 || exit 1
 {
     case $1 in
         albumart)
-            urxvt -g 84x13 -e ncmpcpp -c $NCMPCPP_DIR/albumart
+            urxvt -g 84x13 -e ncmpcpp -c "$NCMPCPP_DIR/albumart"
         ;;
         single-albumart)
-            urxvt -g 47x18 -e ncmpcpp -c $NCMPCPP_DIR/single-albumart
+            urxvt -g 47x18 -e ncmpcpp -c "$NCMPCPP_DIR/single-albumart"
         ;;
     esac
     exit 0
-} &
+} &> /dev/null &

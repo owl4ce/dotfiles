@@ -5,32 +5,31 @@ noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
 command -v "scrot" > /dev/null 2>&1 || noterr
 
 {
-    [[ ! -d $SAVE_DIR/Screenshots ]] && mkdir -p $SAVE_DIR/Screenshots
-    sleep .5s
+    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; sleep .5s
     
     rm -f /tmp/*_scrot*.png &> /dev/null
-    scrot -q $QUALITY -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
-    $EXNOTIFY_SEND -r 12 -t 750 -i $NOTIF_SS_ICON -u low "Screenshot" "Processing captured image"
+    scrot -q "$QUALITY" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
+    $EXNOTIFY_SEND -r 12 -t 750 -i "$NOTIF_SS_ICON" -u low "Screenshot" "Processing captured image"
     
     for CURRENT in /tmp/*_scrot*.png; do
         CURRENT="$(echo "$CURRENT" | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}')"
     done
     
-    convert /tmp/$CURRENT.png \
+    convert /tmp/"$CURRENT".png \
     \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
     \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
-    -alpha off -compose CopyOpacity -composite /tmp/$CURRENT-rounded.png &> /dev/null
+    -alpha off -compose CopyOpacity -composite /tmp/"$CURRENT"-rounded.png &> /dev/null
 
-    convert /tmp/$CURRENT-rounded.png \( +clone -background black -shadow "$FRAMED_SHADOW_OPACITY"x10+0+5 \) \
-    +swap -background none -layers merge +repage /tmp/$CURRENT-shadow.png &> /dev/null
+    convert /tmp/"$CURRENT"-rounded.png \( +clone -background black -shadow "$FRAMED_SHADOW_OPACITY"x10+0+5 \) \
+    +swap -background none -layers merge +repage /tmp/"$CURRENT"-shadow.png &> /dev/null
 
-    convert /tmp/$CURRENT-shadow.png -bordercolor $FRAME_COLOR \
-    -border 5 $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
+    convert /tmp/"$CURRENT"-shadow.png -bordercolor "$FRAME_COLOR" \
+    -border 5 $SAVE_DIR/Screenshots/"$CURRENT".png &> /dev/null
 
     rm -f /tmp/*_scrot*.png &> /dev/null
-    [[ -f $SAVE_DIR/Screenshots/$CURRENT.png ]] && \
-    $EXNOTIFY_SEND -r 12 -i $NOTIF_SS_ICON -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
-    [[ "$COPY_FRAMED" = "yes" ]] && xclip -selection clipboard -target image/png -i $SAVE_DIR/Screenshots/$CURRENT.png && \
+    [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]] && \
+    $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>" && \
+    [[ "$COPY_FRAMED" = "yes" ]] && xclip -selection clipboard -target image/png -i "$SAVE_DIR/Screenshots/$CURRENT.png" && \
     [[ "$OPEN_FRAMED" = "yes" ]] && [[ -x "$(command -v "viewnior" 2> /dev/null)" ]] && \
-    viewnior $SAVE_DIR/Screenshots/$CURRENT.png &> /dev/null
+    viewnior "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
 } &

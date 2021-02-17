@@ -13,7 +13,7 @@ run() {
 }
 
 {
-    if [[ "$(pstree)" = *"mpd"* ]]; then
+    if [[ "$(pstree 2> /dev/null)" = *"mpd"* ]]; then
         run
     else
         mpd &> /dev/null
