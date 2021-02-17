@@ -17,9 +17,9 @@ background_jobs="%(1j.%F{2}%f.)"
 non_zero_return_value="%(0?..%F{1}%f)"
 
 # Left part of prompt
-PROMPT='$(git_prompt_info) $user_symbol '
+PROMPT='$(git_prompt_info) $user_symbol '
 # Right part of prompt
-RPROMPT=' $background_jobs $non_zero_return_value $dir_path'
+RPROMPT=' $background_jobs $non_zero_return_value $dir_path'
 # Input in bold
 zle_highlight=(default:bold)
 
