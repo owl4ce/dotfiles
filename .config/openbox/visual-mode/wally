@@ -2,10 +2,7 @@
 source $HOME/.owl4ce_var
 clear
 
-R='\e[1;31m'
-M='\e[1;35m'
-C='\e[1;36m'
-NC='\e[0m'
+R="\e[1;31m"; M="\e[1;35m"; C="\e[1;36m"; NC="\e[0m"
 
 if [[ $CHK_MINMOD = *"minimal"* ]]; then
     if [[ $CHK_VISMOD = *"mechanical"* ]]; then
@@ -14,14 +11,14 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
         for img in $WALL_DIR/*; do
             n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
+        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
         read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "\n${R}Wrong selection\n"
+            printf >&2 "${R}Wrong selection!\n"
             exit 1
         else
             eval "IMG=\$img${num}"
@@ -29,9 +26,9 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             # Write selected
             selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
             echo "$selected" > $MINMOD_WALL_FILE
-            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
+            printf "${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
         fi
     elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
         echo -e "${C}Select wallpaper for Minimal Eyecandy Theme:"
@@ -39,14 +36,14 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
         for img in $WALL_DIR/*; do
             n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
+        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
         read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "\n${R}Wrong selection\n"
+            printf >&2 "${R}Wrong selection!\n"
             exit 1
         else
             eval "IMG=\$img${num}"
@@ -54,9 +51,9 @@ if [[ $CHK_MINMOD = *"minimal"* ]]; then
             # Write selected
             selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
             echo "$selected" > $MINMOD_WALL_FILE
-            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
+            printf "${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
         fi
     fi
 else
@@ -66,14 +63,14 @@ else
         for img in $WALL_DIR/*; do
             n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
+        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
         read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "\n${R}Wrong selection\n"
+            printf >&2 "${R}Wrong selection!\n"
             exit 1
         else
             eval "IMG=\$img${num}"
@@ -81,9 +78,9 @@ else
             # Write selected
             selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
             echo "$selected" > $VISMOD_WALL_FILE
-            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
+            printf "${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
         fi
     elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
         echo -e "${C}Select wallpaper for Eyecandy Theme:"
@@ -91,14 +88,14 @@ else
         for img in $WALL_DIR/*; do
             n="$((n+1))"
             imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${C}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
+            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
             eval "img${n}=\$img"
         done
-        printf "${C}---${NC}\nEnter File Index ID ${M}[${C}1${M}] ${NC}to ${M}[${C}%s${M}]${NC}: " "$n"
+        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
         read -r num
         num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
         if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "\n${R}Wrong selection\n"
+            printf >&2 "${R}Wrong selection!\n"
             exit 1
         else
             eval "IMG=\$img${num}"
@@ -106,9 +103,9 @@ else
             # Write selected
             selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
             echo "$selected" > $VISMOD_WALL_FILE
-            printf "\n${C}Selected wallpaper: ${NC}$selected\n"
+            printf "${C}Selected wallpaper: ${NC}$selected\n"
             # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i $NOTIF_WALLY_ICON "Wallpaper" "Applied: <u>$selected</u>"
+            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
         fi
     fi
 fi

@@ -12,7 +12,7 @@ mech() {
     bash -c "$VISMOD_DIR/mechanical/ui" &> /dev/null
     
     # Notify Success
-    notify-send -u low -i $NOTIF_MECH_ICON "Visual Mode" "Mechanical Theme applied"
+    notify-send -u low -i "$NOTIF_MECH_ICON" "Visual Mode" "Mechanical Theme applied"
 }
 
 mech_min() {
@@ -25,7 +25,7 @@ mech_min() {
     bash -c "$VISMOD_DIR/mechanical/ui-minimal" &> /dev/null
     
     # Notify Success
-    notify-send -u low -i $NOTIF_MECH_MIN_ICON "Minimal Mode" "Mechanical Theme enabled"
+    notify-send -u low -i "$NOTIF_MECH_MIN_ICON" "Minimal Mode" "Mechanical Theme enabled"
 }
 
 eyc() {
@@ -37,7 +37,7 @@ eyc() {
     bash -c "$VISMOD_DIR/eyecandy/ui" &> /dev/null
 
     # Notify Success
-    notify-send -u low -i $NOTIF_EYC_ICON "Visual Mode" "Eyecandy Theme applied"
+    notify-send -u low -i "$NOTIF_EYC_ICON" "Visual Mode" "Eyecandy Theme applied"
 }
 
 eyc_min() {
@@ -50,13 +50,12 @@ eyc_min() {
     bash -c "$VISMOD_DIR/eyecandy/ui-minimal" &> /dev/null
     
     # Notify Success
-    notify-send -u low -i $NOTIF_EYC_MIN_ICON "Minimal Mode" "Eyecandy Theme enabled"
+    notify-send -u low -i "$NOTIF_EYC_MIN_ICON" "Minimal Mode" "Eyecandy Theme enabled"
 }
 
 case $1 in
     minimal)
-        source $HOME/.owl4ce_var
-        kill
+        source $HOME/.owl4ce_var && kill
         if [[ $CHK_VISMOD = *"mechanical"* ]]; then
             if [[ $CHK_MINMOD != *"minimal"* ]]; then
                 mech_min
@@ -80,8 +79,7 @@ case $1 in
             bash -c "$VISMOD_DIR/$CHK_VISMOD/ui" &> /dev/null
         fi
     ;;
-    *)  source $HOME/.owl4ce_var
-        kill
+    *)  source $HOME/.owl4ce_var && kill
         if [[ $CHK_VISMOD != *"mechanical"* ]]; then
             if [[ $CHK_MINMOD = *"minimal"* ]]; then
                 mech_min

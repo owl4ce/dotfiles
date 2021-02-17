@@ -3,11 +3,11 @@ source $HOME/.owl4ce_var
 
 temp_dev_path="/sys/devices/virtual/thermal"
 
-[[ -d $temp_dev_path/$TEMP_DEV ]] && \
+[[ -d "$temp_dev_path/$TEMP_DEV" ]] && \
 
 get_temp() {
     CEL=$'\xc2\xb0C'
-    temp="$(cat $temp_dev_path/$TEMP_DEV/temp)"
+    temp="$(cat $temp_dev_path/$TEMP_DEV/temp 2> /dev/null)"
     temp="$(expr $temp / 1000)"
     echo "$temp$CEL"
 }

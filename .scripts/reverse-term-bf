@@ -4,9 +4,9 @@ source $HOME/.owl4ce_var
 noterr() { $EXNOTIFY_SEND -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
 command -v {"urxvt","termite"} > /dev/null 2>&1 || noterr
 
-if [[ $($DEFAPPS_EXEC -g terminal) = "urxvt" ]]; then
-    current="$(cat $HOME/.Xresources | grep "foreground" | head -n1 | grep '!')"
-    if [[  $current != *"!"* ]]; then
+if [[ "$($DEFAPPS_EXEC -g terminal)" = "urxvt" ]]; then
+    current="$(cat $HOME/.Xresources | grep "foreground" | head -n1 | grep '!' 2> /dev/null)"
+    if [[  "$current" != *"!"* ]]; then
         sed -i '103s_*_!*_' $HOME/.Xresources
         sed -i '104s_*_!*_' $HOME/.Xresources
         sed -i '105s_*_!*_' $HOME/.Xresources
@@ -21,7 +21,7 @@ if [[ $($DEFAPPS_EXEC -g terminal) = "urxvt" ]]; then
         sed -i '118s_!__' $HOME/.Xresources
         sed -i '120s_!__' $HOME/.Xresources
         sed -i '121s_!__' $HOME/.Xresources
-        xrdb $HOME/.Xresources &        
+        xrdb $HOME/.Xresources &
     else
         sed -i '103s_!__' $HOME/.Xresources
         sed -i '104s_!__' $HOME/.Xresources
@@ -39,9 +39,9 @@ if [[ $($DEFAPPS_EXEC -g terminal) = "urxvt" ]]; then
         sed -i '121s_*_!*_' $HOME/.Xresources
         xrdb $HOME/.Xresources &
     fi
-elif [[ $($DEFAPPS_EXEC -g terminal) = "termite" ]]; then
-    current="$(cat $HOME/.config/termite/config | grep "#foreground = " | head -n1)"
-    if [[  $current != *"#foreground = #F9F9F9"* ]]; then
+elif [[ "$($DEFAPPS_EXEC -g terminal)" = "termite" ]]; then
+    current="$(cat $HOME/.config/termite/config | grep "#foreground = " | head -n1 2> /dev/null)"
+    if [[  "$current" != *"#foreground = #F9F9F9"* ]]; then
         sed -i '79s_foreground_#foreground_' $HOME/.config/termite/config
         sed -i '80s_foreground_#foreground_' $HOME/.config/termite/config
         sed -i '81s_background_#background_' $HOME/.config/termite/config
