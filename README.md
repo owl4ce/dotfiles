@@ -104,6 +104,8 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 >   
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
+>   
+> **Warning! This configuration is highly dependent to `bash`**
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
