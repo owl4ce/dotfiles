@@ -55,7 +55,7 @@ case $1 in
     ;;
     startup)    source $HOME/.owl4ce_var
                 xrdb $HOME/.Xresources
-                MINMOD="" && [[ $CHK_MINMOD != "" ]] && MINMOD="-minmod"
+                MINMOD="" && [[ $CHK_MINMOD != "" ]] && MINMOD="-minimal"
                 bash -c "$VISMOD_DIR/$CHK_VISMOD/ui$MINMOD" &> /dev/null
     ;;
     *)          source $HOME/.owl4ce_var && kill
