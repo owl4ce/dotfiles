@@ -27,30 +27,30 @@ else
 fi
 
 case $1 in
-    icon) if [[ "$($status)" = *"laying"* ]]; then
-              echo ""
-          else
-              echo ""
-          fi
+    icon)       if [[ "$($status)" = *"laying"* ]]; then
+                    echo ""
+                else
+                    echo ""
+                fi
     ;;
-    prev) bash -c "$prev"
+    prev)       bash -c "$prev"
     ;;
-    toggle) bash -c "$toggle"
+    toggle)     bash -c "$toggle"
     ;;
-    stop) bash -c "$stop"
+    stop)       bash -c "$stop"
     ;;
-    next) bash -c "$next"
+    next)       bash -c "$next"
     ;;
-    status) echo ""$($status)""
+    status)     echo ""$($status)""
     ;;
-    title) echo "$title"
+    title)      echo "$title"
     ;;
-    switchpl) [[ "$($status)" = *"laying"* ]] && bash -c "$toggle"
-              if [[ $CURRENT_MUSICPL = "mpd" ]]; then
-                  sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
-              elif [[ $CURRENT_MUSICPL = "spotify" ]]; then
-                  sed -i 's_musicpl=".*"_musicpl="mpd"_' $DEFAPPS_FILE
-              fi
-              $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "Set <u>$($DEFAPPS_EXEC -g musicpl)</u> as default"
+    switchpl)   [[ "$($status)" = *"laying"* ]] && bash -c "$toggle"
+                if [[ $CURRENT_MUSICPL = "mpd" ]]; then
+                    sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
+                elif [[ $CURRENT_MUSICPL = "spotify" ]]; then
+                    sed -i 's_musicpl=".*"_musicpl="mpd"_' $DEFAPPS_FILE
+                fi
+                $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "Set <u>$($DEFAPPS_EXEC -g musicpl)</u> as default"
     ;;
 esac

@@ -40,6 +40,6 @@ fi
 case $1 in
     status) echo "$status"
     ;;
-    icon) echo "$icon"
+    icon)   echo "$icon"
     ;;
 esac

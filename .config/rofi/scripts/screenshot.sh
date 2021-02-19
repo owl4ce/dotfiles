@@ -13,13 +13,10 @@ options="$screen\n$area\n$timer"
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
 case $chosen in
-    $screen)
-        $SS_NOW delay
+    $screen)    $SS_NOW delay
     ;;
-    $area)
-        $SS_DRAW
+    $area)      $SS_DRAW
     ;;
-    $timer)
-        $SS_TIMER
+    $timer)     $SS_TIMER
     ;;
 esac

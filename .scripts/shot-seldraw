@@ -5,7 +5,7 @@ noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
 command -v "scrot" > /dev/null 2>&1 || noterr
 
 {
-    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; sleep .5s
+    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; coproc read -t .5 && wait "$!" || true
     
     rm -f /tmp/*_scrot*.png &> /dev/null
     scrot -q "$QUALITY" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \

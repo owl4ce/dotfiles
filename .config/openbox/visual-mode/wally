@@ -1,111 +1,30 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var
-clear
-
+source $HOME/.owl4ce_var && clear
 R="\e[1;31m"; M="\e[1;35m"; C="\e[1;36m"; NC="\e[0m"
 
-if [[ $CHK_MINMOD = *"minimal"* ]]; then
-    if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-        echo -e "${C}Select wallpaper for Minimal Mechanical Theme:"
-        n=0
-        for img in $WALL_DIR/*; do
-            n="$((n+1))"
-            imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
-            eval "img${n}=\$img"
-        done
-        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
-        read -r num
-        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
-        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "${R}Wrong selection!\n"
-            exit 1
-        else
-            eval "IMG=\$img${num}"
-            nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            # Write selected
-            selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
-            echo "$selected" > $MINMOD_WALL_FILE
-            printf "${C}Selected wallpaper: ${NC}$selected\n"
-            # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
-        fi
-    elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
-        echo -e "${C}Select wallpaper for Minimal Eyecandy Theme:"
-        n=0
-        for img in $WALL_DIR/*; do
-            n="$((n+1))"
-            imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
-            eval "img${n}=\$img"
-        done
-        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
-        read -r num
-        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
-        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "${R}Wrong selection!\n"
-            exit 1
-        else
-            eval "IMG=\$img${num}"
-            nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            # Write selected
-            selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
-            echo "$selected" > $MINMOD_WALL_FILE
-            printf "${C}Selected wallpaper: ${NC}$selected\n"
-            # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
-        fi
-    fi
+capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
+[[ $CHK_MINMOD != "" ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
+echo -e "${C}Select wallpaper for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme:"
+n=0
+for img in $WALL_DIR/*; do
+    n="$((n+1))"
+    imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
+    printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
+    eval "img${n}=\$img"
+done
+printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
+read -r num
+num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
+    printf >&2 "${R}Wrong selection!\n" && exit 1
 else
-    if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-        echo -e "${C}Select wallpaper for Mechanical Theme:"
-        n=0
-        for img in $WALL_DIR/*; do
-            n="$((n+1))"
-            imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
-            eval "img${n}=\$img"
-        done
-        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
-        read -r num
-        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
-        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "${R}Wrong selection!\n"
-            exit 1
-        else
-            eval "IMG=\$img${num}"
-            nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            # Write selected
-            selected="$(echo "$IMG" | awk -F'mechanical/' '{print $2}')"
-            echo "$selected" > $VISMOD_WALL_FILE
-            printf "${C}Selected wallpaper: ${NC}$selected\n"
-            # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
-        fi
-    elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
-        echo -e "${C}Select wallpaper for Eyecandy Theme:"
-        n=0
-        for img in $WALL_DIR/*; do
-            n="$((n+1))"
-            imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
-            printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
-            eval "img${n}=\$img"
-        done
-        printf "${R}---${NC}\nEnter File Index ID ${M}[${NC}1${M}] ${NC}to ${M}[${NC}%s${M}]${NC}: " "$n"
-        read -r num
-        num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
-        if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-            printf >&2 "${R}Wrong selection!\n"
-            exit 1
-        else
-            eval "IMG=\$img${num}"
-            nitrogen --set-zoom-fill --save $IMG &> /dev/null
-            # Write selected
-            selected="$(echo "$IMG" | awk -F'eyecandy/' '{print $2}')"
-            echo "$selected" > $VISMOD_WALL_FILE
-            printf "${C}Selected wallpaper: ${NC}$selected\n"
-            # Notify success
-            $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
-        fi
-    fi
+    eval "IMG=\$img${num}"
+    nitrogen --set-zoom-fill --save $IMG &> /dev/null
+    # Write selected
+    selected="$(echo "$IMG" | awk -F"$CHK_VISMOD/" '{print $2}')"
+    WALL_FILE="$VISMOD_WALL_FILE" && [[ $CHK_MINMOD != "" ]] && WALL_FILE="$MINMOD_WALL_FILE" 
+    echo "$selected" > $WALL_FILE
+    printf "${C}Selected wallpaper: ${NC}$selected\n"
+    # Notify success
+    $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "Wallpaper" "Applied: <u>$selected</u>"
 fi

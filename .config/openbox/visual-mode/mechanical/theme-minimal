@@ -29,4 +29,4 @@ cp $OB_BUTTON_DIR/$CHK_MINMOD_BUTTON/* $MECH_BUTTON_DIR
 sed -i '34s_<name>.*_<name>Fleon</name>_' $OB_CONFIG
 
 # Reconfigure Openbox (realistic theme)
-sleep .4s && openbox --reconfigure &
+coproc read -t .4 && wait "$!" || true && openbox --reconfigure &
