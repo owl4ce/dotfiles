@@ -7,7 +7,7 @@ sed -i '10s_gtk-theme-name=.*_gtk-theme-name=Sweetly_' $GTK3_CONFIG
 sed -i '1s_Net/IconThemeName.*_Net/IconThemeName "Papirus-Custom"_' $XSETTINGSD_CONFIG
 sed -i '2s_Net/ThemeName.*_Net/ThemeName "Sweetly"_' $XSETTINGSD_CONFIG
 xsettingsd &> /dev/null &
-sleep 3s && killall xsettingsd &
+read -rt "3" <> <(:) || : && killall xsettingsd &
 
 # Set Openbox Margin, Dunst, and Rofi Sidebar
 bash -c "$VISMOD_DIR/ort-toggle vismod_spawn"
@@ -29,4 +29,4 @@ cp $OB_BUTTON_DIR/$CHK_VISMOD_BUTTON/* $EYC_BUTTON_DIR
 sed -i '34s_<name>.*_<name>Sweetly</name>_' $OB_CONFIG
 
 # Reconfigure Openbox (realistic theme)
-coproc read -t .4 && wait "$!" || true && openbox --reconfigure &
+read -rt ".4" <> <(:) || : && openbox --reconfigure &
