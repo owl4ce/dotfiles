@@ -26,7 +26,7 @@
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/dednsbl-fb9e8515-7350-449c-86ad-a6486750f6dc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWRuc2JsLWZiOWU4NTE1LTczNTAtNDQ5Yy04NmFkLWE2NDg2NzUwZjZkYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.njiKkfQ-ZufdwgSFn_y-KsGhGdtJqVi-ew_bnstSdbc" alt="owl4ce/dotfiles.minimal" align="right" width="400px"/>
 </a>
 
-This is my personal configuration for my favorite openbox window manager and some applications too.
+This is my **personal configuration** for my favorite openbox window manager and some applications too.
 
 I hope you understand everything here. :wink:
 
@@ -276,6 +276,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   <summary><strong>Most of .files</strong></summary>
   
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
+   > Assume you are cloning in the `~/Documents` directory for example.
    ```bash
    $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
    ```
@@ -365,6 +366,7 @@ exec dbus-launch --exit-with-session openbox-session
 
 ### Update
 Since I suggested using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
+> Remember where you cloned this repository.
 ```bash
 $ cd dotfiles/ && git pull
 ```
@@ -740,20 +742,20 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   - [NetworkManager Dmenu](https://github.com/firecat53/networkmanager-dmenu)
   - [Showing Album Cover in Ncmpcpp](https://marcocheung.wordpress.com/2015/08/09/showing-album-cover-in-ncmpcpp/)
   - [Complete List of GitHub Markdown Emoji Markup](https://gist.github.com/rxaviers/7360908)
-  - Many GNU/Linux & Unix forums.
+  - Many GNU/Linux and Unix forums.
   
 - **Contributors**
   - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
   - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
   - [Justin Faber](https://github.com/vredesbyyrd) - [Rofi matched lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)
-  - [...](https://github.com/owl4ce/dotfiles/graphs/contributors)
+  - [[...]](https://github.com/owl4ce/dotfiles/graphs/contributors)
   
 - **Softwares**
   - [Geany - The Flyweight IDE](https://www.geany.org/)
   - [GIMP - GNU Image Manipulation Program](https://www.gimp.org/)
   - [Gpick - Advanced Color Picker](http://www.gpick.org/)
   - [Themix - GUI Theme Designer](https://github.com/themix-project/oomox)
-  - etc.
+  - Tint2conf, etc.
 
 - **Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart), [@dotfiles_id](https://t.me/dotfiles_id), and [r/unixporn](https://www.reddit.com/r/unixporn/).**
 - **© All artists who make icons, illustrations, and wallpapers.**
