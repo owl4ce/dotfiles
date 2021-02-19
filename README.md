@@ -105,7 +105,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
-> **Warning! This configuration is highly dependent to `bash`**
+> **Warning!** This configuration is highly dependent to `bash`
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -452,8 +452,27 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
     
   </details>
   
-- **Battery Indicator <kbd>optional</kbd>**  
-  Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`, then relogin openbox-session.
+- **User Tray Icons**  
+  [`~/.config/openbox/tray`](./.config/openbox/tray)  
+  An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead.
+
+  > **How about battery indicator?**  
+  > Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`.
+
+  Remove hashtags for all your needs, then re-login openbox-session.
+  
+  > **Warning!** Putting a tray here means that when switching modes, the program will be restarted.
+  ```cfg
+  1 #
+  2 # This tray will restart after changing visual mode
+  3 # Please add "&" after command
+  4 #
+  5 # ---
+  6
+  7 parcellite &
+  8 #nm-applet &
+  9 #xfce4-power-manager &
+  ```
   
 - **Dunst Notification Action - Default Web Browser**  
   > <kbd>`middle click`</kbd>
@@ -584,20 +603,6 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   4 filemanager="thunar"
   ```
   
-- **Tray Icons**  
-  [`~/.config/openbox/tray`](./.config/openbox/tray)  
-  An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead. Remove hashtags before nm-applet.
-  ```cfg
-  1 #
-  2 # This tray will restart after changing visual mode
-  3 # Please add "&" after command
-  4 #
-  5 # ---
-  6
-  7 parcellite &
-  8 #nm-applet &
-  ```
-
 - **Neovim**  
   [`~/.config/nvim/`](./.config/nvim/)  
   You know what to do with [Vim-plug](https://github.com/junegunn/vim-plug).
