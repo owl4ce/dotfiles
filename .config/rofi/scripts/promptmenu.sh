@@ -20,25 +20,20 @@ if [[ $# -eq 0 ]]; then
 else
     while [[ $# -ne 0 ]]; do
         case "$1" in
-            -o|--yes-text) # Optional
-                [[ -n "$2" ]] && yes_text="$2" || yes_text=""
-                shift
+            -o|--yes-text)      [[ -n "$2" ]] && yes_text="$2" || yes_text=""
+                                shift
             ;;
-            -c|--no-text) # Optional
-                [[ -n "$2" ]] && no_text="$2" || no_text=""
-                shift
+            -c|--no-text)       [[ -n "$2" ]] && no_text="$2" || no_text=""
+                                shift
             ;;
-            -y|--yes-command) # Required
-                [[ -n "$2" ]] && yes_command="$2"
-                shift
+            -y|--yes-command)   [[ -n "$2" ]] && yes_command="$2"
+                                shift
             ;;
-            -n|--no-command) # Optional
-                [[ -n "$2" ]] && no_command="$2"
-                shift
+            -n|--no-command)    [[ -n "$2" ]] && no_command="$2"
+                                shift
             ;;
-            -q|--query) # Optional
-                [[ -n "$2" ]] && query="$2"
-                shift
+            -q|--query)         [[ -n "$2" ]] && query="$2"
+                                shift
             ;;
         esac
         shift
@@ -50,10 +45,8 @@ options="$yes_text\n$no_text"
 
 chosen="$(echo -e "$options" | $rofi_command -p "$query" -dmenu -selected-row 1)"
 case $chosen in
-    $yes_text)
-        eval "$yes_command"
+    $yes_text)  eval "$yes_command"
     ;;
-    $no_text)
-        eval "$no_command"
+    $no_text)   eval "$no_command"
     ;;
 esac

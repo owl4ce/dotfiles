@@ -42,22 +42,16 @@ current="$($MUSIC_CONTROLLER title)"
 # Spawn the mpd menu with the "Play / Pause" entry selected by default
 chosen="$(echo -e "$options" | $rofi_command -dmenu $active $urgent -selected-row 1)"
 case $chosen in
-    $previous)
-        $MUSIC_CONTROLLER prev
+    $previous)      $MUSIC_CONTROLLER prev
     ;;
-    $play_pause)
-        $MUSIC_CONTROLLER toggle
+    $play_pause)    $MUSIC_CONTROLLER toggle
     ;;
-    $stop)
-        $MUSIC_CONTROLLER stop
+    $stop)          $MUSIC_CONTROLLER stop
     ;;
-    $next)
-        $MUSIC_CONTROLLER next
+    $next)          $MUSIC_CONTROLLER next
     ;;
-    $tog_repeat)
-        mpc -q single
+    $tog_repeat)    mpc -q single
     ;;
-    $tog_stream)
-        $MUSIC_CONTROLLER switchpl
+    $tog_stream)    $MUSIC_CONTROLLER switchpl
     ;;
 esac

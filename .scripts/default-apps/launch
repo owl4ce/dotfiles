@@ -25,26 +25,23 @@ apps() {
 }
 
 case $1 in
-    -g|--get)
-        [[ "${*:2}" = "" ]] && exit 1
-        echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}' 2> /dev/null)"
+    -g|--get)       [[ "${*:2}" = "" ]] && exit 1
+                    echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}' 2> /dev/null)"
     ;;
-    -e|--edit)
-        echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
-        read "TEXT_EDITOR"
-        command -v "$TEXT_EDITOR" > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
-        $TEXT_EDITOR $DEFAPPS_FILE || exit 1
+    -e|--edit)      echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
+                    read "TEXT_EDITOR"
+                    command -v "$TEXT_EDITOR" > /dev/null 2>&1 || err "$1 is not installed. Please install it first!"
+                    $TEXT_EDITOR $DEFAPPS_FILE || exit 1
     ;;
-    ""|-h|--help)
-        apps
+    ""|-h|--help)   apps
     ;;
-    *)  if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1" 2> /dev/null)" ]]; then
-            filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}' 2> /dev/null)"
-            opt="$(echo $@ | tr ' ' '\ 'i)"
-            [[ ! -z "$2" ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
-            [[ ! -z "$1" ]] && bash -c "$filt &> /dev/null &" && exit 0
-        else
-            command -v "$1" > /dev/null 2>&1 || err "${M}$1${NC} is not in list. Please define it first!"
-        fi
+    *)              if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1" 2> /dev/null)" ]]; then
+                        filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}' 2> /dev/null)"
+                        opt="$(echo $@ | tr ' ' '\ 'i)"
+                        [[ ! -z "$2" ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
+                        [[ ! -z "$1" ]] && bash -c "$filt &> /dev/null &" && exit 0
+                    else
+                        command -v "$1" > /dev/null 2>&1 || err "${M}$1${NC} is not in list. Please define it first!"
+                    fi
     ;;
 esac

@@ -6,7 +6,7 @@ command -v "scrot" > /dev/null 2>&1 || noterr
 
 {
     [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"
-    [[ "$1" = "delay" ]] && sleep .5s
+    [[ "$1" = "delay" ]] && coproc read -t .5 && wait "$!" || true
     scrot -q "$QUALITY" -e "mv '\$f' \"$SAVE_DIR/Screenshots\"" &> /dev/null
     $EXNOTIFY_SEND -r 11 -i "$NOTIF_SS_ICON" -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
 } &

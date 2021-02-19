@@ -4,86 +4,81 @@ source $HOME/.owl4ce_var
 echo "$CHK_ORT" > $VISMOD_ROFI_FILE
 
 case $1 in
-    v_left)
-        sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-eyc
-        sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-mech
-        
-        sed -i 's_anchor:.*_anchor: east;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
-        sed -i 's_anchor:.*_anchor: east;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
-        sed -i 's_anchor:.*_anchor: east;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
-        sed -i 's_location:.*_location: east;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
-        sed -i 's_location:.*_location: east;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
-        sed -i 's_location:.*_location: east;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
-        sed -i 's_x-offset:.*_x-offset: -1.4%;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
-        sed -i 's_x-offset:.*_x-offset: -1.4%;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
-        sed -i 's_x-offset:.*_x-offset: -1.4%;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
-        
-        sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
-        sed -i '130s_<left>.*_<left>55</left>_' $OB_CONFIG
-        sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
-        sed -i '128s_<top>.*_<top>10</top>_' $OB_CONFIG
+    v_left)     sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-eyc
+                sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-mech
+                
+                sed -i 's_anchor:.*_anchor: east;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
+                sed -i 's_anchor:.*_anchor: east;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
+                sed -i 's_anchor:.*_anchor: east;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
+                sed -i 's_location:.*_location: east;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
+                sed -i 's_location:.*_location: east;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
+                sed -i 's_location:.*_location: east;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
+                sed -i 's_x-offset:.*_x-offset: -1.4%;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
+                sed -i 's_x-offset:.*_x-offset: -1.4%;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
+                sed -i 's_x-offset:.*_x-offset: -1.4%;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
+                
+                sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
+                sed -i '130s_<left>.*_<left>55</left>_' $OB_CONFIG
+                sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
+                sed -i '128s_<top>.*_<top>10</top>_' $OB_CONFIG
     ;;
-    v_right)
-        sed -i 's_geometry =.*_geometry = "350x6+19+52"_' $DUNST_DIR/dunstrc-eyc
-        sed -i 's_geometry =.*_geometry = "350x6+19+52"_' $DUNST_DIR/dunstrc-mech
-        
-        sed -i 's_anchor:.*_anchor: west;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
-        sed -i 's_anchor:.*_anchor: west;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
-        sed -i 's_anchor:.*_anchor: west;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
-        sed -i 's_location:.*_location: west;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
-        sed -i 's_location:.*_location: west;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
-        sed -i 's_location:.*_location: west;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
-        sed -i 's_x-offset:.*_x-offset: 1.4%;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
-        sed -i 's_x-offset:.*_x-offset: 1.4%;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
-        sed -i 's_x-offset:.*_x-offset: 1.4%;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
-        
-        sed -i '131s_<right>.*_<right>55</right>_' $OB_CONFIG
-        sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
-        sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
-        sed -i '128s_<top>.*_<top>10</top>_' $OB_CONFIG
+    v_right)    sed -i 's_geometry =.*_geometry = "350x6+19+52"_' $DUNST_DIR/dunstrc-eyc
+                sed -i 's_geometry =.*_geometry = "350x6+19+52"_' $DUNST_DIR/dunstrc-mech
+                
+                sed -i 's_anchor:.*_anchor: west;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
+                sed -i 's_anchor:.*_anchor: west;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
+                sed -i 's_anchor:.*_anchor: west;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
+                sed -i 's_location:.*_location: west;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
+                sed -i 's_location:.*_location: west;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
+                sed -i 's_location:.*_location: west;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
+                sed -i 's_x-offset:.*_x-offset: 1.4%;_' $ROFI_SIDEBAR_DIR/six-vertical.rasi
+                sed -i 's_x-offset:.*_x-offset: 1.4%;_' $ROFI_SIDEBAR_DIR/five-vertical.rasi
+                sed -i 's_x-offset:.*_x-offset: 1.4%;_' $ROFI_SIDEBAR_DIR/three-vertical.rasi
+                
+                sed -i '131s_<right>.*_<right>55</right>_' $OB_CONFIG
+                sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
+                sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
+                sed -i '128s_<top>.*_<top>10</top>_' $OB_CONFIG
     ;;
-    h_top)
-        sed -i 's_geometry =.*_geometry = "350x6+19+65"_' $DUNST_DIR/dunstrc-eyc
-        sed -i 's_geometry =.*_geometry = "350x6+19+65"_' $DUNST_DIR/dunstrc-mech
-        
-        sed -i 's_anchor:.*_anchor: south;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
-        sed -i 's_anchor:.*_anchor: south;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
-        sed -i 's_anchor:.*_anchor: south;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
-        sed -i 's_location:.*_location: south;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
-        sed -i 's_location:.*_location: south;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
-        sed -i 's_location:.*_location: south;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
-        sed -i 's_y-offset:.*_y-offset: -3%;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
-        sed -i 's_y-offset:.*_y-offset: -3%;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
-        sed -i 's_y-offset:.*_y-offset: -3%;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
-        
-        sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
-        sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
-        sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
-        sed -i '128s_<top>.*_<top>55</top>_' $OB_CONFIG
+    h_top)      sed -i 's_geometry =.*_geometry = "350x6+19+65"_' $DUNST_DIR/dunstrc-eyc
+                sed -i 's_geometry =.*_geometry = "350x6+19+65"_' $DUNST_DIR/dunstrc-mech
+                
+                sed -i 's_anchor:.*_anchor: south;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
+                sed -i 's_anchor:.*_anchor: south;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
+                sed -i 's_anchor:.*_anchor: south;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
+                sed -i 's_location:.*_location: south;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
+                sed -i 's_location:.*_location: south;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
+                sed -i 's_location:.*_location: south;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
+                sed -i 's_y-offset:.*_y-offset: -3%;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
+                sed -i 's_y-offset:.*_y-offset: -3%;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
+                sed -i 's_y-offset:.*_y-offset: -3%;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
+                
+                sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
+                sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
+                sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
+                sed -i '128s_<top>.*_<top>55</top>_' $OB_CONFIG
     ;;
-    h_bottom)
-        sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-eyc
-        sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-mech
-        
-        sed -i 's_anchor:.*_anchor: north;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
-        sed -i 's_anchor:.*_anchor: north;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
-        sed -i 's_anchor:.*_anchor: north;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
-        sed -i 's_location:.*_location: north;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
-        sed -i 's_location:.*_location: north;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
-        sed -i 's_location:.*_location: north;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
-        sed -i 's_y-offset:.*_y-offset: 6.9%;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
-        sed -i 's_y-offset:.*_y-offset: 6.9%;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
-        sed -i 's_y-offset:.*_y-offset: 6.9%;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
-        
-        sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
-        sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
-        sed -i '129s_<bottom>.*_<bottom>55</bottom>_' $OB_CONFIG
-        sed -i '128s_<top>.*_<top>10</top>_' $OB_CONFIG
+    h_bottom)   sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-eyc
+                sed -i 's_geometry =.*_geometry = "350x6-19+52"_' $DUNST_DIR/dunstrc-mech
+                
+                sed -i 's_anchor:.*_anchor: north;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
+                sed -i 's_anchor:.*_anchor: north;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
+                sed -i 's_anchor:.*_anchor: north;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
+                sed -i 's_location:.*_location: north;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
+                sed -i 's_location:.*_location: north;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
+                sed -i 's_location:.*_location: north;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
+                sed -i 's_y-offset:.*_y-offset: 6.9%;_' $ROFI_SIDEBAR_DIR/six-horizontal.rasi
+                sed -i 's_y-offset:.*_y-offset: 6.9%;_' $ROFI_SIDEBAR_DIR/five-horizontal.rasi
+                sed -i 's_y-offset:.*_y-offset: 6.9%;_' $ROFI_SIDEBAR_DIR/three-horizontal.rasi
+                
+                sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
+                sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
+                sed -i '129s_<bottom>.*_<bottom>55</bottom>_' $OB_CONFIG
+                sed -i '128s_<top>.*_<top>10</top>_' $OB_CONFIG
     ;;
-    minmod)
-        sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
-        sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
-        sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
-        sed -i '128s_<top>.*_<top>40</top>_' $OB_CONFIG
+    minmod)     sed -i '131s_<right>.*_<right>10</right>_' $OB_CONFIG
+                sed -i '130s_<left>.*_<left>10</left>_' $OB_CONFIG
+                sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
+                sed -i '128s_<top>.*_<top>40</top>_' $OB_CONFIG
     ;;
 esac
