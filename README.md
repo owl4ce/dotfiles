@@ -88,7 +88,7 @@ Here are some details about my setup
 ## :rice_scene:  Setup
 This is how to install these dotfiles for automatic settings OpenboxWM custom environment.
 
----
+##  
 
 ### Introduction of Linux Rice
 
@@ -101,7 +101,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 
 </details>
 
----
+##  
 
 ### Installation (dependencies)
 > Adjust your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with multimedia application that I use.
@@ -277,7 +277,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     146 export BAT_THEME="base16"
     ```
 
----
+##  
 
 ### Installation (dotfiles)
   
@@ -374,7 +374,7 @@ exec openbox-session
 exec dbus-launch --exit-with-session openbox-session
 ```
 
----
+##  
 
 ### Update
 Since I suggested using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
@@ -401,7 +401,7 @@ and whatever the file is. Next, of course is rsync.
 $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 ```
 
----
+##  
 
 ### User configuration
 - **SLiM Themes <kbd>optional</kbd>**
@@ -725,13 +725,26 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 ### <p align="center">Color Scheme</p>
 <p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/XDjndMJ/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
-### <p align="center">Why use this setup?</p>
-<p align="center"><a href="#why-use-this-setup"><img src="https://i.ibb.co/v44N9jt/2021-02-06-165824-378x330-scrot.png" alt="owl4ce.ps_mem"></a></p>
-
-### <p align="center">:love_letter:</p>
+<table border="0">
+<tr>
+<td>
+<br>
+<p align="center">:speech_balloon:</p>
+</tr>
+</td>
+<tr>
+<td>
+<br>
 <p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git assets.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfectly next-gen window manager, highly configurable, and less resources usage.</p>
-
-[![Stargazers over time](https://starchart.cc/owl4ce/dotfiles.svg)](https://starchart.cc/owl4ce/dotfiles)
+</td>
+</tr>
+<tr>
+<td>
+<br>
+<a href="https://starchart.cc/owl4ce/dotfiles"><p align="center"><img src="https://starchart.cc/owl4ce/dotfiles.svg"/></p></a>
+</td>
+</tr>
+</table>
 
 ## :hearts:  Credits / Thanks
 - **Inspiration and resources**
