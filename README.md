@@ -88,6 +88,8 @@ Here are some details about my setup
 ## :rice_scene:  Setup
 This is how to install these dotfiles for automatic settings OpenboxWM custom environment.
 
+---
+
 ### Introduction of Linux Rice
 
 <details>
@@ -99,13 +101,16 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 
 </details>
 
+---
+
 ### Installation (dependencies)
-> Adjust your choice about dependencies below, this is my complete setup as I use single OpenboxWM with multimedia application that I use.
+> Adjust your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with multimedia application that I use.
 >   
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
-> **Warning!** This configuration is highly dependent to `bash`
+> **Warning!** This configuration is highly dependent to `bash`.  
+> Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas).
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -237,10 +242,12 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
    Customize/port dependencies yourself!  
    
    **For example**  
-   - [Gentoo](https://packages.gentoo.org/)
-   - [Void](https://voidlinux.org/packages/)
+   - [Gentoo/Linux](https://packages.gentoo.org/)
+   - [Void (Linux)](https://voidlinux.org/packages/)
+
+   > For Gentoo/Linux, I recommend to enabling [`keywords`](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages and/or using `ebuild-9999`.
   
-   If it's not there, compile it manually from git source code or from elsewhere.
+   **If it's not there, compile it manually from git source code or from elsewhere.**
   
   </details
   
@@ -269,6 +276,8 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
     
     146 export BAT_THEME="base16"
     ```
+
+---
 
 ### Installation (dotfiles)
   
@@ -336,14 +345,14 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   </details>
 
   <details open>
-  <summary><strong>Root Privileges with SUID</strong></summary>
+  <summary><strong>Root Privileges with <a href="https://en.wikipedia.org/wiki/Setuid#SUID">SUID</a></strong></summary>
   
    - `poweroff`
    - `reboot`
    - `brightnessctl`
    - *others if needed*
    ```bash
-   $ sudo chmod u+s `which {poweroff,reboot,brightnessctl}`
+   $ sudo chmod u+s $(command -v {poweroff,reboot,brightnessctl})
    ```
    > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_ma</strong>nagement).
     
@@ -589,7 +598,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   127 AUDIO_STEPS="5" # Real value
   128 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
   ```
-  > **TEMP_DEV**: Check here
+  > For **`TEMP_DEV`** check here.
   > ```bash
   > /sys/devices/virtual/thermal/
   > ```
@@ -625,7 +634,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 - **Ncmpcpp Music Directory**  
   Auto connect with MPD
   
-  > **How to use ncmpcpp albumart?**  
+  > **How to use ncmpcpp albumart?** (URxvt)  
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
 
 - **Audio Server <kbd>optional</kbd>**  
