@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var && clear
+source $HOME/.owl4ce_var && printf "\033c"
 R="\e[1;31m"; M="\e[1;35m"; C="\e[1;36m"; NC="\e[0m"
 
 case $1 in
