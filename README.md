@@ -302,7 +302,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
    > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
    >
    >   
-   > I recommend not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
+   > I recommend to not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
   
   </details>
 
@@ -350,8 +350,11 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
   </details>
   
 ### The step you are waiting for
-The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc. If you are using `~/.xinitrc`, simply add
+The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc.
 
+> **I recommend to [configuring](#user-configuration) what you want first, before logging into openbox-session.**
+
+If you are using `~/.xinitrc`, simply add
 **Systemd Linux Distribution**  
 ```cfg
 exec openbox-session
