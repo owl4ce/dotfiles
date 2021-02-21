@@ -109,7 +109,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
-> **Warning!** This configuration is highly dependent to `bash`.  
+> **Warning!** This configuration is highly dependent to `bash`, `sed`, and `coreutils`.  
 > Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas).
 
   <details open>
@@ -466,7 +466,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
     
   </details>
   
-- **User Tray Icons**  
+- **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
   An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead.
 
@@ -745,6 +745,8 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 </td>
 </tr>
 </table>
+
+<br>
 
 ## :hearts:  Credits / Thanks
 - **Inspiration and resources**
