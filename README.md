@@ -446,6 +446,8 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
     </a></p>
     
     <p align="center">Just click on the image above!</p>
+    <p align="center">Or maybe you want a <a href="https://downgit.github.io/#/home?url=https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish">direct link</a> without downloading the complete repository</p>
+    <p align="center"><b>Another useful tips:</b> <a href="https://github.com/tsmetana/spotify-tray">spotify-tray</a></p>
     
   </details>
   
