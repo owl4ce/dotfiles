@@ -19,6 +19,7 @@ icon() {
     else
         icon=""
     fi
+    
     echo "$icon"
 }
 
