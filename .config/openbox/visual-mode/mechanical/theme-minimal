@@ -25,7 +25,7 @@ sed -i '5s_colorschemes/.*.rasi_colorschemes/sidebar-dark.rasi_' $ROFI_SIDEBAR_C
 sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' $OB_CONFIG
 
 # Openbox Theme & Buttons
-cp $OB_BUTTON_DIR/$CHK_MINMOD_BUTTON/* $MECH_BUTTON_DIR
+cp "$OB_BUTTON_DIR"/"$CHK_MINMOD_BUTTON"/* $MECH_BUTTON_DIR
 sed -i '34s_<name>.*_<name>Fleon</name>_' $OB_CONFIG
 
 # Reconfigure Openbox (realistic theme)
