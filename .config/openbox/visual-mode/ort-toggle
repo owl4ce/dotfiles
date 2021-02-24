@@ -3,8 +3,8 @@ source $HOME/.owl4ce_var
 
 kill() { killall tint2; killall dunst; }
 reUI() {
-    dunst -config $DUNST_DIR/$CHK_DUNST_MOD &> /dev/null &
-    tint2 -c $CURRENT_PANEL &> /dev/null &
+    dunst -config "$DUNST_DIR"/"$CHK_DUNST_MOD" &> /dev/null &
+    tint2 -c "$CURRENT_PANEL" &> /dev/null &
 }
 
 if [[ $CHK_MINMOD = *"minimal"* ]]; then

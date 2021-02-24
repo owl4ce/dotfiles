@@ -2,10 +2,10 @@
 source $HOME/.owl4ce_var
 
 # Notification Daemon
-dunst -config $DUNST_DIR/$CHK_DUNST_MOD &
+dunst -config "$DUNST_DIR"/"$CHK_DUNST_MOD" &
 
 # Wallpaper Setter
-nitrogen --set-zoom-fill --save $WALL_DIR/$CHK_MINMOD_WALL &> /dev/null
+nitrogen --set-zoom-fill --save "$WALL_DIR"/"$CHK_MINMOD_WALL" &> /dev/null
 
 # Panel
-tint2 -c $TINT2_DIR/statint-dark.tint2rc &
+tint2 -c "$TINT2_DIR"/statint-dark.tint2rc &

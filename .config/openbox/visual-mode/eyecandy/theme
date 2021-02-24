@@ -25,7 +25,7 @@ sed -i '5s_colorschemes/.*.rasi_colorschemes/sidebar.rasi_' $ROFI_SIDEBAR_CONFIG
 sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' $OB_CONFIG
 
 # Openbox Theme & Buttons
-cp $OB_BUTTON_DIR/$CHK_VISMOD_BUTTON/* $EYC_BUTTON_DIR
+cp "$OB_BUTTON_DIR"/"$CHK_VISMOD_BUTTON"/* $EYC_BUTTON_DIR
 sed -i '34s_<name>.*_<name>Sweetly</name>_' $OB_CONFIG
 
 # Reconfigure Openbox (realistic theme)
