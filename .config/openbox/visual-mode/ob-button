@@ -29,9 +29,9 @@ case $1 in
             else
                 eval "BTN=\$button${num}"
                 BTN_DIR="$MECH_BUTTON_DIR" && [[ $CHK_VISMOD = *"eyecandy"* ]] && BTN_DIR="$EYC_BUTTON_DIR"
-                cp $BTN/* $BTN_DIR/
+                cp "$BTN"/* "$BTN_DIR"/
                 openbox --reconfigure
-                buttonselfilt="$(echo $BTN | grep -oE '[^/]+$' $1)"
+                buttonselfilt="$(echo "$BTN" | grep -oE '[^/]+$' $1)"
                 BTN_FILE="$VISMOD_BUTTON_FILE" && [[ $CHK_MINMOD != "" ]] && BTN_FILE="$MINMOD_BUTTON_FILE" 
                 echo "$buttonselfilt" > $BTN_FILE
                 printf "${G}<${C}=${G}> ${W}Selected button style: ${NC}$buttonselfilt\n"

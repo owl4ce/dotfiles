@@ -19,7 +19,7 @@ if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
     printf >&2 "${G}<${C}=${G}> ${R}Wrong selection!\n" && exit 1
 else
     eval "IMG=\$img${num}"
-    nitrogen --set-zoom-fill --save $IMG &> /dev/null
+    nitrogen --set-zoom-fill --save "$IMG" &> /dev/null
     # Write selected
     selected="$(echo "$IMG" | awk -F"$CHK_VISMOD/" '{print $2}')"
     WALL_FILE="$VISMOD_WALL_FILE" && [[ $CHK_MINMOD != "" ]] && WALL_FILE="$MINMOD_WALL_FILE" 
