@@ -765,6 +765,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 - **Knowledge and other resources**
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
   - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
+  - [CUstom Environment @ ArchWiki](https://wiki.archlinux.org/index.php/desktop_environment#Custom_environments)
   - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
   - [Stark's Color Scripts](https://github.com/stark/Color-Scripts)
   - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh)
