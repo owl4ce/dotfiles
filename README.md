@@ -86,7 +86,7 @@ Here are some details about my setup
 </details>
   
 ## :rice_scene:  Setup
-This is how to install these dotfiles for automatic settings OpenboxWM custom environment.
+This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment.
 
 ##  
 
@@ -331,7 +331,7 @@ This is how to install these dotfiles for automatic settings OpenboxWM custom en
      That's needed by dunst in order to display most of icon from notification that spawned by application.
    >   
    > **Why not just move it directly to user system resources?**  
-     Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
+     Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr/share/icons` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
      
   </details>
 
@@ -393,6 +393,7 @@ Then list the files excluded by rsync. For example,
 6 .nanorc
 7 nvim
 8 mpv
+9 thunar.xml
 
 ...
 ```
@@ -422,7 +423,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   <details>
   <summary><strong>See</strong></summary>
   
-    **Settings**: `chrome://settings/`
+    **Settings**: [`chrome://settings/`](chrome://settings/)
     - Themes: `Use GTK+`
     - `Use system title bar and borders`
     
@@ -607,10 +608,10 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   
 - **Available Default Apps**  
   [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
-  - **Terminal**: urxvt/termite
-  - **Lockscreen**: anything
-  - **Music Player**: mpd/spotify
-  - **File Manager**: anything
+  - **Terminal**: `urxvt/termite`
+  - **Lockscreen**: *anything*
+  - **Music Player**: `mpd/spotify`
+  - **File Manager**: *anything*
   
   ```cfg
   1 terminal="urxvt"
@@ -634,7 +635,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   ```
   
 - **Ncmpcpp Music Directory**  
-  Auto connect with MPD
+  Auto connect with MPD.
   
   > **How to use ncmpcpp albumart?** (URxvt)  
   It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
@@ -737,7 +738,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 <tr>
 <td>
 <br>
-<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git assets.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfectly next-gen window manager, highly configurable, and less resources usage.</p>
+<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git assets.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, star it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfectly next-gen window manager, highly configurable, and less resources usage.</p>
 </td>
 </tr>
 <tr>
@@ -787,5 +788,5 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   - [Themix - GUI Theme Designer](https://github.com/themix-project/oomox)
   - Tint2conf, etc.
 
-- **Our local linux community [Linuxer Desktop Art](https://web.facebook.com/groups/linuxart), [@dotfiles_id](https://t.me/dotfiles_id), and [r/unixporn](https://www.reddit.com/r/unixporn/).**
-- **© All artists who make icons, illustrations, and wallpapers.**
+- **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also [r/unixporn](https://www.reddit.com/r/unixporn/).**
+- **© All artist who make icons, illustrations, and wallpapers.**
