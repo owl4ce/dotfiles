@@ -34,7 +34,6 @@ OB_CONFIG="$OB_DIR/rc.xml"
 GTK2_CONFIG="$HOME/.gtkrc-2.0"
 GTK3_CONFIG="$HOME/.config/gtk-3.0/settings.ini"
 XSETTINGSD_CONFIG="$HOME/.xsettingsd"
-QT5CT_CONFIG="$HOME/.config/qt5ct/qt5ct.conf"
 ROFI_FULLSCREEN_CONFIG="$ROFI_DIR/themes/shared/settings.rasi"
 ROFI_SIDEBAR_CONFIG="$ROFI_DIR/themes/sidebar/colors.rasi"
 
