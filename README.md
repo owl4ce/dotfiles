@@ -566,40 +566,40 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   ```cfg
   ...
   
-   95 #-------------------------------------------------------------------------#
-   96 # TINT2 EXECUTOR                                                          #
-   97 #-------------------------------------------------------------------------#
-   98
-   99 INT_ETH="enp4s0"
-  100 INT_WIFI="wlp3s0"
-  101 TEMP_DEV="thermal_zone0"
-  102
-  103 #-------------------------------------------------------------------------#
-  104 # SCREENSHOT OPTIONS                                                      #
-  105 #-------------------------------------------------------------------------#
-  106 # This will create "Screenshots" folder inside SAVE_DIR                   #
-  107 #-------------------------------------------------------------------------#
-  108
-  109 TIMER_SEC="5"
-  110 SAVE_DIR="$HOME/Pictures"
-  111 FRAME_COLOR="#ffffff" # RGBA supported
-  112 COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
-  113 OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
-  114 FRAMED_SHADOW_OPACITY="25" # 0-100, high value means thick shadows
-  115 QUALITY="100" # 1-100, high value means high size with low compression
-  116
-  117 #-------------------------------------------------------------------------#
-  118 # XAUTOLOCK - 5 means 5 minutes                                           #
-  119 #-------------------------------------------------------------------------#
-  120 
-  121 AUTOLOCK_MINUTE="5"
-  122
-  123 #-------------------------------------------------------------------------#
-  124 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
-  125 #-------------------------------------------------------------------------#
-  126
-  127 AUDIO_STEPS="5" # Real value
-  128 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
+   94 #-------------------------------------------------------------------------#
+   95 # TINT2 EXECUTOR                                                          #
+   96 #-------------------------------------------------------------------------#
+   97
+   98 INT_ETH="enp4s0"
+   99 INT_WIFI="wlp3s0"
+  100 TEMP_DEV="thermal_zone0"
+  101
+  102 #-------------------------------------------------------------------------#
+  103 # SCREENSHOT OPTIONS                                                      #
+  104 #-------------------------------------------------------------------------#
+  105 # This will create "Screenshots" folder inside SAVE_DIR                   #
+  106 #-------------------------------------------------------------------------#
+  107
+  108 TIMER_SEC="5"
+  109 SAVE_DIR="$HOME/Pictures"
+  110 FRAME_COLOR="#ffffff" # RGBA supported
+  111 COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
+  112 OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
+  113 FRAMED_SHADOW_OPACITY="25" # 0-100, high value means thick shadows
+  114 QUALITY="100" # 1-100, high value means high size with low compression
+  115
+  116 #-------------------------------------------------------------------------#
+  117 # XAUTOLOCK - 5 means 5 minutes                                           #
+  118 #-------------------------------------------------------------------------#
+  119 
+  120 AUTOLOCK_MINUTE="5"
+  121
+  122 #-------------------------------------------------------------------------#
+  123 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
+  124 #-------------------------------------------------------------------------#
+  125
+  126 AUDIO_STEPS="5" # Real value
+  127 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
   ```
   > For **`TEMP_DEV`** check here.
   > ```bash
