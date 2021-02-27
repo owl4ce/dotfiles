@@ -51,6 +51,6 @@ case $1 in
                 elif [[ $CURRENT_MUSICPL = "spotify" ]]; then
                     sed -i 's_musicpl=".*"_musicpl="mpd"_' $DEFAPPS_FILE
                 fi
-                $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "Set <u>$($DEFAPPS_EXEC -g musicpl)</u> as default"
+                $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nSuccessfully set as default"
     ;;
 esac
