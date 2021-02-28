@@ -85,7 +85,7 @@ Here are some details about my setup
   
 </details>
 
-<details open>
+<details>
   <summary><strong>ToDo [v3.2]</strong></summary>
   
   - Customizable tint2 (start logo, color, etc.), match the wallpaper.
