@@ -88,6 +88,7 @@ Here are some details about my setup
 <details>
   <summary><strong>ToDo [v3.2]</strong></summary>
   
+  - Transparency control (internal if possible, instead of picom's opacity)
   - Customizable tint2 (start logo, color, etc.), match the wallpaper.
   - Wallpaper colorizer and cropper ( **16:9** ), etc.
   - *Not yet*
