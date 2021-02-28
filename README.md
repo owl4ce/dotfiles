@@ -86,10 +86,10 @@ Here are some details about my setup
 </details>
 
 <details open>
-  <summary><strong>ToDo</strong></summary>
+  <summary><strong>ToDo [v3.2]</strong></summary>
   
-  - Customizable tint2 (start logo & color), match the wallpaper.
-  - Wallpaper colorizer, etc.
+  - Customizable tint2 (start logo, color, etc.), match the wallpaper.
+  - Wallpaper colorizer and cropper ( **16:9** ), etc.
   - *Not yet*
   
 </details>
