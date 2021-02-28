@@ -533,7 +533,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   <details>
   <summary>If you want to turn on for urxvt, follow this step.</summary>
 
-    [`~/.config/picom.com`](./.config/picom.conf)
+    [`~/.config/picom.conf`](./.config/picom.conf)
     ```cfg
     ...
     
@@ -562,7 +562,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 
     ...
     ```
-    `[95]` is the opacity level that will be applied to urxvt. After that do this to reload configuration.
+    `[95]` is the opacity level that will be applied to urxvt. After that, do this to reload configuration.
     ```bash
     $ xrdb ~/.Xresources
     ```
