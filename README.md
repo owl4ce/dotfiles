@@ -84,6 +84,15 @@ Here are some details about my setup
   - New Wallpapers
   
 </details>
+
+<details open>
+  <summary><strong>ToDo</strong></summary>
+  
+  - Customizable tint2 (start logo & color), match the wallpaper.
+  - Wallpaper colorizer, etc.
+  - *Not yet*
+  
+</details>
   
 ## :rice_scene:  Setup
 This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment.
