@@ -529,12 +529,24 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   ...
   ```
   
-- **URxvt - Transparent Background <kbd>optional</kbd>**    
+- **URxvt - Transparent Blurry Background <kbd>optional</kbd>**    
   <details>
-  <summary>If you want to turn on transparency on urxvt, follow this step.</summary>
-  
+  <summary>If you want to turn on for urxvt, follow this step.</summary>
+
+    [`~/.config/picom.com`](./.config/picom.conf)
+    ```cfg
+    ...
+    
+    107 blur-background = true;
+    108 # Blur background of opaque windows with transparent frames as well.
+    109 blur-background-frame = true;
+    110 # Do not let blur radius adjust based on window opacity.
+    111 blur-background-fixed = true;
+    
+    ...
+    ```
+
     [`~/.Xresources`](./.Xresources)
-  
     ```cfg
     ...
 
@@ -542,22 +554,22 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 
     ...
 
-    68 #define black0                    [90]#373E4D
+    68 #define black0                    [95]#373E4D
 
     ...
 
-    84 #define white0                    [90]#F9F9F9
+    84 #define white0                    [95]#F9F9F9
 
     ...
     ```
-    `[90]` is the opacity level that will be applied to urxvt. After that do this to reload configuration.
+    `[95]` is the opacity level that will be applied to urxvt. After that do this to reload configuration.
     ```bash
     $ xrdb ~/.Xresources
     ```
-    <p align="center"><img src="https://i.ibb.co/WPM2qBs/2021-01-22-112512-954x467-scrot.png" alt="urxvt.transparency"/></p>
+    <p align="center"><img src="https://i.ibb.co/W3Zg0bV/2021-02-28-124010-593x363-scrot.png" alt="urxvt.transparency"/></p>
 
     The issue is when displaying an image from pixmap (pixbuf) it becomes completely transparent except for internalBorder. So if you don't use ncmpcpp albumart, you can ignore it.
-    <p align="center"><img src="https://i.ibb.co/98MfvF8/2021-01-22-113147-581x309-scrot.png" alt="urxvt.transparency.issues"/></p>
+    <p align="center"><img src="https://i.ibb.co/Vg40HbQ/2021-02-28-123258-581x288-scrot.png" alt="urxvt.transparency.issues"/></p>
     
   </details>
   
