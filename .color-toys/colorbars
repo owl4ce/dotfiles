@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # colorbars - smpte color bars in sh
 # http://git.io/colorbars 
