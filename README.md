@@ -682,3 +682,8 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 
 - **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also [r/unixporn](https://www.reddit.com/r/unixporn/).**
 - **© All artist who make icons, illustrations, and wallpapers.**
+  
+  The original source that I found:
+  - [Gladient Icons](https://play.google.com/store/apps/details?id=com.maxghani.gladient)
+  - [桜](https://www.pixiv.net/en/artworks/80518034)
+  - [桜セイバー沖田総司](https://www.pixiv.net/en/artworks/59740059)
