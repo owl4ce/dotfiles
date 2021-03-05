@@ -12,7 +12,7 @@ get_size() {
         echo ""
     elif [[ "$SIZE" -lt "1920" ]]; then
         echo "HD"
-    elif [[ "$SIZE" -lt "2560" ]]; then
+    elif [[ "$SIZE" -lt "2048" ]]; then
         echo "FHD"
     elif [[ "$SIZE" -lt "2880" ]]; then
         echo "2K"
