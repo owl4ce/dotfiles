@@ -1,6 +1,6 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.ibb.co/k4PbLjv/dotfiles.png"/>
+     <img alt="" height="60%" width="100%" src="https://i.ibb.co/w0rbNCD/dotfiles-sakura.png"/>
   </a>
 </p>
 
@@ -74,24 +74,21 @@ Here are some details about my setup
     
 </details>
 
-<details open>
+<details>
   <summary><strong>v3.1</strong></summary>
   
   - **Screenshot Script**: Rounded corners, quality, shadows.
   - Terminal UI improvements, particularly font size
-  - Bug fixes and improvements [<kbd>keep looking</kbd>](https://github.com/owl4ce/dotfiles/commits/main)
+  - Bug fixes and improvements
   - Rounded picom as default
   - New Wallpapers
   
 </details>
 
-<details>
-  <summary><strong>ToDo [v3.2]</strong></summary>
+<details open>
+  <summary><strong>v3.2</strong></summary>
   
-  - Transparency control (internal if possible, instead of picom's opacity)
-  - Customizable tint2 (start logo, color, etc.), match the wallpaper.
-  - Wallpaper colorizer and cropper ( **16:9** ), etc.
-  - *Not yet*
+  -
   
 </details>
   
@@ -119,7 +116,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
-> **Warning!** This configuration is highly dependent to `bash`, `sed`, and `coreutils`.  
+> **Warning!** This configuration is highly dependent to `bash`, `sed`, `awk`, and `coreutils`.  
 > Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas).
 
   <details open>
@@ -272,20 +269,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
     ```cfg    
     ...
     
-    130 alias ls="exa -lgh --icons --group-directories-first"
-    131 alias la="exa -lgha --icons --group-directories-first"
+    131 alias ls="exa -lgh --icons --group-directories-first"
+    132 alias la="exa -lgha --icons --group-directories-first"
     
     ...
     ```
     
-  - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)  
-  
-    [`~/.zshrc`](./.zshrc)  
-    ```cfg    
-    ...
-    
-    146 export BAT_THEME="base16"
-    ```
+  - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)
 
 ##  
 
@@ -338,10 +328,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    $ sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
    ```
    > **Why I need to link icons to user system resources?**  
-     That's needed by dunst in order to display most of icon from notification that spawned by application.
-   >   
-   > **Why not just move it directly to user system resources?**  
-     Actually it's up to you, but I recommend sticking to `~/.icons` plus link to `/usr/share/icons` because I'm using [Arch on top of other linux distributions](https://github.com/owl4ce/archroot) with same homedir. More effective than copying icons to both roots.
+   > That's needed by dunst in order to display most of icon from notification that spawned by application.
      
   </details>
 
@@ -414,7 +401,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
 
 ##  
 
-### User configuration
+### User's configuration
 - **SLiM Themes <kbd>optional</kbd>**
   <details>
   <summary><strong>See</strong></summary>
@@ -491,7 +478,7 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   > **Warning!** Putting a tray here means that when switching modes, the program will be restarted.
   ```cfg
   1 #
-  2 # This tray will restart after changing visual mode
+  2 # This tray will restart after switching modes
   3 # Please add "&" after command
   4 #
   5 # ---
@@ -501,132 +488,9 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   9 #xfce4-power-manager &
   ```
   
-- **Dunst Notification Action - Default Web Browser**  
-  > <kbd>`middle click`</kbd>
-  
-  [`~/.config/dunst/dunstrc-mech`](./.config/dunst/dunstrc-mech)  
-  [`~/.config/dunst/dunstrc-mech-MINMOD`](./.config/dunst/dunstrc-mech-MINMOD)  
-  [`~/.config/dunst/dunstrc-eyc`](./.config/dunst/dunstrc-eyc)  
-  [`~/.config/dunst/dunstrc-eyc-MINMOD`](./.config/dunst/dunstrc-eyc-MINMOD)
-  ```cfg
-  ...
-  
-  42 browser = brave-bin
-  
-  ...
-  ```
-  
-- **URxvt - Default Web Browser**  
-  > <kbd>`middle click`</kbd>
-  
-  [`~/.Xresources`](./.Xresources)
-  ```cfg
-  ...
-  
-  63 URxvt.url-select.launcher:        brave-bin
-  
-  ...
-  ```
-  [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
-  
-- **URxvt - Application Icon**  
-  [`~/.Xresources`](./.Xresources)
-  ```cfg
-  ...
-  
-  17 URxvt.iconFile:                   /home/username/.icons/gladient/term.png
-  
-  ...
-  ```
-  
-- **URxvt - Transparent Blurry Background <kbd>optional</kbd>**    
-  <details>
-  <summary>If you want to turn on for urxvt, follow this step.</summary>
-
-    [`~/.config/picom.conf`](./.config/picom.conf)
-    ```cfg
-    ...
-    
-    107 blur-background = true;
-    108 # Blur background of opaque windows with transparent frames as well.
-    109 blur-background-frame = true;
-    110 # Do not let blur radius adjust based on window opacity.
-    111 blur-background-fixed = true;
-    
-    ...
-    ```
-
-    [`~/.Xresources`](./.Xresources)
-    ```cfg
-    ...
-
-    15 URxvt.depth:                      32
-
-    ...
-
-    68 #define black0                    [95]#373E4D
-
-    ...
-
-    84 #define white0                    [95]#F9F9F9
-
-    ...
-    ```
-    `[95]` is the opacity level that will be applied to urxvt. After that, do this to reload configuration.
-    ```bash
-    $ xrdb ~/.Xresources
-    ```
-    <p align="center"><img src="https://i.ibb.co/W3Zg0bV/2021-02-28-124010-593x363-scrot.png" alt="urxvt.transparency"/></p>
-
-    The issue is when displaying an image from pixmap (pixbuf) it becomes completely transparent except for internalBorder. So if you don't use ncmpcpp albumart, you can ignore it.
-    <p align="center"><img src="https://i.ibb.co/Vg40HbQ/2021-02-28-123258-581x288-scrot.png" alt="urxvt.transparency.issues"/></p>
-    
-  </details>
-  
-- **Global Variables**  
+- **User's preferences**  
   [`~/.owl4ce_var`](./.owl4ce_var)
-  ```cfg
-  ...
   
-   94 #-------------------------------------------------------------------------#
-   95 # TINT2 EXECUTOR                                                          #
-   96 #-------------------------------------------------------------------------#
-   97
-   98 INT_ETH="enp4s0"
-   99 INT_WIFI="wlp3s0"
-  100 TEMP_DEV="thermal_zone0"
-  101
-  102 #-------------------------------------------------------------------------#
-  103 # SCREENSHOT OPTIONS                                                      #
-  104 #-------------------------------------------------------------------------#
-  105 # This will create "Screenshots" folder inside SAVE_DIR                   #
-  106 #-------------------------------------------------------------------------#
-  107
-  108 TIMER_SEC="5"
-  109 SAVE_DIR="$HOME/Pictures"
-  110 FRAME_COLOR="#ffffff" # RGBA supported
-  111 COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
-  112 OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
-  113 FRAMED_SHADOW_OPACITY="25" # 0-100, high value means thick shadows
-  114 QUALITY="100" # 1-100, high value means high size with low compression
-  115
-  116 #-------------------------------------------------------------------------#
-  117 # XAUTOLOCK - 5 means 5 minutes                                           #
-  118 #-------------------------------------------------------------------------#
-  119 
-  120 AUTOLOCK_MINUTE="5"
-  121
-  122 #-------------------------------------------------------------------------#
-  123 # BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
-  124 #-------------------------------------------------------------------------#
-  125
-  126 AUDIO_STEPS="5" # Real value
-  127 BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
-  ```
-  > For **`TEMP_DEV`** check here.
-  > ```bash
-  > /sys/devices/virtual/thermal/
-  > ```
   
 - **Available Default Apps**  
   [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
@@ -721,11 +585,12 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   657 #image_source="${HOME}/.config/neofetch/images/bedrock.png"
   658 #image_source="${HOME}/.config/neofetch/images/gentoo.png"
   659 #image_source="${HOME}/.config/neofetch/images/gentoo_dark.png"
-  660 image_source="${HOME}/.config/neofetch/images/lofi.png"
-  661 #image_source="${HOME}/.config/neofetch/images/ubuntu.png"
-  662 #image_source="${HOME}/.config/neofetch/images/ubuntu_dark.png"
-  663 #image_source="${HOME}/.config/neofetch/images/void.png"
-  664 #image_source="${HOME}/.config/neofetch/images/void_dark.png"
+  660 #image_source="${HOME}/.config/neofetch/images/lofi.png"
+  661 image_source="${HOME}/.config/neofetch/images/sakura.png"
+  662 #image_source="${HOME}/.config/neofetch/images/ubuntu.png"
+  663 #image_source="${HOME}/.config/neofetch/images/ubuntu_dark.png"
+  664 #image_source="${HOME}/.config/neofetch/images/void.png"
+  665 #image_source="${HOME}/.config/neofetch/images/void_dark.png"
   
   ...
   ```
@@ -743,6 +608,20 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   Artix|LoFi|Bedrock
   |---|---|---|
   ![Artix](./.config/neofetch/images/artix.png)|![LoFi](./.config/neofetch/images/lofi.png)|![Bedrock](./.config/neofetch/images/bedrock.png)
+  
+  <table border="0"
+  <tr>
+  <td>
+    <b>Sakura</b>
+  </tr>
+  </td>
+  <tr>
+  <td>
+  <br>
+    <p align="center"><img src="./.config/neofetch/images/sakura.png" alt="Sakura"/></p>
+  </td>
+  </tr>
+  </table>
   
   </details>
 
