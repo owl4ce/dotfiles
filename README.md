@@ -91,7 +91,7 @@ Here are some details about my setup
   **Major Update**:
   - Customizable partial color accent and start button glyphs - [`L3-L57`](./.owl4ce_var#L3-L57)
   - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L125-L135`](./.owl4ce_var#L125-L135)
-  - Centralize dunst and urxvt transparency control - [`L58-L63`](./.owl4ce_var#L58-L63)
+  - Centralize dunst and urxvt opacity level - [`L58-L63`](./.owl4ce_var#L58-L63)
   - Centralize dunst and urxvt web browser - [`L64-L70`](./.owl4ce_var#L64-L70)
   - One click wallpaper generator
   - Auto configure urxvt icons
