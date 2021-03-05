@@ -337,7 +337,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    ```bash
    $ sudo chmod u+s $(command -v {poweroff,reboot,brightnessctl})
    ```
-   > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_ma</strong>nagement).
+   > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
     
   </details>
   
