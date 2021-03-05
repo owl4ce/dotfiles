@@ -413,7 +413,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
     <br>
     
-    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/55fvV30/2021-02-02-153019-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
+    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/GQdwQsq/2021-03-05-235353-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
 
   </details>
   
@@ -423,11 +423,11 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   
     <br>
     
-    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical">
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical"/>
-    </a></p>
     <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#eyecandy">
     <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy"/>
+    </a></p>
+    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical">
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical"/>
     </a></p>
     
     <p align="center">Just click on the image above!</p>
@@ -443,10 +443,10 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     <br>
     
     <p align="center"><a href="https://www.pling.com/p/1148692">
-    <img src="https://cdn.pling.com/img/4/8/3/5/e6df21a4d723a4e21a1b85f9ae5979f6fb25.png" alt="capitaine-cursors"/>
+    <img src="https://cdn.pling.com/img/6/8/5/6/0e64785edeb13cf2527cb2fd0f29774af6c4.png" alt="capitaine-cursors"/>
     </a></p>
     <p align="center"><a href="https://www.pling.com/p/1148692">
-    <img src="https://cdn.pling.com/img/6/8/5/6/0e64785edeb13cf2527cb2fd0f29774af6c4.png" alt="capitaine-cursors"/>
+    <img src="https://cdn.pling.com/img/4/8/3/5/e6df21a4d723a4e21a1b85f9ae5979f6fb25.png" alt="capitaine-cursors"/>
     </a></p>
     
     <p align="center">Just click on the image above!</p>
