@@ -85,8 +85,8 @@ Here are some details about my setup
   
 </details>
 
-<details open>
-  <summary><strong>v3.2</strong></summary>
+<details>
+  <summary><strong>v3.2</strong> <kbd>latest</kbd></summary>
   
   **Major Update**:
   - Customizable partial color accent and start button glyphs - [`L3-L57`](./.owl4ce_var#L3-L57)
@@ -268,8 +268,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 
 ### Installation (dotfiles) 
   
-  **Are all directories required?**  
-  Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
+  > **Are all directories required?**  
+  > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
   
   <details open>
   <summary><strong>Most of .files</strong></summary>
