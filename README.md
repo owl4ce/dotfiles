@@ -14,7 +14,7 @@
   <a href="https://deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/ZKTbkRy/gallery.png"/>
   </a>
-  <a href="#user-configuration">
+  <a href="#users-configuration">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/RznJp0s/user-conf.png"/>
   </a>
 </p>
@@ -63,7 +63,7 @@ Here are some details about my setup
     - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
     - Reverse terminal background and foreground (urxvt/termite)
     - Nvim Config - Thanks to [@elenapan](https://github.com/elenapan/dotfiles)
-    - SLiM Themes (optional) - See [here](#user-configuration)
+    - SLiM Themes (optional) - See [here](#users-configuration)
     - URxvt Font Resizer - See [keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#urxvt)
     - Included [Networkmanager_dmenu](./.local/bin/networkmanager_dmenu)
     - Oh My ZSH Theme - [Rounded](./.oh-my-zsh/custom/themes/rounded.zsh-theme)
@@ -123,7 +123,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```bash
-   $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
+   $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools gtk2-engines-murrine openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
    ```
 
   </details>
@@ -212,7 +212,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
    ```bash
-   $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
+   $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools 
+gtk-engine-murrine openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
 
   </details>
@@ -358,7 +359,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ### The step you are waiting for
 The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc.
 
-> **I recommend to [configuring](#user-configuration) what you want first, before logging into openbox-session.**
+> **I recommend to [configuring](#users-configuration) what you want first, before logging into openbox-session.**
 
 If you are using `~/.xinitrc`, simply add
 **Systemd Linux Distribution**  
@@ -380,7 +381,7 @@ Since I suggested using rsync from start, the easiest way is to list the files t
 $ cd dotfiles/ && git pull
 ```
 Then list the files excluded by rsync. For example,  
-`~/rsync_exfiles`
+`~/.rsxf
 ```cfg
 1 .git*
 2 .lyrics
@@ -396,7 +397,7 @@ Then list the files excluded by rsync. For example,
 ```
 and whatever the file is. Next, of course is rsync.
 ```bash
-$ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
+$ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 ```
 
 ##  
@@ -466,6 +467,10 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
     
   </details>
   
+- **User's Preferences <kbd>required</kbd>**
+  [`~/.owl4ce_var`](./.owl4ce_var)
+  **Manage all your settings here.**
+  
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
   An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead.
@@ -487,10 +492,6 @@ $ rsync -avxHAXP --exclude-from ~/rsync_exfiles .* ~/
   8 #nm-applet &
   9 #xfce4-power-manager &
   ```
-  
-- **User's preferences**  
-  [`~/.owl4ce_var`](./.owl4ce_var)
-  
   
 - **Available Default Apps**  
   [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
