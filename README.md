@@ -123,7 +123,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```bash
-   $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools gtk2-engines-murrine openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
+   $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools gtk2-engines-murrine openbox \
+   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock \
+   rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer \
+   tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
    ```
 
   </details>
@@ -132,22 +135,12 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
    ```bash
-   $ sudo apt install zsh
-   ```
-   ```bash
-   $ chsh -s `which zsh` # Change default shell to zsh for current user
-   ```
-   ```bash
-   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-   ```
-   ```bash
-   $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-   ```
-   ```bash
-   $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-   ```
-   ```bash
-   $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+   $ sudo apt install zsh &&
+   chsh -s $(command -v zsh) &&
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
+   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
+   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
+   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
     
   </details>
@@ -156,22 +149,17 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>picom</summary>
     
    ```bash
-   $ sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+   $ sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
+   libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev \
+   libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev \
+   libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
    ```
    ```bash
-   $ git clone https://github.com/yshui/picom.git && cd picom/
-   ```
-   ```bash
-   $ git submodule update --init --recursive
-   ```
-   ```bash
-   $ meson --buildtype=release . build
-   ```
-   ```bash
-   $ ninja -C build
-   ```
-   ```bash
-   $ ninja -C build install
+   $ git clone https://github.com/yshui/picom.git &&
+   cd picom/ && git submodule update --init --recursive &&
+   meson --buildtype=release . build &&
+   ninja -C build &&
+   ninja -C build install
    ```
 
   </details>
@@ -185,18 +173,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    $ sudo su
    ```
    ```bash
-   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list
-   ```
-   ```bash
-   wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key
-   ```
-   ```bash
-   apt-key add - < Release.key
-   ```
-   ```bash
-   apt update
-   ```
-   ```bash
+   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list &&
+   wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key &&
+   apt-key add - < Release.key &&
+   apt update &&
    apt install obmenu-generator libgtk2-perl
    ```
     
@@ -212,8 +192,11 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
    ```bash
-   $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools 
-gtk-engine-murrine openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
+   $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools gtk-engine-murrine openbox \
+   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock \
+   rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman \
+   ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop \
+   picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
 
   </details>
@@ -222,22 +205,12 @@ gtk-engine-murrine openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimple
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
    ```bash
-   $ sudo pacman -S zsh
-   ```
-   ```bash
-   $ chsh -s `which zsh` # Change default shell to zsh for current user
-   ```
-   ```bash
-   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-   ```
-   ```bash
-   $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-   ```
-   ```bash
-   $ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-   ```
-   ```bash
-   $ git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+   $ sudo pacman -S zsh &&
+   chsh -s $(command -v zsh) &&
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
+   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
+   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
+   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
   
   </details>
@@ -320,13 +293,9 @@ gtk-engine-murrine openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimple
   <summary><strong>Icons</strong></summary>
 
    ```bash
-   $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz
-   ```
-   ```bash
-   $ sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom
-   ```
-   ```bash
-   $ sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
+   $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
+   sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom &&
+   sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
    ```
    > **Why I need to link icons to user system resources?**  
    > That's needed by dunst in order to display most of icon from notification that spawned by application.
@@ -381,7 +350,7 @@ Since I suggested using rsync from start, the easiest way is to list the files t
 $ cd dotfiles/ && git pull
 ```
 Then list the files excluded by rsync. For example,  
-`~/.rsxf
+`~/.rsxf`
 ```cfg
 1 .git*
 2 .lyrics
