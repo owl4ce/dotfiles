@@ -439,7 +439,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   
 - **User's Preferences <kbd>required</kbd>**  
   [`~/.owl4ce_var`](./.owl4ce_var)  
-  Manage all your settings here.
+  Manage all your settings there.
   
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
@@ -465,9 +465,9 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   
 - **Available Default Apps**  
   [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
-  - **Terminal**: `urxvt/termite`
+  - **Terminal**: `urxvt` `termite`
   - **Lockscreen**: *anything*
-  - **Music Player**: `mpd/spotify`
+  - **Music Player**: `mpd` `spotify`
   - **File Manager**: *anything*
   
   ```cfg
