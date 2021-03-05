@@ -93,6 +93,8 @@ Here are some details about my setup
   - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L125-L135`](./.owl4ce_var#L125-L135)
   - Centralize dunst and urxvt opacity level and web browser - [`L58-L70`](./.owl4ce_var#L58-L70)
   - Both modes have their own window button last location
+  - **Sakura Saber (桜(さくら)セイバー)** Themed
+  - Reconfigure openbox window button colors
   - One click wallpaper generator (colorizer)
   - Auto configure urxvt app icons
   - Notify-send improvements
