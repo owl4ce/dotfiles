@@ -12,11 +12,11 @@ URxvt.scrollBar_right:            true
 URxvt.scrollBar_floating:         false
 URxvt.scrollstyle:                plain
 URxvt.urgentOnBell:               false
-URxvt.depth:                      24
+URxvt.depth:                      32
 URxvt.iso14755:                   false
 URxvt.iconFile:                   /home/violet/.icons/gladient/term.png
 ! Uncomment if to much font spacing
-!URxvt.letterSpace: -1
+URxvt.letterSpace: -1
 
 ! URXVT EXTENSIONS
 URxvt.perl-ext-common:            default,clipboard,url-select,tabbedex
@@ -65,7 +65,7 @@ URxvt.url-select.underline:       true
 
 ! COLOR SCHEME
 ! black > red > green > yellow > blue > magenta > cyan > white
-#define black0                    #373E4D
+#define black0                    [95]#373E4D
 #define black1                    #3B4252
 #define black2                    #434C5E
 #define black3                    #4C566A
@@ -81,7 +81,7 @@ URxvt.url-select.underline:       true
 #define magenta1                  #D8A6F4
 #define cyan0                     #89CCF7
 #define cyan1                     #A1D5F7
-#define white0                    #F9F9F9
+#define white0                    [100]#F9F9F9
 #define white1                    #F7F7F7
 #define white2                    #F4F4F4
 

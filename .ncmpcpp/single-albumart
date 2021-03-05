@@ -6,11 +6,11 @@ mpd_crossfade_time = 2
 
 # VISUALIZER
 visualizer_in_stereo = "no"
-visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_data_source = ""
 visualizer_fps = 60
 visualizer_output_name = "Visualizer"
 visualizer_type = "ellipse"
-visualizer_look = "▐"
+visualizer_look = "  "
 visualizer_color = "black"
 visualizer_spectrum_smooth_look = no
 
@@ -34,6 +34,7 @@ ask_for_locked_screen_width_part = "no"
 display_bitrate = "no"
 external_editor = "nano"
 main_window_color = "default"
+startup_screen = "visualizer"
 
 # PROGRESSBAR
 progressbar_look = "━━━"
@@ -59,7 +60,7 @@ current_item_prefix = "$/b$6"
 
 song_list_format = ""
 
-song_status_format = "$b$2$6 $7[$8      $7] $2 $8"
+song_status_format = "$b$6$7[$8      $7]$6 $2 $8"
 
 song_window_title_format = "Now Playing .."
 

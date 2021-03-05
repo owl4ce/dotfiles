@@ -1,18 +1,157 @@
-#-------------------------------------------------------------------------#
-# owl4ce/dotfiles global variables                                        #
-#-------------------------------------------------------------------------#
-# Does not affect to all files. For example tint2rc, ob rc.xml,           #
-# obmenu perl, etc will use absolute path and using ~ directly.           #
-#                                                                         #
-# DO NOT CHANGE/REORDER VARIABLES UNLESS YOU KNOW                         #
-#-------------------------------------------------------------------------#
+#                                                 [ BEGINNING OF USER PREFERENCES ]
+user_pref() {
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# APPEARANCE OPTIONS                                         ~ NEED RESTART UI ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# FORMATTING?           || VARIABLE_NAME="VALUE"  # Comment                       #
+# RESTART UI?           || Switch modes / right click on desktop / SUPER+SHIFT+R  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# ?_START_BTN           || ? theme panel button glyphs, copy from gucharmap       #
+# ?                     || UI Colors. Customize yourself..                        #
+#                <tips> || Play with variable (chaining) and hastag aka comment.  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Color Templates       || Your Changable Variable Name and Value                 #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+COL_WHTE="#f9f9f9"       # White
+COL_RETA="#f48ee8"       # Red-Magenta
+COL_REDZ="#fa74b2"       # Red
+COL_RELE="#e88ef4"       # Red-Purple
+COL_BLUE="#63c5ea"       # Blue
+COL_BLTA="#ac8ef4"       # Blue-Magenta
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~ TO BOTTOM ~ DONT CHANGE VARIABLE NAME ~ VALUE OKAY ~ #
+MECH_START_BTN=""      #,,
+EYEC_START_BTN=""      #,,
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Mechanical ~~~ Visual Mode ~~~ #
+MECH_TINT2_GRAD1="$COL_RETA"
+MECH_TINT2_GRAD2="$COL_REDZ"
+MECH_ROFI_ACCENT="$MECH_TINT2_GRAD1"
+MECH_ROFI_FRGRND="$COL_WHTE"
+MECH_DUNST_SMMRY="$MECH_ROFI_FRGRND"
+MECH_OB_MENU_TTL="$MECH_TINT2_GRAD2"
+MECH_OB_MENU_ITM="$MECH_TINT2_GRAD1"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Mechanical ~~~ Minimal Mode ~~ #
+MECH_MIN_ROFI_ACCENT="$COL_WHTE"
+MECH_MIN_ROFI_FRGRND="$MECH_MIN_ROFI_ACCENT"
+MECH_MIN_DUNST_SMMRY="$MECH_MIN_ROFI_FRGRND"
+MECH_MIN_OB_MENU_TTL="$MECH_MIN_DUNST_SMMRY"
+MECH_MIN_OB_MENU_ITM="$COL_BLUE"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Eyecandy ~~~~ Visual Mode ~~~ #
+EYEC_TINT2_GRAD1="$COL_REDZ"
+EYEC_TINT2_GRAD2="$COL_RELE"
+EYEC_ROFI_ACCENT="$EYEC_TINT2_GRAD2"
+EYEC_ROFI_FRGRND="$EYEC_TINT2_GRAD1"
+EYEC_DUNST_SMMRY="$COL_BLUE"
+EYEC_OB_MENU_TTL="$EYEC_DUNST_SMMRY"
+EYEC_OB_MENU_ITM="$EYEC_ROFI_FRGRND"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Eyecandy ~~~~ Minimal Mode ~~ #
+EYEC_MIN_ROFI_ACCENT="$COL_RELE" 
+EYEC_MIN_ROFI_FRGRND="$COL_REDZ"
+EYEC_MIN_DUNST_SMMRY="$EYEC_MIN_ROFI_ACCENT"
+EYEC_MIN_OB_MENU_TTL="$EYEC_MIN_DUNST_SMMRY"
+EYEC_MIN_OB_MENU_ITM="$EYEC_MIN_ROFI_FRGRND"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0-100 ~ Opacity Control ~~~~ #
+DUNST="95"
+URXVT="95"
+# PANEL? Tranparent panel is not good.
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# DUNST NOTIFY DAEMON AND URXVT URL LAUNCHER (WEB BROWSER)   ~ NEED RESTART UI ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+WEB_BROWSER="brave-bin"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# TINT2 PANEL EXECUTOR OPTIONS (MINIMAL MODE)                    ~ AUTO RELOAD ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# INT_ETH               || Ethernet interface, check with "ifconfig" or "ip link" #
+# INT_WIFI              || Wifi interface, check with "ifconfig" or "ip link"     #
+# TEMP_DEV              || Temp device, check in the /sys/devices/virtual/thermal #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+INT_ETH="enp4s0"
+INT_WIFI="wlp3s0"
+TEMP_DEV="thermal_zone0"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# SCREENSHOT OPTIONS                                             ~ AUTO RELOAD ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# SAVE_DIR              || This will create "Screenshots" folder inside SAVE_DIR  #
+# TIMER_SEC             || In seconds                                             #     
+# FRAME_COLOR           || Hexadecimal, RGBA supported                            #
+# COPY_FRAMED           || Copy the latest framed screenshot to clipboard         #
+# OPEN_FRAMED           || Open after framed screenshot with viewnior (if exist)  #
+# FRAMED_SHADOW_OPACITY || 0-100, high value means thick shadows                  #
+# QUALITY               || 1-100, high value means high size with low compression #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+SAVE_DIR="$HOME/Pictures"
+TIMER_SEC="5"
+FRAME_COLOR="#ffffff"
+COPY_FRAMED="yes" 
+OPEN_FRAMED="no"
+FRAMED_SHADOW_OPACITY="25"
+QUALITY="100"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# SESSION AUTO LOCKER OPTIONS                                    ~ NEED LOGOUT ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# AUTOLOCK_MINUTE       || In minutes, requires logout to reload config           #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+AUTOLOCK_MINUTE="5"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# BRIGHTNESS & AUDIO (PA) VOLUME STEPS LEVEL OPTIONS             ~ AUTO RELOAD ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# AUDIO_STEPS           || 1-100, real values                                     #
+# BRIGHTNESS_STEPS      || 1-100, percentages                                     #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+AUDIO_STEPS="5"
+BRIGHTNESS_STEPS="5"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# NCMPCPP ALBUMART IMAGE BACKEND                                 ~ AUTO RELOAD ~  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Currently only support for "w3m" and "pixbuf"                                   #
+# * pixbuf with terminal transparency is broken                                   #
+# * rxvt-unicode works like a charm                                               #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+NCMPCPP_ALBUMART_BACKEND="w3m"
+
+
+}
+#                                                       [ END OF USER PREFERENCES ]
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# owl4ce/dotfiles global variables                                                #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Does not affect to all files. For example tint2rc, ob rc.xml,                   #
+# obmenu perl, etc will use absolute path and using ~ directly.                   #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# ATTENTION: Do not change/reorder variables unless you know!                     #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 OB_DIR="$HOME/.config/openbox"
 THEME_DIR="$HOME/.themes"
 VISMOD_DIR="$OB_DIR/visual-mode"
 TINT2_DIR="$HOME/.config/tint2"
 ROFI_DIR="$HOME/.config/rofi"
-ROFI_SIDEBAR_DIR="$ROFI_DIR/themes/sidebar"
+ROFI_SIDEBAR_DIR="$HOME/.config/rofi/themes/sidebar"
+ROFI_COLORSCHEMES_DIR="$ROFI_DIR/themes/shared/colorschemes"
 DUNST_DIR="$HOME/.config/dunst"
 ICON_GLADIENT_DIR="$HOME/.icons/gladient"
 OB_BUTTON_DIR="$THEME_DIR/Buttons"
@@ -35,7 +174,9 @@ GTK2_CONFIG="$HOME/.gtkrc-2.0"
 GTK3_CONFIG="$HOME/.config/gtk-3.0/settings.ini"
 XSETTINGSD_CONFIG="$HOME/.xsettingsd"
 ROFI_FULLSCREEN_CONFIG="$ROFI_DIR/themes/shared/settings.rasi"
-ROFI_SIDEBAR_CONFIG="$ROFI_DIR/themes/sidebar/colors.rasi"
+ROFI_SIDEBAR_CONFIG="$ROFI_SIDEBAR_DIR/colors.rasi"
+XRESOURCES_CONFIG="$HOME/.Xresources"
+TERMITE_CONFIG="$HOME/.config/termite/config"
 
 OB_TRAY="$OB_DIR/tray"
 MOD_FILE="$VISMOD_DIR/current"
@@ -50,11 +191,14 @@ CHK_ORT_V="$(cat $ORT_FILE | grep 'vertical=' | awk -F'"' '{print $2}')"
 CHK_ORT_H="$(cat $ORT_FILE | grep 'horizontal=' | awk -F'"' '{print $2}')"
 CHK_OB_BUTTON_LOC="$(cat $OB_CONFIG | grep '<titleLayout>' | awk -F' ' '{print $1}')"
 
+WALL_RAW_SOURCE="$HOME/.wallpaper"
 WALL_DIR="$HOME/.wallpaper/$CHK_VISMOD"
 VISMOD_WALL_FILE="$VISMOD_DIR/$CHK_VISMOD/wall"
 MINMOD_WALL_FILE="$VISMOD_DIR/$CHK_VISMOD/wall-minimal"
 VISMOD_BUTTON_FILE="$VISMOD_DIR/$CHK_VISMOD/button"
 MINMOD_BUTTON_FILE="$VISMOD_DIR/$CHK_VISMOD/button-minimal"
+VISMOD_LOC_BUTTON_FILE="$VISMOD_DIR/$CHK_VISMOD/bloc"
+MINMOD_LOC_BUTTON_FILE="$VISMOD_DIR/$CHK_VISMOD/bloc-minimal"
 VISMOD_ROFI_FILE="$VISMOD_DIR/$CHK_VISMOD/rofi"
 VISMOD_DUNST_FILE="$VISMOD_DIR/$CHK_VISMOD/dunst"
 
@@ -62,6 +206,8 @@ CHK_VISMOD_WALL="$(cat $VISMOD_WALL_FILE)"
 CHK_MINMOD_WALL="$(cat $MINMOD_WALL_FILE)"
 CHK_VISMOD_BUTTON="$(cat $VISMOD_BUTTON_FILE)"
 CHK_MINMOD_BUTTON="$(cat $MINMOD_BUTTON_FILE)"
+CHK_VISMOD_LOC_BUTTON="$(cat $VISMOD_LOC_BUTTON_FILE)"
+CHK_MINMOD_LOC_BUTTON="$(cat $MINMOD_LOC_BUTTON_FILE)"
 
 CURRENT_ROFI_MOD="$(if [[ $(echo \"$CHK_MINMOD\") = *\"minimal\"* ]]; then echo $VISMOD_ROFI_FILE-$CHK_MINMOD; else echo $VISMOD_ROFI_FILE; fi)"
 CHK_ROFI_MOD="$(cat $CURRENT_ROFI_MOD)"
@@ -80,6 +226,7 @@ NOTIF_EYC_MIN_ICON="$ICON_GLADIENT_DIR/eyc-min.png"
 NOTIF_WALLY_ICON="$ICON_GLADIENT_DIR/wally.png"
 NOTIF_MUSIC_ICON="$ICON_GLADIENT_DIR/music.png"
 NOTIF_SS_ICON="$ICON_GLADIENT_DIR/shot.png"
+TERM_ICON="$ICON_GLADIENT_DIR/term.png"
 
 DEFAPPS_EXEC="$SCRIPTS_DIR/default-apps/launch"
 EXNOTIFY_SEND="$SCRIPTS_DIR/notify/notify-send.sh"
@@ -91,37 +238,5 @@ SS_DRAW="$SCRIPTS_DIR/shot-seldraw"
 SS_TIMER="$SCRIPTS_DIR/shot-timer"
 MPD_TCD="$NCMPCPP_SCRIPTS_DIR/track-change-detector"
 
-#-------------------------------------------------------------------------#
-# TINT2 EXECUTOR                                                          #
-#-------------------------------------------------------------------------#
-
-INT_ETH="enp4s0"
-INT_WIFI="wlp3s0"
-TEMP_DEV="thermal_zone0"
-
-#-------------------------------------------------------------------------#
-# SCREENSHOT OPTIONS                                                      #
-#-------------------------------------------------------------------------#
-# This will create "Screenshots" folder inside SAVE_DIR                   #
-#-------------------------------------------------------------------------#
-
-TIMER_SEC="5"
-SAVE_DIR="$HOME/Pictures"
-FRAME_COLOR="#ffffff" # RGBA supported
-COPY_FRAMED="yes" # Copy the latest framed screenshot to clipboard
-OPEN_FRAMED="no" # Open after framed screenshot with viewnior (if exist)
-FRAMED_SHADOW_OPACITY="25" # 0-100, high value means thick shadows
-QUALITY="100" # 1-100, high value means high size with low compression
-
-#-------------------------------------------------------------------------#
-# XAUTOLOCK - 5 means 5 minutes                                           #
-#-------------------------------------------------------------------------#
-
-AUTOLOCK_MINUTE="5"
-
-#-------------------------------------------------------------------------#
-# BRIGHTNESS & AUDIO (pulseaudio) VOLUME STEPS LEVEL                      #
-#-------------------------------------------------------------------------#
-
-AUDIO_STEPS="5" # Real value
-BRIGHTNESS_STEPS="5" # Percentage, 5 means 5%
+# Call User Preferences
+user_pref

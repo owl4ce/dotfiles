@@ -8,5 +8,5 @@ command -v "scrot" > /dev/null 2>&1 || noterr
     [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"
     [[ "$1" = "delay" ]] && read -rt ".5" <> <(:) || :
     scrot -q "$QUALITY" -e "mv '\$f' \"$SAVE_DIR/Screenshots\"" &> /dev/null
-    $EXNOTIFY_SEND -r 11 -i "$NOTIF_SS_ICON" -u low "Screenshot" "Saved in\n<u>$SAVE_DIR/Screenshots/</u>"
+    $EXNOTIFY_SEND -r 11 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$(echo $SAVE_DIR | grep -oE '[^/]+$' $1)/Screenshots</u></span>\nPicture acquired!"
 } &

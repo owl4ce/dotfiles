@@ -100,12 +100,13 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 #alias ls="colorls --sd -A"
 
-PRIV="sudo"
+# owl4ce s preferences
+PRIV="doas"
 
 alias c="clear"
 alias q="exit"
 alias hd="hexdump -C"
-alias default-apps="clear && ~/.scripts/default-apps/launch && ~/.scripts/default-apps/launch -e"
+alias default-apps="printf '\ec' && ~/.scripts/default-apps/launch && ~/.scripts/default-apps/launch -e"
 alias pacrem="$PRIV pacman -Rcns"
 alias yayupd="yay -Sy"
 alias yayupg="yay -Syu"
@@ -127,6 +128,8 @@ alias trimall="$PRIV fstrim -va"
 alias nanosu="$PRIV nano"
 alias nvimsu="$PRIV nvim"
 alias refram="$PRIV bash -c \"sync; echo 3 > /proc/sys/vm/drop_caches\""
+#alias ls="exa -lgh --icons --group-directories-first"
+#alias la="exa -lgha --icons --group-directories-first"
 
 # Color toys aliases
 alias 256colors2="~/.color-toys/256colors2.pl"
@@ -142,3 +145,6 @@ alias pipes2-slim="~/.color-toys/pipes2-slim"
 
 # GPG Dialog
 export GPG_TTY=$(tty)
+
+# BAT Theme (cat replacement)
+export BAT_THEME="base16"

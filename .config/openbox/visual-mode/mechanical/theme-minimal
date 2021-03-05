@@ -1,32 +1,60 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-# GTK Theme
-sed -i '5s_gtk-theme-name=.*_gtk-theme-name="Fleon"_' $GTK2_CONFIG
-sed -i '10s_gtk-theme-name=.*_gtk-theme-name=Fleon_' $GTK3_CONFIG
-sed -i '1s_Net/IconThemeName.*_Net/IconThemeName "Papirus-Dark-Custom"_' $XSETTINGSD_CONFIG
-sed -i '2s_Net/ThemeName.*_Net/ThemeName "Fleon"_' $XSETTINGSD_CONFIG
-xsettingsd &> /dev/null &
-read -rt "3" <> <(:) || : && killall xsettingsd &
+PARTIALLY() {
+    # Set Openbox Colors from owl4ce_var
+    sed -i "s/menu.title.text.color:.*/menu.title.text.color: $MECH_MIN_OB_MENU_TTL/" $THEME_DIR/Fleon/openbox-3/themerc
+    sed -i "s/menu.items.active.text.color:.*/menu.items.active.text.color: $MECH_MIN_OB_MENU_ITM/" $THEME_DIR/Fleon/openbox-3/themerc
+    
+    # Set Rofi Accent Color from owl4ce_var
+    sed -i "2s_accent:.*;_accent:           $MECH_MIN_ROFI_ACCENT;_" $ROFI_COLORSCHEMES_DIR/fullscreen-dark.rasi
+    sed -i "2s_accent:.*;_accent:           $MECH_MIN_ROFI_ACCENT;_" $ROFI_COLORSCHEMES_DIR/sidebar-dark.rasi
+    sed -i "5s_foreground:.*;_foreground:       $MECH_MIN_ROFI_FRGRND;_" $ROFI_COLORSCHEMES_DIR/sidebar-dark.rasi
+}
 
-# Set Openbox Margin
-bash -c "$VISMOD_DIR/margin-dunst-rofi minmod"
-openbox --reconfigure
+ALL() {
+    PARTIALLY
+    # GTK Theme
+    sed -i '5s_gtk-theme-name=.*_gtk-theme-name="Fleon"_' $GTK2_CONFIG
+    sed -i '10s_gtk-theme-name=.*_gtk-theme-name=Fleon_' $GTK3_CONFIG
+    sed -i '1s_Net/IconThemeName.*_Net/IconThemeName "Papirus-Dark-Custom"_' $XSETTINGSD_CONFIG
+    sed -i '2s_Net/ThemeName.*_Net/ThemeName "Fleon"_' $XSETTINGSD_CONFIG
+    xsettingsd &> /dev/null &
+    read -rt "3" <> <(:) || : && killall xsettingsd &
+    
+    # Set Openbox Margin
+    bash -c "$VISMOD_DIR/margin-dunst-rofi minmod"
+    openbox --reconfigure
+    
+    # Icon Theme
+    sed -i '6s_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Dark-Custom"_' $GTK2_CONFIG
+    sed -i '8s_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Dark-Custom_' $GTK3_CONFIG
+    
+    # Rofi Color Scheme
+    sed -i '5s_colorschemes/.*.rasi_colorschemes/fullscreen-dark.rasi_' $ROFI_FULLSCREEN_CONFIG
+    sed -i '5s_colorschemes/.*.rasi_colorschemes/sidebar-dark.rasi_' $ROFI_SIDEBAR_CONFIG
+    
+    # Set Openbox Last Button Location
+    if [[ $CHK_MINMOD_LOC_BUTTON = *"left"* ]]; then
+        sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' $OB_CONFIG
+        echo "left" > $MINMOD_LOC_BUTTON_FILE
+    elif [[ $CHK_MINMOD_LOC_BUTTON = *"right"* ]]; then
+        sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' $OB_CONFIG
+        echo "right" > $MINMOD_LOC_BUTTON_FILE
+    fi
+    
+    # Openbox Theme & Buttons
+    cp "$OB_BUTTON_DIR"/"$CHK_MINMOD_BUTTON"/* $MECH_BUTTON_DIR
+    sed -i '34s_<name>.*_<name>Fleon</name>_' $OB_CONFIG
+    
+    # Reconfigure Openbox (realistic theme)
+    read -rt ".4" <> <(:) || : && openbox --reconfigure &
+}
 
-# Icon Theme
-sed -i '6s_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Dark-Custom"_' $GTK2_CONFIG
-sed -i '8s_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Dark-Custom_' $GTK3_CONFIG
-
-# Rofi Color Scheme
-sed -i '5s_colorschemes/.*.rasi_colorschemes/fullscreen-dark.rasi_' $ROFI_FULLSCREEN_CONFIG
-sed -i '5s_colorschemes/.*.rasi_colorschemes/sidebar-dark.rasi_' $ROFI_SIDEBAR_CONFIG
-
-# Set Openbox Button Layout
-sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' $OB_CONFIG
-
-# Openbox Theme & Buttons
-cp "$OB_BUTTON_DIR"/"$CHK_MINMOD_BUTTON"/* $MECH_BUTTON_DIR
-sed -i '34s_<name>.*_<name>Fleon</name>_' $OB_CONFIG
-
-# Reconfigure Openbox (realistic theme)
-read -rt ".4" <> <(:) || : && openbox --reconfigure &
+case $1 in
+    partially)  PARTIALLY
+                openbox --reconfigure
+    ;;
+    *)          ALL
+    ;;
+esac
