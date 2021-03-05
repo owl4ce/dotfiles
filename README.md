@@ -330,7 +330,7 @@ The final step is login into openbox-session, basically login from display manag
 
 > **I recommend to [configuring](#users-configuration) what you want first, before logging into openbox-session.**
 
-If you are using `~/.xinitrc`, simply add
+If you are using `~/.xinitrc`, simply add  
 **Systemd Linux Distribution**  
 ```cfg
 exec openbox-session
