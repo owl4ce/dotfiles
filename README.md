@@ -330,7 +330,8 @@ The final step is login into openbox-session, basically login from display manag
 
 > **I recommend to [configuring](#users-configuration) what you want first, before logging into openbox-session.**
 
-If you are using `~/.xinitrc`, simply add  
+If you are using `~/.xinitrc`, simply add
+
 **Systemd Linux Distribution**  
 ```cfg
 exec openbox-session
@@ -437,8 +438,8 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   </details>
   
 - **User's Preferences <kbd>required</kbd>**  
-  [`~/.owl4ce_var`](./.owl4ce_var)
-  **Manage all your settings here.**
+  [`~/.owl4ce_var`](./.owl4ce_var)  
+  Manage all your settings here.
   
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
