@@ -436,7 +436,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
   </details>
   
-- **User's Preferences <kbd>required</kbd>**
+- **User's Preferences <kbd>required</kbd>**  
   [`~/.owl4ce_var`](./.owl4ce_var)
   **Manage all your settings here.**
   
