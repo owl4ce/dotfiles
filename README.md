@@ -1,6 +1,6 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="" height="60%" width="100%" src="https://i.ibb.co/w0rbNCD/dotfiles-sakura.png"/>
+     <img alt="dotfiles@owl4ce" height="60%" width="100%" src="https://i.ibb.co/w0rbNCD/dotfiles-sakura.png"/>
   </a>
 </p>
 
@@ -23,7 +23,7 @@
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 <a href="https://github.com/owl4ce/dotfiles/releases/tag/3.1">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/dednsbl-fb9e8515-7350-449c-86ad-a6486750f6dc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWRuc2JsLWZiOWU4NTE1LTczNTAtNDQ5Yy04NmFkLWE2NDg2NzUwZjZkYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.njiKkfQ-ZufdwgSFn_y-KsGhGdtJqVi-ew_bnstSdbc" alt="owl4ce/dotfiles.minimal" align="right" width="400px"/>
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/dednsbl-fb9e8515-7350-449c-86ad-a6486750f6dc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWRuc2JsLWZiOWU4NTE1LTczNTAtNDQ5Yy04NmFkLWE2NDg2NzUwZjZkYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.njiKkfQ-ZufdwgSFn_y-KsGhGdtJqVi-ew_bnstSdbc" alt="minimal" align="right" width="400px"/>
 </a>
 
 This is my **personal configuration** for my favorite openbox window manager and some applications too.
@@ -46,7 +46,7 @@ Here are some details about my setup
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Repo%20Size&color=cf8ef4&labelColor=373e4d"/>
 
 <a href="https://www.deviantart.com/owl4ce/art/Joyful-Desktop-v3-862516153">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-b1122b6b-6d37-43d6-a727-cf63df935e6d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLWIxMTIyYjZiLTZkMzctNDNkNi1hNzI3LWNmNjNkZjkzNWU2ZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.tEYdZ6q3iLK_X3f4gQer7Sn23nWGk_lA9JsGThIIbis" alt="owl4ce/dotfiles" align="right" width="400px"/>
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de9ipq1-b1122b6b-6d37-43d6-a727-cf63df935e6d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTlpcHExLWIxMTIyYjZiLTZkMzctNDNkNi1hNzI3LWNmNjNkZjkzNWU2ZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.tEYdZ6q3iLK_X3f4gQer7Sn23nWGk_lA9JsGThIIbis" alt="normal" align="right" width="400px"/>
 </a>
 
 <details>
@@ -104,7 +104,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
 <br>
 
-<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="*nixporn"/></a></p>
+<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="unixporn"/></a></p>
 
 </details>
 
@@ -253,7 +253,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 
 ##  
 
-### Installation (dotfiles)
+### Installation (dotfiles) 
+  
+  **Are all directories required?**  
+  Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
   
   <details open>
   <summary><strong>Most of .files</strong></summary>
@@ -439,7 +442,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   
 - **User's Preferences <kbd>required</kbd>**  
   [`~/.owl4ce_var`](./.owl4ce_var)  
-  Manage all your settings there.
+  Manage all your settings there. I hope all comments there are easy to understand. ^^
   
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
@@ -499,7 +502,9 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 
 - **Audio Server <kbd>optional</kbd>**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
-  This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.
+  <details>
+  <summary>This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.</summary>
+  
   - **Pulseaudio**
     ```cfg
     ...
@@ -531,6 +536,8 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
     ...
     ```
+    
+  </details>
 
 - **Neofetch Image**  
   [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
@@ -605,8 +612,8 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 <td>
 <br>
 <p align="center">:speech_balloon:</p>
-</tr>
 </td>
+</tr>
 <tr>
 <td>
 <br>
