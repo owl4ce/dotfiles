@@ -7,7 +7,7 @@ geometry = "350x6+19+50"
 indicate_hidden = yes
 shrink = yes
 
-transparency = 0
+transparency = 5
 separator_height = 2
 padding = 8
 horizontal_padding = 11

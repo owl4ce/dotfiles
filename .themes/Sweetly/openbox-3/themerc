@@ -1,4 +1,4 @@
-# Copyright (C) 2020 owl4ce
+# Sweetly (C) 2020-2021 owl4ce
 
 # Window Appearance
 padding.width: 9
@@ -6,16 +6,16 @@ padding.height: 7
 
 ## Titlebar
 window.active.title.bg: flat
-window.active.title.bg.color: #f7f7f7
+window.active.title.bg.color: #f9f9f9
 window.inactive.title.bg: flat
-window.inactive.title.bg.color: #f7f7f7
+window.inactive.title.bg.color: #f9f9f9
 
 ## Titlebar Text
 window.label.text.justify: center
 window.active.label.bg: parentrelative
-window.active.label.text.color: #f7f7f7
+window.active.label.text.color: #f9f9f9
 window.inactive.label.bg: parentrelative
-window.inactive.label.text.color: #f7f7f7
+window.inactive.label.text.color: #f9f9f9
 
 ## Borders
 border.width: 0
@@ -126,8 +126,8 @@ menu.border.color: #f9f9f9
 
 ## Title
 menu.title.bg: flat
-menu.title.bg.color: #f9f9f9
-menu.title.text.color: #89ccf7
+menu.title.bg.color: #f7f7f7
+menu.title.text.color: #e88ef4
 menu.title.text.justify: center
 
 ## Items
@@ -152,10 +152,10 @@ osd.border.color: #f9f9f9
 ## Label
 osd.label.bg: flat solid
 osd.label.bg.color: #f9f9f9
-osd.label.text.color: #373e4d
+osd.label.text.color: #63c5ea
 
 ## Hightlight/U
 osd.hilight.bg: flat solid
-osd.hilight.bg.color: #89ccf7
+osd.hilight.bg.color: #fa74b2
 osd.unhilight.bg: flat solid
-osd.unhilight.bg.color: #f9f9f9
+osd.unhilight.bg.color: #f4f4f4

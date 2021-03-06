@@ -2,13 +2,15 @@
 source $HOME/.owl4ce_var && printf "\ec"
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
+BTN_LOC="$VISMOD_LOC_BUTTON_FILE" && [[ $CHK_MINMOD = *"minimal"* ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE"
+
 case $1 in
     swap)   if [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>LIMC</titleLayout>"* ]]; then
                 sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' $OB_CONFIG
-                openbox --reconfigure
+                openbox --reconfigure && echo "right" > $BTN_LOC
             elif [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>CIML</titleLayout>"* ]]; then
                 sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' $OB_CONFIG
-                openbox --reconfigure
+                openbox --reconfigure && echo "left" > $BTN_LOC
             fi    
     ;;
     *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }

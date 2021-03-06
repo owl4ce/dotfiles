@@ -5,13 +5,13 @@
 # Gradients
 # Gradient 1
 gradient = vertical
-start_color = #fa74b2 100
-end_color = #e98ef4 100
+start_color = STARTCOLOR1 100
+end_color = STARTCOLOR2 100
 
 # Gradient 2
 gradient = vertical
-start_color = #fa74b2 82
-end_color = #e88ef4 82
+start_color = STARTCOLOR1 82
+end_color = STARTCOLOR2 82
 
 #-------------------------------------
 # Backgrounds
@@ -284,7 +284,7 @@ execp_icon_h = 0
 #-------------------------------------
 # Button 1
 button = new
-button_text = 
+button_text = STARTMENU
 button_tooltip = Right click to open File Manager
 button_lclick_command = ~/.config/rofi/scripts/appsmenu.sh
 button_rclick_command = ~/.scripts/default-apps/launch filemanager
@@ -302,9 +302,9 @@ button_max_icon_size = 0
 # Button 2
 button = new
 button_text = 
-button_tooltip = Change current wallpaper
+button_tooltip = Change current wallpaper │Generate wallpaper
 button_lclick_command = ~/.scripts/default-apps/launch terminal -e ~/.config/openbox/visual-mode/wally
-button_rclick_command =
+button_rclick_command = ~/.config/openbox/visual-mode/wally generate
 button_mclick_command = 
 button_uwheel_command = 
 button_dwheel_command = 

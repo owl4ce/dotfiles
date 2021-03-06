@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-command -v {"mpd","mpc"} > /dev/null 2>&1 || exit 1
+command -v {"mpd","mpc","convert"} > /dev/null 2>&1 || exit 1
 
 MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_NOTIF_COVER"

@@ -7,7 +7,7 @@ geometry = "350x6+19+50"
 indicate_hidden = yes
 shrink = yes
 
-transparency = 0
+transparency = 5
 separator_height = 2
 padding = 8
 horizontal_padding = 11
@@ -19,7 +19,7 @@ font = mplus Nerd Font 10
 
 line_height = 0
 markup = full
-format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#fa74b2'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#e88ef4'>%s</span>\n%b"
 alignment = center
 
 idle_threshold = 120
