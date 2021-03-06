@@ -43,7 +43,7 @@ Here are some details about my setup
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
 - **GUI & CLI IDE**                • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
-## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=Repo%20Size&color=cf8ef4&labelColor=373e4d"/>
+## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
 
 <a href="https://www.deviantart.com/owl4ce/art/Sakura-Saber-872360153">
   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/defdpeh-4b226af5-f035-4a5d-aedc-b9417b92563c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWZkcGVoLTRiMjI2YWY1LWYwMzUtNGE1ZC1hZWRjLWI5NDE3YjkyNTYzYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.NHrNlWDMbuIVmHkpw4w6l0g7dMJGecLjxXsEPz1tHkI" alt="normal" align="right" width="400px"/>
