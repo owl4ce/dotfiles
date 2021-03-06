@@ -22,8 +22,8 @@
 ##  
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
-<a href="https://github.com/owl4ce/dotfiles/releases/tag/3.1">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/dednsbl-fb9e8515-7350-449c-86ad-a6486750f6dc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZWRuc2JsLWZiOWU4NTE1LTczNTAtNDQ5Yy04NmFkLWE2NDg2NzUwZjZkYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.njiKkfQ-ZufdwgSFn_y-KsGhGdtJqVi-ew_bnstSdbc" alt="minimal" align="right" width="400px"/>
+<a href="https://github.com/owl4ce/dotfiles/releases/tag/3.2">
+  <img src="https://user-images.githubusercontent.com/53987136/110218451-6eba0b00-7eec-11eb-95bf-b9e3946fed9f.png" alt="minimal" align="right" width="400px"/>
 </a>
 
 This is my **personal configuration** for my favorite openbox window manager and some applications too.
