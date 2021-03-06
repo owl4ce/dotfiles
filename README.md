@@ -101,7 +101,7 @@ Here are some details about my setup
   - Added **Restart UI**
   - Optimize scripts
   
-  For the rest, see the commit.
+  For the rest, see the [commit](https://github.com/owl4ce/dotfiles/commits/main). Also check my [workflow](https://youtu.be/kSoViKHt-Yo).
   
 </details>
   
