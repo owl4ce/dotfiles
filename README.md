@@ -265,7 +265,22 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)
 
   **Suggested for tiling users**
-  <p align="center"><a href="https://github.com/blrsn/zentile"><img src="https://raw.githubusercontent.com/blrsn/zentile/master/docs/zentile-logo.png" alt=""/></a></p>
+  <p align="center">
+    <a href="https://github.com/blrsn/zentile">
+      <img src="https://raw.githubusercontent.com/blrsn/zentile/master/docs/zentile-logo.png" alt=""/>
+    </a>
+  </p>
+  
+  I recommend compiling it from source. Then put **zentile** binary your **PATH**, for example in `~/.local/bin/`
+  ```sh
+  $ # To run in the background (detached)
+  $ zentile &! 
+  
+  $ # To kill (or pkill)
+  $ killall zentile
+  ```
+  
+  </details>
 
 ##  
 
