@@ -135,7 +135,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
-   ```bash
+   ```sh
    $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools gtk2-engines-murrine openbox \
    alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock \
    rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer \
@@ -147,7 +147,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details>
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
-   ```bash
+   ```sh
    $ sudo apt install zsh &&
    chsh -s $(command -v zsh) &&
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
@@ -161,13 +161,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details>
   <summary>picom</summary>
     
-   ```bash
+   ```sh
    $ sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
    libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev \
    libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev \
    libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
    ```
-   ```bash
+   ```sh
    $ git clone https://github.com/yshui/picom.git &&
    cd picom/ && git submodule update --init --recursive &&
    meson --buildtype=release . build &&
@@ -182,10 +182,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    > I haven't tested it yet.
   
-   ```bash
+   ```sh
    $ sudo su
    ```
-   ```bash
+   ```sh
    echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list &&
    wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key &&
    apt-key add - < Release.key &&
@@ -204,7 +204,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
-   ```bash
+   ```sh
    $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools gtk-engine-murrine openbox \
    alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock \
    rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman \
@@ -217,7 +217,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details>
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
-   ```bash
+   ```sh
    $ sudo pacman -S zsh &&
    chsh -s $(command -v zsh) &&
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
@@ -253,7 +253,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
   
     [`~/.zshrc`](./.zshrc)  
-    ```cfg    
+    ```zsh
     ...
     
     131 alias ls="exa -lgh --icons --group-directories-first"
@@ -276,12 +276,12 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
    > Assume you are cloning in the `~/Documents` directory for example.
-   ```bash
+   ```sh
    $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
    ```
    
    I recommend with rsync.
-   ```bash
+   ```sh
    $ rsync -avxHAXP --exclude '.git*' .* ~/
    ```
    > **Explanation**
@@ -308,7 +308,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Icons</strong></summary>
 
-   ```bash
+   ```sh
    $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
    sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom &&
    sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
@@ -321,7 +321,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Refresh Font Cache</strong></summary>
   
-   ```bash
+   ```sh
    $ fc-cache -rv
    ```
     
@@ -334,7 +334,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    - `reboot`
    - `brightnessctl`
    - *others if needed*
-   ```bash
+   ```sh
    $ sudo chmod u+s $(command -v {poweroff,reboot,brightnessctl})
    ```
    > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
@@ -349,12 +349,12 @@ The final step is login into openbox-session, basically login from display manag
 If you are using `~/.xinitrc`, simply add
 
 **Systemd Linux Distribution**  
-```cfg
+```sh
 exec openbox-session
 ```
 
 **Non-Systemd Linux Distribution**  
-```cfg
+```sh
 exec dbus-launch --exit-with-session openbox-session
 ```
 
@@ -363,7 +363,7 @@ exec dbus-launch --exit-with-session openbox-session
 ### Update
 Since I suggested using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
 > Remember where you cloned this repository.
-```bash
+```sh
 $ cd dotfiles/ && git pull
 ```
 Then list the files excluded by rsync. For example,  
@@ -382,7 +382,7 @@ Then list the files excluded by rsync. For example,
 ...
 ```
 and whatever the file is. Next, of course is rsync.
-```bash
+```sh
 $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 ```
 
@@ -467,7 +467,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   Remove hashtags for all your needs, then re-login openbox-session.
   
   > **Warning!** Putting a tray here means that when switching modes, the program will be restarted.
-  ```cfg
+  ```sh
   1 #
   2 # This tray will restart after switching modes
   3 # Please add "&" after command
