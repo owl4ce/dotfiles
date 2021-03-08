@@ -284,6 +284,34 @@ class Action():  # pylint: disable=too-few-public-methods
             self.func(*self.args)
 
 
+def conn_matches_adapter(conn, adapter):
+    """Return True if the connection is applicable for the given adapter.
+
+    There seem to be two ways for a connection specify what interface it belongs
+    to:
+
+    - By setting 'mac-address' in [wifi] to the adapter's MAC
+    - By setting 'interface-name` in [connection] to the adapter's name.
+
+    Depending on how the connection was added, it seems like either
+    'mac-address', 'interface-name' or neither of both is set.
+    """
+    # [wifi] mac-address
+    setting_wireless = conn.get_setting_wireless()
+    mac = setting_wireless.get_mac_address()
+    if mac is not None:
+        return mac == adapter.get_permanent_hw_address()
+
+    # [connection] interface-name
+    setting_connection = conn.get_setting_connection()
+    interface = setting_connection.get_interface_name()
+    if interface is not None:
+        return interface == adapter.get_iface()
+
+    # Neither is set, let's assume this connection is for multiple/all adapters.
+    return True
+
+
 def process_ap(nm_ap, is_active, adapter):
     """Activate/Deactivate a connection and get password if required"""
     if is_active:
@@ -291,8 +319,7 @@ def process_ap(nm_ap, is_active, adapter):
     else:
         conns_cur = [i for i in CONNS if
                      i.get_setting_wireless() is not None and
-                     i.get_setting_wireless().get_mac_address() ==
-                     adapter.get_permanent_hw_address()]
+                     conn_matches_adapter(i, adapter)]
         con = nm_ap.filter_connections(conns_cur)
         if len(con) > 1:
             raise ValueError("There are multiple connections possible")
@@ -807,11 +834,11 @@ def create_ap_list(adapter, active_connections):
     return aps, active_ap, active_ap_con, adapter
 
 
-def notify(message, details=None, urgency="low", icon="notification-network-wireless"):
+def notify(message, details=None, urgency="low"):
     """Use notify-send if available for notifications
 
     """
-    args = ["-u", urgency, "-i", icon, message]
+    args = ["-u", urgency, message]
     if details is not None:
         args.append(details)
 
