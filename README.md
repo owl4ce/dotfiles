@@ -467,7 +467,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   Remove hashtags for all your needs, then re-login openbox-session.
   
   > **Warning!** Putting a tray here means that when switching modes, the program will be restarted.
-  ```sh
+  ```cfg
   1 #
   2 # This tray will restart after switching modes
   3 # Please add "&" after command
