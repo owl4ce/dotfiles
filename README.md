@@ -264,6 +264,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
     
   - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)
 
+  **Suggested for tiling users**
+  <p align="center"><a href="https://github.com/blrsn/zentile"><img src="https://raw.githubusercontent.com/blrsn/zentile/master/docs/zentile-logo.png" alt=""/></a></p>
+
 ##  
 
 ### Installation (dotfiles) 
