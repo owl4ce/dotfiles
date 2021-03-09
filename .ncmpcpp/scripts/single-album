@@ -26,7 +26,7 @@ w3m() {
         done
         exit 0
     else
-        echo "xwinfo and/or xprop command not found!" 
+        echo "xorg-xwininfo and/or xorg-xprop not installed!"
         exit 1
     fi
 }
