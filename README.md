@@ -205,8 +205,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
    ```sh
-   $ yay -S rsync python psmisc xorg-xwininfo imagemagick ffmpeg wireless_tools gtk-engine-murrine openbox \
-   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock \
+   $ yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools gtk-engine-murrine \
+   openbox alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock \
    rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman \
    ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop \
    picom-git obmenu-generator gtk2-perl playerctl xsettingsd
