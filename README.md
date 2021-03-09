@@ -136,7 +136,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```sh
-   $ sudo apt install rsync python psmisc imagemagick ffmpeg wireless-tools gtk2-engines-murrine openbox \
+   $ sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools gtk2-engines-murrine openbox \
    alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock \
    rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer \
    tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
@@ -205,7 +205,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
    ```sh
-   $ yay -S rsync python psmisc imagemagick ffmpeg wireless_tools gtk-engine-murrine openbox \
+   $ yay -S rsync python psmisc xorg-xwininfo imagemagick ffmpeg wireless_tools gtk-engine-murrine openbox \
    alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock \
    rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman \
    ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop \
