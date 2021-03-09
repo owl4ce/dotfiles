@@ -249,39 +249,6 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
     
   **Optional**: [betterdiscord](https://betterdiscord.net/), [geany](https://geany.org/) + [geany plugins](https://plugins.geany.org/), [gimp](https://www.gimp.org/), [lxappearance](https://wiki.lxde.org/en/LXAppearance), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [obconf](http://openbox.org/wiki/ObConf:About), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
-  **Suggested replacement commands**
-  - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
-  
-    [`~/.zshrc`](./.zshrc)  
-    ```zsh
-    ...
-    
-    131 alias ls="exa -lgh --icons --group-directories-first"
-    132 alias la="exa -lgha --icons --group-directories-first"
-    
-    ...
-    ```
-    
-  - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)
-
-  **Suggested for tiling users**
-  <p align="center">
-    <a href="https://github.com/blrsn/zentile">
-      <img src="https://raw.githubusercontent.com/blrsn/zentile/master/docs/zentile-logo.png" alt=""/>
-    </a>
-  </p>
-  
-  I recommend compiling it from source. Then put **zentile** binary your **PATH**, for example in `~/.local/bin/`
-  ```sh
-  $ # To run in the background (detached)
-  $ zentile &! 
-  
-  $ # To kill (or pkill)
-  $ killall zentile
-  ```
-  
-  </details>
-
 ##  
 
 ### Installation (dotfiles) 
@@ -374,6 +341,39 @@ exec openbox-session
 **Non-Systemd Linux Distribution**  
 ```sh
 exec dbus-launch --exit-with-session openbox-session
+```
+
+##  
+
+**Suggested replacement commands**
+- `ls` ➜ [`exa`](https://github.com/ogham/exa)  
+
+[`~/.zshrc`](./.zshrc)  
+```zsh
+...
+
+131 alias ls="exa -lgh --icons --group-directories-first"
+132 alias la="exa -lgha --icons --group-directories-first"
+
+...
+```
+
+- `cat` ➜ [`bat`](https://github.com/sharkdp/bat)
+
+**Suggestion for tiling users**
+<p align="center">
+  <a href="https://github.com/blrsn/zentile">
+    <img src="https://raw.githubusercontent.com/blrsn/zentile/master/docs/zentile-logo.png" alt=""/>
+  </a>
+</p>
+
+I recommend compiling it from source. Then put **zentile** binary your **PATH**, for example in `~/.local/bin/`
+```sh
+$ # To run in the background (detached)
+$ zentile &! 
+
+$ # To kill (or pkill)
+$ killall zentile
 ```
 
 ##  
