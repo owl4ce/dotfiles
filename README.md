@@ -26,22 +26,22 @@
   <img src="https://user-images.githubusercontent.com/53987136/110218451-6eba0b00-7eec-11eb-95bf-b9e3946fed9f.png" alt="minimal" align="right" width="400px"/>
 </a>
 
-This is my **personal configuration** for my favorite openbox window manager and some applications too.
+This is my **personal configuration** for my favorite openbox window manager and some applications too (as default backup).
 
 I hope you understand everything here. :wink:
 
 Here are some details about my setup
 - **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable mode!
-- **Display Manager**              • [SLiM](https://github.com/iwamatsu/slim) :blossom: beautiful UI! <kbd>deprecated</kbd>
 - **Shell**                        • [Zsh](https://www.zsh.org/) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
 - **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>available</kbd>
-- **Openbox Menu**                 • [Obmenu-generator](https://github.com/trizen/obmenu-generator)
+- **Openbox Menu**                 • [OBmenu-generator](https://github.com/trizen/obmenu-generator)
 - **Panel**                        • [Tint2](https://gitlab.com/o9000/tint2) :shaved_ice: material icon font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
 - **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
-- **GUI & CLI IDE**                • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
+- **Music Player**                 • [Mpd](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :flower_playing_cards: customized UI!
+- **GUI & CLI IDE/Text Editor**    • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
 
@@ -124,13 +124,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ##  
 
 ### Installation (dependencies)
-> Adjust your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with multimedia application that I use.
+> Customize your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with multimedia application that I use.
 >   
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
 > **Warning!** This configuration is highly dependent to `bash`, `sed`, `awk`, and `coreutils`.  
-> Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas).
+> Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -253,7 +253,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 
 ### Installation (dotfiles) 
   
-  > **Are all directories required?**  
+  > **Are all directories required?** :thinking:  
   > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
   
   <details open>
@@ -298,7 +298,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom &&
    sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
    ```
-   > **Why I need to link icons to user system resources?**  
+   > **Why I need to link icons to user system resources?** :thinking:  
    > That's needed by dunst in order to display most of icon from notification that spawned by application.
      
   </details>
@@ -379,7 +379,7 @@ $ killall zentile
 ##  
 
 ### Update
-Since I suggested using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
+Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
 > Remember where you cloned this repository.
 ```sh
 $ cd dotfiles/ && git pull
@@ -421,7 +421,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
   </details>
 
-- **Chromium-based web browser <kbd>suggested</kbd>**
+- **Chromium-based Web Browser <kbd>suggested</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -431,7 +431,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
     <br>
     
-    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/GQdwQsq/2021-03-05-235353-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
+    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/cDbwyqV/2021-03-11-020100-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
 
   </details>
   
@@ -648,7 +648,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 <tr>
 <td>
 <br>
-<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfectly next-gen window manager, highly configurable, and less resources usage.</p>
+<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, highly configurable, and less resources usage.</p>
 </td>
 </tr>
 <tr>
