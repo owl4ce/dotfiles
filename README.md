@@ -26,7 +26,8 @@
   <img src="https://user-images.githubusercontent.com/53987136/110218451-6eba0b00-7eec-11eb-95bf-b9e3946fed9f.png" alt="minimal" align="right" width="400px"/>
 </a>
 
-This is my **personal configuration** for my favorite openbox window manager and some applications too (as default backup).
+This is my **personal configuration** for my favorite openbox window manager and some applications too.  
+> *as default backup*
 
 I hope you understand everything here. :wink:
 
@@ -40,7 +41,7 @@ Here are some details about my setup
 - **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
-- **Music Player**                 • [Mpd](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :flower_playing_cards: customized UI!
+- **Music Player**                 • [Mpd](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/)
 - **GUI & CLI IDE/Text Editor**    • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
@@ -705,3 +706,4 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - [Gladient Icons](https://play.google.com/store/apps/details?id=com.maxghani.gladient)
   - [桜](https://www.pixiv.net/en/artworks/80518034)
   - [桜セイバー沖田総司](https://www.pixiv.net/en/artworks/59740059)
+  - [沖田総司](https://www.pixiv.net/en/artworks/62996457)
