@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="#cherry_blossom--setup">
+  <a href="#cherry_blossom-setup">
     <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b2VzWrg/setup.png"/>
   </a>
   <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
