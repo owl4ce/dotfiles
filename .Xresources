@@ -56,6 +56,8 @@ URxvt.clipboard.copycmd:          xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:         xclip -o -selection clipboard
 URxvt.keysym.M-c:                 perl:clipboard:copy
 URxvt.keysym.M-v:                 perl:clipboard:paste
+URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 
 ! URL
 URxvt.keysym.M-u:                 perl:url-select:select_next
