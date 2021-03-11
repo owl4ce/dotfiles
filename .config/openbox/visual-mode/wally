@@ -55,7 +55,7 @@ case $1 in
                 done; } &> /dev/null &
     ;;
     *)          capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
-                [[ $CHK_MINMOD != "" ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
+                [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
                 echo -e "${G}<${C}=${G}> ${W}Select wallpaper for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme"
                 n=0
                 for img in $WALL_DIR/*.*; do
@@ -74,7 +74,7 @@ case $1 in
                     nitrogen --set-zoom-fill --save "$IMG" &> /dev/null
                     # Write selected
                     selected="$(echo "$IMG" | awk -F"$CHK_VISMOD/" '{print $2}')"
-                    WALL_FILE="$VISMOD_WALL_FILE" && [[ $CHK_MINMOD != "" ]] && WALL_FILE="$MINMOD_WALL_FILE" 
+                    WALL_FILE="$VISMOD_WALL_FILE" && [[ ! -z $CHK_MINMOD ]] && WALL_FILE="$MINMOD_WALL_FILE" 
                     echo "$selected" > $WALL_FILE
                     printf "${G}<${C}=${G}> ${W}Selected wallpaper: ${NC}$selected\n"
                     # Notify success

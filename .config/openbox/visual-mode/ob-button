@@ -14,7 +14,7 @@ case $1 in
             fi    
     ;;
     *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
-            [[ $CHK_MINMOD != "" ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
+            [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
             echo -e "${G}<${C}=${G}> ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}"
             n=0
             for button in $OB_BUTTON_DIR/*; do
@@ -34,7 +34,7 @@ case $1 in
                 cp "$BTN"/* "$BTN_DIR"/
                 openbox --reconfigure
                 buttonselfilt="$(echo "$BTN" | grep -oE '[^/]+$' $1)"
-                BTN_FILE="$VISMOD_BUTTON_FILE" && [[ $CHK_MINMOD != "" ]] && BTN_FILE="$MINMOD_BUTTON_FILE" 
+                BTN_FILE="$VISMOD_BUTTON_FILE" && [[ ! -z $CHK_MINMOD ]] && BTN_FILE="$MINMOD_BUTTON_FILE" 
                 echo "$buttonselfilt" > $BTN_FILE
                 printf "${G}<${C}=${G}> ${W}Selected button style: ${NC}$buttonselfilt\n"
             fi
