@@ -681,6 +681,9 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - [Stark's Color Scripts](https://github.com/stark/Color-Scripts)
   - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh)
   - [NetworkManager Dmenu](https://github.com/firecat53/networkmanager-dmenu)
+  - [URxvt Manual](https://linux.die.net/man/1/urxvt)
+  - [URxvt Resize Font](https://github.com/simmel/urxvt-resize-font)
+  - [URxvt Tabbed Extended](https://github.com/mina86/urxvt-tabbedex)
   - [Showing Album Cover in Ncmpcpp](https://marcocheung.wordpress.com/2015/08/09/showing-album-cover-in-ncmpcpp/)
   - [Complete List of GitHub Markdown Emoji Markup](https://gist.github.com/rxaviers/7360908)
   - Many GNU/Linux and Unix forums.
