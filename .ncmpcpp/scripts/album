@@ -8,17 +8,15 @@ w3m() {
     shopt -s nullglob
     w3m_paths=({/usr/{local/,},~/.nix-profile/}{lib,libexec,lib64,libexec64}/w3m/w3mi*)
     shopt -u nullglob
+    
     [[ -x "${w3m_paths[0]}" ]] && w3m_img_path="${w3m_paths[0]}"
     if command -v {"xprop","xwininfo"} &> /dev/null; then
         win_id="$(xprop -root _NET_ACTIVE_WINDOW | awk -F'# ' '{print $2}' 2> /dev/null)"
         while true; do
             get_width="$(xwininfo -id $win_id | awk -F ':' '/Width/{print $2}' 2> /dev/null)"
             get_height="$(xwininfo -id $win_id | awk -F ':' '/Height/{print $2}' 2> /dev/null)"
-            
-            # Math
             h_size="$(bc <<< $get_height/1.52 2> /dev/null)"
             w_size="$(bc <<< $get_width/3.521 2> /dev/null)"
-            
             read -rt "1" <> <(:) || :
             
             # Keep aspect ratio by depend on width for both
@@ -26,8 +24,8 @@ w3m() {
         done
         exit 0
     else
-        echo "xorg-xwininfo and/or xorg-xprop not installed!"
-        exit 1
+        read -rt "1" <> <(:) || :
+        printf >&2 "\ecerror > xorg-xprop and/or xorg-xwininfo not installed!"
     fi
 }
 
