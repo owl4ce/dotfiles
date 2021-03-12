@@ -3,19 +3,19 @@ source $HOME/.owl4ce_var
 
 # Set Partial Accent Color and Opacity Level from owl4ce_var
 MOD="" && [[ ! -z $CHK_MINMOD ]] && MOD="-minimal"
-bash -c "$VISMOD_DIR/$CHK_VISMOD/theme$MOD partially && $VISMOD_DIR/termody trans" &> /dev/null
+( "$VISMOD_DIR/$CHK_VISMOD/theme$MOD" partially && "$VISMOD_DIR/termody" trans ) &> /dev/null
 
-# ?Mode Variables
+# ? Mode Variables
 if [[ $CHK_VISMOD = *"mechanical"* ]]; then
     PANEL_COL1="$MECH_TINT2_GRAD1"
     PANEL_COL2="$MECH_TINT2_GRAD2"
     PANEL_BTN="$MECH_START_BTN"
-    NOTIFYD_SC="$MECH_DUNST_SMMRY" && [[ $CHK_MINMOD = *"minimal"* ]] && NOTIFYD_SC="$MECH_MIN_DUNST_SMMRY"
+    NOTIFYD_SC="$MECH_DUNST_SMMRY" && [[ ! -z $CHK_MINMOD ]] && NOTIFYD_SC="$MECH_MIN_DUNST_SMMRY"
 elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
     PANEL_COL1="$EYEC_TINT2_GRAD1"
     PANEL_COL2="$EYEC_TINT2_GRAD2"
     PANEL_BTN="$EYEC_START_BTN"
-    NOTIFYD_SC="$EYEC_DUNST_SMMRY" && [[ $CHK_MINMOD = *"minimal"* ]] && NOTIFYD_SC="$EYEC_MIN_DUNST_SMMRY"
+    NOTIFYD_SC="$EYEC_DUNST_SMMRY" && [[ ! -z $CHK_MINMOD ]] && NOTIFYD_SC="$EYEC_MIN_DUNST_SMMRY"
 fi
 
 NOTIFYD() { 
@@ -47,7 +47,7 @@ case $1 in
                 nitrogen --set-zoom-fill --save "$WALL_DIR/$CHK_MINMOD_WALL" &> /dev/null
                 # Panel
                 MOD="" && [[ $CHK_VISMOD = *"mechanical"* ]] && MOD="-dark"
-                tint2 -c "$TINT2_DIR"/statint"$MOD".tint2rc &
+                tint2 -c "$TINT2_DIR/statint$MOD".tint2rc &> /dev/null &
     ;;
     partially)  # Notification Daemon
                 NOTIFYD &

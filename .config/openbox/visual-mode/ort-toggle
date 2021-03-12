@@ -1,50 +1,45 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-{ killall tint2; killall dunst; } &> /dev/null
-
-if [[ $CHK_MINMOD = *"minimal"* ]]; then
-    exit 1
-else
+if [[ -z $CHK_MINMOD ]]; then
+    { killall tint2; killall dunst; } &> /dev/null
+    source $HOME/.owl4ce_var
     case $1 in
-        lrtb)   source $HOME/.owl4ce_var
-                if [[ $CHK_ORT = *"vertical"* ]]; then
+        lrtb)   if [[ $CHK_ORT = *"vertical"* ]]; then
                     if [[ $CHK_ORT_V != *"left"* ]]; then
                         sed -i '2s_vertical=".*"_vertical="left"_' $ORT_FILE
-                        bash -c "$VISMOD_DIR/margin-dunst-rofi v_left"
+                        "$VISMOD_DIR/margin-dunst-rofi" v_left &> /dev/null
                         sed -s -i 's/panel_position = center .* vertical/panel_position = center left vertical/' "$TINT2_DIR"/*-"$CHK_ORT".tint2rc
                     elif [[ $CHK_ORT_V != *"right"* ]]; then
                         sed -i '2s_vertical=".*"_vertical="right"_' $ORT_FILE
-                        bash -c "$VISMOD_DIR/margin-dunst-rofi v_right"
+                        "$VISMOD_DIR/margin-dunst-rofi" v_right &> /dev/null
                         sed -s -i 's/panel_position = center .* vertical/panel_position = center right vertical/' "$TINT2_DIR"/*-"$CHK_ORT".tint2rc
                     fi
                 elif [[ $CHK_ORT = *"horizontal"* ]]; then
                     if [[ $CHK_ORT_H != *"bottom"* ]]; then
                         sed -i '3s_horizontal=".*"_horizontal="bottom"_' $ORT_FILE
-                        bash -c "$VISMOD_DIR/margin-dunst-rofi h_bottom"
+                        "$VISMOD_DIR/margin-dunst-rofi" h_bottom &> /dev/null
                         sed -s -i 's/panel_position = .* center horizontal/panel_position = bottom center horizontal/' "$TINT2_DIR"/*-"$CHK_ORT".tint2rc
                     elif [[ $CHK_ORT_H != *"top"* ]]; then
                         sed -i '3s_horizontal=".*"_horizontal="top"_' $ORT_FILE
-                        bash -c "$VISMOD_DIR/margin-dunst-rofi h_top"
+                        "$VISMOD_DIR/margin-dunst-rofi" h_top &> /dev/null
                         sed -s -i 's/panel_position = .* center horizontal/panel_position = top center horizontal/' "$TINT2_DIR"/*-"$CHK_ORT".tint2rc
                     fi
                 fi
         ;;
-        ort)    source $HOME/.owl4ce_var
-                if [[ $CHK_ORT != *"vertical"* ]]; then
+        ort)    if [[ $CHK_ORT != *"vertical"* ]]; then
                     sed -i '1s_state=".*"_state="vertical"_' $ORT_FILE
                     sed -i "2s_vertical=\".*\"_vertical=\"${CHK_ORT_V}\"_" $ORT_FILE
-                    bash -c "$VISMOD_DIR/margin-dunst-rofi v_$CHK_ORT_V"
+                    "$VISMOD_DIR/margin-dunst-rofi" v_${CHK_ORT_V} &> /dev/null
                     sed -s -i "s/panel_position = center .* vertical/panel_position = center ${CHK_ORT_V} vertical/" "$TINT2_DIR"/*-"$CHK_ORT".tint2rc
                 elif [[ $CHK_ORT != *"horizontal"* ]]; then
                     sed -i '1s_state=".*"_state="horizontal"_' $ORT_FILE
                     sed -i "2s_horizontal=\".*\"_horizontal=\"${CHK_ORT_H}\"_" $ORT_FILE
-                    bash -c "$VISMOD_DIR/margin-dunst-rofi h_$CHK_ORT_H"
+                    "$VISMOD_DIR/margin-dunst-rofi" h_${CHK_ORT_H} &> /dev/null
                     sed -s -i "s/panel_position = center .* horizontal/panel_position = center ${CHK_ORT_V} horizontal/" "$TINT2_DIR"/*-"$CHK_ORT".tint2rc
                 fi
         ;;
     esac
+    openbox --reconfigure
+    "$VISMOD_DIR/UI" partially &> /dev/null
 fi
-
-openbox --reconfigure
-bash -c "$VISMOD_DIR/UI partially" &> /dev/null

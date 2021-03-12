@@ -33,19 +33,19 @@ case $1 in
                     echo ""
                 fi
     ;;
-    prev)       bash -c "$prev"
+    prev)       $($prev)
     ;;
-    toggle)     bash -c "$toggle"
+    toggle)     $($toggle)
     ;;
-    stop)       bash -c "$stop"
+    stop)       $($stop)
     ;;
-    next)       bash -c "$next"
+    next)       $($next)
     ;;
-    status)     echo ""$($status)""
+    status)     echo "$($status)"
     ;;
     title)      echo "$title"
     ;;
-    switchpl)   [[ "$($status)" = *"laying"* ]] && bash -c "$toggle"
+    switchpl)   [[ "$($status)" = *"laying"* ]] && $($toggle)
                 if [[ $CURRENT_MUSICPL = "mpd" ]]; then
                     sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
                 elif [[ $CURRENT_MUSICPL = "spotify" ]]; then

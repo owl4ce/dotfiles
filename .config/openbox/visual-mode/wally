@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var && printf "\ec"
+source $HOME/.owl4ce_var
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
 noterr() { $EXNOTIFY_SEND -u low -r 17 "Install imagemagick!"; exit 1; }
@@ -42,11 +42,11 @@ case $1 in
                             convert "$RAW" -gravity center -crop 16:9 \( +clone -fill "#4c566a" -colorize 50% \) \
                             -gravity center -compose lighten -composite \( +clone -fill "#4c566a" -colorize 20% \) \
                             -gravity center -compose darken -composite -quality 100% \
-                            $WALL_DIR/"$(echo $RAW | awk -F'.' '{print $2}')"_"$(get_size)".jpg
+                            "$WALL_DIR"/"$(echo $RAW | awk -F'.' '{print $2}')"_"$(get_size)".jpg
                         elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
                             convert "$RAW" -gravity center -crop 16:9 \( +clone -fill white -colorize 20% -modulate 100,127,97 \) \
                             -fill black -colorize 2.2% -gravity center -compose lighten -composite -quality 100% \
-                            $WALL_DIR/"$(echo $RAW | awk -F'.' '{print $2}')"_"$(get_size)".jpg
+                            "$WALL_DIR"/"$(echo $RAW | awk -F'.' '{print $2}')"_"$(get_size)".jpg
                         fi
                         $EXNOTIFY_SEND -u low -r 999 -i "$NOTIF_WALLY_ICON" "" "Generated Successfully"
                     else
@@ -56,9 +56,9 @@ case $1 in
     ;;
     *)          capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
                 [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
-                echo -e "${G}<${C}=${G}> ${W}Select wallpaper for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme"
+                echo -e "\ec${G}<${C}=${G}> ${W}Select wallpaper for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme"
                 n=0
-                for img in $WALL_DIR/*.*; do
+                for img in "$WALL_DIR"/*.*; do
                     n="$((n+1))"
                     imgfilt="$(echo $img | grep -oE '[^/]+$' $1)"
                     printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"

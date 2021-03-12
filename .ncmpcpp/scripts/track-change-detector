@@ -8,7 +8,7 @@ run() {
         mpc current > $NCMPCPP_SCRIPTS_DIR/current-track
         { [[ "$(command -v "nice")" ]] && nice -n "19" mpc idle || mpc idle; } &> /dev/null
         [[ "$(cat $NCMPCPP_SCRIPTS_DIR/current-track)" != *"$(mpc current)"* ]] && \
-        bash -c "$NCMPCPP_SCRIPTS_DIR/notify"
+        $NCMPCPP_SCRIPTS_DIR/notify
     done
 }
 

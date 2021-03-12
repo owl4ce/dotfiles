@@ -183,7 +183,7 @@ MOD_FILE="$VISMOD_DIR/current"
 ORT_FILE="$VISMOD_DIR/orientation"
 DEFAPPS_FILE="$SCRIPTS_DIR/default-apps/list"
 
-CHK_TRAY="$(cat $OB_DIR/tray | awk -F' ' '{print $1}')"
+CHK_TRAY="$(cat $OB_DIR/tray | awk -F' &' '/ &/{print $1}' | grep -v '#')"
 CHK_VISMOD="$(cat $VISMOD_DIR/current | grep -E 'mechanical|eyecandy')"
 CHK_MINMOD="$(cat $VISMOD_DIR/current | grep 'minimal')"
 CHK_ORT="$(cat $ORT_FILE | grep 'state=' | awk -F'"' '{print $2}')"
