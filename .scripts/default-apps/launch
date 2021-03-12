@@ -25,7 +25,7 @@ apps() {
 }
 
 case $1 in
-    -g|--get)       [[ "${*:2}" = "" ]] && exit 1
+    -g|--get)       [[ -z "${*:2}" ]] && exit 1
                     echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}' 2> /dev/null)"
     ;;
     -e|--edit)      echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
@@ -37,7 +37,7 @@ case $1 in
     ;;
     *)              if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1" 2> /dev/null)" ]]; then
                         filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}' 2> /dev/null)"
-                        opt="$(echo $@ | tr ' ' '\ 'i)"
+                        opt="$(echo ${*:2} | tr ' ' '\ 'i)"
                         [[ ! -z "$2" ]] && $($filt $opt &> /dev/null &) && exit 0
                         [[ ! -z "$1" ]] && $($filt &> /dev/null &) && exit 0
                     else
