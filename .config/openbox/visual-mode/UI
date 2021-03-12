@@ -46,7 +46,7 @@ case $1 in
                 # Wallpaper Setter
                 nitrogen --set-zoom-fill --save "$WALL_DIR/$CHK_MINMOD_WALL" &> /dev/null
                 # Panel
-                MOD="" && [[ ! -z $CHK_VISMOD ]] && MOD="-dark"
+                MOD="" && [[ $CHK_VISMOD = *"mechanical"* ]] && MOD="-dark"
                 tint2 -c "$TINT2_DIR"/statint"$MOD".tint2rc &
     ;;
     partially)  # Notification Daemon
