@@ -9,10 +9,10 @@ source $HOME/.owl4ce_var
 # there was once a pulseaudio here
 
 # UI Appearance
-"$VISMOD_DIR/mode-toggle" just_ui && "$OB_TRAY"
+( "$VISMOD_DIR/mode-toggle" just_ui && "$OB_TRAY" ) &> /dev/null
 
 # Compositor
-picom -b &> /dev/null &
+picom -b &> /dev/null
 
 # Authentication Agent - PolicyKit
 lxpolkit &> /dev/null &
