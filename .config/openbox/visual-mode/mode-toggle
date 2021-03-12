@@ -41,7 +41,7 @@ eyecandy_min() {
 
 case $1 in
     minimal)    source $HOME/.owl4ce_var && kill also_tray
-                MINMOD="" && [[ -z $CHK_MINMOD ]]  && MINMOD="_min"
+                MINMOD="" && [[ -z $CHK_MINMOD ]] && MINMOD="_min"
                 "$CHK_VISMOD$MINMOD"
                 "$OB_TRAY" &> /dev/null
     ;;
