@@ -9,7 +9,7 @@ source $HOME/.owl4ce_var
 # there was once a pulseaudio here
 
 # UI Appearance
-bash -c "$VISMOD_DIR/mode-toggle just_ui"
+"$VISMOD_DIR/mode-toggle" just_ui && "$OB_TRAY"
 
 # Compositor
 picom -b &> /dev/null &
@@ -22,4 +22,4 @@ xautolock -time "$AUTOLOCK_MINUTE" -locker "$($DEFAPPS_EXEC -g lockscreen)" -det
 -notifier "$EXNOTIFY_SEND -i $ICON_GLADIENT_DIR/lock.png 'Lockscreen' 'Will be locked in 5s from now'" -notify 5 &> /dev/null &
 
 # Start MPD player (+notification-sender)
-bash -c "$MPD_TCD"
+"$MPD_TCD"

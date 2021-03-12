@@ -38,8 +38,8 @@ case $1 in
     *)              if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1" 2> /dev/null)" ]]; then
                         filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}' 2> /dev/null)"
                         opt="$(echo $@ | tr ' ' '\ 'i)"
-                        [[ ! -z "$2" ]] && bash -c "$filt $opt &> /dev/null &" && exit 0
-                        [[ ! -z "$1" ]] && bash -c "$filt &> /dev/null &" && exit 0
+                        [[ ! -z "$2" ]] && $($filt $opt &> /dev/null &) && exit 0
+                        [[ ! -z "$1" ]] && $($filt &> /dev/null &) && exit 0
                     else
                         command -v "$1" > /dev/null 2>&1 || err "${M}$1${W} is not in list. Please define it first!"
                     fi

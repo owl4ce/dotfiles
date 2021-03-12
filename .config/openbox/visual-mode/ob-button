@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var && printf "\ec"
+source $HOME/.owl4ce_var
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
-BTN_LOC="$VISMOD_LOC_BUTTON_FILE" && [[ $CHK_MINMOD = *"minimal"* ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE"
+BTN_LOC="$VISMOD_LOC_BUTTON_FILE" && [[ ! -z $CHK_MINMOD ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE"
 
 case $1 in
     swap)   if [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>LIMC</titleLayout>"* ]]; then
@@ -15,9 +15,9 @@ case $1 in
     ;;
     *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
             [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
-            echo -e "${G}<${C}=${G}> ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}"
+            echo -e "\ec${G}<${C}=${G}> ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}"
             n=0
-            for button in $OB_BUTTON_DIR/*; do
+            for button in "$OB_BUTTON_DIR"/*; do
                 n="$((n+1))"
                 buttonfilt="$(echo $button | grep -oE '[^/]+$' $1)"
                 printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"

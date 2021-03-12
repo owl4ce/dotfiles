@@ -23,7 +23,7 @@ ALL() {
     read -rt "3" <> <(:) || : && killall xsettingsd &
     
     # Set Openbox Margin
-    bash -c "$VISMOD_DIR/margin-dunst-rofi minmod"
+    "$VISMOD_DIR/margin-dunst-rofi" minmod &> /dev/null
     openbox --reconfigure
     
     # Icon Theme
