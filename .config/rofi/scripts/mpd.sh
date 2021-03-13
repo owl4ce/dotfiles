@@ -37,7 +37,7 @@ options="$previous\n$play_pause\n$stop\n$next\n$tog_repeat\n$tog_stream"
 current="$($MUSIC_CONTROLLER title)"
 
 # If mpd isn't running it will return an empty string, we don't want to display that
-[[ -z "$current" ]] && current="-"
+[[ -z "$current" ]] && current="-" || :
 
 # Spawn the mpd menu with the "Play / Pause" entry selected by default
 chosen="$(echo -e "$options" | $rofi_command -dmenu $active $urgent -selected-row 1)"

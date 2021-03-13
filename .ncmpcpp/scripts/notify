@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-command -v {"mpd","mpc","convert"} > /dev/null 2>&1 || exit 1
+type -p {"mpd","mpc","convert"} &> /dev/null || exit 1
 
 MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_NOTIF_COVER"
@@ -14,7 +14,7 @@ notify_noalbum() {
     album="$(mpc --format %album% current -p 6600)"
     file="$(mpc --format %file% current -p 6600)"
     album_dir="${file%/*}"
-    [[ -z "$album_dir" ]] && exit 1
+    [[ -z "$album_dir" ]] && exit 1 || :
     album_dir="$MUSIC_DIR/$album_dir"
     
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"

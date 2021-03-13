@@ -21,10 +21,10 @@ case $chosen in
     ;;
     $lock)      $DEFAPPS_EXEC lockscreen
     ;;
-    $suspend)   [[ "$($MUSIC_CONTROLLER status)" = *"laying"* ]] && $MUSIC_CONTROLLER toggle
-                if command -v "systemctl" &> /dev/null; then
+    $suspend)   [[ "$($MUSIC_CONTROLLER status)" = *"laying"* ]] && $MUSIC_CONTROLLER toggle || :
+                if type -p "systemctl" &> /dev/null; then
                     systemctl suspend
-                elif command -v "loginctl" &> /dev/null; then
+                elif type -p "loginctl" &> /dev/null; then
                     loginctl suspend
                 fi
     ;;

@@ -2,7 +2,7 @@
 source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
-command -v {"urxvt","termite"} > /dev/null 2>&1 || noterr
+command -v {"urxvt","termite"} &> /dev/null || noterr
 
 # Set URxvt Icon File Automatically and set URxvt URL Launcher from owl4ce_var
 sed -i "s_URxvt.iconFile:.*_URxvt.iconFile:                   ${TERM_ICON}_" $XRESOURCES_CONFIG
@@ -35,7 +35,7 @@ TRANS() {
 }
 
 if [[ "$($DEFAPPS_EXEC -g terminal)" = "urxvt" ]]; then
-    current="$(cat $XRESOURCES_CONFIG | grep "foreground" | head -n1 | grep '!' 2> /dev/null)"
+    current="$(cat $XRESOURCES_CONFIG | grep "foreground" | head -n1 | grep '!')"
     case $1 in
         trans)  TRANS apply
         ;;
@@ -75,7 +75,7 @@ if [[ "$($DEFAPPS_EXEC -g terminal)" = "urxvt" ]]; then
         esac
         xrdb $XRESOURCES_CONFIG &
 elif [[ "$($DEFAPPS_EXEC -g terminal)" = "termite" ]]; then
-    current="$(cat $TERMITE_CONFIG | grep "#foreground = " | head -n1 2> /dev/null)"
+    current="$(cat $TERMITE_CONFIG | grep "#foreground = " | head -n1)"
     if [[  "$current" != *"#foreground = #F9F9F9"* ]]; then
         sed -i '79s_foreground_#foreground_' $TERMITE_CONFIG
         sed -i '80s_foreground_#foreground_' $TERMITE_CONFIG

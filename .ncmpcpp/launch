@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-command -v {"urxvt","ncmpcpp"} > /dev/null 2>&1 || exit 1
+command -v {"urxvt","ncmpcpp"} &> /dev/null || exit 1
 
 if [[ "$($DEFAPPS_EXEC -g musicpl)" = "mpd" ]]; then
     {

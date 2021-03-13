@@ -3,7 +3,6 @@ source $HOME/.owl4ce_var
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
 noterr() { $EXNOTIFY_SEND -u low -r 17 "Install imagemagick!"; exit 1; }
-command -v {"identify","convert"} > /dev/null 2>&1 || noterr
  
 get_size() {
     SIZE="$(echo $(identify -format '%w' "$RAW"))"
@@ -34,7 +33,8 @@ get_size() {
 }
 
 case $1 in
-    generate) { cd "$WALL_RAW_SOURCE"
+    generate)   type -p {"identify","convert"} &> /dev/null || noterr
+              { cd "$WALL_RAW_SOURCE"
                 for RAW in ./*.*; do
                     if [[ "$RAW" != "./*.*" ]]; then
                         $EXNOTIFY_SEND -u low -r 999 -t 1000 -i "$NOTIF_WALLY_ICON" "" "Generating ..\n<span size='small'><u>$(echo $RAW | grep -oE '[^/]+$' $2)</u></span>"
@@ -55,7 +55,7 @@ case $1 in
                 done; } &> /dev/null &
     ;;
     *)          capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
-                [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")"
+                [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")" || :
                 echo -e "\ec${G}<${C}=${G}> ${W}Select wallpaper for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme"
                 n=0
                 for img in "$WALL_DIR"/*.*; do
@@ -74,7 +74,7 @@ case $1 in
                     nitrogen --set-zoom-fill --save "$IMG" &> /dev/null
                     # Write selected
                     selected="$(echo "$IMG" | awk -F"$CHK_VISMOD/" '{print $2}')"
-                    WALL_FILE="$VISMOD_WALL_FILE" && [[ ! -z $CHK_MINMOD ]] && WALL_FILE="$MINMOD_WALL_FILE" 
+                    [[ ! -z $CHK_MINMOD ]] && WALL_FILE="$MINMOD_WALL_FILE" || WALL_FILE="$VISMOD_WALL_FILE"
                     echo "$selected" > $WALL_FILE
                     printf "${G}<${C}=${G}> ${W}Selected wallpaper: ${NC}$selected\n"
                     # Notify success

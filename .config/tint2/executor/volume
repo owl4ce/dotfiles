@@ -2,10 +2,10 @@
 source $HOME/.owl4ce_var
 
 noterr() { echo "Install alsa-utils!"; exit 1; }
-command -v "amixer" > /dev/null 2>&1 || noterr
+type -p "amixer" &> /dev/null || noterr
 
 CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
-VOLUME="$(amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}';)"
+VOLUME="$(amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}')"
 
 icon() {
     if [[ "$VOLUME" = "0" ]]; then

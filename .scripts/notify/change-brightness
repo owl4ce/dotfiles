@@ -2,7 +2,7 @@
 source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 16 "Install brightnessctl!"; exit 1; }
-command -v "brightnessctl" > /dev/null 2>&1 || noterr
+type -p "brightnessctl" &> /dev/null || noterr
 
 notify() {
     BRIGHTNESS="$(brightnessctl i | grep '%' | awk -F'(' '{print $2}' | awk -F'%' '{print $1}')"

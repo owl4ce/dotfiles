@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-command -v {"mpd","mpc"} > /dev/null 2>&1 || exit 1
+type -p {"mpd","mpc"} &> /dev/null || exit 1
 
 run() {
     while true; do
         mpc current > $NCMPCPP_SCRIPTS_DIR/current-track
-        { [[ "$(command -v "nice")" ]] && nice -n "19" mpc idle || mpc idle; } &> /dev/null
+        { [[ "$(type -p "nice")" ]] && nice -n "19" mpc idle || mpc idle; } &> /dev/null
         [[ "$(cat $NCMPCPP_SCRIPTS_DIR/current-track)" != *"$(mpc current)"* ]] && \
         $NCMPCPP_SCRIPTS_DIR/notify
     done
 }
 
 {
-    if [[ "$(pstree 2> /dev/null)" = *"mpd"* ]]; then
+    if [[ "$(pstree)" = *"mpd"* ]]; then
         run
     else
-        { [[ "$(command -v "nice")" ]] && nice -n "1" mpd || mpd; } &> /dev/null
+        { [[ "$(type -p "nice")" ]] && nice -n "1" mpd || mpd; } &> /dev/null
         run
     fi
 } &

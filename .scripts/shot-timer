@@ -2,11 +2,11 @@
 source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 13 "Install scrot!"; exit 1; }
-command -v "scrot" > /dev/null 2>&1 || noterr
+type -p "scrot" &> /dev/null || noterr
 
 {
-    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"
-    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo "$TIMER_SEC")s .."
+    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; read -rt ".1" <> <(:) || :
+    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo $TIMER_SEC)s .."
     scrot -q "$QUALITY" -d "$TIMER_SEC" -e "mv '\$f' \"$SAVE_DIR/Screenshots\"" &> /dev/null
     $EXNOTIFY_SEND -r 13 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$(echo $SAVE_DIR | grep -oE '[^/]+$' $1)/Screenshots</u></span>\nPicture acquired!"
 } &
