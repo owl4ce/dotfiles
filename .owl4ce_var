@@ -8,7 +8,7 @@ user_pref() {
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # ?_START_BTN           || ? theme panel button glyphs, copy from gucharmap       #
 # ?                     || UI Colors. Customize yourself..                        #
-#                <tips> || Play with variable (chaining) and hastag aka comment.  #
+#                <tips> || Play with variable (chaining) and hashtag aka comment  #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates       || Your Changable Variable Name and Value                 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
