@@ -2,17 +2,17 @@
 source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
-command -v "scrot" > /dev/null 2>&1 || noterr
+type -p "scrot" &> /dev/null || noterr
 
 {
-    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; read -rt ".5" <> <(:) || :
-    
+    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; read -rt ".1" <> <(:) || :
     rm -f /tmp/*_scrot*.png &> /dev/null
     scrot -q "$QUALITY" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
-    $EXNOTIFY_SEND -r 12 -t 750 -i "$NOTIF_SS_ICON" -u low "" "Processing captured image .."
+    $EXNOTIFY_SEND -r 12 -t 750 -i "$NOTIF_SS_ICON" -u low "" "Processing captured image .." || \
+    $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "" "Screenshot canceled!"
     
     for CURRENT in /tmp/*_scrot*.png; do
-        CURRENT="$(echo "$CURRENT" | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}')"
+        CURRENT="$(echo $CURRENT | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}')"
     done
     
     convert /tmp/"$CURRENT".png \
@@ -27,9 +27,11 @@ command -v "scrot" > /dev/null 2>&1 || noterr
     -border 5 $SAVE_DIR/Screenshots/"$CURRENT".png &> /dev/null
 
     rm -f /tmp/*_scrot*.png &> /dev/null
-    [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]] && \
-    $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$(echo $SAVE_DIR | grep -oE '[^/]+$' $1)/Screenshots</u></span>\nPicture acquired!" && \
-    [[ "$COPY_FRAMED" = "yes" ]] && xclip -selection clipboard -target image/png -i "$SAVE_DIR/Screenshots/$CURRENT.png" && \
-    [[ "$OPEN_FRAMED" = "yes" ]] && [[ "$(command -v "viewnior" 2> /dev/null)" ]] && \
-    viewnior "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
+    if [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]]; then
+        $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$(echo $SAVE_DIR | grep -oE '[^/]+$' $1)/Screenshots</u></span>\nPicture acquired!"
+        [[ "$COPY_FRAMED" = "yes" ]] && [[ "$(type -p "xclip")" ]] && \
+        xclip -selection clipboard -target image/png -i "$SAVE_DIR/Screenshots/$CURRENT.png"
+        [[ "$OPEN_FRAMED" = "yes" ]] && [[ "$(type -p "viewnior")" ]] && \
+        viewnior "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
+    fi
 } &

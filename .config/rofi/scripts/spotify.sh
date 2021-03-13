@@ -27,7 +27,7 @@ options="$previous\n$play_pause\n$stop\n$next\n$tog_stream"
 current="$($MUSIC_CONTROLLER title)"
 
 # If spotify isn't running it will return an empty string, we don't want to display that
-[[ -z "$current" ]] && current="-"
+[[ -z "$current" ]] && current="-" || :
 
 # Spawn the spotify menu with the "Play / Pause" entry selected by default
 chosen="$(echo -e "$options" | $rofi_command -dmenu $active $urgent -selected-row 1)"

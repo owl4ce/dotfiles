@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-kill() { { killall tint2; killall dunst; [[ "$1" = "also_tray" ]] && killall $CHK_TRAY; } &> /dev/null; }
+kill() { { killall tint2; killall dunst; [[ "$1" = "also_tray" ]] && killall $CHK_TRAY || :; } &> /dev/null; }
 
 mechanical() {
     # Write Current
@@ -41,20 +41,17 @@ eyecandy_min() {
 
 case $1 in
     minimal)    source $HOME/.owl4ce_var && kill also_tray
-                MINMOD="" && [[ -z $CHK_MINMOD ]] && MINMOD="_min"
-                "$CHK_VISMOD$MINMOD"
+                [[ -z $CHK_MINMOD ]] && "$CHK_VISMOD"_min || "$CHK_VISMOD"
                 "$OB_TRAY" &> /dev/null
     ;;
     just_ui)    source $HOME/.owl4ce_var && xrdb $HOME/.Xresources && kill
-                ISMIN="" && [[ ! -z $CHK_MINMOD ]] && ISMIN=" minimal"
-                "$VISMOD_DIR/UI$ISMIN" &> /dev/null
+                [[ ! -z $CHK_MINMOD ]] && "$VISMOD_DIR/UI" minimal || "$VISMOD_DIR/UI"
     ;;
     *)          source $HOME/.owl4ce_var && kill also_tray
-                MINMOD="" && [[ ! -z $CHK_MINMOD ]] && MINMOD="_min"
                 if [[ $CHK_VISMOD != *"mechanical"* ]]; then
-                    "mechanical$MINMOD"
+                    [[ ! -z $CHK_MINMOD ]] && mechanical_min || mechanical
                 elif [[ $CHK_VISMOD != *"eyecandy"* ]]; then
-                    "eyecandy$MINMOD"
+                    [[ ! -z $CHK_MINMOD ]] && eyecandy_min || eyecandy
                 fi
                 "$OB_TRAY" &> /dev/null
 	;;
