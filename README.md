@@ -693,7 +693,12 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
   - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
   - [Justin Faber](https://github.com/vredesbyyrd) - [Rofi matched lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)
-  - [[...]](https://github.com/owl4ce/dotfiles/graphs/contributors)
+  <br>
+  <a href="https://github.com/owl4ce/dotfiles/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=owl4ce/dotfiles" />
+  </a>
+
+  Made with [contributors-img](https://contrib.rocks).
   
 - **Softwares**
   - [Geany - The Flyweight IDE](https://www.geany.org/)
