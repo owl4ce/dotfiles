@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-type -p {"mpd","mpc","convert"} &> /dev/null || exit 1
+type -p {"mpd","mpc","convert","ffmpeg"} &> /dev/null || exit 1
 
 MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_NOTIF_COVER"

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
+( type -p {"mpd","mpc"} || type -p {"spotify","playerctl"} ) &> /dev/null || exit 1
+
 CURRENT_MUSICPL="$($DEFAPPS_EXEC -g musicpl)"
 
 if [[ "$CURRENT_MUSICPL" = "mpd" ]]; then
