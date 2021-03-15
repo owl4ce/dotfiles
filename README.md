@@ -666,6 +666,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - [Elena](https://github.com/elenapan)
   - [Adhi Pambudi](https://github.com/addy-dclxvi)
   - [Fikri Omar](https://github.com/fikriomar16)
+  - [Nanda Oktavera](https://github.com/okitavera)
   - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
   - [Muktazam Hasbi Ashidiqi](https://github.com/reorr)
   - [Galih Wisnuaji](https://github.com/nekonako)
