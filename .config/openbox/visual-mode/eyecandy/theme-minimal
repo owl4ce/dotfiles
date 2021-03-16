@@ -20,7 +20,7 @@ ALL() {
     sed -i '1s_Net/IconThemeName.*_Net/IconThemeName "Papirus-Custom"_' $XSETTINGSD_CONFIG
     sed -i '2s_Net/ThemeName.*_Net/ThemeName "Sweetly"_' $XSETTINGSD_CONFIG
     xsettingsd &> /dev/null &
-    read -rt "3" <> <(:) || : && killall xsettingsd &
+    read -rt "3" <> <(:) || killall xsettingsd &
     
     # Set Openbox Margin
     "$VISMOD_DIR/margin-dunst-rofi" minmod &> /dev/null
@@ -48,7 +48,7 @@ ALL() {
     sed -i '34s_<name>.*_<name>Sweetly</name>_' $OB_CONFIG
     
     # Reconfigure Openbox (realistic theme)
-    read -rt ".4" <> <(:) || : && openbox --reconfigure &
+    read -rt ".4" <> <(:) || openbox --reconfigure &
 }
 
 case $1 in
