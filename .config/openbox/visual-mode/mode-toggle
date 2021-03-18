@@ -40,9 +40,8 @@ eyecandy_min() {
 }
 
 case $1 in
-    minimal)    source $HOME/.owl4ce_var && kill also_tray
+    minimal)    source $HOME/.owl4ce_var && kill
                 [[ -z $CHK_MINMOD ]] && "$CHK_VISMOD"_min || "$CHK_VISMOD"
-                "$OB_TRAY" &> /dev/null
     ;;
     just_ui)    source $HOME/.owl4ce_var && xrdb $HOME/.Xresources && kill
                 [[ ! -z $CHK_MINMOD ]] && "$VISMOD_DIR/UI" minimal || "$VISMOD_DIR/UI"
@@ -52,7 +51,6 @@ case $1 in
                     [[ ! -z $CHK_MINMOD ]] && mechanical_min || mechanical
                 elif [[ $CHK_VISMOD != *"eyecandy"* ]]; then
                     [[ ! -z $CHK_MINMOD ]] && eyecandy_min || eyecandy
-                fi
-                "$OB_TRAY" &> /dev/null
+                fi && "$OB_TRAY" &> /dev/null
 	;;
 esac

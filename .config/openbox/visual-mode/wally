@@ -3,7 +3,7 @@ source $HOME/.owl4ce_var
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
 noterr() { $EXNOTIFY_SEND -u low -r 17 "Install imagemagick!"; exit 1; }
- 
+
 get_size() {
     SIZE="$(echo $(identify -format '%w' "$RAW"))"
     
@@ -68,7 +68,7 @@ case $1 in
                 read -r num
                 num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
                 if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-                    printf >&2 "${G}<${C}=${G}> ${R}Wrong selection!\n" && exit 1
+                    printf "${G}<${C}=${G}> ${R}Wrong selection!\n" >&2 && exit 1
                 else
                     eval "IMG=\$img${num}"
                     nitrogen --set-zoom-fill --save "$IMG" &> /dev/null

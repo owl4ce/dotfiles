@@ -27,7 +27,7 @@ case $1 in
             read -r num
             num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"                
             if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-                printf >&2 "${G}<${C}=${G}> ${R}Wrong selection!\n" && exit 1
+                printf "${G}<${C}=${G}> ${R}Wrong selection!\n" >&2 && exit 1
             else
                 eval "BTN=\$button${num}"
                 [[ $CHK_VISMOD = *"eyecandy"* ]] && BTN_DIR="$EYC_BUTTON_DIR" || BTN_DIR="$MECH_BUTTON_DIR"
