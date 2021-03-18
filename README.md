@@ -478,13 +478,10 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
   An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead.
-
   > **How about battery indicator?**  
   > Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`.
-
   Remove hashtags for all your needs, then re-login openbox-session.
-  
-  > **Warning!** Putting a tray here means that when switching modes, the program will be restarted.
+  > **Warning!** Putting a tray here means that when switching Visual Mode, the program will be restarted.
   ```cfg
   1 #
   2 # This tray will restart after switching modes
@@ -661,7 +658,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 
 <br>
 
-## :hearts:  Credits / Thanks
+## :confetti_ball:  Credits / Thanks
 - **Inspiration and resources**
   - [Elena](https://github.com/elenapan)
   - [Adhi Pambudi](https://github.com/addy-dclxvi)
