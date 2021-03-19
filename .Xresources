@@ -1,7 +1,7 @@
 ! DO NOT CHANGE THE ORDER
 
 ! URXVT APPEARANCE
-URxvt.font:                       xft:mplus Nerd Font Mono:style:regular:size=11,xft:Monospace:size=11:antialias=true:hinting=true
+URxvt.font:                       xft:mplus Nerd Font Mono:size=11,xft:Monospace:size=11:antialias=true:hinting=true
 URxvt.geometry:                   84x16
 URxvt.internalBorder:             20
 URxvt.cursorBlink:                true
