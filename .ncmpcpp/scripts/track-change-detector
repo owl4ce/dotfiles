@@ -13,7 +13,7 @@ run() {
 }
 
 {
-    if [[ "$(pstree)" = *"mpd"* ]]; then
+    if ( pgrep "mpd" || pstree | grep "mpd" ) &> /dev/null; then
         run
     else
         { [[ "$(type -p "nice")" ]] && nice -n "1" mpd || mpd; } &> /dev/null

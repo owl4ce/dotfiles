@@ -31,10 +31,10 @@ notify_noalbum() {
         convert "$COVER" \
         \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
-        -alpha off -compose CopyOpacity -composite "$COVER.png" &> /dev/null
+        -alpha off -compose CopyOpacity -composite "$(echo $COVER | sed 's_.jpg_.png_')" &> /dev/null
         rm -f "$COVER" &> /dev/null
-        if [[ -f "$COVER.png" ]]; then
-            $EXNOTIFY_SEND -u normal -r 7777 -i "$COVER.png" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+        if [[ -f "$(echo $COVER | sed 's_.jpg_.png_')" ]]; then
+            $EXNOTIFY_SEND -u normal -r 7777 -i "$(echo $COVER | sed 's_.jpg_.png_')" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
         else
             notify_noalbum
         fi

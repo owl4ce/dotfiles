@@ -9,7 +9,7 @@ type -p "scrot" &> /dev/null || noterr
     rm -f /tmp/*_scrot*.png &> /dev/null
     scrot -q "$QUALITY" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null && \
     $EXNOTIFY_SEND -r 12 -t 750 -i "$NOTIF_SS_ICON" -u low "" "Processing captured image .." || \
-    $EXNOTIFY_SEND -r 12 -t 500 -i "$NOTIF_SS_ICON" -u low "" "Screenshot canceled!"
+    ( $EXNOTIFY_SEND -r 12 -t 500 -i "$NOTIF_SS_ICON" -u low "" "Screenshot canceled!" && exit 1 )
     
     for CURRENT in /tmp/*_scrot*.png; do
         CURRENT="$(echo $CURRENT | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}')"
