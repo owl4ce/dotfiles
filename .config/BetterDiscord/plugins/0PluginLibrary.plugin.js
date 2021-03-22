@@ -1,6 +1,9 @@
 /**
  * @name ZeresPluginLibrary
+<<<<<<< HEAD
  * @version 1.2.29
+=======
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
  * @invite TyFxKer
  * @authorLink https://twitter.com/ZackRauen
  * @donate https://paypal.me/ZackRauen
@@ -137,19 +140,54 @@ module.exports = {
             github_username: "rauenzi",
             twitter_username: "ZackRauen"
         }],
+<<<<<<< HEAD
         version: "1.2.29",
+=======
+        version: "1.2.27",
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         description: "Gives other plugins utility functions and the ability to emulate v2.",
         github: "https://github.com/rauenzi/BDPluginLibrary",
         github_raw: "https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js"
     },
     changelog: [
         {
+<<<<<<< HEAD
             title: "Internal Changes",
             type: "fixed",
             items: [
                 "Changes how elements and jQuery are resolved internally that could cause crashes when jQuery doesn't exist.",
             ]
         },
+=======
+            title: "What's new?",
+            type: "added",
+            items: [
+                "Preemptive changes for upcoming React versions (`__reactInternalInstance$` => `__reactFiber$`)",
+                "Exposes the `ErrorBoundary` component with `errorChildren` option under `Library.Components.ErrorBoundary`.",
+                "`Utilities` module now has a `debounce` function. See the docs (https://rauenzi.github.io/BDPluginLibrary/docs) for specification."
+            ]
+        },
+        {
+            title: "Bugs Squashed",
+            type: "fixed",
+            items: [
+                "Fixes an issue with `Switch` and `RadioGroup` settings not showing and potentially causing error.",
+                "Fixes an issue with switches not switching",
+                "Fixes a miscoloring of the color settings title.",
+                "Fixes issues with context menus suddenly hovering/selecting the wrong item.",
+                "Plugins must either provide unique `id` values to context menu items, or ensure there are no `label` conflicts."
+            ]
+        },
+        {
+            title: "Deprecations",
+            type: "improved",
+            items: [
+                "`Tooltip` module was replaced with the `EmulatedTooltip` module, making the `EmulatedTooltip` redundant and is now deprecated.",
+                "`ContextMenu` was deprecated in favor of `DiscordContextMenu`/`DCM`",
+                "`fileExists` and `readFile` functions of the `Utilities` module are now deprecated, just use `fs`."
+            ]
+        }
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
     ],
     main: "plugin.js"
 };
@@ -664,10 +702,13 @@ __webpack_require__.r(__webpack_exports__);
     get ExperimentsManager() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("isDeveloper");},
     get CurrentExperiment() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("getExperimentId");},
 
+<<<<<<< HEAD
     /* Streams */
     get StreamStore() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("getAllActiveStreams", "getStreamForUser");},
     get StreamPreviewStore() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("getIsPreviewLoading", "getPreviewURL");},
 
+=======
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
     /* Images, Avatars and Utils */
     get ImageResolver() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("getUserAvatarURL", "getGuildIconURL");},
     get ImageUtils() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("getSizedImageSrc");},
@@ -775,7 +816,11 @@ __webpack_require__.r(__webpack_exports__);
     get PopoutOpener() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("openPopout");},
     // Grab with react components
     // get EmojiPicker() {return WebpackModules.getByDisplayName("FluxContainer(EmojiPicker)");},
+<<<<<<< HEAD
     get UserPopout() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByDisplayName("ConnectedUserPopout");},
+=======
+    get UserPopout() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByDisplayName("UserPopout");},
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 
     /* Context Menus */
     get ContextMenuActions() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getByProps("openContextMenu");},
@@ -802,7 +847,10 @@ __webpack_require__.r(__webpack_exports__);
     get Textbox() {return _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["default"].getModule(m => m.defaultProps && m.defaultProps.type == "text");},
 }));
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 /***/ }),
 
 /***/ "./src/modules/discordselectors.js":
@@ -1567,6 +1615,7 @@ class DOMTools {
      * @param {(jQuery|Element)} node - node to resolve
      */
     static resolveElement(node) {
+<<<<<<< HEAD
         try {
             if (!(node instanceof window.jQuery) && !(node instanceof Element)) return undefined;
             return node instanceof window.jQuery ? node[0] : node;
@@ -1574,6 +1623,10 @@ class DOMTools {
         catch {
             return node;
         }
+=======
+        if (!(node instanceof jQuery) && !(node instanceof Element)) return undefined;
+        return node instanceof jQuery ? node[0] : node;
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
     }
 }
 
@@ -2225,7 +2278,11 @@ class PluginUpdater {
             ui__WEBPACK_IMPORTED_MODULE_4__["Toasts"].info("Plugin update check in progress.");
             window.PluginUpdates.checkAll().then(() => {ui__WEBPACK_IMPORTED_MODULE_4__["Toasts"].success("Plugin update check complete.");});
         };
+<<<<<<< HEAD
         const tooltip = new ui__WEBPACK_IMPORTED_MODULE_4__["Tooltip"](updateButton, "Checks for updates of plugins that support this feature. Right-click for a list.");
+=======
+        const tooltip = new ui__WEBPACK_IMPORTED_MODULE_4__["EmulatedTooltip"](updateButton, "Checks for updates of plugins that support this feature. Right-click for a list.");
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         updateButton.oncontextmenu = function () {
             if (!window.PluginUpdates || !window.PluginUpdates.plugins) return;
             tooltip.label = Object.values(window.PluginUpdates.plugins).map(p => p.name).join(", ");
@@ -2264,7 +2321,11 @@ class PluginUpdater {
             if (!window.PluginUpdates.downloaded) {
                 window.PluginUpdates.downloaded = [];
                 const button = _domtools__WEBPACK_IMPORTED_MODULE_1__["default"].parseHTML(`<button class="btn btn-reload ${_discordclasses__WEBPACK_IMPORTED_MODULE_3__["default"].Notices.buttonMinor} ${_discordclasses__WEBPACK_IMPORTED_MODULE_3__["default"].Notices.button}">Reload</button>`);
+<<<<<<< HEAD
                 const tooltip = new ui__WEBPACK_IMPORTED_MODULE_4__["Tooltip"](button, window.PluginUpdates.downloaded.join(", "), {side: "top"});
+=======
+                const tooltip = new ui__WEBPACK_IMPORTED_MODULE_4__["EmulatedTooltip"](button, window.PluginUpdates.downloaded.join(", "), {side: "top"});
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
                     window.location.reload(false);
@@ -2307,7 +2368,11 @@ class PluginUpdater {
         if (document.getElementById("outdatedPlugins").querySelectorAll("span").length) document.getElementById("outdatedPlugins").append(_domtools__WEBPACK_IMPORTED_MODULE_1__["default"].createElement("<span class='separator'>, </span>"));
         document.getElementById("outdatedPlugins").append(pluginNoticeElement);
 
+<<<<<<< HEAD
         const tooltip = new ui__WEBPACK_IMPORTED_MODULE_4__["Tooltip"](pluginNoticeElement, "Click To Update!", {side: "bottom"});
+=======
+        const tooltip = new ui__WEBPACK_IMPORTED_MODULE_4__["EmulatedTooltip"](pluginNoticeElement, "Click To Update!", {side: "bottom"});
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 
         // If this is the first one added, show the tooltip immediately.
         if (document.getElementById("outdatedPlugins").querySelectorAll("span").length === 1) tooltip.show();
@@ -2936,8 +3001,13 @@ class ReactTools {
      * @return {object} the internal react instance
      */
     static getReactInstance(node) {
+<<<<<<< HEAD
         const domNode = _domtools__WEBPACK_IMPORTED_MODULE_0__["default"].resolveElement(node);
         if (!(domNode instanceof Element)) return undefined;
+=======
+        if (!(node instanceof window.jQuery) && !(node instanceof Element)) return undefined;
+        const domNode = node instanceof window.jQuery ? node[0] : node;
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         return domNode[Object.keys(domNode).find((key) => key.startsWith("__reactInternalInstance") || key.startsWith("__reactFiber"))];
     }
 
@@ -3027,9 +3097,14 @@ class ReactTools {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logger */ "./src/modules/logger.js");
+<<<<<<< HEAD
 /* harmony import */ var _domtools__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./domtools */ "./src/modules/domtools.js");
 /* harmony import */ var _webpackmodules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./webpackmodules */ "./src/modules/webpackmodules.js");
 /* harmony import */ var _reactcomponents__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reactcomponents */ "./src/modules/reactcomponents.js");
+=======
+/* harmony import */ var _webpackmodules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./webpackmodules */ "./src/modules/webpackmodules.js");
+/* harmony import */ var _reactcomponents__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reactcomponents */ "./src/modules/reactcomponents.js");
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 /**
  * BetterDiscord Reflection Module
  * Copyright (c) 2015-present JsSucks - https://github.com/JsSucks
@@ -3044,7 +3119,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 class Reflection {
     static reactInternalInstance(node) {
         if (!node) return null;
@@ -3143,7 +3221,11 @@ class Reflection {
     }
 
     static getComponentStateNode(node, component) {
+<<<<<<< HEAD
         if (component instanceof _reactcomponents__WEBPACK_IMPORTED_MODULE_3__["default"].ReactComponent) component = component.component;
+=======
+        if (component instanceof _reactcomponents__WEBPACK_IMPORTED_MODULE_2__["default"].ReactComponent) component = component.component;
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 
         for (const stateNode of this.getStateNodes(node)) {
             if (stateNode instanceof component) return stateNode;
@@ -3187,7 +3269,11 @@ const propsProxyHandler = {
     return new class ReflectionInstance {
         constructor(ele) {
             if (typeof ele === "string") ele = document.querySelector(ele);
+<<<<<<< HEAD
             this.node = _domtools__WEBPACK_IMPORTED_MODULE_1__["default"].resolveElement(ele);
+=======
+            this.node = ele instanceof window.jQuery ? ele[0] : ele;
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         }
 
         get el() {return this.node;}
@@ -3226,6 +3312,7 @@ const propsProxyHandler = {
             return Reflection.getComponents(this.node);
         }
         getComponentByProps(props, selector) {
+<<<<<<< HEAD
             return Reflection.findComponent(this.node, _webpackmodules__WEBPACK_IMPORTED_MODULE_2__["Filters"].byProperties(props, selector));
         }
         getComponentByPrototypes(props, selector) {
@@ -3236,6 +3323,18 @@ const propsProxyHandler = {
         }
         getComponentByDisplayName(name) {
             return Reflection.findComponent(this.node, _webpackmodules__WEBPACK_IMPORTED_MODULE_2__["Filters"].byDisplayName(name));
+=======
+            return Reflection.findComponent(this.node, _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["Filters"].byProperties(props, selector));
+        }
+        getComponentByPrototypes(props, selector) {
+            return Reflection.findComponent(this.node, _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["Filters"].byPrototypeFields(props, selector));
+        }
+        getComponentByRegex(regex, selector) {
+            return Reflection.findComponent(this.node, _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["Filters"].byCode(regex, selector));
+        }
+        getComponentByDisplayName(name) {
+            return Reflection.findComponent(this.node, _webpackmodules__WEBPACK_IMPORTED_MODULE_1__["Filters"].byDisplayName(name));
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         }
 
         forceUpdate(filter) {
@@ -4033,6 +4132,7 @@ __webpack_require__.r(__webpack_exports__);
              * instance property.
              */
 
+<<<<<<< HEAD
             // development vs master
             const id = BdApi.version ? ["settings", "general", "showToasts"] : ["fork-ps-2"];
             const wasEnabled = BdApi.isSettingEnabled(...id);
@@ -4042,6 +4142,10 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         _reloadPlugins() {
+=======
+            const wasEnabled = BdApi.isSettingEnabled("fork-ps-2");
+            if (wasEnabled) BdApi.disableSetting("fork-ps-2");
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
             const list = BdApi.Plugins.getAll().reduce((acc, val) => {
                 if (!val._config) return acc;
                 const name = val.getName();
@@ -4050,6 +4154,10 @@ __webpack_require__.r(__webpack_exports__);
                 return acc;
             }, []);
             for (let p = 0; p < list.length; p++) BdApi.Plugins.reload(list[p]);
+<<<<<<< HEAD
+=======
+            if (wasEnabled) BdApi.enableSetting("fork-ps-2");
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         }
 
         static buildPlugin(config) {
@@ -6768,9 +6876,14 @@ __webpack_require__.r(__webpack_exports__);
  * @param {HTMLElement|jQuery} menu - The original discord menu
  */
 function updateDiscordMenu(menu) {
+<<<<<<< HEAD
     const menuNode = _modules_domtools__WEBPACK_IMPORTED_MODULE_4__["default"].resolveElement(menu);
     if (!(menuNode instanceof Element)) return;
     const updateHeight = _modules_reacttools__WEBPACK_IMPORTED_MODULE_2__["default"].getReactProperty(menuNode, "return.return.return.stateNode.updatePosition");
+=======
+    if (!(menu instanceof window.jQuery) && !(menu instanceof Element)) return;
+    const updateHeight = _modules_reacttools__WEBPACK_IMPORTED_MODULE_2__["default"].getReactProperty(menu, "return.return.return.stateNode.updatePosition");
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
     if (updateHeight) updateHeight();
 }
 
@@ -8023,7 +8136,11 @@ class SettingGroup extends _structs_listenable__WEBPACK_IMPORTED_MODULE_0__["def
      */
     append(...nodes) {
         for (let i = 0; i < nodes.length; i++) {
+<<<<<<< HEAD
             if (modules__WEBPACK_IMPORTED_MODULE_1__["DOMTools"].resolveElement(nodes[i]) instanceof Element) this.controls.append(nodes[i]);
+=======
+            if (nodes[i] instanceof jQuery || nodes[i] instanceof Element) this.controls.append(nodes[i]);
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
             else if (nodes[i] instanceof _settingfield__WEBPACK_IMPORTED_MODULE_2__["default"] || nodes[i] instanceof SettingGroup) this.controls.append(nodes[i].getElement());
             if (nodes[i] instanceof _settingfield__WEBPACK_IMPORTED_MODULE_2__["default"]) {
                 nodes[i].addListener(((node) => (value) => {
@@ -8117,7 +8234,11 @@ class SettingPanel extends _structs_listenable__WEBPACK_IMPORTED_MODULE_0__["def
      */
     append(...nodes) {
         for (let i = 0; i < nodes.length; i++) {
+<<<<<<< HEAD
             if (modules__WEBPACK_IMPORTED_MODULE_1__["DOMTools"].resolveElement(nodes[i]) instanceof Element) this.element.append(nodes[i]);
+=======
+            if (nodes[i] instanceof jQuery || nodes[i] instanceof Element) this.element.append(nodes[i]);
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
             else if (nodes[i] instanceof _settingfield__WEBPACK_IMPORTED_MODULE_2__["default"] || nodes[i] instanceof _settinggroup__WEBPACK_IMPORTED_MODULE_3__["default"]) this.element.append(nodes[i].getElement());
             if (nodes[i] instanceof _settingfield__WEBPACK_IMPORTED_MODULE_2__["default"]) {
                 nodes[i].addListener(((node) => (value) => {
@@ -8810,7 +8931,11 @@ class Tooltip {
      */
     constructor(node, text, options = {}) {
         const {style = "black", side = "top", preventFlip = false, isTimestamp = false, disablePointerEvents = false, disabled = false} = options;
+<<<<<<< HEAD
         this.node = modules__WEBPACK_IMPORTED_MODULE_0__["DOMTools"].resolveElement(node);
+=======
+        this.node = node instanceof jQuery ? node[0] : node;
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
         this.label = text;
         this.style = style.toLowerCase();
         this.side = side.toLowerCase();

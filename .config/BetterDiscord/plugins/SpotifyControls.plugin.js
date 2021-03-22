@@ -1,5 +1,6 @@
 /**
  * @name SpotifyControls
+<<<<<<< HEAD
  * @author DevilBro
  * @authorId 278543574059057154
  * @version 1.1.1
@@ -10,6 +11,15 @@
  * @website https://mwittrien.github.io/
  * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls/
  * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Plugins/SpotifyControls/SpotifyControls.plugin.js
+=======
+ * @authorId 278543574059057154
+ * @invite Jx3TjNS
+ * @donate https://www.paypal.me/MircoWittrien
+ * @patreon https://www.patreon.com/MircoWittrien
+ * @website https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls
+ * @source https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Plugins/SpotifyControls/SpotifyControls.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Plugins/SpotifyControls/SpotifyControls.plugin.js
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
  */
 
 module.exports = (_ => {
@@ -17,6 +27,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "SpotifyControls",
 			"author": "DevilBro",
+<<<<<<< HEAD
 			"version": "1.1.1",
 			"description": "Adds a Control Panel while listening to Spotify on a connected Account"
 		},
@@ -24,6 +35,10 @@ module.exports = (_ => {
 			"improved": {
 				"Canary Changes": "Preparing Plugins for the changes that are already done on Discord Canary"
 			}
+=======
+			"version": "1.0.8",
+			"description": "Add a control panel to discord when listening to spotify"
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 		}
 	};
 
@@ -31,6 +46,7 @@ module.exports = (_ => {
 		getName () {return config.info.name;}
 		getAuthor () {return config.info.author;}
 		getVersion () {return config.info.version;}
+<<<<<<< HEAD
 		getDescription () {return `The Library Plugin needed for ${config.info.name} is missing. Open the Plugin Settings to download it. \n\n${config.info.description}`;}
 		
 		downloadLibrary () {
@@ -45,27 +61,61 @@ module.exports = (_ => {
 			if (!window.BDFDB_Global.downloadModal) {
 				window.BDFDB_Global.downloadModal = true;
 				BdApi.showConfirmationModal("Library Missing", `The Library Plugin needed for ${config.info.name} is missing. Please click "Download Now" to install it.`, {
+=======
+		getDescription () {return config.info.description;}
+		
+		load() {
+			if (!window.BDFDB_Global || !Array.isArray(window.BDFDB_Global.pluginQueue)) window.BDFDB_Global = Object.assign({}, window.BDFDB_Global, {pluginQueue: []});
+			if (!window.BDFDB_Global.downloadModal) {
+				window.BDFDB_Global.downloadModal = true;
+				BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.info.name} is missing. Please click "Download Now" to install it.`, {
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 					confirmText: "Download Now",
 					cancelText: "Cancel",
 					onCancel: _ => {delete window.BDFDB_Global.downloadModal;},
 					onConfirm: _ => {
 						delete window.BDFDB_Global.downloadModal;
+<<<<<<< HEAD
 						this.downloadLibrary();
+=======
+						require("request").get("https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js", (e, r, b) => {
+							if (!e && b && b.indexOf(`* @name BDFDB`) > -1) require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0BDFDB.plugin.js"), b, _ => {});
+							else BdApi.alert("Error", "Could not download BDFDB library plugin, try again some time later.");
+						});
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 					}
 				});
 			}
 			if (!window.BDFDB_Global.pluginQueue.includes(config.info.name)) window.BDFDB_Global.pluginQueue.push(config.info.name);
 		}
+<<<<<<< HEAD
 		start () {this.load();}
 		stop () {}
 		getSettingsPanel () {
 			let template = document.createElement("template");
 			template.innerHTML = `<div style="color: var(--header-primary); font-size: 16px; font-weight: 300; white-space: pre; line-height: 22px;">The Library Plugin needed for ${config.info.name} is missing.\nPlease click <a style="font-weight: 500;">Download Now</a> to install it.</div>`;
 			template.content.firstElementChild.querySelector("a").addEventListener("click", this.downloadLibrary);
+=======
+		start() {this.load();}
+		stop() {}
+		getSettingsPanel() {
+			let template = document.createElement("template");
+			template.innerHTML = `<div style="color: var(--header-primary); font-size: 16px; font-weight: 300; white-space: pre; line-height: 22px;">The library plugin needed for ${config.info.name} is missing.\nPlease click <a style="font-weight: 500;">Download Now</a> to install it.</div>`;
+			template.content.firstElementChild.querySelector("a").addEventListener("click", _ => {
+				require("request").get("https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js", (e, r, b) => {
+					if (!e && b && b.indexOf(`* @name BDFDB`) > -1) require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0BDFDB.plugin.js"), b, _ => {});
+					else BdApi.alert("Error", "Could not download BDFDB library plugin, try again some time later.");
+				});
+			});
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 			return template.content.firstElementChild;
 		}
 	} : (([Plugin, BDFDB]) => {
 		var _this;
+<<<<<<< HEAD
+=======
+		var insertPatchCancel;
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 		var controls, starting, lastSong, currentVolume, lastVolume, stopTime, previousIsClicked, previousDoubleTimeout, timelineTimeout, timelineDragging, updateInterval;
 		var playbackState = {};
 		var settings = {}, buttonConfigs = {};
@@ -184,7 +234,11 @@ module.exports = (_ => {
 									]
 								}),
 								BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+<<<<<<< HEAD
 									text: socketDevice.device.is_restricted ? _this.labels.restricted_device : null,
+=======
+									text: socketDevice.device.is_restricted ? "Can not control Spotify while playing on restricted device" : null,
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 									tooltipConfig: {color: "red"},
 									children: BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.Flex, {
 										grow: 0,
@@ -197,9 +251,15 @@ module.exports = (_ => {
 													let url = BDFDB.ObjectUtils.get(playbackState, "item.external_urls.spotify") || BDFDB.ObjectUtils.get(playbackState, "context.external_urls.spotify");
 													if (url) {
 														BDFDB.LibraryRequires.electron.clipboard.write({text: url});
+<<<<<<< HEAD
 														BDFDB.NotificationUtils.toast(_this.labels.toast_copyurl_success, {type: "success"});
 													}
 													else BDFDB.NotificationUtils.toast(_this.labels.toast_copyurl_fail, {type: "danger"});
+=======
+														BDFDB.NotificationUtils.toast("Song URL was copied to clipboard", {type: "success"});
+													}
+													else BDFDB.NotificationUtils.toast("Could not copy song URL to clipboard", {type: "error"});
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 												}
 											}),
 											BDFDB.ReactUtils.createElement(SpotifyControlsButtonComponent, {
@@ -220,7 +280,11 @@ module.exports = (_ => {
 												playerSize: playerSize,
 												disabled: socketDevice.device.is_restricted,
 												onClick: _ => {
+<<<<<<< HEAD
 													if (previousIsClicked || !settings.doubleBack) {
+=======
+													if (previousIsClicked) {
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 														previousIsClicked = false;
 														this.request(socketDevice.socket, socketDevice.device, "previous");
 													}
@@ -413,13 +477,21 @@ module.exports = (_ => {
 		};
 	
 		return class SpotifyControls extends Plugin {
+<<<<<<< HEAD
 			onLoad () {
+=======
+			onLoad() {
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 				_this = this;
 				
 				this.defaults = {
 					settings: {
+<<<<<<< HEAD
 						addTimeline: 		{value: true,		description: "Show the Song Timeline in the Controls"},
 						doubleBack: 		{value: true,       description: "Requires the User to press the Back Button twice to go to previous Track"}
+=======
+						addTimeline: 		{value: true,		description: "Show the song timeline in the controls"}
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 					},
 					buttonConfigs: {
 						share: 				{value: {small: false, big: true},		icons: [""],						description: "Share"},
@@ -433,8 +505,13 @@ module.exports = (_ => {
 				};
 				
 				this.patchedModules = {
+<<<<<<< HEAD
 					after: {
 						AppView: "default"
+=======
+					before: {
+						AppView: "render"
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 					}
 				};
 				
@@ -607,7 +684,11 @@ module.exports = (_ => {
 				`;
 			}
 			
+<<<<<<< HEAD
 			onStart () {
+=======
+			onStart() {
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 				BDFDB.PatchUtils.patch(this, BDFDB.LibraryModules.SpotifyTrackUtils, "getActivity", {after: e => {
 					if (e.methodArguments[0] !== false) {
 						if (e.returnValue && e.returnValue.name == "Spotify") this.updatePlayer(e.returnValue);
@@ -625,14 +706,24 @@ module.exports = (_ => {
 				
 				if (!BDFDB.LibraryModules.SpotifyTrackUtils.hasConnectedAccount()) BDFDB.ModalUtils.open(this, {
 					size: "SMALL",
+<<<<<<< HEAD
 					header: `${this.name}: ${this.labels.noaccount_header}...`,
 					subHeader: this.labels.noaccount_subheader,
 					text: this.labels.noaccount_text,
+=======
+					header: this.name + ": Something is missing...",
+					subheader: "You need to connect a Spotify account",
+					text: "You are missing a connected Spotify account, without a connected account you won't be able to use Spotify Controls. To connect a Spotify account with your discord account click the button below.",
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 					buttons: [{
 						contents: BDFDB.LanguageUtils.LanguageStrings.CONNECT,
 						color: "BRAND",
 						close: true,
+<<<<<<< HEAD
 						onClick: modal => {
+=======
+						click: modal => {
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 							BDFDB.LibraryModules.UserSettingsUtils.open(BDFDB.DiscordConstants.UserSettingsSections.CONNECTIONS)
 						}
 					}]
@@ -641,8 +732,15 @@ module.exports = (_ => {
 				this.forceUpdateAll();
 			}
 			
+<<<<<<< HEAD
 			onStop () {
 				this.forceUpdateAll();
+=======
+			onStop() {
+				this.forceUpdateAll();
+				
+				if (typeof insertPatchCancel == "function") insertPatchCancel();
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 			}
 
 			getSettingsPanel (collapseStates = {}) {
@@ -712,11 +810,16 @@ module.exports = (_ => {
 				}
 			}
 		
+<<<<<<< HEAD
 			forceUpdateAll () {
+=======
+			forceUpdateAll() {
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 				settings = BDFDB.DataUtils.get(this, "settings");
 				buttonConfigs = BDFDB.DataUtils.get(this, "buttonConfigs");
 				
 				BDFDB.PatchUtils.forceAllUpdates(this);
+<<<<<<< HEAD
 				BDFDB.DiscordUtils.rerenderAll();
 			}
 
@@ -727,6 +830,20 @@ module.exports = (_ => {
 					maximized: BDFDB.DataUtils.load(this, "playerState", "maximized"),
 					timeline: settings.addTimeline
 				}, true));
+=======
+			}
+
+			processAppView (e) {
+				if (typeof insertPatchCancel == "function") insertPatchCancel();
+				insertPatchCancel = BDFDB.PatchUtils.patch(this, e.instance, "renderChannelSidebar", {after: e2 => {
+					let [children, index] = BDFDB.ReactUtils.findParent(e2.returnValue, {props: [["section", BDFDB.DiscordConstants.AnalyticsSections.ACCOUNT_PANEL]]});
+					if (index > -1) children.splice(index - 1, 0, BDFDB.ReactUtils.createElement(SpotifyControlsComponent, {
+						song: BDFDB.LibraryModules.SpotifyTrackUtils.getActivity(false),
+						maximized: BDFDB.DataUtils.load(this, "playerState", "maximized"),
+						timeline: settings.addTimeline
+					}, true));
+				}}, {force: true, noCache: true});
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
 			}
 			
 			updatePlayer (song) {
@@ -735,6 +852,7 @@ module.exports = (_ => {
 					BDFDB.ReactUtils.forceUpdate(controls);
 				}
 			}
+<<<<<<< HEAD
 
 			setLabelsByLanguage () {
 				switch (BDFDB.LanguageUtils.getLanguage().id) {
@@ -986,3 +1104,8 @@ module.exports = (_ => {
 		};
 	})(window.BDFDB_Global.PluginUtils.buildPlugin(config));
 })();
+=======
+		};
+	})(window.BDFDB_Global.PluginUtils.buildPlugin(config));
+})();
+>>>>>>> 9890402565874c796da426f52047218e7a56a3c1
