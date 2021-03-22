@@ -24,7 +24,7 @@ type -p "scrot" &> /dev/null || noterr
     +swap -background none -layers merge +repage /tmp/"$CURRENT"-shadow.png &> /dev/null
 
     convert /tmp/"$CURRENT"-shadow.png -bordercolor "$FRAME_COLOR" \
-    -border 5 $SAVE_DIR/Screenshots/"$CURRENT".png &> /dev/null
+    -border 5 "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
 
     rm -f /tmp/*_scrot*.png &> /dev/null
     if [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]]; then
