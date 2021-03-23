@@ -674,6 +674,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - ?
 
 - **Knowledge and other resources**
+  - [Digital Sysnopsis](https://digitalsynopsis.com/)
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
   - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
   - [Custom Environment @ ArchWiki](https://wiki.archlinux.org/index.php/desktop_environment#Custom_environments)
