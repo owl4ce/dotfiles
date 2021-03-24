@@ -136,7 +136,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```sh
-   $ sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox alsa-utils  \
+   $ sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox alsa-utils \
    brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode \
    xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler \
    viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
@@ -236,7 +236,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    Customize/port dependencies yourself!  
    
    **For example**  
-   - [Gentoo/Linux](https://packages.gentoo.org/)
+   - [Gentoo/Linux](https://packages.gentoo.org/)  
+     *See [owl4ce's portage configuration](https://github.com/owl4ce/hmg/tree/main/etc/portage/package.use)*
+     
    - [Void (Linux)](https://voidlinux.org/packages/)
 
    > For Gentoo/Linux, I recommend to enabling [`keywords`](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages and/or using `ebuild-9999`.
@@ -647,7 +649,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 <tr>
 <td>
 <br>
-<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, highly configurable, and less resources usage.</p>
+<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a></p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p>
 </td>
 </tr>
 <tr>
