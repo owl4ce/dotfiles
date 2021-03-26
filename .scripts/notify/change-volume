@@ -21,7 +21,7 @@ notify() {
         icon_name="notification-audio-volume-high"
     fi
     
-    $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "$VOLUME "
+    $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "$VOLUME " -h int:value:"$VOLUME"
 }
 
 case $1 in

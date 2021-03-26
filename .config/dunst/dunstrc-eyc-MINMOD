@@ -7,6 +7,12 @@ geometry = "350x6+19+50"
 indicate_hidden = yes
 shrink = yes
 
+progress_bar = true
+progress_bar_height = 5
+progress_bar_frame_width = 0
+progress_bar_min_width = 150
+progress_bar_max_width = 300
+
 transparency = 5
 separator_height = 2
 padding = 8
@@ -21,6 +27,7 @@ line_height = 0
 markup = full
 format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#e88ef4'>%s</span>\n%b"
 alignment = center
+vertical_alignment = center
 
 idle_threshold = 120
 show_age_threshold = 60
@@ -55,13 +62,16 @@ context = ctrl+shift+period
 timeout = 3
 background = "#f9f9f9"
 foreground = "#373e4d"
+highlight = "#44eb9f"
 
 [urgency_normal]
 timeout = 6
 background = "#f9f9f9"
 foreground = "#373e4d"
+highlight = "#44eb9f"
 
 [urgency_critical]
 timeout = 0
 background = "#f9f9f9"
 foreground = "#373e4d"
+highlight = "#44eb9f"
