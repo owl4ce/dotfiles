@@ -21,7 +21,7 @@ notify() {
         icon_name="notification-display-brightness-full"
     fi
     
-    $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 1234 "$BRIGHTNESS "
+    $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 1234 "$BRIGHTNESS " -h int:value:"$BRIGHTNESS"
 }
 
 case $1 in
