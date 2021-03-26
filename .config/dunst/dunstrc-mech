@@ -49,7 +49,7 @@ icon_path = /usr/share/icons/Papirus-Dark-Custom/48x48/actions/:/usr/share/icons
 browser = brave-bin
 
 mouse_left_click = close_current
-mouse_middle_click = do_action, close_current
+mouse_middle_click = do_action
 mouse_right_click = close_all
 
 [shortcuts]
