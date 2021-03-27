@@ -136,8 +136,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```sh
-   $ sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox alsa-utils \
-   brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode \
+   $ sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio \
+   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode \
    xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler \
    viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
    ```
@@ -206,10 +206,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    $ yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
-   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins lxsession xautolock \
-   rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman \
-   ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m htop \
-   picom-git obmenu-generator gtk2-perl playerctl xsettingsd
+   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins \
+   lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-volman \
+   thunar-media-tags-plugin ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol \
+   parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
 
   </details>
