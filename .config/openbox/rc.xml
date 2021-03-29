@@ -803,7 +803,7 @@
   </menu>
   <applications>
     <application class="*" type="normal">
-      <decor>yes</decor>
+        <decor>yes</decor>
     </application>
     <!--
     <application class="Thunar" type="normal">
