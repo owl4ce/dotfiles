@@ -89,9 +89,9 @@ Here are some details about my setup
   <summary><strong>v3.2</strong> <kbd>latest</kbd></summary>
   
   **Major Update**:
-  - Customizable partial color accent and start button glyphs - [`L3-L57`](./.owl4ce_var#L3-L57)
-  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L125-L135`](./.owl4ce_var#L125-L135)
-  - Centralize dunst and urxvt opacity level and web browser - [`L58-L70`](./.owl4ce_var#L58-L70)
+  - Customizable partial color accent and start button glyphs - [`L3-L62`](./.owl4ce_var#L3-L62)
+  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L130-L140`](./.owl4ce_var#L130-L140)
+  - Centralize dunst and urxvt opacity level and web browser - [`L63-L75`](./.owl4ce_var#L63-L75)
   - Both modes have their own window button last location
   - **Sakura Saber**『桜(さくら)セイバー』 Themed
   - Reconfigure openbox window titlebar colors
@@ -316,11 +316,11 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 
   <details open>
   <summary><strong>Root Privileges with <a href="https://en.wikipedia.org/wiki/Setuid#SUID">SUID</a></strong></summary>
-  
-   > I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
    
    - `brightnessctl`
    - *others if needed*
+   
+   > For `brightnessctl`, I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
    
    ```sh
    $ sudo chmod u+s $(command -v brightnessctl)
