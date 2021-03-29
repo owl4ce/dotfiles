@@ -11,7 +11,15 @@ case $1 in
             elif [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>CIML</titleLayout>"* ]]; then
                 sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' $OB_CONFIG
                 openbox --reconfigure && echo "left" > $BTN_LOC
-            fi    
+            fi
+    ;;
+    decor)  DECOR_LINE="806"
+            if ( cat -n $OB_CONFIG | grep "$DECOR_LINE	        <decor>yes</decor>" ) &> /dev/null; then
+                sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>no</decor>_" $OB_CONFIG
+            elif ( cat -n $OB_CONFIG | grep "$DECOR_LINE	        <decor>no</decor>" ) &> /dev/null; then
+                sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>yes</decor>_" $OB_CONFIG
+            fi && \
+            openbox --reconfigure --restart
     ;;
     *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
             [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")" || :
