@@ -317,14 +317,14 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Root Privileges with <a href="https://en.wikipedia.org/wiki/Setuid#SUID">SUID</a></strong></summary>
   
-   - `poweroff`
-   - `reboot`
+   > I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
+   
    - `brightnessctl`
    - *others if needed*
+   
    ```sh
-   $ sudo chmod u+s $(command -v {poweroff,reboot,brightnessctl})
+   $ sudo chmod u+s $(command -v brightnessctl)
    ```
-   > For `brightnessctl` I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
     
   </details>
   
