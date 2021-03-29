@@ -10,23 +10,25 @@ lock=""
 suspend=""
 logout=""
 
+# LoginD/ELoginD detection
+if type -p "systemctl" &> /dev/null; then
+    SEATCTL="systemctl"
+elif type -p "loginctl" &> /dev/null; then
+    SEATCTL="loginctl"
+fi
+
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
 case $chosen in
-    $shutdown)  $ROFI_DIR/scripts/promptmenu.sh --yes-command "poweroff" --query "     Poweroff?"
+    $shutdown)  $ROFI_DIR/scripts/promptmenu.sh --yes-command "$SEATCTL poweroff" --query "     Poweroff?"
     ;;
-    $reboot)    $ROFI_DIR/scripts/promptmenu.sh --yes-command "reboot" --query "      Reboot?"
+    $reboot)    $ROFI_DIR/scripts/promptmenu.sh --yes-command "$SEATCTL reboot" --query "      Reboot?"
     ;;
     $lock)      $DEFAPPS_EXEC lockscreen
     ;;
-    $suspend)   [[ "$($MUSIC_CONTROLLER status)" = *"laying"* ]] && $MUSIC_CONTROLLER toggle || :
-                if type -p "systemctl" &> /dev/null; then
-                    systemctl suspend
-                elif type -p "loginctl" &> /dev/null; then
-                    loginctl suspend
-                fi
+    $suspend)   ( [[ "$($MUSIC_CONTROLLER status)" = *"laying"* ]] && $MUSIC_CONTROLLER toggle || : ) && "$SEATCTL" suspend
     ;;
     $logout)    $ROFI_DIR/scripts/promptmenu.sh --yes-command "pkill -KILL -u $(whoami)" --query "      Logout?"
     ;;
