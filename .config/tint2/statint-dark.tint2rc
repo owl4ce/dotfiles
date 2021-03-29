@@ -803,10 +803,10 @@ button_max_icon_size = 0
 # Button 10
 button = new
 button_text = 
-button_tooltip = Change button style │Swap button location L/R
+button_tooltip = Change button style │Enable/Disable window decoration │Swap button location L/R
 button_lclick_command = ~/.scripts/default-apps/launch terminal -e ~/.config/openbox/visual-mode/ob-button
 button_rclick_command = ~/.config/openbox/visual-mode/ob-button swap
-button_mclick_command = 
+button_mclick_command = ~/.config/openbox/visual-mode/ob-button decor
 button_uwheel_command = 
 button_dwheel_command = 
 button_font = Material Bold 10
