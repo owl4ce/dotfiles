@@ -639,6 +639,8 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 ### <p align="center">Color Scheme</p>
 <p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/XDjndMJ/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
+<p align="center"><a href="https://www.nordtheme.com">Nord Color Palette<a> compatible</p>
+
 <table border="0">
 <tr>
 <td>
