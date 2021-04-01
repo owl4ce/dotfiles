@@ -330,22 +330,23 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
 ### The step you are waiting for
 The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc.
-
-> **I recommend to [configuring](#users-configuration) what you want first, before logging into openbox-session.**
-
-If you are using `~/.xinitrc`, simply add
+If you are using `~/.xinitrc` without display manager, simply add
 
 **Systemd Linux Distribution**  
 ```sh
 exec openbox-session
 ```
 
-**Non-Systemd Linux Distribution**  
+**Init-Freedom Linux Distribution**  
 ```sh
 exec dbus-launch --exit-with-session openbox-session
 ```
 
+Then you can proceed to [user's configuration](#users-configuration). Explore!
+
 ##  
+
+### Additional
 
 **Suggested replacement commands**
 - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
@@ -381,6 +382,7 @@ $ killall zentile
 ##  
 
 ### Update
+
 Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
 > Remember where you cloned this repository.
 ```sh
@@ -472,6 +474,19 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     <p align="center">Just click on the image above!</p>
     
   </details>
+  
+- **Touchpad tap-to-click (libinput) <kbd>optional</kbd>**  
+  `/etc/X11/xorg.conf.d/30-touchpad.conf`
+  ```cfg
+  1 Section "InputClass"
+  2     Identifier "touchpad"
+  3     Driver "libinput"
+  4     MatchIsTouchpad "on"
+  5     Option "Tapping" "on"
+  6     Option "TappingButtonMap" "lmr"
+  7 EndSection
+  ```
+  [More information.](https://wiki.archlinux.org/index.php/Libinput)
   
 - **User's Preferences <kbd>required</kbd>**  
   [`~/.owl4ce_var`](./.owl4ce_var)  
