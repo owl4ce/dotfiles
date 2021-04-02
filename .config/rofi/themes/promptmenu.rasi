@@ -3,7 +3,7 @@
 * {
   /* General */
   text-font:                            "Comfortaa Bold 12";
-  icon-font:                            "feather 30";
+  icon-font:                            "feather 12";
 
   option-6-listview-spacing:            30px;
 
@@ -49,7 +49,7 @@
 }
 
 * {
-  font: @text-font;
+  font: @icon-font;
   location: center;
 }
 
