@@ -3,11 +3,11 @@
 * {
   /* General */
   text-font:                            "Comfortaa 18";
-  icon-font:                            "feather 24";
+  icon-font:                            "feather 17";
   
   option-6-listview-spacing:            5px;
   menu-window-padding:                  5px 5px;
-  menu-element-padding:                 22px 23px 18px 0px;
+  menu-element-padding:                 22px 23px 18px 3px;
 }
 
 #window {
@@ -47,7 +47,7 @@
 }
 
 * {
-  font: @text-font;
+  font: @icon-font;
 }
 
 #window {
