@@ -91,6 +91,7 @@ TEMP_DEV="thermal_zone0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # SAVE_DIR              || This will create "Screenshots" folder inside SAVE_DIR  #
 # TIMER_SEC             || In seconds                                             #     
+# ENABLE_FRAME          || Enable frame in framed screenshots?                    #
 # FRAME_COLOR           || Hexadecimal, RGBA supported                            #
 # COPY_FRAMED           || Copy the latest framed screenshot to clipboard         #
 # OPEN_FRAMED           || Open after framed screenshot with viewnior (if exist)  #
@@ -100,6 +101,7 @@ TEMP_DEV="thermal_zone0"
 
 SAVE_DIR="$HOME/Pictures"
 TIMER_SEC="5"
+ENABLE_FRAME="yes"
 FRAME_COLOR="#434c5e"
 COPY_FRAMED="yes"
 OPEN_FRAMED="no"

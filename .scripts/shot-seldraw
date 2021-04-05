@@ -15,16 +15,20 @@ type -p "scrot" &> /dev/null || noterr
         CURRENT="$(echo $CURRENT | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}')"
     done
     
-    convert /tmp/"$CURRENT".png \
-    \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
-    \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
-    -alpha off -compose CopyOpacity -composite /tmp/"$CURRENT"-rounded.png &> /dev/null
+    if [[ "$ENABLE_FRAME" = "yes" ]]; then
+        convert /tmp/"$CURRENT".png \
+        \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+        \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
+        -alpha off -compose CopyOpacity -composite /tmp/"$CURRENT"-rounded.png &> /dev/null
 
-    convert /tmp/"$CURRENT"-rounded.png \( +clone -background black -shadow "$FRAMED_SHADOW_OPACITY"x10+0+5 \) \
-    +swap -background none -layers merge +repage /tmp/"$CURRENT"-shadow.png &> /dev/null
+        convert /tmp/"$CURRENT"-rounded.png \( +clone -background black -shadow "$FRAMED_SHADOW_OPACITY"x10+0+5 \) \
+        +swap -background none -layers merge +repage /tmp/"$CURRENT"-shadow.png &> /dev/null
 
-    convert /tmp/"$CURRENT"-shadow.png -bordercolor "$FRAME_COLOR" \
-    -border 5 "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
+        convert /tmp/"$CURRENT"-shadow.png -bordercolor "$FRAME_COLOR" \
+        -border 5 "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
+    else
+        cp /tmp/"$CURRENT".png "$SAVE_DIR/Screenshots/$CURRENT.png" &> /dev/null
+    fi
 
     rm -f /tmp/*_scrot*.png &> /dev/null
     if [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]]; then
