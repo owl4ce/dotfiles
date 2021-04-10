@@ -2,12 +2,12 @@
 
 * {
   /* General */
-  text-font:                            "Comfortaa 18";
+  text-font:                            "Comfortaa 17";
   icon-font:                            "feather 17";
   
   option-6-listview-spacing:            5px;
   menu-window-padding:                  5px 5px;
-  menu-element-padding:                 22px 23px 18px 3px;
+  menu-element-padding:                 22px 23px 20px 4px;
 }
 
 #window {
