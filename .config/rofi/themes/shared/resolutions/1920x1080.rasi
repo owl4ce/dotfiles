@@ -1,7 +1,7 @@
 * {
   prompt-menu-font:                     "Comfortaa Bold 9";
   text-font:                            "Comfortaa Bold 12";
-  entry-icon-font:                      "Comfortaa Bold 16";
+  entry-icon-font:                      "feather 16";
   inputbar-margin:                      4px 4px;
   prompt-padding:                       16px 20px;
   entry-padding:                        18px 16px 16px 0px;
