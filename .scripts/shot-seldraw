@@ -12,7 +12,7 @@ type -p "scrot" &> /dev/null || noterr
     ( $EXNOTIFY_SEND -r 12 -t 500 -i "$NOTIF_SS_ICON" -u low "" "Screenshot canceled!" && exit 1 )
     
     for CURRENT in /tmp/*_scrot*.png; do
-        CURRENT="$(echo $CURRENT | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}')"
+        CURRENT="$(echo $CURRENT | awk -F'/tmp/' '{print $2}' | awk -F'.png' '{print $1}' | sort -u)"
     done
     
     if [[ "$ENABLE_FRAME" = "yes" ]]; then
