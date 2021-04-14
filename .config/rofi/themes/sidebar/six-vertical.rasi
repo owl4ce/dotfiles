@@ -7,7 +7,7 @@
   
   option-6-listview-spacing:            5px;
   menu-window-padding:                  5px 5px;
-  menu-element-padding:                 21px 0px 18px 3px;
+  menu-element-padding:                 20px 0px 17px 3px;
 }
 
 #window {
