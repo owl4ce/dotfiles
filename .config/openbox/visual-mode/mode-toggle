@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+source $HOME/.owl4ce_var
 
 kill() { { killall tint2; killall dunst; [[ "$1" = "also_tray" ]] && killall $CHK_TRAY || :; } &> /dev/null; }
 

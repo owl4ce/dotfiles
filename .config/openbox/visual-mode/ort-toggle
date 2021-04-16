@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+source $HOME/.owl4ce_var
 
 if [[ -z $CHK_MINMOD ]]; then
     { killall tint2; killall dunst; } &> /dev/null
