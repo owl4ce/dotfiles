@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var
+LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 13 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr

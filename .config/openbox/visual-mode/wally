@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var
+LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
 noterr() { $EXNOTIFY_SEND -u low -r 17 "Install imagemagick!"; exit 1; }
