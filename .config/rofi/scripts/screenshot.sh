@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var
+LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
 
 rofi_command="rofi -theme themes/sidebar/three-$CHK_ROFI_MOD.rasi"
 

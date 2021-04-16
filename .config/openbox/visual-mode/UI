@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var
+LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
 
 # Set Partial Accent Color and Opacity Level from owl4ce_var
 [[ ! -z $CHK_MINMOD ]] && MOD="-minimal" || MOD=""
