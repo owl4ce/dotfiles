@@ -89,9 +89,9 @@ Here are some details about my setup
   <summary><strong>v3.2</strong> <kbd>latest</kbd></summary>
   
   **Major Update**:
-  - Customizable partial color accent and start button glyphs - [`L3-L62`](./.owl4ce_var#L3-L62)
-  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L132-L142`](./.owl4ce_var#L132-L142)
-  - Centralize dunst and urxvt opacity level and web browser - [`L63-L75`](./.owl4ce_var#L63-L75)
+  - Customizable partial color accent and start button glyphs - [`L4-L63`](./.owl4ce_var#L4-L63)
+  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L135-L145`](./.owl4ce_var#L135-L145)
+  - Centralize dunst and urxvt opacity level and web browser - [`L64-L76`](./.owl4ce_var#L64-L76)
   - Both modes have their own window button last location
   - **Sakura Saber**『桜(さくら)セイバー』 Themed
   - Reconfigure openbox window titlebar colors
