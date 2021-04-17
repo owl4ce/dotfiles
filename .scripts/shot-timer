@@ -5,8 +5,28 @@ noterr() { $EXNOTIFY_SEND -u low -r 13 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
-    [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots"; read -rt ".1" <> <(:) || :
-    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo $TIMER_SEC)s .."
-    scrot -q "$QUALITY" -d "$TIMER_SEC" -e "mv '\$f' \"$SAVE_DIR/Screenshots\"" &> /dev/null
-    $EXNOTIFY_SEND -r 13 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$(echo $SAVE_DIR | grep -oE '[^/]+$' $1)/Screenshots</u></span>\nPicture acquired!"
-} &
+    read -rt ".1" <> <(:) || :
+    
+    while true; do
+        if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then
+            CLIP="xclip -selection clipboard -target image/png -i '\$f' ; " && \
+            STAT="\n(+CLIPBOARD)" && break
+        elif [[ "$SAVE_SS" != "yes" ]]; then
+            COPY2CLIP="yes"
+        else break;
+        fi
+    done
+    
+    if [[ "$SAVE_SS" = "yes" ]]; then
+        [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots" || :
+        EXEC="${CLIP:-}mv '\$f' \"$SAVE_DIR/Screenshots\""
+        SV_LOC="$(echo $SAVE_DIR | grep -oE '[^/]+$')/Screenshots${STAT:-}"
+    else
+        EXEC="${CLIP:-}rm -f '\$f'"
+        SV_LOC="CLIPBOARD"
+    fi
+    
+    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo ${TIMER_SEC:-5})s .."
+    scrot -q "${QUALITY:-75}" -d "${TIMER_SEC:-5}" -e "$EXEC"
+    $EXNOTIFY_SEND -r 13 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
+} &> /dev/null &
