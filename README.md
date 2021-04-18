@@ -435,7 +435,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
     <br>
     
-    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/cDbwyqV/2021-03-11-020100-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
+    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/kDgnKR0/2021-04-07-223256-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
 
   </details>
   
