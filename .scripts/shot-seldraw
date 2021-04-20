@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
@@ -32,12 +32,11 @@ type -p "scrot" &> /dev/null || noterr
     
     while true; do
         if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then
-            xclip -selection clipboard -target image/png -i /tmp/"$CURRENT".png && \
+            xclip -selection clipboard -target image/png -i /tmp/"$CURRENT".png
             STAT="\n(+CLIPBOARD)" && break
         elif [[ "$SAVE_SS" != "yes" ]]; then
             COPY2CLIP="yes"
-        else
-            break
+        else break;
         fi
     done
     

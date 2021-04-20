@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C source $HOME/.owl4ce_var
 
 type -p {"mpd","mpc"} &> /dev/null || exit 1
 
 run() {
     while true; do
         mpc current > $NCMPCPP_SCRIPTS_DIR/current-track
-        { [[ "$(type -p "nice")" ]] && nice -n "19" mpc idle || mpc idle; } &> /dev/null
+        [[ "$(type -p "nice")" ]] && nice -n "19" mpc idle || mpc idle
         [[ "$(cat $NCMPCPP_SCRIPTS_DIR/current-track)" != *"$(mpc current)"* ]] && \
         $NCMPCPP_SCRIPTS_DIR/notify
     done
@@ -16,7 +16,7 @@ run() {
     if ( pgrep "mpd" || pstree | grep "mpd" ) &> /dev/null; then
         run
     else
-        { [[ "$(type -p "nice")" ]] && nice -n "1" mpd || mpd; } &> /dev/null
+        [[ "$(type -p "nice")" ]] && nice -n "1" mpd || mpd
         run
     fi
-} &
+} &> /dev/null &

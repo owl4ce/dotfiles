@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
 
-kill() { { killall tint2; killall dunst; [[ "$1" = "also_tray" ]] && killall $CHK_TRAY || :; } &> /dev/null; }
+kill() { ( killall tint2; killall dunst; [[ "$1" = "also_tray" ]] && killall $CHK_TRAY || : ) &> /dev/null; }
 
 mechanical() {
     # Write Current
@@ -44,13 +44,13 @@ case $1 in
                 [[ -z $CHK_MINMOD ]] && "$CHK_VISMOD"_min || "$CHK_VISMOD"
     ;;
     just_ui)    source $HOME/.owl4ce_var && xrdb $HOME/.Xresources && kill
-                [[ ! -z $CHK_MINMOD ]] && "$VISMOD_DIR/UI" minimal || "$VISMOD_DIR/UI"
+                [[ -n $CHK_MINMOD ]] && "$VISMOD_DIR/UI" minimal || "$VISMOD_DIR/UI"
     ;;
     *)          source $HOME/.owl4ce_var && kill also_tray
                 if [[ $CHK_VISMOD != *"mechanical"* ]]; then
-                    [[ ! -z $CHK_MINMOD ]] && mechanical_min || mechanical
+                    [[ -n $CHK_MINMOD ]] && mechanical_min || mechanical
                 elif [[ $CHK_VISMOD != *"eyecandy"* ]]; then
-                    [[ ! -z $CHK_MINMOD ]] && eyecandy_min || eyecandy
+                    [[ -n $CHK_MINMOD ]] && eyecandy_min || eyecandy
                 fi && "$OB_TRAY" &> /dev/null
-	;;
+    ;;
 esac

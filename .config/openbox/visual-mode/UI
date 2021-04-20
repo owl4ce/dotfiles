@@ -2,21 +2,17 @@
 source $HOME/.owl4ce_var
 
 # Set Partial Accent Color and Opacity Level from owl4ce_var
-[[ ! -z $CHK_MINMOD ]] && MOD="-minimal" || MOD=""
+[[ -n $CHK_MINMOD ]] && MOD="-minimal" || MOD=""
 ( "$VISMOD_DIR/$CHK_VISMOD/theme$MOD" partially && "$VISMOD_DIR/termody" trans ) &> /dev/null
 
 # ? Mode Variables
 if [[ $CHK_VISMOD = *"mechanical"* ]]; then
-    PANEL_COL1="$MECH_TINT2_GRAD1"
-    PANEL_COL2="$MECH_TINT2_GRAD2"
-    PANEL_BTN="$MECH_START_BTN"
-    [[ ! -z $CHK_MINMOD ]] && NOTIFYD_FG="$MECH_MIN_DUNST_SMMRY" NOTIFYD_PB="$MECH_MIN_DUNST_PRGBR" \
+    PANEL_COL1="$MECH_TINT2_GRAD1" PANEL_COL2="$MECH_TINT2_GRAD2" PANEL_BTN="$MECH_START_BTN"
+    [[ -n $CHK_MINMOD ]] && NOTIFYD_FG="$MECH_MIN_DUNST_SMMRY" NOTIFYD_PB="$MECH_MIN_DUNST_PRGBR" \
     || NOTIFYD_FG="$MECH_DUNST_SMMRY" NOTIFYD_PB="$MECH_DUNST_PRGBR"
 elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
-    PANEL_COL1="$EYEC_TINT2_GRAD1"
-    PANEL_COL2="$EYEC_TINT2_GRAD2"
-    PANEL_BTN="$EYEC_START_BTN"
-    [[ ! -z $CHK_MINMOD ]] && NOTIFYD_FG="$EYEC_MIN_DUNST_SMMRY" NOTIFYD_PB="$EYEC_MIN_DUNST_PRGBR" \
+    PANEL_COL1="$EYEC_TINT2_GRAD1" PANEL_COL2="$EYEC_TINT2_GRAD2" PANEL_BTN="$EYEC_START_BTN"
+    [[ -n $CHK_MINMOD ]] && NOTIFYD_FG="$EYEC_MIN_DUNST_SMMRY" NOTIFYD_PB="$EYEC_MIN_DUNST_PRGBR" \
     || NOTIFYD_FG="$EYEC_DUNST_SMMRY" NOTIFYD_PB="$EYEC_DUNST_PRGBR"
 fi
 
@@ -24,7 +20,7 @@ NOTIFYD() {
     # Set Notification Daemon Summary Color, Opacity Level, and Web Browser from owl4ce_var
     sed -i "s_foreground='.*'_foreground='$NOTIFYD_FG'_" "$DUNST_DIR/$CHK_DUNST_MOD"
     sed -i "s_highlight = \".*\"_highlight = \"$NOTIFYD_PB\"_" "$DUNST_DIR/$CHK_DUNST_MOD"
-    sed -s -i "s_transparency = .*_transparency = $((100 - $DUNST))_" "$DUNST_DIR"/dunstrc-*
+    sed -s -i "s_transparency = .*_transparency = $((100 - ${DUNST:-100}))_" "$DUNST_DIR"/dunstrc-*
     sed -s -i "s_browser =.*_browser = ${WEB_BROWSER}_" "$DUNST_DIR"/dunstrc-*
     # Run Notification Daemon
     dunst -config "$DUNST_DIR/$CHK_DUNST_MOD" &> /dev/null &

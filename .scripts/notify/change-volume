@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 15 "Install alsa-utils!"; exit 1; }
 type -p "amixer" &> /dev/null || noterr
 
-CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
+CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep 'off'; }
 
 notify() {
-    VOLUME="$(amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}')"
+    VOLUME="$(amixer -D pulse get Master | grep '%' | head -n1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}')"
     
-    if [[ "$VOLUME" = "0" ]]; then
+    if [[ "$VOLUME" -eq 0 ]]; then
         icon_name="notification-audio-volume-muted"
-    elif [[ "$VOLUME" -lt "10" ]]; then
+    elif [[ "$VOLUME" -lt 10 ]]; then
         icon_name="notification-audio-volume-low"
-    elif [[ "$VOLUME" -lt "30" ]]; then
+    elif [[ "$VOLUME" -lt 30 ]]; then
         icon_name="notification-audio-volume-low"
-    elif [[ "$VOLUME" -lt "70" ]]; then
+    elif [[ "$VOLUME" -lt 70 ]]; then
         icon_name="notification-audio-volume-medium"
     else
         icon_name="notification-audio-volume-high"
@@ -26,13 +26,13 @@ notify() {
 
 case $1 in
     up)     amixer -D pulse set Master on -q
-            amixer -D pulse sset Master "$AUDIO_STEPS"%+ -q
+            amixer -D pulse sset Master "${AUDIO_STEPS:-5}"%+ -q
             notify
-	;;
+    ;;
     down)   amixer -D pulse set Master on -q
-            amixer -D pulse sset Master "$AUDIO_STEPS"%- -q
+            amixer -D pulse sset Master "${AUDIO_STEPS:-5}"%- -q
             notify
-	;;
+    ;;
     mute)   amixer -D pulse set Master 1+ toggle -q
             if CHK_MUTE &> /dev/null; then
                 icon_name="notification-audio-volume-muted"
@@ -40,5 +40,5 @@ case $1 in
             else
                 notify
             fi
-	;;
+    ;;
 esac    
