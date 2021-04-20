@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C source $HOME/.owl4ce_var
 
 ( type -p {"mpd","mpc"} || type -p {"spotify","playerctl"} ) &> /dev/null || exit 1
 
@@ -29,11 +29,7 @@ else
 fi
 
 case $1 in
-    icon)       if [[ "$($status)" = *"laying"* ]]; then
-                    echo ""
-                else
-                    echo ""
-                fi
+    icon)       [[ "$($status)" = *"laying"* ]] && echo "" || echo ""
     ;;
     prev)       $($prev)
     ;;

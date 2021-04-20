@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C
+LC_ALL=C LANG=C
 rofi_command="rofi -theme themes/promptmenu.rasi"
 
 # Options

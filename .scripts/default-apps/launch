@@ -1,47 +1,45 @@
 #!/usr/bin/env bash
 source $HOME/.owl4ce_var
+R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
 
-R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
-
-err() { echo -e "${R}==> Error:${NC} $@"; exit 1; }
+err() { printf "${R} > error:${NC} $@\n"; exit 1; }
 
 apps() {
-    echo -e "${G}USAGE:${NC} launch ${M}<apps>\n${C}Available apps: "
+    printf "${G}USAGE:${NC} launch ${M}<${NC}apps${M}>\n${C}Available apps:\n"
     n=0
     for list in $(cat $DEFAPPS_FILE | awk -F'=' '{print $1}'); do
         n="$((n+1))"
         printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$list"
         eval "list${n}=\$list"
     done && \
-    echo -e "${R}---\n${C}Will run: "
+    printf "${R}---\n${C}Will run:\n"
     n=0
     for openlist in $(cat $DEFAPPS_FILE | awk -F'"' '{print $2}'); do
         n="$((n+1))"
         printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$openlist"
         eval "openlist${n}=\$openlist"
     done
-    echo -e "${R}---\n${G}Use ${NC}-e, --edit${G} to edit apps list."
-    echo -e "${G}Use ${NC}-g, --get apps${G} to get current default apps.${NC}"
+    printf "${R}---\n${G}Use ${NC}-e, --edit${G} to edit apps list.\n"
+    printf "${G}Use ${NC}-g, --get apps${G} to get current default apps.${NC}\n"
 }
 
 case $1 in
-    -g|--get)       [[ -z "${*:2}" ]] && exit 1 || :
-                    echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}')"
+    -g|--get)           [[ -z "${*:2}" ]] && exit 1 || :
+                        echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}')"
     ;;
-    -e|--edit)      echo -n -e "Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "
-                    read "TEXT_EDITOR"
-                    type -p "$TEXT_EDITOR" &> /dev/null || err "${M}$TEXT_EDITOR${W} is not installed. Please install it first!"
-                    $TEXT_EDITOR "$DEFAPPS_FILE" || exit 1
+    -e|--edit)          printf "${G} > ${NC}Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: " ; read TEXT_EDITOR
+                        type -p "$TEXT_EDITOR" &> /dev/null || err "${M}$TEXT_EDITOR${NC} is not installed. Please install it first!"
+                        $TEXT_EDITOR "$DEFAPPS_FILE" || exit 1
     ;;
-    ""|-h|--help)   apps
+    ""|-h|--help|-*)    apps
     ;;
-    *)              if [[ "$1" = "$(cat $DEFAPPS_FILE | awk -F'=' '{print $1}' | grep "$1")" ]]; then
-                        filt="$(cat $DEFAPPS_FILE | grep "$1" | awk -F'"' '{print $2}')"
-                        opt="$(echo $@ | tr ' ' '\ 'i)"
-                        [[ ! -z "$2" ]] && $($filt $opt &> /dev/null &) && exit 0
-                        [[ ! -z "$1" ]] && $($filt &> /dev/null &) && exit 0
-                    else
-                        type -p "$1" &> /dev/null || err "${M}$1${W} is not in list. Please define it first!"
-                    fi
+    *)                  if [[ "$1" = "$(cat "$DEFAPPS_FILE" | awk -F'=' '{print $1}' | grep "$1")" ]]; then
+                            filt="$(cat "$DEFAPPS_FILE" | grep "$1" | awk -F'"' '{print $2}')"
+                            opt="$(echo $@ | tr ' ' '\ 'i)"
+                            [[ ! -z "$2" ]] && $($filt $opt &> /dev/null &) && exit 0
+                            [[ ! -z "$1" ]] && $($filt &> /dev/null &) && exit 0
+                        else
+                            type -p "$1" &> /dev/null || err "${M}$1${NC} is not in list. Please define it first!"
+                        fi
     ;;
 esac

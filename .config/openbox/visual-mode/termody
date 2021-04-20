@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
 command -v {"urxvt","termite"} &> /dev/null || noterr
@@ -9,33 +9,33 @@ sed -i "s_URxvt.iconFile:.*_URxvt.iconFile:                   ${TERM_ICON}_" $XR
 sed -i "s_URxvt.url-select.launcher:.*_URxvt.url-select.launcher:        ${WEB_BROWSER}_" $XRESOURCES_CONFIG
     
 TRANS() {
-    if [[ "$URXVT" != "100" ]]; then
-        sed -i "s_\URxvt.depth:.*_URxvt.depth:                      32_" $XRESOURCES_CONFIG
+    if [[ "${URXVT:-100}" -lt 100 ]]; then
+        sed -i "s_URxvt.depth:.*_URxvt.depth:                      32_" $XRESOURCES_CONFIG
     else
-        sed -i "s_\URxvt.depth:.*_URxvt.depth:                      24_" $XRESOURCES_CONFIG
+        sed -i "s_URxvt.depth:.*_URxvt.depth:                      24_" $XRESOURCES_CONFIG
     fi
     case $1 in
         apply)  if [[  "$current" != *"!"* ]]; then
-                    sed -i "68s_\[.*\]_\[$URXVT\]_" $XRESOURCES_CONFIG
+                    sed -i "68s_\[.*\]_\[${URXVT:-100}\]_" $XRESOURCES_CONFIG
                     sed -i "84s_\[.*\]_\[100\]_" $XRESOURCES_CONFIG
                 else
                     sed -i "68s_\[.*\]_\[100\]_" $XRESOURCES_CONFIG
-                    sed -i "84s_\[.*\]_\[$URXVT\]_" $XRESOURCES_CONFIG
+                    sed -i "84s_\[.*\]_\[${URXVT:-100}\]_" $XRESOURCES_CONFIG
                 fi
         ;;
         invert) if [[  "$current" = *"!"* ]]; then
-                    sed -i "68s_\[.*\]_\[$URXVT\]_" $XRESOURCES_CONFIG
+                    sed -i "68s_\[.*\]_\[${URXVT:-100}\]_" $XRESOURCES_CONFIG
                     sed -i "84s_\[.*\]_\[100\]_" $XRESOURCES_CONFIG
                 else
                     sed -i "68s_\[.*\]_\[100\]_" $XRESOURCES_CONFIG
-                    sed -i "84s_\[.*\]_\[$URXVT\]_" $XRESOURCES_CONFIG
+                    sed -i "84s_\[.*\]_\[${URXVT:-100}\]_" $XRESOURCES_CONFIG
                 fi
         ;;
     esac
 }
 
 if [[ "$($DEFAPPS_EXEC -g terminal)" = "urxvt" ]]; then
-    current="$(cat $XRESOURCES_CONFIG | grep "foreground" | head -n1 | grep '!')"
+    current="$(cat "$XRESOURCES_CONFIG" | grep 'foreground' | head -n1 | grep '!')"
     case $1 in
         trans)  TRANS apply
         ;;
@@ -75,7 +75,7 @@ if [[ "$($DEFAPPS_EXEC -g terminal)" = "urxvt" ]]; then
         esac
         xrdb $XRESOURCES_CONFIG &
 elif [[ "$($DEFAPPS_EXEC -g terminal)" = "termite" ]]; then
-    current="$(cat $TERMITE_CONFIG | grep "#foreground = " | head -n1)"
+    current="$(cat "$TERMITE_CONFIG" | grep '#foreground = ' | head -n1)"
     if [[  "$current" != *"#foreground = #F9F9F9"* ]]; then
         sed -i '79s_foreground_#foreground_' $TERMITE_CONFIG
         sed -i '80s_foreground_#foreground_' $TERMITE_CONFIG

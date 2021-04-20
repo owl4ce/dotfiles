@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-LC_ALL=C; LANG=C; source $HOME/.owl4ce_var
-R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
+LC_ALL=C LANG=C source $HOME/.owl4ce_var
+R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
 
-[[ ! -z $CHK_MINMOD ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
+[[ -n $CHK_MINMOD ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
 
 case $1 in
     swap)   if [[ $CHK_OB_BUTTON_LOC != *"<titleLayout>LIMC</titleLayout>"* ]]; then
@@ -22,29 +22,29 @@ case $1 in
             openbox --reconfigure --restart
     ;;
     *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
-            [[ ! -z $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")" || :
-            echo -e "\ec${G}<${C}=${G}> ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}"
+            [[ -n $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")" || :
+            printf "\ec${G}< > ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}\n"
             n=0
             for button in "$OB_BUTTON_DIR"/*; do
                 n="$((n+1))"
-                buttonfilt="$(echo $button | grep -oE '[^/]+$' $1)"
+                buttonfilt="$(echo $button | grep -oE '[^/]+$')"
                 printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
                 eval "button${n}=\$button"
             done
-            printf "${G}<${C}=${G}> ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
+            printf "${G}< > ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
             read -r num
             num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"                
-            if [[ "$num" -le 0 ]] || [[ "$num" -gt "$n" ]]; then
-                printf "${G}<${C}=${G}> ${R}Wrong selection!\n" >&2 && exit 1
+            if [[ "$num" -eq 0 ]] || [[ "$num" -gt "$n" ]]; then
+                printf "${G}< > ${R}Wrong selection!\n" >&2 && exit 1
             else
                 eval "BTN=\$button${num}"
                 [[ $CHK_VISMOD = *"eyecandy"* ]] && BTN_DIR="$EYC_BUTTON_DIR" || BTN_DIR="$MECH_BUTTON_DIR"
                 cp "$BTN"/* "$BTN_DIR"/
                 openbox --reconfigure
-                buttonselfilt="$(echo "$BTN" | grep -oE '[^/]+$' $1)"
-                [[ ! -z $CHK_MINMOD ]] && BTN_FILE="$MINMOD_BUTTON_FILE" || BTN_FILE="$VISMOD_BUTTON_FILE"
+                buttonselfilt="$(echo "$BTN" | grep -oE '[^/]+$')"
+                [[ -n $CHK_MINMOD ]] && BTN_FILE="$MINMOD_BUTTON_FILE" || BTN_FILE="$VISMOD_BUTTON_FILE"
                 echo "$buttonselfilt" > $BTN_FILE
-                printf "${G}<${C}=${G}> ${W}Selected button style: ${NC}$buttonselfilt\n"
+                printf "${G}< > ${W}Selected button style: ${NC}$buttonselfilt\n"
             fi
     ;;
 esac

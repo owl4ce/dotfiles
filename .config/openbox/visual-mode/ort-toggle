@@ -2,7 +2,7 @@
 source $HOME/.owl4ce_var
 
 if [[ -z $CHK_MINMOD ]]; then
-    { killall tint2; killall dunst; } &> /dev/null
+    ( killall tint2; killall dunst ) &> /dev/null
     source $HOME/.owl4ce_var
     case $1 in
         lrtb)   if [[ $CHK_ORT = *"vertical"* ]]; then
@@ -40,6 +40,6 @@ if [[ -z $CHK_MINMOD ]]; then
                 fi
         ;;
     esac && \
-    openbox --reconfigure
+    openbox --reconfigure && \
     "$VISMOD_DIR/UI" partially &> /dev/null
 fi
