@@ -4,10 +4,10 @@ LC_ALL=C LANG=C source $HOME/.owl4ce_var
 noterr() { $EXNOTIFY_SEND -u low -r 15 "Install alsa-utils!"; exit 1; }
 type -p "amixer" &> /dev/null || noterr
 
-CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep 'off'; }
+CHK_MUTE() { amixer get Master | grep 'off'; }
 
 notify() {
-    VOLUME="$(amixer -D pulse get Master | grep '%' | head -n1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}')"
+    VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | head -n1)"
     
     if [[ "$VOLUME" -eq 0 ]]; then
         icon_name="notification-audio-volume-muted"
@@ -25,15 +25,15 @@ notify() {
 }
 
 case $1 in
-    up)     amixer -D pulse set Master on -q
-            amixer -D pulse sset Master "${AUDIO_STEPS:-5}"%+ -q
+    up)     amixer set Master on -q
+            amixer sset Master "${AUDIO_STEPS:-5}"%+ -q
             notify
     ;;
-    down)   amixer -D pulse set Master on -q
-            amixer -D pulse sset Master "${AUDIO_STEPS:-5}"%- -q
+    down)   amixer set Master on -q
+            amixer sset Master "${AUDIO_STEPS:-5}"%- -q
             notify
     ;;
-    mute)   amixer -D pulse set Master 1+ toggle -q
+    mute)   amixer set Master 1+ toggle -q
             if CHK_MUTE &> /dev/null; then
                 icon_name="notification-audio-volume-muted"
                 $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "Muted "
