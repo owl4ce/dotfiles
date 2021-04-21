@@ -7,14 +7,14 @@ err() { printf "${R} > error:${NC} $@\n"; exit 1; }
 apps() {
     printf "${G}USAGE:${NC} launch ${M}<${NC}apps${M}>\n${C}Available apps:\n"
     n=0
-    for list in $(cat $DEFAPPS_FILE | awk -F'=' '{print $1}'); do
+    for list in $(awk -F'=' '{print $1}' $DEFAPPS_FILE); do
         n="$((n+1))"
         printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$list"
         eval "list${n}=\$list"
     done && \
     printf "${R}---\n${C}Will run:\n"
     n=0
-    for openlist in $(cat $DEFAPPS_FILE | awk -F'"' '{print $2}'); do
+    for openlist in $(awk -F'"' '{print $2}' $DEFAPPS_FILE); do
         n="$((n+1))"
         printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$openlist"
         eval "openlist${n}=\$openlist"
@@ -25,7 +25,7 @@ apps() {
 
 case $1 in
     -g|--get)           [[ -z "${*:2}" ]] && exit 1 || :
-                        echo "$(cat $DEFAPPS_FILE | grep "${*:2}" | awk -F'"' '{print $2}')"
+                        echo "$(grep "${*:2}" $DEFAPPS_FILE | awk -F'"' '{print $2}' | head -n1)"
     ;;
     -e|--edit)          printf "${G} > ${NC}Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: " ; read TEXT_EDITOR
                         type -p "$TEXT_EDITOR" &> /dev/null || err "${M}$TEXT_EDITOR${NC} is not installed. Please install it first!"
@@ -33,11 +33,11 @@ case $1 in
     ;;
     ""|-h|--help|-*)    apps
     ;;
-    *)                  if [[ "$1" = "$(cat "$DEFAPPS_FILE" | awk -F'=' '{print $1}' | grep "$1")" ]]; then
-                            filt="$(cat "$DEFAPPS_FILE" | grep "$1" | awk -F'"' '{print $2}')"
+    *)                  if [[ "$1" = "$(awk -F'=' '{print $1}' $DEFAPPS_FILE | grep "$1")" ]]; then
+                            filt="$(grep "$1" $DEFAPPS_FILE | awk -F'"' '{print $2}')"
                             opt="$(echo $@ | tr ' ' '\ 'i)"
-                            [[ ! -z "$2" ]] && $($filt $opt &> /dev/null &) && exit 0
-                            [[ ! -z "$1" ]] && $($filt &> /dev/null &) && exit 0
+                            [[ -n "$2" ]] && $($filt $opt &> /dev/null &) && exit 0
+                            [[ -n "$1" ]] && $($filt &> /dev/null &) && exit 0
                         else
                             type -p "$1" &> /dev/null || err "${M}$1${NC} is not in list. Please define it first!"
                         fi
