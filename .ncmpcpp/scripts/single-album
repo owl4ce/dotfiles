@@ -11,10 +11,10 @@ w3m() {
     
     [[ -x "${w3m_paths[0]}" ]] && w3m_img_path="${w3m_paths[0]}" || :
     if type -p {"xprop","xwininfo","bc"} &> /dev/null; then
-        win_id="$(xprop -root _NET_ACTIVE_WINDOW | awk -F'# ' '{print $2}')"
+        win_id="$(xprop -root _NET_ACTIVE_WINDOW | grep -oE '[^# ]+$')"
         while true; do
-            #get_height="$(xwininfo -id $win_id | awk -F ':' '/Height/{print $2}')"
-            get_width="$(xwininfo -id $win_id | awk -F ':' '/Width/{print $2}')"
+            #get_height="$(xwininfo -id $win_id | awk -F ': ' '/Height/{print $2}')"
+            get_width="$(xwininfo -id $win_id | awk -F ': ' '/Width/{print $2}')"
             #h_size="$(bc <<< $get_height/1.29)"
             w_size="$(bc <<< $get_width/1.166)"
             
