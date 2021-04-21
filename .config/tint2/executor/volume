@@ -4,8 +4,8 @@ LC_ALL=C LANG=C source $HOME/.owl4ce_var
 noterr() { echo "Install alsa-utils!"; exit 1; }
 type -p "amixer" &> /dev/null || noterr
 
-CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep 'off'; }
-VOLUME="$(amixer -D pulse get Master | grep '%' | head -n1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}')"
+CHK_MUTE() { amixer get Master | grep 'off'; }
+VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | head -n1)"
 
 icon() {
     if [[ "$VOLUME" -eq 0 ]]; then
@@ -36,12 +36,12 @@ case $1 in
                     icon
                 fi
     ;;
-    up)         amixer -D pulse set Master on -q
-                amixer -D pulse sset Master "${AUDIO_STEPS:-5}"%+ -q
+    up)         amixer set Master on -q
+                amixer sset Master "${AUDIO_STEPS:-5}"%+ -q
     ;;
-    down)       amixer -D pulse set Master on -q
-                amixer -D pulse sset Master "${AUDIO_STEPS:-5}"%- -q
+    down)       amixer set Master on -q
+                amixer sset Master "${AUDIO_STEPS:-5}"%- -q
     ;;
-    mute)       amixer -D pulse set Master 1+ toggle -q
+    mute)       amixer set Master 1+ toggle -q
     ;;
 esac    
