@@ -13,15 +13,26 @@ w3m() {
     if type -p {"xprop","xwininfo","bc"} &> /dev/null; then
         win_id="$(xprop -root _NET_ACTIVE_WINDOW | grep -oE '[^# ]+$')"
         while true; do
-            #get_height="$(xwininfo -id $win_id | awk -F ': ' '/Height/{print $2}')"
             get_width="$(xwininfo -id $win_id | awk -F ': ' '/Width/{print $2}')"
-            #h_size="$(bc <<< $get_height/1.29)"
-            w_size="$(bc <<< $get_width/1.166)"
+            #get_height="$(xwininfo -id $win_id | awk -F ': ' '/Height/{print $2}')"
+            
+            if [[ -n "$get_width" ]]; then
+                primg="1"
+                w_size="$(bc <<< $get_width/1.166)"
+            #elif [[ -n "$get_heigth" ]]; then
+                #primg="1"
+                #h_size="$(bc <<< $get_height/1.29)"
+            else
+                primg="0" 
+                printf "\ec\e[1;31merror: \e[0mwindow \e[0;32mwidth\e[0m and/or \e[0;32mheight\e[0m not valid!" >&2
+            fi
             
             read -rt ".5" <> <(:) || :
             
             # Keep aspect ratio by depend on width for both
-            printf '%b\n%s;\n%s\n' "0;1;0;0;$w_size;$w_size;;;;;${COVER}" 3 4 | "${w3m_img_path:-false}" &> /dev/null
+            if [[ "$primg" -eq 1 ]]; then
+                printf '%b\n%s;\n%s\n' "0;1;0;0;$w_size;$w_size;;;;;${COVER}" 3 4 | "${w3m_img_path:-false}" &> /dev/null
+            fi
         done
     else
         read -rt ".5" <> <(:) || :
