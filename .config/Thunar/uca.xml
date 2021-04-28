@@ -4,7 +4,7 @@
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
 	<unique-id>1613914055840245-1</unique-id>
-	<command>bash -c &quot;cd %F &amp;&amp; $HOME/.scripts/default-apps/launch terminal&quot;</command>
+	<command>sh -c &quot;cd %F ; $HOME/.scripts/default-apps/launch terminal&quot;</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
 	<startup-notify/>

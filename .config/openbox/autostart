@@ -9,17 +9,17 @@ source $HOME/.owl4ce_var
 # there was once a pulseaudio here
 
 # UI Appearance
-( "$VISMOD_DIR/mode-toggle" just_ui && "$OB_TRAY" ) &> /dev/null
+( "$VISMOD_DIR/mode-toggle" just_ui && "$OB_TRAY" ) > /dev/null 2>&1
 
 # Compositor
-picom -b &> /dev/null
+picom -b > /dev/null 2>&1
 
 # Authentication Agent - PolicyKit
-lxpolkit &> /dev/null &
+lxpolkit > /dev/null 2>&1 &
 
 # Sessions Autolock
 xautolock -time "$AUTOLOCK_MINUTE" -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep -resetsaver -corners 00-- -cornersize 1000 \
--notifier "$EXNOTIFY_SEND -i $ICON_GLADIENT_DIR/lock.png 'Lockscreen' 'Will be locked in 5s from now'" -notify 5 &> /dev/null &
+-notifier "$EXNOTIFY_SEND -i $ICON_GLADIENT_DIR/lock.png 'Lockscreen' 'Will be locked in 5s from now'" -notify 5 > /dev/null 2>&1 &
 
 # Start MPD player (+notification-sender)
 "$MPD_TCD"
