@@ -557,7 +557,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     ...
 
     9  # there was once a pulseaudio here
-    10 pulseaudio --start --log-target=syslog &> /dev/null &
+    10 pulseaudio --start --log-target=syslog > /dev/null 2>&1 &
 
     ...
     ```
@@ -579,7 +579,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     ...
 
     9  # there was once a pulseaudio here
-    10 pipewire &> /dev/null &
+    10 pipewire > /dev/null 2>&1 &
     
     ...
     ```
