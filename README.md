@@ -605,7 +605,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   ```
   
 - **Neofetch Image**  
-  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
+  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf)
   ```cfg
   ...
   
