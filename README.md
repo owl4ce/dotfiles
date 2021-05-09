@@ -342,6 +342,12 @@ exec openbox-session
 exec dbus-launch --exit-with-session openbox-session
 ```
 
+> **Note**  
+> Make sure the `sh` symlinks to `bash`, as it's very dependent on bash.
+> ```sh
+> [ "$(readlink /bin/sh)" != "bash" ] && ln -vs bash /bin/sh
+> ```
+
 Then you can proceed to [user's configuration](#users-configuration). Explore!
 
 ##  
@@ -499,7 +505,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   > **How about battery indicator?**  
   > Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`.
 
-  Remove hashtags for all your needs, then re-login openbox-session.
+  Remove hashtags for all your needs, then relogin openbox-session.
   > **Warning!** Putting a tray here means that when switching Visual Mode, the program will be restarted.
   ```cfg
   1 #
@@ -557,7 +563,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     ...
 
     9  # there was once a pulseaudio here
-    10 pulseaudio --start --log-target=syslog > /dev/null 2>&1 &
+    10 pulseaudio --start --log-target=syslog &> /dev/null &
 
     ...
     ```
@@ -579,15 +585,27 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     ...
 
     9  # there was once a pulseaudio here
-    10 pipewire > /dev/null 2>&1 &
+    10 pipewire &> /dev/null &
     
     ...
     ```
     
   </details>
-
+  
+- **QT Themer (env var) <kbd>optional</kbd>**  
+  [`~/.config/openbox/environment`](./.config/openbox/environment)  
+  This is optional if you're having issues like blind text with background from Mechanical Theme (FleonGTK), as it basically uses plugins (QT to GTK2). Remove `gtk2` after the equal sign, then relogin openbox-session.
+  ```cfg
+  ...
+  
+  7 # Use QT5CT Settings for QT Themes
+  8 export QT_QPA_PLATFORMTHEME=gtk2
+  
+  ...
+  ```
+  
 - **Neofetch Image**  
-  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf`)
+  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf)
   ```cfg
   ...
   
