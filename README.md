@@ -330,6 +330,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
 ### The step you are waiting for
 The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc.
+
+> **Note**  
+> Make sure the `sh` symlinks to `bash`, as it's very dependent on bash.
+> ```sh
+> [ "$(readlink /bin/sh)" != "bash" ] && ln -vfs bash /bin/sh
+> ```
+
 If you are using `~/.xinitrc` without display manager, simply add
 
 **Systemd Linux Distribution**  
@@ -341,12 +348,6 @@ exec openbox-session
 ```sh
 exec dbus-launch --exit-with-session openbox-session
 ```
-
-> **Note**  
-> Make sure the `sh` symlinks to `bash`, as it's very dependent on bash.
-> ```sh
-> [ "$(readlink /bin/sh)" != "bash" ] && ln -vfs bash /bin/sh
-> ```
 
 Then you can proceed to [user's configuration](#users-configuration). Explore!
 
