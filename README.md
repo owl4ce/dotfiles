@@ -345,7 +345,7 @@ exec dbus-launch --exit-with-session openbox-session
 > **Note**  
 > Make sure the `sh` symlinks to `bash`, as it's very dependent on bash.
 > ```sh
-> [ "$(readlink /bin/sh)" != "bash" ] && ln -vs bash /bin/sh
+> [ "$(readlink /bin/sh)" != "bash" ] && ln -vfs bash /bin/sh
 > ```
 
 Then you can proceed to [user's configuration](#users-configuration). Explore!
@@ -594,7 +594,7 @@ $ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   
 - **QT Themer (env var) <kbd>optional</kbd>**  
   [`~/.config/openbox/environment`](./.config/openbox/environment)  
-  This is optional if you're having issues like blind text with background from Mechanical Theme (FleonGTK), as it basically uses plugins (QT to GTK2). Remove `gtk2` after the equal sign, then relogin openbox-session.
+  This is optional if you're having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then relogin openbox-session.
   ```cfg
   ...
   
