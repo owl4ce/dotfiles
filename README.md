@@ -113,7 +113,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ### Introduction of Linux Rice
 
 <details>
-<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
+<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and/or <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
   
 <br>
 
@@ -136,7 +136,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```sh
-   $ sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio \
+   sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio \
    alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode \
    xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler \
    viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
@@ -148,7 +148,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
    ```sh
-   $ sudo apt install zsh &&
+   sudo apt install zsh &&
    chsh -s $(command -v zsh) &&
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
@@ -162,13 +162,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>picom</summary>
     
    ```sh
-   $ sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
+   sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
    libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev \
    libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev \
    libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
    ```
    ```sh
-   $ git clone https://github.com/yshui/picom.git &&
+   git clone https://github.com/yshui/picom.git &&
    cd picom/ && git submodule update --init --recursive &&
    meson --buildtype=release . build &&
    ninja -C build &&
@@ -183,7 +183,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > I haven't tested it yet.
   
    ```sh
-   $ sudo su
+   sudo su
    ```
    ```sh
    echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list &&
@@ -205,7 +205,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
   
    ```sh
-   $ yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
+   yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
    pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins \
    lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-volman \
    thunar-media-tags-plugin ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol \
@@ -218,7 +218,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
    ```sh
-   $ sudo pacman -S zsh &&
+   sudo pacman -S zsh &&
    chsh -s $(command -v zsh) &&
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
@@ -261,15 +261,15 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Most of .files</strong></summary>
   
-   You can clone or download it as a zip. After that put all files in the **dotfiles** folder to user's home directory.
+   You can clone or download as a [archive](https://github.com/owl4ce/dotfiles/releases). After that put all files in the **dotfiles** folder to user's home directory.
    > Assume you are cloning in the `~/Documents` directory for example.
    ```sh
-   $ git clone https://github.com/owl4ce/dotfiles.git && cd dotfiles/
+   git clone https://github.com/owl4ce/dotfiles.git && pushd dotfiles/
    ```
    
    I recommend with rsync.
    ```sh
-   $ rsync -avxHAXP --exclude '.git*' .* ~/
+   rsync -avxHAXP --exclude '.git*' .* ~/
    ```
    > **Explanation**
    > | Options   | Function                                            |
@@ -296,9 +296,11 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Icons</strong></summary>
 
    ```sh
-   $ cd ~/.icons && tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
-   sudo ln -s ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom &&
-   sudo ln -s ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom
+   pushd ~/.icons/ &&
+       tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
+       sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom &&
+       sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom &&
+   popd
    ```
    > **Why I need to link icons to user system resources?** :thinking:  
    > That's needed by dunst in order to display most of icon from notification that spawned by application.
@@ -309,7 +311,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Refresh Font Cache</strong></summary>
   
    ```sh
-   $ fc-cache -rv
+   fc-cache -rv
    ```
     
   </details>
@@ -323,7 +325,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > For `brightnessctl`, I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
    
    ```sh
-   $ sudo chmod u+s $(command -v brightnessctl)
+   sudo chmod u+s $(command -v brightnessctl)
    ```
     
   </details>
@@ -379,11 +381,11 @@ Then you can proceed to [user's configuration](#users-configuration). Explore!
 
 I recommend compiling it from source. Then put **zentile** binary your **PATH**, for example in `~/.local/bin/`
 ```sh
-$ # To run in the background (detached)
-$ zentile &! 
+# To run in the background (detached)
+zentile &! 
 
-$ # To kill (or pkill)
-$ killall zentile
+# To kill (or pkill)
+killall zentile
 ```
 
 ##  
@@ -393,7 +395,7 @@ $ killall zentile
 Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
 > Remember where you cloned this repository.
 ```sh
-$ cd dotfiles/ && git pull
+pushd dotfiles/ && git pull
 ```
 Then list the files excluded by rsync. For example,  
 `~/.rsxf`
@@ -412,7 +414,7 @@ Then list the files excluded by rsync. For example,
 ```
 and whatever the file is. Next, of course is rsync.
 ```sh
-$ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
+rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
 ```
 
 ##  
