@@ -601,7 +601,7 @@ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   ```cfg
   ...
   
-  7 # Use QT5CT Settings for QT Themes
+  7 # Use qt5-styleplugins for QT Themes
   8 export QT_QPA_PLATFORMTHEME=gtk2
   
   ...
