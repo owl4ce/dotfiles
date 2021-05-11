@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 LC_ALL=C LANG=C source $HOME/.owl4ce_var
-R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
+RB="\e[5;31m" GB="\e[5;32m" Y="\e[1;33m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
 
 [[ -n $CHK_MINMOD ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
 
@@ -23,7 +23,7 @@ case $1 in
     ;;
     *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
             [[ -n $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")" || :
-            printf "\ec${G}< > ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}\n"
+            printf "\ec${C}-${GB}-${NC}${C}- ${W}Select button style for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme${NC}\n"
             n=0
             for button in "$OB_BUTTON_DIR"/*; do
                 n="$((n+1))"
@@ -31,11 +31,11 @@ case $1 in
                 printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
                 eval "button${n}=\$button"
             done
-            printf "${G}< > ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
+            printf "${C}-${GB}-${NC}${C}- ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
             read -r num
             num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"                
             if [[ "$num" -eq 0 ]] || [[ "$num" -gt "$n" ]]; then
-                printf "${G}< > ${R}Wrong selection!\n" >&2 && exit 1
+                printf "${Y}[${RB}!${NC}${Y}] ${RB}Wrong selection\n" >&2; exit 1
             else
                 eval "BTN=\$button${num}"
                 [[ $CHK_VISMOD = *"eyecandy"* ]] && BTN_DIR="$EYC_BUTTON_DIR" || BTN_DIR="$MECH_BUTTON_DIR"
@@ -44,7 +44,7 @@ case $1 in
                 buttonselfilt="$(echo "$BTN" | grep -oE '[^/]+$')"
                 [[ -n $CHK_MINMOD ]] && BTN_FILE="$MINMOD_BUTTON_FILE" || BTN_FILE="$VISMOD_BUTTON_FILE"
                 echo "$buttonselfilt" > $BTN_FILE
-                printf "${G}< > ${W}Selected button style: ${NC}$buttonselfilt\n"
+                printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${NC}$buttonselfilt\n"
             fi
     ;;
 esac
