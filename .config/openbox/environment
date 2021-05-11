@@ -4,5 +4,5 @@
 #
 # ---
 
-# Use QT5CT Settings for QT Themes
+# Use qt5-styleplugins for QT Themes
 export QT_QPA_PLATFORMTHEME=gtk2
