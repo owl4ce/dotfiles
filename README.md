@@ -129,8 +129,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
-> **Warning!** This configuration is highly dependent to `bash`, `sed`, `awk`, and `coreutils`.  
+> **Warning!**  
+> This configuration is highly dependent to `bash`, `sed`, `awk`, and `coreutils`.  
 > Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
+>
+> **Attention!**  
+> - Rofi must be above version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
+> - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
