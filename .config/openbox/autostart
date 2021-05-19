@@ -15,7 +15,11 @@ source $HOME/.owl4ce_var
 picom -b &> /dev/null
 
 # Authentication Agent - PolicyKit
-lxpolkit &> /dev/null &
+if command -v lxpolkit &> /dev/null; then
+    lxpolkit &> /dev/null &
+elif [ -x "/usr/libexec/polkit-gnome-authentication-agent-1" ]; then
+    /usr/libexec/polkit-gnome-authentication-agent-1 &> /dev/null &
+fi
 
 # Sessions Autolock
 xautolock -time "$AUTOLOCK_MINUTE" -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep -resetsaver -corners 00-- -cornersize 1000 \
