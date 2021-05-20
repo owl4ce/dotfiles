@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 LC_ALL=C LANG=C source $HOME/.owl4ce_var
 
-type -p {"mpd","mpc","convert","ffmpeg"} &> /dev/null || exit 1
+type -p {"mpd","mpc","convert"} &> /dev/null || exit 1
 
 MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_NOTIF_COVER"
@@ -25,8 +25,8 @@ notify_noalbum() {
     if [[ -n "$src" ]]; then
         # Resize the image's width to 80px (ffmpeg/imagemagick)
         # ffmpeg for fast conversion
-        ffmpeg -i "$src" -vf scale=80:80 "$COVER" &> /dev/null
-        #convert "$src" -resize 80x "$COVER" &> /dev/null
+        ffmpeg -i "$src" -vf scale=80:80 "$COVER" &> /dev/null \
+        || convert "$src" -resize 80x "$COVER" &> /dev/null
         # Convert into rounded corners
         convert "$COVER" \
         \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
