@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source $HOME/.owl4ce_var
 
 noterr() { $EXNOTIFY_SEND -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
 command -v {"urxvt","termite"} &> /dev/null || noterr

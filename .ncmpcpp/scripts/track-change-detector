@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source $HOME/.owl4ce_var
 
 type -p {"mpd","mpc"} &> /dev/null || exit 1
 
