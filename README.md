@@ -342,7 +342,7 @@ The final step is login into openbox-session, basically login from display manag
 > **Note**  
 > Make sure the `sh` symlinks to `bash`, as it's very dependent on bash.
 > ```sh
-> [ "$(readlink /bin/sh)" != "bash" ] && ln -vfs bash /bin/sh
+> [ "$(readlink /bin/sh)" != "bash" ] && sudo ln -vfs bash /bin/sh
 > ```
 
 If you are using `~/.xinitrc` without display manager, simply add
