@@ -270,12 +270,12 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    You can clone or download as a [archive](https://github.com/owl4ce/dotfiles/releases). After that put all files in the **dotfiles** folder to user's home directory.
    > Assume you are cloning in the `~/Documents` directory for example.
    ```sh
-   git clone https://github.com/owl4ce/dotfiles.git && pushd dotfiles/
+   pushd ~/Documents && git clone https://github.com/owl4ce/dotfiles.git
    ```
    
    I recommend with rsync.
    ```sh
-   rsync -avxHAXP --exclude '.git*' .* ~/
+   rsync -avxHAXP --exclude '.git*' --exclude 'LICENSE' --exclude '*.md' dotfiles/ ~/
    ```
    > **Explanation**
    > | Options   | Function                                            |
