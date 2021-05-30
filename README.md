@@ -401,7 +401,8 @@ killall zentile
 ### Update
 
 Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
-> Remember where you cloned this repository. For example, from the start we assumed that it was in `~/ Documents`.
+> Remember where you cloned this repository.  
+> For example, from the start we assumed that it was in `~/ Documents`.
 ```sh
 cd ~/Documents/ &&
 pushd dotfiles/ && git pull && popd
@@ -437,9 +438,8 @@ current-track
 .nanorc
 .Xresources
 .xsettingsd
-...
 ```
-> Use find to check PATTERN  
+> Use `find` command to check PATTERN,
 > ```sh
 > find dotfiles/ -iname 'PATTERN'
 > ```
@@ -502,6 +502,8 @@ rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
   <details>
   <summary><strong>See</strong></summary>
   
+    <br>
+    
     <p align="center"><a href="https://github.com/gilbertw1/telegram-nord-theme">
     <img src="https://i.ibb.co/1TDYj5R/2021-05-30-135514-800x641-scrot.png" alt="tdesktop.nord"/>
     </a></p>
@@ -761,6 +763,7 @@ rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
   - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
   - [Custom Environment @ ArchWiki](https://wiki.archlinux.org/index.php/desktop_environment#Custom_environments)
+  - [Recommended Applications @ Gentoo Wiki](https://wiki.gentoo.org/wiki/Recommended_applications)
   - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
   - [Stark's Color Scripts](https://github.com/stark/Color-Scripts)
   - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh)
