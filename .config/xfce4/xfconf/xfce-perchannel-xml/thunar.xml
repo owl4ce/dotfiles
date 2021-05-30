@@ -20,6 +20,11 @@
   <property name="last-separator-position" type="int" value="174"/>
   <property name="misc-middle-click-in-tab" type="bool" value="true"/>
   <property name="hidden-devices" type="array">
+    <value type="string" value="Downloads"/>
+    <value type="string" value="Documents"/>
+    <value type="string" value="Music"/>
+    <value type="string" value="Pictures"/>
+    <value type="string" value="Videos"/>
   </property>
   <property name="hidden-bookmarks" type="array">
     <value type="string" value="trash:///"/>

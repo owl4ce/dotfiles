@@ -124,7 +124,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ##  
 
 ### Installation (dependencies)
-> Customize your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with multimedia application that I use.
+> Customize your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with my preference utility application. In fact, what is in the column is a minimal recommendation.
 >   
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
@@ -243,19 +243,20 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    
    **For example**  
    - [Gentoo/Linux](https://packages.gentoo.org/)  
-     *See [owl4ce's portage configuration](https://github.com/owl4ce/hmg/tree/main/etc/portage/package.use)*
+     *See [owl4ce's portage configuration](https://github.com/owl4ce/hmg/tree/main/etc/portage/package.use).*
      
    - [Void (Linux)](https://voidlinux.org/packages/)
-
+   
+   > Maybe you can reference the package name with Arch Linux.  
    > For Gentoo/Linux, I recommend to enabling [`keywords`](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages and/or using `ebuild-9999`.
   
-   **If it's not there, compile it manually from git source code or from elsewhere.**
+   If it's not there, compile it manually from git source code or from elsewhere.
   
-  </details
+  </details>
   
   <br>
     
-  **Optional**: [betterdiscord](https://betterdiscord.net/), [file-roller](https://wiki.gnome.org/Apps/FileRoller), [geany](https://geany.org/) + [geany plugins](https://plugins.geany.org/), [gimp](https://www.gimp.org/), [lxappearance](https://wiki.lxde.org/en/LXAppearance), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [obconf](http://openbox.org/wiki/ObConf:About), [slim](https://wiki.archlinux.org/index.php/SLiM), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  **Optional**: [betterdiscord](https://betterdiscord.net/), [geany](https://geany.org/) + [geany plugins](https://plugins.geany.org/), [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [neovim](https://neovim.io/), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
 ##  
 
@@ -270,7 +271,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    You can clone or download as a [archive](https://github.com/owl4ce/dotfiles/releases). After that put all files in the **dotfiles** folder to user's home directory.
    > Assume you are cloning in the `~/Documents` directory for example.
    ```sh
-   pushd ~/Documents && git clone https://github.com/owl4ce/dotfiles.git
+   cd ~/Documents/ && git clone https://github.com/owl4ce/dotfiles.git
    ```
    
    I recommend with rsync.
@@ -300,7 +301,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 
   <details open>
   <summary><strong>Icons</strong></summary>
-
+    
+   > **Note**  
+   > `pushd` is same as `cd`, but can return back to the first directory (checkpoint).
    ```sh
    pushd ~/.icons/ &&
        tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
@@ -370,8 +373,8 @@ Then you can proceed to [user's configuration](#users-configuration). Explore!
 ```zsh
 ...
 
-131 alias ls="exa -lgh --icons --group-directories-first"
-132 alias la="exa -lgha --icons --group-directories-first"
+134 alias ls="exa -lgh --icons --group-directories-first"
+135 alias la="exa -lgha --icons --group-directories-first"
 
 ...
 ```
@@ -399,28 +402,51 @@ killall zentile
 ### Update
 
 Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
-> Remember where you cloned this repository.
+> Remember where you cloned this repository.  
+> For example, from the start we assumed that it was in `~/Documents`.
 ```sh
-pushd dotfiles/ && git pull
+cd ~/Documents/ &&
+pushd dotfiles/ && git pull && popd
 ```
-Then list the files excluded by rsync. For example,  
-`~/.rsxf`
+Then list the files excluded by rsync (PATTERN). For example,  
+`~/Documents/owl4ce_drsyncexc`
 ```cfg
-1 .git*
-2 .lyrics
-3 mpd.state
-4 current-track
-5 .zshrc
-6 .nanorc
-7 nvim
-8 mpv
-9 thunar.xml
-
-...
+.git*
+LICENSE
+*.md
+BetterDiscord
+geany
+GIMP
+gtk-3.0
+config.conf
+nvim
+autostart
+environment
+tray
+current
+orientation
+mechanical
+eyecandy
+termite
+Thunar
+xfconf
+.fonts
+.nothing
+mpd.state
+current-track
+.gtkrc-2.0
+.zshrc
+.nanorc
+.Xresources
+.xsettingsd
 ```
+> Use `find` command to check PATTERN,
+> ```sh
+> find dotfiles/ -iname 'PATTERN'
+> ```
 and whatever the file is. Next, of course is rsync.
 ```sh
-rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
+rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
 ```
 
 ##  
@@ -473,6 +499,20 @@ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
     
   </details>
   
+- **Telegram Desktop <kbd>suggested</kbd>**
+  <details>
+  <summary><strong>See</strong></summary>
+  
+    <br>
+    
+    <p align="center"><a href="https://github.com/gilbertw1/telegram-nord-theme">
+    <img src="https://i.ibb.co/1TDYj5R/2021-05-30-135514-800x641-scrot.png" alt="tdesktop.nord"/>
+    </a></p>
+    
+    <p align="center">Just click on the image above!</p>
+    
+  </details>
+    
 - **Capitaine Cursors Theme <kbd>suggested</kbd>**
   <details>
   <summary><strong>See</strong></summary>
@@ -724,6 +764,7 @@ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
   - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
   - [Custom Environment @ ArchWiki](https://wiki.archlinux.org/index.php/desktop_environment#Custom_environments)
+  - [Recommended Applications @ Gentoo Wiki](https://wiki.gentoo.org/wiki/Recommended_applications)
   - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible)
   - [Stark's Color Scripts](https://github.com/stark/Color-Scripts)
   - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh)
@@ -751,6 +792,7 @@ rsync -avxHAXP --exclude-from ~/.rsxf .* ~/
   - [Geany - The Flyweight IDE](https://www.geany.org/)
   - [GIMP - GNU Image Manipulation Program](https://www.gimp.org/)
   - [Gpick - Advanced Color Picker](http://www.gpick.org/)
+  - [Gucharmap - GNOME Character Map](https://wiki.gnome.org/Apps/Gucharmap)
   - [Themix - GUI Theme Designer](https://github.com/themix-project/oomox)
   - Tint2conf, etc.
 

@@ -1,6 +1,6 @@
 # Beware! This file is rewritten by htop when settings are changed in the interface.
 # The parser is also very primitive, and not human-friendly.
-fields=0 48 17 18 38 40 2 46 47 49 112 1
+fields=0 48 17 18 114 38 40 2 46 47 49 112 1
 sort_key=47
 sort_direction=1
 tree_sort_key=47
@@ -28,11 +28,11 @@ show_cpu_frequency=1
 show_cpu_temperature=1
 degree_fahrenheit=0
 update_process_names=1
-account_guest_in_cpu_meter=0
+account_guest_in_cpu_meter=1
 color_scheme=6
 enable_mouse=1
 delay=10
-left_meters=AllCPUs CPU Memory Swap
+left_meters=AllCPUs Memory Zram Swap
 left_meter_modes=1 1 1 1
 right_meters=Hostname Tasks DiskIO NetworkIO Uptime
 right_meter_modes=2 2 2 2 4
