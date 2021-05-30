@@ -302,7 +302,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Icons</strong></summary>
     
-   > **Note**: `pushd` is same as `cd`, but can return back to the first directory (checkpoint).
+   > **Note**  
+   > `pushd` is same as `cd`, but can return back to the first directory (checkpoint).
    ```sh
    pushd ~/.icons/ &&
        tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
