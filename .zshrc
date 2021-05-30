@@ -51,7 +51,7 @@ ZSH_THEME="ar-round"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -71,7 +71,7 @@ ZSH_THEME="ar-round"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting bgnotify)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 setopt INC_APPEND_HISTORY
 source $ZSH/oh-my-zsh.sh
 
@@ -98,36 +98,39 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Aliases
-#alias ls="colorls --sd -A"
 
-# owl4ce s preferences
-PRIV="doas"
+if command -v "sudo" &>/dev/null; then
+    PRIV="sudo"
+elif command -v "doas" &>/dev/null; then
+    PRIV="doas"
+else
+    printf "\e[1;31m > error:\e[0m sudo or doas not found!\n" >&2
+fi
 
 alias c="clear"
 alias q="exit"
 alias hd="hexdump -C"
-alias default-apps="printf '\ec'; $HOME/.scripts/default-apps/launch; $HOME/.scripts/default-apps/launch -e"
-alias pacrem="$PRIV pacman -Rcns"
-alias yayupd="yay -Sy"
-alias yayupg="yay -Syu"
-alias emergeins="$PRIV emerge -av"
-alias emergeinmask="$PRIV emerge -av --autounmask=y --autounmask-write"
-alias emergepv="$PRIV emerge -pv"
-alias emergeupd="$PRIV emaint -a sync"
-alias emergeupg="$PRIV emerge -av --update --deep --changed-use @world"
-alias emergedepc="$PRIV emerge --depclean -av"
-alias emergenuse="$PRIV emerge -av --update --newuse --deep @world"
-alias emergecuse="$PRIV emerge -av --update --changed-use --deep @world"
-alias ecleandist="$PRIV eclean-dist --deep"
-alias ecleanpkg="$PRIV eclean-pkg --deep"
-alias ecleankern="$PRIV eclean-kernel -n 3"
+alias defapps="printf '\ec'; $HOME/.scripts/default-apps/launch; $HOME/.scripts/default-apps/launch -e"
+alias pacman_remove="$PRIV pacman -Rcns"
+alias yay_update="yay -Sy"
+alias yay_upgrade="yay -Syu"
+alias emerge_install="$PRIV emerge -av"
+alias emerge_install_unmask="$PRIV emerge -av --autounmask=y --autounmask-write"
+alias emerge_pretend="$PRIV emerge -pv"
+alias emerge_sync="$PRIV emaint -a sync"
+alias emerge_changed_use="$PRIV emerge -av --update --changed-use --deep @world"
+alias emerge_new_use="$PRIV emerge -av --update --newuse --deep @world"
+alias emerge_depclean="$PRIV emerge -av --depclean"
+alias eclean_dist="$PRIV eclean-dist --deep"
+alias eclean_pkg="$PRIV eclean-pkg --deep"
 alias rc-service="$PRIV rc-service"
 alias rc-update="$PRIV rc-update"
-alias pingoogle="ping 8.8.8.8"
-alias trimall="$PRIV fstrim -va"
+alias ping_google="ping 8.8.8.8"
+alias ping_cloudfl="ping 1.1.1.1"
+alias trim_all="$PRIV fstrim -va"
 alias nanosu="$PRIV nano"
 alias nvimsu="$PRIV nvim"
-alias refram="$PRIV sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
+alias clean_ram="$PRIV sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 #alias ls="exa -lgh --icons --group-directories-first"
 #alias la="exa -lgha --icons --group-directories-first"
 
@@ -144,7 +147,7 @@ alias pipes2="$HOME/.color-toys/pipes2"
 alias pipes2-slim="$HOME/.color-toys/pipes2-slim"
 
 # GPG Dialog
-export GPG_TTY=$(tty)
+export GPG_TTY="$(tty)"
 
 # BAT Theme (cat replacement)
 export BAT_THEME="base16"
