@@ -403,7 +403,7 @@ killall zentile
 
 Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
 > Remember where you cloned this repository.  
-> For example, from the start we assumed that it was in `~/ Documents`.
+> For example, from the start we assumed that it was in `~/Documents`.
 ```sh
 cd ~/Documents/ &&
 pushd dotfiles/ && git pull && popd
