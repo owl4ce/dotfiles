@@ -746,6 +746,15 @@ rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
 
 <br>
 
+## :gift_heart:  Tip Jar
+If you enjoy my **dotfiles** and would like to show your appreciation, you may want to tip me here.
+It is never required but always wholeheartedly appreciated.
+
+Thank you from the bottom of my heart! :heartpulse:
+
+* **BTC**: `3DrjWyd6Xgv4tKoL56mPtoQX4fL4LbR7zf`
+* **ETH**: `0x818fC9B82548C1020ed7370DFeb04BCbADc59191`
+
 ## :confetti_ball:  Credits / Thanks
 - **Inspiration and resources**
   - [Elena](https://github.com/elenapan)
