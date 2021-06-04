@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 LC_ALL=C LANG=C; source $HOME/.owl4ce_var
 
-( type -p {"mpd","mpc"} || type -p {"spotify","playerctl"} ) &> /dev/null || exit 1
+{ type -p {"mpd","mpc"} || type -p {"spotify","playerctl"}; } &> /dev/null || exit 1
 
 CURRENT_MUSICPL="$($DEFAPPS_EXEC -g musicpl)"
 
@@ -29,26 +29,26 @@ else
 fi
 
 case $1 in
-    icon)       [[ "$($status)" = *"laying"* ]] && echo "" || echo ""
+    icon)       [[ "$($status)" = *"laying"* ]] && exec echo "" || exec echo ""
     ;;
-    prev)       $($prev)
+    prev)       exec $($prev)
     ;;
-    toggle)     $($toggle)
+    toggle)     exec $($toggle)
     ;;
-    stop)       $($stop)
+    stop)       exec $($stop)
     ;;
-    next)       $($next)
+    next)       exec $($next)
     ;;
-    status)     echo "$($status)"
+    status)     exec echo "$($status)"
     ;;
-    title)      echo "$title"
+    title)      exec echo "$title"
     ;;
     switchpl)   [[ "$($status)" = *"laying"* ]] && $($toggle) || :
                 if [[ $CURRENT_MUSICPL != "mpd" ]]; then
                     sed -i 's_musicpl=".*"_musicpl="mpd"_' $DEFAPPS_FILE
                 elif [[ $CURRENT_MUSICPL != "spotify" ]]; then
                     sed -i 's_musicpl=".*"_musicpl="spotify"_' $DEFAPPS_FILE
-                fi
-                $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nSuccessfully set as default"
+                fi && \
+                exec $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 8888 "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nSuccessfully set as default"
     ;;
-esac
+esac; exit $?

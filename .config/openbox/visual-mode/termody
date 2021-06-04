@@ -107,4 +107,4 @@ elif [[ "$($DEFAPPS_EXEC -g terminal)" = "termite" ]]; then
         sed -i '97s_color_#color_' $TERMITE_CONFIG
         sed -i '98s_color_#color_' $TERMITE_CONFIG
     fi
-fi
+fi; exit $?

@@ -3,7 +3,7 @@ source $HOME/.owl4ce_var
 
 # Set Partial Accent Color and Opacity Level from owl4ce_var
 [[ -n $CHK_MINMOD ]] && MOD="-minimal" || MOD=""
-( "$VISMOD_DIR/$CHK_VISMOD/theme$MOD" partially && "$VISMOD_DIR/termody" trans ) &> /dev/null
+{ "$VISMOD_DIR/$CHK_VISMOD/theme$MOD" partially && "$VISMOD_DIR/termody" trans; } &> /dev/null
 
 # ? Mode Variables
 if [[ $CHK_VISMOD = *"mechanical"* ]]; then
@@ -60,4 +60,4 @@ case $1 in
                 # Panel
                 PANEL
     ;;
-esac
+esac; exit $?

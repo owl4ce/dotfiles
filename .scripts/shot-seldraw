@@ -49,10 +49,12 @@ type -p "scrot" &> /dev/null || noterr
         SV_LOC="CLIPBOARD"
     fi
     
-    $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
-    
     if [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]]; then
         [[ "$OPEN_FRAMED" = "yes" ]] && [[ -n "$(command -v "viewnior")" ]] && \
-        viewnior "$SAVE_DIR/Screenshots/$CURRENT.png"
-    fi
+        viewnior "$SAVE_DIR/Screenshots/$CURRENT.png" &!
+    fi 
+    
+    exec $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
 } &> /dev/null &
+
+exit $?

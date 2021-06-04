@@ -20,28 +20,28 @@ icon() {
         icon=""
     fi
     
-    echo "$icon"
+    exec echo "$icon"
 }
 
 case $1 in
     percent)    if CHK_MUTE &> /dev/null; then
-                    echo "Muted"
+                    exec echo "Muted"
                 else
-                    echo "$VOLUME%"
+                    exec echo "$VOLUME%"
                 fi
     ;;
     icon)       if CHK_MUTE &> /dev/null; then
-                    echo ""
+                    exec echo ""
                 else
                     icon
                 fi
     ;;
     up)         amixer set Master on -q
-                amixer sset Master "${AUDIO_STEPS:-5}"%+ -q
+                exec amixer sset Master "${AUDIO_STEPS:-5}"%+ -q
     ;;
     down)       amixer set Master on -q
-                amixer sset Master "${AUDIO_STEPS:-5}"%- -q
+                exec amixer sset Master "${AUDIO_STEPS:-5}"%- -q
     ;;
-    mute)       amixer set Master 1+ toggle -q
+    mute)       exec amixer set Master 1+ toggle -q
     ;;
-esac    
+esac; exit $?

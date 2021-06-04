@@ -21,7 +21,7 @@ notify() {
         icon_name="notification-audio-volume-high"
     fi
     
-    $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "$VOLUME " -h int:value:"$VOLUME"
+    exec $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "$VOLUME " -h int:value:"$VOLUME"
 }
 
 case $1 in
@@ -36,9 +36,9 @@ case $1 in
     mute)   amixer set Master 1+ toggle -q
             if CHK_MUTE &> /dev/null; then
                 icon_name="notification-audio-volume-muted"
-                $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "Muted "
+                exec $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "Muted "
             else
                 notify
             fi
     ;;
-esac    
+esac; exit $?    

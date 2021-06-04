@@ -54,13 +54,13 @@ ALL() {
     sed -i '34s_<name>.*_<name>Fleon</name>_' $OB_CONFIG
     
     # Reconfigure Openbox (realistic theme)
-    read -rt ".4" <> <(:) || openbox --reconfigure &
+    read -rt ".4" <> <(:) || exec openbox --reconfigure &
 }
 
 case $1 in
     partially)  PARTIALLY
-                openbox --reconfigure
+                exec openbox --reconfigure
     ;;
     *)          ALL
     ;;
-esac
+esac; exit $?

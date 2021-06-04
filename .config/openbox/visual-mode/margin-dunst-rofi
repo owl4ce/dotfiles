@@ -53,4 +53,4 @@ case $1 in
                 sed -i '129s_<bottom>.*_<bottom>10</bottom>_' $OB_CONFIG
                 sed -i '128s_<top>.*_<top>40</top>_' $OB_CONFIG
     ;;
-esac
+esac; exit $?

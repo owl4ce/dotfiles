@@ -13,10 +13,12 @@ run() {
 }
 
 {
-    if ( pgrep "mpd" || pstree | grep "mpd" ) &> /dev/null; then
+    if { pgrep "mpd" || pstree | grep "mpd"; } &> /dev/null; then
         run
     else
         nice -n "1" mpd || mpd
         run
     fi
 } &> /dev/null &
+
+exit $?
