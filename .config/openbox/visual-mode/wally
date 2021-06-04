@@ -81,4 +81,4 @@ case $1 in
                     $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "" "<span size='small'><u>$selected</u></span>\nApplied Successfully"
                 fi
     ;;
-esac
+esac; exit $?

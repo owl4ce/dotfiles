@@ -30,16 +30,18 @@ current="$($MUSIC_CONTROLLER title)"
 [[ -z "$current" ]] && current="-" || :
 
 # Spawn the spotify menu with the "Play / Pause" entry selected by default
-chosen="$(echo -e "$options" | $rofi_command -dmenu $active $urgent -selected-row 1)"
+chosen="$(printf "$options\n" | $rofi_command -dmenu $active $urgent -selected-row 1)"
 case $chosen in
-    $previous)      $MUSIC_CONTROLLER prev
+    $previous)      exec $MUSIC_CONTROLLER prev
     ;;
-    $play_pause)    $MUSIC_CONTROLLER toggle
+    $play_pause)    exec $MUSIC_CONTROLLER toggle
     ;;
-    $stop)          $MUSIC_CONTROLLER stop
+    $stop)          exec $MUSIC_CONTROLLER stop
     ;;
-    $next)          $MUSIC_CONTROLLER next
+    $next)          exec $MUSIC_CONTROLLER next
     ;;
-    $tog_stream)    $MUSIC_CONTROLLER switchpl
+    $tog_stream)    exec $MUSIC_CONTROLLER switchpl
     ;;
-esac
+esac 
+
+exit $?

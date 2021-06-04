@@ -3,20 +3,22 @@ LC_ALL=C LANG=C; source $HOME/.owl4ce_var
 
 rofi_command="rofi -theme themes/sidebar/three-$CHK_ROFI_MOD.rasi"
 
-# Options
-screen=""
-area=""
-timer=""
+# Icons
+SCREEN=""
+AREA=""
+TIMER=""
 
-# Variable passed to rofi
-options="$screen\n$area\n$timer"
+options="$SCREEN\n$AREA\n$TIMER"
 
-chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
+# Main
+chosen="$(printf "$options\n" | $rofi_command -dmenu -selected-row 1)"
 case $chosen in
-    $screen)    $SS_NOW delay
+    $SCREEN)    exec $SS_NOW delay
     ;;
-    $area)      $SS_DRAW
+    $AREA)      exec $SS_DRAW
     ;;
-    $timer)     $SS_TIMER
+    $TIMER)     exec $SS_TIMER
     ;;
-esac
+esac 
+
+exit $?

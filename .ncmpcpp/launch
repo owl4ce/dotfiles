@@ -6,15 +6,14 @@ command -v {"urxvt","ncmpcpp"} &> /dev/null || exit 1
 if [[ "$($DEFAPPS_EXEC -g musicpl)" = "mpd" ]]; then
     {
         case $1 in
-            albumart)           urxvt -g 84x13 -e ncmpcpp -c "$NCMPCPP_DIR/albumart"
+            albumart)           exec urxvt -g 84x13 -e ncmpcpp -c "$NCMPCPP_DIR/albumart"
             ;;
-            single-albumart)    urxvt -g 47x18 -e ncmpcpp -c "$NCMPCPP_DIR/single-albumart"
+            single-albumart)    exec urxvt -g 47x18 -e ncmpcpp -c "$NCMPCPP_DIR/single-albumart"
             ;;
-            *)                  $DEFAPPS_EXEC terminal -e ncmpcpp
+            *)                  exec $DEFAPPS_EXEC terminal -e ncmpcpp
             ;;
         esac
-        exit 0
     } &> /dev/null &
 else
-    $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 88888 "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nCurrently is not set to <u>mpd</u>"
-fi
+    { $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 88888 "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nCurrently is not set to <u>mpd</u>"; exit 1; }
+fi; exit $?

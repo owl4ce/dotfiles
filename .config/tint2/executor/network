@@ -38,8 +38,8 @@ else
 fi
 
 case $1 in
-    status) echo "$status"
+    status) exec echo "$status"
     ;;
-    icon)   echo "$icon"
+    icon)   exec echo "$icon"
     ;;
-esac
+esac; exit $?

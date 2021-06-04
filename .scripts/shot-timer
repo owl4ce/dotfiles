@@ -5,7 +5,7 @@ noterr() { $EXNOTIFY_SEND -u low -r 13 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
-    read -rt ".1" <> <(:) || :
+    read -rt ".11" <> <(:) || :
     
     while true; do
         if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then
@@ -26,7 +26,9 @@ type -p "scrot" &> /dev/null || noterr
         SV_LOC="CLIPBOARD"
     fi
     
-    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo ${TIMER_SEC:-5})s .."
-    scrot -q "${QUALITY:-75}" -d "${TIMER_SEC:-5}" -e "$EXEC"
-    $EXNOTIFY_SEND -r 13 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
+    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo ${TIMER_SEC:-5})s .." && \
+    scrot -q "${QUALITY:-75}" -d "${TIMER_SEC:-5}" -e "$EXEC" && \
+    exec $EXNOTIFY_SEND -r 13 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
 } &> /dev/null &
+
+exit $?

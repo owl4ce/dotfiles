@@ -4,5 +4,7 @@ LC_ALL=C LANG=C; source $HOME/.owl4ce_var
 temp_dev_path="/sys/devices/virtual/thermal"
 
 [[ -d "$temp_dev_path/$TEMP_DEV" ]] && \
-echo "$(expr $(cat $temp_dev_path/$TEMP_DEV/temp) / 1000)"$'\xc2\xb0C' \
-|| ( echo "$TEMP_DEV not found!" && exit 1 )
+exec echo "$(expr $(cat $temp_dev_path/$TEMP_DEV/temp) / 1000)"$'\xc2\xb0C' \
+|| { echo "$TEMP_DEV not found!"; exit 1; }
+
+exit $?
