@@ -5,7 +5,7 @@ noterr() { $EXNOTIFY_SEND -u low -r 13 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
-    read -rt ".1" <> <(:) || :
+    read -rt ".11" <> <(:) || :
     
     while true; do
         if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then

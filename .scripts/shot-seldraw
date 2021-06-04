@@ -5,7 +5,7 @@ noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
-    rm -f /tmp/*_scrot*.png; read -rt ".1" <> <(:) || :
+    rm -f /tmp/*_scrot*.png; read -rt ".11" <> <(:) || :
     
     if scrot -q "${QUALITY:-75}" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null; then
         $EXNOTIFY_SEND -r 12 -t 750 -i "$NOTIF_SS_ICON" -u low "" "Processing captured image .."
