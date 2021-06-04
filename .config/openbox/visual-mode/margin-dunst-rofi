@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 LC_ALL=C LANG=C; source $HOME/.owl4ce_var
 
-echo "$CHK_ORT" > $VISMOD_ROFI_FILE
+echo "$CHK_ORT" > ${VISMOD_ROFI_FILE}.${STATE_EXT:-joy}
 
 case $1 in
     v_left)     sed -s -i 's_geometry =.*_geometry = "350x6-19+52"_' "$DUNST_DIR"/dunstrc-{mech,eyc}
