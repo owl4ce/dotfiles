@@ -69,18 +69,18 @@ our $SCHEMA = [
     
     {beg  => ["Theme Styling",                                                                      "$ENV{HOME}/.icons/gladient/themer.png"]},
     {item => ["~/.scripts/default-apps/launch terminal -e ~/.config/openbox/visual-mode/wally","Change Wallpaper","$ENV{HOME}/.icons/gladient/wally.png"]},
-    {item => ["~/.config/openbox/visual-mode/termody",                    "Reverse Terminal B/F",   "$ENV{HOME}/.icons/gladient/term.png"]},
+    {item => ["~/.config/openbox/visual-mode/termody",                    "Reverse Terminal Visual","$ENV{HOME}/.icons/gladient/term.png"]},
     {sep  => undef},
-    {item => ["urxvt -e ~/.config/openbox/visual-mode/ob-button",         "Change Button Style",    "$ENV{HOME}/.icons/gladient/obt-c.png"]},
-    {item => ["~/.config/openbox/visual-mode/ob-button swap",             "Swap Button L/R",        "$ENV{HOME}/.icons/gladient/obt-s.png"]},
+    {item => ["~/.scripts/default-apps/launch terminal -e ~/.config/openbox/visual-mode/ob-button","Change Button Style","$ENV{HOME}/.icons/gladient/obt-c.png"]},
+    {item => ["~/.config/openbox/visual-mode/ob-button swap",             "Swap Button [L/R]",      "$ENV{HOME}/.icons/gladient/obt-s.png"]},
     {sep  => undef},
-    {item => ["~/.config/openbox/visual-mode/mode-toggle minimal",        "E/D Minimal Mode",       "$ENV{HOME}/.icons/gladient/minimal.png"]},
+    {item => ["~/.config/openbox/visual-mode/mode-toggle minimal",        "Toggle Minimal Mode",    "$ENV{HOME}/.icons/gladient/minimal.png"]},
     {item => ["~/.config/openbox/visual-mode/mode-toggle",                "Switch Visual Mode",     "$ENV{HOME}/.icons/gladient/visual.png"]},
     {end  => undef},
     
     {sep  => undef},
     
-    {item => ["bash -c '~/.config/openbox/visual-mode/mode-toggle just_ui'","Restart UI","$ENV{HOME}/.icons/gladient/re-ui.png"]},
+    {item => ["~/.config/openbox/visual-mode/mode-toggle just_ui",        "Restart UI",             "$ENV{HOME}/.icons/gladient/re-ui.png"]},
     
     {sep  => undef},
     
