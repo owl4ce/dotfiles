@@ -1,23 +1,18 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
 noterr() { echo "Install iproute2/wireless-tools!"; exit 1; }
 type -p {"ip","iwgetid"} &> /dev/null || noterr
 
-wifi=""
-wifi_noip=""
-wifi_disabled=""
-lan=""
-lan_noip=""
-void=""
+wifi="" wifi_noip="" wifi_disabled="" lan="" lan_noip="" void=""
 
 if iwgetid "$INT_WIFI" &> /dev/null; then
     if [[ -n "$(iwgetid "$INT_WIFI" | grep -oP '"\K[^"]+')" ]]; then
-        if ip addr show "$INT_WIFI" | grep 'inet' &> /dev/null; then
-            status="$(iwgetid $INT_WIFI --raw)"
+        if { ip addr show "$INT_WIFI" | grep 'inet'; } &> /dev/null; then
+            status="$(iwgetid "$INT_WIFI" --raw)"
             icon="$wifi"
         else
-            status="No IP address ($INT_WIFI)"
+            status="No IP address (${INT_WIFI})"
             icon="$wifi_noip"
         fi
     else
@@ -25,15 +20,15 @@ if iwgetid "$INT_WIFI" &> /dev/null; then
         icon="$wifi_disabled"
     fi
 elif ip link show "$INT_ETH" &> /dev/null; then
-    if ip addr show "$INT_ETH" | grep 'inet' &> /dev/null; then
-        status="$(ip addr show $INT_ETH | grep -oP 'inet \K[^/]+' | head -n1) ($INT_ETH)"
+    if { ip addr show "$INT_ETH" | grep 'inet'; } &> /dev/null; then
+        status="$(ip addr show "$INT_ETH" | grep -oP 'inet \K[^/]+' | head -n1) (${INT_ETH})"
         icon="$lan"
     else
-        status="No IP address ($INT_ETH)"
+        status="No IP address (${INT_ETH})"
         icon="$lan_noip"
     fi
 else
-    status="Network interface not found ($INT_ETH;$INT_WIFI)"
+    status="Network interface not found (${INT_ETH}/{$INT_WIFI})"
     icon="$void"
 fi
 

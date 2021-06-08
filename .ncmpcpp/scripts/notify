@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
 type -p {"mpd","mpc","convert"} &> /dev/null || exit 1
 
@@ -7,7 +7,11 @@ MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
 COVER="$NCMPCPP_NOTIF_COVER"
 
 notify_noalbum() {
-    $EXNOTIFY_SEND -u normal -r 7777 -i "$NOTIF_MUSIC_ICON" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$NOTIF_MUSIC_ICON" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+}
+
+notify_album() {
+    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$(echo $COVER | sed 's_.jpg_.png_')" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
 {
@@ -15,10 +19,10 @@ notify_noalbum() {
     file="$(mpc --format %file% current -p 6600)"
     album_dir="${file%/*}"
     [[ -z "$album_dir" ]] && exit 1 || :
-    album_dir="$MUSIC_DIR/$album_dir"
+    album_dir="${MUSIC_DIR}/${album_dir}"
     
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
-    src="$(echo -n "$covers" | head -n1)"
+    src="$(printf "$covers" | head -n1)"
     rm -f "$(echo $COVER | sed 's_.jpg_.png_')" &> /dev/null
     
     # Notify
@@ -34,7 +38,7 @@ notify_noalbum() {
         -alpha off -compose CopyOpacity -composite "$(echo $COVER | sed 's_.jpg_.png_')" &> /dev/null
         rm -f "$COVER" &> /dev/null
         if [[ -f "$(echo $COVER | sed 's_.jpg_.png_')" ]]; then
-            $EXNOTIFY_SEND -u normal -r 7777 -i "$(echo $COVER | sed 's_.jpg_.png_')" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+            notify_album
         else
             notify_noalbum
         fi

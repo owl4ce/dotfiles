@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
-noterr() { $EXNOTIFY_SEND -u low -r 13 "Install scrot!"; exit 1; }
+noterr() { "$EXNOTIFY_SEND" -u low -r 13 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
     read -rt ".11" <> <(:) || :
     
-    while true; do
+    while :; do
         if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then
-            CLIP="xclip -selection clipboard -target image/png -i '\$f' ; "
+            CLIP="xclip -selection clipboard -target image/png -i '\$f'; "
             STAT="\n(+CLIPBOARD)" && break
         elif [[ "$SAVE_SS" != "yes" ]]; then
             COPY2CLIP="yes"
@@ -18,17 +18,17 @@ type -p "scrot" &> /dev/null || noterr
     done
     
     if [[ "$SAVE_SS" = "yes" ]]; then
-        [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots" || :
-        EXEC="${CLIP:-}mv '\$f' \"$SAVE_DIR/Screenshots\""
+        [[ ! -d "${SAVE_DIR}/Screenshots" ]] && mkdir -p "${SAVE_DIR}/Screenshots" || :
+        EXEC="${CLIP:-}mv '\$f' \"${SAVE_DIR}/Screenshots/\""
         SV_LOC="$(echo $SAVE_DIR | grep -oE '[^/]+$')/Screenshots${STAT:-}"
     else
         EXEC="${CLIP:-}rm -f '\$f'"
         SV_LOC="CLIPBOARD"
     fi
     
-    $EXNOTIFY_SEND -r 13 -t 1000 -i "$NOTIF_SS_ICON" -u low "" "Taken in $(echo ${TIMER_SEC:-5})s .." && \
+    "$EXNOTIFY_SEND" -u low -r 13 -t 1000 -i "$NOTIF_SS_ICON" "" "Taken in $(echo ${TIMER_SEC:-5})s .." && \
     scrot -q "${QUALITY:-75}" -d "${TIMER_SEC:-5}" -e "$EXEC" && \
-    exec $EXNOTIFY_SEND -r 13 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
+    exec "$EXNOTIFY_SEND" -u low -r 13 -i "$NOTIF_SS_ICON" "" "<span size='small'><u>${SV_LOC}</u></span>\nPicture acquired!"
 } &> /dev/null &
 
 exit $?

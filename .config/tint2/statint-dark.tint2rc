@@ -686,7 +686,7 @@ button_max_icon_size = 0
 # Button 3
 button = new
 button_text = 
-button_tooltip = Enable/Disable Minimal Mode for current Visual Mode
+button_tooltip = Toggle Minimal Mode for current Visual Mode
 button_lclick_command = ~/.config/openbox/visual-mode/mode-toggle minimal
 button_rclick_command = 
 button_mclick_command = 
@@ -803,7 +803,7 @@ button_max_icon_size = 0
 # Button 10
 button = new
 button_text = 
-button_tooltip = Change button style │Enable/Disable window decoration │Swap button location L/R
+button_tooltip = Change button style │Toggle window decoration │Swap button location L/R
 button_lclick_command = ~/.scripts/default-apps/launch terminal -e ~/.config/openbox/visual-mode/ob-button
 button_rclick_command = ~/.config/openbox/visual-mode/ob-button swap
 button_mclick_command = ~/.config/openbox/visual-mode/ob-button decor

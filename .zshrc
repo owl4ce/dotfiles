@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+# export PATH=${HOME}/bin:/usr/local/bin:$PATH
+export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,7 +73,7 @@ plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting bgnotify)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 setopt INC_APPEND_HISTORY
-source $ZSH/oh-my-zsh.sh
+source ${ZSH}/oh-my-zsh.sh
 
 # User configuration
 
@@ -110,7 +110,7 @@ fi
 alias c="clear"
 alias q="exit"
 alias hd="hexdump -C"
-alias defapps="printf '\ec'; $HOME/.scripts/default-apps/launch; $HOME/.scripts/default-apps/launch -e"
+alias defapps="printf '\ec'; ${HOME}/.scripts/default-apps/launch; ${HOME}/.scripts/default-apps/launch -e"
 alias pacman_remove="$PRIV pacman -Rcns"
 alias yay_update="yay -Sy"
 alias yay_upgrade="yay -Syu"
@@ -135,16 +135,16 @@ alias clean_ram="$PRIV sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 #alias la="exa -lgha --icons --group-directories-first"
 
 # Color toys aliases
-alias 256colors2="$HOME/.color-toys/256colors2.pl"
-alias bloks="$HOME/.color-toys/bloks"
-alias colortest="$HOME/.color-toys/colortest"
-alias colortest-slim="$HOME/.color-toys/colortest-slim"
-alias colorview="$HOME/.color-toys/colorview"
-alias colorbars="$HOME/.color-toys/colorbars"
-alias panes="$HOME/.color-toys/panes"
-alias pipes1="$HOME/.color-toys/pipes1"
-alias pipes2="$HOME/.color-toys/pipes2"
-alias pipes2-slim="$HOME/.color-toys/pipes2-slim"
+alias 256colors2="${HOME}/.color-toys/256colors2.pl"
+alias bloks="${HOME}/.color-toys/bloks"
+alias colortest="${HOME}/.color-toys/colortest"
+alias colortest-slim="${HOME}/.color-toys/colortest-slim"
+alias colorview="${HOME}/.color-toys/colorview"
+alias colorbars="${HOME}/.color-toys/colorbars"
+alias panes="${HOME}/.color-toys/panes"
+alias pipes1="${HOME}/.color-toys/pipes1"
+alias pipes2="${HOME}/.color-toys/pipes2"
+alias pipes2-slim="${HOME}/.color-toys/pipes2-slim"
 
 # GPG Dialog
 export GPG_TTY="$(tty)"

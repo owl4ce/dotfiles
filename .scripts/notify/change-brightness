@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
-noterr() { $EXNOTIFY_SEND -u low -r 16 "Install brightnessctl!"; exit 1; }
+noterr() { "$EXNOTIFY_SEND" -u low -r 16 "Install brightnessctl!"; exit 1; }
 type -p "brightnessctl" &> /dev/null || noterr
 
 notify() {
@@ -11,8 +11,6 @@ notify() {
         icon_name="notification-display-brightness-off"
     elif [[ "$BRIGHTNESS" -lt 10 ]]; then
         icon_name="notification-display-brightness-low"
-    elif [[ "$BRIGHTNESS" -lt 30 ]]; then
-        icon_name="notification-display-brightness-medium"
     elif [[ "$BRIGHTNESS" -lt 70 ]]; then
         icon_name="notification-display-brightness-medium"
     elif [[ "$BRIGHTNESS" -lt 100 ]]; then
@@ -21,7 +19,7 @@ notify() {
         icon_name="notification-display-brightness-full"
     fi
     
-    exec $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 1234 "$BRIGHTNESS " -h int:value:"$BRIGHTNESS"
+    exec "$EXNOTIFY_SEND" -u low -r 1234 -t 700 -i "$icon_name" "$BRIGHTNESS " -h int:value:"$BRIGHTNESS"
 }
 
 case $1 in

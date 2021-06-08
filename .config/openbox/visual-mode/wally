@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 RB="\e[5;31m" GB="\e[5;32m" Y="\e[1;33m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
 
-noterr() { $EXNOTIFY_SEND -u low -r 17 "Install imagemagick!"; exit 1; }
+noterr() { "$EXNOTIFY_SEND" -u low -r 17 "Install imagemagick!"; exit 1; }
 
 get_size() {
     SIZE="$(echo $(identify -format '%w' "$RAW"))"
@@ -37,30 +37,30 @@ case $1 in
               { cd "$WALL_RAW_SOURCE"
                 for RAW in ./*.*; do
                     if [[ "$RAW" != "./*.*" ]]; then
-                        $EXNOTIFY_SEND -u low -r 999 -t 1000 -i "$NOTIF_WALLY_ICON" "" "Generating ..\n<span size='small'><u>$(echo $RAW | grep -oE '[^/]+$')</u></span>"
-                        if [[ $CHK_VISMOD = *"mechanical"* ]]; then
+                        "$EXNOTIFY_SEND" -u low -r 999 -t 1000 -i "$NOTIF_WALLY_ICON" "" "Generating ..\n<span size='small'><u>$(echo ${RAW} | grep -oE '[^/]+$')</u></span>"
+                        if [[ "$CHK_VISMOD" = *"mechanical"* ]]; then
                             convert "$RAW" -gravity center -crop 16:9 \( +clone -fill "#4c566a" -colorize 50% \) \
                             -gravity center -compose lighten -composite \( +clone -fill "#4c566a" -colorize 20% \) \
                             -gravity center -compose darken -composite -quality 100% \
-                            "$WALL_DIR"/"$(echo $RAW | awk -F'.' '{print $2}')"_"$(get_size)".jpg
-                        elif [[ $CHK_VISMOD = *"eyecandy"* ]]; then
+                            "$WALL_DIR"/"$(echo "$RAW" | grep -oP './\K[^.]+')"_"$(get_size)".jpg
+                        elif [[ "$CHK_VISMOD" = *"eyecandy"* ]]; then
                             convert "$RAW" -gravity center -crop 16:9 \( +clone -fill white -colorize 20% -modulate 100,127,97 \) \
                             -fill black -colorize 2.2% -gravity center -compose lighten -composite -quality 100% \
-                            "$WALL_DIR"/"$(echo $RAW | awk -F'.' '{print $2}')"_"$(get_size)".jpg
+                            "$WALL_DIR"/"$(echo "$RAW" | grep -oP './\K[^.]+')"_"$(get_size)".jpg
                         fi
-                        $EXNOTIFY_SEND -u low -r 999 -i "$NOTIF_WALLY_ICON" "" "Generated Successfully"
+                        "$EXNOTIFY_SEND" -u low -r 999 -i "$NOTIF_WALLY_ICON" "" "Generated Successfully"
                     else
-                        $EXNOTIFY_SEND -u low -r 999 -i "$NOTIF_WALLY_ICON" "" "Nothing to generate!"
+                        "$EXNOTIFY_SEND" -u low -r 999 -i "$NOTIF_WALLY_ICON" "" "Nothing to generate!"
                     fi
                 done; } &> /dev/null &
     ;;
     *)          capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
-                [[ -n $CHK_MINMOD ]] && CHK_MINMOD="$(echo "$(capitalize $CHK_MINMOD) ")" || :
-                printf "\ec${C}-${GB}-${NC}${C}- ${W}Select wallpaper for $CHK_MINMOD$(capitalize $CHK_VISMOD) Theme\n"
+                [[ -n "$CHK_MINMOD" ]] && CHK_MINMOD="$(echo "$(capitalize ${CHK_MINMOD}) ")" || :
+                printf "\ec${C}-${GB}-${NC}${C}- ${W}Select wallpaper for ${CHK_MINMOD}$(capitalize ${CHK_VISMOD}) Theme\n"
                 n=0
                 for img in "$WALL_DIR"/*.*; do
                     n="$((n+1))"
-                    imgfilt="$(echo $img | grep -oE '[^/]+$')"
+                    imgfilt="$(echo "$img" | grep -oE '[^/]+$')"
                     printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$imgfilt"
                     eval "img${n}=\$img"
                 done
@@ -73,12 +73,12 @@ case $1 in
                     eval "IMG=\$img${num}"
                     nitrogen --set-zoom-fill --save "$IMG" &> /dev/null
                     # Write selected
-                    selected="$(echo "$IMG" | awk -F"$CHK_VISMOD/" '{print $2}')"
-                    [[ -n $CHK_MINMOD ]] && WALL_FILE="$MINMOD_WALL_FILE" || WALL_FILE="$VISMOD_WALL_FILE"
-                    echo "$selected" > $WALL_FILE
-                    printf "${C}[${GB}√${NC}${C}] ${W}Selected wallpaper: ${NC}$selected\n"
+                    selected="$(echo "$IMG" | grep -oE '[^/]+$')"
+                    [[ -n "$CHK_MINMOD" ]] && WALL_FILE="$MINMOD_WALL_FILE" || WALL_FILE="$VISMOD_WALL_FILE"
+                    echo "$selected" > "$WALL_FILE"
+                    printf "${C}[${GB}√${NC}${C}] ${W}Selected wallpaper: ${NC}${selected}\n"
                     # Notify success
-                    $EXNOTIFY_SEND -r 99 -u low -i "$NOTIF_WALLY_ICON" "" "<span size='small'><u>$selected</u></span>\nApplied Successfully"
+                    "$EXNOTIFY_SEND" -u low -r 99 -i "$NOTIF_WALLY_ICON" "" "<span size='small'><u>${selected}</u></span>\nApplied Successfully"
                 fi
     ;;
 esac; exit $?

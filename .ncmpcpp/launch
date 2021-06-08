@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $HOME/.owl4ce_var
+source "$HOME"/.owl4ce_var
 
 command -v {"urxvt","ncmpcpp"} &> /dev/null || exit 1
 
@@ -10,10 +10,10 @@ if [[ "$($DEFAPPS_EXEC -g musicpl)" = "mpd" ]]; then
             ;;
             single-albumart)    exec urxvt -g 47x18 -e ncmpcpp -c "$NCMPCPP_DIR/single-albumart"
             ;;
-            *)                  exec $DEFAPPS_EXEC terminal -e ncmpcpp
+            *)                  exec "$DEFAPPS_EXEC" terminal -e ncmpcpp
             ;;
         esac
     } &> /dev/null &
 else
-    { $EXNOTIFY_SEND -u low -i "$NOTIF_MUSIC_ICON" -r 88888 "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nCurrently is not set to <u>mpd</u>"; exit 1; }
+    { "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nCurrently is not set to <u>mpd</u>"; exit 1; }
 fi; exit $?

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
 noterr() { echo "Install alsa-utils!"; exit 1; }
 type -p "amixer" &> /dev/null || noterr
@@ -10,8 +10,6 @@ VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | head -n1)"
 icon() {
     if [[ "$VOLUME" -eq 0 ]]; then
         icon=""
-    elif [[ "$VOLUME" -lt 10 ]]; then
-        icon=""
     elif [[ "$VOLUME" -lt 30 ]]; then
         icon=""
     elif [[ "$VOLUME" -lt 70 ]]; then
@@ -27,7 +25,7 @@ case $1 in
     percent)    if CHK_MUTE &> /dev/null; then
                     exec echo "Muted"
                 else
-                    exec echo "$VOLUME%"
+                    exec echo "${VOLUME}%"
                 fi
     ;;
     icon)       if CHK_MUTE &> /dev/null; then

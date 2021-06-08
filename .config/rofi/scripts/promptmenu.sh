@@ -2,10 +2,8 @@
 LC_ALL=C LANG=C
 rofi_command="rofi -theme themes/promptmenu.rasi"
 
-# Options
-yes_text=""
-no_text=""
-query="Are you sure?"
+# Options and icons
+yes_text="" no_text="" query="Are you sure?"
 
 # Parse the args
 if [[ $# -eq 0 ]]; then
@@ -41,13 +39,13 @@ else
 fi
 
 # Variable passed to rofi
-options="$yes_text\n$no_text"
+options="${yes_text}\n${no_text}"
 
-chosen="$(printf "$options\n" | $rofi_command -p "$query" -dmenu -selected-row 1)"
-case $chosen in
-    $yes_text)  eval "$yes_command"
+chosen="$(printf "${options}\n" | $rofi_command -p "$query" -dmenu -selected-row 1)"
+case "$chosen" in
+    "$yes_text")  eval "$yes_command"
     ;;
-    $no_text)   eval "$no_command"
+    "$no_text")   eval "$no_command"
     ;;
 esac 
 
