@@ -130,7 +130,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 >   
 > **Warning!**  
-> This configuration is highly dependent to `bash`, `sed`, `awk`, and `coreutils`.  
+> This configuration is highly dependent to `bash`, `sed`, and `coreutils`.  
 > Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
 >
 > **Attention!**  
@@ -143,8 +143,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio \
-   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock rxvt-unicode \
-   xclip scrot thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer tumbler \
+   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock \
+   rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler \
    viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
    ```
 
@@ -212,10 +212,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
-   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-styleplugins \
-   lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin thunar-volman \
-   thunar-media-tags-plugin ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol \
-   parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
+   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi \
+   qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin \
+   thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite \
+   neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
 
   </details>
@@ -531,13 +531,13 @@ rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
 - **Touchpad tap-to-click (libinput) <kbd>optional</kbd>**  
   `/etc/X11/xorg.conf.d/30-touchpad.conf`
   ```cfg
-  1 Section "InputClass"
-  2     Identifier "touchpad"
-  3     Driver "libinput"
-  4     MatchIsTouchpad "on"
-  5     Option "Tapping" "on"
-  6     Option "TappingButtonMap" "lmr"
-  7 EndSection
+  Section "InputClass"
+      Identifier "touchpad"
+      Driver "libinput"
+      MatchIsTouchpad "on"
+      Option "Tapping" "on"
+      Option "TappingButtonMap" "lmr"
+  EndSection
   ```
   [More information](https://wiki.archlinux.org/index.php/Libinput).
   
