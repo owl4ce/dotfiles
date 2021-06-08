@@ -32,10 +32,10 @@ ALL() {
     # Set Openbox Margin, Dunst, and Rofi Sidebar
     if [[ "$CHK_ORT" = *"vertical"* ]]; then
         sed -i "2s_vertical=\".*\"_vertical=\"${CHK_ORT_V}\"_" "$ORT_FILE"
-        "$VISMOD_DIR/margin-dunst-rofi" v_${CHK_ORT_V} &> /dev/null
+        "${VISMOD_DIR}/margin-dunst-rofi" v_${CHK_ORT_V} &> /dev/null
     elif [[ "$CHK_ORT" = *"horizontal"* ]]; then
         sed -i "3s_horizontal=\".*\"_horizontal=\"${CHK_ORT_H}\"_" "$ORT_FILE"
-        "$VISMOD_DIR/margin-dunst-rofi" h_${CHK_ORT_H} &> /dev/null
+        "${VISMOD_DIR}/margin-dunst-rofi" h_${CHK_ORT_H} &> /dev/null
     fi
     openbox --reconfigure
     

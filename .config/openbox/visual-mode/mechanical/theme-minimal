@@ -30,7 +30,7 @@ ALL() {
     fi
     
     # Set Openbox Margin
-    "$VISMOD_DIR/margin-dunst-rofi" minmod &> /dev/null
+    "${VISMOD_DIR}/margin-dunst-rofi" minmod &> /dev/null
     openbox --reconfigure
     
     # Icon Theme
