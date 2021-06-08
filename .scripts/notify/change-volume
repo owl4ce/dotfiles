@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
-noterr() { $EXNOTIFY_SEND -u low -r 15 "Install alsa-utils!"; exit 1; }
+noterr() { "$EXNOTIFY_SEND" -u low -r 15 "Install alsa-utils!"; exit 1; }
 type -p "amixer" &> /dev/null || noterr
 
 CHK_MUTE() { amixer get Master | grep 'off'; }
@@ -11,8 +11,6 @@ notify() {
     
     if [[ "$VOLUME" -eq 0 ]]; then
         icon_name="notification-audio-volume-muted"
-    elif [[ "$VOLUME" -lt 10 ]]; then
-        icon_name="notification-audio-volume-low"
     elif [[ "$VOLUME" -lt 30 ]]; then
         icon_name="notification-audio-volume-low"
     elif [[ "$VOLUME" -lt 70 ]]; then
@@ -21,7 +19,7 @@ notify() {
         icon_name="notification-audio-volume-high"
     fi
     
-    exec $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "$VOLUME " -h int:value:"$VOLUME"
+    exec "$EXNOTIFY_SEND" -u low -r 123 -t 700 -i "$icon_name" "$VOLUME " -h int:value:"$VOLUME"
 }
 
 case $1 in
@@ -36,7 +34,7 @@ case $1 in
     mute)   amixer set Master 1+ toggle -q
             if CHK_MUTE &> /dev/null; then
                 icon_name="notification-audio-volume-muted"
-                exec $EXNOTIFY_SEND -i "$icon_name" -t 700 -r 123 "Muted "
+                exec "$EXNOTIFY_SEND" -u low -r 123 -t 700 -i "$icon_name" "Muted "
             else
                 notify
             fi

@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source $HOME/.owl4ce_var
+LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 
-noterr() { $EXNOTIFY_SEND -u low -r 12 "Install scrot!"; exit 1; }
+noterr() { "$EXNOTIFY_SEND" -u low -r 12 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
     rm -f /tmp/*_scrot*.png; read -rt ".11" <> <(:) || :
     
     if scrot -q "${QUALITY:-75}" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null; then
-        $EXNOTIFY_SEND -r 12 -t 750 -i "$NOTIF_SS_ICON" -u low "" "Processing captured image .."
+        "$EXNOTIFY_SEND" -u low -r 12 -t 750 -i "$NOTIF_SS_ICON" "" "Processing captured image .."
     else
-        $EXNOTIFY_SEND -r 12 -t 500 -i "$NOTIF_SS_ICON" -u low "" "Screenshot canceled!" && exit 1
+        "$EXNOTIFY_SEND" -u low -r 12 -t 500 -i "$NOTIF_SS_ICON" "" "Screenshot canceled!" && exit 1
     fi
     
     for CURRENT in /tmp/*_scrot*.png; do
@@ -30,7 +30,7 @@ type -p "scrot" &> /dev/null || noterr
         -border 5 /tmp/"$CURRENT".png && rm -f /tmp/"$CURRENT"-shadow.png
     fi
     
-    while true; do
+    while :; do
         if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then
             xclip -selection clipboard -target image/png -i /tmp/"$CURRENT".png
             STAT="\n(+CLIPBOARD)" && break
@@ -41,20 +41,20 @@ type -p "scrot" &> /dev/null || noterr
     done
     
     if [[ "$SAVE_SS" = "yes" ]]; then
-        [[ ! -d "$SAVE_DIR/Screenshots" ]] && mkdir -p "$SAVE_DIR/Screenshots" || :
-        mv /tmp/"$CURRENT".png "$SAVE_DIR/Screenshots"
+        [[ ! -d "${SAVE_DIR}/Screenshots" ]] && mkdir -p "${SAVE_DIR}/Screenshots" || :
+        mv /tmp/"$CURRENT".png "${SAVE_DIR}/Screenshots/"
         SV_LOC="$(echo $SAVE_DIR | grep -oE '[^/]+$')/Screenshots${STAT:-}"
     else
         rm -f /tmp/"$CURRENT".png
         SV_LOC="CLIPBOARD"
     fi
     
-    if [[ -f "$SAVE_DIR/Screenshots/$CURRENT.png" ]]; then
+    if [[ -f "${SAVE_DIR}/Screenshots/${CURRENT}.png" ]]; then
         [[ "$OPEN_FRAMED" = "yes" ]] && [[ -n "$(command -v "viewnior")" ]] && \
-        viewnior "$SAVE_DIR/Screenshots/$CURRENT.png" &!
+        viewnior "${SAVE_DIR}/Screenshots/${CURRENT}".png &!
     fi 
     
-    exec $EXNOTIFY_SEND -r 12 -i "$NOTIF_SS_ICON" -u low "" "<span size='small'><u>$SV_LOC</u></span>\nPicture acquired!"
+    exec "$EXNOTIFY_SEND" -u low -r 12 -i "$NOTIF_SS_ICON" "" "<span size='small'><u>${SV_LOC}</u></span>\nPicture acquired!"
 } &> /dev/null &
 
 exit $?
