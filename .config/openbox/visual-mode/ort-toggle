@@ -2,7 +2,7 @@
 source "$HOME"/.owl4ce_var
 
 if [[ -z "$CHK_MINMOD" ]]; then
-    { killall "tint2" "dunst"; } &> /dev/null
+    killall "tint2" "dunst" &> /dev/null
     case $1 in
         lrtb)   if [[ "$CHK_ORT" = *"vertical"* ]]; then
                     if [[ "$CHK_ORT_V" != *"left"* ]]; then

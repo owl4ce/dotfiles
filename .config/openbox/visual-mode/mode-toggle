@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 source "$HOME"/.owl4ce_var
 
-kill() { { killall "tint2" "dunst"; [[ "$1" = "also_tray" ]] && killall "$CHK_TRAY"; } &> /dev/null; }
+kill() { killall "tint2" "dunst" &> /dev/null; }
+
+kill_tray() { 
+    for KILL_TRAY in $(echo "$CHK_TRAY"); do
+        killall "$KILL_TRAY" &> /dev/null
+    done
+}
 
 mechanical() {
     # Write Current
@@ -46,7 +52,7 @@ case $1 in
     just_ui)    xrdb "$HOME"/.Xresources && kill
                 [[ -n "$CHK_MINMOD" ]] && "${VISMOD_DIR}/UI" minimal || "${VISMOD_DIR}/UI"
     ;;
-    *)          kill also_tray
+    *)          kill; kill_tray
                 if [[ "$CHK_VISMOD" != *"mechanical"* ]]; then
                     [[ -n "$CHK_MINMOD" ]] && mechanical_min || mechanical
                 elif [[ "$CHK_VISMOD" != *"eyecandy"* ]]; then
