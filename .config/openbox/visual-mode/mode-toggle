@@ -5,7 +5,7 @@ kill() { killall "tint2" "dunst" &> /dev/null; }
 
 kill_tray() { 
     for KILL_TRAY in $(echo "$CHK_TRAY"); do
-        killall "$KILL_TRAY" &> /dev/null
+        killall -9 "$KILL_TRAY" &> /dev/null
     done
 }
 

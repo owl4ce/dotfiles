@@ -11,7 +11,7 @@ notify_noalbum() {
 }
 
 notify_album() {
-    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$(echo $COVER | sed 's_.jpg_.png_')" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$(echo "$COVER" | sed 's_.jpg_.png_')" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
 {
@@ -23,7 +23,7 @@ notify_album() {
     
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
     src="$(printf "$covers" | head -n1)"
-    rm -f "$(echo $COVER | sed 's_.jpg_.png_')" &> /dev/null
+    rm -f "$(echo "$COVER" | sed 's_.jpg_.png_')" &> /dev/null
     
     # Notify
     if [[ -n "$src" ]]; then
@@ -35,9 +35,9 @@ notify_album() {
         convert "$COVER" \
         \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
-        -alpha off -compose CopyOpacity -composite "$(echo $COVER | sed 's_.jpg_.png_')" &> /dev/null
+        -alpha off -compose CopyOpacity -composite "$(echo "$COVER" | sed 's_.jpg_.png_')" &> /dev/null
         rm -f "$COVER" &> /dev/null
-        if [[ -f "$(echo $COVER | sed 's_.jpg_.png_')" ]]; then
+        if [[ -f "$(echo "$COVER" | sed 's_.jpg_.png_')" ]]; then
             notify_album
         else
             notify_noalbum

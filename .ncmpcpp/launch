@@ -6,9 +6,9 @@ command -v {"urxvt","ncmpcpp"} &> /dev/null || exit 1
 if [[ "$($DEFAPPS_EXEC -g musicpl)" = "mpd" ]]; then
     {
         case $1 in
-            albumart)           exec urxvt -g 84x13 -e ncmpcpp -c "$NCMPCPP_DIR/albumart"
+            albumart)           exec urxvt -g 84x13 -e ncmpcpp -c "${NCMPCPP_DIR}/albumart"
             ;;
-            single-albumart)    exec urxvt -g 47x18 -e ncmpcpp -c "$NCMPCPP_DIR/single-albumart"
+            single-albumart)    exec urxvt -g 47x18 -e ncmpcpp -c "${NCMPCPP_DIR}/single-albumart"
             ;;
             *)                  exec "$DEFAPPS_EXEC" terminal -e ncmpcpp
             ;;

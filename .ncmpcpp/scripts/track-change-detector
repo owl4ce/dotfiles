@@ -7,7 +7,7 @@ run() {
     while :; do
         mpc current > "$NCMPCPP_SCRIPTS_DIR"/current-track."${STATE_EXT:-joy}"
         nice -n "19" mpc idle || mpc idle
-        [[ "$(cat $NCMPCPP_SCRIPTS_DIR/current-track.${STATE_EXT:-joy})" != *"$(mpc current)"* ]] && \
+        [[ "$(cat ${NCMPCPP_SCRIPTS_DIR}/current-track.${STATE_EXT:-joy})" != *"$(mpc current)"* ]] && \
         "$NCMPCPP_SCRIPTS_DIR"/notify
     done
 }
@@ -16,7 +16,7 @@ run() {
     if { pgrep "mpd" || pstree | grep "mpd"; } &> /dev/null; then
         run
     else
-        nice -n "1" mpd || mpd
+        nice -n "3" mpd || mpd
         run
     fi
 } &> /dev/null &

@@ -5,7 +5,7 @@ noterr() { "$EXNOTIFY_SEND" -u low -r 11 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
 {
-    [[ "$1" = "delay" ]] && read -rt ".11" <> <(:) || :
+    [[ "$1" = "delay" ]] && read -rt ".12" <> <(:) || :
     
     while :; do
         if [[ "$COPY2CLIP" = "yes" ]] && [[ -n "$(command -v "xclip")" ]]; then
@@ -20,7 +20,7 @@ type -p "scrot" &> /dev/null || noterr
     if [[ "$SAVE_SS" = "yes" ]]; then
         [[ ! -d "${SAVE_DIR}/Screenshots" ]] && mkdir -p "${SAVE_DIR}/Screenshots" || :
         EXEC="${CLIP:-}mv '\$f' \"${SAVE_DIR}/Screenshots/\""
-        SV_LOC="$(echo $SAVE_DIR | grep -oE '[^/]+$')/Screenshots${STAT:-}"
+        SV_LOC="$(echo "$SAVE_DIR" | grep -oE '[^/]+$')/Screenshots${STAT:-}"
     else
         EXEC="${CLIP:-}rm -f '\$f'"
         SV_LOC="CLIPBOARD"

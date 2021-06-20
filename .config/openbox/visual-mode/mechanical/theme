@@ -26,7 +26,7 @@ ALL() {
             sed -i 's_Net/ThemeName.*_Net/ThemeName "Fleon"_' "$XSETTINGSD_CONFIG"
         fi
         xsettingsd &> /dev/null &
-        read -rt "2" <> <(:) || killall xsettingsd &
+        read -rt "2" <> <(:) || killall -9 "xsettingsd" &
     fi
     
     # Set Openbox Margin, Dunst, and Rofi Sidebar
