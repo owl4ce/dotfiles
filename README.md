@@ -213,7 +213,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    ```sh
    yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
    pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi \
-   qt5-styleplugins lxsession xautolock rxvt-unicode-patched xclip scrot thunar thunar-archive-plugin \
+   qt5-styleplugins lxsession xautolock rxvt-unicode xclip scrot thunar thunar-archive-plugin \
    thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite \
    neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
@@ -450,7 +450,7 @@ rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
 ##  
 
 ### User's configuration
-- **SLiM Themes <kbd>optional</kbd>**
+- **SLiM Themes <kbd>deprecated, optional</kbd>**
   <details>
   <summary><strong>See</strong></summary>
   
@@ -781,7 +781,7 @@ Thank you from the bottom of my heart! :heartpulse:
   - [URxvt Tabbed Extended](https://github.com/mina86/urxvt-tabbedex)
   - [Showing Album Cover in Ncmpcpp](https://marcocheung.wordpress.com/2015/08/09/showing-album-cover-in-ncmpcpp/)
   - [Complete List of GitHub Markdown Emoji Markup](https://gist.github.com/rxaviers/7360908)
-  - Many GNU/Linux and Unix forums.
+  - Most people on some GNU/Linux and UN*X forums.
   
 - **Contributors**
   - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
