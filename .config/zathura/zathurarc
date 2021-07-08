@@ -1,0 +1,14 @@
+# Zathura Configuration File
+
+set selection-clipboard clipboard
+set adjust-open "best-fit"
+set pages-per-row 1
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 50
+set zoom-min 10
+set guioptions ""
+set render-loading "false"
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
