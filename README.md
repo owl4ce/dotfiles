@@ -30,7 +30,7 @@ This is my **personal configuration** for my favorite openbox window manager and
 
 I hope you understand everything here. :wink:
 
-Here are some details about my setup
+Here are some details about my setup ..
 - **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable mode!
 - **Shell**                        • [Zsh](https://www.zsh.org/) :shell: with [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
 - **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>available</kbd>
@@ -124,7 +124,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ##  
 
 ### Installation (dependencies)
-> Customize your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with my preference utility application. In fact, what is in the column is a minimal recommendation.
+> Customize your choice about dependencies below, this is my complete setup as I use single OS, single OpenboxWM with my preference utility softwares. In fact, whats in the column is a minimal recommendation.
 >   
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
@@ -137,6 +137,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > - Rofi must be above version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
 > - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
 > - You may want to use `polkit-gnome` instead of `lxsession` / `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (dependency hell).
+> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I reverted it on commit number [`9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9) with [git checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha).
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -295,7 +296,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
    >
    >   
-   > I recommend to not deleting **dotfiles** folder after cloning from this repository, because to make upgrades easier. Read the [update](#update) section.
+   > I recommend to not deleting **dotfiles** dir after cloning from this repository, to make upgrades easier (if you care). Read the [update](#update) section.
   
   </details>
 
@@ -303,7 +304,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Icons</strong></summary>
     
    > **Note**  
-   > `pushd` is same as `cd`, but can return back to the first directory (checkpoint).
+   > `pushd` is same as `cd`, but can return back to the previous directory by using `popd` (checkpoint).
    ```sh
    pushd ~/.icons/ &&
        tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
@@ -348,14 +349,14 @@ The final step is login into openbox-session, basically login from display manag
 > [ "$(readlink /bin/sh)" != "bash" ] && sudo ln -vfs bash /bin/sh
 > ```
 
-If you are using `~/.xinitrc` without display manager, simply add
+If you are using `~/.xinitrc` without display manager, simply add the following commands.
 
 **Systemd Linux Distribution**  
 ```sh
 exec openbox-session
 ```
 
-**Init-Freedom Linux Distribution**  
+**[Init-Freedom](https://www.devuan.org/os/init-freedom) Linux Distribution**  
 ```sh
 exec dbus-launch --exit-with-session openbox-session
 ```
@@ -381,6 +382,10 @@ Then you can proceed to [user's configuration](#users-configuration). Explore!
 
 - `cat` ➜ [`bat`](https://github.com/sharkdp/bat)
 
+- [See more](https://github.com/ibraheemdev/modern-unix).
+
+<br>
+
 **Suggestion for tiling users**
 <p align="center">
   <a href="https://github.com/blrsn/zentile">
@@ -388,7 +393,7 @@ Then you can proceed to [user's configuration](#users-configuration). Explore!
   </a>
 </p>
 
-I recommend compiling it from source. Then put **zentile** binary your **PATH**, for example in `~/.local/bin/`
+I recommend to compile it from source. Then put the **zentile** binary into your **PATH**, for example in `~/.local/bin/`
 ```sh
 # To run in the background (detached)
 zentile &! 
@@ -408,8 +413,8 @@ Since I recommend using rsync from start, the easiest way is to list the files t
 cd ~/Documents/ &&
 pushd dotfiles/ && git pull && popd
 ```
-Then list the files excluded by rsync (PATTERN). For example,  
-`~/Documents/owl4ce_drsyncexc`
+Then create a PATTERN of the file/dir that rsync will exclude. For example,  
+`~/.dotexc`
 ```cfg
 .git*
 LICENSE
@@ -444,7 +449,7 @@ xfconf
 > ```
 and whatever the file is. Next, of course is rsync.
 ```sh
-rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
+rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 ```
 
 ##  
@@ -731,7 +736,7 @@ rsync -avxHAXP --exclude-from ~/Documents/owl4ce_drsyncexc dotfiles/ ~/
 <tr>
 <td>
 <br>
-<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a> (except for GTK+ themes, fonts, and wallpapers)</p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p><p align="center">Openbox isn't dead, but completed features.</p>
+<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shell. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a> (except for GTK+ themes, gladient icons, fonts, and wallpapers)</p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p><p align="center">Openbox isn't dead, but completed features.</p>
 </td>
 </tr>
 <tr>
@@ -752,6 +757,8 @@ Thank you from the bottom of my heart! :heartpulse:
 
 * **BTC**: `3DrjWyd6Xgv4tKoL56mPtoQX4fL4LbR7zf`
 * **ETH**: `0x818fC9B82548C1020ed7370DFeb04BCbADc59191`
+
+<br>
 
 ## :confetti_ball:  Credits / Thanks
 - **Inspiration and resources**
