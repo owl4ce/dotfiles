@@ -434,6 +434,7 @@ sidebar
 termite
 Thunar
 xfconf
+zathura
 .fonts
 .nothing
 .mpd
