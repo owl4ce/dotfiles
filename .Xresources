@@ -1,24 +1,25 @@
-! DO NOT CHANGE THE ORDER
+! Do not re-arrange !
 
-! URXVT APPEARANCE
-URxvt.font:                       xft:mplus Nerd Font Mono:size=11,xft:Noto Color Emoji:pixelsize=12,xft:Monospace:size=11:antialias=true:hinting=true
+! URxvt Configuration
+URxvt.font:                       xft:mplus Nerd Font Mono:size=11:autohint=true,xft:Noto Color Emoji:pixelsize=12:antialias=false,xft:Monospace:size=11:autohint=true
 URxvt.geometry:                   84x16
 URxvt.internalBorder:             20
 URxvt.cursorBlink:                true
 URxvt.cursorUnderline:            true
-URxvt.saveline:                   32768
+URxvt.saveLines:                  8192
 URxvt.scrollBar:                  false
 URxvt.scrollBar_right:            true
 URxvt.scrollBar_floating:         false
 URxvt.scrollstyle:                plain
+URxvt.scrollWithBuffer:           false
 URxvt.urgentOnBell:               false
 URxvt.depth:                      32
 URxvt.iso14755:                   false
-URxvt.iconFile:                   /home/violet/.icons/gladient/term.png
+URxvt.iconFile:                   /home/kyoko/.icons/gladient/term.png
 ! Uncomment if to much font spacing
 !URxvt.letterSpace: -1
 
-! URXVT EXTENSIONS
+! URxvt Extensions
 URxvt.perl-ext-common:            default,tabbedex,url-select
 URxvt.keysym.Control-Shift-C:     eval:selection_to_clipboard
 URxvt.keysym.Control-Shift-V:     eval:paste_clipboard
@@ -27,7 +28,7 @@ URxvt.keysym.Control-Down:        eval:scroll_down 1
 URxvt.keysym.Control-Home:        eval:scroll_to_top
 URxvt.keysym.Control-End:         eval:scroll_to_bottom
 
-! TABBEDEX EXT
+! Tabbedex Ext
 URxvt.tabbedex.no-tabbedex-keys:  yes
 URxvt.tabbedex.new-button:        false
 URXvt.tabbedex.reopen-on-close:   yes
@@ -50,21 +51,20 @@ URxvt.keysym.Control-Prior:       tabbedex:prev_tab
 URxvt.keysym.Control-Shift-Next:  tabbedex:move_tab_right
 URxvt.keysym.Control-Shift-Prior: tabbedex:move_tab_left
 
-! RESIZE FONT EXT
+! Resize Font Ext
 URxvt.resize-font.step: 1
 URxvt.keysym.Control-minus:       resize-font:smaller
 URxvt.keysym.Control-plus:        resize-font:bigger
 URxvt.keysym.Control-equal:       resize-font:reset
 URxvt.keysym.Control-question:    resize-font:show
 
-! URL SELECT EXT
+! URL Select Ext
 URxvt.keysym.Control-Shift-U:     url-select:select_next
 URvxt.url-select.button:          2
 URxvt.url-select.launcher:        brave-bin
 URxvt.url-select.underline:       true
 
-! COLOR SCHEME
-! black > red > green > yellow > blue > magenta > cyan > white
+! Color Schemes [ black > red > green > yellow > blue > magenta > cyan > white ]
 #define black0                    [95]#373E4D
 #define black1                    #3B4252
 #define black2                    #434C5E
