@@ -94,7 +94,8 @@ TEMP_DEV="thermal_zone0"
 # SAVE_DIR              || Created "Screenshots" dir inside it if SAVE_SS="yes"   #
 # COPY2CLIP             || Copy to clipboard? Automatically "yes" if SAVE_SS="no" #
 # ENABLE_FRAME          || Enable frame in framed screenshots?                    #
-# FRAME_COLOR           || Hexadecimal, RGBA supported                            #
+# FRAME_COLOR           || Hex. RGBA supports. Fill "auto" to use dominant color  #
+# FRAME_PADDING         || Pixel padding frame in framed screenshots.             #
 # OPEN_FRAMED           || Open framed screenshot with viewnior if SAVE_SS="yes"  #
 # FRAMED_SHADOW_OPACITY || 0-100, high value means thick shadows                  #
 # TIMER_SEC             || Timer screenshot, in seconds                           #
@@ -105,7 +106,8 @@ SAVE_SS="yes"
 SAVE_DIR="${HOME}/Pictures"
 COPY2CLIP="yes"
 ENABLE_FRAME="yes"
-FRAME_COLOR="#434c5e"
+FRAME_COLOR="auto" #434c5e
+FRAME_PADDING="20"
 OPEN_FRAMED="no"
 FRAMED_SHADOW_OPACITY="25"
 TIMER_SEC="5"

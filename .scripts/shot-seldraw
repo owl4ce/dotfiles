@@ -4,8 +4,10 @@ LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
 noterr() { "$EXNOTIFY_SEND" -u low -r 12 "Install scrot!"; exit 1; }
 type -p "scrot" &> /dev/null || noterr
 
+clean_img() { rm -f /tmp/*_scrot*.png; }
+
 {
-    rm -f /tmp/*_scrot*.png; read -rt ".12" <> <(:) || :
+    clean_img; read -rt ".12" <> <(:) || :
     
     if scrot -q "${QUALITY:-75}" -sfbe 'mv $f /tmp/' -l style=dash,width=3,color="#2be491" &> /dev/null; then
         "$EXNOTIFY_SEND" -u low -r 12 -t 750 -i "$NOTIF_SS_ICON" "" "Processing captured image .."
@@ -17,16 +19,26 @@ type -p "scrot" &> /dev/null || noterr
         CURRENT="$(echo "$CURRENT" | grep -oP '/tmp/\K[^.png]+' | sort -u)"
     done
     
+    if [[ "$FRAME_COLOR" = *"auto"* ]]; then
+        FRAME_COLOR="$(convert /tmp/"$CURRENT".png -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: | sort -nr | grep -o '[#][0-9a-fA-F]*' | head -n1)"
+    elif [[ "$FRAME_COLOR" =~ ^[#][0-9a-fA-F]{1,}$ ]]; then
+        FRAME_COLOR="${FRAME_COLOR:-#434c5e}"
+    else
+        "$EXNOTIFY_SEND" -r 12 -i "$NOTIF_SS_ICON" "" "Screenshot failed!\n<span size='small'>Make sure the <u>FRAME_COLOR</u> is hexadecimal!</span>"
+        clean_img; exit 1
+    fi
+
     if [[ "$ENABLE_FRAME" = "yes" ]]; then
         convert /tmp/"$CURRENT".png \
         \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
         -alpha off -compose CopyOpacity -composite /tmp/"$CURRENT"-rounded.png && rm -f /tmp/"$CURRENT".png
 
-        convert /tmp/"$CURRENT"-rounded.png \( +clone -background black -shadow "${FRAMED_SHADOW_OPACITY:-25}"x10+0+5 \) \
+        convert /tmp/"$CURRENT"-rounded.png \
+        \( +clone -background black -shadow "${FRAMED_SHADOW_OPACITY:-25}"x"${FRAME_PADDING:-10}"+0+"$((${FRAME_PADDING:-10} - 5))" \) \
         +swap -background none -layers merge +repage /tmp/"$CURRENT"-shadow.png && rm -f /tmp/"$CURRENT"-rounded.png
 
-        convert /tmp/"$CURRENT"-shadow.png -bordercolor "${FRAME_COLOR:-#434c5e}" \
+        convert /tmp/"$CURRENT"-shadow.png -bordercolor "$FRAME_COLOR" \
         -border 5 /tmp/"$CURRENT".png && rm -f /tmp/"$CURRENT"-shadow.png
     fi
     
