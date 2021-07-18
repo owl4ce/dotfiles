@@ -21,7 +21,7 @@ if iwgetid "$INT_WIFI" &> /dev/null; then
     fi
 elif ip link show "$INT_ETH" &> /dev/null; then
     if { ip addr show "$INT_ETH" | grep 'inet'; } &> /dev/null; then
-        status="$(ip addr show "$INT_ETH" | grep -oP 'inet \K[^/]+' | head -n1) (${INT_ETH})"
+        status="$(ip addr show "$INT_ETH" | grep -oP 'inet \K[^/]+' | sed 1q) (${INT_ETH})"
         icon="$lan"
     else
         status="No IP address (${INT_ETH})"

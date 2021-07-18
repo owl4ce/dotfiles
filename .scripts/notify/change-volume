@@ -7,7 +7,7 @@ type -p "amixer" &> /dev/null || noterr
 CHK_MUTE() { amixer get Master | grep 'off'; }
 
 notify() {
-    VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | head -n1)"
+    VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | sed 1q)"
     
     if [[ "$VOLUME" -eq 0 ]]; then
         icon_name="notification-audio-volume-muted"

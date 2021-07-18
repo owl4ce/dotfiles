@@ -5,7 +5,7 @@ noterr() { echo "Install alsa-utils!"; exit 1; }
 type -p "amixer" &> /dev/null || noterr
 
 CHK_MUTE() { amixer get Master | grep 'off'; }
-VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | head -n1)"
+VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | sed 1q)"
 
 icon() {
     if [[ "$VOLUME" -eq 0 ]]; then
