@@ -51,7 +51,7 @@ COVER="$NCMPCPP_COVER"
     album_dir="${MUSIC_DIR}/${album_dir}"
 
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
-    src="$(printf "$covers" | head -n1)"
+    src="$(printf "$covers" | sed 1q)"
     rm -f "$COVER" &> /dev/null
     
     # Album Art

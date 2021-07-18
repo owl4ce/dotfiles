@@ -20,7 +20,7 @@ clean_img() { rm -f /tmp/*_scrot*.png; }
     done
     
     if [[ "$FRAME_COLOR" = *"auto"* ]]; then
-        FRAME_COLOR="$(convert /tmp/"$CURRENT".png -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: | sort -nr | grep -o '[#][0-9a-fA-F]*' | head -n1)"
+        FRAME_COLOR="$(convert /tmp/"$CURRENT".png -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: | sort -nr | grep -o '[#][0-9a-fA-F]*' | sed 1q)"
     elif [[ "$FRAME_COLOR" =~ ^[#][0-9a-fA-F]{1,}$ ]]; then
         FRAME_COLOR="${FRAME_COLOR:-#434c5e}"
     else
