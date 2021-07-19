@@ -51,7 +51,7 @@ ALL() {
     fi
 
     # Openbox Theme & Buttons
-    cp "${OB_BUTTON_DIR}/${CHK_MINMOD_BUTTON}"/* "$EYC_BUTTON_DIR"/
+    cp -f "${OB_BUTTON_DIR}/${CHK_MINMOD_BUTTON}"/* "$EYC_BUTTON_DIR"/.
     sed -i '34s_<name>.*_<name>Sweetly</name>_' "$OB_CONFIG"
     
     # Reconfigure Openbox (realistic theme)

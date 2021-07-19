@@ -37,7 +37,7 @@ TRANS() {
 CURRENT_TERM="$($DEFAPPS_EXEC -g terminal)"
 
 if [[ "$CURRENT_TERM" = "urxvt" ]]; then
-    current="$(cat "$XRESOURCES_CONFIG" | grep 'foreground' | sed 1q | grep '!')"
+    current="$(grep 'foreground' "$XRESOURCES_CONFIG" | sed 1q | grep '!')"
     case $1 in
         trans)  TRANS apply
         ;;
@@ -77,8 +77,8 @@ if [[ "$CURRENT_TERM" = "urxvt" ]]; then
         esac
         xrdb "$XRESOURCES_CONFIG" &
 elif [[ "$CURRENT_TERM" = "termite" ]]; then
-    current="$(cat "$TERMITE_CONFIG" | grep '#foreground = ' | sed 1q)"
-    if [[  "$current" != *"#foreground = #F9F9F9"* ]]; then
+    current="$(grep '#foreground = ' "$TERMITE_CONFIG" | sed 1q)"
+    if [[ "$current" != *"#foreground = #F9F9F9"* ]]; then
         sed -i '79s_foreground_#foreground_' "$TERMITE_CONFIG"
         sed -i '80s_foreground_#foreground_' "$TERMITE_CONFIG"
         sed -i '81s_background_#background_' "$TERMITE_CONFIG"
