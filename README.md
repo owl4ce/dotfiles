@@ -130,8 +130,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 > **Warning!**  
-> This configuration is highly dependent to `bash`, `sed`, and `coreutils`.  
-> Assume that you are using [`sudo`](https://www.sudo.ws/) or [`doas`](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
+> This configuration is highly dependent to **bash**, **sed**, and **coreutils**.  
+> Assume that you are using [**sudo**](https://www.sudo.ws/) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
 
 > **Attention!**  
 > - Rofi must be above version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
@@ -144,8 +144,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio \
-   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock \
-   rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler \
+   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock  \
+   rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler       \
    viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
    ```
 
@@ -155,12 +155,11 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
    ```sh
-   sudo apt install zsh &&
-   chsh -s $(command -v zsh) &&
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
-   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+   sudo apt install zsh && chsh -s $(command -v zsh)
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
+   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
     
   </details>
@@ -170,15 +169,15 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
     
    ```sh
    sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
-   libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev \
-   libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev \
+   libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev   \
+   libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev    \
    libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
    ```
    ```sh
-   git clone https://github.com/yshui/picom.git &&
-   cd picom/ && git submodule update --init --recursive &&
-   meson --buildtype=release . build &&
-   ninja -C build &&
+   git clone https://github.com/yshui/picom.git && \
+   cd picom/ && git submodule update --init --recursive && \
+   meson --buildtype=release . build && \
+   ninja -C build && \
    ninja -C build install
    ```
 
@@ -193,14 +192,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    sudo su
    ```
    ```sh
-   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list &&
+   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list && \
    wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key &&
-   apt-key add - < Release.key &&
-   apt update &&
-   apt install obmenu-generator libgtk2-perl
+   apt-key add - < Release.key && \
+   apt update && apt install obmenu-generator libgtk2-perl
    ```
     
-   [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md)
+   [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md).
   
   </details>
   
@@ -213,9 +211,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
-   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi \
-   qt5-styleplugins lxsession xautolock rxvt-unicode-truecolor-wide-glyphs xclip scrot thunar \
-   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp \
+   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi      \
+   qt5-styleplugins lxsession xautolock rxvt-unicode-truecolor-wide-glyphs xclip scrot thunar    \
+   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp    \
    pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
 
@@ -225,12 +223,11 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
   
    ```sh
-   sudo pacman -S zsh &&
-   chsh -s $(command -v zsh) &&
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
-   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+   sudo pacman -S zsh && chsh -s $(command -v zsh)
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
+   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
   
   </details>
@@ -270,30 +267,28 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Most of .files</strong></summary>
   
    You can clone or download as a [archive](https://github.com/owl4ce/dotfiles/releases). After that put all files in the **dotfiles** folder to user's home directory.
-   > Assume you are cloning in the `~/Documents` directory for example.
+   > Assume you are cloning in the `~/Documents` directory for example. I recommend to install with **rsync**.
    ```sh
    cd ~/Documents/ && git clone https://github.com/owl4ce/dotfiles.git
    ```
-   
-   I recommend with rsync.
    ```sh
    rsync -avxHAXP --exclude '.git*' --exclude 'LICENSE' --exclude '*.md' dotfiles/ ~/
    ```
    > **Explanation**
-   > | Options   | Function                                            |
-   > |:---------:|-----------------------------------------------------|
-   > | -a        | all files, with permissions, etc..                  |
-   > | -v        | verbose, mention files                              |
-   > | -x        | stay on one file system                             |
-   > | -H        | preserve hard links (not included with -a)          |
-   > | -A        | preserve ACLs/permissions (not included with -a)    |
-   > | -X        | preserve extended attributes (not included with -a) |
-   > | -P        | show progress                                       |
-   > | --exclude | exclude files matching PATTERN                      |
+   > | Options     | Function                                            |
+   > |:-----------:|-----------------------------------------------------|
+   > | `-a`        | all files, with permissions, etc..                  |
+   > | `-v`        | verbose, mention files                              |
+   > | `-x`        | stay on one file system                             |
+   > | `-H`        | preserve hard links (not included with -a)          |
+   > | `-A`        | preserve ACLs/permissions (not included with -a)    |
+   > | `-X`        | preserve extended attributes (not included with -a) |
+   > | `-P`        | show progress                                       |
+   > | `--exclude` | exclude files matching PATTERN                      |
    >
    > **Differences**  
-   > - `cp` is for duplicating stuff and by default only ensures files have unique full path names.
-   > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than `cp`.
+   > - ***cp** is for duplicating stuff and by default only ensures files have unique full path names.
+   > - **rsync** is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than **cp**.
    >
    >   
    > I recommend to not deleting **dotfiles** dir after cloning from this repository, to make upgrades easier (if you care). Read the [update](#update) section.
@@ -304,12 +299,12 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Icons</strong></summary>
     
    > **Note**  
-   > `pushd` is same as `cd`, but can return back to the previous directory by using `popd` (checkpoint).
+   > **pushd** is same as **cd**, but can return back to the previous directory by using **popd** (checkpoint).
    ```sh
-   pushd ~/.icons/ &&
-       tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz &&
-       sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom &&
-       sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom &&
+   pushd ~/.icons/ && \
+       tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz       && \
+       sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/Papirus-Custom           && \
+       sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom && \
    popd
    ```
    > **Why I need to link icons to user system resources?** :thinking:  
@@ -341,10 +336,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   </details>
   
 ### The step you are waiting for
-The final step is login into openbox-session, basically login from display manager you use such as lightdm, gdm, etc.
+The final step is login into **openbox-session**, basically login from display manager you use such as **lightdm**, **gdm**, etc.
 
 > **Note**  
-> Make sure the `sh` symlinks to `bash`, as it's very dependent on bash.
+> Make sure the **sh** symlinks to **bash**, as it's very dependent on **bash**.
 > ```sh
 > [ "$(readlink /bin/sh)" != "bash" ] && sudo ln -vfs bash /bin/sh
 > ```
@@ -406,14 +401,14 @@ killall zentile
 
 ### Update
 
-Since I recommend using rsync from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in this repository. First, update local repository with git repository.
+Since I recommend using **rsync** from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in the **dotfiles**. First, update the local repository with remote git repository.
 > Remember where you cloned this repository.  
 > For example, from the start we assumed that it was in `~/Documents`.
 ```sh
 cd ~/Documents/ &&
 pushd dotfiles/ && git pull && popd
 ```
-Then create a PATTERN of the file/dir that rsync will exclude. For example,  
+Then create a file with PATTERN list containing files/dirs that **rsync** will exclude. For example,  
 `~/.dotexc`
 ```cfg
 .git*
@@ -444,11 +439,11 @@ zathura
 .Xresources
 .xsettingsd
 ```
-> Use `find` command to check PATTERN,
+> Use **find** command to check the PATTERN,
 > ```sh
 > find dotfiles/ -iname 'PATTERN'
 > ```
-and whatever the file is. Next, of course is rsync.
+.. and whatever the file is. Sync now ..
 ```sh
 rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 ```
@@ -460,7 +455,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   <details>
   <summary><strong>See</strong></summary>
   
-    <p align="center">In fact, I use SLiM just for lockscreen.</p>
+    <p align="center">In fact, I use SLiM just for lockscreen. **@2020**, now don't use lockscreen.</p>
     
     <p align="center"><a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
       <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center"/>
@@ -474,8 +469,8 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   <details>
   <summary><strong>See</strong></summary>
   
-    **Settings**: [`chrome://settings/`](chrome://settings/)
-    - Themes: `Use GTK+`
+    **Settings:** [`chrome://settings/`](chrome://settings/)
+    - **Themes:** `Use GTK+`
     - `Use system title bar and borders`
     
     <br>
@@ -499,7 +494,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
     <p align="center">Just click on the image above!</p>
     <p align="center">Or maybe you want a <a href="https://downgit.github.io/#/home?url=https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish">direct link</a> without downloading the complete repository</p>
-    <p align="center"><b>Another useful tips:</b> <a href="https://github.com/tsmetana/spotify-tray">spotify-tray</a></p>
+    <p align="center"><a href="https://github.com/tsmetana/spotify-tray">spotify-tray</a></p>
     
   </details>
   
@@ -553,13 +548,13 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
-  An example is turning on `nm-applet`, because by default I don't use it and use [networkmanager_dmenu](./.local/bin/networkmanager_dmenu) instead.
+  An example is turning on **nm-applet**, because by default I don't use it and use [**networkmanager_dmenu**](./.local/bin/networkmanager_dmenu) instead.
 
   > **How about battery indicator?**  
-  > Because on the tint2 panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in `xfce4-power-manager-settings`.
+  > Because on the **tint2** panel I turned off battery status. Alternatively, install **xfce4-power-manager** and enable system tray icon in **xfce4-power-manager-settings**.
 
   Remove hashtags for all your needs, then relogin openbox-session.
-  > **Warning!** Putting a tray here means that when switching Visual Mode, the program will be restarted.
+  > **Warning!** Putting commands/programs here means that when switching Visual Mode, the program will be restarted.
   ```cfg
   1 #
   2 # This tray will restart after switching modes
@@ -634,7 +629,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     > ...
     > ```
     
-    ```cfg
+    ```sh
     ...
 
     9  # there was once a pulseaudio here
@@ -647,7 +642,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **QT Themer (env var) <kbd>optional</kbd>**  
   [`~/.config/openbox/environment`](./.config/openbox/environment)  
-  This is optional if you're having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then relogin openbox-session.
+  This is optional if you're having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove **gtk2** after the equal sign, then relogin **openbox-session**.
   ```cfg
   ...
   
