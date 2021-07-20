@@ -52,13 +52,13 @@ Here are some details about my setup ..
 <details>
   <summary><strong>v3.0</strong></summary>
   
-  - **Visual Mode**:
+  - **Visual Mode:**
     - Both modes (minimal) have their own window button styles, margins, sidebar rofi, and dunst layouts.
     - Removed eyecandy tint2 from Joyful Desktop v2
-    - Better Tint2 (added temp executor, etc.)
-    - Added rotation mode (crossover, except minimal mode.)
+    - Better Tint2 (added temp executor, etc)
+    - Added rotation mode (crossover, except minimal mode)
 
-  - **Major Changes**:
+  - **Major Changes:**
     - Removed SLiM sync background, custom slim themes, and unnecessary files/config.
     - All scripts are reproduced all with central variables in one [file](./.owl4ce_var). 
     - Reverse terminal background and foreground (urxvt/termite)
@@ -77,7 +77,7 @@ Here are some details about my setup ..
 <details>
   <summary><strong>v3.1</strong></summary>
   
-  - **Screenshot Script**: Rounded corners, quality, shadows.
+  - **Screenshot Script:** Rounded corners, quality, shadows.
   - Terminal UI improvements, particularly font size
   - Bug fixes and improvements
   - Rounded picom as default
@@ -88,7 +88,7 @@ Here are some details about my setup ..
 <details>
   <summary><strong>v3.2</strong> <kbd>latest</kbd></summary>
   
-  **Major Update**:
+  **Major Update:**
   - Customizable partial color accent and start button glyphs - [`L4-L63`](./.owl4ce_var#L4-L63)
   - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L135-L145`](./.owl4ce_var#L135-L145)
   - Centralize dunst and urxvt opacity level and web browser - [`L64-L76`](./.owl4ce_var#L64-L76)
@@ -113,7 +113,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ### Introduction of Linux Rice
 
 <details>
-<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and/or <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
+<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> nor <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
   
 <br>
 
@@ -130,7 +130,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 > **Warning!**  
-> This configuration is highly dependent to **bash**, **sed**, and **coreutils**.  
+> This configuration is highly dependent to **bash**, **findutils**, **sed**, and **coreutils**.  
 > Assume that you are using [**sudo**](https://www.sudo.ws/) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
 
 > **Attention!**  
@@ -156,9 +156,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    sudo apt install zsh && chsh -s $(command -v zsh)
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
    git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
     
@@ -174,10 +174,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
    ```
    ```sh
-   git clone https://github.com/yshui/picom.git && \
+   git clone https://github.com/yshui/picom.git         && \
    cd picom/ && git submodule update --init --recursive && \
-   meson --buildtype=release . build && \
-   ninja -C build && \
+   meson --buildtype=release . build                    && \
+   ninja -C build                                       && \
    ninja -C build install
    ```
 
@@ -192,10 +192,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    sudo su
    ```
    ```sh
-   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list && \
-   wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key &&
-   apt-key add - < Release.key && \
-   apt update && apt install obmenu-generator libgtk2-perl
+   echo 'deb http://download.opensuse.org/repositories/home:/Head_on_a_Stick:/obmenu-generator/Debian_10/ /' > /etc/apt/sources.list.d/home:Head_on_a_Stick:obmenu-generator.list
+   wget -nv https://download.opensuse.org/repositories/home:Head_on_a_Stick:obmenu-generator/Debian_10/Release.key -O Release.key
+   apt-key add - < Release.key && apt update && apt install obmenu-generator libgtk2-perl
    ```
     
    [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md).
@@ -224,9 +223,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    ```sh
    sudo pacman -S zsh && chsh -s $(command -v zsh)
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
    git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
   
@@ -287,8 +286,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > | `--exclude` | exclude files matching PATTERN                      |
    >
    > **Differences**  
-   > - ***cp** is for duplicating stuff and by default only ensures files have unique full path names.
-   > - **rsync** is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than **cp**.
+   > - `cp` is for duplicating stuff and by default only ensures files have unique full path names.
+   > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than **cp**.
    >
    >   
    > I recommend to not deleting **dotfiles** dir after cloning from this repository, to make upgrades easier (if you care). Read the [update](#update) section.
@@ -298,8 +297,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Icons</strong></summary>
     
-   > **Note**  
-   > **pushd** is same as **cd**, but can return back to the previous directory by using **popd** (checkpoint).
+   > `pushd` is same as `cd`, but can return back to the previous directory by using `popd` (checkpoint).
    ```sh
    pushd ~/.icons/ && \
        tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz       && \
@@ -327,7 +325,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    - `brightnessctl`
    - *others if needed*
    
-   > For `brightnessctl`, I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
+   > For **brightnessctl**, I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
    
    ```sh
    sudo chmod u+s $(command -v brightnessctl)
@@ -336,10 +334,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   </details>
   
 ### The step you are waiting for
-The final step is login into **openbox-session**, basically login from display manager you use such as **lightdm**, **gdm**, etc.
+The final step is login into **openbox-session**, basically login from display manager you use such as lightdm, gdm, etc.
 
 > **Note**  
-> Make sure the **sh** symlinks to **bash**, as it's very dependent on **bash**.
+> Make sure the `sh` symlinks to `bash`, as it's very dependent on **bash**.
 > ```sh
 > [ "$(readlink /bin/sh)" != "bash" ] && sudo ln -vfs bash /bin/sh
 > ```
@@ -408,7 +406,7 @@ Since I recommend using **rsync** from start, the easiest way is to list the fil
 cd ~/Documents/ &&
 pushd dotfiles/ && git pull && popd
 ```
-Then create a file with PATTERN list containing files/dirs that **rsync** will exclude. For example,  
+Then create a file with **PATTERN** list containing files/dirs that **rsync** will exclude. For example,  
 `~/.dotexc`
 ```cfg
 .git*
@@ -439,7 +437,7 @@ zathura
 .Xresources
 .xsettingsd
 ```
-> Use **find** command to check the PATTERN,
+> Use `find` command to check the **PATTERN**,
 > ```sh
 > find dotfiles/ -iname 'PATTERN'
 > ```
@@ -455,7 +453,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   <details>
   <summary><strong>See</strong></summary>
   
-    <p align="center">In fact, I use SLiM just for lockscreen. **@2020**, now don't use lockscreen.</p>
+    <p align="center">In fact, I use SLiM just for lockscreen. <b>@2020</b>, now don't use lockscreen.</p>
     
     <p align="center"><a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
       <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center"/>
@@ -494,7 +492,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
     <p align="center">Just click on the image above!</p>
     <p align="center">Or maybe you want a <a href="https://downgit.github.io/#/home?url=https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish">direct link</a> without downloading the complete repository</p>
-    <p align="center"><a href="https://github.com/tsmetana/spotify-tray">spotify-tray</a></p>
+    <p align="center">??? <a href="https://github.com/tsmetana/spotify-tray">spotify-tray</a> ???</p>
     
   </details>
   
@@ -548,13 +546,13 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
-  An example is turning on **nm-applet**, because by default I don't use it and use [**networkmanager_dmenu**](./.local/bin/networkmanager_dmenu) instead.
+  An example is turning on `nm-applet`, because by default I don't use it and use [`networkmanager_dmenu`](./.local/bin/networkmanager_dmenu) instead.
 
   > **How about battery indicator?**  
-  > Because on the **tint2** panel I turned off battery status. Alternatively, install **xfce4-power-manager** and enable system tray icon in **xfce4-power-manager-settings**.
+  > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in **xfce4-power-manager-settings**.
 
   Remove hashtags for all your needs, then relogin openbox-session.
-  > **Warning!** Putting commands/programs here means that when switching Visual Mode, the program will be restarted.
+  > **Warning!** Putting commands here means that when switching Visual Mode, the program will be restarted.
   ```cfg
   1 #
   2 # This tray will restart after switching modes
@@ -619,7 +617,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     Or if you use [pipewire](https://github.com/PipeWire/pipewire) as pulseaudio.
   - **Pipewire as Pulseaudio**
     > More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
-    >  Make sure pulseaudio is uninstalled or disable autospawn.  
+    >  Make sure `pulseaudio` is uninstalled or disable **autospawn**.  
     > `/etc/pulse/client.conf`
     > ```cfg
     > ...
@@ -642,7 +640,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **QT Themer (env var) <kbd>optional</kbd>**  
   [`~/.config/openbox/environment`](./.config/openbox/environment)  
-  This is optional if you're having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove **gtk2** after the equal sign, then relogin **openbox-session**.
+  This is optional if you're having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then relogin **openbox-session**.
   ```cfg
   ...
   
