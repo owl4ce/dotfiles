@@ -23,7 +23,7 @@
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 <a href="https://github.com/owl4ce/dotfiles/releases/tag/3.2">
-  <img src="https://user-images.githubusercontent.com/53987136/110218451-6eba0b00-7eec-11eb-95bf-b9e3946fed9f.png" alt="minimal" align="right" width="400px"/>
+  <img src="https://i.ibb.co/80q71QQ/3-2-M2.png" alt="minimal" align="right" width="400px"/>
 </a>
 
 This is my **personal configuration** for my favorite openbox window manager and some applications too.
@@ -483,15 +483,15 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
     <br>
     
-    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#eyecandy">
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy"/>
+    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/new/Dribbblish#eyecandy">
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/new/Dribbblish/eyecandy.png" alt="spicetify.dribbblish-eyecandy"/>
     </a></p>
-    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish#mechanical">
-    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/master/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical"/>
+    <p align="center"><a href="https://github.com/owl4ce/spicetify-themes/tree/new/Dribbblish#mechanical">
+    <img src="https://raw.githubusercontent.com/owl4ce/spicetify-themes/new/Dribbblish/mechanical.png" alt="spicetify.dribbblish-mechanical"/>
     </a></p>
     
     <p align="center">Just click on the image above!</p>
-    <p align="center">Or maybe you want a <a href="https://downgit.github.io/#/home?url=https://github.com/owl4ce/spicetify-themes/tree/master/Dribbblish">direct link</a> without downloading the complete repository</p>
+    <p align="center">Or maybe you want a <a href="https://downgit.github.io/#/home?url=https://github.com/owl4ce/spicetify-themes/tree/new/Dribbblish">direct link</a> without downloading the complete repository.</p>
     <p align="center">??? <a href="https://github.com/tsmetana/spotify-tray">spotify-tray</a> ???</p>
     
   </details>
