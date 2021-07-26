@@ -106,7 +106,7 @@ Here are some details about my setup ..
 </details>
   
 ## :cherry_blossom: Setup
-This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment.
+This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment. [Mirror @ GitLab](https://gitlab.com/owl4ce/dotfiles.git).
 
 ##  
 
