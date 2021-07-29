@@ -7,5 +7,5 @@
 # Use qt5-styleplugins for QT Themes
 export QT_QPA_PLATFORMTHEME=gtk2
 
-# Use GTK file dialog for Telegram-desktop
-export TDESKTOP_USE_GTK_FILE_DIALOG=1
+# Make our environment identity considered as GNOME (tdesktop affected, so it will using GTK file chooser)
+export XDG_CURRENT_DESKTOP=gnome
