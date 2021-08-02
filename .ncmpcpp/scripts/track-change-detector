@@ -13,12 +13,12 @@ run() {
 }
 
 {
-    if { pgrep "mpd" || pstree | grep "mpd"; } &> /dev/null; then
+    if { pgrep "mpd" || pstree | grep "mpd"; }; then
         run
     else
-        nice -n "1" mpd || mpd
-        run
+        { mpd && run; } || \
+        exec "$EXNOTIFY_SEND" -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>MPD</u></span>\nFailed to run!"
     fi
 } &> /dev/null &
 
-exit $?
+kill -9 "$$" || exit $?
