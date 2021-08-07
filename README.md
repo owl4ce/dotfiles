@@ -1,21 +1,21 @@
 <p align="center">
   <a name="top" href="#octocat-hi-there-thanks-for-visiting-">
-     <img alt="dotfiles@owl4ce" height="60%" width="100%" src="https://i.ibb.co/w0rbNCD/dotfiles-sakura.png"/>
+     <img alt="owl4ce/dotfiles" height="60%" width="100%" src="https://i.imgur.com/wQ6ih88.png"/>
   </a>
 </p>
 
 <p align="center">
   <a href="#cherry_blossom-setup">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/b2VzWrg/setup.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.imgur.com/aRhWQWq.png"/>
   </a>
   <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/Fgpgc2C/keybinds.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.imgur.com/H62B9tG.png"/>
   </a>
   <a href="https://deviantart.com/owl4ce/gallery/76024204/joyful-desktop-v3">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/ZKTbkRy/gallery.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.imgur.com/KKkvKE1.png"/>
   </a>
   <a href="#users-configuration">
-    <img width="120px" style="padding: 0 10px;" src="https://i.ibb.co/RznJp0s/user-conf.png"/>
+    <img width="120px" style="padding: 0 10px;" src="https://i.imgur.com/G993TxA.png"/>
   </a>
 </p>
 
@@ -23,7 +23,7 @@
 ### :octocat: Hi there! Thanks for visiting! <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 
 <a href="https://github.com/owl4ce/dotfiles/releases/tag/3.2">
-  <img src="https://i.ibb.co/80q71QQ/3-2-M2.png" alt="minimal" align="right" width="400px"/>
+  <img src="https://i.imgur.com/4J0aHbi.png" alt="minimal" align="right" width="400px"/>
 </a>
 
 This is my **personal configuration** for my favorite openbox window manager and some applications too.
@@ -473,7 +473,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
     <br>
     
-    <p align="center"><a href="https://brave.com/"><img src="https://i.ibb.co/kDgnKR0/2021-04-07-223256-1366x768-scrot.png" alt="brave.thumbnail"/></a></p>
+    <p align="center"><a href="https://brave.com/"><img src="https://i.imgur.com/JYVvCLp.png" alt="brave.thumbnail"/></a></p>
 
   </details>
   
@@ -503,7 +503,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     <br>
     
     <p align="center"><a href="https://github.com/gilbertw1/telegram-nord-theme">
-    <img src="https://i.ibb.co/1TDYj5R/2021-05-30-135514-800x641-scrot.png" alt="tdesktop.nord"/>
+    <img src="https://i.imgur.com/5jEGp1j.png" alt="tdesktop.nord"/>
     </a></p>
     
     <p align="center">Just click on the image above!</p>
@@ -716,7 +716,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 
 ## :memo:  Notes
 ### <p align="center">Color Scheme</p>
-<p align="center"><a href="#color-scheme"><img src="https://i.ibb.co/XDjndMJ/color-scheme.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
+<p align="center"><a href="#color-scheme"><img src="https://i.imgur.com/QEUTWUe.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
 <p align="center"><a href="https://www.nordtheme.com">Nord Color Palette<a> compatible</p>
 
