@@ -90,7 +90,7 @@ Here are some details about my setup ..
   
   **Major Update:**
   - Customizable partial color accent and start button glyphs - [`L4-L63`](./.owl4ce_var#L4-L63)
-  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L137-L147`](./.owl4ce_var#L135-L145)
+  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L137-L147`](./.owl4ce_var#L137-L147)
   - Centralize dunst and urxvt opacity level and web browser - [`L64-L76`](./.owl4ce_var#L64-L76)
   - Both modes have their own window button last location
   - **Sakura Saber**『桜(さくら)セイバー』 Themed
