@@ -26,7 +26,7 @@
   <img src="https://i.imgur.com/4J0aHbi.png" alt="minimal" align="right" width="400px"/>
 </a>
 
-This is my **personal configuration** for my favorite openbox window manager and some applications too.
+This is my **personal configuration** for my favorite openbox window manager and some apps too.
 
 I hope you understand everything here. :wink:
 
@@ -41,7 +41,7 @@ Here are some details about my setup ..
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
 - **Music Player**                 • [Mpd](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: *riced!*
-- **GUI & CLI IDE/Text Editor**    • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
+- **GUI & CLI IDE/Text-Editor**    • [Geany](https://www.geany.org/), [Neovim](https://neovim.io/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
 
@@ -90,7 +90,7 @@ Here are some details about my setup ..
   
   **Major Update:**
   - Customizable partial color accent and start button glyphs - [`L4-L63`](./.owl4ce_var#L4-L63)
-  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L135-L145`](./.owl4ce_var#L135-L145)
+  - New ncmpcpp albumart image backend (w3mimgdisplay) - [`L137-L147`](./.owl4ce_var#L135-L145)
   - Centralize dunst and urxvt opacity level and web browser - [`L64-L76`](./.owl4ce_var#L64-L76)
   - Both modes have their own window button last location
   - **Sakura Saber**『桜(さくら)セイバー』 Themed
@@ -101,7 +101,7 @@ Here are some details about my setup ..
   - Added **Restart UI**
   - Optimize scripts
   
-  For the rest, see the [commit](https://github.com/owl4ce/dotfiles/commits/main). Also check my [workflow](https://youtu.be/kSoViKHt-Yo).
+  For the rest, see the [commits](https://github.com/owl4ce/dotfiles/commits/main). Also check my [workflow](https://youtu.be/kSoViKHt-Yo).
   
 </details>
   
@@ -136,7 +136,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > **Attention!**  
 > - Rofi must be above version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
 > - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
-> - You may want to use `polkit-gnome` instead of `lxsession` / `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (dependency hell).
+> - You may want to use `polkit-gnome` instead of `lxsession` nor `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (circular dependencies).
 > - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I reverted it on commit with id sha [`9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9) with [git checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha).
 
   <details open>
@@ -197,7 +197,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    apt-key add - < Release.key && apt update && apt install obmenu-generator libgtk2-perl
    ```
     
-   [See Installation from Git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md).
+   [See installation from git](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md).
   
   </details>
   
@@ -206,13 +206,13 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Arch Linux (and all based distributions)</strong></summary>
   
-   > Make sure your **AUR Helper** is [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru).
+   > Make sure your **AUR Helper** is [`paru`](https://github.com/Morganamilo/paru) or [`yay`](https://github.com/Jguer/yay).
   
    ```sh
-   yay -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
-   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi      \
-   qt5-styleplugins lxsession xautolock rxvt-unicode-truecolor-wide-glyphs xclip scrot thunar    \
-   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp    \
+   paru -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
+   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi       \
+   qt5-styleplugins lxsession xautolock rxvt-unicode-truecolor-wide-glyphs xclip scrot thunar     \
+   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp     \
    pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator gtk2-perl playerctl xsettingsd
    ```
 
@@ -240,12 +240,12 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    
    **For example**  
    - [Gentoo/Linux](https://packages.gentoo.org/)  
-     *See [owl4ce's portage configuration](https://github.com/owl4ce/hmg/tree/main/etc/portage/package.use).*
+     *[See owl4ce's portage configuration](https://github.com/owl4ce/hmg/tree/main/etc/portage).*
      
    - [Void (Linux)](https://voidlinux.org/packages/)
    
    > Maybe you can reference the package name with Arch Linux.  
-   > For Gentoo/Linux, I recommend to enabling [`keywords`](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages and/or using `ebuild-9999`.
+   > For Gentoo/Linux, I recommend to enabling [keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages or using [live ebuild](https://wiki.gentoo.org/wiki/Ebuild).
   
    If it's not there, compile it manually from git source code or from elsewhere.
   
@@ -265,8 +265,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Most of .files</strong></summary>
   
-   You can clone or download as a [archive](https://github.com/owl4ce/dotfiles/releases). After that put all files in the **dotfiles** folder to user's home directory.
-   > Assume you are cloning in the `~/Documents` directory for example. I recommend to install with **rsync**.
+   You can clone or download as a [archive](https://github.com/owl4ce/dotfiles/releases). After that put all files in the **dotfiles** folder into user's home directory.
+   > Assume you are cloning in the `~/Documents` directory for example. I recommend to install with **rsync**. So why?
    ```sh
    cd ~/Documents/ && git clone https://github.com/owl4ce/dotfiles.git
    ```
@@ -305,8 +305,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
        sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/Papirus-Dark-Custom && \
    popd
    ```
-   > **Why I need to link icons to user system resources?** :thinking:  
-   > That's needed by dunst in order to display most of icon from notification that spawned by application.
+   > **Why I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?** :thinking:  
+   > That's needed by dunst in order to display most of icon from notification that spawned by programs.
      
   </details>
 
@@ -323,9 +323,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Root Privileges with <a href="https://en.wikipedia.org/wiki/Setuid#SUID">SUID</a></strong></summary>
    
    - `brightnessctl`
-   - *others if needed*
+   - *others if needed.*
    
-   > For **brightnessctl**, I recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
+   > For **brightnessctl**, I would recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).
    
    ```sh
    sudo chmod u+s $(command -v brightnessctl)
@@ -399,7 +399,7 @@ killall zentile
 
 ### Update
 
-Since I recommend using **rsync** from start, the easiest way is to list the files that will not be updated to avoid changing personal files with files in the **dotfiles**. First, update the local repository with remote git repository.
+Since I recommend using **rsync** from start, the easiest way is to list the files that will not be updated to avoid replacing personal files with files in the **dotfiles**. First, update the local repository with remote git repository.
 > Remember where you cloned this repository.  
 > For example, from the start we assumed that it was in `~/Documents`.
 ```sh
@@ -453,7 +453,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   <details>
   <summary><strong>See</strong></summary>
   
-    <p align="center">In fact, I use SLiM just for lockscreen. <b>@2020</b>, now don't use lockscreen.</p>
+    <p align="center">In fact, I use SLiM just for lockscreen <b>@ 2020</b>. Currently, I don't use lockscreen.</p>
     
     <p align="center"><a href="https://www.deviantart.com/owl4ce/art/Floflo-Batik-SLiM-Themes-861519439">
       <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/072e191f-a0a5-4be2-bc7a-55eb140b254f/de8xcnj-d1413505-68ee-49bd-ba72-00cd3f2a2d9e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDcyZTE5MWYtYTBhNS00YmUyLWJjN2EtNTVlYjE0MGIyNTRmXC9kZTh4Y25qLWQxNDEzNTA1LTY4ZWUtNDliZC1iYTcyLTAwY2QzZjJhMmQ5ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPhW15Vepsxlr7San7OuBA_oyVfs-k7Bh1hCrbqC528" alt="floflo-batik" align="center"/>
@@ -474,7 +474,9 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     <br>
     
     <p align="center"><a href="https://brave.com/"><img src="https://i.imgur.com/JYVvCLp.png" alt="brave.thumbnail"/></a></p>
-
+    
+    <p align="center">You may want to turn on <a href="https://www.linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html">Hardware Acceleration.</a></p>
+    
   </details>
   
 - **Spotify - Spicetify Theme <kbd>suggested</kbd>**
@@ -551,7 +553,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   > **How about battery indicator?**  
   > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in **xfce4-power-manager-settings**.
 
-  Remove hashtags for all your needs, then relogin openbox-session.
+  Remove hashtags for all your needs, then relogin the openbox-session.
   > **Warning!** Putting commands here means that when switching Visual Mode, the program will be restarted.
   ```cfg
   1 #
@@ -566,7 +568,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   ```
   
 - **Available Default Apps**  
-  [` ~/.scripts/default-apps/list`](./.scripts/default-apps/list)
+  [` ~/.scripts/default-apps/list.joy`](./.scripts/default-apps/list.joy)
   - **Terminal**: `urxvt` `termite`
   - **Lockscreen**: *anything*
   - **Music Player**: `mpd` `spotify`
@@ -594,10 +596,10 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   ```
   
 - **Ncmpcpp Music Directory**  
-  Auto connect with MPD.
+  Auto-connect with MPD.
   
   > **How to use ncmpcpp albumart?** (URxvt)  
-  It's easy, put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp)
+  It's easy, just put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp).
 
 - **Audio Server <kbd>optional</kbd>**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
@@ -640,7 +642,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **QT Themer (env var) <kbd>optional</kbd>**  
   [`~/.config/openbox/environment`](./.config/openbox/environment)  
-  This is optional if you're having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then relogin **openbox-session**.
+  This is optional if you are having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then relogin **openbox-session**.
   ```cfg
   ...
   
@@ -718,7 +720,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 ### <p align="center">Color Scheme</p>
 <p align="center"><a href="#color-scheme"><img src="https://i.imgur.com/QEUTWUe.png" alt="owl4ce.color-scheme" height="60%" width="100%"></a></p>
 
-<p align="center"><a href="https://www.nordtheme.com">Nord Color Palette<a> compatible</p>
+<p align="center"><a href="https://www.nordtheme.com">Nord Color Palette<a> Compatible</p>
 
 <table border="0">
 <tr>
@@ -745,7 +747,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 
 ## :gift_heart:  Tip Jar
 If you enjoy my **dotfiles** and would like to show your appreciation, you may want to tip me here.
-It is never required but always wholeheartedly appreciated.
+It's never required but always wholeheartedly appreciated.
 
 Thank you from the bottom of my heart! :heartpulse:
 
@@ -754,8 +756,8 @@ Thank you from the bottom of my heart! :heartpulse:
 
 <br>
 
-## :confetti_ball:  Credits / Thanks
-- **Inspiration and resources**
+## :confetti_ball:  Acknowledgements
+- **Inspiration and main resources**
   - [Elena](https://github.com/elenapan)
   - [Adhi Pambudi](https://github.com/addy-dclxvi)
   - [Fikri Omar](https://github.com/fikriomar16)
@@ -767,7 +769,7 @@ Thank you from the bottom of my heart! :heartpulse:
   - [Aditya Shakya](https://github.com/adi1090x)
   - ?
 
-- **Knowledge and other resources**
+- **Extended resources or the manual**
   - [Digital Synopsis](https://digitalsynopsis.com/)
   - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes)
   - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html)
@@ -804,7 +806,7 @@ Thank you from the bottom of my heart! :heartpulse:
   - [Themix - GUI Theme Designer](https://github.com/themix-project/oomox)
   - Tint2conf, etc.
 
-- **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also [r/unixporn](https://www.reddit.com/r/unixporn/).**
+- **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also the great [r/unixporn](https://www.reddit.com/r/unixporn/).**
 - **© All artist who make icons, illustrations, and wallpapers.**
   
   The original source that I found:
