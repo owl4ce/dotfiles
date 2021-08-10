@@ -475,7 +475,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
     <p align="center"><a href="https://brave.com/"><img src="https://i.imgur.com/JYVvCLp.png" alt="brave.thumbnail"/></a></p>
     
-    <p align="center">You may want to turn on <a href="https://www.linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html">Hardware Acceleration.</a></p>
+    <p align="center">You may want to turn on <a href="https://www.linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html">Hardware Acceleration</a>.</p>
     
   </details>
   
