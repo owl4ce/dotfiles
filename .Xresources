@@ -16,7 +16,7 @@ URxvt.urgentOnBell:               false
 URxvt.depth:                      32
 URxvt.iso14755:                   false
 URxvt.iconFile:                   /home/kyoko/.icons/gladient/term.png
-! Uncomment if to much font spacing
+! Uncomment below if too much font spacing
 !URxvt.letterSpace: -1
 
 ! URxvt Extensions
@@ -99,7 +99,7 @@ URxvt.url-select.underline:       true
 *.color13:                        magenta1
 *.color14:                        cyan1
 
-! FOR REVERSING ONLY (INVERT BG/FG)
+! Termody [ Reverse the Visual ]
 *.foreground:                     white0
 *.background:                     black0
 *.cursorColor:                    white0
