@@ -1,4 +1,4 @@
-#! perl -w
+#!/usr/bin/env perl
 # Author:   Bert Muennich
 # Website:  http://www.github.com/muennich/urxvt-perls
 # Based on: http://www.jukie.net/~bart/blog/urxvt-url-yank
