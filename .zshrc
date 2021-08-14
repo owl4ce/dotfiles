@@ -126,8 +126,8 @@ alias trim_all="${PRIV} fstrim -va"
 alias nanosu="${PRIV} nano"
 alias nvimsu="${PRIV} nvim"
 alias clean_ram="${PRIV} sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
-alias ls="exa -lgh --icons --group-directories-first"
-alias la="exa -lgha --icons --group-directories-first"
+#alias ls="exa -lgh --icons --group-directories-first"
+#alias la="exa -lgha --icons --group-directories-first"
 
 # Color-Toys Aliases
 alias 256colors2="${HOME}/.color-toys/256colors2.pl"
