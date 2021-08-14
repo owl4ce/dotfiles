@@ -3,7 +3,7 @@
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
-export ZSH=${HOME}/.oh-my-zsh
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -11,7 +11,7 @@ export ZSH=${HOME}/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="ar-round"
 
-# Set list of themes to pick from when loading at random
+# Set list of themes to pick from when loading at random.
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
@@ -46,7 +46,7 @@ ZSH_THEME="ar-round"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -73,16 +73,16 @@ plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting bgnotify)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 setopt INC_APPEND_HISTORY
-source ${ZSH}/oh-my-zsh.sh
+source "${ZSH}/oh-my-zsh.sh"
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
+# You may need to manually set your language environment.
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
+# Preferred editor for local and remote sessions.
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
@@ -99,42 +99,37 @@ source ${ZSH}/oh-my-zsh.sh
 #
 # Aliases
 
-if command -v "sudo" &>/dev/null; then
-    PRIV="sudo"
-elif command -v "doas" &>/dev/null; then
-    PRIV="doas"
-else
-    printf "\e[1;31m > error:\e[0m sudo or doas not found!\n" >&2
+type -p 'doas' &>/dev/null && PRIV="doas" || :
+type -p 'sudo' &>/dev/null && PRIV="sudo" || :
+if [[ -z "$PRIV" ]]; then
+    >&2 printf "\e[1;31m > error:\e[0m \e[0;35msudo\e[0m or \e[0;35mdoas\e[0m not found!\n"
+    return 1
 fi
 
 alias c="clear"
 alias q="exit"
 alias hd="hexdump -C"
-alias defapps="printf '\ec'; ${HOME}/.scripts/default-apps/launch; ${HOME}/.scripts/default-apps/launch -e"
-alias pacman_remove="$PRIV pacman -Rcns"
-alias yay_update="yay -Sy"
-alias yay_upgrade="yay -Syu"
-alias emerge_install="$PRIV emerge -av"
-alias emerge_install_unmask="$PRIV emerge -av --autounmask=y --autounmask-write"
-alias emerge_pretend="$PRIV emerge -pv"
-alias emerge_sync="$PRIV emaint -a sync"
-alias emerge_changed_use="$PRIV emerge -av --update --changed-use --deep @world"
-alias emerge_new_use="$PRIV emerge -av --update --newuse --deep @world"
-alias emerge_depclean="$PRIV emerge -av --depclean"
-alias eclean_dist="$PRIV eclean-dist --deep"
-alias eclean_pkg="$PRIV eclean-pkg --deep"
-alias rc-service="$PRIV rc-service"
-alias rc-update="$PRIV rc-update"
+alias emerge_install="${PRIV} emerge -av"
+alias emerge_install_unmask="${PRIV} emerge -av --autounmask=y --autounmask-write"
+alias emerge_pretend="${PRIV} emerge -pv"
+alias emerge_sync="${PRIV} emaint -a sync"
+alias emerge_changed_use="${PRIV} emerge -av --update --changed-use --deep @world"
+alias emerge_new_use="${PRIV} emerge -av --update --newuse --deep @world"
+alias emerge_depclean="${PRIV} emerge -av --depclean"
+alias eclean_dist="${PRIV} eclean-dist --deep"
+alias eclean_pkg="${PRIV} eclean-pkg --deep"
+alias rc-service="${PRIV} rc-service"
+alias rc-update="${PRIV} rc-update"
 alias ping_google="ping 8.8.8.8"
 alias ping_cloudfl="ping 1.1.1.1"
-alias trim_all="$PRIV fstrim -va"
-alias nanosu="$PRIV nano"
-alias nvimsu="$PRIV nvim"
-alias clean_ram="$PRIV sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
-#alias ls="exa -lgh --icons --group-directories-first"
-#alias la="exa -lgha --icons --group-directories-first"
+alias trim_all="${PRIV} fstrim -va"
+alias nanosu="${PRIV} nano"
+alias nvimsu="${PRIV} nvim"
+alias clean_ram="${PRIV} sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
+alias ls="exa -lgh --icons --group-directories-first"
+alias la="exa -lgha --icons --group-directories-first"
 
-# Color toys aliases
+# Color-Toys Aliases
 alias 256colors2="${HOME}/.color-toys/256colors2.pl"
 alias bloks="${HOME}/.color-toys/bloks"
 alias colortest="${HOME}/.color-toys/colortest"
@@ -149,5 +144,5 @@ alias pipes2-slim="${HOME}/.color-toys/pipes2-slim"
 # GPG Dialog
 export GPG_TTY="$(tty)"
 
-# BAT Theme (cat replacement)
+# Bat Theme
 export BAT_THEME="base16"
