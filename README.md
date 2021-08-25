@@ -41,7 +41,7 @@ Here are some details about my setup ..
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
 - **Music Player**                 • [Mpd](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: *riced!*
-- **GUI Basic-IDE**                • [Geany](https://www.geany.org/)
+- **GUI Basic-IDE**                • [Geany - The Flyweight IDE](https://www.geany.org/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
 
@@ -258,7 +258,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Most of .files</strong></summary>
    
-   You can clone (latest) or download as an [archive](https://github.com/owl4ce/dotfiles/releases). After that, put all files in the **dotfiles** folder into user's home directory.
+   You can clone or download as an [archive](https://github.com/owl4ce/dotfiles/releases). After that, put all files in the **dotfiles** folder into user's home directory.
    > Assume you are cloning in the `~/Documents` directory for example. I recommend to install with **rsync**. So why?
    ```sh
    cd ~/Documents/ && git clone --depth 1 https://github.com/owl4ce/dotfiles.git
@@ -330,7 +330,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    - `brightnessctl`
    - *others if needed.*
    
-   > ~For **brightnessctl**, I would recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).~ I don't think this is necessary since **brightnessctl** has udev rules.
+   > ~For **brightnessctl**, I would recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).~  
+   > I don't think this is necessary since **brightnessctl** has udev rules.
    
    ```sh
    sudo chmod u+s $(command -v brightnessctl)
@@ -341,9 +342,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ### The step you are waiting for
 The final step is login into **openbox-session**, basically login from display manager you use such as lightdm, gdm, etc.
 
-> **Note**  
 > Make sure the `sh` symlinks to `bash`, as it's very dependent on **bash** ([bashism](https://mywiki.wooledge.org/Bashism)).  
-> Why bash? Simple, I'd say it's bloated and powerful.
+> **Why bash?** Simple, I'd say it's bloated and powerful.
 > ```sh
 > [ "$(readlink $(command -v sh))" != "bash" ] && sudo ln -vfs $(command -v bash sh)
 > ```
