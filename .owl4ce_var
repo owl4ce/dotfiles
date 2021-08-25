@@ -71,7 +71,7 @@ URXVT="95"
 # Dunst notify daemon and URxvt URL launcher options       * Need to restart UI *  #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-WEB_BROWSER="brave-bin"
+WEB_BROWSER="brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder"
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -106,7 +106,7 @@ SAVE_SS="yes"
 SAVE_DIR="${HOME}/Pictures"
 COPY2CLIP="yes"
 ENABLE_FRAME="yes"
-FRAME_COLOR="auto" #434c5e
+FRAME_COLOR="#434c5e" #434c5e
 FRAME_PADDING="20"
 OPEN_FRAMED="no"
 FRAMED_SHADOW_OPACITY="25"
