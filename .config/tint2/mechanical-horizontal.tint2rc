@@ -379,7 +379,7 @@ button_max_icon_size = 0
 # Button 6
 button = new
 button_text = 
-button_tooltip = Rotation Mode: Reverse V/H │Reverse L/R or T/B
+button_tooltip = Orientation: Reverse V/H │Reverse L/R or T/B
 button_lclick_command = ~/.config/openbox/visual-mode/ort-toggle ort
 button_rclick_command = ~/.config/openbox/visual-mode/ort-toggle lrtb
 button_mclick_command = 
