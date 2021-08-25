@@ -65,22 +65,22 @@ if [[ "$CURRENT_TERM" = "urxvt" ]]; then
 elif [[ "$CURRENT_TERM" = "termite" ]]; then
     current="$(grep '#foreground = ' "$TERMITE_CONFIG" | sed 1q)"
     if [[ "$current" != *"#foreground = #F9F9F9"* ]]; then
-        sed -e '79s_foreground_#foreground_' -e '80s_foreground_#foreground_' \
-            -e '81s_background_#background_' -e '90s_#foreground_foreground_' \
-            -e '91s_#foreground_foreground_' -e '92s_#background_background_' \
-            -e '93s_color_#color_' -e '94s_color_#color_' \
-            -e '86s_color_#color_' -e '87s_color_#color_' \
-            -e '94s_#color_color_' -e '95s_#color_color_' \
-            -e '97s_#color_color_' -e '98s_#color_color_' \
+        sed -e '73s_foreground_#foreground_' -e '74s_foreground_#foreground_' \
+            -e '75s_background_#background_' -e '84s_#foreground_foreground_' \
+            -e '85s_#foreground_foreground_' -e '86s_#background_background_' \
+            -e '77s_color_#color_' -e '78s_color_#color_' \
+            -e '80s_color_#color_' -e '81s_color_#color_' \
+            -e '88s_#color_color_' -e '89s_#color_color_' \
+            -e '91s_#color_color_' -e '92s_#color_color_' \
             -i "$TERMITE_CONFIG"
     else
-        sed -e '79s_#foreground_foreground_' -e '80s_#foreground_foreground_' \
-            -e '81s_#background_background_' -e '90s_foreground_#foreground_' \
-            -e '91s_foreground_#foreground_' -e '92s_background_#background_' \
-            -e '93s_#color_color_' -e '94s_#color_color_' \
-            -e '86s_#color_color_' -e '87s_#color_color_' \
-            -e '94s_color_#color_' -e '95s_color_#color_' \
-            -e '97s_color_#color_' -e '98s_color_#color_' \
+        sed -e '73s_#foreground_foreground_' -e '74s_#foreground_foreground_' \
+            -e '75s_#background_background_' -e '84s_foreground_#foreground_' \
+            -e '85s_foreground_#foreground_' -e '86s_background_#background_' \
+            -e '77s_#color_color_' -e '78s_#color_color_' \
+            -e '80s_#color_color_' -e '81s_#color_color_' \
+            -e '88s_color_#color_' -e '89s_color_#color_' \
+            -e '91s_color_#color_' -e '92s_color_#color_' \
             -i "$TERMITE_CONFIG"
     fi
 fi
