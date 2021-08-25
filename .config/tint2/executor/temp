@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
-temp_dev_path="/sys/devices/virtual/thermal"
-
-[[ -d "${temp_dev_path}/${TEMP_DEV}" ]] && \
-exec echo "$(expr $(cat ${temp_dev_path}/${TEMP_DEV}/temp) / 1000)"$'\xc2\xb0C' \
-|| { echo "$TEMP_DEV not found!"; exit 1; }
+LINUX_SYS="/sys/devices/virtual/thermal"
+if [[ -d "${LINUX_SYS}/${TEMP_DEV}" ]]; then
+    exec echo "$(expr $(cat "${LINUX_SYS}/${TEMP_DEV}/temp") / 1000)"$'\xc2\xb0C'
+elif [[ ! -d "$LINUX_SYS" ]]; then
+    echo "${LINUX_SYS} is an invalid path!"
+else
+    echo "${TEMP_DEV} not found!"
+fi
 
 exit $?

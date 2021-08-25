@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { echo "Install alsa-utils!"; exit 1; }
-type -p "amixer" &> /dev/null || noterr
+type -p amixer &>/dev/null || noterr
 
-CHK_MUTE() { amixer get Master | grep 'off'; }
 VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | sed 1q)"
 
 icon() {
@@ -16,30 +15,30 @@ icon() {
         icon=""
     else
         icon=""
-    fi
-    
-    exec echo "$icon"
+    fi && exec echo "$icon"
 }
 
-case $1 in
-    percent)    if CHK_MUTE &> /dev/null; then
-                    exec echo "Muted"
-                else
-                    exec echo "${VOLUME}%"
-                fi
+case ${1} in
+    percent) if amixer get Master | grep -qo 'off'; then
+                 exec echo "Muted"
+             else
+                 exec echo "${VOLUME}%"
+             fi
     ;;
-    icon)       if CHK_MUTE &> /dev/null; then
-                    exec echo ""
-                else
-                    icon
-                fi
+    icon)    if amixer get Master | grep -qo 'off'; then
+                 exec echo ""
+             else
+                 icon
+             fi
     ;;
-    up)         amixer set Master on -q
-                exec amixer sset Master "${AUDIO_STEPS:-5}"%+ -q
+    up)      amixer set Master on -q
+             exec amixer sset Master "${AUDIO_STEPS:-5}%+" -q
     ;;
-    down)       amixer set Master on -q
-                exec amixer sset Master "${AUDIO_STEPS:-5}"%- -q
+    down)    amixer set Master on -q
+             exec amixer sset Master "${AUDIO_STEPS:-5}%-" -q
     ;;
-    mute)       exec amixer set Master 1+ toggle -q
+    mute)    exec amixer set Master 1+ toggle -q
     ;;
-esac; exit $?
+esac
+
+exit $?

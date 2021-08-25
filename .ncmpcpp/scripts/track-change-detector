@@ -1,24 +1,28 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
-type -p {"mpd","mpc"} &> /dev/null || exit 1
+type -p mp{d,c} &>/dev/null || exit 1
 
 run() {
     while :; do
-        mpc current > "$NCMPCPP_SCRIPTS_DIR"/current-track."${STATE_EXT:-joy}"
-        nice -n "19" mpc idle || mpc idle
-        [[ "$(cat ${NCMPCPP_SCRIPTS_DIR}/current-track.${STATE_EXT:-joy})" != *"$(mpc current)"* ]] && \
-        "$NCMPCPP_SCRIPTS_DIR"/notify
+        mpc current > "$MPD_CURRENT_TRACK"
+        nice -n 19 mpc idle || mpc idle
+        if [[ "$(cat "$MPD_CURRENT_TRACK")" != "$(mpc current)" ]]; then
+            "${NCMPCPP_SCRIPTS_DIR}/notify"
+        fi
     done
 }
 
 {
-    if { pgrep "mpd" || pstree | grep "mpd"; }; then
+    if pgrep mpd || pstree | grep -qo mpd; then
         run
     else
-        { mpd && run; } || \
-        exec "$EXNOTIFY_SEND" -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>MPD</u></span>\nFailed to run!"
+        if mpd; then
+            run
+        else
+            exec "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>mpd</u></span>\nFailed to start!"
+        fi
     fi
-} &> /dev/null &
+} &>/dev/null &
 
-kill -9 "$$" || exit $?
+exit $?

@@ -1,49 +1,39 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
-type -p {"mpd","mpc","convert"} &> /dev/null || exit 1
+type -p mp{d,c} convert &>/dev/null || exit 1
 
-MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
-COVER="$NCMPCPP_NOTIF_COVER"
+MUSIC_DIR="$CHK_MPD_MUSIC_DIR" COVER="$NCMPCPP_NOTIF_COVER"
+COVER_PNG="$(echo "$COVER" | sed 's_.jpg_.png_')"
 
-notify_noalbum() {
+notify_none() {
     "$EXNOTIFY_SEND" -u normal -r 7777 -i "$NOTIF_MUSIC_ICON" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
-notify_album() {
-    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$(echo "$COVER" | sed 's_.jpg_.png_')" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+notify_aart() {
+    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$COVER_PNG" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
 {
-    album="$(mpc --format %album% current -p 6600)"
-    file="$(mpc --format %file% current -p 6600)"
+    album="$(mpc --format '%album%' current -p 6600)"
+    file="$(mpc --format '%file%' current -p 6600)"
     album_dir="${file%/*}"
-    [[ -z "$album_dir" ]] && exit 1 || :
+    [[ -z "$album_dir" ]] && exit 1 || rm -f "$COVER_PNG" &>/dev/null
     album_dir="${MUSIC_DIR}/${album_dir}"
-    
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
     src="$(printf "$covers" | sed 1q)"
-    rm -f "$(echo "$COVER" | sed 's_.jpg_.png_')" &> /dev/null
-    
-    # Notify
-    if [[ -n "$src" ]]; then
-        # Resize the image's width to 80px (ffmpeg/imagemagick)
-        # ffmpeg for fast conversion
-        { ffmpeg -i "$src" -vf scale=80:80 "$COVER" \
-        || convert "$src" -resize 80x "$COVER"; } &> /dev/null
-        # Convert into rounded corners
-        convert "$COVER" \
-        \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
-        \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) \
-        -alpha off -compose CopyOpacity -composite "$(echo "$COVER" | sed 's_.jpg_.png_')" &> /dev/null
-        rm -f "$COVER" &> /dev/null
-        if [[ -f "$(echo "$COVER" | sed 's_.jpg_.png_')" ]]; then
-            notify_album
+    if [[ -n "$src" ]]; then # Resize the image width to 80px (ffmpeg/imagemagick). Use ffmpeg for fast conversion.
+        { ffmpeg -i "$src" -vf scale=80:80 "$COVER" || convert "$src" -resize 80x "$COVER" && \
+          convert "$COVER" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+          \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off \
+          -compose CopyOpacity -composite "$COVER_PNG" && rm -f "$COVER"; } &>/dev/null
+        if [[ -f "$COVER_PNG" ]]; then
+            notify_aart
         else
-            notify_noalbum
+            notify_none
         fi
     else
-        notify_noalbum
+        notify_none
     fi
 } &
 

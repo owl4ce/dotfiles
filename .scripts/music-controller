@@ -1,54 +1,51 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
-{ type -p {"mpd","mpc"} || type -p {"spotify","playerctl"}; } &> /dev/null || exit 1
+{ type -p mp{d,c} || type -p spotify playerctl; } &>/dev/null || exit 1
 
-CURRENT_MUSICPL="$($DEFAPPS_EXEC -g musicpl)"
-
+CURRENT_MUSICPL="$("$DEFAPPS_EXEC" -g musicpl)"
 if [[ "$CURRENT_MUSICPL" = "mpd" ]]; then
     prev="mpc -q prev"
-    toggle="mpc -q toggle"
-    stop="mpc -q stop"
     next="mpc -q next"
+    stop="mpc -q stop"
+    toggle="mpc -q toggle"
     status="mpc status"
     title="$(mpc --format '[%title%|%file%]' current)"
 elif [[ "$CURRENT_MUSICPL" = "spotify" ]]; then
     prev="playerctl -p spotify previous"
-    toggle="playerctl -p spotify play-pause"
-    stop="playerctl -p spotify stop"
     next="playerctl -p spotify next"
+    stop="playerctl -p spotify stop"
+    toggle="playerctl -p spotify play-pause"
     status="playerctl -p spotify status"
     title="$(playerctl -p spotify metadata -f '{{title}}')"
 else
-    prev=""
-    toggle=""
-    stop=""
-    next=""
-    status=""
-    title="There is no mpd or spotify installed"
+    prev="" toggle="" stop="" next="" status=""
+    title="There's no mpd or spotify installed"
 fi
 
-case $1 in
-    icon)       [[ "$($status)" = *"laying"* ]] && exec echo "" || exec echo ""
+case ${1} in
+    icon)     [[ "$($status)" = *"laying"* ]] && exec echo "" || exec echo ""
     ;;
-    prev)       exec $($prev)
+    prev)     exec $($prev)
     ;;
-    toggle)     exec $($toggle)
+    toggle)   exec $($toggle)
     ;;
-    stop)       exec $($stop)
+    stop)     exec $($stop)
     ;;
-    next)       exec $($next)
+    next)     exec $($next)
     ;;
-    status)     exec echo "$($status)"
+    status)   exec echo "$($status)"
     ;;
-    title)      exec echo "$title"
+    title)    exec echo "$title"
     ;;
-    switchpl)   [[ "$($status)" = *"laying"* ]] && $($toggle) || :
-                if [[ "$CURRENT_MUSICPL" != "mpd" ]]; then
-                    sed -i 's_musicpl=".*"_musicpl="mpd"_' "$DEFAPPS_FILE"
-                elif [[ "$CURRENT_MUSICPL" != "spotify" ]]; then
-                    sed -i 's_musicpl=".*"_musicpl="spotify"_' "$DEFAPPS_FILE"
-                fi && \
-                exec "$EXNOTIFY_SEND" -u low -r 8888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nSuccessfully set as default"
+    switchpl) [[ "$($status)" = *"laying"* ]] && $($toggle) || :
+              if [[ "$CURRENT_MUSICPL" != "mpd" ]]; then
+                  sed -i 's_musicpl=".*"_musicpl="mpd"_' "$DEFAPPS_FILE"
+              elif [[ "$CURRENT_MUSICPL" != "spotify" ]]; then
+                  sed -i 's_musicpl=".*"_musicpl="spotify"_' "$DEFAPPS_FILE"
+              fi && CURRENT_MUSICPL="$("$DEFAPPS_EXEC" -g musicpl)"
+              exec "$EXNOTIFY_SEND" -u low -r 8888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>${CURRENT_MUSICPL}</u></span>\nSuccessfully set as default"
     ;;
-esac; exit $?
+esac
+
+exit $?

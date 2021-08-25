@@ -4,26 +4,26 @@
 # to run user-specific things.
 #
 # ---
-source "$HOME"/.owl4ce_var
+. "${HOME}/.owl4ce_var"
 
-# there was once a pulseaudio here
+# There was once a pulseaudio here.
 
-# UI Appearance
-{ "${VISMOD_DIR}/mode-toggle" just_ui && "$OB_TRAY"; } &> /dev/null
+# UI appearance.
+{ "${VISMOD_DIR}/mode-toggle" just_ui && "$OB_TRAY"; } 2>/dev/null
 
-# Compositor
-picom -b &> /dev/null
+# Compositor.
+picom -b 2>/dev/null
 
-# Authentication Agent - PolicyKit
-if command -v lxpolkit &> /dev/null; then
-    lxpolkit &> /dev/null &
+# Authentication agent (PolicyKit).
+if [ -n "$(command -v lxpolkit)" ]; then
+    lxpolkit 2>/dev/null &
 elif [ -x "/usr/libexec/polkit-gnome-authentication-agent-1" ]; then
-    /usr/libexec/polkit-gnome-authentication-agent-1 &> /dev/null &
+    /usr/libexec/polkit-gnome-authentication-agent-1 2>/dev/null &
 fi
 
-# Sessions Autolock
-xautolock -time "$AUTOLOCK_MINUTE" -locker "$($DEFAPPS_EXEC -g lockscreen)" -detectsleep -resetsaver -corners 00-- -cornersize 1000 \
--notifier "$EXNOTIFY_SEND -i ${ICON_GLADIENT_DIR}/lock.png 'Lockscreen' 'Will be locked in 5s from now'" -notify 5 &> /dev/null &
+# Session auto-locker.
+xautolock -time "$AUTOLOCK_MINUTE" -locker "$("$DEFAPPS_EXEC" -g lockscreen)" -detectsleep -resetsaver -corners 00-- -cornersize 1000 \
+-notifier "${EXNOTIFY_SEND} -i ${ICON_GLADIENT_DIR}/lock.png 'Lockscreen' 'Will be locked in 5s from now!'" -notify 5 2>/dev/null &
 
-# Start MPD player (+notification-sender)
+# Start the MPD player (+ notification-sender).
 "$MPD_TCD"
