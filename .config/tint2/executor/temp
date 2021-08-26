@@ -6,8 +6,10 @@ if [[ -d "${LINUX_SYS}/${TEMP_DEV}" ]]; then
     exec echo "$(expr $(cat "${LINUX_SYS}/${TEMP_DEV}/temp") / 1000)"$'\xc2\xb0C'
 elif [[ ! -d "$LINUX_SYS" ]]; then
     echo "${LINUX_SYS} is an invalid path!"
+    exit 1
 else
     echo "${TEMP_DEV} not found!"
+    exit 1
 fi
 
 exit $?

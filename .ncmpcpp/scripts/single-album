@@ -25,7 +25,7 @@ w3m() {
                     pr_img=1
                 else
                     pr_img=0
-                fi; read -rt ".5" <> <(:) || :
+                fi; read -rt .5 <> <(:) || :
                 if [[ "$pr_img" -eq 1 ]]; then # Keep aspect ratio by depend on width for both.
                     printf '%b\n%s;\n%s\n' "0;1;0;0;${w_size};${w_size};;;;;${COVER}" 3 4 | "${w3m_img_path:-false}" &>/dev/null
                 else
@@ -33,7 +33,7 @@ w3m() {
                 fi
             done
         else
-            read -rt ".5" <> <(:) || >&2 printf "${CL}${R}error:${m} xorg-xprop${NC}, ${m}xorg-xwininfo${NC}, and ${m}bc${NC} aren't installed!"
+            read -rt .5 <> <(:) || >&2 printf "${CL}${R}error:${m} xorg-xprop${NC}, ${m}xorg-xwininfo${NC}, and ${m}bc${NC} aren't installed!"
         fi
     fi
 }

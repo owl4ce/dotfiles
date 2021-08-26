@@ -20,7 +20,7 @@ APPLY_ALL() {
     sed -i 's_gtk-theme-name=.*_gtk-theme-name=Fleon_' "$GTK3_CONFIG"
     
     # xsettingsd for GTK+ live reload.
-    if [[ -n "$(command -v xsettingsd)" ]]; then
+    if [[ -x "$(command -v xsettingsd)" ]]; then
         if [[ -f "$XSETTINGSD_CONFIG" ]]; then
             sed -e 's_Net/IconThemeName.*_Net/IconThemeName "Papirus-Dark-Custom"_' \
                 -e 's_Net/ThemeName.*_Net/ThemeName "Fleon"_' -i "$XSETTINGSD_CONFIG"

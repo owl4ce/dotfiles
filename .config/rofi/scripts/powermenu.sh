@@ -7,9 +7,9 @@ rofi_command="rofi -theme themes/sidebar/five-${CHK_ROFI_MOD}.rasi"
 shutdown="" reboot="" lock="" suspend="" logout=""
 
 # systemd-logind/elogind detection.
-if [[ -n "$(command -v systemctl)" ]]; then
+if [[ -x "$(command -v systemctl)" ]]; then
     SEATCTL="systemctl"
-elif [[ -n "$(command -v loginctl)" ]]; then
+elif [[ -x "$(command -v loginctl)" ]]; then
     SEATCTL="loginctl"
 else
     exec "$EXNOTIFY_SEND" -r 1337 -i "${ICON_GLADIENT_DIR}/lock.png" "" "<b>systemd-logind</b> or <b>elogind</b> not installed nor running!"
