@@ -7,7 +7,7 @@ run() {
     while :; do
         mpc current > "$MPD_CURRENT_TRACK"
         nice -n 19 mpc idle || mpc idle
-        if [[ "$(cat "$MPD_CURRENT_TRACK")" != "$(mpc current)" ]]; then
+        if [[ "$(<"$MPD_CURRENT_TRACK")" != "$(mpc current)" ]]; then
             "${NCMPCPP_SCRIPTS_DIR}/notify"
         fi
     done
@@ -17,7 +17,7 @@ run() {
     if pgrep mpd || pstree | grep -qo mpd; then
         run
     else
-        if mpd; then
+        if nice -n 1 mpd || mpd; then
             run
         else
             exec "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>mpd</u></span>\nFailed to start!"

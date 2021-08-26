@@ -3,8 +3,7 @@ LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 type -p mp{d,c} convert &>/dev/null || exit 1
 
-MUSIC_DIR="$CHK_MPD_MUSIC_DIR" COVER="$NCMPCPP_NOTIF_COVER"
-COVER_PNG="$(echo "$COVER" | sed 's_.jpg_.png_')"
+COVER="$NCMPCPP_NOTIF_COVER" COVER_PNG="$(echo "$COVER" | sed 's_.jpg_.png_')"
 
 notify_none() {
     "$EXNOTIFY_SEND" -u normal -r 7777 -i "$NOTIF_MUSIC_ICON" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
@@ -19,7 +18,7 @@ notify_aart() {
     file="$(mpc --format '%file%' current -p 6600)"
     album_dir="${file%/*}"
     [[ -z "$album_dir" ]] && exit 1 || rm -f "$COVER_PNG" &>/dev/null
-    album_dir="${MUSIC_DIR}/${album_dir}"
+    album_dir="${CHK_MPD_MUSIC_DIR}/${album_dir}"
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
     src="$(printf "$covers" | sed 1q)"
     if [[ -n "$src" ]]; then # Resize the image width to 80px (ffmpeg/imagemagick). Use ffmpeg for fast conversion.
