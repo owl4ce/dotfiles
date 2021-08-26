@@ -31,16 +31,16 @@ This is my **personal configuration** for my favorite openbox window manager and
 I hope you understand everything here. :wink:
 
 Here are some details about my setup ..
-- **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changeable modes!
+- **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 modes!
 - **Shell**                        • [Zsh](https://www.zsh.org/) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
 - **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>available</kbd>
 - **Openbox Menu**                 • [obmenu-generator](https://github.com/trizen/obmenu-generator)
-- **Panel**                        • [Tint2](https://gitlab.com/o9000/tint2) :shaved_ice: material icon font!
+- **Panel**                        • [Tint2](https://gitlab.com/o9000/tint2) :shaved_ice: material icons font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
 - **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
-- **Music Player**                 • [MPD](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: *riced!*
+- **Music Player**                 • [MPD](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: riced!
 - **GUI Basic-IDE**                • [Geany - The Flyweight IDE](https://www.geany.org/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
@@ -189,7 +189,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
    > I haven't tested it yet.
   
-   - [Install the .deb package](https://software.opensuse.org/download.html?project=home%3AHead_on_a_Stick%3Aobmenu-generator&package=obmenu-generator);
+   - [Install the **.deb** package](https://software.opensuse.org/download.html?project=home%3AHead_on_a_Stick%3Aobmenu-generator&package=obmenu-generator);
    - [Build manually from source](https://github.com/trizen/obmenu-generator/blob/master/INSTALL.md).
   
   </details>
@@ -237,7 +237,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
      
    - [Void (Linux)](https://voidlinux.org/packages/)
    
-   > Maybe you can reference the package name with Arch Linux.  
+   > You can reference the packages name with Arch Linux.  
    > For Gentoo/Linux, I recommend to enabling [keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages or using [live ebuild](https://wiki.gentoo.org/wiki/Ebuild).
   
    If it's not there, build it manually from git source code or from elsewhere.
@@ -587,7 +587,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   ```
   
 - **MPD Music Directory**  
-  [`~/.mpd/mpd.conf`](./.mpd/mpd.conf)
+  [`~/.mpd/mpd.conf`](./.mpd/mpd.conf#L6)
   ```cfg
   ...
   
@@ -603,7 +603,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   It's easy, just put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp).
 
 - **Audio Server <kbd>optional</kbd>**  
-  [`~/.config/openbox/autostart`](./.config/openbox/autostart)  
+  [`~/.config/openbox/autostart`](./.config/openbox/autostart#L9)  
   <details>
   <summary>This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.</summary>
   
@@ -642,7 +642,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   </details>
   
 - **QT Themer (env var) <kbd>optional</kbd>**  
-  [`~/.config/openbox/environment`](./.config/openbox/environment)  
+  [`~/.config/openbox/environment`](./.config/openbox/environment#L7-L8)  
   This is optional if you are having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then re-login **openbox-session**.
   ```cfg
   ...
@@ -654,7 +654,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   ```
   
 - **Neofetch Image Source**  
-  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf)
+  [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf#L641-L665)
   ```cfg
   ...
   
@@ -721,7 +721,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 ### <p align="center">Color Schemes</p>
 <p align="center"><a href="#color-schemes"><img src="https://i.imgur.com/QEUTWUe.png" alt="owl4ce.color-schemes" height="60%" width="100%"></a></p>
 
-<p align="center">© <a href="https://github.com/owl4ce">owl4ce</a> - <a href="https://www.nordtheme.com">Nord Color Palette-Compatible</a></p>
+<p align="center">© <a href="https://github.com/owl4ce">owl4ce</a> - <a href="https://www.nordtheme.com">Nord Color Palette-compatible</a></p>
 
 <table border="0">
 <tr>
