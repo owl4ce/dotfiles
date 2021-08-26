@@ -31,7 +31,7 @@ This is my **personal configuration** for my favorite openbox window manager and
 I hope you understand everything here. :wink:
 
 Here are some details about my setup ..
-- **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changable mode!
+- **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 changeable modes!
 - **Shell**                        • [Zsh](https://www.zsh.org/) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
 - **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>available</kbd>
 - **Openbox Menu**                 • [obmenu-generator](https://github.com/trizen/obmenu-generator)
@@ -40,7 +40,7 @@ Here are some details about my setup ..
 - **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
-- **Music Player**                 • [Mpd](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: *riced!*
+- **Music Player**                 • [MPD](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: *riced!*
 - **GUI Basic-IDE**                • [Geany - The Flyweight IDE](https://www.geany.org/)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
