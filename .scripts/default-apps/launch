@@ -24,12 +24,12 @@ apps() {
 }
 
 case ${1} in
-    -g)    if [[ -z "${*:2}" ]]; then
+    -g)    if [[ -z "${@:2}" ]]; then
                err "Please define the apps!"
-           elif grep -qo "${*:2}=" "$DEFAPPS_FILE"; then
-               exec grep -oP "${*:2}=\"\K[^\"]+" "$DEFAPPS_FILE"
+           elif grep -qo "${@:2}=" "$DEFAPPS_FILE"; then
+               exec grep -oP "${@:2}=\"\K[^\"]+" "$DEFAPPS_FILE"
            else
-               err "${M}${*:2}${NC} is not in the list. Define it first!"
+               err "${M}${@:2}${NC} is not in the list. Define it first!"
            fi
     ;;
     -e)    printf "${G} > ${NC}Editor of your choice ${M}(${NC}e.g nano${M})${NC}: "; read TEXT_EDITOR
