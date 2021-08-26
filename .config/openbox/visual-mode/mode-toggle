@@ -53,9 +53,9 @@ case ${1} in
     ;;
     *)       kill_tray; [[ -n "$CHK_MINMOD" ]] && MOD="_min"
              if [[ "$CHK_VISMOD" != "mechanical" ]]; then
-                 mechanical "$MOD"
+                 "mechanical${MOD}"
              elif [[ "$CHK_VISMOD" != "eyecandy" ]]; then
-                 eyecandy "$MOD"
+                 "eyecandy${MOD}"
              fi && exec "$OB_TRAY" &>/dev/null
     ;;
 esac
