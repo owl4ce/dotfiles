@@ -1,50 +1,49 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
-RB="\e[5;31m" GB="\e[5;32m" Y="\e[1;33m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
-[[ -n "$CHK_MINMOD" ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
+case ${1} in
+    swap)  [[ -n "$CHK_MINMOD" ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
+           if [[ "$CHK_OB_BUTTON_LOC" != "<titleLayout>LIMC</titleLayout>" ]]; then
+               sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>LIMC</titleLayout>_' "$OB_CONFIG"
+               echo "right" > "$BTN_LOC" 
+           elif [[ "$CHK_OB_BUTTON_LOC" != "<titleLayout>CIML</titleLayout>" ]]; then
+               sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>CIML</titleLayout>_' "$OB_CONFIG"
+               echo "left" > "$BTN_LOC"
+           fi && exec openbox --reconfigure
+    ;;
+    decor) DECOR_LINE="$(($(cat -n "$OB_CONFIG" | grep '<application class="\*" type="normal">' | grep -oE '[0-9]+')+1))"
+           if cat -n "$OB_CONFIG" | grep -qo "${DECOR_LINE}	        <decor>yes</decor>"; then
+               sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>no</decor>_" "$OB_CONFIG"
+           elif cat -n "$OB_CONFIG" | grep -qo "${DECOR_LINE}	        <decor>no</decor>"; then
+               sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>yes</decor>_" "$OB_CONFIG"
+           fi && exec openbox --reconfigure --restart
+    ;;
+    *)     RB="\e[5;31m" GB="\e[5;32m" Y="\e[1;33m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m" r="\e[0;31m"
+           [[ -n "$CHK_MINMOD" ]] && CAP="$(echo "${CHK_MINMOD} " | sed 's/.*/\u&/')" || :
+           CAP="${CAP}$(echo "$CHK_VISMOD" | sed 's/.*/\u&/')" # This is capitalization area.
+           n=0; printf "\ec${C}-${GB}-${NC}${C}- ${W}Select button style for ${CAP} Theme${NC}\n"
+           for button in "$OB_BUTTON_DIR"/*; do
+               n="$((n+1))"
+               btnflt="$(echo "$button" | grep -oE '[^/]+$')"
+               printf "${M}[${NC}%s${M}] ${r}%s\n" "$n" "$btnflt"
+               eval "button${n}=\$button"
+           done
+           printf "${C}-${GB}-${NC}${C}- ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
+           read -r num; num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"
+           if [[ "$num" -eq 0 || "$num" -gt "$n" ]]; then
+               >&2 printf "${Y}[${RB}!${NC}${Y}] ${RB}Wrong selection :(\n"
+               exit 1
+           else
+               eval "BTN=\$button${num}" # Write the selected.
+               [[ "$CHK_VISMOD" = "mechanical" ]] && BTN_DIR="$MECH_BUTTON_DIR" || :
+               [[ "$CHK_VISMOD" = "eyecandy" ]] && BTN_DIR="$EYC_BUTTON_DIR" || :
+               cp -f "$BTN"/* "$BTN_DIR"/. && openbox --reconfigure || exit 1
+               selected="$(echo "$BTN" | grep -oE '[^/]+$')"
+               [[ -n "$CHK_MINMOD" ]] && BTN_FILE="$MINMOD_BUTTON_FILE" \
+               || BTN_FILE="$VISMOD_BUTTON_FILE"; echo "$selected" > "$BTN_FILE"
+               printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${r}${selected}\n"
+           fi
+    ;;
+esac
 
-case $1 in
-    swap)   if [[ "$CHK_OB_BUTTON_LOC" != *"<titleLayout>LIMC</titleLayout>"* ]]; then
-                sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' "$OB_CONFIG"
-                echo "right" > "$BTN_LOC" && exec openbox --reconfigure
-            elif [[ "$CHK_OB_BUTTON_LOC" != *"<titleLayout>CIML</titleLayout>"* ]]; then
-                sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' "$OB_CONFIG"
-                echo "left" > "$BTN_LOC" && exec openbox --reconfigure
-            fi
-    ;;
-    decor)  DECOR_LINE="806"
-            if { cat -n "$OB_CONFIG" | grep "${DECOR_LINE}	        <decor>yes</decor>"; } &> /dev/null; then
-                sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>no</decor>_" "$OB_CONFIG"
-            elif { cat -n "$OB_CONFIG" | grep "${DECOR_LINE}	        <decor>no</decor>"; } &> /dev/null; then
-                sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>yes</decor>_" "$OB_CONFIG"
-            fi && \
-            exec openbox --reconfigure --restart
-    ;;
-    *)      capitalize() { echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"; }
-            [[ -n "$CHK_MINMOD" ]] && CHK_MINMOD="$(echo "$(capitalize ${CHK_MINMOD}) ")" || :
-            printf "\ec${C}-${GB}-${NC}${C}- ${W}Select button style for ${CHK_MINMOD}$(capitalize ${CHK_VISMOD}) Theme${NC}\n"
-            n=0
-            for button in "$OB_BUTTON_DIR"/*; do
-                n="$((n+1))"
-                buttonfilt="$(echo "$button" | grep -oE '[^/]+$')"
-                printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$buttonfilt"
-                eval "button${n}=\$button"
-            done
-            printf "${C}-${GB}-${NC}${C}- ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
-            read -r num
-            num="$(printf '%s\n' "$num" | tr -dc '[:digit:]')"                
-            if [[ "$num" -eq 0 ]] || [[ "$num" -gt "$n" ]]; then
-                printf "${Y}[${RB}!${NC}${Y}] ${RB}Wrong selection\n" >&2; exit 1
-            else
-                eval "BTN=\$button${num}"
-                [[ "$CHK_VISMOD" = *"eyecandy"* ]] && BTN_DIR="$EYC_BUTTON_DIR" || BTN_DIR="$MECH_BUTTON_DIR"
-                cp -f "$BTN"/* "$BTN_DIR"/.
-                openbox --reconfigure
-                buttonselfilt="$(echo "$BTN" | grep -oE '[^/]+$')"
-                [[ -n "$CHK_MINMOD" ]] && BTN_FILE="$MINMOD_BUTTON_FILE" || BTN_FILE="$VISMOD_BUTTON_FILE"
-                echo "$buttonselfilt" > "$BTN_FILE"
-                printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${NC}${buttonselfilt}\n"
-            fi
-    ;;
-esac; exit $?
+exit $?

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { "$EXNOTIFY_SEND" -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
-command -v {"urxvt","termite"} &> /dev/null || noterr
+command -v urxvt termite &>/dev/null || noterr
 
-# Set URxvt Icon File Automatically and set URxvt URL Launcher from owl4ce_var
-sed -i "s_URxvt.iconFile:.*_URxvt.iconFile:                   ${TERM_ICON}_" "$XRESOURCES_CONFIG"
-sed -i "s_URxvt.url-select.launcher:.*_URxvt.url-select.launcher:        ${WEB_BROWSER}_" "$XRESOURCES_CONFIG"
+# Set the URxvt icon file (auto) and URL launcher from owl4ce_var.
+sed -e "s_URxvt.url-select.launcher:.*_URxvt.url-select.launcher:        ${WEB_BROWSER}_" \
+    -e "s_URxvt.iconFile:.*_URxvt.iconFile:                   ${TERM_ICON}_" -i "$XRESOURCES_CONFIG"
     
 TRANS() {
     if [[ "${URXVT:-100}" -lt 100 ]]; then
@@ -14,99 +14,75 @@ TRANS() {
     else
         sed -i 's_URxvt.depth:.*_URxvt.depth:                      24_' "$XRESOURCES_CONFIG"
     fi
-    case $1 in
+    case ${1} in
         apply)  if [[  "$current" != *"!"* ]]; then
-                    sed -i "68s_\[.*\]_\[${URXVT:-100}\]_" "$XRESOURCES_CONFIG"
-                    sed -i "84s_\[.*\]_\[100\]_" "$XRESOURCES_CONFIG"
+                    sed -e "68s_\[.*\]_\[${URXVT:-100}\]_" \
+                        -e "84s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
                 else
-                    sed -i "68s_\[.*\]_\[100\]_" "$XRESOURCES_CONFIG"
-                    sed -i "84s_\[.*\]_\[${URXVT:-100}\]_" "$XRESOURCES_CONFIG"
+                    sed -e "84s_\[.*\]_\[${URXVT:-100}\]_" \
+                        -e "68s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
                 fi
         ;;
         invert) if [[  "$current" = *"!"* ]]; then
-                    sed -i "68s_\[.*\]_\[${URXVT:-100}\]_" "$XRESOURCES_CONFIG"
-                    sed -i "84s_\[.*\]_\[100\]_" "$XRESOURCES_CONFIG"
+                    sed -e "68s_\[.*\]_\[${URXVT:-100}\]_" \
+                        -e "84s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
                 else
-                    sed -i "68s_\[.*\]_\[100\]_" "$XRESOURCES_CONFIG"
-                    sed -i "84s_\[.*\]_\[${URXVT:-100}\]_" "$XRESOURCES_CONFIG"
+                    sed -e "84s_\[.*\]_\[${URXVT:-100}\]_" \
+                        -e "68s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
                 fi
         ;;
     esac
 }
 
-CURRENT_TERM="$($DEFAPPS_EXEC -g terminal)"
-
+CURRENT_TERM="$("$DEFAPPS_EXEC" -g terminal)"
 if [[ "$CURRENT_TERM" = "urxvt" ]]; then
     current="$(grep 'foreground' "$XRESOURCES_CONFIG" | sed 1q | grep '!')"
-    case $1 in
-        trans)  TRANS apply
+    case ${1} in
+        trans) TRANS apply
         ;;
-        *)      TRANS invert
-                if [[  "$current" != *"!"* ]]; then
-                    sed -i '103s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '104s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '105s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '107s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '108s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '110s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '111s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '113s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '114s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '115s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '117s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '118s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '120s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '121s_!__' "$XRESOURCES_CONFIG"
-                else
-                    sed -i '103s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '104s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '105s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '107s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '108s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '110s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '111s_!__' "$XRESOURCES_CONFIG"
-                    sed -i '113s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '114s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '115s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '117s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '118s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '120s_*_!*_' "$XRESOURCES_CONFIG"
-                    sed -i '121s_*_!*_' "$XRESOURCES_CONFIG"
-                fi
+        *)     TRANS invert
+               if [[  "$current" != *"!"* ]]; then
+                   sed -e '103s_*_!*_' -e '104s_*_!*_' \
+                       -e '105s_*_!*_' -e '107s_*_!*_' \
+                       -e '108s_*_!*_' -e '110s_*_!*_' \
+                       -e '111s_*_!*_' -e '113s_!__' \
+                       -e '114s_!__' -e '115s_!__' \
+                       -e '117s_!__' -e '118s_!__' \
+                       -e '120s_!__' -e '121s_!__' \
+                       -i "$XRESOURCES_CONFIG"
+               else
+                   sed -e '103s_!__' -e '104s_!__' \
+                       -e '105s_!__' -e '107s_!__' \
+                       -e '108s_!__' -e '110s_!__' \
+                       -e '111s_!__' -e '113s_*_!*_' \
+                       -e '114s_*_!*_' -e '115s_*_!*_' \
+                       -e '117s_*_!*_' -e '118s_*_!*_' \
+                       -e '120s_*_!*_' -e '121s_*_!*_' \
+                       -i "$XRESOURCES_CONFIG"
+               fi
             ;;
-        esac
-        xrdb "$XRESOURCES_CONFIG" &
+        esac && xrdb "$XRESOURCES_CONFIG" &>/dev/null &
 elif [[ "$CURRENT_TERM" = "termite" ]]; then
     current="$(grep '#foreground = ' "$TERMITE_CONFIG" | sed 1q)"
     if [[ "$current" != *"#foreground = #F9F9F9"* ]]; then
-        sed -i '79s_foreground_#foreground_' "$TERMITE_CONFIG"
-        sed -i '80s_foreground_#foreground_' "$TERMITE_CONFIG"
-        sed -i '81s_background_#background_' "$TERMITE_CONFIG"
-        sed -i '90s_#foreground_foreground_' "$TERMITE_CONFIG"
-        sed -i '91s_#foreground_foreground_' "$TERMITE_CONFIG"
-        sed -i '92s_#background_background_' "$TERMITE_CONFIG"
-        sed -i '93s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '94s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '86s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '87s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '94s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '95s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '97s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '98s_#color_color_' "$TERMITE_CONFIG"
+        sed -e '73s_foreground_#foreground_' -e '74s_foreground_#foreground_' \
+            -e '75s_background_#background_' -e '84s_#foreground_foreground_' \
+            -e '85s_#foreground_foreground_' -e '86s_#background_background_' \
+            -e '77s_color_#color_' -e '78s_color_#color_' \
+            -e '80s_color_#color_' -e '81s_color_#color_' \
+            -e '88s_#color_color_' -e '89s_#color_color_' \
+            -e '91s_#color_color_' -e '92s_#color_color_' \
+            -i "$TERMITE_CONFIG"
     else
-        sed -i '79s_#foreground_foreground_' "$TERMITE_CONFIG"
-        sed -i '80s_#foreground_foreground_' "$TERMITE_CONFIG"
-        sed -i '81s_#background_background_' "$TERMITE_CONFIG"
-        sed -i '90s_foreground_#foreground_' "$TERMITE_CONFIG"
-        sed -i '91s_foreground_#foreground_' "$TERMITE_CONFIG"
-        sed -i '92s_background_#background_' "$TERMITE_CONFIG"
-        sed -i '93s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '94s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '86s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '87s_#color_color_' "$TERMITE_CONFIG"
-        sed -i '94s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '95s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '97s_color_#color_' "$TERMITE_CONFIG"
-        sed -i '98s_color_#color_' "$TERMITE_CONFIG"
+        sed -e '73s_#foreground_foreground_' -e '74s_#foreground_foreground_' \
+            -e '75s_#background_background_' -e '84s_foreground_#foreground_' \
+            -e '85s_foreground_#foreground_' -e '86s_background_#background_' \
+            -e '77s_#color_color_' -e '78s_#color_color_' \
+            -e '80s_#color_color_' -e '81s_#color_color_' \
+            -e '88s_color_#color_' -e '89s_color_#color_' \
+            -e '91s_color_#color_' -e '92s_color_#color_' \
+            -i "$TERMITE_CONFIG"
     fi
-fi; exit $?
+fi
+
+exit $?

@@ -1,64 +1,61 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
-{ type -p {"mpd","mpc"} && command -v {"ffmpeg","convert"}; } &> /dev/null || exit 1
+{ type -p mp{d,c} && command -v ffmpeg convert; } &>/dev/null || exit 1
+
+CL="\ec" R="\e[1;31m" m="\e[0;35m" NC="\e[0m"
+MUSIC_DIR="$CHK_MPD_MUSIC_DIR" COVER="$NCMPCPP_COVER"
 
 w3m() {
-    [[ "$1" = "clear" ]] && printf "\ec" && exit 0 || :
-    shopt -s nullglob
-    w3m_paths=({/usr/{local/,},~/.nix-profile/}{lib,libexec,lib64,libexec64}/w3m/w3mi*)
-    shopt -u nullglob
-    
-    [[ -x "${w3m_paths[0]}" ]] && w3m_img_path="${w3m_paths[0]}" || :
-    if type -p {"xprop","xwininfo","bc"} &> /dev/null; then
-        win_id="$(xprop -root _NET_ACTIVE_WINDOW | grep -oE '[^# ]+$')"
-        while :; do
-            get_width="$(xwininfo -id $win_id | grep -oP 'Width: \K[^.*]+$')"
-            get_height="$(xwininfo -id $win_id | grep -oP 'Height: \K[^.*]+$')"
-            if [[ -n "$get_width" || -n "$get_height" ]]; then
-                primg="1" 
-                w_size="$(bc <<< ${get_width}/1.166)"
-                h_size="$(bc <<< ${get_height}/1.29)"
-            else
-                primg="0"
-                printf "\ec\e[1;31merror: \e[0mwindow \e[0;32mwidth\e[0m and/or \e[0;32mheight\e[0m not valid!" >&2
-            fi
-            read -rt ".5" <> <(:) || :
-            # Keep aspect ratio by depend on width for both
-            if [[ "$primg" -eq 1 ]]; then
-                printf '%b\n%s;\n%s\n' "0;1;0;0;${w_size};${w_size};;;;;${COVER}" 3 4 | "${w3m_img_path:-false}" &> /dev/null
-            fi
-        done
+    if [[ "$1" = "clear" ]]; then
+        printf "$CL"
     else
-        read -rt ".5" <> <(:) || :
-        printf "\ec\e[1;31merror: \e[0;32mxorg-xprop\e[0m, \e[0;32mxorg-xwininfo\e[0m, and \e[0;32mbc\e[0m not installed!" >&2
+        shopt -s nullglob
+        w3m_paths=({/usr/{local/,},~/.nix-profile/}{lib,libexec,lib64,libexec64}/w3m/w3mi*)
+        shopt -u nullglob
+        [[ -x "${w3m_paths[0]}" ]] && w3m_img_path="${w3m_paths[0]}" || :
+        if type -p x{prop,wininfo} bc &>/dev/null; then
+            win_id="$(xprop -root _NET_ACTIVE_WINDOW | grep -oE '[^# ]+$')"
+            while :; do
+                get_w="$(2>/dev/null xwininfo -id "$win_id" | grep -oP 'Width: \K[^.*]+$')"
+                get_h="$(2>/dev/null xwininfo -id "$win_id" | grep -oP 'Height: \K[^.*]+$')"
+                if [[ -n "$get_w" || -n "$get_h" ]]; then
+                    w_size="$(bc <<< "${get_w}/1.166")"
+                    h_size="$(bc <<< "${get_h}/1.29")"
+                    pr_img=1
+                else
+                    pr_img=0
+                fi; read -rt .5 <> <(:) || :
+                if [[ "$pr_img" -eq 1 ]]; then # Keep aspect ratio by depend on width for both.
+                    printf '%b\n%s;\n%s\n' "0;1;0;0;${w_size};${w_size};;;;;${COVER}" 3 4 | "${w3m_img_path:-false}" &>/dev/null
+                else
+                    >&2 printf "${CL}${R}error:${NC} window ${m}width${NC} or ${m}height${NC} invalid!"
+                fi
+            done
+        else
+            read -rt .5 <> <(:) || >&2 printf "${CL}${R}error:${m} xorg-xprop${NC}, ${m}xorg-xwininfo${NC}, and ${m}bc${NC} aren't installed!"
+        fi
     fi
 }
 
 pixbuf() {
-    [[ "$1" = "clear" ]] && printf "\e]20;;100x100+1000+1000\a" && exit 0 || :
-    printf "\e]20;${COVER};86x86+04+04:op=keep-aspect\a"
+    if [[ "$1" = "clear" ]]; then
+        printf "\e]20;;100x100+1000+1000\a"
+    else
+        printf "\e]20;${COVER};86x86+04+04:op=keep-aspect\a"
+    fi
 }
 
-MUSIC_DIR="$CHK_MPD_MUSIC_DIR"
-COVER="$NCMPCPP_COVER"
-
 {
-    album="$(mpc --format %album% current -p 6600)"
-    file="$(mpc --format %file% current -p 6600)"
+    album="$(mpc --format '%album%' current -p 6600)"
+    file="$(mpc --format '%file%' current -p 6600)"
     album_dir="${file%/*}"
-    [[ -z "$album_dir" ]] && exit 1 || :
+    [[ -z "$album_dir" ]] && exit 1 || rm -f "$COVER" &>/dev/null
     album_dir="${MUSIC_DIR}/${album_dir}"
-
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
     src="$(printf "$covers" | sed 1q)"
-    rm -f "$COVER" &> /dev/null
-    
-    # Album Art
-    if [[ -n "$src" ]]; then
-        # Resize the image's width to 500px (ffmpeg/imagemagick)
-        { ffmpeg -i "$src" -vf scale=500:500 "$COVER" \
-        || convert "$src" -resize 500x "$COVER"; } &> /dev/null
+    if [[ -n "$src" ]]; then # Resize the image width to 500px (ffmpeg/imagemagick).
+        { ffmpeg -i "$src" -vf scale=500:500 "$COVER" || convert "$src" -resize 500x "$COVER"; } &>/dev/null
         if [[ -f "$COVER" ]]; then
             "$NCMPCPP_ALBUMART_BACKEND"
         else

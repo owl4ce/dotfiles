@@ -1,4 +1,4 @@
-#! perl
+#!/usr/bin/env perl
 # TabbedEx plugin for rxvt-unicode; based on original tabbed plugin.
 # https://github.com/mina86/urxvt-tabbedex
 # Copyright 2006-2019 tabbed and tabbedex authors

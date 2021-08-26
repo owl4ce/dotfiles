@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
-source "$HOME"/.owl4ce_var
+. "${HOME}/.owl4ce_var"
 
-command -v {"urxvt","ncmpcpp"} &> /dev/null || exit 1
+command -v urxvt ncmpcpp &>/dev/null || exit 1
 
-if [[ "$($DEFAPPS_EXEC -g musicpl)" = "mpd" ]]; then
-    {
-        case $1 in
-            albumart)           exec urxvt -g 84x13 -e ncmpcpp -c "${NCMPCPP_DIR}/albumart"
-            ;;
-            single-albumart)    exec urxvt -g 47x18 -e ncmpcpp -c "${NCMPCPP_DIR}/single-albumart"
-            ;;
-            *)                  exec "$DEFAPPS_EXEC" terminal -e ncmpcpp
-            ;;
-        esac
-    } &> /dev/null &
+CURRENT_MUSICPL="$("$DEFAPPS_EXEC" -g musicpl)"
+if [[ "$CURRENT_MUSICPL" = "mpd" ]]; then
+  { case ${1} in
+        albumart)        exec urxvt -g 84x13 -e ncmpcpp -c "${NCMPCPP_DIR}/albumart"
+        ;;
+        single-albumart) exec urxvt -g 47x18 -e ncmpcpp -c "${NCMPCPP_DIR}/single-albumart"
+        ;;
+        *)               exec "$DEFAPPS_EXEC" terminal -e ncmpcpp
+        ;;
+    esac; } &>/dev/null &
 else
-    { "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>$($DEFAPPS_EXEC -g musicpl)</u></span>\nCurrently is not set to <u>mpd</u>"; exit 1; }
-fi; exit $?
+    exec "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>${CURRENT_MUSICPL}</u></span>\nCurrently not set to <u>mpd</u>"
+fi
+
+exit $?

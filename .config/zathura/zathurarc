@@ -1,5 +1,5 @@
-# Zathura Configuration File
-
+# Zathura runtime configuration
+# ---
 set selection-clipboard clipboard
 set adjust-open "best-fit"
 set pages-per-row 1

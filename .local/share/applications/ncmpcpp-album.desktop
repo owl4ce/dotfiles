@@ -4,6 +4,6 @@ Terminal=false
 Name=Ncmpcpp - Album Art
 GenericName=Music Player: URxvt
 Categories=AudioVideo;Audio;Player;
-Exec=bash -c "$HOME/.ncmpcpp/launch albumart"
+Exec=bash -c "${HOME}/.ncmpcpp/launch albumart"
 Type=Application
 Icon=musique

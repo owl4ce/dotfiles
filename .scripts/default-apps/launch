@@ -1,50 +1,52 @@
 #!/usr/bin/env bash
-source "$HOME"/.owl4ce_var
-R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
+. "${HOME}/.owl4ce_var"
 
-err() { printf "${R} > error:${NC} $@\n"; exit 1; }
+R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" W="\e[1;37m" NC="\e[0m" r="\e[0;31m"
+err() { printf "${R} > error:${NC} ${@}\n"; exit 1; }
 
 apps() {
-    printf "${G}USAGE:${NC} launch ${M}<${NC}apps${M}>\n${C}Available apps:\n"
-    n=0
+    printf "${W}USAGE:${NC}\n"
+    printf "${M}[${NC}\$${M}]${NC} launch ${M}[${r}apps${M}]\n"
+    n=0; printf "\n${W}Available apps:${NC}\n"
     for list in $(sed 's_=".*"__' "$DEFAPPS_FILE"); do
         n="$((n+1))"
-        printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$list"
+        printf "${M}[${NC}%s${M}] ${r}%s\n" "$n" "$list"
         eval "list${n}=\$list"
-    done && \
-    printf "${R}---\n${C}Will run:\n"
-    n=0
+    done
+    n=0; printf "\n${W}Will run:\n"
     for openlist in $(grep -oP '.*="\K[^"]+' "$DEFAPPS_FILE"); do
         n="$((n+1))"
-        printf "${M}[${NC}%s${M}] ${NC}%s\n" "$n" "$openlist"
+        printf "${M}[${NC}%s${M}] ${r}%s\n" "$n" "$openlist"
         eval "openlist${n}=\$openlist"
     done
-    printf "${R}---\n${G}Use ${NC}-e, --edit${G} to edit apps list.\n"
-    printf "${G}Use ${NC}-g, --get apps${G} to get current default apps.${NC}\n"
+    printf "\n${G}Use ${NC}-e${G} to edit apps list."
+    printf "\n${G}Use ${NC}-g ${M}[${r}apps${M}]${G} to get current default apps.${NC}\n"
 }
 
-case $1 in
-    -g|--get)   if [[ -z "${*:2}" ]]; then
-                    err "Please define the apps!"
-                elif [[ -n "$(grep -o "${*:2}=" $DEFAPPS_FILE)" ]]; then
-                    exec grep -oP "${*:2}=\"\K[^\"]+" "$DEFAPPS_FILE"
-                else
-                    err "${M}${*:2}${NC} is not in list. Please define it first!"
-                fi
+case ${1} in
+    -g)    if [[ -z "${*:2}" ]]; then
+               err "Please define the apps!"
+           elif grep -qo "${*:2}=" "$DEFAPPS_FILE"; then
+               exec grep -oP "${*:2}=\"\K[^\"]+" "$DEFAPPS_FILE"
+           else
+               err "${M}${*:2}${NC} is not in the list. Define it first!"
+           fi
     ;;
-    -e|--edit)  printf "${G} > ${NC}Editor of your choice ${M}(${NC}e.g: nvim${M})${NC}: "; read "TEXT_EDITOR"
-                type -p "$TEXT_EDITOR" &> /dev/null || err "${M}$TEXT_EDITOR${NC} is not installed. Please install it first!"
-                exec "$TEXT_EDITOR" "$DEFAPPS_FILE" || exit 1
+    -e)    printf "${G} > ${NC}Editor of your choice ${M}(${NC}e.g nano${M})${NC}: "; read TEXT_EDITOR
+           type -p "$TEXT_EDITOR" &>/dev/null || err "${M}${TEXT_EDITOR}${NC} is not installed. Install it first!"
+           exec "$TEXT_EDITOR" "$DEFAPPS_FILE" || exit 1
     ;;
-    ""|-*)      apps
+    ''|-*) apps
     ;;
-    *)          if [[ -n "$(grep -o "${1}=\".*\"" $DEFAPPS_FILE)" ]]; then
-                    FILT="$(grep -oP "${1}=\"\K[^\"]+" $DEFAPPS_FILE)"
-                    OPTS="$(echo $@ | tr ' ' '\ 'i)"
-                    [[ -n "$2" ]] && exec $("$FILT" ${OPTS} &> /dev/null &) && exit 0
-                    [[ -n "$1" ]] && exec $("$FILT" &> /dev/null &) && exit 0
-                else
-                    err "${M}$1${NC} is not in list. Please define it first!"
-                fi
+    *)     if grep -qo "${1}=\".*\"" "$DEFAPPS_FILE"; then
+               FILT="$(grep -oP "${1}=\"\K[^\"]+" "$DEFAPPS_FILE")"
+               OPTS="$(echo ${@} | tr ' ' '\ 'i)"
+               [[ -n "$2" ]] && exec $(${FILT} ${OPTS} &>/dev/null &) && exit 0
+               [[ -n "$1" ]] && exec $(${FILT} &>/dev/null &) && exit 0
+           else
+               err "${M}${1}${NC} is not in the list. Define it first!"
+           fi
     ;;
-esac; exit $?
+esac
+
+exit $?

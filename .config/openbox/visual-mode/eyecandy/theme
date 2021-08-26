@@ -1,73 +1,73 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 PARTIALLY() {
-    # Set Openbox Colors from owl4ce_var
-    sed -i "s/menu.title.text.color:.*/menu.title.text.color: ${EYEC_OB_MENU_TTL}/" "$EYC_BUTTON_DIR"/themerc
-    sed -i "s/menu.items.active.text.color:.*/menu.items.active.text.color: ${EYEC_OB_MENU_ITM}/" "$EYC_BUTTON_DIR"/themerc
-    
-    # Set Rofi Accent Color from owl4ce_var
-    sed -i "s_accent:.*;_accent:           ${EYEC_ROFI_ACCENT};_" "$ROFI_COLORSCHEMES_DIR"/fullscreen.rasi
-    sed -i "s_accent:.*;_accent:           ${EYEC_ROFI_ACCENT};_" "$ROFI_COLORSCHEMES_DIR"/sidebar.rasi
-    sed -i "s_foreground:.*;_foreground:       ${EYEC_ROFI_FRGRND};_" "$ROFI_COLORSCHEMES_DIR"/sidebar.rasi
+    # Set the openbox menu color from owl4ce_var.
+    sed -e "s/menu.items.active.text.color:.*/menu.items.active.text.color: ${EYEC_OB_MENU_ITM}/" \
+        -e "s/menu.title.text.color:.*/menu.title.text.color: ${EYEC_OB_MENU_TTL}/" -i "${EYC_BUTTON_DIR}/themerc"
+    # Set the rofi accent color from owl4ce_var.
+    sed -i "s_accent:.*;_accent:           ${EYEC_ROFI_ACCENT};_" "${ROFI_COLORSCHEMES_DIR}/fullscreen.rasi"
+    sed -e "s_foreground:.*;_foreground:       ${EYEC_ROFI_FRGRND};_" \
+        -e "s_accent:.*;_accent:           ${EYEC_ROFI_ACCENT};_" -i "${ROFI_COLORSCHEMES_DIR}/sidebar.rasi"
 }
 
-ALL() {
+APPLY_ALL() {
+    # Call this first.
     PARTIALLY
     
-    # GTK Theme
+    # GTK themes.
     sed -i 's_gtk-theme-name=.*_gtk-theme-name="Sweetly"_' "$GTK2_CONFIG"
     sed -i 's_gtk-theme-name=.*_gtk-theme-name=Sweetly_' "$GTK3_CONFIG"
     
-    # Xsettingsd (GTK+ live reload)
-    if type -p "xsettingsd" &> /dev/null; then
+    # xsettingsd for GTK+ live reload.
+    if [[ -x "$(command -v xsettingsd)" ]]; then
         if [[ -f "$XSETTINGSD_CONFIG" ]]; then
-            sed -i 's_Net/IconThemeName.*_Net/IconThemeName "Papirus-Custom"_' "$XSETTINGSD_CONFIG"
-            sed -i 's_Net/ThemeName.*_Net/ThemeName "Sweetly"_' "$XSETTINGSD_CONFIG"
-        fi
-        xsettingsd &> /dev/null &
-        read -rt "2" <> <(:) || killall -9 "xsettingsd" &
+            sed -e 's_Net/IconThemeName.*_Net/IconThemeName "Papirus-Custom"_' \
+                -e 's_Net/ThemeName.*_Net/ThemeName "Sweetly"_' -i "$XSETTINGSD_CONFIG"
+        fi && xsettingsd &>/dev/null &
+        { read -rt 2 <> <(:) || killall -9 xsettingsd; } &
     fi
     
-    # Set Openbox Margin, Dunst, and Rofi Sidebar
-    if [[ "$CHK_ORT" = *"vertical"* ]]; then
-        sed -i "2s_vertical=\".*\"_vertical=\"${CHK_ORT_V}\"_" "$ORT_FILE"
-        "${VISMOD_DIR}/margin-dunst-rofi" v_${CHK_ORT_V} &> /dev/null
-    elif [[ "$CHK_ORT" = *"horizontal"* ]]; then
-        sed -i "3s_horizontal=\".*\"_horizontal=\"${CHK_ORT_H}\"_" "$ORT_FILE"
-        "${VISMOD_DIR}/margin-dunst-rofi" h_${CHK_ORT_H} &> /dev/null
-    fi
-    openbox --reconfigure
+    # Set the Openbox margin, dunst, and rofi sidebar.
+    if [[ "$CHK_ORT" = "vertical" ]]; then
+        sed -i "s_vertical=\".*\"_vertical=\"${CHK_ORT_V}\"_" "$ORT_FILE"
+        "${VISMOD_DIR}/margin-dunst-rofi" v_${CHK_ORT_V} &>/dev/null
+    elif [[ "$CHK_ORT" = "horizontal" ]]; then
+        sed -i "s_horizontal=\".*\"_horizontal=\"${CHK_ORT_H}\"_" "$ORT_FILE"
+        "${VISMOD_DIR}/margin-dunst-rofi" h_${CHK_ORT_H} &>/dev/null
+    fi && openbox --reconfigure
     
-    # Icon Theme
+    # Icon themes.
     sed -i 's_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Custom"_' "$GTK2_CONFIG"
     sed -i 's_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Custom_' "$GTK3_CONFIG"
     
-    # Rofi Color Scheme
+    # Rofi color schemes.
     sed -i 's_colorschemes/.*.rasi_colorschemes/fullscreen.rasi_' "$ROFI_FULLSCREEN_CONFIG"
     sed -i 's_colorschemes/.*.rasi_colorschemes/sidebar.rasi_' "$ROFI_SIDEBAR_CONFIG"
     
-    # Set Openbox Last Button Location
-    if [[ "$CHK_VISMOD_LOC_BUTTON" = *"left"* ]]; then
-        sed -i '35s_<titleLayout>.*_<titleLayout>CIML</titleLayout>_' "$OB_CONFIG"
+    # Set the Openbox last button location.
+    if [[ "$CHK_VISMOD_LOC_BUTTON" = "left" ]]; then
+        sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>CIML</titleLayout>_' "$OB_CONFIG"
         echo "left" > "$VISMOD_LOC_BUTTON_FILE"
-    elif [[ "$CHK_VISMOD_LOC_BUTTON" = *"right"* ]]; then
-        sed -i '35s_<titleLayout>.*_<titleLayout>LIMC</titleLayout>_' "$OB_CONFIG"
+    elif [[ "$CHK_VISMOD_LOC_BUTTON" = "right" ]]; then
+        sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>LIMC</titleLayout>_' "$OB_CONFIG"
         echo "right" > "$VISMOD_LOC_BUTTON_FILE"
     fi
     
-    # Openbox Theme & Buttons
+    # The Openbox buttons and theme.
     cp -f "${OB_BUTTON_DIR}/${CHK_VISMOD_BUTTON}"/* "$EYC_BUTTON_DIR"/.
-    sed -i '34s_<name>.*_<name>Sweetly</name>_' "$OB_CONFIG"
+    THEME_LINE="$(cat -n "$OB_CONFIG" | grep '<name>.*</name>' | sed 1q | grep -oE '[0-9]+')"
+    sed -i "${THEME_LINE}s_<name>.*</name>_<name>Sweetly</name>_" "$OB_CONFIG"
     
-    # Reconfigure Openbox (realistic theme)
-    read -rt ".4" <> <(:) || exec openbox --reconfigure &
+    # Reconfigure Openbox with realistic sync.
+    read -rt .4 <> <(:) || exec openbox --reconfigure
 }
 
-case $1 in
-    partially)  PARTIALLY
-                exec openbox --reconfigure
+case ${1} in
+    partially) PARTIALLY; exec openbox --reconfigure
     ;;
-    *)          ALL
+    *)         APPLY_ALL
     ;;
-esac; exit $?
+esac
+
+exit $?

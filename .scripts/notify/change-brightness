@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; source "$HOME"/.owl4ce_var
+LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { "$EXNOTIFY_SEND" -u low -r 16 "Install brightnessctl!"; exit 1; }
-type -p "brightnessctl" &> /dev/null || noterr
+type -p brightnessctl &>/dev/null || noterr
 
 notify() {
     BRIGHTNESS="$(brightnessctl i | grep -oP '\(\K[^%\)]+')"
-    
     if [[ "$BRIGHTNESS" -eq 0 ]]; then
         icon_name="notification-display-brightness-off"
     elif [[ "$BRIGHTNESS" -lt 10 ]]; then
@@ -17,19 +16,19 @@ notify() {
         icon_name="notification-display-brightness-high"
     else
         icon_name="notification-display-brightness-full"
-    fi
-    
-    exec "$EXNOTIFY_SEND" -u low -r 1234 -t 700 -i "$icon_name" "$BRIGHTNESS " -h int:value:"$BRIGHTNESS"
+    fi && exec "$EXNOTIFY_SEND" -u low -r 1234 -t 700 -i "$icon_name" "$BRIGHTNESS " -h "int:value:${BRIGHTNESS}"
 }
 
-case $1 in
-    up)         brightnessctl set "${BRIGHTNESS_STEPS:-5}"%+ -q
-                notify
+case ${1} in
+    up)      brightnessctl set "${BRIGHTNESS_STEPS:-5}%+" -q
+             notify
     ;;
-    down)       brightnessctl set "${BRIGHTNESS_STEPS:-5}"%- -q
-                notify
+    down)    brightnessctl set "${BRIGHTNESS_STEPS:-5}%-" -q
+             notify
     ;;
-    optimal)    brightnessctl set 25% -q
-                notify
+    optimal) brightnessctl set 25% -q
+             notify
     ;;
-esac; exit $?
+esac
+
+exit $?

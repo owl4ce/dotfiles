@@ -15,8 +15,8 @@ URxvt.scrollWithBuffer:           false
 URxvt.urgentOnBell:               false
 URxvt.depth:                      32
 URxvt.iso14755:                   false
-URxvt.iconFile:                   /home/kyoko/.icons/gladient/term.png
-! Uncomment if to much font spacing
+URxvt.iconFile:                   /home/username/.icons/gladient/term.png
+! Uncomment below if too much font spacing
 !URxvt.letterSpace: -1
 
 ! URxvt Extensions
@@ -61,7 +61,7 @@ URxvt.keysym.Control-question:    resize-font:show
 ! URL Select Ext
 URxvt.keysym.Control-Shift-U:     url-select:select_next
 URvxt.url-select.button:          2
-URxvt.url-select.launcher:        brave-bin
+URxvt.url-select.launcher:        brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder
 URxvt.url-select.underline:       true
 
 ! Color Schemes [ black > red > green > yellow > blue > magenta > cyan > white ]
@@ -99,7 +99,7 @@ URxvt.url-select.underline:       true
 *.color13:                        magenta1
 *.color14:                        cyan1
 
-! FOR REVERSING ONLY (INVERT BG/FG)
+! Termody [ Reverse the Visual ]
 *.foreground:                     white0
 *.background:                     black0
 *.cursorColor:                    white0
