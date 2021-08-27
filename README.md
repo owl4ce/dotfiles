@@ -32,16 +32,16 @@ I hope you understand everything here. :wink:
 
 Here are some details about my setup ..
 - **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 modes!
-- **Shell**                        • [Zsh](https://www.zsh.org/) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework! <kbd>optional</kbd>
-- **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>available</kbd>
+- **Shell**                        • [Zsh](https://www.zsh.org) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
+- **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>deprecated</kbd>
 - **Openbox Menu**                 • [obmenu-generator](https://github.com/trizen/obmenu-generator)
 - **Panel**                        • [Tint2](https://gitlab.com/o9000/tint2) :shaved_ice: material icons font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
 - **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
 - **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
-- **Music Player**                 • [MPD](https://www.musicpd.org/) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux/) :rice_scene: riced!
-- **GUI Basic-IDE**                • [Geany - The Flyweight IDE](https://www.geany.org/)
+- **Music Player**                 • [MPD](https://www.musicpd.org) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux) :rice_scene: riced!
+- **GUI Basic-IDE**                • [Geany - The Flyweight IDE](https://www.geany.org)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=.files&color=cf8ef4&labelColor=373e4d"/>
 
@@ -124,20 +124,20 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ##  
 
 ### Installation (dependencies)
-> Customize your choice about dependencies below, this is my complete setup as I use Gentoo/Linux with single OpenboxWM with my preference utility softwares. In fact, what's in the column is a minimal recommendation.
+> Customize your choice about dependencies below, this is my complete setup as I use Gentoo/Linux with single OpenboxWM and my preference utility softwares. In fact, what's in the column is a minimal recommendation.
 
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 > **Warning!**  
-> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **GNU grep**, **psmisc**, and **GNU sed**.  
-> Assume that you are using [**sudo**](https://www.sudo.ws/) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [LFS](http://www.linuxfromscratch.org/)? :satisfied:
+> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **GNU grep**, **procps-ng**, **psmisc**, and **GNU sed**.  
+> Assume that you are using [**sudo**](https://www.sudo.ws) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [**LFS**](http://www.linuxfromscratch.org)? :satisfied:
 
 > **Attention!**  
 > - Rofi must be above version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
 > - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
 > - You may want to use `polkit-gnome` instead of `lxsession` nor `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (circular dependencies).
-> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I reverted it on commit with id sha [`9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9) with [git checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha).
+> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I reverted it on commit with id sha [`9cb552e`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9) with [git checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha).
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -152,14 +152,14 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   </details>
   
   <details>
-  <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
+  <summary>oh-my-zsh & plugins <kbd>suggested</kbd></summary>
   
    ```sh
    sudo apt install zsh && chsh -s $(command -v zsh)
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
+   git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   git clone --depth 1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
     
   </details>
@@ -212,14 +212,14 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   </details>
   
   <details>
-  <summary>oh-my-zsh & plugins <kbd>optional</kbd></summary>
+  <summary>oh-my-zsh & plugins <kbd>suggested</kbd></summary>
   
    ```sh
    sudo pacman -S zsh && chsh -s $(command -v zsh)
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-   git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
+   git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   git clone --depth 1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
    ```
   
   </details>
@@ -232,12 +232,12 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    Customize/port dependencies yourself!  
    
    **For example,**  
-   - [Gentoo/Linux](https://packages.gentoo.org/)  
+   - [Gentoo/Linux](https://packages.gentoo.org)  
      *[See owl4ce's portage configuration](https://github.com/owl4ce/hmg/tree/main/etc/portage).*
      
-   - [Void (Linux)](https://voidlinux.org/packages/)
+   - [Void (Linux)](https://voidlinux.org/packages)
    
-   > You can reference the packages name with Arch Linux.  
+   > You can reference the package names with Arch Linux.  
    > For Gentoo/Linux, I recommend to enabling [keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS) for specific packages or using [live ebuild](https://wiki.gentoo.org/wiki/Ebuild).
   
    If it's not there, build it manually from git source code or from elsewhere.
@@ -246,7 +246,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
   <br>
     
-  **Optional:** [geany](https://geany.org/) + [geany plugins](https://plugins.geany.org/), [gimp](https://www.gimp.org/), [nano](https://www.nano-editor.org/) + [nano syntax highlighting](https://github.com/scopatz/nanorc), [spotify](https://www.spotify.com/us/download/linux/), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  **Optional:** [geany](https://geany.org) + [plugins](https://plugins.geany.org), [gimp](https://www.gimp.org), [inkscape](https://inkscape.org), [nano](https://www.nano-editor.org) + [syntax highlighting](https://github.com/scopatz/nanorc), [spotify](https://www.spotify.com/us/download/linux), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
 ##  
 
@@ -319,7 +319,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Update MPD Database</strong></summary>
    
    ```sh
-   mpc update
+   { [ -n "$(pgrep mpd)" ] || mpd; } && mpc update
    ```
    
   </details>
@@ -342,8 +342,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ### The step you are waiting for
 The final step is login into **openbox-session**, basically login from display manager you use such as lightdm, gdm, etc.
 
-> Make sure the `sh` symlinks to `bash`, as it's very dependent on **bash** ([bashism](https://mywiki.wooledge.org/Bashism)).  
-> **Why bash?** Simple, I'd say it's bloated and powerful.
+> Make sure the `sh` symlinks to `bash`, as it's uses [bashism](https://mywiki.wooledge.org/Bashism). **Why bash?**  
+> Simple, I'd say it's bloated and powerful.
 > ```sh
 > [ "$(readlink $(command -v sh))" != "bash" ] && sudo ln -vfs $(command -v bash sh)
 > ```
@@ -369,12 +369,12 @@ Then you can proceed to [user's configuration](#users-configuration). Explore!
 **Suggested replacement commands**
 - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
 
-[`~/.zshrc`](./.zshrc#L129-L130)  
+[`~/.zshrc`](./.zshrc#L125-L126)  
 ```zsh
 ...
 
-129 alias ls="exa -lgh --icons --group-directories-first"
-130 alias la="exa -lgha --icons --group-directories-first"
+125 alias ls="exa -lgh --icons --group-directories-first"
+126 alias la="exa -lgha --icons --group-directories-first"
 
 ...
 ```
@@ -556,7 +556,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   An example is turning on `nm-applet`, because by default I don't use it and use [`networkmanager_dmenu`](./.local/bin/networkmanager_dmenu) instead.
 
   > **How about battery indicator?**  
-  > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in **xfce4-power-manager-settings**.
+  > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in the **xfce4-power-manager-settings**.
 
   Remove hashtags for all your needs, then re-login the openbox-session.
   > **Warning!** Putting commands here means that when switching Visual Mode, the program will be restarted.
@@ -652,6 +652,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
   ...
   ```
+  > Also please consider [**$XDG_CURRENT_DESKTOP**](./.config/openbox/environment#L10-L11).
   
 - **Neofetch Image Source**  
   [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf#L641-L665)
@@ -762,27 +763,28 @@ Thank you from the bottom of my heart! :heartpulse:
   - [Elena](https://github.com/elenapan)
   - [Adhi Pambudi](https://github.com/addy-dclxvi)
   - [Fikri Omar](https://github.com/fikriomar16)
-  - [Nanda Oktavera](https://github.com/okitavera)
   - [Rizqi Nur Assyaufi](https://github.com/bandithijo)
   - [Muktazam Hasbi Ashidiqi](https://github.com/reorr)
   - [Galih Wisnuaji](https://github.com/nekonako)
   - [Ghani Rafif](https://github.com/ekickx)
+  - [Nanda Oktavera](https://github.com/okitavera)
   - [Aditya Shakya](https://github.com/adi1090x)
+  - [Dylan Araps](https://github.com/dylanaraps)
   - ?
 
 - **Extended resources or the manual**
   - [Digital Synopsis](https://digitalsynopsis.com);
-  - [Wiki @ Openbox](http://openbox.org/wiki/Help:Themes);
-  - [Pango Markup @ Gnome](https://developer.gnome.org/pango/stable/pango-Markup.html);
-  - [Custom Environment @ ArchWiki](https://wiki.archlinux.org/index.php/desktop_environment#Custom_environments);
-  - [Recommended Applications @ Gentoo Wiki](https://wiki.gentoo.org/wiki/Recommended_applications);
+  - [Openbox Wiki](http://openbox.org/wiki/Help:Themes);
+  - [Gnome Pango Markup](https://developer.gnome.org/pango/stable/pango-Markup.html);
+  - [Custom Environment at ArchWiki](https://wiki.archlinux.org/index.php/desktop_environment#Custom_environments);
+  - [Recommended Applications at Gentoo Wiki](https://wiki.gentoo.org/wiki/Recommended_applications);
   - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible);
   - [Stark's Color Scripts](https://github.com/stark/Color-Scripts);
-  - [Notify Send (bash)](https://github.com/vlevit/notify-send.sh);
-  - [NetworkManager Dmenu](https://github.com/firecat53/networkmanager-dmenu);
+  - [notify-send.sh (bash)](https://github.com/vlevit/notify-send.sh);
+  - [networkmanager-dmenu (python3)](https://github.com/firecat53/networkmanager-dmenu);
   - [URxvt Manual](https://linux.die.net/man/1/urxvt);
-  - [URxvt Resize Font](https://github.com/simmel/urxvt-resize-font);
-  - [URxvt Tabbed Extended](https://github.com/mina86/urxvt-tabbedex);
+  - [URxvt Resize-Font](https://github.com/simmel/urxvt-resize-font);
+  - [URxvt Tabbed-Extended](https://github.com/mina86/urxvt-tabbedex);
   - [Showing Album Cover in Ncmpcpp](https://marcocheung.wordpress.com/2015/08/09/showing-album-cover-in-ncmpcpp);
   - [Complete List of GitHub Markdown Emoji Markup](https://gist.github.com/rxaviers/7360908);
   - Most people on some GNU/Linux and UN*X forums.
@@ -791,6 +793,7 @@ Thank you from the bottom of my heart! :heartpulse:
   - [Ekaunt](https://github.com/ekaunt) - [Better promptmenu](https://github.com/owl4ce/dotfiles/pull/2)
   - [HopeBaron](https://github.com/HopeBaron) - [Termite config](https://github.com/owl4ce/dotfiles/pull/4)
   - [Justin Faber](https://github.com/vredesbyyrd) - [Rofi matched lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)
+  - [Vcyzteen](https://github.com/vcyzteen) - [URxvt copy-paste](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60)
   
     <br>
     <a href="https://github.com/owl4ce/dotfiles/graphs/contributors">
@@ -800,14 +803,14 @@ Thank you from the bottom of my heart! :heartpulse:
     Made with [contributors-img](https://contrib.rocks).
   
 - **Softwares**
-  - [Geany - The Flyweight IDE](https://www.geany.org/);
-  - [GIMP - GNU Image Manipulation Program](https://www.gimp.org/);
-  - [Gpick - Advanced Color Picker](http://www.gpick.org/);
+  - [Geany - The Flyweight IDE](https://www.geany.org);
+  - [GIMP - GNU Image Manipulation Program](https://www.gimp.org);
+  - [Gpick - Advanced Color Picker](http://www.gpick.org);
   - [Gucharmap - GNOME Character Map](https://wiki.gnome.org/Apps/Gucharmap);
   - [Themix - GUI Theme Designer](https://github.com/themix-project/oomox);
   - Tint2conf, etc.
 
-- **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also the great [r/unixporn](https://www.reddit.com/r/unixporn/).**
+- **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also the great [r/unixporn](https://www.reddit.com/r/unixporn).**
 - **© All artist who make icons, illustrations, and wallpapers.**
   
   The original source I've found:
