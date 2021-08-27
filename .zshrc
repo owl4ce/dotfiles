@@ -99,12 +99,8 @@ source "${ZSH}/oh-my-zsh.sh"
 #
 # Aliases
 
-type -p 'doas' &>/dev/null && PRIV="doas" || :
-type -p 'sudo' &>/dev/null && PRIV="sudo" || :
-if [[ -z "$PRIV" ]]; then
-    >&2 printf "\e[1;31m > error:\e[0m \e[0;35msudo\e[0m or \e[0;35mdoas\e[0m not found!\n"
-    return 1
-fi
+PRIV="$(command -v doas || command -v sudo)"; [[ -n "$PRIV" ]] || \
+>&2 printf "\e[1;31m > error:\e[0m Neither \e[0;35mdoas\e[0m nor \e[0;35msudo\e[0m not found!\n"
 
 alias c="clear"
 alias q="exit"
@@ -126,8 +122,8 @@ alias trim_all="${PRIV} fstrim -va"
 alias nanosu="${PRIV} nano"
 alias nvimsu="${PRIV} nvim"
 alias clean_ram="${PRIV} sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
-#alias ls="exa -lgh --icons --group-directories-first"
-#alias la="exa -lgha --icons --group-directories-first"
+alias ls="exa -lgh --icons --group-directories-first"
+alias la="exa -lgha --icons --group-directories-first"
 
 # Color-Toys Aliases
 alias 256colors2="${HOME}/.color-toys/256colors2.pl"
