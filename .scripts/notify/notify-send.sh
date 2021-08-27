@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # notify-send.sh - drop-in replacement for notify-send with more features
-# Copyright (C) 2015-2020 notify-send.sh authors (see AUTHORS file)
+# Copyright (C) 2015-2021 notify-send.sh authors (see AUTHORS file)
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 # Desktop Notifications Specification
 # https://developer.gnome.org/notification-spec/
 
-VERSION=1.1
+VERSION=1.2
 NOTIFY_ARGS=(--session
              --dest org.freedesktop.Notifications
              --object-path /org/freedesktop/Notifications)
@@ -112,20 +112,20 @@ notify() {
 
     NOTIFICATION_ID=$(gdbus call "${NOTIFY_ARGS[@]}"  \
                             --method org.freedesktop.Notifications.Notify \
+                            -- \
                             "$APP_NAME" "$REPLACE_ID" "$ICON" "$SUMMARY" "$BODY" \
                             "${actions}" "${hints}" "int32 $EXPIRE_TIME" \
                           | parse_notification_id)
 
     if [[ -n "$STORE_ID" ]] ; then
-        echo "$NOTIFICATION_ID" > $STORE_ID
+        echo "$NOTIFICATION_ID" > "$STORE_ID"
     fi
     if [[ -n "$PRINT_ID" ]] ; then
         echo "$NOTIFICATION_ID"
     fi
 
     if [[ -n "$FORCE_EXPIRE" ]] ; then
-        type bc &> /dev/null || { echo "bc command not found. Please install bc package."; exit 1; }
-        SLEEP_TIME="$(bc <<< "scale=3; $EXPIRE_TIME / 1000")"
+        SLEEP_TIME="$( LC_NUMERIC=C printf %f "${EXPIRE_TIME}e-3" )"
         ( sleep "$SLEEP_TIME" ; notify_close "$NOTIFICATION_ID" ) &
     fi
 
@@ -286,7 +286,7 @@ while (( $# > 0 )) ; do
         -R|--replace-file|--replace-file=*)
             [[ "$1" = --replace-file=* ]] && filename="${1#*=}" || { shift; filename="$1"; }
             if [[ -s "$filename" ]]; then
-                REPLACE_ID="$(< $filename)"
+                REPLACE_ID="$(< "$filename")"
             fi
             STORE_ID="$filename"
             ;;
