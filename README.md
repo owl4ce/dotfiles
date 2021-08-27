@@ -33,7 +33,7 @@ I hope you understand everything here. :wink:
 Here are some details about my setup ..
 - **Window Manager**               • [Openbox](http://openbox.org/wiki/Main_Page) :art: 4 modes!
 - **Shell**                        • [Zsh](https://www.zsh.org) :shell: with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
-- **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) <kbd>deprecated</kbd>
+- **Terminal**                     • [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html), [Termite](https://github.com/thestinger/termite) [<kbd>deprecated</kbd>](https://github.com/thestinger/termite#termite-is-obsoleted-by-alacritty)
 - **Openbox Menu**                 • [obmenu-generator](https://github.com/trizen/obmenu-generator)
 - **Panel**                        • [Tint2](https://gitlab.com/o9000/tint2) :shaved_ice: material icons font!
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
@@ -130,14 +130,14 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 > **Warning!**  
-> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **GNU grep**, **procps-ng**, **psmisc**, and **GNU sed**.  
+> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **grep**, **procps-ng**, **psmisc**, and **sed**.  
 > Assume that you are using [**sudo**](https://www.sudo.ws) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [**LFS**](http://www.linuxfromscratch.org)? :satisfied:
 
 > **Attention!**  
 > - Rofi must be above version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
 > - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
 > - You may want to use `polkit-gnome` instead of `lxsession` nor `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (circular dependencies).
-> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I reverted it on commit with id sha [`9cb552e`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9) with [git checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha).
+> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I [checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha) it on commit with id sha [`9cb552e`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9).
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -319,7 +319,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Update MPD Database</strong></summary>
    
    ```sh
-   { [ -n "$(pgrep mpd)" ] || mpd; } && mpc update
+   [ -n "$(pgrep mpd)" ] || mpd && mpc update
    ```
    
   </details>
@@ -342,10 +342,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ### The step you are waiting for
 The final step is login into **openbox-session**, basically login from display manager you use such as lightdm, gdm, etc.
 
-> Make sure the `sh` symlinks to `bash`, as it's uses [bashism](https://mywiki.wooledge.org/Bashism). **Why bash?**  
-> Simple, I'd say it's bloated and powerful.
+> Make sure the `sh` symlinks to `bash`, as it's uses [bashism](https://mywiki.wooledge.org/Bashism). **Why bash?** Simple, I'd say it's bloated and powerful.
 > ```sh
-> [ "$(readlink $(command -v sh))" != "bash" ] && sudo ln -vfs $(command -v bash sh)
+> [ "$(readlink /bin/sh)" != "bash" ] && sudo ln -vfs bash /bin/sh
 > ```
 
 If you are using `~/.xinitrc` without display manager, simply add the following commands.
@@ -734,7 +733,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 <tr>
 <td>
 <br>
-<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shells. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify.. under <a href="./LICENSE">GPL-3.0</a> (except for GTK+ themes, gladient icons, fonts, and wallpapers)</p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p><p align="center">Openbox isn't dead, but completed features.</p>
+<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shells. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify, under <a href="./LICENSE">GPL-3.0</a> except for GTK+ themes, gladient icons, fonts, and wallpapers.</p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p><p align="center">Openbox isn't dead, but completed features.</p>
 </td>
 </tr>
 <tr>
@@ -811,7 +810,7 @@ Thank you from the bottom of my heart! :heartpulse:
   - Tint2conf, etc.
 
 - **Our local linux community [Linuxer Desktop Art](https://facebook.com/groups/linuxart) and [@dotfiles_id](https://t.me/dotfiles_id), also the great [r/unixporn](https://www.reddit.com/r/unixporn).**
-- **© All artist who make icons, illustrations, and wallpapers.**
+- **© All artists who create icons, illustrations, and wallpapers.**
   
   The original source I've found:
   - [Gladient Icons](https://play.google.com/store/apps/details?id=com.maxghani.gladient)
