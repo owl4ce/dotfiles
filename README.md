@@ -752,6 +752,9 @@ It's never required but always wholeheartedly appreciated.
 
 Thank you from the bottom of my heart! :heartpulse:
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V05ZACS)
+[![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/owl4ce/donate)
+
 * **BTC:** `3DrjWyd6Xgv4tKoL56mPtoQX4fL4LbR7zf`
 * **ETH:** `0x818fC9B82548C1020ed7370DFeb04BCbADc59191`
 
