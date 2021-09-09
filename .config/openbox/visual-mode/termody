@@ -5,14 +5,14 @@ noterr() { "$EXNOTIFY_SEND" -u low -r 14 "Install rxvt-unicode/termite!"; exit 1
 command -v urxvt termite &>/dev/null || noterr
 
 # Set the URxvt icon file (auto) and URL launcher from owl4ce_var.
-sed -e "s_URxvt.url-select.launcher:.*_URxvt.url-select.launcher:        ${WEB_BROWSER}_" \
-    -e "s_URxvt.iconFile:.*_URxvt.iconFile:                   ${TERM_ICON}_" -i "$XRESOURCES_CONFIG"
+sed -e "/URxvt.url-select.launcher/s/:.*/:        ${WEB_BROWSER}/" \
+    -e "/URxvt.iconFile/s/:.*/:                   ${TERM_ICON}/" -i "$XRESOURCES_CONFIG"
     
 TRANS() {
     if [[ "${URXVT:-100}" -lt 100 ]]; then
-        sed -i 's_URxvt.depth:.*_URxvt.depth:                      32_' "$XRESOURCES_CONFIG"
+        sed -i '/URxvt.depth/s/:.*/:                      32/' "$XRESOURCES_CONFIG"
     else
-        sed -i 's_URxvt.depth:.*_URxvt.depth:                      24_' "$XRESOURCES_CONFIG"
+        sed -i '/URxvt.depth/s/:.*/:                      24/' "$XRESOURCES_CONFIG"
     fi
     case ${1} in
         apply)  if [[  "$current" != *"!"* ]]; then

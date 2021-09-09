@@ -3,54 +3,52 @@ LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 PARTIALLY() {
     # Set the openbox menu color from owl4ce_var.
-    sed -e "s/menu.items.active.text.color:.*/menu.items.active.text.color: ${MECH_OB_MENU_ITM}/" \
-        -e "s/menu.title.text.color:.*/menu.title.text.color: ${MECH_OB_MENU_TTL}/" -i "${MECH_BUTTON_DIR}/themerc"
+    sed -e "/menu.items.active.text.color/s/:.*/: ${MECH_OB_MENU_ITM}/" \
+        -e "/menu.title.text.color/s/:.*/: ${MECH_OB_MENU_TTL}/" -i "${MECH_BUTTON_DIR}/themerc"
     # Set the rofi accent color from owl4ce_var.
-    sed -i "s_accent:.*;_accent:           ${MECH_ROFI_ACCENT};_" "${ROFI_COLORSCHEMES_DIR}/fullscreen-dark.rasi"
-    sed -e "s_foreground:.*;_foreground:       ${MECH_ROFI_FRGRND};_" \
-        -e "s_accent:.*;_accent:           ${MECH_ROFI_ACCENT};_" -i "${ROFI_COLORSCHEMES_DIR}/sidebar-dark.rasi"
+    sed -i "/accent/s/:.*;/:           ${MECH_ROFI_ACCENT};/" "${ROFI_COLORSCHEMES_DIR}/fullscreen-dark.rasi"
+    sed -e "/foreground/s/:.*;/:       ${MECH_ROFI_FRGRND};/" \
+        -e "/accent/s/:.*;/:           ${MECH_ROFI_ACCENT};/" -i "${ROFI_COLORSCHEMES_DIR}/sidebar-dark.rasi"
 }
 
 APPLY_ALL() {
     # Call this first.
     PARTIALLY
     
-    # GTK themes.
-    sed -i 's_gtk-theme-name=.*_gtk-theme-name="Fleon"_' "$GTK2_CONFIG"
-    sed -i 's_gtk-theme-name=.*_gtk-theme-name=Fleon_' "$GTK3_CONFIG"
+    # GTK and Icon themes.
+    sed -e '/gtk-icon-theme-name/s/=".*"/="Papirus-Dark-Custom"/' \
+        -e '/gtk-theme-name/s/=".*"/="Fleon"/' -i "$GTK2_CONFIG"
+    sed -e '/gtk-icon-theme-name/s/=.*/=Papirus-Dark-Custom/' \
+        -e '/gtk-theme-name/s/=.*/=Fleon/' -i "$GTK3_CONFIG"
     
     # xsettingsd for GTK+ live reload.
     if [[ -x "$(command -v xsettingsd)" ]]; then
         if [[ -f "$XSETTINGSD_CONFIG" ]]; then
-            sed -e 's_Net/IconThemeName.*_Net/IconThemeName "Papirus-Dark-Custom"_' \
-                -e 's_Net/ThemeName.*_Net/ThemeName "Fleon"_' -i "$XSETTINGSD_CONFIG"
+            sed -e '/Net\/IconThemeName/s/".*"/"Papirus-Dark-Custom"/' \
+                -e '/Net\/ThemeName/s/".*"/"Fleon"/' -i "$XSETTINGSD_CONFIG"
         fi && xsettingsd &>/dev/null &
         { read -rt 2 <> <(:) || killall -9 xsettingsd; } &
     fi
     
+    # Rofi color schemes.
+    sed -i '/@import/s/colorschemes\/.*.rasi/colorschemes\/fullscreen-dark.rasi/' "$ROFI_FULLSCREEN_CONFIG"
+    sed -i '/@import/s/colorschemes\/.*.rasi/colorschemes\/sidebar-dark.rasi/' "$ROFI_SIDEBAR_CONFIG"
+    
     # Set the Openbox margin, dunst, and rofi sidebar.
     if [[ "$CHK_ORT" = "vertical" ]]; then
-        sed -i "s_vertical=\".*\"_vertical=\"${CHK_ORT_V}\"_" "$ORT_FILE"
+        sed -i "/vertical=/s/\".*\"/\"${CHK_ORT_V}\"/" "$ORT_FILE"
         "${VISMOD_DIR}/margin-dunst-rofi" v_${CHK_ORT_V} &>/dev/null
     elif [[ "$CHK_ORT" = "horizontal" ]]; then
-        sed -i "s_horizontal=\".*\"_horizontal=\"${CHK_ORT_H}\"_" "$ORT_FILE"
+        sed -i "/horizontal=/s/\".*\"/\"${CHK_ORT_H}\"/" "$ORT_FILE"
         "${VISMOD_DIR}/margin-dunst-rofi" h_${CHK_ORT_H} &>/dev/null
     fi && openbox --reconfigure
     
-    # Icon themes.
-    sed -i 's_gtk-icon-theme-name=.*_gtk-icon-theme-name="Papirus-Dark-Custom"_' "$GTK2_CONFIG"
-    sed -i 's_gtk-icon-theme-name=.*_gtk-icon-theme-name=Papirus-Dark-Custom_' "$GTK3_CONFIG"
-    
-    # Rofi color schemes.
-    sed -i 's_colorschemes/.*.rasi_colorschemes/fullscreen-dark.rasi_' "$ROFI_FULLSCREEN_CONFIG"
-    sed -i 's_colorschemes/.*.rasi_colorschemes/sidebar-dark.rasi_' "$ROFI_SIDEBAR_CONFIG"
-    
     # Set the Openbox last button location.
     if [[ "$CHK_VISMOD_LOC_BUTTON" = "left" ]]; then
-        sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>CIML</titleLayout>_' "$OB_CONFIG"
+        sed -i '/<titleLayout>/s/>.*</>CIML</' "$OB_CONFIG"
         echo "left" > "$VISMOD_LOC_BUTTON_FILE"
     elif [[ "$CHK_VISMOD_LOC_BUTTON" = "right" ]]; then
-        sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>LIMC</titleLayout>_' "$OB_CONFIG"
+        sed -i '/<titleLayout>/s/>.*</>LIMC</' "$OB_CONFIG"
         echo "right" > "$VISMOD_LOC_BUTTON_FILE"
     fi
     

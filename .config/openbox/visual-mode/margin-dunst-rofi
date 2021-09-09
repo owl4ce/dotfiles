@@ -4,50 +4,40 @@ LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"; OB_MARGIN="10"
 echo "$CHK_ORT" > "${VISMOD_ROFI_FILE}.${STATE_EXT:-joy}"
 
 case ${1} in
-    v_left)   sed -si 's_geometry = ".*"_geometry = "350x6-19+52"_' "${DUNST_DIR}/dunstrc"-{mech,eyc}
+    v_left)   sed -si '/geometry/s/= ".*"/= "350x6-19+52"/' "${DUNST_DIR}/dunstrc"-{mech,eyc}
               
-              sed -e 's_x-offset:.*;_x-offset: -1.4%;_' -e 's_location:.*_location: east;_' \
-                  -e 's_anchor:.*;_anchor: east;_' -si "$ROFI_SIDEBAR_DIR"/*-vertical.rasi
+              sed -e '/x-offset/s/:.*;/: -1.4%;/' -e '/location/s/:.*/: east;/' \
+                  -e '/anchor/s/:.*;/: east;/' -si "$ROFI_SIDEBAR_DIR"/*-vertical.rasi
               
-              sed -e "s_<left>.*</left>_<left>$((45+${OB_MARGIN}))</left>_" \
-                  -e "s_<bottom>.*</bottom>_<bottom>${OB_MARGIN}</bottom>_" \
-                  -e "s_<right>.*</right>_<right>${OB_MARGIN}</right>_" \
-                  -e "s_<top>.*</top>_<top>${OB_MARGIN}</top>_" -i "$OB_CONFIG"
+              sed -e "/<left>/s/>.*</>$((45+${OB_MARGIN}))</" -e "/<bottom>/s/>.*</>${OB_MARGIN}</" \
+                  -e "/<right>/s/>.*</>${OB_MARGIN}</" -e "/<top>/s/>.*</>${OB_MARGIN}</" -i "$OB_CONFIG"
     ;;
-    v_right)  sed -si 's_geometry = ".*"_geometry = "350x6+19+52"_' "${DUNST_DIR}/dunstrc"-{mech,eyc}
+    v_right)  sed -si '/geometry/s/= ".*"/= "350x6+19+52"/' "${DUNST_DIR}/dunstrc"-{mech,eyc}
               
-              sed -e 's_x-offset:.*;_x-offset: 1.4%;_' -e 's_location:.*_location: west;_' \
-                  -e 's_anchor:.*;_anchor: west;_' -si "$ROFI_SIDEBAR_DIR"/*-vertical.rasi
+              sed -e '/x-offset/s/:.*;/: 1.4%;/' -e '/location/s/:.*/: west;/' \
+                  -e '/anchor/s/:.*;/: west;/' -si "$ROFI_SIDEBAR_DIR"/*-vertical.rasi
               
-              sed -e "s_<right>.*</right>_<right>$((45+${OB_MARGIN}))</right>_" \
-                  -e "s_<bottom>.*</bottom>_<bottom>${OB_MARGIN}</bottom>_" \
-                  -e "s_<left>.*</left>_<left>${OB_MARGIN}</left>_" \
-                  -e "s_<top>.*</top>_<top>${OB_MARGIN}</top>_" -i "$OB_CONFIG"
+              sed -e "/<right>/s/>.*</>$((45+${OB_MARGIN}))</" -e "/<bottom>/s/>.*</>${OB_MARGIN}</" \
+                  -e "/<left>/s/>.*</>${OB_MARGIN}</" -e "/<top>/s/>.*</>${OB_MARGIN}</" -i "$OB_CONFIG"
     ;;
-    h_top)    sed -si 's_geometry = ".*"_geometry = "350x6+19+65"_' "${DUNST_DIR}/dunstrc"-{mech,eyc}
+    h_top)    sed -si '/geometry/s/= ".*"/= "350x6+19+65"/' "${DUNST_DIR}/dunstrc"-{mech,eyc}
               
-              sed -e 's_y-offset:.*;_y-offset: -3%;_' -e 's_location:.*_location: south;_' \
-                  -e 's_anchor:.*;_anchor: south;_' -si "$ROFI_SIDEBAR_DIR"/*-horizontal.rasi
+              sed -e '/y-offset/s/:.*;/: -3%;/' -e '/location/s/:.*/: south;/' \
+                  -e '/anchor/s/:.*;/: south;/' -si "$ROFI_SIDEBAR_DIR"/*-horizontal.rasi
               
-              sed -e "s_<bottom>.*</bottom>_<bottom>${OB_MARGIN}</bottom>_" \
-                  -e "s_<top>.*</top>_<top>$((45+${OB_MARGIN}))</top>_" \
-                  -e "s_<right>.*</right>_<right>${OB_MARGIN}</right>_" \
-                  -e "s_<left>.*</left>_<left>${OB_MARGIN}</left>_" -i "$OB_CONFIG"
+              sed -e "/<bottom>/s/>.*</>${OB_MARGIN}</" -e "/<top>/s/>.*</>$((45+${OB_MARGIN}))</" \
+                  -e "/<right>/s/>.*</>${OB_MARGIN}</" -e "/<left>/s/>.*</>${OB_MARGIN}</" -i "$OB_CONFIG"
     ;;
-    h_bottom) sed -si 's_geometry = ".*"_geometry = "350x6-19+52"_' "${DUNST_DIR}/dunstrc"-{mech,eyc}
+    h_bottom) sed -si '/geometry/s/= ".*"/= "350x6-19+52"/' "${DUNST_DIR}/dunstrc"-{mech,eyc}
               
-              sed -e 's_y-offset:.*;_y-offset: 6.9%;_' -e 's_location:.*_location: north;_' \
-                  -e 's_anchor:.*;_anchor: north;_' -si "$ROFI_SIDEBAR_DIR"/*-horizontal.rasi
+              sed -e '/y-offset/s/:.*;/: 6.9%;/' -e '/location/s/:.*/: north;/' \
+                  -e '/anchor/s/:.*;/: north;/' -si "$ROFI_SIDEBAR_DIR"/*-horizontal.rasi
               
-              sed -e "s_<bottom>.*</bottom>_<bottom>$((45+${OB_MARGIN}))</bottom>_" \
-                  -e "s_<right>.*</right>_<right>${OB_MARGIN}</right>_" \
-                  -e "s_<left>.*</left>_<left>${OB_MARGIN}</left>_" \
-                  -e "s_<top>.*</top>_<top>${OB_MARGIN}</top>_" -i "$OB_CONFIG"
+              sed -e "/<bottom>/s/>.*</>$((45+${OB_MARGIN}))</" -e "/<right>/s/>.*</>${OB_MARGIN}</" \
+                  -e "/<left>/s/>.*</>${OB_MARGIN}</" -e "/<top>/s/>.*</>${OB_MARGIN}</" -i "$OB_CONFIG"
     ;;
-    minmod)   sed -e "s_<bottom>.*</bottom>_<bottom>${OB_MARGIN}</bottom>_" \
-                  -e "s_<top>.*</top>_<top>$((30+${OB_MARGIN}))</top>_" \
-                  -e "s_<right>.*</right>_<right>${OB_MARGIN}</right>_" \
-                  -e "s_<left>.*</left>_<left>${OB_MARGIN}</left>_" -i "$OB_CONFIG"
+    minmod)   sed -e "/<bottom>/s/>.*</>${OB_MARGIN}</" -e "/<top>/s/>.*</>$((30+${OB_MARGIN}))</" \
+                  -e "/<right>/s/>.*</>${OB_MARGIN}</" -e "/<left>/s/>.*</>${OB_MARGIN}</" -i "$OB_CONFIG"
     ;;
 esac
 

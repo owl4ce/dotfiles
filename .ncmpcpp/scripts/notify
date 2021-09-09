@@ -20,7 +20,7 @@ notify_aart() {
     [[ -z "$album_dir" ]] && exit 1 || rm -f "$COVER_PNG" &>/dev/null
     album_dir="${CHK_MPD_MUSIC_DIR}/${album_dir}"
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
-    src="$(printf "$covers" | sed 1q)"
+    src="$({ printf "$covers" | sed 1q; } 2>/dev/null)"
     if [[ -n "$src" ]]; then # Resize the image width to 80px (ffmpeg/imagemagick). Use ffmpeg for fast conversion.
         { ffmpeg -i "$src" -vf scale=80:80 "$COVER" || convert "$src" -resize 80x "$COVER" && \
           convert "$COVER" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
