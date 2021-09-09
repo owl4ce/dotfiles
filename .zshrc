@@ -75,6 +75,18 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 setopt INC_APPEND_HISTORY
 source "${ZSH}/oh-my-zsh.sh"
 
+# This speeds up pasting when using zsh-autosuggestions.
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+paste_init() {
+  OLD_SELF_INSERT="${${(s.:.)widgets[self-insert]}[2,3]}"
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+paste_done() {
+  zle -N self-insert "$OLD_SELF_INSERT"
+}
+zstyle :bracketed-paste-magic paste-init paste_init
+zstyle :bracketed-paste-magic paste-finish paste_done
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
