@@ -6,36 +6,36 @@ if [[ -z "$CHK_MINMOD" ]]; then
     case ${1} in
         lrtb) if [[ "$CHK_ORT" = "vertical" ]]; then
                   if [[ "$CHK_ORT_V" != "left" ]]; then
-                      sed -i 's_vertical=".*"_vertical="left"_' "$ORT_FILE"
+                      sed -i '/vertical=/s/".*"/"left"/' "$ORT_FILE"
                       "${VISMOD_DIR}/margin-dunst-rofi" v_left &>/dev/null
-                      sed -si 's/panel_position = center .* vertical/panel_position = center left vertical/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
+                      sed -si '/panel_position/s/= center .* vertical/= center left vertical/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
                   elif [[ "$CHK_ORT_V" != "right" ]]; then
-                      sed -i 's_vertical=".*"_vertical="right"_' "$ORT_FILE"
+                      sed -i '/vertical=/s/".*"/"right"/' "$ORT_FILE"
                       "${VISMOD_DIR}/margin-dunst-rofi" v_right &>/dev/null
-                      sed -si 's/panel_position = center .* vertical/panel_position = center right vertical/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
+                      sed -si '/panel_position/s/= center .* vertical/= center right vertical/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
                   fi
               elif [[ "$CHK_ORT" = "horizontal" ]]; then
                   if [[ "$CHK_ORT_H" != "bottom" ]]; then
-                      sed -i 's_horizontal=".*"_horizontal="bottom"_' "$ORT_FILE"
+                      sed -i '/horizontal=/s/".*"/"bottom"/' "$ORT_FILE"
                       "${VISMOD_DIR}/margin-dunst-rofi" h_bottom &>/dev/null
-                      sed -si 's/panel_position = .* center horizontal/panel_position = bottom center horizontal/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
+                      sed -si '/panel_position/s/= .* center horizontal/= bottom center horizontal/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
                   elif [[ "$CHK_ORT_H" != "top" ]]; then
-                      sed -i 's_horizontal=".*"_horizontal="top"_' "$ORT_FILE"
+                      sed -i '/horizontal=/s/".*"/"top"/' "$ORT_FILE"
                       "${VISMOD_DIR}/margin-dunst-rofi" h_top &>/dev/null
-                      sed -si 's/panel_position = .* center horizontal/panel_position = top center horizontal/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
+                      sed -si '/panel_position/s/= .* center horizontal/= top center horizontal/' "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
                   fi
               fi
         ;;
         ort)  if [[ "$CHK_ORT" != "vertical" ]]; then
-                  sed -e "s_vertical=\".*\"_vertical=\"${CHK_ORT_V}\"_" \
-                      -e 's_state=".*"_state="vertical"_' -i "$ORT_FILE"
+                  sed -e "/vertical=/s/\".*\"/\"${CHK_ORT_V}\"/" \
+                      -e '/state=/s/".*"/"vertical"/' -i "$ORT_FILE"
                   "${VISMOD_DIR}/margin-dunst-rofi" v_${CHK_ORT_V} &>/dev/null
-                  sed -si "s/panel_position = center .* vertical/panel_position = center ${CHK_ORT_V} vertical/" "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
+                  sed -si "/panel_position/s/= center .* vertical/= center ${CHK_ORT_V} vertical/" "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
               elif [[ "$CHK_ORT" != "horizontal" ]]; then
-                  sed -e "s_horizontal=\".*\"_horizontal=\"${CHK_ORT_H}\"_" \
-                      -e 's_state=".*"_state="horizontal"_' -i "$ORT_FILE"
+                  sed -e "/horizontal=/s/\".*\"/\"${CHK_ORT_H}\"/" \
+                      -e '/state=/s/".*"/"horizontal"/' -i "$ORT_FILE"
                   "${VISMOD_DIR}/margin-dunst-rofi" h_${CHK_ORT_H} &>/dev/null
-                  sed -si "s/panel_position = center .* horizontal/panel_position = center ${CHK_ORT_V} horizontal/" "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
+                  sed -si "/panel_position/s/= center .* horizontal/= center ${CHK_ORT_V} horizontal/" "$TINT2_DIR"/*-"${CHK_ORT}.tint2rc"
               fi
         ;;
     esac && openbox --reconfigure && exec "${VISMOD_DIR}/UI" partially &>/dev/null

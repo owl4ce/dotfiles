@@ -40,9 +40,9 @@ case ${1} in
     ;;
     switchpl) [[ "$($status)" = *"laying"* ]] && $($toggle) || :
               if [[ "$CURRENT_MUSICPL" != "mpd" ]]; then
-                  sed -i 's_musicpl=".*"_musicpl="mpd"_' "$DEFAPPS_FILE"
+                  sed -i '/musicpl=/s/".*"/"mpd"/' "$DEFAPPS_FILE"
               elif [[ "$CURRENT_MUSICPL" != "spotify" ]]; then
-                  sed -i 's_musicpl=".*"_musicpl="spotify"_' "$DEFAPPS_FILE"
+                  sed -i '/musicpl=/s/".*"/"spotify"/' "$DEFAPPS_FILE"
               fi && CURRENT_MUSICPL="$("$DEFAPPS_EXEC" -g musicpl)"
               exec "$EXNOTIFY_SEND" -u low -r 8888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>${CURRENT_MUSICPL}</u></span>\nSuccessfully set as default"
     ;;

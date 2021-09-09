@@ -4,10 +4,10 @@ LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 case ${1} in
     swap)  [[ -n "$CHK_MINMOD" ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
            if [[ "$CHK_OB_BUTTON_LOC" != "<titleLayout>LIMC</titleLayout>" ]]; then
-               sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>LIMC</titleLayout>_' "$OB_CONFIG"
+               sed -i '/<titleLayout>/s/>.*</>LIMC</' "$OB_CONFIG"
                echo "right" > "$BTN_LOC" 
            elif [[ "$CHK_OB_BUTTON_LOC" != "<titleLayout>CIML</titleLayout>" ]]; then
-               sed -i 's_<titleLayout>.*</titleLayout>_<titleLayout>CIML</titleLayout>_' "$OB_CONFIG"
+               sed -i '/<titleLayout>/s/>.*</>CIML</' "$OB_CONFIG"
                echo "left" > "$BTN_LOC"
            fi && exec openbox --reconfigure
     ;;
