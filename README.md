@@ -368,12 +368,12 @@ Then you can proceed to [user's configuration](#users-configuration). Explore!
 **Suggested replacement commands**
 - `ls` ➜ [`exa`](https://github.com/ogham/exa)  
 
-[`~/.zshrc`](./.zshrc#L125-L126)  
+[`~/.zshrc`](./.zshrc#L137-L138)  
 ```zsh
 ...
 
-125 alias ls="exa -lgh --icons --group-directories-first"
-126 alias la="exa -lgha --icons --group-directories-first"
+137 alias ls="exa -lgh --icons --group-directories-first"
+138 alias la="exa -lgha --icons --group-directories-first"
 
 ...
 ```
