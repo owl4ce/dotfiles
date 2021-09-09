@@ -106,7 +106,7 @@ Here are some details about my setup ..
 </details>
   
 ## :cherry_blossom: Setup
-This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment. [Mirror @ GitLab](https://gitlab.com/owl4ce/dotfiles.git).
+This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment.
 
 ##  
 
@@ -296,9 +296,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > `pushd` is same as `cd`, but can return back to the previous directory by using `popd` (checkpoint).
    ```sh
    pushd ~/.icons/ && \
-       tar -Jxvf Papirus-Custom.tar.xz && tar -Jxvf Papirus-Dark-Custom.tar.xz && \
-       sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/                   && \
-       sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/              && \
+       tar -xJf Papirus-Custom.tar.xz && tar -xJf Papirus-Dark-Custom.tar.xz && \
+       sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/
+       sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/
    popd
    ```
    > **Why I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?** :thinking:  
