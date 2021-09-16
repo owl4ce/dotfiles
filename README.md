@@ -106,7 +106,7 @@ Here are some details about my setup ..
 </details>
   
 ## :cherry_blossom: Setup
-This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment.
+This is step-by-step how to install these **.files** for automatic setup OpenboxWM custom environment. Just [R.T.F.M](https://en.wikipedia.org/wiki/RTFM).
 
 ##  
 
@@ -168,10 +168,10 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary>picom</summary>
     
    ```sh
-   sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
-   libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev   \
-   libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev    \
-   libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+   sudo apt install meson ninja-build libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev        \
+   libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev    \
+   libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev \
+   libconfig-dev libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
    ```
    ```sh
    git clone https://github.com/yshui/picom.git          && \
@@ -584,6 +584,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   3 musicpl="mpd"
   4 filemanager="thunar"
   ```
+  > Termite is now [deprecated](https://github.com/thestinger/termite#termite-is-obsoleted-by-alacritty).
   
 - **MPD Music Directory**  
   [`~/.mpd/mpd.conf`](./.mpd/mpd.conf#L6)
@@ -599,7 +600,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   Auto-connect with MPD.
   
   > **How to use ncmpcpp album-art?** Only for URxvt by using **w3mimgdisplay** or via **pixbuf**.  
-  It's easy, just put `album|cover|folder|artwork|front.jp?g|png|gif|bmp` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp).
+  It's easy, just put `(album|cover|folder|artwork|front).(jpe?g|png|gif|bmp)` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp).
 
 - **Audio Server <kbd>optional</kbd>**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart#L9)  
