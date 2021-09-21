@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { "$EXNOTIFY_SEND" -u low -r 12 "Install scrot!"; exit 1; }
 type -p scrot &>/dev/null || noterr
 
-clean_img() { rm -f /tmp/*_scrot*.png; }
+clean_img() { rm -f /tmp/*_scrot*.png || :; }
 {
     read -rt .12 <> <(:) || clean_img
     
@@ -16,11 +16,16 @@ clean_img() { rm -f /tmp/*_scrot*.png; }
     fi
     
     for CURRENT in /tmp/*_scrot*.png; do
-        CURRENT="$(echo "$CURRENT" | grep -oP '/tmp/\K[^.png]+')"
+        CURRENT="$(grep -oP '/tmp/\K[^.png]+' <<< "$CURRENT")"
     done
     
     if [[ "$FRAME_COLOR" = "auto" ]]; then
-        FRAME_COLOR="$(convert "/tmp/${CURRENT}.png" -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: | sort -nr | grep -o '[#][0-9a-fA-F]*' | sed 1q)"
+        GET_DOM_COL() {
+            convert "/tmp/${CURRENT}.png" -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: | sort -nr | grep -oE '[#][0-9a-fA-F]*' | sed 1q
+        }
+        if FRAME_COLOR="$(GET_DOM_COL)" && [[ -n "$FRAME_COLOR" ]]; then
+            "$EXNOTIFY_SEND" -u low -r 12 -t 750 -i "$NOTIF_SS_ICON" "" "Applying ${FRAME_COLOR} .."
+        fi
     elif [[ "$FRAME_COLOR" =~ ^[#][0-9a-fA-F]{1,}$ ]]; then
         FRAME_COLOR="${FRAME_COLOR:-#434c5e}"
     else
@@ -29,14 +34,14 @@ clean_img() { rm -f /tmp/*_scrot*.png; }
     fi
     
     if [[ "$ENABLE_FRAME" = "yes" ]]; then
-        convert "/tmp/${CURRENT}.png" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
-        \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off \
-        -compose CopyOpacity -composite "/tmp/${CURRENT}-rounded.png" && rm -f "/tmp/${CURRENT}.png"
-        convert "/tmp/${CURRENT}-rounded.png" \( +clone -background black \
-        -shadow "${FRAMED_SHADOW_OPACITY:-25}x${FRAME_PADDING:-10}+0+$((${FRAME_PADDING:-10}-5))" \) +swap \
-        -background none -layers merge +repage "/tmp/${CURRENT}-shadow.png" && rm -f "/tmp/${CURRENT}-rounded.png"
-        convert "/tmp/${CURRENT}-shadow.png" -bordercolor "$FRAME_COLOR" \
-        -border 5 "/tmp/${CURRENT}.png" && rm -f "/tmp/${CURRENT}-shadow.png"
+        convert "/tmp/${CURRENT}.png" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0'   \
+        \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off -compose    \
+        CopyOpacity -composite -quality 100% "/tmp/${CURRENT}-rounded.png" && rm -f "/tmp/${CURRENT}.png" || exit 1
+        convert "/tmp/${CURRENT}-rounded.png" \( +clone -background black -shadow                                                 \
+        "${FRAMED_SHADOW_OPACITY:-25}x${FRAME_PADDING:-10}+0+$((${FRAME_PADDING:-10}-3))" \) +swap -background none -layers merge \
+        +repage -quality 100% "/tmp/${CURRENT}-shadow.png" && rm -f "/tmp/${CURRENT}-rounded.png" || exit 1
+        convert "/tmp/${CURRENT}-shadow.png" -bordercolor "$FRAME_COLOR"                                                          \
+        -border 5 -quality 100% "/tmp/${CURRENT}.png" && rm -f "/tmp/${CURRENT}-shadow.png" || exit 1
     fi
     
     while :; do
@@ -52,9 +57,11 @@ clean_img() { rm -f /tmp/*_scrot*.png; }
     done
     
     if [[ "$SAVE_SS" = "yes" ]]; then
-        [[ ! -d "${SAVE_DIR}/Screenshots" ]] && mkdir -p "${SAVE_DIR}/Screenshots" || :
+        if [[ ! -d "${SAVE_DIR}/Screenshots" ]]; then
+            mkdir -p "${SAVE_DIR}/Screenshots"
+        fi
         mv -f "/tmp/${CURRENT}.png" "${SAVE_DIR}/Screenshots/"
-        SAVE="$(echo "$SAVE_DIR" | grep -oE '[^/]+$')/Screenshots${STAT}"
+        SAVE="$(grep -oE '[^/]+$' <<< "$SAVE_DIR")/Screenshots${STAT}"
     else
         rm -f "/tmp/${CURRENT}.png"
         SAVE="CLIPBOARD"
@@ -67,4 +74,4 @@ clean_img() { rm -f /tmp/*_scrot*.png; }
     exec "$EXNOTIFY_SEND" -u low -r 12 -i "$NOTIF_SS_ICON" "" "<span size='small'><u>${SAVE}</u></span>\nPicture acquired!"
 } &>/dev/null &
 
-exit $?
+unset LC_ALL LANG && exit $?

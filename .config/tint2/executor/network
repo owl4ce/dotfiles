@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { echo "Install iproute2/wireless-tools!"; exit 1; }
 type -p ip iwgetid &>/dev/null || noterr
@@ -8,7 +8,7 @@ wifi="" wifi_noip="" wifi_disabled="" lan="" lan_noip="" void="�
 
 if iwgetid "$INT_WIFI" &>/dev/null; then
     if [[ -n "$(iwgetid "$INT_WIFI" | grep -oP '"\K[^"]+')" ]]; then
-        if ip addr show "$INT_WIFI" | grep -qo 'inet'; then
+        if ip addr show "$INT_WIFI" | grep -Fqo 'inet'; then
             status="$(iwgetid "$INT_WIFI" --raw)"
             icon="$wifi"
         else
@@ -20,7 +20,7 @@ if iwgetid "$INT_WIFI" &>/dev/null; then
         icon="$wifi_disabled"
     fi
 elif ip link show "$INT_ETH" &>/dev/null; then
-    if ip addr show "$INT_ETH" | grep -qo 'inet'; then
+    if ip addr show "$INT_ETH" | grep -Fqo 'inet'; then
         status="$(ip addr show "$INT_ETH" | grep -oP 'inet \K[^/]+' | sed 1q) (${INT_ETH})"
         icon="$lan"
     else
@@ -39,4 +39,4 @@ case ${1} in
     ;;
 esac
 
-exit $?
+unset LC_ALL LANG && exit $?

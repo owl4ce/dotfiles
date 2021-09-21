@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { "$EXNOTIFY_SEND" -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
 command -v urxvt termite &>/dev/null || noterr
@@ -36,7 +36,7 @@ TRANS() {
 
 CURRENT_TERM="$("$DEFAPPS_EXEC" -g terminal)"
 if [[ "$CURRENT_TERM" = "urxvt" ]]; then
-    current="$(grep 'foreground' "$XRESOURCES_CONFIG" | sed 1q | grep '!')"
+    current="$(grep -F 'foreground' "$XRESOURCES_CONFIG" | sed 1q | grep -F '!')"
     case ${1} in
         trans) TRANS apply
         ;;
@@ -63,7 +63,7 @@ if [[ "$CURRENT_TERM" = "urxvt" ]]; then
             ;;
         esac && xrdb "$XRESOURCES_CONFIG" &>/dev/null &
 elif [[ "$CURRENT_TERM" = "termite" ]]; then
-    current="$(grep '#foreground = ' "$TERMITE_CONFIG" | sed 1q)"
+    current="$(grep -F '#foreground = ' "$TERMITE_CONFIG" | sed 1q)"
     if [[ "$current" != *"#foreground = #F9F9F9"* ]]; then
         sed -e '73s_foreground_#foreground_' -e '74s_foreground_#foreground_' \
             -e '75s_background_#background_' -e '84s_#foreground_foreground_' \
@@ -85,4 +85,4 @@ elif [[ "$CURRENT_TERM" = "termite" ]]; then
     fi
 fi
 
-exit $?
+unset LC_ALL LANG && exit $?

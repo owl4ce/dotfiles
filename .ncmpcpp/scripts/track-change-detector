@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 type -p mp{d,c} &>/dev/null || exit 1
 
@@ -25,4 +25,4 @@ run() {
     fi
 } &>/dev/null &
 
-exit $?
+unset LC_ALL LANG && exit $?

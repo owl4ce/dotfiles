@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 rofi_command="rofi -theme themes/sidebar/five-${CHK_ROFI_MOD}.rasi"
 
@@ -21,16 +21,24 @@ options="${shutdown}\n${reboot}\n${lock}\n${suspend}\n${logout}"
 # Main.
 chosen="$(printf "${options}\n" | ${rofi_command} -dmenu -selected-row 2)"
 case "$chosen" in
-    "$shutdown") exec "${ROFI_DIR}/scripts/promptmenu.sh" --yes-command "${SEATCTL} poweroff" --query "     Poweroff?"
+    "$shutdown") exec "${ROFI_DIR}/scripts/promptmenu.sh" \
+                 --yes-command "${SEATCTL} poweroff"      \
+                 --query "     Poweroff?"
     ;;
-    "$reboot")   exec "${ROFI_DIR}/scripts/promptmenu.sh" --yes-command "${SEATCTL} reboot" --query "      Reboot?"
+    "$reboot")   exec "${ROFI_DIR}/scripts/promptmenu.sh" \
+                 --yes-command "${SEATCTL} reboot"        \
+                 --query "      Reboot?"
     ;;
     "$lock")     exec "$DEFAPPS_EXEC" lockscreen
     ;;
-    "$suspend")  [[ "$("$MUSIC_CONTROLLER" status)" = *"laying"* ]] && "$MUSIC_CONTROLLER" toggle; exec "$SEATCTL" suspend
+    "$suspend")  if [[ "$("$MUSIC_CONTROLLER" status)" = *"laying"* ]]; then
+                     "$MUSIC_CONTROLLER" toggle
+                 fi; exec "$SEATCTL" suspend
     ;;
-    "$logout")   exec "${ROFI_DIR}/scripts/promptmenu.sh" --yes-command "pkill -KILL -u $(whoami)" --query "      Logout?"
+    "$logout")   exec "${ROFI_DIR}/scripts/promptmenu.sh"             \
+                 --yes-command "pkill -KILL -u $(id -n -u || whoami)" \
+                 --query "      Logout?"
     ;;
 esac 
 
-exit $?
+unset LC_ALL LANG && exit $?

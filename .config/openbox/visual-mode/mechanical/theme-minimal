@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 PARTIALLY() {
     # Set the openbox menu color from owl4ce_var.
@@ -39,10 +39,10 @@ APPLY_ALL() {
     
     # Set the Openbox last button location.
     if [[ "$CHK_MINMOD_LOC_BUTTON" = "left" ]]; then
-        sed -i '/<titleLayout>/s/>.*</>CIML</' "$OB_CONFIG"
+        sed -i '/<titleLayout>/s/>.*</>CIML</' "$OB_CONFIG" && \
         echo "left" > "$MINMOD_LOC_BUTTON_FILE"
     elif [[ "$CHK_MINMOD_LOC_BUTTON" = "right" ]]; then
-        sed -i '/<titleLayout>/s/>.*</>LIMC</' "$OB_CONFIG"
+        sed -i '/<titleLayout>/s/>.*</>LIMC</' "$OB_CONFIG" && \
         echo "right" > "$MINMOD_LOC_BUTTON_FILE"
     fi
     
@@ -62,4 +62,4 @@ case ${1} in
     ;;
 esac
 
-exit $?
+unset LC_ALL LANG && exit $?

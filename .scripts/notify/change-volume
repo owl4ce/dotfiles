@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { "$EXNOTIFY_SEND" -u low -r 15 "Install alsa-utils!"; exit 1; }
 type -p amixer &>/dev/null || noterr
@@ -27,7 +27,7 @@ case ${1} in
           notify
     ;;
     mute) amixer set Master 1+ toggle -q
-          if amixer get Master | grep -qo 'off'; then
+          if amixer get Master | grep -Fqo 'off'; then
               exec "$EXNOTIFY_SEND" -u low -r 123 -t 700 -i "notification-audio-volume-muted" "Muted "
           else
               notify
@@ -35,4 +35,4 @@ case ${1} in
     ;;
 esac
 
-exit $?
+unset LC_ALL LANG && exit $?

@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 { type -p mp{d,c} && command -v ffmpeg convert; } &>/dev/null || exit 1
 
 CL="\ec" R="\e[1;31m" m="\e[0;35m" NC="\e[0m" COVER="$NCMPCPP_COVER"
 
 w3m() {
-    if [[ "$1" = "clear" ]]; then
-        printf "$CL"
-    else
+    if [[ "$1" != "clear" ]]; then
         shopt -s nullglob
         w3m_paths=({/usr/{local/,},~/.nix-profile/}{lib,libexec,lib64,libexec64}/w3m/w3mi*)
         shopt -u nullglob
@@ -64,4 +62,4 @@ pixbuf() {
     fi        
 } &
 
-exit $?
+unset LC_ALL LANG && exit $?
