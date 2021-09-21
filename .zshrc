@@ -111,8 +111,7 @@ zstyle :bracketed-paste-magic paste-finish paste_done
 #
 # Aliases
 
-PRIV="$(command -v doas || command -v sudo)"; [[ -n "$PRIV" ]] || \
->&2 printf "\e[1;31m > error:\e[0m Neither \e[0;35mdoas\e[0m nor \e[0;35msudo\e[0m not found!\n"
+PRIV="$(command -v doas || command -v sudo)"
 
 alias c="clear"
 alias q="exit"
@@ -134,6 +133,7 @@ alias trim_all="${PRIV} fstrim -va"
 alias nanosu="${PRIV} nano"
 alias nvimsu="${PRIV} nvim"
 alias clean_ram="${PRIV} sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
+
 #alias ls="exa -lgh --icons --group-directories-first"
 #alias la="exa -lgha --icons --group-directories-first"
 
