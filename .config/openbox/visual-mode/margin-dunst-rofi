@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"; OB_MARGIN="10"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"; OB_MARGIN="10"
 
 echo "$CHK_ORT" > "${VISMOD_ROFI_FILE}.${STATE_EXT:-joy}"
 
@@ -41,4 +41,4 @@ case ${1} in
     ;;
 esac
 
-exit $?
+unset LC_ALL LANG && exit $?

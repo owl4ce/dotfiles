@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C;
+export LC_ALL=C LANG=C
 rofi_command="rofi -theme themes/promptmenu.rasi"
 
 # Options and icons.
@@ -8,30 +8,39 @@ yes_text="" no_text="" query="Are you sure?"
 # Parse the arguments.
 if [[ $# -eq 0 ]]; then
     printf "Usage: \e[100m \e[32mpromptmenu\e[39;100m -y <command> \e[0m\n"
-    printf "All the options:
-     \e[34mOPTIONAL \e[39;100m [ -o | --yes-text ] <text> \e[0m\n \
-    \e[34mOPTIONAL \e[39;100m [ -c | --no-text ] <text> \e[0m\n \
-    \e[35mREQUIRED \e[39;100m [ -y | --yes-command ] <command> \e[0m\n \
-    \e[34mOPTIONAL \e[39;100m [ -n | --no-command ] <command> \e[0m\n \
-    \e[34mOPTIONAL \e[39;100m [ -q | --query ] txt \e[0m"
+    printf "All the options:                                            \n\
+    \e[34mOPTIONAL \e[39;100m [ -o | --yes-text ] <text> \e[0m          \n\
+    \e[34mOPTIONAL \e[39;100m [ -c | --no-text ] <text> \e[0m           \n\
+    \e[35mREQUIRED \e[39;100m [ -y | --yes-command ] <command> \e[0m    \n\
+    \e[34mOPTIONAL \e[39;100m [ -n | --no-command ] <command> \e[0m     \n\
+    \e[34mOPTIONAL \e[39;100m [ -q | --query ] txt \e[0m                \n"
     exit 1
 else
     while [[ $# -ne 0 ]]; do
         case ${1} in
-            -o|--yes-text)    [[ -n "$2" ]] && yes_text="$2" || yes_text=""
-                              shift
+            -o|--yes-text)    if [[ -n "$2" ]]; then
+                                  yes_text="$2"
+                              else
+                                  yes_text=""
+                              fi; shift
             ;;
-            -c|--no-text)     [[ -n "$2" ]] && no_text="$2" || no_text=""
-                              shift
+            -c|--no-text)     if [[ -n "$2" ]]; then
+                                  no_text="$2"
+                              else
+                                  no_text=""
+                              fi; shift
             ;;
-            -y|--yes-command) [[ -n "$2" ]] && yes_command="$2"
-                              shift
+            -y|--yes-command) if [[ -n "$2" ]]; then
+                                  yes_command="$2"
+                              fi; shift
             ;;
-            -n|--no-command)  [[ -n "$2" ]] && no_command="$2"
-                              shift
+            -n|--no-command)  if [[ -n "$2" ]]; then
+                                  no_command="$2"
+                              fi; shift
             ;;
-            -q|--query)       [[ -n "$2" ]] && query="$2"
-                              shift
+            -q|--query)       if [[ -n "$2" ]]; then
+                                  query="$2"
+                              fi; shift
             ;;
         esac
         shift
@@ -50,4 +59,4 @@ case "$chosen" in
     ;;
 esac 
 
-exit $?
+unset LC_ALL LANG && exit $?

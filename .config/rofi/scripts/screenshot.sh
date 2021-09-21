@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 rofi_command="rofi -theme themes/sidebar/three-${CHK_ROFI_MOD}.rasi"
 
@@ -20,4 +20,4 @@ case "$chosen" in
     ;;
 esac 
 
-exit $?
+unset LC_ALL LANG && exit $?

@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 LINUX_SYS="/sys/devices/virtual/thermal"
 if [[ -d "${LINUX_SYS}/${TEMP_DEV}" ]]; then
     exec echo "$(expr $(<"${LINUX_SYS}/${TEMP_DEV}/temp") / 1000)"$'\xc2\xb0C'
 elif [[ ! -d "$LINUX_SYS" ]]; then
     echo "${LINUX_SYS} is an invalid path!"
-    exit 1
 else
     echo "${TEMP_DEV} not found!"
-    exit 1
 fi
 
-exit $?
+unset LC_ALL LANG && exit $?

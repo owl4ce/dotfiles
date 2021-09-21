@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { "$EXNOTIFY_SEND" -u low -r 16 "Install brightnessctl!"; exit 1; }
 type -p brightnessctl &>/dev/null || noterr
@@ -31,4 +31,4 @@ case ${1} in
     ;;
 esac
 
-exit $?
+unset LC_ALL LANG && exit $?

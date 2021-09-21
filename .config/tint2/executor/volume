@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
 
 noterr() { echo "Install alsa-utils!"; exit 1; }
 type -p amixer &>/dev/null || noterr
@@ -19,13 +19,13 @@ icon() {
 }
 
 case ${1} in
-    percent) if amixer get Master | grep -qo 'off'; then
+    percent) if amixer get Master | grep -Fqo 'off'; then
                  exec echo "Muted"
              else
                  exec echo "${VOLUME}%"
              fi
     ;;
-    icon)    if amixer get Master | grep -qo 'off'; then
+    icon)    if amixer get Master | grep -Fqo 'off'; then
                  exec echo ""
              else
                  icon
@@ -41,4 +41,4 @@ case ${1} in
     ;;
 esac
 
-exit $?
+unset LC_ALL LANG && exit $?

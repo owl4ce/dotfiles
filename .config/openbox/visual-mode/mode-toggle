@@ -46,12 +46,18 @@ kill_tray() {
 killall tint2 dunst &>/dev/null
 
 case ${1} in
-    minimal) [[ -z "$CHK_MINMOD" ]] && MOD="_min"; "${CHK_VISMOD}${MOD}"
+    minimal) if [[ -z "$CHK_MINMOD" ]]; then
+                 MOD="_min"
+             fi; "${CHK_VISMOD}${MOD}"
     ;;
     just_ui) xrdb "$XRESOURCES_CONFIG" &>/dev/null &
-             [[ -n "$CHK_MINMOD" ]] && MOD="minimal"; "${VISMOD_DIR}/UI" "$MOD"
+             if [[ -n "$CHK_MINMOD" ]]; then
+                 MOD="minimal"
+             fi; "${VISMOD_DIR}/UI" "$MOD"
     ;;
-    *)       kill_tray; [[ -n "$CHK_MINMOD" ]] && MOD="_min"
+    *)       if [[ -n "$CHK_MINMOD" ]]; then
+                 MOD="_min"
+             fi; kill_tray && \
              if [[ "$CHK_VISMOD" != "mechanical" ]]; then
                  "mechanical${MOD}"
              elif [[ "$CHK_VISMOD" != "eyecandy" ]]; then
