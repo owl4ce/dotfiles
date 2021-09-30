@@ -8,12 +8,13 @@ clean_img() { rm -f /tmp/*_scrot*.png || :; }
 {
     read -rt .12 <> <(:) || clean_img
     
-    if scrot -q "${QUALITY:-75}" -sfbe 'mv -f $f /tmp/' -l style=dash,width=3,color="#2be491"; then
+    # Use default quality (75), since takes long time when using HQ in selection mode.
+    if scrot -q 75 -sfbe 'mv -f $f /tmp/' -l style=dash,width=3,color="#2be491"; then
         "$EXNOTIFY_SEND" -u low -r 12 -t 750 -i "$NOTIF_SS_ICON" "" "Processing captured image .."
     else
         "$EXNOTIFY_SEND" -u low -r 12 -t 500 -i "$NOTIF_SS_ICON" "" "Screenshot canceled!"
         exit 1
-    fi
+    fi # Bug discovered by owl4ce at October 01, 2021.
     
     for CURRENT in /tmp/*_scrot*.png; do
         CURRENT="$(grep -oP '/tmp/\K[^.png]+' <<< "$CURRENT")"

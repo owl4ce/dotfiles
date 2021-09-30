@@ -40,8 +40,12 @@ case ${1} in
                fi && \
                if cp -f "$BTN"/* "$BTN_DIR"/. && openbox --reconfigure; then
                    selected="$(grep -oE '[^/]+$' <<< "$BTN")"
-               fi && echo "$selected" > "$BTN_FILE" && \
-               printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${r}${selected}\n"
+                   if [[ -n "$CHK_MINMOD" ]]; then
+                       BTN_FILE="$MINMOD_BUTTON_FILE"
+                   else
+                       BTN_FILE="$VISMOD_BUTTON_FILE"
+                   fi && echo "$selected" > "$BTN_FILE"
+               fi && printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${r}${selected}\n"
            fi
     ;;
 esac
