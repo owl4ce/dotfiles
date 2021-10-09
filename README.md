@@ -130,7 +130,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 > **Warning!**  
-> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **grep**, **procps-ng**, **psmisc**, and **sed**.  
+> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **grep**, **procps-ng**, **psmisc**, and **sed**. GNU.  
 > Assume that you are using [**sudo**](https://www.sudo.ws) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [**LFS**](http://www.linuxfromscratch.org)? :satisfied:
 
 > **Attention!**  
@@ -138,6 +138,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 > - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
 > - You may want to use `polkit-gnome` instead of `lxsession` nor `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (circular dependencies).
 > - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I [checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha) it on commit with id sha [`9cb552e`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9).
+> - These **.files** fully configured and tested under **1366x768** resolution with **96** DPI. The pixels are perfect.
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
@@ -344,7 +345,7 @@ The final step is login into **openbox-session**, basically login from display m
 
 > Make sure the `sh` symlinks to `bash`, as it's uses [bashism](https://mywiki.wooledge.org/Bashism). **Why bash?** Simple, I'd say it's bloated and powerful.
 > ```sh
-> [ "$(readlink /bin/sh)" != "bash" ] && sudo ln -vfs bash /bin/sh
+> [ "$(readlink -f /bin/sh)" != "$(command -v bash)" ] && sudo ln -vfs $(command -v bash) /bin/sh
 > ```
 
 If you are using `~/.xinitrc` without display manager, simply add the following commands.
@@ -584,7 +585,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   3 musicpl="mpd"
   4 filemanager="thunar"
   ```
-  > Termite is now [deprecated](https://github.com/thestinger/termite#termite-is-obsoleted-by-alacritty).
+  > Termite is now [obsolete](https://github.com/thestinger/termite#termite-is-obsoleted-by-alacritty).
   
 - **MPD Music Directory**  
   [`~/.mpd/mpd.conf`](./.mpd/mpd.conf#L6)
