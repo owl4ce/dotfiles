@@ -4,8 +4,11 @@
 #
 # ---
 
-# Use qt5-styleplugins for QT Themes
-export QT_QPA_PLATFORMTHEME=gtk2
+# Use qtstyleplugins for QT Themes
+#export QT_QPA_PLATFORMTHEME=gtk2
 
 # Make our environment identity considered as GNOME (tdesktop affected, so it will using GTK file chooser)
-export XDG_CURRENT_DESKTOP=gnome
+#export XDG_CURRENT_DESKTOP=gnome
+
+# Prevent `less` from storing and regenerate history file
+LESSHISTFILE=/dev/null
