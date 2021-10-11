@@ -131,23 +131,22 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 
 > **Warning!**  
 > This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **grep**, **procps-ng**, **psmisc**, and **sed**. GNU.  
-> Assume that you are using [**sudo**](https://www.sudo.ws) or [**doas**](https://github.com/Duncaen/OpenDoas). Installation feels like [**LFS**](http://www.linuxfromscratch.org)? :satisfied:
+> Assume that you are using [**sudo**](https://www.sudo.ws) or [**doas**](https://github.com/Duncaen/OpenDoas). Want to set up this on top of [**Linux From Scratch**](http://www.linuxfromscratch.org)? :satisfied:
 
 > **Attention!**  
-> - Rofi must be equal version `1.6.x`, so for Debian-based you may need to compile manually from source. - [issue](https://github.com/owl4ce/dotfiles/issues/37)  
-> - If your Linux distribution repository only contains pure `rxvt-unicode` without patch for wide unicode and others, an example is on Arch Linux which provides pure `rxvt-unicode` and `rxvt-unicode-patched` version in the AUR repository. The problem is that the urxvt in the AUR hasn't been updated yet, and the link for the urxvt source-code for that version has been removed from the original link. Therefore, use `rxvt-unicode` from the main repo of each linux distribution that you use. Debian is different (already patched). - [issue](https://github.com/owl4ce/dotfiles/issues/105)
-> - You may want to use `polkit-gnome` instead of `lxsession` nor `lxpolkit`. Because, currently the `lxsession` in Gentoo/Linux is really bad (circular dependencies).
-> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I [checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha) it on commit with id sha [`9cb552e`](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9).
-> - These **.files** fully configured and tested under **1366x768** resolution with **96** DPI. The pixels are perfect.
+> - Rofi must be equal version **1.6.x**, so for Debian-based you may need to build manually from source. [Issue](https://github.com/owl4ce/dotfiles/issues/37).
+> - You may want to use `polkit-gnome` instead of `lxsession` (or `lxpolkit`) due to dependency hell.
+> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I [checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha) it on commit with id sha **[9cb552e](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9)**.
+> - These **.files** fully configured and tested under the **1366x768** resolution with **96** DPI. The pixels are perfect.
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```sh
-   sudo apt install rsync python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio \
-   alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi qt5-style-plugins lxpolkit xautolock  \
-   rxvt-unicode xclip scrot thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler       \
-   viewnior mpv mpd mpc ncmpcpp pavucontrol parcellite neofetch w3m w3m-img htop playerctl xsettingsd
+   sudo apt install python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio  \
+   alsa-utils brightnessctl nitrogen dunst tint2 lxpolkit rxvt-unicode xclip scrot mpd mpc thunar \
+   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img ncmpcpp viewnior mpv \
+   pavucontrol parcellite gsimplecal neofetch htop xsettingsd xautolock rofi rsync
    ```
 
   </details>
@@ -203,11 +202,11 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > Make sure your **AUR Helper** is [paru](https://github.com/Morganamilo/paru) or [yay](https://github.com/Jguer/yay).
   
    ```sh
-   paru -S rsync python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
-   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 gsimplecal rofi       \
-   qt5-styleplugins lxsession xautolock rxvt-unicode-truecolor-wide-glyphs xclip scrot thunar     \
-   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler viewnior mpv mpd mpc ncmpcpp     \
-   pavucontrol parcellite neofetch w3m htop picom-git obmenu-generator perl-gtk3 playerctl xsettingsd
+   paru -S python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
+   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 lxsession       \
+   rxvt-unicode-truecolor-wide-glyphs xclip scrot mpd mpc thunar thunar-archive-plugin      \
+   thunar-volman ffmpegthumbnailer tumbler w3m ncmpcpp viewnior mpv pavucontrol parcellite  \
+   gsimplecal neofetch htop xsettingsd xautolock obmenu-generator perl-gtk3 picom-git rofi rsync
    ```
 
   </details>
@@ -247,7 +246,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
   <br>
     
-  **Optional:** [geany](https://geany.org) + [plugins](https://plugins.geany.org), [gimp](https://www.gimp.org), [inkscape](https://inkscape.org), [nano](https://www.nano-editor.org) + [syntax highlighting](https://github.com/scopatz/nanorc), [spotify](https://www.spotify.com/us/download/linux), [termite](https://www.compuphase.com/software_termite.htm), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  **Optional:** [geany](https://geany.org) + [plugins](https://plugins.geany.org), [gimp](https://www.gimp.org), [inkscape](https://inkscape.org), [nano](https://www.nano-editor.org) + [syntax highlighting](https://github.com/scopatz/nanorc), [spotify](https://www.spotify.com/us/download/linux) + [playerctl](https://github.com/altdesktop/playerctl), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
 ##  
 
@@ -332,7 +331,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    - *others if needed.*
    
    > ~For **brightnessctl**, I would recommend [adding users to video group](https://wiki.archlinux.org/index.php/Users_and_groups#Group_management).~  
-   > I don't think this is necessary since **brightnessctl** has udev rules.
+   > I don't think this is necessary since **brightnessctl** has (systemd-)udev rules.
    
    ```sh
    sudo chmod u+s $(command -v brightnessctl)
@@ -556,7 +555,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   An example is turning on `nm-applet`, because by default I don't use it and use [`networkmanager_dmenu`](./.local/bin/networkmanager_dmenu) instead.
 
   > **How about battery indicator?**  
-  > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in the **xfce4-power-manager-settings**.
+  > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in the **xfce4-power-manager-settings**. Everything should be fine without confusion.
 
   Remove hashtags for all your needs, then re-login the openbox-session.
   > **Warning!** Putting commands here means that when switching Visual Mode, the program will be restarted.
@@ -642,19 +641,6 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
   </details>
   
-- **QT Themer (env var) <kbd>optional</kbd>**  
-  [`~/.config/openbox/environment`](./.config/openbox/environment#L7-L8)  
-  This is optional if you are having issues like blind text with background from Mechanical Theme (Fleon GTK), as it basically uses plugins (QT5 to GTK2). Remove `gtk2` after the equal sign, then re-login **openbox-session**.
-  ```cfg
-  ...
-  
-  7 # Use qt5-styleplugins for QT Themes
-  8 export QT_QPA_PLATFORMTHEME=gtk2
-  
-  ...
-  ```
-  > Also please consider [**$XDG_CURRENT_DESKTOP**](./.config/openbox/environment#L10-L11).
-  
 - **Neofetch Image Source**  
   [`~/.config/neofetch/config.conf`](./.config/neofetch/config.conf#L641-L665)
   ```cfg
@@ -735,7 +721,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 <tr>
 <td>
 <br>
-<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shells. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank you!</b></p><p align="center"> Feel free to modify, under <a href="./LICENSE">GPL-3.0</a> except for GTK+ themes, gladient icons, fonts, and wallpapers.</p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p><p align="center">Openbox isn't dead, but completed features.</p>
+<p align="center"><b>Widget?</b> We don't do that here. My main philosophy in building this is as a minimal replacement for Desktop Environment without any desktop decoration e.g icons and widgets, but it can be adapted to taste of user with an overall theme based on one color palette and can be easily switched between Mechanical-Eyecandy. I admit, the downside is that it relies heavily on the GNU/Linux operating system since bashism is not POSIX-compliant to other shells. Most of the size of this repository is large due to wallpapers, icons, and git caches.</p><p align="center">Please don't underrate, I've configured them all since April 2020 and have been stuDYING them since <a href="https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey">October 2019</a>. Awesome open-source. If you support it, <b>star</b> it or make a <a href="https://github.com/owl4ce/dotfiles/pulls">PR</a>. Or if there is a problem with configuration (please check previous issues if any) you can make an <a href="https://github.com/owl4ce/dotfiles/issues">issue</a> here. Also if you want a <a href="https://github.com/owl4ce/dotfiles/discussions">discussion</a>.</p><p align="center"><b>Thank You!</b></p><p align="center"> Feel free to modify, under <a href="./LICENSE">GPL-3.0</a> except for GTK+ themes, gladient icons, fonts, and wallpapers.</p><p align="center"><b>Why openbox?</b> Really a perfect next-gen window manager, easily configurable, and less resources usage.</p><p align="center">Openbox isn't dead, but completed features.</p>
 </td>
 </tr>
 <tr>
