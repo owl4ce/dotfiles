@@ -11,4 +11,4 @@
 #export XDG_CURRENT_DESKTOP=gnome
 
 # Prevent `less` from storing and regenerate history file
-LESSHISTFILE=/dev/null
+export LESSHISTFILE=/dev/null
