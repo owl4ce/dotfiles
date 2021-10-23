@@ -1,38 +1,37 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-noterr() { "$EXNOTIFY_SEND" -u low -r 15 "Install alsa-utils!"; exit 1; }
-type -p amixer &>/dev/null || noterr
+type -p amixer &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 15 'Install alsa-utils!'
 
-notify() {
+notify()
+{
     VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | sed 1q)"
-    if [[ "$VOLUME" -eq 0 ]]; then
-        icon_name="notification-audio-volume-muted"
-    elif [[ "$VOLUME" -lt 30 ]]; then
-        icon_name="notification-audio-volume-low"
-    elif [[ "$VOLUME" -lt 70 ]]; then
-        icon_name="notification-audio-volume-medium"
+    if [ "$VOLUME" -eq 0 ]; then
+        icon='notification-audio-volume-muted'
+    elif [ "$VOLUME" -lt 30 ]; then
+        icon='notification-audio-volume-low'
+    elif [ "$VOLUME" -lt 70 ]; then
+        icon='notification-audio-volume-medium'
     else
-        icon_name="notification-audio-volume-high"
-    fi && exec "$EXNOTIFY_SEND" -u low -r 123 -t 700 -i "$icon_name" "$VOLUME " -h "int:value:${VOLUME}"
+        icon='notification-audio-volume-high'
+    fi
+    exec "$EXNOTIFY_SEND" -r 123 -t 700 -i "$icon" "$VOLUME " -h "int:value:${VOLUME}"
 }
 
 case ${1} in
     up)   amixer set Master on -q
           amixer sset Master "${AUDIO_STEPS:-5}%+" -q
-          notify
     ;;
     down) amixer set Master on -q
           amixer sset Master "${AUDIO_STEPS:-5}%-" -q
-          notify
     ;;
     mute) amixer set Master 1+ toggle -q
           if amixer get Master | grep -Fqo 'off'; then
-              exec "$EXNOTIFY_SEND" -u low -r 123 -t 700 -i "notification-audio-volume-muted" "Muted "
-          else
-              notify
+              exec "$EXNOTIFY_SEND" -r 123 -t 700 -i 'notification-audio-volume-muted' 'Muted '
           fi
     ;;
 esac
 
-unset LC_ALL LANG && exit $?
+notify
+
+exit ${?}

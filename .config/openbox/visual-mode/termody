@@ -1,47 +1,53 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-noterr() { "$EXNOTIFY_SEND" -u low -r 14 "Install rxvt-unicode/termite!"; exit 1; }
-command -v urxvt termite &>/dev/null || noterr
+command -v urxvt termite &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 14 'Install rxvt-unicode/termite!'
 
 # Set the URxvt icon file (auto) and URL launcher from owl4ce_var.
 sed -e "/URxvt.url-select.launcher/s/:.*/:        ${WEB_BROWSER}/" \
-    -e "/URxvt.iconFile/s/:.*/:                   ${TERM_ICON}/" -i "$XRESOURCES_CONFIG"
+    -e "/URxvt.iconFile/s/:.*/:                   ${TERM_ICON}/" \
+    -i "$XRESOURCES_CONFIG"
     
-TRANS() {
-    if [[ "${URXVT:-100}" -lt 100 ]]; then
+transparency()
+{
+    if [ "${URXVT:-100}" -lt 100 ]; then
         sed -i '/URxvt.depth/s/:.*/:                      32/' "$XRESOURCES_CONFIG"
     else
         sed -i '/URxvt.depth/s/:.*/:                      24/' "$XRESOURCES_CONFIG"
     fi
     case ${1} in
-        apply)  if [[  "$current" != *"!"* ]]; then
-                    sed -e "68s_\[.*\]_\[${URXVT:-100}\]_" \
-                        -e "84s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
-                else
-                    sed -e "84s_\[.*\]_\[${URXVT:-100}\]_" \
-                        -e "68s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
-                fi
+        apply) if [[  "$current" != *'!'* ]]; then
+                   sed -e "68s_\[.*\]_\[${URXVT:-100}\]_" \
+                       -e "84s_\[.*\]_\[100\]_" \
+                       -i "$XRESOURCES_CONFIG"
+               else
+                   sed -e "84s_\[.*\]_\[${URXVT:-100}\]_" \
+                       -e "68s_\[.*\]_\[100\]_" \
+                       -i "$XRESOURCES_CONFIG"
+               fi
         ;;
-        invert) if [[  "$current" = *"!"* ]]; then
-                    sed -e "68s_\[.*\]_\[${URXVT:-100}\]_" \
-                        -e "84s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
-                else
-                    sed -e "84s_\[.*\]_\[${URXVT:-100}\]_" \
-                        -e "68s_\[.*\]_\[100\]_" -i "$XRESOURCES_CONFIG"
-                fi
+        swap)  if [[  "$current" = *'!'* ]]; then
+                   sed -e "68s_\[.*\]_\[${URXVT:-100}\]_" \
+                       -e "84s_\[.*\]_\[100\]_" \
+                       -i "$XRESOURCES_CONFIG"
+               else
+                   sed -e "84s_\[.*\]_\[${URXVT:-100}\]_" \
+                       -e "68s_\[.*\]_\[100\]_" \
+                       -i "$XRESOURCES_CONFIG"
+               fi
         ;;
     esac
 }
 
 CURRENT_TERM="$("$DEFAPPS_EXEC" -g terminal)"
-if [[ "$CURRENT_TERM" = "urxvt" ]]; then
+
+if [ "$CURRENT_TERM" = 'urxvt' ]; then
     current="$(grep -F 'foreground' "$XRESOURCES_CONFIG" | sed 1q | grep -F '!')"
     case ${1} in
-        trans) TRANS apply
+        trans) transparency apply
         ;;
-        *)     TRANS invert
-               if [[  "$current" != *"!"* ]]; then
+        *)     transparency swap
+               if [[  "$current" != *'!'* ]]; then
                    sed -e '103s_*_!*_' -e '104s_*_!*_' \
                        -e '105s_*_!*_' -e '107s_*_!*_' \
                        -e '108s_*_!*_' -e '110s_*_!*_' \
@@ -61,10 +67,10 @@ if [[ "$CURRENT_TERM" = "urxvt" ]]; then
                        -i "$XRESOURCES_CONFIG"
                fi
             ;;
-        esac && xrdb "$XRESOURCES_CONFIG" &>/dev/null &
-elif [[ "$CURRENT_TERM" = "termite" ]]; then
+        esac; xrdb "$XRESOURCES_CONFIG" &>/dev/null &
+elif [ "$CURRENT_TERM" = 'termite' ]; then
     current="$(grep -F '#foreground = ' "$TERMITE_CONFIG" | sed 1q)"
-    if [[ "$current" != *"#foreground = #F9F9F9"* ]]; then
+    if [[ "$current" != *'#foreground = #F9F9F9'* ]]; then
         sed -e '73s_foreground_#foreground_' -e '74s_foreground_#foreground_' \
             -e '75s_background_#background_' -e '84s_#foreground_foreground_' \
             -e '85s_#foreground_foreground_' -e '86s_#background_background_' \
@@ -85,4 +91,4 @@ elif [[ "$CURRENT_TERM" = "termite" ]]; then
     fi
 fi
 
-unset LC_ALL LANG && exit $?
+exit ${?}

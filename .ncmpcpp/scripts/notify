@@ -1,33 +1,40 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
 type -p mp{d,c} convert &>/dev/null || exit 1
 
-COVER="$NCMPCPP_NOTIF_COVER" COVER_PNG="$(sed 's|.jpg|.png|' <<< "$COVER")"
+COVER_ORI="$NCMPCPP_NOTIF_COVER"
+COVER_PNG="$(sed 's|.jpg|.png|g' <<< "$COVER_ORI")"
 
-notify_none() {
-    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$NOTIF_MUSIC_ICON" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+notify_none()
+{
+    "$EXNOTIFY_SEND" -r 7777 -i "$NOTIF_MUSIC_ICON" '' "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
-notify_aart() {
-    "$EXNOTIFY_SEND" -u normal -r 7777 -i "$COVER_PNG" "" "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
+notify_aart()
+{
+    "$EXNOTIFY_SEND" -r 7777 -i "$COVER_PNG" '' "<span size='small'>$(mpc --format '[%artist%|%file%]' current)</span>\n$(mpc --format '[%title%]' current)"
 }
 
 {
     album="$(mpc --format '%album%' current -p 6600)"
     file="$(mpc --format '%file%' current -p 6600)"
     album_dir="${file%/*}"
-    [[ -z "$album_dir" ]] && exit 1 || rm -f "$COVER_PNG" &>/dev/null
+    [ -z "$album_dir" ] && exit 1 || rm -f "$COVER_PNG" &>/dev/null
     album_dir="${CHK_MPD_MUSIC_DIR}/${album_dir}"
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
-    src="$({ printf "$covers" | sed 1q; } 2>/dev/null)"
-    if [[ -n "$src" ]]; then # Resize the image width to 80px (ffmpeg/imagemagick). Use ffmpeg for fast conversion.
-      { if ffmpeg -i "$src" -vf scale=80:80 "$COVER" || convert "$src" -resize 80x "$COVER"; then
-            convert "$COVER" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
-            \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha  \
-            off -compose CopyOpacity -composite "$COVER_PNG" && rm -f "$COVER"
-        fi; } &>/dev/null
-        if [[ -f "$COVER_PNG" ]]; then
+    src="$(printf "$covers" | sed 1q 2>/dev/null)"
+    if [ -n "$src" ]; then
+        # Resize the image width to 80px (ffmpeg/imagemagick). Use ffmpeg for fast conversion.
+        {
+            if ffmpeg -i "$src" -vf scale=80:80 "$COVER_ORI" || convert "$src" -resize 80x "$COVER_ORI"; then
+                convert "$COVER_ORI" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+                \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off  \
+                -compose CopyOpacity -composite "$COVER_PNG" && rm -f "$COVER_ORI"
+            fi
+            
+        } &>/dev/null
+        if [ -f "$COVER_PNG" ]; then
             notify_aart
         else
             notify_none
@@ -37,4 +44,4 @@ notify_aart() {
     fi
 } &
 
-unset LC_ALL LANG && exit $?
+exit ${?}

@@ -1,40 +1,32 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-rofi_command="rofi -theme themes/sidebar/five-${CHK_ROFI_MOD}.rasi"
+ROFI="rofi -theme themes/sidebar/five-${CHK_ROFI_MOD}.rasi"
 
-# Get the current status of spotify.
+A='' B='' C='' D='' E=''
+
 status="$("$MUSIC_CONTROLLER" status)"
-
-# Defines the Play/Pause option content.
-if [[ "$status" = *"laying"* ]]; then
-    play_pause=""
-else
-    play_pause=""
-fi; active="" urgent="-a 4" stop="" next="" previous="" tog_stream=""
-
-# Variable passed to rofi.
-options="${previous}\n${play_pause}\n${stop}\n${next}\n${tog_stream}"
-
-# Get the current playing song.
 current="$("$MUSIC_CONTROLLER" title)"
 
-# If spotify isn't running, it will return an empty string, we don't want to display that.
-[[ -z "$current" ]] && current="-" || :
+[[ "$status" != *'laying'* ]] || B=''
 
-# Spawn the spotify menu with the Play/Pause entry selected by default.
-chosen="$(printf "${options}\n" | ${rofi_command} -dmenu ${active} ${urgent} -selected-row 1)"
-case "$chosen" in
-    "$previous")   exec "$MUSIC_CONTROLLER" prev
+active='' urgent='-a 4' 
+
+[ -n "$current" ] || current='-'
+
+MENU="$(printf "${A}\n${B}\n${C}\n${D}\n${E}\n" | ${ROFI} -dmenu ${active} ${urgent} -selected-row 1)"
+
+case "$MENU" in
+    "$A") exec "$MUSIC_CONTROLLER" prev
     ;;
-    "$play_pause") exec "$MUSIC_CONTROLLER" toggle
+    "$B") exec "$MUSIC_CONTROLLER" toggle
     ;;
-    "$stop")       exec "$MUSIC_CONTROLLER" stop
+    "$C") exec "$MUSIC_CONTROLLER" stop
     ;;
-    "$next")       exec "$MUSIC_CONTROLLER" next
+    "$D") exec "$MUSIC_CONTROLLER" next
     ;;
-    "$tog_stream") exec "$MUSIC_CONTROLLER" switchpl
+    "$E") exec "$MUSIC_CONTROLLER" switchpl
     ;;
 esac 
 
-unset LC_ALL LANG && exit $?
+exit ${?}

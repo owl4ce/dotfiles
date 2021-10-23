@@ -1,57 +1,50 @@
 #!/usr/bin/env bash
-. "${HOME}/.owl4ce_var"; R="\e[1;31m" r="\e[0;31m" \
-G="\e[1;32m" M="\e[1;35m" W="\e[1;37m" NC="\e[0m"
+. "${HOME}/.owl4ce_var"
 
-err() { printf "${R} > error:${NC} ${@}\n"; exit 1; }
+R='\e[1;31m' M='\e[1;35m' W='\e[1;37m' NC='\e[0m' r='\e[0;31m'
 
-apps() {
+die() { >&2 printf "${R}%s${NC} %b\n" 'error:' "${@}"; exit 1; }
+
+run()
+{
     printf "${W}USAGE:${NC}\n"
-    printf "${M}[${NC}\$${M}]${NC} launch ${M}[${r}apps${M}]${NC}\n"
+    printf "${M}[${NC}X${M}]${NC} $(basename ${0})    [${r}apps${NC}]\n"
+    printf "${M}[${NC}?${M}]${NC} $(basename ${0}) -g [${r}apps${NC}]\n"
     printf "\n${W}Available apps:${NC}\n"
-    for apps in $(sed 's|=".*"||' "$DEFAPPS_FILE"); do
-        n="$((${n:-0}+1))"
-        printf "${M}[${NC}%s${M}] ${r}%s\n" "$n" "$apps"
-        eval "apps${n}=\$apps"
-    done && unset n
+    for apps in $(cut -d\= -f1 "$DEFAPPS_FILE"); do
+        N="$((${N:-0}+1))"
+        printf "${M}[${NC}${N}${M}] ${r}${apps}\n"
+        eval "apps${N}=\$apps"
+    done; unset N
     printf "\n${W}Will run:${NC}\n"
-    for wrun in $(grep -oP '.*="\K[^"]+' "$DEFAPPS_FILE"); do
-        n="$((${n:-0}+1))"
-        printf "${M}[${NC}%s${M}] ${r}%s\n" "$n" "$wrun"
-        eval "wrun${n}=\$wrun"
-    done && unset n
-    printf "\n${G}Use ${NC}-e${G} to edit apps list.${NC}"
-    printf "\n${G}Use ${NC}-g ${M}[${r}apps${M}]${G} to get current default apps.${NC}\n"
+    for wrun in $(cut -d\" -f2  "$DEFAPPS_FILE"); do
+        N="$((${N:-0}+1))"
+        printf "${M}[${NC}${N}${M}] ${r}${wrun}\n"
+        eval "wrun${N}=\$wrun"
+    done; unset N
 }
 
 case ${1} in
-    -g)    if [[ -z "${@:2}" ]]; then
-               err "Please define the apps!"
-           elif grep -Fqo "${@:2}=" "$DEFAPPS_FILE"; then
-               exec grep -oP "${@:2}=\"\K[^\"]+" "$DEFAPPS_FILE"
+    -g)    [ -n "$2" ] || exit 1
+           if grep -Fqo "${2}=" "$DEFAPPS_FILE"; then
+               exec grep -oP "${2}=\"\K[^\"]+" "$DEFAPPS_FILE"
            else
-               err "${M}${@:2}${NC} is not in the list. Define it first!"
+               die "${M}${2}${NC} isn't in the list. Define it first!"
            fi
     ;;
-    -e)    printf "${G} > ${NC}EDITOR ${M}[${NC}e.g nano${M}]${NC}: "
-           if read TEXT_EDITOR && type -p "$TEXT_EDITOR" &>/dev/null; then
-               exec "$TEXT_EDITOR" "$DEFAPPS_FILE"
-           else
-               err "${M}${TEXT_EDITOR}${NC} is not installed. Install it first!"
-           fi
-    ;;
-    ''|-*) apps
+    ''|-*) run
     ;;
     *)     if grep -Fqo "${1}=" "$DEFAPPS_FILE"; then
-               FILT="$(grep -oP "${1}=\"\K[^\"]+" "$DEFAPPS_FILE")"
-               if [[ -n "$2" ]] && OPTS="$(tr ' ' '\ 'i <<< "$@")"; then
-                   exec $(${FILT} ${OPTS} &>/dev/null &)
-               elif [[ -n "$1" ]]; then
-                   exec $(${FILT} &>/dev/null &)
+               EXEC="$(grep -oP "${1}=\"\K[^\"]+" "$DEFAPPS_FILE")"
+               if [ -n "$2" ]; then
+                   exec $(${EXEC} $(tr ' ' '\ ' <<< "${@}") &>/dev/null &)
+               elif [ -n "$1" ]; then
+                   exec $(${EXEC} &>/dev/null &)
                fi
            else
-               err "${M}${1}${NC} is not in the list. Define it first!"
+               die "${M}${1}${NC} isn't in the list. Define it first!"
            fi
     ;;
 esac
 
-exit $?
+exit ${?}

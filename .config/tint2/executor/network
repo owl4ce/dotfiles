@@ -1,35 +1,32 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-noterr() { echo "Install iproute2/wireless-tools!"; exit 1; }
-type -p ip iwgetid &>/dev/null || noterr
-
-wifi="" wifi_noip="" wifi_disabled="" lan="" lan_noip="" void=""
+type -p ip iwgetid &>/dev/null || exec echo 'Install iproute2/wireless-tools!'
 
 if iwgetid "$INT_WIFI" &>/dev/null; then
-    if [[ -n "$(iwgetid "$INT_WIFI" | grep -oP '"\K[^"]+')" ]]; then
+    if [ -n "$(iwgetid "$INT_WIFI" | grep -oP '"\K[^"]+')" ]; then
         if ip addr show "$INT_WIFI" | grep -Fqo 'inet'; then
             status="$(iwgetid "$INT_WIFI" --raw)"
-            icon="$wifi"
+            icon=''
         else
             status="No IP address (${INT_WIFI})"
-            icon="$wifi_noip"
+            icon=''
         fi
     else
         status="Disconnected"
-        icon="$wifi_disabled"
+        icon=''
     fi
 elif ip link show "$INT_ETH" &>/dev/null; then
     if ip addr show "$INT_ETH" | grep -Fqo 'inet'; then
         status="$(ip addr show "$INT_ETH" | grep -oP 'inet \K[^/]+' | sed 1q) (${INT_ETH})"
-        icon="$lan"
+        icon=''
     else
         status="No IP address (${INT_ETH})"
-        icon="$lan_noip"
+        icon=''
     fi
 else
     status="Network interface not found (${INT_ETH}/${INT_WIFI})"
-    icon="$void"
+    icon=''
 fi
 
 case ${1} in
@@ -39,4 +36,4 @@ case ${1} in
     ;;
 esac
 
-unset LC_ALL LANG && exit $?
+exit ${?}

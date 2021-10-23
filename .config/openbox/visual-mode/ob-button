@@ -1,53 +1,44 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
 case ${1} in
-    swap)  [[ -n "$CHK_MINMOD" ]] && BTN_LOC="$MINMOD_LOC_BUTTON_FILE" || BTN_LOC="$VISMOD_LOC_BUTTON_FILE"
-           if [[ "$CHK_OB_BUTTON_LOC" != "<titleLayout>LIMC</titleLayout>" ]]; then
-               sed -i '/<titleLayout>/s/>.*</>LIMC</' "$OB_CONFIG" && echo "right" > "$BTN_LOC"
-           elif [[ "$CHK_OB_BUTTON_LOC" != "<titleLayout>CIML</titleLayout>" ]]; then
-               sed -i '/<titleLayout>/s/>.*</>CIML</' "$OB_CONFIG" && echo "left" > "$BTN_LOC"
-           fi && exec openbox --reconfigure
+    swap)  if [ "$CHK_OB_BUTTON_LOC" != '<titleLayout>LIMC</titleLayout>' ]; then
+               sed -i '/<titleLayout>/s/>.*</>LIMC</' "$OB_CONFIG"
+               echo 'right' > "$([ -n "$CHK_MINMOD" ] && echo "$MINMOD_LOC_BUTTON_FILE" || echo "$VISMOD_LOC_BUTTON_FILE")"
+           elif [ "$CHK_OB_BUTTON_LOC" != '<titleLayout>CIML</titleLayout>' ]; then
+               sed -i '/<titleLayout>/s/>.*</>CIML</' "$OB_CONFIG"
+               echo 'left' > "$([ -n "$CHK_MINMOD" ] && echo "$MINMOD_LOC_BUTTON_FILE" || echo "$VISMOD_LOC_BUTTON_FILE")"
+           fi; exec openbox --reconfigure
     ;;
     decor) DECOR_LINE="$(($(cat -n "$OB_CONFIG" | grep '<application class="\*" type="normal">' | grep -oE '[0-9]+')+1))"
            if cat -n "$OB_CONFIG" | grep -Fqo "${DECOR_LINE}	        <decor>yes</decor>"; then
                sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>no</decor>_" "$OB_CONFIG"
            elif cat -n "$OB_CONFIG" | grep -Fqo "${DECOR_LINE}	        <decor>no</decor>"; then
                sed -i "${DECOR_LINE}s_<decor>.*</decor>_<decor>yes</decor>_" "$OB_CONFIG"
-           fi && exec openbox --reconfigure --restart
+           fi; exec openbox --reconfigure --restart
     ;;
-    *)     RB="\e[5;31m" GB="\e[5;32m" Y="\e[1;33m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m" CL="\ec" r="\e[0;31m"
-           if [[ -n "$CHK_MINMOD" ]]; then
-               CAP="$(sed 's/.*/\u&/' <<< "${CHK_MINMOD} ")"
-           fi; CAP="${CAP}$(sed 's/.*/\u&/' <<< "$CHK_VISMOD")"
-           printf "${CL}${C}-${GB}-${NC}${C}- ${W}Select button style for ${CAP} Theme${NC}\n"
+    *)     RB='\e[5;31m' GB='\e[5;32m' Y='\e[1;33m' M='\e[1;35m' C='\e[1;36m' W='\e[1;37m' NC='\e[0m' CL='\ec' r='\e[0;31m'
+           GUESS_MODE="$([ -z "$CHK_MINMOD" ] || sed 's/.*/\u&/' <<< "${CHK_MINMOD} ")$(sed 's/.*/\u&/' <<< "$CHK_VISMOD")"
+           printf "${CL}${C}-${GB}-${NC}${C}- ${W}Select button style for ${GUESS_MODE} Theme\n"
            for button in "$OB_BUTTON_DIR"/*; do
-               n="$((${n:-0}+1))"
-               printf "${M}[${NC}%s${M}] ${r}%s\n" "$n" "$(grep -oE '[^/]+$' <<< "$button")"
-               eval "button${n}=\$button"
+               N="$((${N:-0}+1))"
+               printf "${M}[${NC}${N}${M}] ${r}$(grep -oE '[^/]+$' <<< "$button")\n"
+               eval "button${N}=\$button"
            done
-           printf "${C}-${GB}-${NC}${C}- ${W}Enter File Index ID ${M}[${NC}1${M}] ${W}to ${M}[${NC}%s${M}]${W}: ${NC}" "$n"
-           read -r num && num="$(tr -dc '[:digit:]' <<< "$num")"
-           if [[ "$num" -eq 0 || "$num" -gt "$n" ]]; then
-               >&2 printf "${Y}[${RB}!${NC}${Y}] ${RB}Wrong selection :(\n"
+           printf "${C}-${GB}-${NC}${C}- ${W}Enter File Index ID ${M}[${NC}1-${N}${M}]${W}: ${NC}"
+           read -r NUM; NUM="$(tr -dc '[:digit:]' <<< "$NUM")"
+           if [[ "$NUM" -eq 0 || "$NUM" -gt "$N" ]]; then
+               printf "${Y}[${RB}!${NC}${Y}] ${RB}Wrong selection\n" >&2
                exit 1
            else
-               eval "BTN=\$button${num}"
-               if [[ "$CHK_VISMOD" = "mechanical" ]]; then
-                   BTN_DIR="$MECH_BUTTON_DIR"
-               elif [[ "$CHK_VISMOD" = "eyecandy" ]]; then
-                   BTN_DIR="$EYC_BUTTON_DIR"
-               fi && \
-               if cp -f "$BTN"/* "$BTN_DIR"/. && openbox --reconfigure; then
-                   selected="$(grep -oE '[^/]+$' <<< "$BTN")"
-                   if [[ -n "$CHK_MINMOD" ]]; then
-                       BTN_FILE="$MINMOD_BUTTON_FILE"
-                   else
-                       BTN_FILE="$VISMOD_BUTTON_FILE"
-                   fi && echo "$selected" > "$BTN_FILE"
-               fi && printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${r}${selected}\n"
+               eval "BTN=\$button${NUM}"
+               cp -f "$BTN"/* "$([ "$CHK_VISMOD" = 'mechanical' ] && echo "$MECH_BUTTON_DIR" || echo "$EYC_BUTTON_DIR")"/. || exit 1
+               openbox --reconfigure
+               SELECTED="$(grep -oE '[^/]+$' <<< "$BTN")"
+               echo "$SELECTED" > "$([ -n "$CHK_MINMOD" ] && echo "$MINMOD_BUTTON_FILE" || echo "$VISMOD_BUTTON_FILE")"
+               printf "${C}[${GB}√${NC}${C}] ${W}Selected button style: ${r}${SELECTED}\n"
            fi
     ;;
 esac
 
-unset LC_ALL LANG && exit $?
+exit ${?}
