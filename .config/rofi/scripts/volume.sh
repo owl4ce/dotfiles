@@ -1,23 +1,19 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-rofi_command="rofi -theme themes/sidebar/three-${CHK_ROFI_MOD}.rasi"
+ROFI="rofi -theme themes/sidebar/three-${CHK_ROFI_MOD}.rasi"
 
-# Icons.
-ICON_UP="" ICON_DOWN="" ICON_MUTED=""
+A='' B='' C=''
 
-# Variable passed to rofi.
-options="${ICON_UP}\n${ICON_MUTED}\n${ICON_DOWN}"
+MENU="$(printf "${A}\n${B}\n${C}\n" | ${ROFI} -dmenu -selected-row 1)"
 
-# Main.
-chosen="$(printf "${options}\n" | ${rofi_command} -dmenu -selected-row 1)"
-case "$chosen" in
-    "$ICON_UP")    exec "$AVOLUME_CHANGER" up
+case "$MENU" in
+    "$A") exec "$AVOLUME_CHANGER" up
     ;;
-    "$ICON_DOWN")  exec "$AVOLUME_CHANGER" down
+    "$C") exec "$AVOLUME_CHANGER" down
     ;;
-    "$ICON_MUTED") exec "$AVOLUME_CHANGER" mute
+    "$B") exec "$AVOLUME_CHANGER" mute
     ;;
 esac 
 
-unset LC_ALL LANG && exit $?
+exit ${?}

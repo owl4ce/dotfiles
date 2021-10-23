@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-LINUX_SYS="/sys/devices/virtual/thermal"
-if [[ -d "${LINUX_SYS}/${TEMP_DEV}" ]]; then
+LINUX_SYS='/sys/devices/virtual/thermal'
+
+if [ -d "${LINUX_SYS}/${TEMP_DEV}" ]; then
     exec echo "$(expr $(<"${LINUX_SYS}/${TEMP_DEV}/temp") / 1000)"$'\xc2\xb0C'
-elif [[ ! -d "$LINUX_SYS" ]]; then
-    echo "${LINUX_SYS} is an invalid path!"
+elif [ ! -d "$LINUX_SYS" ]; then
+    exec echo "${LINUX_SYS} is an invalid path!"
 else
-    echo "${TEMP_DEV} not found!"
+    exec echo "${TEMP_DEV} not found!"
 fi
 
-unset LC_ALL LANG && exit $?
+exit ${?}

@@ -1,28 +1,30 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
 type -p mp{d,c} &>/dev/null || exit 1
 
-run() {
+run()
+{
     while :; do
         mpc current > "$MPD_CURRENT_TRACK"
         nice -n 19 mpc idle || mpc idle
-        if [[ "$(<"$MPD_CURRENT_TRACK")" != "$(mpc current)" ]]; then
+        if [ "$(<"$MPD_CURRENT_TRACK")" != "$(mpc current)" ]; then
             "${NCMPCPP_SCRIPTS_DIR}/notify"
         fi
     done
 }
 
 {
-    if pgrep mpd || pstree | grep -qo mpd; then
+    if pgrep 'mpd' || pstree | grep -Fqo 'mpd'; then
         run
     else
         if nice -n 1 mpd || mpd; then
             run
         else
-            exec "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>mpd</u></span>\nFailed to start!"
+            exec "$EXNOTIFY_SEND" -u low -r 88888 -i "$NOTIF_MUSIC_ICON" 'Music Player' "<span size='small'><u>mpd</u></span>\nFailed to start!"
         fi
     fi
+    
 } &>/dev/null &
 
-unset LC_ALL LANG && exit $?
+exit ${?}

@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C
-rofi_command="rofi -theme themes/promptmenu.rasi"
+export LC_ALL=POSIX
 
-# Options and icons.
-yes_text="" no_text="" query="Are you sure?"
+ROFI='rofi -theme themes/promptmenu.rasi'
 
-# Parse the arguments.
-if [[ $# -eq 0 ]]; then
+yes_text='' no_text='' query='Are you sure?'
+
+if [ ${#} -eq 0 ]; then
     printf "Usage: \e[100m \e[32mpromptmenu\e[39;100m -y <command> \e[0m\n"
     printf "All the options:                                            \n\
     \e[34mOPTIONAL \e[39;100m [ -o | --yes-text ] <text> \e[0m          \n\
@@ -16,29 +15,29 @@ if [[ $# -eq 0 ]]; then
     \e[34mOPTIONAL \e[39;100m [ -q | --query ] txt \e[0m                \n"
     exit 1
 else
-    while [[ $# -ne 0 ]]; do
+    while [ ${#} -ne 0 ]; do
         case ${1} in
-            -o|--yes-text)    if [[ -n "$2" ]]; then
+            -o|--yes-text)    if [ -n "$2" ]; then
                                   yes_text="$2"
                               else
                                   yes_text=""
                               fi; shift
             ;;
-            -c|--no-text)     if [[ -n "$2" ]]; then
+            -c|--no-text)     if [ -n "$2" ]; then
                                   no_text="$2"
                               else
                                   no_text=""
                               fi; shift
             ;;
-            -y|--yes-command) if [[ -n "$2" ]]; then
+            -y|--yes-command) if [ -n "$2" ]; then
                                   yes_command="$2"
                               fi; shift
             ;;
-            -n|--no-command)  if [[ -n "$2" ]]; then
+            -n|--no-command)  if [ -n "$2" ]; then
                                   no_command="$2"
                               fi; shift
             ;;
-            -q|--query)       if [[ -n "$2" ]]; then
+            -q|--query)       if [ -n "$2" ]; then
                                   query="$2"
                               fi; shift
             ;;
@@ -47,16 +46,13 @@ else
     done
 fi
 
-# Variable passed to rofi.
-options="${yes_text}\n${no_text}"
+MENU="$(printf "${yes_text}\n${no_text}\n" | ${ROFI} -p "$query" -dmenu -selected-row 1)"
 
-# Main.
-chosen="$(printf "${options}\n" | ${rofi_command} -p "$query" -dmenu -selected-row 1)"
-case "$chosen" in
+case "$MENU" in
     "$yes_text") eval "$yes_command"
     ;;
     "$no_text")  eval "$no_command"
     ;;
 esac 
 
-unset LC_ALL LANG && exit $?
+exit ${?}

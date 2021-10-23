@@ -1,43 +1,48 @@
 #!/usr/bin/env bash
 . "${HOME}/.owl4ce_var"
 
-mechanical() {
+mechanical()
+{
     # Write the current one.
-    echo "mechanical" > "$MOD_FILE"
+    echo 'mechanical' > "$MOD_FILE"
     # Set the theme and UI.
     { "${VISMOD_DIR}/mechanical/theme" && "${VISMOD_DIR}/UI"; } &>/dev/null
     # Notify if successfully set.
-    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_MECH_ICON" "Visual Mode" "Mechanical Theme applied"
+    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_MECH_ICON" 'Visual Mode' 'Mechanical Theme applied'
 }
 
-mechanical_min() {
+mechanical_min()
+{
     # Write the current one.
-    echo "mechanical" > "$MOD_FILE" && echo "minimal" >> "$MOD_FILE"
+    echo 'mechanical' > "$MOD_FILE" && echo 'minimal' >> "$MOD_FILE"
     # Set the theme and UI.
     { "${VISMOD_DIR}/mechanical/theme-minimal" && "${VISMOD_DIR}/UI" minimal; } &>/dev/null
     # Notify if successfully set.
-    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_MECH_MIN_ICON" "Minimal Mode" "Mechanical Theme enabled"
+    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_MECH_MIN_ICON" 'Minimal Mode' 'Mechanical Theme enabled'
 }
 
-eyecandy() {
+eyecandy()
+{
     # Write the current one.
-    echo "eyecandy" > "$MOD_FILE"
+    echo 'eyecandy' > "$MOD_FILE"
     # Set the theme and UI.
     { "${VISMOD_DIR}/eyecandy/theme" && "${VISMOD_DIR}/UI"; } &>/dev/null
     # Notify if successfully set.
-    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_EYC_ICON" "Visual Mode" "Eyecandy Theme applied"
+    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_EYC_ICON" 'Visual Mode' 'Eyecandy Theme applied'
 }
 
-eyecandy_min() {
+eyecandy_min()
+{
     # Write the current one.
-    echo "eyecandy" > "$MOD_FILE" && echo "minimal" >> "$MOD_FILE"
+    echo 'eyecandy' > "$MOD_FILE" && echo 'minimal' >> "$MOD_FILE"
     # Set the theme and UI.
     { "${VISMOD_DIR}/eyecandy/theme-minimal" && "${VISMOD_DIR}/UI" minimal; } &>/dev/null
     # Notify if successfully set.
-    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_EYC_MIN_ICON" "Minimal Mode" "Eyecandy Theme enabled"
+    "$EXNOTIFY_SEND" -u low -r 7676 -i "$NOTIF_EYC_MIN_ICON" 'Minimal Mode' 'Eyecandy Theme enabled'
 }
 
-kill_tray() {
+kill_tray()
+{
     for KILL_TRAY in $(echo "$CHK_TRAY"); do
         killall -9 ${KILL_TRAY} &>/dev/null
     done
@@ -46,24 +51,18 @@ kill_tray() {
 killall tint2 dunst &>/dev/null
 
 case ${1} in
-    minimal) if [[ -z "$CHK_MINMOD" ]]; then
-                 MOD="_min"
-             fi; "${CHK_VISMOD}${MOD}"
+    minimal) "${CHK_VISMOD}$([ -n "$CHK_MINMOD" ] || echo '_min')"
     ;;
     just_ui) xrdb "$XRESOURCES_CONFIG" &>/dev/null &
-             if [[ -n "$CHK_MINMOD" ]]; then
-                 MOD="minimal"
-             fi; "${VISMOD_DIR}/UI" "$MOD"
+             "${VISMOD_DIR}/UI" "$([ -z "$CHK_MINMOD" ] || echo 'minimal')"
     ;;
-    *)       if [[ -n "$CHK_MINMOD" ]]; then
-                 MOD="_min"
-             fi; kill_tray && \
-             if [[ "$CHK_VISMOD" != "mechanical" ]]; then
-                 "mechanical${MOD}"
-             elif [[ "$CHK_VISMOD" != "eyecandy" ]]; then
-                 "eyecandy${MOD}"
-             fi && exec "$OB_TRAY" &>/dev/null
+    *)       kill_tray
+             if [ "$CHK_VISMOD" != 'mechanical' ]; then
+                 "mechanical$([ -z "$CHK_MINMOD" ] || echo '_min')"
+             elif [ "$CHK_VISMOD" != 'eyecandy' ]; then
+                 "eyecandy$([ -z "$CHK_MINMOD" ] || echo '_min')"
+             fi; exec "$OB_TRAY" &>/dev/null
     ;;
 esac
 
-exit $?
+exit ${?}

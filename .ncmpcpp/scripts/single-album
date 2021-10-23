@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
 { type -p mp{d,c} && command -v ffmpeg convert; } &>/dev/null || exit 1
 
-CL="\ec" R="\e[1;31m" m="\e[0;35m" NC="\e[0m" COVER="$NCMPCPP_COVER"
-
-w3m() {
-    if [[ "$1" != "clear" ]]; then
+w3m()
+{
+    if [ "$1" != 'clear' ]; then
+        R='\e[1;31m' NC='\e[0m' m='\e[0;35m'
         shopt -s nullglob
         w3m_paths=({/usr/{local/,},~/.nix-profile/}{lib,libexec,lib64,libexec64}/w3m/w3mi*)
         shopt -u nullglob
-        [[ -x "${w3m_paths[0]}" ]] && w3m_img_path="${w3m_paths[0]}" || :
+        [ ! -x "${w3m_paths[0]}" ] || w3m_img_path="${w3m_paths[0]}"
         if type -p x{prop,wininfo} bc &>/dev/null; then
             win_id="$(xprop -root _NET_ACTIVE_WINDOW | grep -oE '[^# ]+$')"
-            while [[ "$(<"$MPD_CURRENT_TRACK")" = "$(mpc current)" ]]; do
+            while [ "$(<"$MPD_CURRENT_TRACK")" = "$(mpc current)" ]; do
                 get_w="$(2>/dev/null xwininfo -id "$win_id" | grep -oP 'Width: \K[^.*]+$')"
                 #get_h="$(2>/dev/null xwininfo -id "$win_id" | grep -oP 'Height: \K[^.*]+$')"
                 if [[ -n "$get_w" || -n "$get_h" ]]; then
@@ -21,24 +21,26 @@ w3m() {
                     #h_size="$(bc <<< "${get_h}/1.29")"
                     pr_img=1
                 fi
-                if read -rt .5 <> <(:) || [[ "${pr_img:-0}" -eq 1 ]]; then # Keep aspect ratio by depend on width for both.
-                    printf '%b\n%s;\n%s\n' "0;1;0;0;${w_size};${w_size};;;;;${COVER}" 3 4 | "${w3m_img_path:-false}" &>/dev/null
+                if read -rt .5 <> <(:) || [ "${pr_img:-0}" -eq 1 ]; then
+                    # Keep image's aspect ratio by depend on width for both.
+                    printf '%b\n%s;\n%s\n' "0;1;0;0;${w_size};${w_size};;;;;${NCMPCPP_COVER}" 3 4 | "${w3m_img_path:-false}" &>/dev/null
                     unset pr_img
                 else
-                    >&2 printf "${CL}${R}error:${NC} window ${m}width${NC} or ${m}height${NC} invalid!"
+                    printf "\ec${R}error:${NC} window ${m}width${NC} or ${m}height${NC} invalid!" >&2 
                 fi
             done
         else
-            read -rt .5 <> <(:) || >&2 printf "${CL}${R}error:${m} xorg-xprop${NC}, ${m}xorg-xwininfo${NC}, and ${m}bc${NC} aren't installed!"
+            read -rt .5 <> <(:) || printf "\ec${R}error:${m} xorg-xprop${NC}, ${m}xorg-xwininfo${NC}, and ${m}bc${NC} aren't installed!" >&2 
         fi
     fi
 }
 
-pixbuf() {
-    if [[ "$1" = "clear" ]]; then
-        printf "\e]20;;100x100+1000+1000\a"
+pixbuf()
+{
+    if [ "$1" = 'clear' ]; then
+        printf '\e]20;;100x100+1000+1000\a'
     else
-        printf "\e]20;${COVER};86x86+04+04:op=keep-aspect\a"
+        printf "\e]20;${NCMPCPP_COVER};86x86+04+04:op=keep-aspect\a"
     fi
 }
 
@@ -46,13 +48,17 @@ pixbuf() {
     album="$(mpc --format '%album%' current -p 6600)"
     file="$(mpc --format '%file%' current -p 6600)"
     album_dir="${file%/*}"
-    [[ -z "$album_dir" ]] && exit 1 || rm -f "$COVER" &>/dev/null
+    [ -z "$album_dir" ] && exit 1 || rm -f "$NCMPCPP_COVER" &>/dev/null
     album_dir="${CHK_MPD_MUSIC_DIR}/${album_dir}"
     covers="$(find "$album_dir" -type d -exec find {} -maxdepth 1 -type f -iregex ".*/.*\(${album}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; )"
-    src="$({ printf "$covers" | sed 1q; } 2>/dev/null)"
-    if [[ -n "$src" ]]; then # Resize the image width to 500px (ffmpeg/imagemagick).
-        { ffmpeg -i "$src" -vf scale=500:500 "$COVER" || convert "$src" -resize 500x "$COVER"; } &>/dev/null
-        if [[ -f "$COVER" ]]; then
+    src="$(printf "$covers" | sed 1q 2>/dev/null)"
+    if [ -n "$src" ]; then
+        # Resize the image width to 500px (ffmpeg/imagemagick).
+        {
+            ffmpeg -i "$src" -vf scale=500:500 "$NCMPCPP_COVER" || convert "$src" -resize 500x "$NCMPCPP_COVER"
+            
+        } &>/dev/null
+        if [ -f "$NCMPCPP_COVER" ]; then
             "$NCMPCPP_ALBUMART_BACKEND"
         else
             "$NCMPCPP_ALBUMART_BACKEND" clear
@@ -62,4 +68,4 @@ pixbuf() {
     fi        
 } &
 
-unset LC_ALL LANG && exit $?
+exit ${?}

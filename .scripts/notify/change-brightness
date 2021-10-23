@@ -1,34 +1,34 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-noterr() { "$EXNOTIFY_SEND" -u low -r 16 "Install brightnessctl!"; exit 1; }
-type -p brightnessctl &>/dev/null || noterr
+type -p brightnessctl &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 16 'Install brightnessctl!'
 
-notify() {
+notify()
+{
     BRIGHTNESS="$(brightnessctl i | grep -oP '\(\K[^%\)]+')"
-    if [[ "$BRIGHTNESS" -eq 0 ]]; then
-        icon_name="notification-display-brightness-off"
-    elif [[ "$BRIGHTNESS" -lt 10 ]]; then
-        icon_name="notification-display-brightness-low"
-    elif [[ "$BRIGHTNESS" -lt 70 ]]; then
-        icon_name="notification-display-brightness-medium"
-    elif [[ "$BRIGHTNESS" -lt 100 ]]; then
-        icon_name="notification-display-brightness-high"
+    if [ "$BRIGHTNESS" -eq 0 ]; then
+        icon='notification-display-brightness-off'
+    elif [ "$BRIGHTNESS" -lt 10 ]; then
+        icon='notification-display-brightness-low'
+    elif [ "$BRIGHTNESS" -lt 70 ]; then
+        icon='notification-display-brightness-medium'
+    elif [ "$BRIGHTNESS" -lt 100 ]; then
+        icon='notification-display-brightness-high'
     else
-        icon_name="notification-display-brightness-full"
-    fi && exec "$EXNOTIFY_SEND" -u low -r 1234 -t 700 -i "$icon_name" "$BRIGHTNESS " -h "int:value:${BRIGHTNESS}"
+        icon='notification-display-brightness-full'
+    fi
+    exec "$EXNOTIFY_SEND" -r 1234 -t 700 -i "$icon" "$BRIGHTNESS " -h "int:value:${BRIGHTNESS}"
 }
 
 case ${1} in
     up)      brightnessctl set "${BRIGHTNESS_STEPS:-5}%+" -q
-             notify
     ;;
     down)    brightnessctl set "${BRIGHTNESS_STEPS:-5}%-" -q
-             notify
     ;;
     optimal) brightnessctl set 25% -q
-             notify
     ;;
 esac
 
-unset LC_ALL LANG && exit $?
+notify
+
+exit ${?}

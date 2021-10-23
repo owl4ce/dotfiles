@@ -1,30 +1,31 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
 { type -p mp{d,c} || type -p spotify playerctl; } &>/dev/null || exit 1
 
 CURRENT_MUSICPL="$("$DEFAPPS_EXEC" -g musicpl)"
-if [[ "$CURRENT_MUSICPL" = "mpd" ]]; then
-    prev="mpc -q prev"
-    next="mpc -q next"
-    stop="mpc -q stop"
-    togg="mpc -q toggle"
+
+if [ "$CURRENT_MUSICPL" = 'mpd' ]; then
+    prev='mpc -q prev'
+    next='mpc -q next'
+    stop='mpc -q stop'
+    togg='mpc -q toggle'
     stat="$(mpc status)"
     titl="$(mpc --format '[%title%|%file%]' current)"
-elif [[ "$CURRENT_MUSICPL" = "spotify" ]]; then
-    prev="playerctl -p spotify previous"
-    next="playerctl -p spotify next"
-    stop="playerctl -p spotify stop"
-    togg="playerctl -p spotify play-pause"
+elif [ "$CURRENT_MUSICPL" = 'spotify' ]; then
+    prev='playerctl -p spotify previous'
+    next='playerctl -p spotify next'
+    stop='playerctl -p spotify stop'
+    togg='playerctl -p spotify play-pause'
     stat="$(playerctl -p spotify status)"
     titl="$(playerctl -p spotify metadata -f '{{title}}')"
 else
-    prev="" togg="" stop="" next="" stat=""
+    prev='' togg='' stop='' next='' stat=''
     titl="There's no mpd or spotify installed"
 fi
 
 case ${1} in
-    icon)     if [[ "$stat" = *"laying"* ]]; then
+    icon)     if [[ "$stat" = *'laying'* ]]; then
                   exec echo ""
               else
                   exec echo ""
@@ -42,16 +43,14 @@ case ${1} in
     ;;
     title)    exec echo "$titl"
     ;;
-    switchpl) if [[ "$stat" = *"laying"* ]]; then
-                  $($togg)
-              fi
-              if [[ "$CURRENT_MUSICPL" != "mpd" ]]; then
+    switchpl) [[ "$stat" != *'laying'* ]] || $($togg)
+              if [ "$CURRENT_MUSICPL" != 'mpd' ]; then
                   sed -i '/musicpl=/s/".*"/"mpd"/' "$DEFAPPS_FILE"
-              elif [[ "$CURRENT_MUSICPL" != "spotify" ]]; then
+              elif [ "$CURRENT_MUSICPL" != 'spotify' ]; then
                   sed -i '/musicpl=/s/".*"/"spotify"/' "$DEFAPPS_FILE"
               fi
-              exec "$EXNOTIFY_SEND" -u low -r 8888 -i "$NOTIF_MUSIC_ICON" "Music Player" "<span size='small'><u>$("$DEFAPPS_EXEC" -g musicpl)</u></span>\nSuccessfully set as default"
+              exec "$EXNOTIFY_SEND" -u low -r 8888 -i "$NOTIF_MUSIC_ICON" 'Music Player' "<span size='small'><u>$("$DEFAPPS_EXEC" -g musicpl)</u></span>\nSuccessfully set as default"
     ;;
 esac
 
-unset LC_ALL LANG && exit $?
+exit ${?}

@@ -1,26 +1,27 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-noterr() { echo "Install alsa-utils!"; exit 1; }
-type -p amixer &>/dev/null || noterr
+type -p amixer &>/dev/null || exec echo 'Install alsa-utils!'
 
 VOLUME="$(amixer get Master | grep -oP '\[\K[^%\]]+' | sed 1q)"
 
-icon() {
-    if [[ "$VOLUME" -eq 0 ]]; then
-        icon=""
-    elif [[ "$VOLUME" -lt 30 ]]; then
-        icon=""
-    elif [[ "$VOLUME" -lt 70 ]]; then
-        icon=""
+icon()
+{
+    if [ "$VOLUME" -eq 0 ]; then
+        icon=''
+    elif [ "$VOLUME" -lt 30 ]; then
+        icon=''
+    elif [ "$VOLUME" -lt 70 ]; then
+        icon=''
     else
-        icon=""
-    fi && exec echo "$icon"
+        icon=''
+    fi
+    exec echo "$icon"
 }
 
 case ${1} in
     percent) if amixer get Master | grep -Fqo 'off'; then
-                 exec echo "Muted"
+                 exec echo 'Muted'
              else
                  exec echo "${VOLUME}%"
              fi
@@ -41,4 +42,4 @@ case ${1} in
     ;;
 esac
 
-unset LC_ALL LANG && exit $?
+exit ${?}

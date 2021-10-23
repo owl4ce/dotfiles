@@ -1,40 +1,38 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-noterr() { "$EXNOTIFY_SEND" -u low -r 12 "Install scrot!"; exit 1; }
-type -p scrot &>/dev/null || noterr
+type -p scrot &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 12 'Install scrot!'
 
-clean_img() { rm -f /tmp/*_scrot*.png || :; }
 {
-    read -rt .12 <> <(:) || clean_img
+    read -rt .21 <> <(:) || rm -f /tmp/*_scrot*.png || :
     
     # Use default quality (75), since takes long time when using HQ in selection mode.
-    if scrot -q 75 -sfbe 'mv -f $f /tmp/' -l style=dash,width=3,color="#2be491"; then
-        "$EXNOTIFY_SEND" -u low -r 12 -t 750 -i "$NOTIF_SS_ICON" "" "Processing captured image .."
+    if scrot -q 75 -sfbe 'mv -f $f /tmp/' -l style=dash,width=3,color='#2be491'; then
+        "$EXNOTIFY_SEND" -r 12 -t 750 -i "$NOTIF_SS_ICON" '' 'Processing captured image ..'
     else
-        "$EXNOTIFY_SEND" -u low -r 12 -t 500 -i "$NOTIF_SS_ICON" "" "Screenshot canceled!"
-        exit 1
+        exec "$EXNOTIFY_SEND" -r 12 -t 500 -i "$NOTIF_SS_ICON" '' 'Screenshot canceled!'
     fi # Bug discovered by owl4ce at October 01, 2021.
     
     for CURRENT in /tmp/*_scrot*.png; do
         CURRENT="$(grep -oP '/tmp/\K[^.png]+' <<< "$CURRENT")"
     done
     
-    if [[ "$FRAME_COLOR" = "auto" ]]; then
-        GET_DOM_COL() {
-            convert "/tmp/${CURRENT}.png" -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: | sort -nr | grep -oE '[#][0-9a-fA-F]*' | sed 1q
+    if [ "$FRAME_COLOR" = 'auto' ]; then
+        GET_DOM_COL()
+        {
+            convert "/tmp/${CURRENT}.png" -scale 50x50! -depth 8 +dither -colors 8 -format '%c' histogram:info: | sort -nr | grep -oE '[#][0-9a-fA-F]*' | sed 1q
         }
-        if FRAME_COLOR="$(GET_DOM_COL)" && [[ -n "$FRAME_COLOR" ]]; then
-            "$EXNOTIFY_SEND" -u low -r 12 -t 750 -i "$NOTIF_SS_ICON" "" "Applying ${FRAME_COLOR} .."
+        if FRAME_COLOR="$(GET_DOM_COL)" && [ -n "$FRAME_COLOR" ]; then
+            "$EXNOTIFY_SEND" -r 12 -t 750 -i "$NOTIF_SS_ICON" '' "Applying ${FRAME_COLOR} .."
         fi
     elif [[ "$FRAME_COLOR" =~ ^[#][0-9a-fA-F]{1,}$ ]]; then
         FRAME_COLOR="${FRAME_COLOR:-#434c5e}"
     else
-        "$EXNOTIFY_SEND" -r 12 -i "$NOTIF_SS_ICON" "" "Screenshot failed!\n<span size='small'><u>${FRAME_COLOR}</u> is not hexadecimal!</span>"
-        clean_img && exit 1
+        "$EXNOTIFY_SEND" -u low -r 12 -i "$NOTIF_SS_ICON" '' "Screenshot failed!\n<span size='small'><u>${FRAME_COLOR}</u> is not hexadecimal!</span>"
+        exec rm -f /tmp/*_scrot*.png
     fi
     
-    if [[ "$ENABLE_FRAME" = "yes" ]]; then
+    if [ "$ENABLE_FRAME" = 'yes' ]; then
         convert "/tmp/${CURRENT}.png" \( +clone -alpha extract -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0'   \
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off -compose    \
         CopyOpacity -composite -quality 100% "/tmp/${CURRENT}-rounded.png" && rm -f "/tmp/${CURRENT}.png" || exit 1
@@ -46,33 +44,32 @@ clean_img() { rm -f /tmp/*_scrot*.png || :; }
     fi
     
     while :; do
-        if [[ "$COPY2CLIP" = "yes" && -x "$(command -v xclip)" ]]; then
+        if [[ "$COPY2CLIP" = 'yes' && -x "$(command -v xclip)" ]]; then
             xclip -selection clipboard -target image/png -i "/tmp/${CURRENT}.png"
-            STAT="\n(+CLIPBOARD)"
+            STAT='\n(+CLIPBOARD)'
             break
-        elif [[ "$SAVE_SS" != "yes" ]]; then
-            COPY2CLIP="yes"
+        elif [ "$SAVE_SS" != 'yes' ]; then
+            COPY2CLIP='yes'
         else
             break
         fi
     done
     
-    if [[ "$SAVE_SS" = "yes" ]]; then
-        if [[ ! -d "${SAVE_DIR}/Screenshots" ]]; then
-            mkdir -p "${SAVE_DIR}/Screenshots"
-        fi
+    if [ "$SAVE_SS" = 'yes' ]; then
+        [ -d "${SAVE_DIR}/Screenshots" ] || install -d "${SAVE_DIR}/Screenshots"
         mv -f "/tmp/${CURRENT}.png" "${SAVE_DIR}/Screenshots/"
         SAVE="$(grep -oE '[^/]+$' <<< "$SAVE_DIR")/Screenshots${STAT}"
     else
         rm -f "/tmp/${CURRENT}.png"
-        SAVE="CLIPBOARD"
+        SAVE='CLIPBOARD'
     fi
     
-    if [[ -f "${SAVE_DIR}/Screenshots/${CURRENT}.png" && "$OPEN_FRAMED" = "yes" && -x "$(command -v viewnior)" ]]; then
+    if [[ -f "${SAVE_DIR}/Screenshots/${CURRENT}.png" && "$OPEN_FRAMED" = 'yes' && -x "$(command -v viewnior)" ]]; then
         viewnior "${SAVE_DIR}/Screenshots/${CURRENT}.png" &!
     fi 
     
-    exec "$EXNOTIFY_SEND" -u low -r 12 -i "$NOTIF_SS_ICON" "" "<span size='small'><u>${SAVE}</u></span>\nPicture acquired!"
+    exec "$EXNOTIFY_SEND" -u low -r 12 -i "$NOTIF_SS_ICON" '' "<span size='small'><u>${SAVE}</u></span>\nPicture acquired!"
+    
 } &>/dev/null &
 
-unset LC_ALL LANG && exit $?
+exit ${?}

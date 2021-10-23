@@ -1,23 +1,19 @@
 #!/usr/bin/env bash
-export LC_ALL=C LANG=C; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
 
-rofi_command="rofi -theme themes/sidebar/three-${CHK_ROFI_MOD}.rasi"
+ROFI="rofi -theme themes/sidebar/three-${CHK_ROFI_MOD}.rasi"
 
-# Icons.
-SCREEN="" AREA="" TIMER=""
+A='' B='' C=''
 
-# Variable passed to rofi.
-options="${SCREEN}\n${AREA}\n${TIMER}"
+MENU="$(printf "${A}\n${B}\n${C}\n" | ${ROFI} -dmenu -selected-row 1)"
 
-# Main.
-chosen="$(printf "${options}\n" | ${rofi_command} -dmenu -selected-row 1)"
-case "$chosen" in
-    "$SCREEN") exec "$SS_NOW" delay
+case "$MENU" in
+    "$A") exec "$SS_NOW" delay
     ;;
-    "$AREA")   exec "$SS_DRAW"
+    "$B") exec "$SS_DRAW"
     ;;
-    "$TIMER")  exec "$SS_TIMER"
+    "$C") exec "$SS_TIMER"
     ;;
 esac 
 
-unset LC_ALL LANG && exit $?
+exit ${?}
