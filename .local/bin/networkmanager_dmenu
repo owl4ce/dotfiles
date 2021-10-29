@@ -202,7 +202,7 @@ def rescan_wifi():
                 LOOP.run()
             except gi.repository.GLib.Error as err:
                 # Too frequent rescan error
-                notify("Wifi rescan failed", urgency="critical")
+                notify("Wifi rescan failed", urgency="critical", icon="emblem-syncthing-error")
                 if not err.code == 6:  # pylint: disable=no-member
                     raise err
 
@@ -212,9 +212,9 @@ def rescan_cb(dev, res, data):
 
     """
     if dev.request_scan_finish(res) is True:
-        notify("Wifi scan complete")
+        notify("Wifi scan complete", icon="emblem-syncthing-active")
     else:
-        notify("Wifi scan failed", urgency="critical")
+        notify("Wifi scan failed", urgency="critical", icon="emblem-syncthing-error")
     LOOP.quit()
 
 
@@ -345,10 +345,9 @@ def activate_cb(dev, res, data):
     except GLib.Error:
         conn = None
     if conn is not None:
-        notify("Activated {}".format(conn.get_id()))
+        notify("Activated {}".format(conn.get_id()), icon="network-workgroup")
     else:
-        notify("Problem activating {}".format(data.get_id()),
-               urgency="critical")
+        notify("Problem activating {}".format(data.get_id()), urgency="critical", icon="dialog-error")
     LOOP.quit()
 
 
@@ -357,10 +356,9 @@ def deactivate_cb(dev, res, data):
 
     """
     if dev.deactivate_connection_finish(res) is True:
-        notify("Deactivated {}".format(data.get_id()))
+        notify("Deactivated {}".format(data.get_id()), icon="airplane-mode")
     else:
-        notify("Problem deactivating {}".format(data.get_id()),
-               urgency="critical")
+        notify("Problem deactivating {}".format(data.get_id()), urgency="critical", icon="dialog-error")
     LOOP.quit()
 
 
@@ -567,7 +565,7 @@ def toggle_networking(enable):
     except AttributeError:
         # Workaround for older versions of python-gobject
         CLIENT.networking_set_enabled(enable)
-    notify("Networking {}".format("enabled" if enable is True else "disabled"))
+    notify("Networking {}".format("enabled" if enable is True else "disabled"), icon="network-workgroup")
 
 
 def toggle_wifi(enable):
@@ -583,7 +581,7 @@ def toggle_wifi(enable):
     except AttributeError:
         # Workaround for older versions of python-gobject
         CLIENT.wireless_set_enabled(enable)
-    notify("Wifi {}".format("enabled" if enable is True else "disabled"))
+    notify("Wifi {}".format("enabled" if enable is True else "disabled"), icon="notification-network-wireless")
 
 
 def toggle_wwan(enable):
@@ -599,7 +597,7 @@ def toggle_wwan(enable):
     except AttributeError:
         # Workaround for older versions of python-gobject
         CLIENT.wwan_set_enabled(enable)
-    notify("Wwan {}".format("enabled" if enable is True else "disabled"))
+    notify("Wwan {}".format("enabled" if enable is True else "disabled"), icon="network-workgroup")
 
 
 def toggle_bluetooth(enable):
@@ -628,9 +626,9 @@ def toggle_bluetooth(enable):
     except PermissionError:
         notify("Lacking permission to write to /dev/rfkill.",
                "Maybe you need to add your user to the 'rfkill' group?",
-               urgency="critical")
+               urgency="critical", icon="dialog-error")
     else:
-        notify("Bluetooth {}".format("enabled" if enable else "disabled"))
+        notify("Bluetooth {}".format("enabled" if enable else "disabled"), icon="bluetooth")
 
 
 def launch_connection_editor():
@@ -695,9 +693,9 @@ def delete_cb(dev, res, data):
 
     """
     if dev.delete_finish(res) is True:
-        notify("Deleted {}".format(dev.get_id()))
+        notify("Deleted {}".format(dev.get_id()), icon="emblem-remove")
     else:
-        notify("Problem deleting {}".format(dev.get_id()), urgency="critical")
+        notify("Problem deleting {}".format(dev.get_id()), urgency="critical", icon="dialog-error")
     LOOP.quit()
 
 
@@ -778,11 +776,10 @@ def verify_conn(client, result, data):
                     data.verify(),
                     data.verify_secrets()]):
             raise GLib.Error
-        notify("Added {}".format(conn.get_id()))
+        notify("Added {}".format(conn.get_id()), icon="emblem-added")
     except GLib.Error:  # pylint: disable=catching-non-exception
         try:
-            notify("Connection to {} failed".format(conn.get_id()),
-                   urgency="critical")
+            notify("Connection to {} failed".format(conn.get_id()), urgency="critical", icon="emblem-error")
             conn.delete_async(None, None, None)
         except UnboundLocalError:
             pass
@@ -834,11 +831,11 @@ def create_ap_list(adapter, active_connections):
     return aps, active_ap, active_ap_con, adapter
 
 
-def notify(message, details=None, urgency="low"):
+def notify(message, details=None, urgency="low", icon=""):
     """Use notify-send if available for notifications
 
     """
-    args = ["-u", urgency, message]
+    args = ["-u", urgency, "-i", icon, message]
     if details is not None:
         args.append(details)
 
