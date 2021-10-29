@@ -39,8 +39,8 @@ Here are some details about my setup ..
 - **Compositor**                   • [Picom](https://github.com/yshui/picom) :doughnut: rounded corners!
 - **Notify Daemon**                • [Dunst](https://github.com/dunst-project/dunst) :leaves: minimalism!
 - **Application Launcher**         • [Rofi](https://github.com/davatorium/rofi) :rocket: blazing fast!
-- **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar & icon!
-- **Music Player**                 • [MPD](https://www.musicpd.org) + [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux) :rice_scene: riced!
+- **File Manager**                 • [Thunar](https://github.com/xfce-mirror/thunar) :bookmark: customized sidebar!
+- **Music Player**                 • [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp), [Spotify](https://www.spotify.com/us/download/linux) :rice_scene: riced!
 - **GUI Basic-IDE**                • [Geany - The Flyweight IDE](https://www.geany.org)
 
 ## :gift: Changelogs <img alt="" align="right" src="https://img.shields.io/github/repo-size/owl4ce/dotfiles?style=flat-square&label=The%20whole%20.files,%20including%20.git%20(branches/tags)&color=cf8ef4&labelColor=373e4d"/>
@@ -124,29 +124,30 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
 ##  
 
 ### Installation (dependencies)
-> Customize your choice about dependencies below, this is my complete setup as I use Gentoo/Linux with single OpenboxWM and my preference utility softwares. In fact, what's in the column is a minimal recommendation.
+> Customize your choice about dependencies below, this is my complete setup as I use Gentoo/Linux with single OpenboxWM and my preference utility softwares. So, what's in the column is the minimal setup from base-distro installation, everything should be fine without confused screaming, do with your own risk.
 
 > **Detailed environment**  
 > Please refer to [wiki/Detailed-Environment](https://github.com/owl4ce/dotfiles/wiki/Detailed-Environment).
 
 > **Warning!**  
-> This configuration is highly dependent to **bash**, **coreutils**, **findutils**, **grep**, **procps-ng**, **psmisc**, and **sed**. GNU.  
+> Most configuration contains GNUism using **bash**, **coreutils**, **findutils**, **grep**, **procps-ng**, **psmisc**, and **sed**.
 > Assume that you are using [**sudo**](https://www.sudo.ws) or [**doas**](https://github.com/Duncaen/OpenDoas). Want to set up this on top of [**Linux From Scratch**](http://www.linuxfromscratch.org)? :satisfied:
 
 > **Attention!**  
-> - Rofi must be equal version **1.6.x**, so for Debian-based you may need to build manually from source. [Issue](https://github.com/owl4ce/dotfiles/issues/37).
+> - [Rofi must be equal version **1.6.x**](https://github.com/owl4ce/dotfiles/issues/37), so for Debian-based you may need to build manually from source.
 > - You may want to use `polkit-gnome` instead of `lxsession` (or `lxpolkit`) due to dependency hell.
-> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I [checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha) it on commit with id sha **[9cb552e](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9)**.
-> - These **.files** fully configured and tested under the **1366x768** resolution with **96** DPI. The pixels are perfect.
+> - I guess the latest [`yshui/picom`](https://github.com/yshui/picom/issues) might be problematic on certain devices. On me, experiencing some border flickering on the Openbox desktop menu (right click). So I [checkout](https://devopscube.com/checkout-clone-specific-git-commit-id-sha) it on commit **[9cb552e](https://github.com/yshui/picom/commit/9cb552ecd91ec644bf6fcb558ddd44fda5b4f7d9)**.
+> - These **.files** fully configured and tested under the **1366**x**768** resolution with **96** DPI, pixels-perfect.
 
   <details open>
   <summary><strong>Debian & Ubuntu (and all based distributions)</strong></summary>
   
    ```sh
-   sudo apt install python psmisc x11-utils imagemagick ffmpeg wireless-tools openbox pulseaudio  \
-   alsa-utils brightnessctl nitrogen dunst tint2 lxpolkit rxvt-unicode xclip scrot mpd mpc thunar \
-   thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler w3m w3m-img ncmpcpp viewnior mpv \
-   pavucontrol parcellite gsimplecal neofetch htop xsettingsd xautolock rofi rsync
+   sudo apt install python psmisc xserver-xorg-core x11-xserver-utils x11-utils imagemagick \
+   ffmpeg wireless-tools openbox pulseaudio alsa-utils brightnessctl nitrogen dunst tint2   \
+   lxpolkit rxvt-unicode xclip scrot mpd mpc thunar thunar-archive-plugin thunar-volman     \
+   ffmpegthumbnailer tumbler w3m w3m-img ncmpcpp viewnior mpv pavucontrol parcellite        \
+   gsimplecal neofetch htop xsettingsd xautolock rofi rsync
    ```
 
   </details>
@@ -199,14 +200,15 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <details open>
   <summary><strong>Arch Linux (and all based distributions)</strong></summary>
   
-   > Make sure your **AUR Helper** is [paru](https://github.com/Morganamilo/paru) or [yay](https://github.com/Jguer/yay).
+   > Ensure your **AUR Helper** is [paru](https://github.com/Morganamilo/paru) or [yay](https://github.com/Jguer/yay).
   
    ```sh
-   paru -S python psmisc xorg-xprop xorg-xwininfo imagemagick ffmpeg wireless_tools openbox \
-   pulseaudio pulseaudio-alsa alsa-utils brightnessctl nitrogen dunst tint2 lxsession       \
-   rxvt-unicode-truecolor-wide-glyphs xclip scrot mpd mpc thunar thunar-archive-plugin      \
-   thunar-volman ffmpegthumbnailer tumbler w3m ncmpcpp viewnior mpv pavucontrol parcellite  \
-   gsimplecal neofetch htop xsettingsd xautolock obmenu-generator perl-gtk3 picom-git rofi rsync
+   paru -S python psmisc xorg-server xorg-xrandr xorg-xprop xorg-xwininfo imagemagick \
+   ffmpeg wireless_tools openbox pulseaudio pulseaudio-alsa alsa-utils brightnessctl  \
+   nitrogen dunst tint2 lxsession rxvt-unicode-truecolor-wide-glyphs xclip scrot mpd  \
+   mpc thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler w3m       \
+   ncmpcpp viewnior mpv pavucontrol parcellite gsimplecal neofetch htop xsettingsd    \
+   xautolock obmenu-generator perl-gtk3 picom-git rofi rsync
    ```
 
   </details>
@@ -246,7 +248,8 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   
   <br>
     
-  **Optional:** [geany](https://geany.org) + [plugins](https://plugins.geany.org), [gimp](https://www.gimp.org), [inkscape](https://inkscape.org), [nano](https://www.nano-editor.org) + [syntax highlighting](https://github.com/scopatz/nanorc), [spotify](https://www.spotify.com/us/download/linux) + [playerctl](https://github.com/altdesktop/playerctl), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
+  **Optional:**  
+  [geany](https://geany.org) + [plugins](https://plugins.geany.org), [gimp](https://www.gimp.org), [inkscape](https://inkscape.org), [nano](https://www.nano-editor.org) + [syntax highlighting](https://github.com/scopatz/nanorc), [nm-applet](https://gitlab.gnome.org/GNOME/network-manager-applet), [spotify](https://www.spotify.com/us/download/linux) + [playerctl](https://github.com/altdesktop/playerctl), [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/getting-started).
   
 ##  
 
@@ -259,7 +262,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   <summary><strong>Most of .files</strong></summary>
    
    You can clone or download as an [archive](https://github.com/owl4ce/dotfiles/releases). After that, put all files in the **dotfiles** folder into user's home directory.
-   > Assume you are cloning in the `~/Documents` directory for example. I recommend to install with **rsync**. So why?
+   > Assume you are cloning this in the `~/Documents` directory for example. I recommend to install with **rsync**.
    ```sh
    cd ~/Documents/ && git clone --depth 1 https://github.com/owl4ce/dotfiles.git
    ```
@@ -267,7 +270,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    rsync -avxHAXP --exclude '.git*' --exclude 'LICENSE' --exclude '*.md' dotfiles/ ~/
    ```
    > **Warning!**  
-   > Make sure the rsync command must be correct as above.
+   > Ensure the rsync command must be correct as above.
    > 
    > **Explanation**
    > | Options     | Function                                            |
@@ -286,7 +289,7 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    > - `rsync` is for synchronising stuff and uses the size and timestamp of files to decide if they should be replaced. It has many more options and capabilities than **cp**.
    >
    >   
-   > I recommend to not deleting **dotfiles** dir after cloning from this repository, to make upgrades easier (if you care). Read the [update](#update) section.
+   > I recommend to not deleting the **dotfiles** directory after cloning to make upgrades easier. Read the [update](#update).
    
   </details>
   
@@ -303,6 +306,9 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
    ```
    > **Why I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?** :thinking:  
    > That's needed by dunst in order to display most of icon from notification that spawned by programs.
+   > 
+   > **Optionally,**  
+   > You can delete the tarball achives after extracting.
    
   </details>
   
@@ -340,14 +346,14 @@ This is step-by-step how to install these **.files** for automatic setup Openbox
   </details>
   
 ### The step you are waiting for
-The final step is login into **openbox-session**, basically login from display manager you use such as lightdm, gdm, etc.
+The final step is login into **openbox-session**, basically login from your display manager like lightdm, gdm, etc.
 
-> Make sure the `sh` symlinks to `bash`, as it's uses [bashism](https://mywiki.wooledge.org/Bashism). **Why bash?** Simple, I'd say it's bloated and powerful.
+> Ensure `sh` is symlink to `bash`, as it's uses [bashism](https://mywiki.wooledge.org/Bashism). **Why bash?** Simple, it's **bloated** but **powerful**.
 > ```sh
 > [ "$(readlink -f /bin/sh)" != "$(command -v bash)" ] && sudo ln -vfs $(command -v bash) /bin/sh
 > ```
 
-If you are using `~/.xinitrc` without display manager, simply add the following commands.
+If you are using `~/.xinitrc` without display manager, simply add the following one-liner commands at the end.
 
 **Systemd-based Linux Distribution**  
 ```sh
@@ -404,9 +410,8 @@ killall zentile
 
 ### Update
 
-Since I recommend using **rsync** from start, the easiest way is to list the files that will not be updated to avoid replacing personal files with files in the **dotfiles**. First, update the local repository with remote git repository (unshallow).
-> Remember where you cloned this repository.  
-> For example, from the start we assumed that it was in `~/Documents`.
+Since I recommend using **rsync** from start, the easiest way is to list the files that will not be updated to avoid replacing personal files with files in the **dotfiles**. First, update the local repository with remote git repository.
+> Remember where you cloned this repository. From the start we assumed that it was in `~/Documents`.
 ```sh
 cd ~/Documents/ && \
 pushd dotfiles/ && git pull --unshallow && popd
@@ -452,6 +457,11 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
 ##  
 
 ### User's configuration
+- **About XDG user directories and Thunar-specific <kbd>tips</kbd>**
+   > If you just installed Thunar without XFCE, you might get sidebar without XDG directories like **Documents**, **Downloads**, etc. After you generate those directories, open Thunar then select or block the directories, right-click and click **Send To** 🡲 **Side Pane**. Read XDG user directories at [ArchWiki](https://wiki.archlinux.org/title/XDG_user_directories).
+   > 
+   > If you want to get 100% Thunar looks similar to my screenshot, ensure to copy my Thunar configuration. Then hide **Computer**, **Desktop**, **Recent** or whatever you want by right-clicking on **Places** in the Thunar side pane. By default, my Thunar side pane configuration uses simple 16px icons.
+   
 - **SLiM Themes <kbd>deprecated, optional</kbd>**
   <details>
   <summary><strong>See</strong></summary>
@@ -478,7 +488,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
     <p align="center"><a href="https://brave.com/"><img src="https://i.imgur.com/JYVvCLp.png" alt="brave.thumbnail"/></a></p>
     
-    <p align="center">You may want to turn on <a href="https://www.linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html">Hardware Acceleration</a>.</p>
+    <p align="center">You may want to turn on <a href="https://www.linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html">Hardware Acceleration</a>. See also <a href="https://gist.github.com/ibLeDy/1495735312943b9dd646fd9ddf618513">recommended flags</a>.</p>
     
   </details>
   
@@ -548,17 +558,17 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **User's Preferences <kbd>required</kbd>**  
   [`~/.owl4ce_var`](./.owl4ce_var)  
-  Manage all your settings there. I hope all comments there are easy to understand. ^^
+  > Manage all your settings there. I hope all comments there are easy to understand. ^^
   
 - **User's Tray Icons**  
   [`~/.config/openbox/tray`](./.config/openbox/tray)  
-  An example is turning on `nm-applet`, because by default I don't use it and use [`networkmanager_dmenu`](./.local/bin/networkmanager_dmenu) instead.
-
-  > **How about battery indicator?**  
-  > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in the **xfce4-power-manager-settings**. Everything should be fine without confusion.
-
-  Remove hashtags for all your needs, then re-login the openbox-session.
-  > **Warning!** Putting commands here means that when switching Visual Mode, the program will be restarted.
+  > An example is turning on `nm-applet`, by default I don't use it and use [`networkmanager_dmenu`](./.local/bin/networkmanager_dmenu) instead.
+  > 
+  > > **How about battery indicator?**  
+  > > Because on the `tint2` panel I turned off battery status. Alternatively, install `xfce4-power-manager` and enable system tray icon in the **xfce4-power-manager-settings**.
+  > 
+  > Remove hashtags as your needs, then re-login the openbox-session. Should be fine without confusion.
+  > > Putting commands here means when switching Visual Mode, all those programs will be restarted.
   ```cfg
   1 #
   2 # This tray will restart after switching modes
@@ -573,11 +583,10 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   
 - **Available Default Apps**  
   [` ~/.scripts/default-apps/list.joy`](./.scripts/default-apps/list.joy)
-  - **Terminal:** `urxvt` `termite`
-  - **Lockscreen:** *anything*
-  - **Music Player:** `mpd` `spotify`
-  - **File Manager:** *anything*
-  
+  > - **Terminal:** `urxvt` `termite`
+  > - **Lockscreen:** *anything*
+  > - **Music Player:** `mpd` `spotify`
+  > - **File Manager:** *anything*
   ```cfg
   1 terminal="urxvt"
   2 lockscreen="slimlock"
@@ -597,15 +606,15 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
   ```
   
 - **Ncmpcpp Music Directory**  
-  Auto-connect with MPD.
-  
-  > **How to use ncmpcpp album-art?** Only for URxvt by using **w3mimgdisplay** or via **pixbuf**.  
-  It's easy, just put `(album|cover|folder|artwork|front).(jpe?g|png|gif|bmp)` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp).
+  > Auto-connect with MPD.
+  > 
+  > **How to use ncmpcpp album-art?**  
+  > It's easy, just put `(album|cover|folder|artwork|front).(jpe?g|png|gif|bmp)` into folder with song album. Recommended image size is *500px* ( **1:1** ) or more. This is only for URxvt. [See keybinds](https://github.com/owl4ce/dotfiles/wiki/Keybinds#ncmpcpp).
 
 - **Audio Server <kbd>optional</kbd>**  
   [`~/.config/openbox/autostart`](./.config/openbox/autostart#L9)  
   <details>
-  <summary>This is optional for Linux distributions that don't use systemd as their init, actually pulseaudio can be triggered from increasing-decreasing audio volume.</summary>
+  <summary>This is optional for Linux distributions that don't use systemd as their init.</summary>
   
   - **Pulseaudio**
     ```sh
@@ -619,8 +628,7 @@ rsync -avxHAXP --exclude-from ~/.dotexc dotfiles/ ~/
     
     Or if you use [pipewire](https://github.com/PipeWire/pipewire) as pulseaudio.
   - **Pipewire as Pulseaudio**
-    > More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio).  
-    >  Make sure `pulseaudio` is uninstalled or disable **autospawn**.  
+    > More details at [ArchWiki](https://wiki.archlinux.org/index.php/PipeWire#PulseAudio_clients) / [Gentoo Wiki](https://wiki.gentoo.org/wiki/Pipewire#Replacing_PulseAudio). Ensure `pulseaudio` is uninstalled or disable **autospawn**.  
     > `/etc/pulse/client.conf`
     > ```cfg
     > ...
