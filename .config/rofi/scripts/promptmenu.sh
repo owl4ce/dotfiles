@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export LC_ALL=POSIX
+export LC_ALL=POSIX LANG=POSIX
 
 ROFI='rofi -theme themes/promptmenu.rasi'
 

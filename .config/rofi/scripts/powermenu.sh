@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX LANG=POSIX; . "${HOME}/.owl4ce_var"
 
 # Determine `systemd-logind` or `(e)logind`.
 if [ -x "$(command -v systemctl)" ]; then

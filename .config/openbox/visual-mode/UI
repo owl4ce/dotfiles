@@ -55,7 +55,7 @@ NOTIFYD
 
 case ${1} in
     minimal)   nitrogen --set-zoom-fill --save "${WALL_DIR}/${CHK_MINMOD_WALL}" &>/dev/null
-               tint2 -c "${TINT2_DIR}/statint$([ "$CHK_VISMOD" != 'mechanical' ] || echo '-dark').tint2rc" &>/dev/null &
+               tint2 -c "${TINT2_DIR}/statint-${CHK_VISMOD}.tint2rc" &>/dev/null &
     ;;
     partially) PANEL
     ;;

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX LANG=POSIX; . "${HOME}/.owl4ce_var"
 
 type -p ip iwgetid &>/dev/null || exec echo 'Install iproute2/wireless-tools!'
 

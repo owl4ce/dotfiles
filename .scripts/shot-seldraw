@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX LANG=POSIX; . "${HOME}/.owl4ce_var"
 
 type -p scrot &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 12 'Install scrot!'
 
@@ -37,7 +37,7 @@ type -p scrot &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 12 'Install scrot!'
         \( +clone -flip \) -compose Multiply -composite \( +clone -flop \) -compose Multiply -composite \) -alpha off -compose    \
         CopyOpacity -composite -quality 100% "/tmp/${CURRENT}-rounded.png" && rm -f "/tmp/${CURRENT}.png" || exit 1
         convert "/tmp/${CURRENT}-rounded.png" \( +clone -background black -shadow                                                 \
-        "${FRAMED_SHADOW_OPACITY:-25}x${FRAME_PADDING:-10}+0+$((${FRAME_PADDING:-10}-3))" \) +swap -background none -layers merge \
+        "${FRAMED_SHADOW_OPACITY:-25}x${FRAME_PADDING:-10}+0+$(bc <<< "${FRAME_PADDING:-10}/2")" \) +swap -background none -layers merge \
         +repage -quality 100% "/tmp/${CURRENT}-shadow.png" && rm -f "/tmp/${CURRENT}-rounded.png" || exit 1
         convert "/tmp/${CURRENT}-shadow.png" -bordercolor "$FRAME_COLOR"                                                          \
         -border 5 -quality 100% "/tmp/${CURRENT}.png" && rm -f "/tmp/${CURRENT}-shadow.png" || exit 1

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export LC_ALL=POSIX; . "${HOME}/.owl4ce_var"
+export LC_ALL=POSIX LANG=POSIX; . "${HOME}/.owl4ce_var"
 
 ROFI="rofi -theme themes/sidebar/six-${CHK_ROFI_MOD}.rasi"
 
