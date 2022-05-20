@@ -1,0 +1,6 @@
+current_theme                 "mechanical"
+current_mode                  "artistic"
+
+panel_orientation.artistic    "vertical"
+vertical_panel.artistic       "left"
+horizontal_panel.artistic     "bottom"

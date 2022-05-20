@@ -1,0 +1,15 @@
+ob_button_style.mechanical.artistic          "Backslash"
+ob_button_location.mechanical.artistic       "left"
+wallpaper.mechanical.artistic                "okita-souji_FHD.jpg"
+
+ob_button_style.mechanical.interactive       "Nav"
+ob_button_location.mechanical.interactive    "right"
+wallpaper.mechanical.interactive             "batik-1_4K.jpg"
+
+ob_button_style.eyecandy.artistic            "Lovely"
+ob_button_location.eyecandy.artistic         "right"
+wallpaper.eyecandy.artistic                  "cherry-blossoms_FHD.jpg"
+
+ob_button_style.eyecandy.interactive         "Dots2"
+ob_button_location.eyecandy.interactive      "left"
+wallpaper.eyecandy.interactive               "floral-artistic-2_FHD.jpg"

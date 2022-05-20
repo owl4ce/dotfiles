@@ -1,0 +1,4 @@
+terminal          "urxvt"
+music_player      "mpd"
+file_manager      "thunar"
+session_locker    ""
