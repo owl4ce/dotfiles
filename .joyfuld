@@ -3,12 +3,15 @@
 # The Joyful Desktop universal environment variables.
 # https://github.com/owl4ce/dotfiles
 
+# Sequential tests 1000 times, calculated fastest with Debian Almquist shell 0.009s.
+# https://i.imgur.com/TtpJEmk.png
+
 # shellcheck disable=SC2034,SC2166
 
 unalias -a
 
 # How to restart UI?
-# Just switch modes or right-click on the desktop or press [SUPER] + [SHIFT] + [R].
+# Just switch modes or right-click on the desktop or press: [SUPER] + [SHIFT] + [R].
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # Appearance options                                          ~ Needs Restart UI ~ #
