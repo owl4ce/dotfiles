@@ -29,7 +29,7 @@ w3m()
 
         if [ -n "$WIDTH" ]; then
 
-            WIDTH="$(printf '%.f\n' "$((${WIDTH}000000/${TDF}))e-3")"
+            WIDTH="$(printf '%.f\n' "$((${WIDTH}000000/EFLOAT))e-3")"
 
             ${W3M_IMG_DISPLAY:-break} >&2 <<- EOF
 				0;1;0;0;${WIDTH};${WIDTH};;;;;${NCMPCPP_AA_IMG}
@@ -47,15 +47,18 @@ w3m()
     done
 }
 
-pixbuf() { printf "\033]20;${NCMPCPP_AA_IMG};${GPX}x${GPX}+${OFF}+${OFF}:op=keep-aspect\a"; }
+pixbuf()
+{
+    printf '\033]20;%b;%b:op=keep-aspect\007' "$NCMPCPP_AA_IMG" "${GPX}x${GPX}+${OFF}+${OFF}"
+}
 
 {
     case "${1}" in
         '') exit ${?}
         ;;
-        a*) TDF='3521' GPX='67' OFF='00'
+        a*) EFLOAT='3521' GPX='67' OFF='00'
         ;;
-        s*) TDF='1166' GPX='86' OFF='04'
+        s*) EFLOAT='1166' GPX='86' OFF='04'
         ;;
     esac
 
