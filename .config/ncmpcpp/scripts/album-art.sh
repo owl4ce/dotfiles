@@ -51,7 +51,7 @@ w3m()
 
 pixbuf()
 {
-    printf '\033]20;%b;%b:op=keep-aspect\007' "$NCMPCPP_AA_IMG" "${GPX}x${GPX}+${OFF}+${OFF}"
+    printf '\033]20;%s;%s:op=keep-aspect\007' "$NCMPCPP_AA_IMG" "${GPX}x${GPX}+${OFF}+${OFF}"
 }
 
 {
