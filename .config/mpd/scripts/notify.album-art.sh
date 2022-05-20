@@ -19,10 +19,10 @@ exec >/dev/null 2>&1
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
     read -r ALBUM_COVER <<- EOF
-		$(find  "${CHK_MPD_MUSIC_DIR}/${FILE%/*}"   -type d \
-													-exec find "{}" -maxdepth 1 \
-																	-type f \
-																	-iregex \
+		$(find "${CHK_MPD_MUSIC_DIR}/${FILE%/*\ #####\ *}"  -type d \
+															-exec find "{}" -maxdepth 1 \
+																			-type f \
+																			-iregex \
 		".*/.*\(${FILE##*\ #####\ }\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \;)
 	EOF
 
