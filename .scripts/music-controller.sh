@@ -36,13 +36,13 @@ case "$MUSIC_PLAYER" in
 esac
 
 case "${1}" in
-    prev) eval "$PREV" >&2 &
+    prev) eval "${PREV} >&2 &"
     ;;
-    next) eval "$NEXT" >&2 &
+    next) eval "${NEXT} >&2 &"
     ;;
-    stop) eval "$STOP" >&2 &
+    stop) eval "${STOP} >&2 &"
     ;;
-    tog*) eval "$TOGG" >&2 &
+    tog*) eval "${TOGG} >&2 &"
     ;;
     sta*) echo "$STAT"
     ;;
@@ -50,7 +50,7 @@ case "${1}" in
     ;;
     icon) [ -n "$STAT" ] && echo '' || echo ''
     ;;
-    swi*) [ -z "$STAT" ] || eval "$TOGG" >&2 &
+    swi*) [ -z "$STAT" ] || eval "${TOGG} >&2 &"
 
           for M in mpd spotify; do
               [ "$MUSIC_PLAYER" != "$M" ] || continue
