@@ -34,7 +34,7 @@ fi
 if [ -x "$(command -v uptime)" ]; then
     UPTIME="$(uptime  -p)"
 
-    D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   ${UPTIME##up\ }"
+    D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   ${UPTIME#*up\ }"
 fi
 
 if [ -x "$(command -v xrandr)" ]; then
@@ -55,7 +55,7 @@ fi
 if [ -x "$(command -v xprop)" ]; then
     XPROP_ID="$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)" \
     XPROP_WM="$(xprop -id "${XPROP_ID##*#\ }" -notype _NET_WM_NAME)" \
-    ACT_NET_WM_NAME="${XPROP_WM##_NET_WM_NAME\ =\ \"}"
+    ACT_NET_WM_NAME="${XPROP_WM##*_NET_WM_NAME\ =\ \"}"
 
     G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${ACT_NET_WM_NAME%%\"*}"
 fi

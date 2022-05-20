@@ -48,18 +48,18 @@ AUDIO_VOLUME="${AUDIO_VOLUME%%\]\ *}"
 
 BRIGHTNESS="$(brightnessctl ${B_ARGS} get -P)"
 
-if [ "${AUDIO_VOLUME%%%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
+if [ "${AUDIO_VOLUME%\%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
     [ -z "$AUDIO_MUTED" ] || MUTED='---'
     A_=''
-elif [ "${AUDIO_VOLUME%%%}" -lt 30 ]; then
+elif [ "${AUDIO_VOLUME%\%}" -lt 30 ]; then
     A_=''
-elif [ "${AUDIO_VOLUME%%%}" -lt 70 ]; then
+elif [ "${AUDIO_VOLUME%\%}" -lt 70 ]; then
     A_=''
 else
     A_=''
 fi
 
-A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   ${MUTED-${AUDIO_VOLUME%%%}}"
+A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   ${MUTED-${AUDIO_VOLUME%\%}}"
 E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   ${BRIGHTNESS}"
 
 MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
