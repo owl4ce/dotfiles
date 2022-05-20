@@ -15,6 +15,8 @@ window {
   width: @exts-window-width;
   height: @exts-window-height;
   location: @exts-window-location;
+  x-offset: @exts-window-x-offset;
+  y-offset: @exts-window-y-offset;
   border-radius: @exts-window-border-radius;
 }
 
