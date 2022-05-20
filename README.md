@@ -867,6 +867,8 @@ clone it in the `~/Documents` directory. I recommend to synchronize with rsync p
 💲 cd ~/Documents/
 ```
 
+> **Mirror:** https://gitlab.com/owl4ce/dotfiles.git
+
 ```sh
 💲 git clone --depth 1 --recurse-submodules https://github.com/owl4ce/dotfiles.git
 ```
