@@ -34,7 +34,7 @@ LANG="$SYSTEM_LANG" dunst -config "${DUNST_DIR}/${CHK_THEME}.${CHK_MODE}.dunstrc
 
 joyd_terminal_set &
 
-[ -n "${1}" ] || ( nitrogen --set-zoom-fill --save "${WALLPAPER_DIR}/${CHK_WALLPAPER}" && wait )
+[ -n "${1}" ] || ( nitrogen --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${CHK_WALLPAPER}" && wait )
 
 {
     case "$CHK_MODE" in

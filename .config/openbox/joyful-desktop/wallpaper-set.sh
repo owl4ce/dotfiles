@@ -8,7 +8,7 @@ exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
 case "${1}" in
-    '') WALLPAPER="$(for LS in "$WALLPAPER_DIR"/*.*; do
+    '') WALLPAPER="$(for LS in "$CHK_WALLPAPER_DIR"/*.*; do
                          [ ! -f "$LS" ] || echo "${LS##*/}"
                      done \
                      | rofi -theme-str '@import "action.rasi"' \
@@ -20,7 +20,7 @@ case "${1}" in
 
         [ -n "$WALLPAPER" ] || exit ${?}
 
-        ( nitrogen --set-zoom-fill --save "${WALLPAPER_DIR}/${WALLPAPER}" && wait )
+        ( nitrogen --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${WALLPAPER}" && wait )
 
         sed -e "/^wallpaper.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"${WALLPAPER}\"|" -i "$THEME_FILE"
 
@@ -85,7 +85,7 @@ case "${1}" in
                                   -compose darken \
                                   -composite \
                                   -quality 100% \
-                           "${WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
+                           "${CHK_WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
                            || continue
                     ;;
                     eyec*) magick "$RAW" \
@@ -101,7 +101,7 @@ case "${1}" in
                                   -compose lighten \
                                   -composite \
                                   -quality 100% \
-                           "${WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
+                           "${CHK_WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
                            || continue
                     ;;
                 esac
