@@ -691,11 +691,12 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 | [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
 | [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
 | [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
+| [GNU Unifont](https://unifoundry.com/pub/unifont/unifont-14.0.02/font-builds/unifont-14.0.02.ttf)                         | [LICENSE](https://unifoundry.com/LICENSE.txt)                                                                                              |
 
 **Wget** all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
 
 ```bash
-💲 mkdir -pv ~/.fonts/{Cantarell,Comfortaa,IcoMoon-Custom,Nerd-Patched}
+💲 mkdir -pv ~/.fonts/{Cantarell,Comfortaa,IcoMoon-Custom,Nerd-Patched,Unifont}
 ```
 
 ---
@@ -710,6 +711,10 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 
 ```bash
 💲 wget --no-hsts -cNP ~/.fonts/Nerd-Patched/ https://github.com/owl4ce/dotfiles/releases/download/ng/{M+.1mn,Iosevka}.Nerd.Font.Complete.Mono.ttf
+```
+
+```sh
+💲 wget --no-hsts -cNP ~/.fonts/Unifont/ https://unifoundry.com/pub/unifont/unifont-14.0.02/font-builds/unifont-14.0.02.ttf
 ```
 
 ```sh
