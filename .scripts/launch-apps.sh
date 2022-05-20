@@ -21,7 +21,7 @@ case "${1}" in
 
         while IFS= read -r STRING; do
             N=$((N+1))
-            printf "%b\n" "${m}[${X}${N}${m}] ${r}${STRING%%\ *}${X}" \
+            printf '%b\n' "${m}[${X}${N}${m}] ${r}${STRING%%\ *}${X}" \
                           "-${g}x${X}- $("${0}" -g "${STRING%%\ *}")"
         done <"$APPS_FILE"
     ;;
