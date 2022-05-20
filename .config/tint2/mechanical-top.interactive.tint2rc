@@ -837,9 +837,9 @@ button_max_icon_size = 0
 # Button 12
 button = new
 button_text = 
-button_tooltip = [L] Power Menu
+button_tooltip = [L] Power Menu [R] Media Menu
 button_lclick_command = ~/.config/rofi/scripts/rofi-exts.sh session
-button_rclick_command = 
+button_rclick_command = ~/.config/rofi/scripts/rofi-exts.sh media
 button_mclick_command = 
 button_uwheel_command = 
 button_dwheel_command = 
