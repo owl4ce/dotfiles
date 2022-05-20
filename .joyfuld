@@ -170,7 +170,7 @@ siq()
 
     while IFS= read -r STRING; do
         case "${STRING%%\ *}" in
-            "${1}") STRING="${STRING#${1}*\"}"
+            "${1}") STRING="${STRING#"${1}"*\"}"
                     echo "${STRING%\"*}"
                     break
             ;;
@@ -260,43 +260,43 @@ NCMPCPP_AA_PID="${NCMPCPP_AA_IMG%.*}.pid"
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
-alias joyd_mpd_notifier="${MPD_SCRIPTS_DIR}/mpd-notifier.sh"
-alias joyd_mpd_notify_albumart="${MPD_SCRIPTS_DIR}/notify.album-art.sh"
-alias joyd_layout_set="${JOYD_DIR}/layout-set.sh"
-alias joyd_terminal_set="${JOYD_DIR}/terminal-set.sh"
-alias joyd_theme_set="${JOYD_DIR}/theme-set.sh"
-alias joyd_toggle_mode="${JOYD_DIR}/toggle-mode.sh"
-alias joyd_user_interface_set="${JOYD_DIR}/user-interface-set.sh"
-alias joyd_launch_apps="${SCRIPTS_DIR}/launch-apps.sh"
-alias joyd_music_controller="${SCRIPTS_DIR}/music-controller.sh"
-alias joyd_screenshot_countdown="${SCRIPTS_DIR}/screenshot-countdown.sh"
-alias joyd_screenshot_screen="${SCRIPTS_DIR}/screenshot-screen.sh"
-alias joyd_screenshot_selection="${SCRIPTS_DIR}/screenshot-selection.sh"
+alias joyd_mpd_notifier='${MPD_SCRIPTS_DIR}/mpd-notifier.sh'
+alias joyd_mpd_notify_albumart='${MPD_SCRIPTS_DIR}/notify.album-art.sh'
+alias joyd_layout_set='${JOYD_DIR}/layout-set.sh'
+alias joyd_terminal_set='${JOYD_DIR}/terminal-set.sh'
+alias joyd_theme_set='${JOYD_DIR}/theme-set.sh'
+alias joyd_toggle_mode='${JOYD_DIR}/toggle-mode.sh'
+alias joyd_user_interface_set='${JOYD_DIR}/user-interface-set.sh'
+alias joyd_launch_apps='${SCRIPTS_DIR}/launch-apps.sh'
+alias joyd_music_controller='${SCRIPTS_DIR}/music-controller.sh'
+alias joyd_screenshot_countdown='${SCRIPTS_DIR}/screenshot-countdown.sh'
+alias joyd_screenshot_screen='${SCRIPTS_DIR}/screenshot-screen.sh'
+alias joyd_screenshot_selection='${SCRIPTS_DIR}/screenshot-selection.sh'
 
 joyd_cross_variables()
 {
-    UP4T="$(printf '%.4s\n' "$(tr '[a-z]' '[A-Z]' <<- EOF
+    UP4T="$(printf '%.4s\n' "$(tr 'a-z' 'A-Z' <<- EOF
 				${CHK_THEME}
 			EOF
             )")"
 
-    UP3M="$(printf '%.3s\n' "$(tr '[a-z]' '[A-Z]' <<- EOF
+    UP3M="$(printf '%.3s\n' "$(tr 'a-z' 'A-Z' <<- EOF
 				${CHK_MODE}
 			EOF
             )")"
 
-    eval "  GTK_T=\"\$${UP4T}_GTK\"
-            ICON_T=\"\$${UP4T}_ICON\"
-            OBT_D=\"\$${UP4T}_OB_THEME_DIR\"
-            OBT_IT=\"\$${UP4T}_${UP3M}_OB_MENU_ITM\"
-            OBT_TT=\"\$${UP4T}_${UP3M}_OB_MENU_TTL\"
-            ROFI_A1=\"\$${UP4T}_${UP3M}_ROFI_ACCNT1\"
-            ROFI_A2=\"\$${UP4T}_${UP3M}_ROFI_ACCNT2\"
-            DUNST_FG=\"\$${UP4T}_${UP3M}_DUNST_SMMRY\"
-            DUNST_PB=\"\$${UP4T}_${UP3M}_DUNST_PRGBR\"
-            TINT2_G1=\"\$${UP4T}_${UP3M}_TINT2_GRAD1\"
-            TINT2_G2=\"\$${UP4T}_${UP3M}_TINT2_GRAD2\"
-            TINT2_SB=\"\$${UP4T}_${UP3M}_TINT2_GLYPH\"  "
+    eval "GTK_T=\"\$${UP4T}_GTK\"
+          ICON_T=\"\$${UP4T}_ICON\"
+          OBT_D=\"\$${UP4T}_OB_THEME_DIR\"
+          OBT_IT=\"\$${UP4T}_${UP3M}_OB_MENU_ITM\"
+          OBT_TT=\"\$${UP4T}_${UP3M}_OB_MENU_TTL\"
+          ROFI_A1=\"\$${UP4T}_${UP3M}_ROFI_ACCNT1\"
+          ROFI_A2=\"\$${UP4T}_${UP3M}_ROFI_ACCNT2\"
+          DUNST_FG=\"\$${UP4T}_${UP3M}_DUNST_SMMRY\"
+          DUNST_PB=\"\$${UP4T}_${UP3M}_DUNST_PRGBR\"
+          TINT2_G1=\"\$${UP4T}_${UP3M}_TINT2_GRAD1\"
+          TINT2_G2=\"\$${UP4T}_${UP3M}_TINT2_GRAD2\"
+          TINT2_SB=\"\$${UP4T}_${UP3M}_TINT2_GLYPH\""
 }
 
 joyd_gtk_live_reload()
