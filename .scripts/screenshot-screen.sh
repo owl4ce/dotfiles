@@ -31,7 +31,7 @@ exec >/dev/null 2>&1
     done
 
     if [ "$SS_SAVE" = 'yes' ]; then
-        [ -d "${SS_SVDIR}/Screenshots" ] || install -d "${SS_SVDIR}/Screenshots"
+        [ -d "${SS_SVDIR}/Screenshots" ] || mkdir -p "${SS_SVDIR}/Screenshots"
         EXEC="${CLIP} mv -f \$f \"${SS_SVDIR}/Screenshots/\""
         STS1="${SS_SVDIR##*/}/Screenshots"
     else
