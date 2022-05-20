@@ -8,6 +8,11 @@
 export LANG='POSIX'
 exec 2>/dev/null
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
+    ;;
+esac
+
 ROW_ICON_FONT='feather 12'
 MSG_ICON_FONT='feather 48'
 
@@ -32,11 +37,6 @@ prompt()
 
     exit ${?}
 }
-
-case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
-    ;;
-esac
 
 case "${@}" in
     "$A"     ) prompt "$A_" 'loginctl --no-ask-password poweroff'

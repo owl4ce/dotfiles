@@ -8,6 +8,11 @@
 export LANG='POSIX'
 exec 2>/dev/null
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
+    ;;
+esac
+
 ROW_ICON_FONT='feather 12'
 
 if [ -f '/etc/os-release' ]; then
@@ -48,7 +53,6 @@ if [ -f '/proc/uptime' -o -x "$(command -v uptime)" ]; then
     [ "$M" -eq 0 ] || UPTIME_P="${UPTIME_P}${M} minute${MP}"
     [  -n  "$M"  ] || UPTIME_P="${UPTIME_P}${S} second${SP}"
 
-    UPTIME_P="${UPTIME_P%,\ }" \
     UPTIME_P="${UPTIME_P:-$(uptime -p)}"
 
     D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   ${UPTIME_P##*up\ }"
@@ -76,11 +80,6 @@ if [ -x "$(command -v xprop)" ]; then
 
     G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${_NET_WM_NAME%\"}"
 fi
-
-case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
-    ;;
-esac
 
 MESSAGE='^•ᴥ•^'
 

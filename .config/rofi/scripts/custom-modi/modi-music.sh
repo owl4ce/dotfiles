@@ -9,6 +9,11 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
+    ;;
+esac
+
 ROW_ICON_FONT='feather 12'
 MSG_ICON_FONT='feather 48'
 
@@ -21,11 +26,6 @@ MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
 case "$MUSIC_PLAYER" in
     mpd) E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   Single"
-    ;;
-esac
-
-case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
     ;;
 esac
 

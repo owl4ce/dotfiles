@@ -9,6 +9,11 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
+    ;;
+esac
+
 ROW_ICON_FONT='feather 12'
 MSG_ICON_FONT='feather 48'
 
@@ -21,11 +26,6 @@ G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   Dim 
 [ -z "$AUDIO_DEVICE" ] || A_ARGS="-D ${AUDIO_DEVICE}"
 
 [ -z "$BRIGHTNESS_DEVICE" ] || B_ARGS="-d ${BRIGHTNESS_DEVICE}"
-
-case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
-    ;;
-esac
 
 case "${@}" in
     "$B") amixer ${A_ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q

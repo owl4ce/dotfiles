@@ -7,17 +7,17 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
+    ;;
+esac
+
 ROW_ICON_FONT='feather 12'
 MSG_ICON_FONT='feather 48'
 
 A_='' A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   Screen"
 B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Select or Draw"
 C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   Countdown ${SS_COUNTDOWN_SECONDS:-5}s"
-
-case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
-    ;;
-esac
 
 case "${@}" in
     "$A") joyd_screenshot_screen
