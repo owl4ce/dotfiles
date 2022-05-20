@@ -9,6 +9,9 @@
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
+# Run URxvt daemon if the user's current preferred terminal emulator is set to `urxvtc`.
+{ [ "$(joyd_launch_apps -g terminal)" = 'urxvtc' ] && urxvtd -f -q; } &
+
 # Run your preference audio server (for init-freedom), there was once a pulseaudio here.
 #pulseaudio --log-target=syslog &
 
