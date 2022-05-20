@@ -623,7 +623,7 @@ First, update the local repository with the remote git repository.
 ```
 
 ```bash
-💲 pushd dotfiles/ && git pull --unshallow && popd
+💲 pushd dotfiles/ && git pull --depth 1 --recurse-submodules --rebase && popd
 ```
 
 ```sh
