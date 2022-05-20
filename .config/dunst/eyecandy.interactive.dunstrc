@@ -15,9 +15,9 @@ frame_color = "#f9f9f9"
 separator_color = "#f5f5f5"
 idle_threshold = 120
 
-font = "mplus Nerd Font 10"
+font = "mplus Nerd Font Mono 10"
 
-format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#e88ef4'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font Mono 9' weight='bold' foreground='#e88ef4'>%s</span>\n%b"
 
 show_age_threshold = 60
 icon_position = left
