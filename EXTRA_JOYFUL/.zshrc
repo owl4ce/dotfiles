@@ -1,33 +1,37 @@
 # Z shell initialization.
 # https://github.com/owl4ce/dotfiles
 
-# ENVIRONMENT VARIABLES
+# GENERAL
 # ---
-export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.color-toys:${PATH}"
-
-export ZSH="${HOME}/.oh-my-zsh"
-
+# System path.
+export PATH="${HOME}/.cargo/bin:${HOME}/.color-toys:${HOME}/.local/bin:${PATH}"
+# Bat (a cat(1) clone with wings) theme.
 export BAT_THEME='base16'
+# GPG tty.
+export GPG_TTY="${TTY:-$(tty)}"
+# Authority delegator.
+PRIV="$(command -v doas || command -v sudo)"
 
-export GPG_TTY="$(tty)"
-
-# OH-MY-ZSH
+# (OH-MY-)ZSH
 # ---
+# Installation directory path.
+export ZSH="${HOME}/.oh-my-zsh"
+# Theme to load.
 ZSH_THEME='ar-round'
+# Highlight styling for zsh-autosuggestions.
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-
-DISABLE_AUTO_UPDATE='true'
+# Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS='true'
+# Disable marking untracked files under VCS as dirty.
 DISABLE_UNTRACKED_FILES_DIRTY='true'
-
-plugins=( 'zsh-autosuggestions' 'zsh-completions' 'zsh-syntax-highlighting' 'bgnotify' )
-
+# Disable automatic updates.
+zstyle ':omz:update' mode disabled
+# Plugins to load.
+plugins=(bgnotify zsh-autosuggestions zsh-completions fast-syntax-highlighting)
 # Always append history.
 setopt INC_APPEND_HISTORY
-
-# Execute oh-my-zsh.
+# Execute OMZ.
 source "${ZSH}/oh-my-zsh.sh"
-
 # Speeds up pasting when using zsh-autosuggestions.
 # See "https://github.com/zsh-users/zsh-autosuggestions/issues/238".
 paste_init()
@@ -44,32 +48,24 @@ zstyle :bracketed-paste-magic paste-finish paste_done
 
 # ALIASES
 # ---
-PRIV="$(command -v doas || command -v sudo)"
-
 # Hexdump alias.
 alias hd='hexdump -C'
-
 # Ping aliases.
 alias ping_google='ping 8.8.8.8'
 alias ping_cloudflare='ping 1.1.1.1'
-
-# FileSystem TRIM alias.
+# Filesystem TRIM alias.
 alias trim_all="${PRIV} fstrim -va"
-
-# Run text-editor as root aliases.
+# Text-editor aliases.
 alias nanosu="${PRIV} nano"
 alias nvimsu="${PRIV} nvim"
-
-# Page caches cleaner alias.
-alias cleanup_ram="${PRIV} sh -c 'sync; echo 3 >/proc/sys/vm/drop_caches'"
-
-# Exa (modern `ls` replacement) aliases.
+# Page-cache cleaner alias.
+alias cleanup_ram="${PRIV} ${0} -c 'sync; echo 3 >/proc/sys/vm/drop_caches'"
+# Exa (a modern replacement for ‘ls’) aliases.
 if [ -x "$(command -v exa)" ]; then
     alias ls='exa -lgh --icons --group-directories-first'
     alias la='exa -lgha --icons --group-directories-first'
 fi
-
-# Portage's emerge aliases.
+# Portage aliases.
 if [ -x "$(command -v emerge)" ]; then
     alias emerge_install="${PRIV} emerge -av"
     alias emerge_install_unmask="${PRIV} emerge -av --autounmask=y --autounmask-write"
@@ -79,13 +75,11 @@ if [ -x "$(command -v emerge)" ]; then
     alias emerge_new_use="${PRIV} emerge -av --update --newuse --deep @world"
     alias emerge_depclean="${PRIV} emerge -av --depclean"
 fi
-
-# Gentoolkit's eclean aliases.
+# Gentoolkit aliases.
 if [ -x "$(command -v eclean-dist)" ]; then
     alias eclean_dist="${PRIV} eclean-dist --deep"
     alias eclean_pkg="${PRIV} eclean-pkg --deep"
 fi
-
 # OpenRC aliases.
 if [ -x "$(command -v rc-service)" ]; then
     alias rc-service="${PRIV} rc-service"
