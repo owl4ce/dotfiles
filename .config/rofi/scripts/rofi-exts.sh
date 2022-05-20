@@ -20,15 +20,15 @@ ${MEDIA}:${0%/*}/custom-modi/modi-media.sh,\
 ${MUSIC}:${0%/*}/custom-modi/modi-music.sh"
 
 case "${1}" in
-    un*) MODI="$UNKNOWN"
+    unk*) MODI="$UNKNOWN"
     ;;
-    sc*) MODI="$SCREENSHOT"
+    scr*) MODI="$SCREENSHOT"
     ;;
-    se*) MODI="$SESSION"
+    ses*) MODI="$SESSION"
     ;;
-    me*) MODI="$MEDIA"
+    med*) MODI="$MEDIA"
     ;;
-    mu*) MODI="$MUSIC"
+    mus*) MODI="$MUSIC"
     ;;
 esac
 
