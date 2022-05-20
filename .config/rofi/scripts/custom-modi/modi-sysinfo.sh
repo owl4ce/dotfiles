@@ -5,7 +5,7 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2166,SC2034
+# shellcheck disable=SC2166,SC2034,SC2086
 
 export LANG='POSIX'
 exec 2>/dev/null
@@ -112,18 +112,70 @@ if [ -x "$(command -v df)" ]; then
 
 fi
 
+# Set the status of system-installed package managers.
+# Also see "https://github.com/Dyzean/coffee-fetch".
+
+# Verify system-installed package manager.
+for SYS_MANAGER in apt \
+                   emerge \
+                   kiss \
+                   pacman \
+                   xbps-query
+do
+    [ -x "$(command -v "$SYS_MANAGER")" ] && PKG_MANAGER="${PKG_MANAGER} ${SYS_MANAGER}"
+done
+
+# Count installed packages for each package manager.
+for MANAGER in ${PKG_MANAGER#\ }; do
+
+    # Get/query installed packages.
+    # Note that if the system contains directories of installed packages,
+    # it's highly recommended to use glob as `emerge` below. Assign PKG_XCPT
+    # to reduce TOTAL_PKGS if any unexpected files are included by globs.
+    case "$MANAGER" in
+        apt       ) GET_PKGS='/var/lib/dpkg/info/*.list'
+        ;;
+        emerge    ) GET_PKGS='/var/db/pkg/*/*'
+        ;;
+        kiss      ) GET_PKGS='/var/db/kiss/installed/*'
+        ;;
+        pacman    ) GET_PKGS='/var/lib/pacman/local/[0-9a-z]*'
+        ;;
+        xbps-query) GET_PKGS='/var/db/xbps/.*'
+        ;;
+    esac
+
+    # Count all queried packages.
+    TOTAL_PKGS="$(($(set -- ${GET_PKGS}; echo "${#}") - PKG_XCPT))"
+
+    # If only zero or one package is installed,
+    # make the package manager looks unrecognized.
+    case "$TOTAL_PKGS" in
+        0|1) TOTAL_PKGS='?'
+             MANAGER='Unknown'
+        ;;
+    esac
+
+    # Preserve information across package managers.
+    PKGS_INFO="${PKGS_INFO}${TOTAL_PKGS} (${MANAGER}), "
+
+done
+
+# Main options. #7
+G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${PKGS_INFO%,\ }"
+
 # Set the status of active EWMH-compliant window manager.
-if [ -x "$(command -v xprop)" ]; then
+#if [ -x "$(command -v xprop)" ]; then
 
     # Parse _NET_WM_NAME with `xprop`.
-    XPROP_NET_SUPPORTING_WM_CHECK="$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)" \
-    XPROP_NET_WM_NAME="$(xprop -id "${XPROP_NET_SUPPORTING_WM_CHECK##*#\ }" -notype _NET_WM_NAME)" \
-    _NET_WM_NAME="${XPROP_NET_WM_NAME#_NET_WM_NAME\ =\ \"}"
+    #XPROP_NET_SUPPORTING_WM_CHECK="$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)" \
+    #XPROP_NET_WM_NAME="$(xprop -id "${XPROP_NET_SUPPORTING_WM_CHECK##*#\ }" -notype _NET_WM_NAME)" \
+    #_NET_WM_NAME="${XPROP_NET_WM_NAME#_NET_WM_NAME\ =\ \"}"
 
     # Main options. #7
-    G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${_NET_WM_NAME%\"}"
+    #G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${_NET_WM_NAME%\"}"
 
-fi
+#fi
 
 # Message to display.
 MESSAGE='^•ᴥ•^'
