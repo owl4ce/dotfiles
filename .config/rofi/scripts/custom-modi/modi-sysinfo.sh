@@ -45,11 +45,7 @@ fi
 if [ -f '/proc/version' -o -x "$(command -v uname)" ]; then
 
     # Get kernel built-information from /proc pseudofs.
-    IFS= read -r UNAME_R </proc/version
-
-    # Parse kernel name and/or version from the built-information.
-    UNAME_R="${UNAME_R#*\ version\ }" \
-    UNAME_R="${UNAME_R%%\ *}"
+    IFS= read -r _ _ UNAME_R _ </proc/version
 
     # Main options. #3
     C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   ${UNAME_R:-$(uname -r)}"
