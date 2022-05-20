@@ -394,7 +394,7 @@
         <command>~/.config/rofi/scripts/rofi-main.sh</command>
       </action>
     </keybind>
-    <keybind key="W-S-e">
+    <keybind key="W-Escape">
       <action name="Execute">
         <command>~/.config/rofi/scripts/rofi-exts.sh</command>
       </action>
@@ -402,17 +402,17 @@
     <!-- screenshots -->
     <keybind key="Print">
       <action name="Execute">
-        <command>~/.scripts/screenshot-now.sh</command>
+        <command>~/.scripts/screenshot-screen.sh</command>
       </action>
     </keybind>
-    <keybind key="W-Print">
+    <keybind key="S-Print">
       <action name="Execute">
-        <command>~/.scripts/screenshot-draw.sh</command>
+        <command>~/.scripts/screenshot-selection.sh</command>
       </action>
     </keybind>
-    <keybind key="W-S-Print">
+    <keybind key="C-Print">
       <action name="Execute">
-        <command>~/.scripts/screenshot-timer.sh</command>
+        <command>~/.scripts/screenshot-countdown.sh</command>
       </action>
     </keybind>
     <!-- dunst-specific -->
