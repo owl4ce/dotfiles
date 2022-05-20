@@ -11,7 +11,8 @@ unalias -a
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # Appearance options                                          ~ Needs Restart UI ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# ?_ART_TINT2_GLYPH     || Th?me panel button glyphs, copy-paste from `gucharmap`. #
+# ?_ART_TINT2_GLYPH     || Th?m? panel button glyphs, copy-paste from `gucharmap`. #
+#                       ||---------------------------------------------------------#
 # ?_?_?_?               || Partial user interface colors. Just custom by yourself. #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
@@ -273,28 +274,27 @@ alias joyd_screenshot_selection='${SCRIPTS_DIR}/screenshot-selection.sh'
 
 joyd_cross_variables()
 {
-    UP4T="$(printf '%.4s\n' "$(tr 'a-z' 'A-Z' <<- EOF
-				${CHK_THEME}
+    UCTM="$(tr 'a-z' 'A-Z' <<- EOF
+				${CHK_THEME} ####### ${CHK_MODE}
 			EOF
-            )")"
+          )"
 
-    UP3M="$(printf '%.3s\n' "$(tr 'a-z' 'A-Z' <<- EOF
-				${CHK_MODE}
-			EOF
-            )")"
+    CUT4="$(printf '%.4s\n' "${UCTM%%\ #######\ *}")"
 
-    eval "GTK_T=\"\$${UP4T}_GTK\"
-          ICON_T=\"\$${UP4T}_ICON\"
-          OBT_D=\"\$${UP4T}_OB_THEME_DIR\"
-          OBT_IT=\"\$${UP4T}_${UP3M}_OB_MENU_ITM\"
-          OBT_TT=\"\$${UP4T}_${UP3M}_OB_MENU_TTL\"
-          ROFI_A1=\"\$${UP4T}_${UP3M}_ROFI_ACCNT1\"
-          ROFI_A2=\"\$${UP4T}_${UP3M}_ROFI_ACCNT2\"
-          DUNST_FG=\"\$${UP4T}_${UP3M}_DUNST_SMMRY\"
-          DUNST_PB=\"\$${UP4T}_${UP3M}_DUNST_PRGBR\"
-          TINT2_G1=\"\$${UP4T}_${UP3M}_TINT2_GRAD1\"
-          TINT2_G2=\"\$${UP4T}_${UP3M}_TINT2_GRAD2\"
-          TINT2_SB=\"\$${UP4T}_${UP3M}_TINT2_GLYPH\""
+    CUT3="$(printf '%.3s\n' "${UCTM##*\ #######\ }")"
+
+    eval "GTK_T=\"\$${CUT4}_GTK\"
+          ICON_T=\"\$${CUT4}_ICON\"
+          OBT_D=\"\$${CUT4}_OB_THEME_DIR\"
+          OBT_IT=\"\$${CUT4}_${CUT3}_OB_MENU_ITM\"
+          OBT_TT=\"\$${CUT4}_${CUT3}_OB_MENU_TTL\"
+          ROFI_A1=\"\$${CUT4}_${CUT3}_ROFI_ACCNT1\"
+          ROFI_A2=\"\$${CUT4}_${CUT3}_ROFI_ACCNT2\"
+          DUNST_FG=\"\$${CUT4}_${CUT3}_DUNST_SMMRY\"
+          DUNST_PB=\"\$${CUT4}_${CUT3}_DUNST_PRGBR\"
+          TINT2_G1=\"\$${CUT4}_${CUT3}_TINT2_GRAD1\"
+          TINT2_G2=\"\$${CUT4}_${CUT3}_TINT2_GRAD2\"
+          TINT2_SB=\"\$${CUT4}_${CUT3}_TINT2_GLYPH\""
 }
 
 joyd_gtk_live_reload()
