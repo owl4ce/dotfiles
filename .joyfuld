@@ -113,7 +113,7 @@ SS_POINTER='no'                                  # Universal or all modes
 SS_QUALITY='100'                                 # Universal or all modes
 
 SS_USE_FRAME='yes'                               # Selection or draw mode
-SS_FRAME_COLOR='auto' #434c5e: better 4 terminal # Selection or draw mode w frame
+SS_FRAME_COLOR='auto' #434c5e better for Mech BG # Selection or draw mode w frame
 SS_FRAME_PADDING='15'                            # Selection or draw mode w frame
 SS_FRAME_S_OPACITY='25'                          # Selection or draw mode w frame
 
