@@ -1,10 +1,7 @@
 #!/usr/bin/env perl
 
-# FILE: ~/.config/obmenu-generator/schema.pl
-# -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-# DESC: obmenu-generator - schema file
-# -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-# aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
+# obmenu-generator - schema file
+# https://github.com/owl4ce/dotfiles
 
 =for comment
 
