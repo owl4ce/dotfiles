@@ -11,14 +11,14 @@
 # shellcheck disable=SC2034,SC2166
 
 # How to restart UI?
-# Just switch modes or right-click on the desktop or press: [SUPER] + [SHIFT] + [R].
+# Just switch modes or right-click on the desktop or press: [super] + [shift] + [R].
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Appearance options                                          ~ Needs Restart UI ~ #
+# Appearance options                                          ~ Needs restart UI ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# ?_ART_TINT2_GLYPH     || Th?m? panel button glyphs, copy-paste from `gucharmap`. #
+# ????_ART_TINT2_GLYPH  || Th?m? panel button glyphs, copy-paste from `gucharmap`. #
 #                       ||---------------------------------------------------------#
-# ?_?_?_?               || Partial user interface colors. Just custom by yourself. #
+# ????_???_*_*          || Partial user interface colors. Just custom by yourself. #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 # >~~~~~~~~< Color template, your changeable variable names and values. >~~~~~~~~< #
@@ -76,13 +76,13 @@ ROFI_OPACITY='97'
 URXVT_OPACITY='97'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Dunst notification-daemon and URxvt URL-launcher options    ~ Needs Restart UI ~ #
+# Dunst notification and URxvt URL-launcher options           ~ Needs restart UI ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 WEB_BROWSER='your_web_browser'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Tint2 panel-executor options for Interactive Mode           ~ Auto-reconfigure ~ #
+# Tint2 panel executor options for Interactive Mode                  ~ Auto-load ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # IFACE_ET              || Ethernet interface, run `ifconfig` or `ip link` to see. #
 # IFACE_WL              || Wireless interface, run `ifconfig` or `ip link` to see. #
@@ -96,7 +96,7 @@ IFACE_WL='wlan0'
 TEMP_DEV='thermal_zone0'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Screenshot options                                          ~ Auto-reconfigure ~ #
+# Screenshot options                                                 ~ Auto-load ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # SS_SAVE               || Save screenshots? If not then it's copied to clipboard. #
 # SS_SVDIR              || Directory to save screenshots, "$SS_SVDIR/Screenshots". #
@@ -105,7 +105,7 @@ TEMP_DEV='thermal_zone0'
 # SS_QUALITY            || 0-100, high value means high size with low compression. #
 #                       ||---------------------------------------------------------#
 # SS_USE_FRAME          || Use frame in the selection (or draw) mode? (MacOS-like) #
-# SS_FRAME_COLOR        || Hexs, RGBA supports. Fill 'auto' to use dominant color. #
+# SS_FRAME_COLOR        || Hexa, RGBA supports. Fill 'auto' to use dominant color. #
 # SS_FRAME_PADDING      || Any number value, frame-padding in pixel for all sides. #
 # SS_FRAME_S_OPACITY    || 0-100, shadows opacity, high value means thick shadows. #
 #                       ||---------------------------------------------------------#
@@ -126,7 +126,7 @@ SS_FRAME_S_OPACITY='25'                          # Selection or draw mode w fram
 SS_COUNTDOWN_SECONDS='5'                         # Countdown timer or delay mode
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Display brightness and audio-volume steps level options     ~ Auto-reconfigure ~ #
+# Display brightness and audio-volume steps level options            ~ Auto-load ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # AUDIO_DEVICE          || Run `aplay -L` for available PCMs or leave it blank.    #
 # AUDIO_VOLUME_STEPS    || 0-100, this is real value, without audio boost 100+.    #
@@ -142,7 +142,7 @@ BRIGHTNESS_DEVICE=''
 BRIGHTNESS_STEPS='5'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Ncmpcpp album-art options                                   ~ Auto-reconfigure ~ #
+# Ncmpcpp album-art options                                          ~ Auto-load ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # NCMPCPP_AA_BACKEND    || Details about supported image backend described below.  #
 #                       || *) Only supports 'w3m' and 'pixbuf' TE image backends.  #
@@ -151,7 +151,7 @@ BRIGHTNESS_STEPS='5'
 #                       ||---------------------------------------------------------#
 # NCMPCPP_AA_NICENESS   || 0-19 or leave it blank, it reduces CPU% of 'w3m' loop.  #
 #                       ||---------------------------------------------------------#
-# NCMPCPP_{,S}AA_LAU .. || Override ncmpcpp and single album-art geometry pixels.  #
+# NCMPCPP_{,S}AA_LAUNC* || Override ncmpcpp and single album-art geometry pixels.  #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 NCMPCPP_AA_BACKEND='w3m'
