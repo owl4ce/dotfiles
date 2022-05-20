@@ -114,6 +114,7 @@ fi
 # Verify system-installed package manager.
 for SYS_MANAGER in apt \
                    emerge \
+                   flatpak \
                    kiss \
                    pacman \
                    xbps-query
@@ -132,6 +133,8 @@ for MANAGER in ${PKG_MANAGER#\ }; do
         apt       ) GET_PKGS='/var/lib/dpkg/info/*.list'
         ;;
         emerge    ) GET_PKGS='/var/db/pkg/*/*'
+        ;;
+        flatpak   ) GET_PKGS="$(flatpak --columns=app list)"
         ;;
         kiss      ) GET_PKGS='/var/db/kiss/installed/*'
         ;;
