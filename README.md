@@ -212,7 +212,8 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 Everything done manually step-by-step. Let's learn.
 
 > **WATCH YOUR STEP!!!**  
-> [There's a critical warning for pragmatists](https://github.com/owl4ce/dotfiles/issues/178).
+> There's a [critical warning](https://github.com/owl4ce/dotfiles/issues/178) for pragmatists.
+> Read the [philosophy](#maple_leaf--philosophy).
 
 ### :blossom: ‎ <samp>INSTALLATION (<a href="./REPOLOGY.md">DEPENDENCIES</a>)</samp>
 
@@ -1273,24 +1274,35 @@ via [mpv](https://mpv.io/manual/master/#interactive-control) with
 [Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts)
 with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
 
-## :maple_leaf: ‎ <samp>HISTORY</samp>
+## :maple_leaf: ‎ <samp>PHILOSOPHY</samp>
 
-This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey)
-the story is too long, what's clear is that I always improvise everything from day-to-day by self-taught research.
-My main philosophy in crafting this is as a minimal replacement for "bloated" Desktop Environment without any
-desktop decorations such as widgets, but customizable to users' taste with an overall theme based on my [unnamed color
-palette](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) and easily switchable themes along with fashions.
+Aesthetics doesn't only look at the beauty of the results. There's beauty, in a sense, users are expected to feel
+like they are part of how this was crafted, emotion and satisfaction, relatively. Ideally, the creator's idea is to
+use this as a "replacement" for bloated and complicated desktop environment. Pragmatically, what are the "benefits"
+in our everyday life, especially for low-end devices. Realistically, be "grateful" to accept the existence of
+lightweight and non-proprietary software, and use it.
 
-I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can
-learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software"
-completely, which is in very poor condition, especially among Microsoft Windows consumers.
+Started passively since 2018, then continued self-taught research months after the COVID-19 pandemic, manically. It was
+still only one, changing styles from one to another, manually. Until finally, combining multiple styles into a fashion
+(mode). The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a
+song composed by [KODOMOi](https://kodomoi.com) along with the creator's expression of wishing for love and happiness.
 
-If you feel happy, give this a [**star**](https://github.com/owl4ce/dotfiles/stargazers).
-If there's problem with the configuration (please check previous issues if relevant),
-you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to
-[discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
+There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`, the creator's
+nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value, whereas
+Interactive Mode is aimed for those who want the practical details of statistics. Initially, the dark theme (Fleon) was
+predominantly blue, and the light theme (Sweetly) was red, expressing a mixture of violet because they tends to be blue.
+However, over time since the release of [version 3.2](https://deviantart.com/owl4ce/art/Sakura-Saber-872360153), they
+tend to be red with [Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the creator's seeking
+peace or serenity, violet represents light-hearted and ambition, and red is aggressive action that reflects passion.
 
-**Modular operating system supremacy.**
+Two themes are based on and aimed at the mood swings of the users. Initially since the release
+until [version 2](https://deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208), darkness was
+inspired by [Dystopia](https://en.wikipedia.org/wiki/Dystopia) (while the creator listened to
+[The Astonishing](https://en.wikipedia.org/wiki/The_Astonishing) by
+[Dream Theater](https://en.wikipedia.org/wiki/Dream_Theater)),
+a reflection of unhappiness and suffering. In contrast, natural scenery, a reflection of inner satisfaction.
+Now since the pre-release [version 4](https://github.com/owl4ce/dotfiles/releases/tag/ng) has adopted the same
+[color scheme](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) from the previous release.
 
 <pre align="center">
 <a href="#maple_leaf--history">
