@@ -10,8 +10,6 @@
 
 # shellcheck disable=SC2034,SC2166
 
-unalias -a
-
 # How to restart UI?
 # Just switch modes or right-click on the desktop or press: [SUPER] + [SHIFT] + [R].
 
@@ -256,6 +254,7 @@ MUSIC_ICON="${GLADIENT_ICON_DIR}/music.png"
 SCREENSHOT_ICON="${GLADIENT_ICON_DIR}/screenshot.png"
 TERMINAL_ICON="${GLADIENT_ICON_DIR}/terminal.png"
 WALLPAPER_ICON="${GLADIENT_ICON_DIR}/wallpaper.png"
+
 MPD_NOTIFY_AA_IMG="${TMP_DIR}/mpd.notify.album-art.png"
 NCMPCPP_AA_IMG="${TMP_DIR}/ncmpcpp.album-art.png"
 NCMPCPP_AA_PID="${NCMPCPP_AA_IMG%.*}.pid"
@@ -283,6 +282,7 @@ joyd_cross_variables()
           )"
 
     CUT4="$(printf '%.4s\n' "${UCTM%%\ #######\ *}")"
+
     CUT3="$(printf '%.3s\n' "${UCTM##*\ #######\ }")"
 
     eval "GTK_T=\"\$${CUT4}_GTK\"
