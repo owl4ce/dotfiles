@@ -30,12 +30,12 @@ AUDIO_MUTED="${AUDIO_VOLUME##*\ \[on\]}"
 AUDIO_VOLUME="${AUDIO_VOLUME#*\ \[}" \
 AUDIO_VOLUME="${AUDIO_VOLUME%%\]\ *}"
 
-if [ "${AUDIO_VOLUME%%%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
+if [ "${AUDIO_VOLUME%\%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
     [ -z "$AUDIO_MUTED" ] || MUTED='Muted'
     ICON=''
-elif [ "${AUDIO_VOLUME%%%}" -lt 30 ]; then
+elif [ "${AUDIO_VOLUME%\%}" -lt 30 ]; then
     ICON=''
-elif [ "${AUDIO_VOLUME%%%}" -lt 70 ]; then
+elif [ "${AUDIO_VOLUME%\%}" -lt 70 ]; then
     ICON=''
 else
     ICON=''
