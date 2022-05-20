@@ -64,7 +64,7 @@ E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   ${BR
 
 MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
 
-printf '%b\n' "\0use-hot-keys\037true" "\0markup-rows\037true" "\0message\037${MESSAGE}" \
+printf '%b\n' '\0use-hot-keys\037true' '\0markup-rows\037true' "\0message\037${MESSAGE}" \
               "${A}\0nonselectable\037true" "$B" "$C" "$D" "${E}\0nonselectable\037true" "$F" "$G"
 
 exit ${?}

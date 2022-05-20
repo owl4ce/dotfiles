@@ -53,7 +53,7 @@ elif [ -z "$MESSAGE" ]; then
     MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
 fi
 
-printf '%b\n' "\0use-hot-keys\037true" "\0markup-rows\037true" "\0message\037${MESSAGE}" \
+printf '%b\n' '\0use-hot-keys\037true' '\0markup-rows\037true' "\0message\037${MESSAGE}" \
               "$A" "$B" "$C" "$D" "$E"
 
 [ -n "$(joyd_music_controller status)" ] && P_A='1' || P_U='1'

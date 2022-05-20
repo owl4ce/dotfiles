@@ -68,7 +68,7 @@ esac
 
 MESSAGE='^•ᴥ•^'
 
-printf '%b\n' "\0use-hot-keys\037true" "\0markup-rows\037true" "\0message\037${MESSAGE}"
-printf '%b\0nonselectable\037true\n' "$A" "$B" "$C" "$D" "$E" "$F" "$G"
+printf '%b\n' '\0use-hot-keys\037true' '\0markup-rows\037true' "\0message\037${MESSAGE}"
+printf '%s\0nonselectable\037true\n' "$A" "$B" "$C" "$D" "$E" "$F" "$G"
 
 exit ${?}
