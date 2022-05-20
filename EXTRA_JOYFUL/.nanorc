@@ -5,7 +5,7 @@
 # ---
 set autoindent
 #set casesensitive
-set guidestripe 125
+set guidestripe 72
 set linenumbers
 #set mouse
 set noconvert
