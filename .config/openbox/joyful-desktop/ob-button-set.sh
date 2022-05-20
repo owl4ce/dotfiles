@@ -34,7 +34,7 @@ case "${1}" in
         joyd_cross_variables
 
         # Synchronize Openbox button files.
-        cp -f "${OB_BUTTON_STYLE_DIR}/${BUTTON}"/*.'xbm' "${OBT_D}/"
+        ln -fnrs "${OB_BUTTON_STYLE_DIR}/${BUTTON}"/*.'xbm' "${OBT_D}/"
 
         # Write configuration.
         sed -e "/^ob_button_style.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"${BUTTON}\"|" -i "$THEME_FILE"

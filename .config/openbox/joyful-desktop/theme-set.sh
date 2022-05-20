@@ -29,7 +29,7 @@ esac
 joyd_cross_variables
 
 # Synchronize Openbox button files.
-cp -f "${OB_BUTTON_STYLE_DIR}/${CHK_OB_BUTTON_STYLE}"/*.'xbm' "${OBT_D}/"
+ln -fnrs "${OB_BUTTON_STYLE_DIR}/${CHK_OB_BUTTON_STYLE}"/*.'xbm' "${OBT_D}/"
 
 # Conditionally synchronize Openbox button configuration.
 case "$CHK_OB_BUTTON_LOC" in
