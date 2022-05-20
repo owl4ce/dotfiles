@@ -1,4 +1,5 @@
 /* Custom Settings */
+
 .text-button {
   margin-left: 3px;
   margin-right: 3px;
@@ -48,12 +49,9 @@
 }
 
 .termite {
-padding: 20px;
+  padding: 20px;
 }
 
-/**********
- * Thunar *
- **********/
 .thunar #location-toolbar {
   border-bottom: 1px solid rgba(0,0,0,0);
 }
@@ -63,12 +61,12 @@ padding: 20px;
 }
 
 .thunar .sidebar {
-    background-image:url("../gtk-assets/thunar-sidebar.png");
+  background-image:url("../gtk-assets/thunar-sidebar.png");
 }
 
 .thunar .sidebar .view {
-    color: #F9F9F9;
-    background: transparent;
+  color: #F9F9F9;
+  background: transparent;
 }
 
 .thunar .sidebar .view:not(:selected) {
