@@ -9,6 +9,7 @@ origin = bottom-center
 offset = 0x60
 
 progress_bar_height = 5
+progress_bar_min_width = 0
 progress_bar_frame_width = 0
 
 transparency = 3
@@ -23,13 +24,15 @@ font = "mplus Nerd Font 10"
 format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#f9f9f9'>%s</span>\n%b"
 
 show_age_threshold = 60
-icon_position = left
+icon_position = top
 max_icon_size = 80
 
+icon_path = "/usr/share/icons/Papirus-Dark-Custom/48x48/actions/:/usr/share/icons/Papirus-Dark-Custom/48x48/apps/:/usr/share/icons/Papirus-Dark-Custom/48x48/devices/:/usr/share/icons/Papirus-Dark-Custom/48x48/emblems/:/usr/share/icons/Papirus-Dark-Custom/48x48/emotes/:/usr/share/icons/Papirus-Dark-Custom/48x48/mimetypes/:/usr/share/icons/Papirus-Dark-Custom/48x48/places/:/usr/share/icons/Papirus-Dark-Custom/48x48/status/"
+
 # EXPERIMENTAL
-enable_recursive_icon_lookup = true
-icon_theme = "Papirus-Dark-Custom"
-icon_size = 48
+#enable_recursive_icon_lookup = true
+#icon_theme = "Papirus-Dark-Custom"
+#icon_size = 48
 # ------------
 
 sticky_history = false
