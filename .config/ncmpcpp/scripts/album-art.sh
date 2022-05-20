@@ -3,7 +3,7 @@
 # The ncmpcpp album-art executor.
 # https://github.com/owl4ce/dotfiles
 
-# shellcheck disable=SC2166,SC2086,SC2046
+# shellcheck disable=SC2166,SC2086
 
 export LANG='POSIX'
 exec 2>/dev/null
@@ -17,7 +17,7 @@ w3m()
 {
     [ -x "$(command -v xdotool)" ] || exec printf '\033c%s' 'error: xdotool is not installed!'
 
-    TERMINAL_WINDOW="${WINDOWID:-$(xdotool getactivewindow)}"
+    WINDOWID="${WINDOWID:-$(xdotool getactivewindow)}"
 
     echo "${$}" >"$NCMPCPP_AA_PID"
 
@@ -27,17 +27,17 @@ w3m()
 
     while IFS= read -r P <"$NCMPCPP_AA_PID" && [ "${P:-0}" -eq "${$}" ]; do
 
-        eval $(xdotool getwindowgeometry --shell "$TERMINAL_WINDOW")
+        eval "$(xdotool getwindowgeometry --shell "$WINDOWID")"
 
         if [ -n "$WIDTH" ]; then
 
             WIDTH="$(printf '%.f\n' "$((${WIDTH}000000/EFLOAT))e-3")"
 
-            ${W3M_IMG_DISPLAY:-break} >&2 <<- EOF
+            "${W3M_IMG_DISPLAY:-break}" >&2 <<- IMG
 				0;1;0;0;${WIDTH};${WIDTH};;;;;${NCMPCPP_AA_IMG}
 				3;
 				4
-			EOF
+			IMG
 
             WIDTH=
 
