@@ -32,7 +32,7 @@ NEVER SKIP / IGNORE / AVOID README
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
 </a>
 
-You might be here looking for Linux Rice references or to (full?) replicate my personal configurations of my favorite Openbox Window Manager and some apps as well. ^w^
+You might be here looking for Linux Rice references or to (full?) replicate my personal configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
 
 Here are some details about my set-up.
 
@@ -41,7 +41,7 @@ Here are some details about my set-up.
 * **Terminal Emulator**    :leaves:               [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) which lighter! 
 * **Openbox Menu**         :cyclone:              [obmenu-generator](https://github.com/trizen/obmenu-generator) for lyfe!
 * **Panel**                :blossom:              [Tint2](https://gitlab.com/o9000/tint2) with material design and glyphs!
-* **Compositor**           :shaved_ice:           [Picom](https://github.com/yshui/picom) for topping!
+* **Compositor**           :shaved_ice:           [Picom](https://github.com/yshui/picom) for perfection topping!
 * **Notification Daemon**  :herb:                 [Dunst](https://github.com/dunst-project/dunst) which minimalist!
 * **Application Launcher** :rocket:               [Rofi](https://github.com/davatorium/rofi) which blazing fast!
 * **File Manager**         :flower_playing_cards: [Thunar](https://github.com/xfce-mirror/thunar) customized side-pane!
@@ -75,7 +75,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 ## :seedling: ‎ <samp>SETUP</samp>
 
-> Work in progress.
+Everything done manually step-by-step. Just [RTFM](https://en.wikipedia.org/wiki/RTFM).
 
 ### :blossom: ‎ <samp>INSTALLATION (DEPENDENCIES)</samp>
 
@@ -115,8 +115,8 @@ It's never required but always wholeheartedly appreciated.
 
 Thank you so much from the bottom of my heart! ‎ :heartpulse:
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V05ZACS)
-[![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/owl4ce/donate)
+[![](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V05ZACS)
+[![](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/owl4ce/donate)
 
 ## :four_leaf_clover: ‎ <samp>ACKNOWLEDGEMENTS</samp>
 
@@ -139,4 +139,10 @@ Thank you so much from the bottom of my heart! ‎ :heartpulse:
 |           | 2 | [HopeBaron](https://github.com/HopeBaron)           | [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4)                                                                                          | Obsolete   |
 |           | 3 | [Justin Faber](https://github.com/vredesbyyrd)      | [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)                                                         | Used       |
 |           | 4 | [Vcyzteen](https://github.com/vcyzteen)             | [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60) | Used       |
+|           | 5 | ?                                                   |                                                                                                                                                             |            |
 | Verified  | * | [![](https://contrib.rocks/image?repo=owl4ce/dotfiles)](https://github.com/owl4ce/dotfiles/graphs/contributors)                                                                                                                |
+|           |   |                                                     |                                                                                                                                                             |            |
+| **Based** |   | **Community**                                       |                                                                                                                                                             |            |
+|:indonesia:| 1 | [Linuxer Desktop Art](https://facebook.com/groups/linuxart)                                                                                                                                                                    |
+|           | 2 | [@dotfiles_id](https://t.me/dotfiles_id)                                                                                                                                                                                       |
+|:world_map:| 3 | [r/unixp*rn](https://reddit.com/r/unixporn)                                                                                                                                                                                    |
