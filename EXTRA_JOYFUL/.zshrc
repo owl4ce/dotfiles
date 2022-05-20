@@ -54,12 +54,12 @@ alias hd='hexdump -C'
 alias ping_google='ping 8.8.8.8'
 alias ping_cloudflare='ping 1.1.1.1'
 # Filesystem TRIM alias.
-alias trim_all="${PRIV} fstrim -va"
+alias trim_all='${PRIV##*/} fstrim -va'
 # Text-editor aliases.
-alias nanosu="${PRIV} nano"
-alias nvimsu="${PRIV} nvim"
+alias nanosu='${PRIV##*/} nano'
+alias nvimsu='${PRIV##*/} nvim'
 # Page-cache cleaner alias.
-alias cleanup_ram="${PRIV} ${0} -c 'sync; echo 3 >/proc/sys/vm/drop_caches'"
+alias cleanup_ram="\${PRIV##*/} sh -c 'sync; echo 3 >/proc/sys/vm/drop_caches'"
 # Exa (a modern replacement for ‘ls’) aliases.
 if [ -x "$(command -v exa)" ]; then
     alias ls='exa -lgh --icons --group-directories-first'
@@ -67,21 +67,21 @@ if [ -x "$(command -v exa)" ]; then
 fi
 # Portage aliases.
 if [ -x "$(command -v emerge)" ]; then
-    alias emerge_install="${PRIV} emerge -av"
-    alias emerge_install_unmask="${PRIV} emerge -av --autounmask=y --autounmask-write"
-    alias emerge_pretend="${PRIV} emerge -pv"
-    alias emerge_sync="${PRIV} emaint -a sync"
-    alias emerge_changed_use="${PRIV} emerge -av --update --changed-use --deep @world"
-    alias emerge_new_use="${PRIV} emerge -av --update --newuse --deep @world"
-    alias emerge_depclean="${PRIV} emerge -av --depclean"
+    alias emerge_install='${PRIV##*/} emerge -av'
+    alias emerge_install_unmask='${PRIV##*/} emerge -av --autounmask=y --autounmask-write'
+    alias emerge_pretend='${PRIV##*/} emerge -pv'
+    alias emerge_sync='${PRIV##*/} emaint -a sync'
+    alias emerge_changed_use='${PRIV##*/} emerge -av --update --changed-use --deep @world'
+    alias emerge_new_use='${PRIV##*/} emerge -av --update --newuse --deep @world'
+    alias emerge_depclean='${PRIV##*/} emerge -av --depclean'
 fi
 # Gentoolkit aliases.
 if [ -x "$(command -v eclean-dist)" ]; then
-    alias eclean_dist="${PRIV} eclean-dist --deep"
-    alias eclean_pkg="${PRIV} eclean-pkg --deep"
+    alias eclean_dist='${PRIV##*/} eclean-dist --deep'
+    alias eclean_pkg='${PRIV##*/} eclean-pkg --deep'
 fi
 # OpenRC aliases.
 if [ -x "$(command -v rc-service)" ]; then
-    alias rc-service="${PRIV} rc-service"
-    alias rc-update="${PRIV} rc-update"
+    alias rc-service='${PRIV##*/} rc-service'
+    alias rc-update='${PRIV##*/} rc-update'
 fi
