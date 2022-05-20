@@ -10,6 +10,7 @@ offset = 25x50
 
 progress_bar_height = 5
 progress_bar_min_width = 0
+progress_bar_max_width = 444
 progress_bar_frame_width = 0
 
 transparency = 3
