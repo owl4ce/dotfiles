@@ -5,7 +5,7 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2166,SC2016
+# shellcheck disable=SC2166,SC2016,SC3044
 
 export LANG='POSIX'
 exec >/dev/null 2>&1
@@ -14,6 +14,8 @@ exec >/dev/null 2>&1
 [ -x "$(command -v mpd)" -a -x "$(command -v mpc)" ] || exec dunstify 'Install `mpd` and `mpc`!' \
                                                                       -h string:synchronous:install-deps \
                                                                       -u low
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 {
     ! pidof -s mpd -q || mpd --kill || killall -9 mpd -q
