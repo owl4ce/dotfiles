@@ -44,7 +44,7 @@ URxvt.keysym.Control-End:         eval:scroll_to_bottom
 URxvt.keysym.Control-Shift-U:     matcher:select
 URxvt.url-launcher:               your_web_browser
 URxvt.matcher.button:             1
-URxvt.matcher.rend.0:             Uline Bold fg7
+URxvt.matcher.rend.0:             Uline fg7
 
 ! # Resize-font extension.
 URxvt.keysym.Control-minus:       resize-font:smaller
