@@ -3,6 +3,8 @@
 # Toggle UI orientation for Artistic Mode.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2166
 
 SYSTEM_LANG="$LANG"

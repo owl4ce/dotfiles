@@ -3,6 +3,8 @@
 # Setup user's preferred terminal emulator.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2166,SC3028
 
 export LANG='POSIX'

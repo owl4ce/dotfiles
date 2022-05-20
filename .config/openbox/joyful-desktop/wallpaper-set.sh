@@ -3,6 +3,8 @@
 # Setup X wallpaper or generate colorized wallpapers.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2016
 
 export LANG='POSIX'

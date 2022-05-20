@@ -3,6 +3,8 @@
 # Setup UI for each themes and modes.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec >/dev/null 2>&1

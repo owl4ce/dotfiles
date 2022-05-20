@@ -3,6 +3,8 @@
 # Setup Openbox window-buttons or toggle decoration.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
