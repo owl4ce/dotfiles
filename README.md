@@ -845,7 +845,7 @@ Then you can proceed to [guides](#herb--guides). Explore!
 ### :sunflower: ‎ <samp>SYNC FOR UPDATES</samp>
 
 <details>
-<summary><b>Click here to extend</b></summary>
+<summary><b>Click or tap to extend</b></summary>
 
 Since I recommend using rsync from the beginning,
 the easiest way is to list the files (via shell [heredocs](https://tldp.org/LDP/abs/html/here-docs.html))
@@ -905,7 +905,7 @@ Manage all your settings there. I hope all the comments there are easy to unders
 <details>
 <summary><b>Touchpad tap-to-click (<a href="https://wiki.archlinux.org/title/Libinput#Tapping_button_re-mapping">libinput</a>)</b></summary>
 
-[`/etc/X11/xorg.conf.d/30-touchpad.conf`](https://wiki.archlinux.org/title/libinput#Tips_and_tricks)
+`/etc/X11/xorg.conf.d/30-touchpad.conf`
 
 ```cfg
 Section "InputClass"
@@ -929,7 +929,7 @@ A unix-shell syntax, POSIX-compliant is highly recommended. Don't change the def
 </details>
 
 <details>
-<summary><b>User's tray icons</b></summary>
+<summary><b>User's tray programs</b></summary>
 
 [`~/.config/openbox/tray`](./.config/openbox/tray)
 
@@ -1173,7 +1173,7 @@ or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Tha
 
 <pre align="center">
 <a href="#maple_leaf--history">
-<img alt="" width="96%" src="https://api.star-history.com/svg?repos=owl4ce/dotfiles&type=Date"/>
+<img alt="" align="center" width="96%" src="https://api.star-history.com/svg?repos=owl4ce/dotfiles&type=Date"/>
 </a>
 </pre>
 
