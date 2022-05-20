@@ -419,11 +419,6 @@
         <command>~/.config/rofi/scripts/rofi-exts.sh</command>
       </action>
     </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>~/.config/rofi/scripts/rofi-exts.sh music</command>
-      </action>
-    </keybind>
     <keybind key="W-Print">
       <action name="Execute">
         <command>~/.config/rofi/scripts/rofi-exts.sh screenshot</command>
