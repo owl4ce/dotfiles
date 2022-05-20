@@ -1,0 +1,311 @@
+#!/usr/bin/env sh
+
+# The Joyful Desktop universal environment variables.
+# https://github.com/owl4ce/dotfiles
+
+# How to restart UI?
+# Just switch modes or right-click on the desktop or press [SUPER] + [SHIFT] + [R].
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# Appearance options                                          ~ Needs Restart UI ~ #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# ?_ART_TINT2_BUTTON    || TH?ME panel button glyphs, copy-paste from `gucharmap`. #
+# ?_?_?_?               || Partial user-interface colors. Just customize yourself. #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+# >~~~~~~~~< Color template, your changeable variable names and values. >~~~~~~~~< #
+COL_WHITE='#f9f9f9'                              # White
+COL_RED_MAGENTA='#f48ee8'                        # Red mix Magenta
+COL_RED='#fa74b2'                                # Red
+COL_RED_VIOLET='#e88ef4'                         # Red mix Violet
+COL_BLUE='#63c5ea'                               # Blue
+COL_BLUE_VIOLET='#ac8ef4'                        # Blue mix Violet
+COL_GREEN='#44eb9f'                              # Green
+
+# >~< Don't change the variable name, the value is okay, use comments instead. >~< #
+MECH_ART_TINT2_BUTTON=''                       #   
+EYEC_ART_TINT2_BUTTON=''                       #   
+
+# >~~~~~~~~~~~~< Mechanical >~~~~~~~~~~~~~~~~~~~~~~~~~~~< Artistic Mode >~~~~~~~~< #
+MECH_ART_TINT2_GRAD1="$COL_RED_MAGENTA"          # Tint2 button gradient color #1
+MECH_ART_TINT2_GRAD2="$COL_RED"                  # Tint2 button gradient color #2
+MECH_ART_ROFI_ACCNT1="$MECH_ART_TINT2_GRAD1"     # Rofi accent color (buttons) #1
+MECH_ART_ROFI_ACCNT2="$MECH_ART_TINT2_GRAD2"     # Rofi accent color (buttons) #2
+MECH_ART_DUNST_SMMRY="$COL_WHITE"                # Title/summary color on dunst
+MECH_ART_DUNST_PRGBR="$MECH_ART_TINT2_GRAD1"     # Progress bar color on dunst
+MECH_ART_OB_MENU_TTL="$MECH_ART_TINT2_GRAD2"     # Title color of Openbox menu
+MECH_ART_OB_MENU_ITM="$MECH_ART_TINT2_GRAD1"     # Items color of Openbox menu
+
+# >~~~~~~~~~~~~< Mechanical >~~~~~~~~~~~~~~~~~~~~~~~~~< Interactive Mode >~~~~~~~< #
+MECH_INT_ROFI_ACCNT1="$COL_WHITE"                # Rofi accent color (buttons) #1
+MECH_INT_ROFI_ACCNT2="$MECH_INT_ROFI_ACCNT1"     # Rofi accent color (buttons) #2
+MECH_INT_DUNST_SMMRY="$MECH_INT_ROFI_ACCNT2"     # Title/summary color on dunst
+MECH_INT_DUNST_PRGBR="$MECH_INT_ROFI_ACCNT2"     # Progress bar color on dunst
+MECH_INT_OB_MENU_TTL="$MECH_INT_ROFI_ACCNT2"     # Title color of Openbox menu
+MECH_INT_OB_MENU_ITM="$COL_BLUE"                 # Items color of Openbox menu
+
+# >~~~~~~~~~~~~~< EyeCandy >~~~~~~~~~~~~~~~~~~~~~~~~~~~~< Artistic Mode >~~~~~~~~< #
+EYEC_ART_TINT2_GRAD1="$COL_RED"                  # Tint2 button gradient color #1
+EYEC_ART_TINT2_GRAD2="$COL_RED_VIOLET"           # Tint2 button gradient color #2
+EYEC_ART_ROFI_ACCNT1="$EYEC_ART_TINT2_GRAD1"     # Rofi accent color (buttons) #1
+EYEC_ART_ROFI_ACCNT2="$EYEC_ART_TINT2_GRAD2"     # Rofi accent color (buttons) #2
+EYEC_ART_DUNST_SMMRY="$COL_BLUE"                 # Title/summary color on dunst
+EYEC_ART_DUNST_PRGBR="$EYEC_ART_TINT2_GRAD1"     # Progress bar color on dunst
+EYEC_ART_OB_MENU_TTL="$EYEC_ART_DUNST_SMMRY"     # Title color of Openbox menu
+EYEC_ART_OB_MENU_ITM="$EYEC_ART_TINT2_GRAD1"     # Items color of Openbox menu
+
+# >~~~~~~~~~~~~~< EyeCandy >~~~~~~~~~~~~~~~~~~~~~~~~~~< Interactive Mode >~~~~~~~< #
+EYEC_INT_ROFI_ACCNT1="$COL_RED"                  # Rofi accent color (buttons) #1
+EYEC_INT_ROFI_ACCNT2="$COL_RED_VIOLET"           # Rofi accent color (buttons) #2
+EYEC_INT_DUNST_SMMRY="$EYEC_INT_ROFI_ACCNT2"     # Title/summary color on dunst
+EYEC_INT_DUNST_PRGBR="$COL_GREEN"                # Progress bar color on dunst
+EYEC_INT_OB_MENU_TTL="$EYEC_INT_ROFI_ACCNT1"     # Title color of Openbox menu
+EYEC_INT_OB_MENU_ITM="$EYEC_INT_ROFI_ACCNT2"     # Items color of Openbox menu
+
+# >~~~~~~~~~~~~~< 0 to 100 >~~~~~~~~~~~~~~~~~~~~~~~~~~~< Opacity Levels >~~~~~~~~< #
+DUNST_OPACITY='95'
+URXVT_OPACITY='95'
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# Dunst notification-daemon and URxvt URL-launcher options    ~ Needs Restart UI ~ #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+WEB_BROWSER='your_web_browser'
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# Tint2 panel-executor options for Interactive Mode           ~ Auto-reconfigure ~ #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# IFACE_ET              || Ethernet interface, run `ifconfig` or `ip link` to see. #
+# IFACE_WL              || Wireless interface, run `ifconfig` or `ip link` to see. #
+# TEMP_DEV              || Temperature device, see "/sys/devices/virtual/thermal". #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+IFACE_ET='enp4s0'
+IFACE_WL='wlan0'
+TEMP_DEV='thermal_zone0'
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# SCReenshOT options                                          ~ Auto-reconfigure ~ #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# SS_SAVE               || Save screenshots? If not then it's copied to clipboard. #
+# SS_SVDIR              || Directory to save screenshots, "$SS_SVDIR/Screenshots". #
+# SS_CP2CLP             || Copy to clipboard? Automatically 'yes' if SS_SAVE='no'. #
+# SS_POINTER            || Capture cursor (known as "pointer") in the screenshots? #
+# SS_QUALITY            || 0-100, high value means high-size with low-compression. #
+#                       ||---------------------------------------------------------#
+# SS_USE_FRAME          || Use frame in the selection or draw mode?  (MacOS-like)  #
+# SS_FRAME_COLOR        || Hexa, RGBA supports. Fill 'auto' to use dominant color. #
+# SS_FRAME_PADDING      || Any number value, frame-padding in pixel for all sides. #
+# SS_FRAME_S_OPACITY    || 0-100, shadows opacity, high value means thick shadows. #
+#                       ||---------------------------------------------------------#
+# SS_COUNTDOWN_SECONDS  || Any number value, how long (seconds) to capture screen. #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+SS_SAVE='yes'                                    # Universal or all modes
+SS_SVDIR="${HOME}/Pictures"                      # Universal or all modes
+SS_CP2CLP='yes'                                  # Universal or all modes
+SS_POINTER='no'                                  # Universal or all modes
+SS_QUALITY='100'                                 # Universal or all modes
+
+SS_USE_FRAME='yes'                               # Selection or draw mode
+SS_FRAME_COLOR='auto' #434c5e (for terminal)     # Selection or draw mode w frame
+SS_FRAME_PADDING='15'                            # Selection or draw mode w frame
+SS_FRAME_S_OPACITY='25'                          # Selection or draw mode w frame
+
+SS_COUNTDOWN_SECONDS='5'                         # Countdown timer or delay mode
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# Device brightness and audio-volume steps level options      ~ Auto-reconfigure ~ #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# AUDIO_DEVICE          || Run `aplay -L` for available PCMs or leave it blank.    #
+# AUDIO_VOLUME_STEPS    || 0-100, real value without audio boost (100+).           #
+#                       ||---------------------------------------------------------#
+# BRIGHTNESS_DEVICE     || Run `brightnessctl -l` for available or leave it blank. #
+# BRIGHTNESS_STEPS      || 0-100, percentages of value with range 0-255.           #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+AUDIO_DEVICE='pulse'
+AUDIO_VOLUME_STEPS='5'
+
+BRIGHTNESS_DEVICE=''
+BRIGHTNESS_STEPS='5'
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# Ncmpcpp album-art image backend options                     ~ Auto-reconfigure ~ #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# NCMPCPP_AA_BACKEND    || 1. Only supports 'w3m' and 'pixbuf' TE image backend.   #
+#                       || 2. Both backend on `rxvt-unicode` works like a charm.   #
+#                       || 3. 'pixbuf' backend isn't portable, so may not works.   #
+#                       ||---------------------------------------------------------#
+# NCMPCPP_AA_NICENESS   || 0-19 or leave it blank, reduce 'w3m' loop CPU-cycles.   #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+NCMPCPP_AA_BACKEND='w3m'
+
+NCMPCPP_AA_NICENESS='19'
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# The following are owl4ce/dotfiles environment variables which called in "*.sh".  #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# Doesn't affect to all files, "*.dunstrc", "*.tint2rc", "rc.xml", "schema.pl", .. #
+# use absolute path (from "/") and/or use "~/" directly with shebang each "*.sh".  #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# ATTENTION: Do not change or re-arrange these variables unless you know!!! (^w^)  #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+OB_MARGIN='10'
+MECH_GTK='Fleon'
+EYEC_GTK='Sweetly'
+MECH_ICON='Papirus-Dark-Custom'
+EYEC_ICON='Papirus-Custom'
+
+CONFIG_DIR="${HOME}/.config"
+ICONS_DIR="${HOME}/.icons"
+SCRIPTS_DIR="${HOME}/.scripts"
+THEMES_DIR="${HOME}/.themes"
+WALLPAPERS_DIR="${HOME}/.wallpapers"
+TMP_DIR='/tmp'
+
+DUNST_DIR="${CONFIG_DIR}/dunst"
+MPD_DIR="${CONFIG_DIR}/mpd"
+MPD_SCRIPTS_DIR="${MPD_DIR}/scripts"
+NCMPCPP_DIR="${CONFIG_DIR}/ncmpcpp"
+OB_DIR="${CONFIG_DIR}/openbox"
+JOYD_DIR="${OB_DIR}/joyful-desktop"
+ROFI_DIR="${CONFIG_DIR}/rofi"
+ROFI_THEMES_DIR="${ROFI_DIR}/themes"
+ROFI_COLORSCHEMES_DIR="${ROFI_THEMES_DIR}/colorschemes"
+TINT2_DIR="${CONFIG_DIR}/tint2"
+GLADIENT_ICON_DIR="${ICONS_DIR}/Gladient"
+OB_BUTTON_STYLE_DIR="${THEMES_DIR}/Joyful.OBB"
+MECH_OB_THEME_DIR="${THEMES_DIR}/${MECH_GTK}/openbox-3"
+EYEC_OB_THEME_DIR="${THEMES_DIR}/${EYEC_GTK}/openbox-3"
+
+GTK3_CONFIG="${CONFIG_DIR}/gtk-3.0/settings.ini"
+MPD_CONFIG="${MPD_DIR}/mpd.conf"
+OB_CONFIG="${OB_DIR}/rc.xml"
+OB_TRAY="${OB_DIR}/tray"
+MODE_FILE="${JOYD_DIR}/db.mode.joy"
+THEME_FILE="${JOYD_DIR}/db.theme.joy"
+ROFI_CONFIG="${ROFI_DIR}/config.rasi"
+ROFI_SHARED_CONFIG="${ROFI_THEMES_DIR}/shared.rasi"
+APPS_FILE="${SCRIPTS_DIR}/db.apps.joy"
+GTK2_CONFIG="${HOME}/.gtkrc-2.0"
+XRESOURCES_CONFIG="${HOME}/.Xresources"
+
+CHK_MPD_PORT="$(sed -e 's|^port[ ]*"\(.*\)"|\1|p' -n "$MPD_CONFIG")"
+CHK_MPD_MUSIC_DIR="$(sed -e "/~\//s|~|${HOME}|" -e 's|^music_directory[ ]*"\(.*\)"|\1|p' -n "$MPD_CONFIG")"
+CHK_OB_THEME_LINE="$(grep -m1 -Fno '<theme>' "$OB_CONFIG")" \
+CHK_OB_THEME_LINE="$((${CHK_OB_THEME_LINE%%:*}+1))"
+CHK_OB_DECOR_LINE="$(grep -m1 -Fno '<application class="*" type="normal">' "$OB_CONFIG")" \
+CHK_OB_DECOR_LINE="$((${CHK_OB_DECOR_LINE%%:*}+1))"
+CHK_OB_DECOR_STAT="$(sed -e "${CHK_OB_DECOR_LINE}s|[ ]*<decor>\(.*\)</decor>|\1|p" -n "$OB_CONFIG")"
+CHK_THEME="$(sed -e 's|^current_theme[ ]*"\(.*\)"|\1|p' -n "$MODE_FILE")"
+CHK_MODE="$(sed -e 's|^current_mode[ ]*"\(.*\)"|\1|p' -n "$MODE_FILE")"
+CHK_PANEL_ORT="$(sed -e "s|^panel_orientation.artistic[ ]*\"\(.*\)\"|\1|p" -n "$MODE_FILE")"
+CHK_PANEL_ORT_V="$(sed -e "s|^vertical_panel.artistic[ ]*\"\(.*\)\"|\1|p" -n "$MODE_FILE")"
+CHK_PANEL_ORT_H="$(sed -e "s|^horizontal_panel.artistic[ ]*\"\(.*\)\"|\1|p" -n "$MODE_FILE")"
+CHK_OB_BUTTON_STYLE="$(sed -e "s|^ob_button_style.${CHK_THEME}.${CHK_MODE}[ ]*\"\(.*\)\"|\1|p" -n "$THEME_FILE")"
+CHK_OB_BUTTON_LOC="$(sed -e "s|^ob_button_location.${CHK_THEME}.${CHK_MODE}[ ]*\"\(.*\)\"|\1|p" -n "$THEME_FILE")"
+CHK_WALLPAPER="$(sed -e "s|^wallpaper.${CHK_THEME}.${CHK_MODE}[ ]*\"\(.*..*\)\"|\1|p" -n "$THEME_FILE")"
+
+WALLPAPER_DIR="${WALLPAPERS_DIR}/${CHK_THEME}"
+
+LOGOUT_ICON="${GLADIENT_ICON_DIR}/logout.png"
+MUSIC_ICON="${GLADIENT_ICON_DIR}/music.png"
+SCREENSHOT_ICON="${GLADIENT_ICON_DIR}/screenshot.png"
+TERMINAL_ICON="${GLADIENT_ICON_DIR}/terminal.png"
+WALLPAPER_ICON="${GLADIENT_ICON_DIR}/wallpaper.png"
+
+MPD_NOTIFY_AA_IMG="${TMP_DIR}/mpd.notify.album-art.png"
+NCMPCPP_AA_IMG="${TMP_DIR}/ncmpcpp.album-art.png"
+NCMPCPP_AA_PID="${NCMPCPP_AA_IMG%.*}.pid"
+
+ROFI_EXTS_CMD="${TMP_DIR}/rofi-exts.cmd"
+
+LIBS_PATH=" \
+/usr/local/lib \
+/usr/local/libexec \
+/usr/local/lib64 \
+/usr/local/libexec64 \
+/usr/lib \
+/usr/libexec \
+/usr/lib64 \
+/usr/libexec64 \
+${HOME}/.nix-profile/lib \
+${HOME}/.nix-profile/libexec \
+${HOME}/.nix-profile/lib64 \
+${HOME}/.nix-profile/libexec64 "
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+# ^ALIASES FUNCTIONS ALIASES FUNCTIONS ALIASES FUNCTIONS ALIASES FUNCTIONS ALIASES #
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
+alias joyd_mpd_notifier="${MPD_SCRIPTS_DIR}/mpd-notifier.sh"
+alias joyd_mpd_notify_albumart="${MPD_SCRIPTS_DIR}/notify.album-art.sh"
+alias joyd_layout_set="${JOYD_DIR}/layout-set.sh"
+alias joyd_terminal_set="${JOYD_DIR}/terminal-set.sh"
+alias joyd_theme_set="${JOYD_DIR}/theme-set.sh"
+alias joyd_toggle_mode="${JOYD_DIR}/toggle-mode.sh"
+alias joyd_user_interface_set="${JOYD_DIR}/user-interface-set.sh"
+alias joyd_change_brightness="${SCRIPTS_DIR}/change-brightness.sh"
+alias joyd_change_volume="${SCRIPTS_DIR}/change-volume.sh"
+alias joyd_launch_apps="${SCRIPTS_DIR}/launch-apps.sh"
+alias joyd_music_controller="${SCRIPTS_DIR}/music-controller.sh"
+alias joyd_screenshot_countdown="${SCRIPTS_DIR}/screenshot-countdown.sh"
+alias joyd_screenshot_screen="${SCRIPTS_DIR}/screenshot-screen.sh"
+alias joyd_screenshot_selection="${SCRIPTS_DIR}/screenshot-selection.sh"
+
+joyd_tray_programs()
+{
+    if [ -n "${1}" ]; then
+        grep -Fv '#' "$OB_TRAY" | while IFS= read -r TRAY; do
+
+            [ -x "$(command -v "${TRAY%%\ *}")" ] || continue
+
+            case "${1}" in
+                exec) pgrep "${TRAY%%\ *}" \
+                      || eval "\"$TRAY\"  >/dev/null  2>&1 &"
+                ;;
+                kill) pgrep "${TRAY%%\ *}" \
+                      && eval "killall -9 \"${TRAY%%\ *}\" &"
+                ;;
+            esac
+
+        done
+    fi
+}
+
+joyd_gtk_live_reload()
+{
+    if [ -n "${2}" -a -x "$(command -v xsettingsd)" ]; then
+        {
+            xsettingsd -c /dev/stdin <<- EOF
+				Net/IconThemeName    "${2}"
+				Net/ThemeName        "${1}"
+			EOF
+        } &
+        { sleep 2s; killall -9 xsettingsd; } &
+    fi
+}
+
+joyd_cross_variables()
+{
+    U4T="$(echo "$CHK_THEME" | cut -b1-4 | sed -e '1s|.*|\U&|')"
+    U3M="$(echo "$CHK_MODE"  | cut -b1-3 | sed -e '1s|.*|\U&|')"
+
+    eval " GTK_T=\"\$${U4T}_GTK\"
+           ICON_T=\"\$${U4T}_ICON\"
+           OBT_D=\"\$${U4T}_OB_THEME_DIR\"
+           OBT_IT=\"\$${U4T}_${U3M}_OB_MENU_ITM\"
+           OBT_TT=\"\$${U4T}_${U3M}_OB_MENU_TTL\"
+           ROFI_A1=\"\$${U4T}_${U3M}_ROFI_ACCNT1\"
+           ROFI_A2=\"\$${U4T}_${U3M}_ROFI_ACCNT2\"
+           DUNST_FG=\"\$${U4T}_${U3M}_DUNST_SMMRY\"
+           DUNST_PB=\"\$${U4T}_${U3M}_DUNST_PRGBR\"
+           TINT2_G1=\"\$${U4T}_${U3M}_TINT2_GRAD1\"
+           TINT2_G2=\"\$${U4T}_${U3M}_TINT2_GRAD2\"
+           TINT2_SB=\"\$${U4T}_${U3M}_TINT2_BUTTON\" "
+}
+
+return ${?}
