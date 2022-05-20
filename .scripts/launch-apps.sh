@@ -27,7 +27,7 @@ case "${1}" in
         echo "$APP"
     ;;
     **) hold "${1}"
-        exec $(LANG="$SYSTEM_LANG" ${APP} ${@#${1}} >&2 &)
+        exec $(LANG="$SYSTEM_LANG" ${APP} ${@#"${1}"} >&2 &)
     ;;
 esac
 
