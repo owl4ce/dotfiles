@@ -15,7 +15,7 @@ w3m()
 {
     [ -x "$(command -v xdotool)" ] || exec printf '\033c%s' 'error: xdotool is not installed!'
 
-    TERMINAL_WINDOW="$(xdotool getactivewindow)"
+    TERMINAL_WINDOW="${WINDOWID:-$(xdotool getactivewindow)}"
 
     echo "${$}" >"$NCMPCPP_AA_PID"
 
