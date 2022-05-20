@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Fleon
+Comment=A Flat Material [Dark] GTK Theme (C) 2020-2021 owl4ce
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Fleon
+IconTheme=Papirus-Dark-Custom
+CursorTheme=Capitaine-Cursors
+CursorSize=24
