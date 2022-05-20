@@ -169,12 +169,9 @@ NCMPCPP_SAA_LAUNCHER_GEOMETRY='47x18'
 
 siq()
 {
-    [ -f "${2}" ] || return ${?}
-
-    while IFS= read -r STRING; do
-        case "${STRING%%\ *}" in
-            "${1}") STRING="${STRING#"${1}"*\"}"
-                    echo "${STRING%\"*}"
+    while IFS='"' read -r KEY VAL _; do
+        case "${KEY%%\ *}" in
+            "${1}") echo "$VAL"
                     break
             ;;
         esac
