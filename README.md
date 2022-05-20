@@ -107,6 +107,14 @@ Everything done manually step-by-step. Just [RTFM](https://en.wikipedia.org/wiki
 </a>
 </pre>
 
+## :deciduous_tree: ‎ <samp>CONTRIBUTING</samp>
+
+[Read here](./CONTRIBUTING.md).
+
+## :jack_o_lantern: ‎ <samp>SECURITY POLICY</samp>
+
+[Read here](./SECURITY.md).
+
 ## :tulip: ‎ <samp>TIP JAR</samp>
 
 If you enjoyed it and would like to show your appreciation, you may want to tip me here.
