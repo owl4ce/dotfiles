@@ -1253,15 +1253,15 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 
 This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the
 story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year.
-My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any
-desktop decorations such as widgets, but customizable to users' taste with an overall theme based on my
-[unnamed color palette](./.Xresources#L76-L95) and easily switchable themes along with fashions.
+My main philosophy in crafting this is as a minimal replacement for "bloated" Desktop Environment without any desktop
+decorations such as widgets, but customizable to users' taste with an overall theme based on my [unnamed color
+palette](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) and easily switchable themes along with fashions.
 
 I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can
 learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software"
 completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous
+If you feel happy, give this a **star**. If there's problem with the configuration (please check previous
 issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to
 [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
 
@@ -1307,6 +1307,7 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 |:indonesia:| 1 | [Linuxer Desktop Art](https://facebook.com/groups/linuxart)                                                                                                                                                                    |
 |:indonesia:| 2 | [@dotfiles_id](https://t.me/dotfiles_id)                                                                                                                                                                                       |
 |:world_map:| 3 | [r/unixp*rn](https://reddit.com/r/unixporn)                                                                                                                                                                                    |
+|:world_map:| 4 | [DeviantArt](https://deviantart.com)                                                                                                                                                                                           |
 
 ## :deciduous_tree: ‎ <samp>CONTRIBUTING</samp>
 
