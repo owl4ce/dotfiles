@@ -11,7 +11,7 @@ PREF_TERM="$(joyd_launch_apps -g terminal)"
 
 [ -x "$(command -v "$PREF_TERM")" ] || exec dunstify "Install \`${PREF_TERM}\`!" -r 80 -u low
 
-if [ "$PREF_TERM" = 'urxvt' ]; then
+if [ "$PREF_TERM" = 'urxvt' -o "$PREF_TERM" = 'urxvtc' ]; then
 
     FG_BLACK="$(grep -m1 -o '^\*.foreground:[ ]*black0' "$XRESOURCES_CONFIG")"
 
