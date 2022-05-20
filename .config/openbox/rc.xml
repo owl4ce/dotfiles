@@ -389,14 +389,24 @@
       </action>
     </keybind>
     <!-- rofi-menu scripts -->
-    <keybind key="W-r">
-      <action name="Execute">
-        <command>~/.config/rofi/scripts/rofi-main.sh</command>
-      </action>
-    </keybind>
     <keybind key="W-Escape">
       <action name="Execute">
         <command>~/.config/rofi/scripts/rofi-exts.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-m">
+      <action name="Execute">
+        <command>~/.config/rofi/scripts/rofi-exts.sh music</command>
+      </action>
+    </keybind>
+    <keybind key="W-Print">
+      <action name="Execute">
+        <command>~/.config/rofi/scripts/rofi-exts.sh screenshot</command>
+      </action>
+    </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>~/.config/rofi/scripts/rofi-main.sh</command>
       </action>
     </keybind>
     <!-- screenshots -->
@@ -405,20 +415,25 @@
         <command>~/.scripts/screenshot-screen.sh</command>
       </action>
     </keybind>
-    <keybind key="S-Print">
-      <action name="Execute">
-        <command>~/.scripts/screenshot-selection.sh</command>
-      </action>
-    </keybind>
     <keybind key="C-Print">
       <action name="Execute">
         <command>~/.scripts/screenshot-countdown.sh</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+        <command>~/.scripts/screenshot-selection.sh</command>
       </action>
     </keybind>
     <!-- dunst-specific -->
     <keybind key="C-Escape">
       <action name="Execute">
         <command>dunstctl history-pop</command>
+      </action>
+    </keybind>
+    <keybind key="C-Return">
+      <action name="Execute">
+        <command>dunstctl context</command>
       </action>
     </keybind>
     <keybind key="C-space">
@@ -429,11 +444,6 @@
     <keybind key="C-S-space">
       <action name="Execute">
         <command>dunstctl close-all</command>
-      </action>
-    </keybind>
-    <keybind key="C-Return">
-      <action name="Execute">
-        <command>dunstctl context</command>
       </action>
     </keybind>
     <!-- misc -->
@@ -447,14 +457,14 @@
         <command>loginctl --no-ask-password lock-session</command>
       </action>
     </keybind>
-    <keybind key="W-S-r">
-      <action name="Execute">
-        <command>~/.config/openbox/joyful-desktop/toggle-mode.sh apply</command>
-      </action>
-    </keybind>
     <keybind key="W-Return">
       <action name="Execute">
         <command>~/.scripts/launch-apps.sh terminal</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-r">
+      <action name="Execute">
+        <command>~/.config/openbox/joyful-desktop/toggle-mode.sh apply</command>
       </action>
     </keybind>
   </keyboard>
@@ -891,15 +901,8 @@
     end of the example -->
     <application class="*" type="normal">
       <decor>yes</decor>
-      <focus>yes</focus>
     </application>
     <application class="*" type="dialog">
-      <position>
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application class="mpv" type="normal">
       <position>
         <x>center</x>
         <y>center</y>
