@@ -4,7 +4,7 @@
 # GENERAL
 # ---
 # System path.
-export PATH="${HOME}/.cargo/bin:${HOME}/.color-toys:${HOME}/.local/bin:${PATH}"
+export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
 # Bat (a cat(1) clone with wings) theme.
 export BAT_THEME='base16'
 # GPG tty.
