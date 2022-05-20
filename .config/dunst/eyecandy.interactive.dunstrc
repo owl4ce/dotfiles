@@ -9,7 +9,6 @@ progress_bar = true
 progress_bar_height = 5
 progress_bar_frame_width = 0
 
-indicate_hidden = true
 transparency = 5
 separator_height = 2
 padding = 8
@@ -17,12 +16,12 @@ horizontal_padding = 11
 frame_width = 6
 frame_color = "#f9f9f9"
 separator_color = "#f5f5f5"
+idle_threshold = 120
 
 font = "mplus Nerd Font 10"
 
 format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#e88ef4'>%s</span>\n%b"
 
-idle_threshold = 120
 show_age_threshold = 60
 icon_position = left
 max_icon_size = 80
@@ -36,7 +35,7 @@ dmenu = "rofi -no-lazy-grab -dmenu -p 'Notification Context Menu' -theme themes/
 browser = "brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder"
 
 mouse_left_click = close_current
-mouse_middle_click = do_action
+mouse_middle_click = context_all
 mouse_right_click = close_all
 
 alignment = center
