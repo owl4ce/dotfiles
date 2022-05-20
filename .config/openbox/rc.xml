@@ -487,6 +487,11 @@
         <command>~/.scripts/launch-apps.sh terminal</command>
       </action>
     </keybind>
+    <keybind key="W-S-Return">
+      <action name="Execute">
+        <command>~/.config/openbox/joyful-desktop/terminal-set.sh reverse</command>
+      </action>
+    </keybind>
     <keybind key="W-S-r">
       <action name="Execute">
         <command>~/.config/openbox/joyful-desktop/toggle-mode.sh apply</command>
