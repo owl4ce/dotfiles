@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <inkscape
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   version="1"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1">
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
   <group
      id="window">
     <group
        id="task"
-       taskset="2" />
+       taskset="0" />
     <group
        id="menu"
        state="1" />
@@ -105,11 +105,14 @@
     <sodipodi:namedview
        id="base"
        pagecolor="#ffffff"
+       pageopacity="0.0"
+       pagecheckerboard="0"
        bordercolor="#666666"
        borderopacity="1.0"
        objecttolerance="10.0"
        gridtolerance="10.0"
        guidetolerance="10.0"
+       pageshadow="2"
        inkscape:pageopacity="0.0"
        inkscape:pageshadow="2"
        inkscape:window-width="640"
@@ -126,13 +129,13 @@
       <eventcontext
          id="rect"
          style="fill:blue;"
-         usecurrent="1"
+         usecurrent="0"
          width="262.767"
          height="237.217" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
-         usecurrent="1"
+         usecurrent="0"
          persp="perspective114">
         <side
            id="XYfront"
@@ -164,14 +167,14 @@
          style="fill:red;"
          end="0"
          start="0"
-         usecurrent="1"
+         usecurrent="0"
          rx="130"
          ry="110" />
       <eventcontext
          id="star"
          magnitude="5"
          style="fill:yellow;"
-         usecurrent="1"
+         usecurrent="0"
          proportion="0.5" />
       <eventcontext
          id="spiral"
@@ -212,7 +215,10 @@
        usepressure="1"
        usetilt="0"
        keep_selected="1"
-       tremor="0">
+       abs_width="1"
+       unit="mm"
+       tremor="0"
+       selcue="1">
       <group
          id="preset">
         <group
@@ -338,7 +344,7 @@
        show_handles="1"
        show_outline="0"
        sculpting_profile="1"
-       single_node_transform_handles="0"
+       single_node_transform_handles="1"
        show_transform_handles="0"
        live_outline="1"
        live_objects="1"
@@ -347,11 +353,12 @@
        y="417"
        edit_clipping_paths="0"
        edit_masks="0"
-       highlight_color="-93015297" />
+       highlight_color="-93015297"
+       show_path_direction="1" />
     <eventcontext
        id="tweak"
-       selcue="0"
-       gradientdrag="0"
+       selcue="1"
+       gradientdrag="1"
        show_handles="0"
        width="0.2"
        force="0.2"
@@ -366,7 +373,7 @@
     <eventcontext
        id="spray"
        selcue="1"
-       gradientdrag="0"
+       gradientdrag="1"
        usepressure="1"
        width="15"
        population="70"
@@ -384,7 +391,7 @@
     <eventcontext
        id="zoom"
        selcue="1"
-       gradientdrag="0" />
+       gradientdrag="1" />
     <eventcontext
        id="dropper"
        selcue="1"
@@ -395,7 +402,7 @@
     <eventcontext
        id="select"
        selcue="1"
-       gradientdrag="0" />
+       gradientdrag="1" />
     <eventcontext
        id="connector"
        style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-linejoin:miter;stroke-width:1px;stroke-linecap:butt;"
@@ -534,7 +541,7 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="Inkscape default"
+       palette="Joyful Desktop"
        panel_border="0" />
   </group>
   <group
@@ -569,7 +576,9 @@
     <group
        id="align" />
     <group
-       id="xml" />
+       id="xml"
+       h="500"
+       w="300" />
     <group
        id="find" />
     <group
@@ -589,7 +598,7 @@
     <group
        id="preferences"
        state="1"
-       page="25"
+       page="47"
        x="241"
        y="57"
        w="883"
@@ -642,7 +651,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="" />
+       path="/usr/share/icons/Papirus-Dark-Custom/48x48/status/" />
     <group
        id="import"
        enable_preview="1"
@@ -684,7 +693,9 @@
        id="treeeditor" />
     <group
        id="layers"
-       maxDepth="20" />
+       maxDepth="20"
+       w="200"
+       h="300" />
     <group
        id="extensioneditor" />
     <group
@@ -794,7 +805,7 @@
        uri="" />
     <group
        id="savewindowgeometry"
-       value="1" />
+       value="2" />
     <group
        id="defaultoffsetwidth"
        value="2px" />
@@ -1011,7 +1022,23 @@
        id="rendering" />
     <group
        id="defaultwindowsize"
-       value="-1" />
+       value="2" />
+    <group
+       id="boot"
+       enabled="0">
+      <group
+         id="shown"
+         ver1.1="1" />
+    </group>
+    <group
+       id="commandpalette">
+      <group
+         id="showfullactionname"
+         value="1" />
+    </group>
+    <group
+       id="cleanupswatches"
+       value="1" />
   </group>
   <group
      id="extensions"
@@ -1024,15 +1051,15 @@
      org.inkscape.input.svg.scale="auto" />
   <group
      id="desktop"
-     style="">
+     style="fill:#fa74b2">
     <group
        width="1301"
        height="714"
        x="55"
        y="10"
+       maximized="1"
        fullscreen="0"
-       id="geometry"
-       maximized="0" />
+       id="geometry" />
     <group
        id="XYfront" />
     <group
@@ -1142,12 +1169,14 @@
      preferDarkTheme="1"
      symbolicIcons="1"
      symbolicDefaultColors="0"
-     menuIcons="0">
+     menuIcons="0"
+     defaultPreferDarkTheme="0"
+     defaultGtkTheme="Fleon">
     <group
        id="multicolor"
-       symbolicBaseColor="-101058049"
-       symbolicSuccessColor="736399871"
-       symbolicWarningColor="-94722817"
-       symbolicErrorColor="1673915135" />
+       symbolicBaseColor="3958107135"
+       symbolicSuccessColor="10029823"
+       symbolicWarningColor="4279865599"
+       symbolicErrorColor="10086143" />
   </group>
 </inkscape>
