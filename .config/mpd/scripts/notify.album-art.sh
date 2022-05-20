@@ -18,7 +18,7 @@ exec >/dev/null 2>&1
 
     [ -n "${FILE%/*\ #####\ *}" ] || exit ${?}
 
-    [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
+    [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#~*/}"
 
     read -r ALBUM_COVER <<- EOF
 		$(find "${CHK_MPD_MUSIC_DIR}/${FILE%/*\ #####\ *}/" -maxdepth 1 \
