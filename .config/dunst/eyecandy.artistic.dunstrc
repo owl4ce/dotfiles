@@ -63,3 +63,7 @@ timeout = 0
 background = "#f9f9f9"
 foreground = "#373e4d"
 highlight = "#fa74b2"
+
+[joyful_desktop]
+appname = "joyful_desktop"
+history_ignore = yes
