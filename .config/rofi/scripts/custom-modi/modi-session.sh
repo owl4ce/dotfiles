@@ -54,7 +54,7 @@ case "${@}" in
     ;;
     "$F"     ) prompt "$F_" 'loginctl --no-ask-password kill-user ${EUID:-$(id -u)} --signal=SIGKILL'
     ;;
-    "$Y"|"$Z") eval "exec ${ROFI_INFO#\#}"
+    "$Y"|"$Z") eval "exec ${ROFI_INFO#\#} >&2 &"
     ;;
 esac
 
