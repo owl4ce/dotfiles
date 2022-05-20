@@ -11,7 +11,7 @@ offset = 0x60
 progress_bar_height = 5
 progress_bar_frame_width = 0
 
-transparency = 5
+transparency = 3
 horizontal_padding = 11
 frame_width = 6
 frame_color = "#3b4252"
