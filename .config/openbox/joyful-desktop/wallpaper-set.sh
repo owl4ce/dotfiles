@@ -25,9 +25,12 @@ case "${1}" in
         sed -e "/^wallpaper.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"${WALLPAPER}\"|" -i "$THEME_FILE"
 
         dunstify '' "<span size='small'><u>${WALLPAPER}</u></span>\nSuccessfully applied!" \
-                 -i  "$WALLPAPER_ICON" -r 82 -u low
+                 -h string:synchronous:wallpaper-set \
+                 -i "$WALLPAPER_ICON" \
+                 -u low
     ;;
-    g*) [ -x "$(command -v magick)" ] || exec dunstify 'Install `imagemagick`!' -r 82 -u low
+    g*) [ -x "$(command -v magick)" ] || exec dunstify 'Install `imagemagick`!' -h string:synchronous:install-deps \
+                                                                                -u low
 
         cd -- "$WALLPAPERS_DIR"
 
@@ -39,7 +42,9 @@ case "${1}" in
                 [ -n "$GET_WP_SIZE" ] || continue
 
                 dunstify '' "Generating X wallpaper ..\n<span size='small'><u>${RAW}</u></span>" \
-                         -i  "$WALLPAPER_ICON" -r 82 -t 1000
+                         -h string:synchronous:wallpaper-set \
+                         -i "$WALLPAPER_ICON" \
+                         -t 1000
 
                 if [ "$GET_WP_SIZE" -lt 1920 ]; then
                     RES='_HD'
@@ -102,13 +107,17 @@ case "${1}" in
                 esac
 
                 dunstify '' "Successfully generated!\n<span size='small'>Now it's time to change X wallpaper</span>" \
-                         -i  "$WALLPAPER_ICON" -r 82 -u low
+                         -h string:synchronous:wallpaper-set \
+                         -i "$WALLPAPER_ICON" \
+                         -u low
 
             elif [ -d "$RAW" ]; then
                 continue
             else
                 dunstify '' "Nothing to generate!\n<span size='small'>Puts in <u>~/${WALLPAPERS_DIR##*/}</u></span>" \
-                         -i  "$WALLPAPER_ICON" -r 82 -u low
+                         -h string:synchronous:wallpaper-set \
+                         -i "$WALLPAPER_ICON" \
+                         -u low
             fi
         done
     ;;

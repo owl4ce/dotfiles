@@ -34,7 +34,8 @@ setup_ui()
         ;;
     esac
 
-    dunstify "$SUMMARY" "$BODY" -i "${GLADIENT_ICON_DIR}/${1}.${2}.png" -r 81 -u low
+    dunstify "$SUMMARY" "$BODY" -i "${GLADIENT_ICON_DIR}/${1}.${2}.png" -h string:synchronous:toggle-mode \
+                                                                        -u low
 }
 
 case "${1}" in
