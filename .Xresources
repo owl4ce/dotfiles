@@ -2,10 +2,10 @@
 ! https://github.com/owl4ce/dotfiles
 
 ! URxvt configuration.
-URxvt.font:                       xft:mplus Nerd Font Mono:pixelsize=14:autohint=true,\
-                                  xft:Noto Color Emoji:pixelsize=12:antialias=false,\
-                                  xft:Monospace:pixelsize=14:autohint=true,\
-                                  xft:Unifont:pixelsize=14:autohint=true
+URxvt.font:                       xft:mplus Nerd Font Mono:size=11:autohint=true,\
+                                  xft:Noto Color Emoji:size=9:antialias=false,\
+                                  xft:Monospace:size=11:autohint=true,\
+                                  xft:Unifont:size=11:autohint=true
 URxvt.geometry:                   84x16
 URxvt.internalBorder:             20
 URxvt.cursorBlink:                true
