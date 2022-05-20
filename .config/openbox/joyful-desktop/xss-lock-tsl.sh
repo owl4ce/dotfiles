@@ -9,9 +9,11 @@ exec >/dev/null 2>&1
 
 trap 'kill %%' TERM INT
 
-[ -z "$(joyd_music_controller status)" ] || joyd_music_controller toggle
+{
+    [ -z "$(joyd_music_controller status)" ] || joyd_music_controller toggle
 
-dunstctl set-paused true
+    dunstctl set-paused true
+} &
 
 if [ -e "/dev/fd/${XSS_SLEEP_LOCK_FD:--1}" ]; then
     eval "$(joyd_launch_apps -g session_locker) {XSS_SLEEP_LOCK_FD}<&- &"
@@ -23,9 +25,11 @@ fi
 
 wait
 
-dunstctl set-paused false
+{
+    dunstctl set-paused false
 
-dunstify 'Session Manager' "Welcome back <u>${USER:-$(id -nu)}</u>" -h string:synchronous:session-manager \
-                                                                    -i "$LOGOUT_ICON"
+    dunstify 'Session Manager' "Welcome back <u>${USER:-$(id -nu)}</u>" -h string:synchronous:session-manager \
+                                                                        -i "$LOGOUT_ICON"
+} &
 
 exit ${?}

@@ -4,7 +4,7 @@
 # https://github.com/owl4ce/dotfiles
 
 export LANG='POSIX'
-exec 2>/dev/null
+exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 case "${1}" in

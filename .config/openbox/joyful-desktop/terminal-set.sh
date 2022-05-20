@@ -72,13 +72,13 @@ if [ "${PREF_TERM%%\ *}" = 'urxvt' -o "${PREF_TERM%%\ *}" = 'urxvtc' ]; then
                         break
                 ;;
             esac
-        done <<- EOF
+        done <<- XRDB
 			${XRDB_QUERY}
-		EOF
+		XRDB
     }
 
     {
-        IFS= read -r OSC_SEQ <<- EOF
+        IFS= read -r OSC_SEQ <<- SEQ
 			$(for QY in foreground \
 						background \
 						borderColor \
@@ -88,8 +88,6 @@ if [ "${PREF_TERM%%\ *}" = 'urxvt' -o "${PREF_TERM%%\ *}" = 'urxvtc' ]; then
 						color8 \
 						color15
 			do
-
-				GET_HEX="$(xrdb_query "*.${QY}:")"
 
 				case "$QY" in
 					foreground ) SEQ='10'
@@ -104,10 +102,10 @@ if [ "${PREF_TERM%%\ *}" = 'urxvt' -o "${PREF_TERM%%\ *}" = 'urxvtc' ]; then
 					;;
 				esac
 
-				printf '\033]%s;%s\007' "$SEQ" "$GET_HEX"
+				printf '\033]%s;%s\007' "$SEQ" "$(xrdb_query "*.${QY}:")"
 
 			done)
-		EOF
+		SEQ
 
         for PID in ${URXVT_PIDS}; do
             for CHILD_PID in $(pgrep -P "$PID"); do

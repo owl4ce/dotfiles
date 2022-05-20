@@ -6,7 +6,7 @@
 # shellcheck disable=SC2016
 
 export LANG='POSIX'
-exec 2>/dev/null
+exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 case "${1}" in
@@ -37,11 +37,7 @@ case "${1}" in
         cd -- "$WALLPAPERS_DIR" || exit ${?}
 
         for RAW in *.*; do
-            if [ -f "$RAW" ]; then
-
-                GET_WP_SIZE="$(identify -format %w "$RAW")"
-
-                [ -n "$GET_WP_SIZE" ] || continue
+            if [ -f "$RAW" ] && GET_WP_SIZE="$(identify -format %w "$RAW")" && [ -n "$GET_WP_SIZE" ]; then
 
                 dunstify '' "Generating X wallpaper ..\n<span size='small'><u>${RAW}</u></span>" \
                          -h string:synchronous:wallpaper-set \
@@ -86,7 +82,7 @@ case "${1}" in
                               ')' -gravity center \
                                   -compose darken \
                                   -composite \
-                                  -quality 100% \
+                                  -quality 100 \
                            "${CHK_WALLPAPER_DIR}/${RAW%.*}${RES}.jpg" \
                            || continue
                     ;;
@@ -102,7 +98,7 @@ case "${1}" in
                                   -gravity center \
                                   -compose lighten \
                                   -composite \
-                                  -quality 100% \
+                                  -quality 100 \
                            "${CHK_WALLPAPER_DIR}/${RAW%.*}${RES}.jpg" \
                            || continue
                     ;;
