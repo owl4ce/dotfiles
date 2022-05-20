@@ -3,6 +3,8 @@
 # The custom music controller modi inside rofi.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2059
 
 export LANG='POSIX'

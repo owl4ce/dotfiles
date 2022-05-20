@@ -3,6 +3,8 @@
 # The custom media control modi inside rofi.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2086,SC2166
 
 export LANG='POSIX'
