@@ -1250,7 +1250,7 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 | <kbd>ctrl</kbd> + <kbd>pg up</kbd>                           | Jump to next tab                   |
 | <kbd>ctrl</kbd> + <kbd>pg dn</kbd>                           | Jump to previous tab               |
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg up</kbd>        | Move current tab to next order     |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pp dn</kbd>        | Move current tab to previous order |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg dn</kbd>        | Move current tab to previous order |
 
 </details>
 
@@ -1283,9 +1283,10 @@ I learned a lot about \*NIX because of this too, so I'm really grateful for that
 learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software"
 completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's problem with the configuration (please check previous
-issues if relevant), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want
-to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
+If you feel happy, give this a [**star**](https://github.com/owl4ce/dotfiles/stargazers).
+If there's problem with the configuration (please check previous issues if relevant),
+you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to
+[discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
 
 **Modular operating system supremacy.**
 
@@ -1308,30 +1309,30 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 
 ## :bouquet: ‎ <samp>ACKNOWLEDGEMENTS</samp>
 
-|           |   | Inspiration and Resources                           |                                                                                                                                                             |            |
-|:---------:|:-:|:----------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-|           | 1 | [Elena](https://github.com/elenapan)                |                                                                                                                                                             |            |
-|           | 2 | [Adhi Pambudi](https://github.com/addy-dclxvi)      |                                                                                                                                                             |            |
-|           | 3 | [Fikri Omar](https://github.com/fikriomar16)        |                                                                                                                                                             |            |
-|           | 4 | [Rizqi Nur Assyaufi](https://github.com/bandithijo) |                                                                                                                                                             |            |
-|           | 5 | [Muktazam Hasbi Ashidiqi](https://github.com/reorr) |                                                                                                                                                             |            |
-|           | 6 | [Galih Wisnuaji](https://github.com/nekonako)       |                                                                                                                                                             |            |
-|           | 7 | [Ghani Rafif](https://github.com/ekickx)            |                                                                                                                                                             |            |
-|           | 8 | [Dylan Araps](https://github.com/dylanaraps)        |                                                                                                                                                             |            |
-|           | 9 | [Niivu](https://github.com/niivu)                   |                                                                                                                                                             |            |
-|           |   |                                                     |                                                                                                                                                             |            |
-| **Group** |   | **Contributors**                                    | **Contributions**                                                                                                                                           | **Status** |
-| Unlisted  | 1 | [Ekaunt](https://github.com/ekaunt)                 | [Better rofi prompt-menu](https://github.com/owl4ce/dotfiles/pull/2)                                                                                        | Obsolete   |
-| Unlisted  | 2 | [HopeBaron](https://github.com/HopeBaron)           | [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4)                                                                                          | Obsolete   |
-| Unlisted  | 3 | [Justin Faber](https://github.com/vredesbyyrd)      | [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)                                                         | Merged     |
-| Unlisted  | 4 | [Vcyzteen](https://github.com/vcyzteen)             | [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60) | Merged     |
-| Verified  | * | [![](https://contrib.rocks/image?repo=owl4ce/dotfiles)](https://github.com/owl4ce/dotfiles/graphs/contributors)                                                                                                                |
-|           |   |                                                     |                                                                                                                                                             |            |
-| **Based** |   | **Community**                                       |                                                                                                                                                             |            |
-|:indonesia:| 1 | [Linuxer Desktop Art](https://facebook.com/groups/linuxart)                                                                                                                                                                    |
-|:indonesia:| 2 | [@dotfiles_id](https://t.me/dotfiles_id)                                                                                                                                                                                       |
-|:world_map:| 3 | [r/unixp*rn](https://reddit.com/r/unixporn)                                                                                                                                                                                    |
-|:world_map:| 4 | [DeviantArt](https://deviantart.com)                                                                                                                                                                                           |
+|           |   | Inspiration and Resources                                   |                                                                                                                                                              |            |
+|:---------:|:-:|:------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+|           | 1 | [Elena](https://github.com/elenapan)                        |                                                                                                                                                              |            |
+|           | 2 | [Adhi Pambudi](https://github.com/addy-dclxvi)              |                                                                                                                                                              |            |
+|           | 3 | [Fikri Omar](https://github.com/fikriomar16)                |                                                                                                                                                              |            |
+|           | 4 | [Rizqi Nur Assyaufi](https://github.com/bandithijo)         |                                                                                                                                                              |            |
+|           | 5 | [Muktazam Hasbi Ashidiqi](https://github.com/reorr)         |                                                                                                                                                              |            |
+|           | 6 | [Galih Wisnuaji](https://github.com/nekonako)               |                                                                                                                                                              |            |
+|           | 7 | [Ghani Rafif](https://github.com/ekickx)                    |                                                                                                                                                              |            |
+|           | 8 | [Dylan Araps](https://github.com/dylanaraps)                |                                                                                                                                                              |            |
+|           | 9 | [Niivu](https://github.com/niivu)                           |                                                                                                                                                              |            |
+|           |   |                                                             |                                                                                                                                                              |            |
+| **Group** |   | **Contributors**                                            | **Contributions**                                                                                                                                            | **Status** |
+| Unlisted  | 1 | [Ekaunt](https://github.com/ekaunt)                         | [Better rofi prompt-menu](https://github.com/owl4ce/dotfiles/pull/2).                                                                                        | Obsolete   |
+| Unlisted  | 2 | [HopeBaron](https://github.com/HopeBaron)                   | [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4).                                                                                          | Obsolete   |
+| Unlisted  | 3 | [Justin Faber](https://github.com/vredesbyyrd)              | [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179).                                                         | Merged     |
+| Unlisted  | 4 | [Vcyzteen](https://github.com/vcyzteen)                     | [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60). | Merged     |
+| Verified  | * | [![](https://contrib.rocks/image?repo=owl4ce/dotfiles)](https://github.com/owl4ce/dotfiles/graphs/contributors)                                                                                                                         |
+|           |   |                                                             |                                                                                                                                                              |            |
+| **Based** |   | **Community**                                               | **Membership Status**                                                                                                                                        |            |
+|:indonesia:| 1 | [Linuxer Desktop Art](https://facebook.com/groups/linuxart) | Self-destruct in 1443 H.                                                                                                                                     |            |
+|:indonesia:| 2 | [@dotfiles_id](https://t.me/dotfiles_id)                    | I quit in the same year.                                                                                                                                     |            |
+|:world_map:| 3 | [r/unixp*rn](https://reddit.com/r/unixporn)                 | Inactive for a long time.                                                                                                                                    |            |
+|:world_map:| 4 | [DeviantArt](https://deviantart.com)                        | Inactive for a long time.                                                                                                                                    |            |
 
 ## :deciduous_tree: ‎ <samp>CONTRIBUTING</samp>
 
