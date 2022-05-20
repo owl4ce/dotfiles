@@ -23,12 +23,12 @@
   exts-window-width:          25%;
   exts-window-height:         95%;
   exts-window-location:       south east;
-  exts-window-border-radius:  8% 0px 0px 0px;
+  exts-window-border-radius:  60px 0px 0px 0px;
   exts-button-custom-margin:  4px;
   exts-button-custom-padding: 7px 14px;
   exts-message-margin:        4px 4px 2px 4px;
   exts-message-padding:       4.4% 14px 3% 14px;
-  exts-message-border-radius: 6% 8px 8px 8px;
+  exts-message-border-radius: 45px 8px 8px 8px;
   exts-inputbar-margin:       2px 4px 2px 4px;
 }
 
