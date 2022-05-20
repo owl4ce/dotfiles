@@ -82,9 +82,48 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 > Work in progress.
 
+<details>
+<summary><b>Innovations</b></summary>
+
+- **Functionality**
+  - [Live reloader for rxvt-unicode color scheme](./.config/openbox/joyful-desktop/terminal-set.sh#L74-L139)
+- **Git repository**
+  - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+  - [CONTRIBUTING.md](./CONTRIBUTING.md)
+  - [README.md](./README.md)
+  - [REPOLOGY.md](./REPOLOGY.md)
+  - [SECURITY.md](./SECURITY.md)
+- **User interface**
+  - Rofi [main menu](./.config/rofi/scripts/rofi-main.sh) and panel (or control) [extensions menu](./.config/rofi/scripts/rofi-exts.sh)
+  - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox button and wallpaper selector
+  - Better tint2 [horizontal panels](./.config/tint2) for Artistic Mode and the tooltips
+
+</details>
+
+<details>
+<summary><b>Renovations</b></summary>
+
+- **Reconfigure program configurations**
+- **Restructure git directory layouts**
+- **Rewrite shell-scripts completely**
+  - Use POSIX-compliant sh for portability
+  - Harden algorithm as possible for safety
+  - Use built-in shell features for high-performance
+  - Optimize algorithm to reduce overheads
+  - Bug fixes across ecosystem environments
+
+</details>
+
+<details>
+<summary><b>Removals</b></summary>
+
+- **Mostly deprecated configs and BLOBs such as images**
+
+</details>
+
 ## :ear_of_rice: ‎ <samp>INTRODUCTION OF LINUX RICE</samp>
 
-> Work in progress.
+[Read here](https://owl4ce.github.io/iolr). [Also available in Bahasa Indonesia](https://owl4ce.github.io/id/iolr).
 
 ## :seedling: ‎ <samp>SETUP</samp>
 
