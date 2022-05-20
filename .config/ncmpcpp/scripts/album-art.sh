@@ -3,6 +3,8 @@
 # The ncmpcpp album-art executor.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2166,SC2086
 
 export LANG='POSIX'
