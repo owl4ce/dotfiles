@@ -20,15 +20,15 @@ G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   Dim 
 [ -z "$BRIGHTNESS_DEVICE" ] || B_ARGS="-d ${BRIGHTNESS_DEVICE}"
 
 case "${@}" in
-    "$B") amixer ${A_ARGS} sset Master ${AUDIO_VOLUME_STEPS:-5}%+ on -q
+    "$B") amixer ${A_ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
     ;;
-    "$C") amixer ${A_ARGS} sset Master ${AUDIO_VOLUME_STEPS:-5}%- on -q
+    "$C") amixer ${A_ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
     ;;
     "$D") amixer ${A_ARGS} sset Master 1+ toggle -q
     ;;
-    "$F") brightnessctl ${B_ARGS} set ${BRIGHTNESS_STEPS:-5}%+ -q
+    "$F") brightnessctl ${B_ARGS} set "${BRIGHTNESS_STEPS:-5}%+" -q
     ;;
-    "$G") brightnessctl ${B_ARGS} set ${BRIGHTNESS_STEPS:-5}%- -q
+    "$G") brightnessctl ${B_ARGS} set "${BRIGHTNESS_STEPS:-5}%-" -q
     ;;
 esac
 

@@ -35,8 +35,8 @@ esac
 
 MESSAGE="$(joyd_music_controller title)"
 
-if [ -n "$MESSAGE" -a "$(printf "$MESSAGE" | wc -m)" -gt 8 ]; then
-    MESSAGE="<span size='xx-small'>$(printf "$MESSAGE" | cut -c1-9)..</span>"
+if [ "${#MESSAGE}" -gt 8 ]; then
+    MESSAGE="<span size='xx-small'>$(printf '%.9s\n' "$MESSAGE")..</span>"
 fi
 
 printf "\0message\037${MESSAGE:-¨}\n\0markup-rows\037true\n"
