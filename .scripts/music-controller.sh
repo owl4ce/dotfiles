@@ -5,11 +5,13 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2086
+# shellcheck disable=SC3044,SC2086
 
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
