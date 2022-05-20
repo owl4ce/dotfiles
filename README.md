@@ -32,8 +32,8 @@ NEVER SKIP / IGNORE / AVOID README
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
 </a>
 
-You might be here looking for Linux rice references or to (full?) replicate my personal configurations of my favorite
-Openbox Window Manager and some apps as well. :snowman:
+You might be here looking for Linux rice references or to (full?) replicate my personal
+configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
 
 Averages are written from scratch. Some of details:
 
@@ -94,7 +94,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 <summary><b>Innovations</b></summary>
 
 - **Functionality**
-  - [Live reloader for rxvt-unicode color scheme](./.config/openbox/joyful-desktop/terminal-set.sh#L74-L139)
+  - [Live reloader](./.config/openbox/joyful-desktop/terminal-set.sh#L74-L139) for rxvt-unicode color scheme
 - **Git repository**
   - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
   - [CONTRIBUTING.md](./CONTRIBUTING.md)
@@ -104,7 +104,10 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 - **User interface**
   - Rofi [main menu](./.config/rofi/scripts/rofi-main.sh) and panel (or control)
     [extensions menu](./.config/rofi/scripts/rofi-exts.sh)
-  - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox button and wallpaper selectors
+  - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox
+    [button](./.config/openbox/joyful-desktop/ob-button-set.sh#L16-L25) and X
+    [wallpaper](./.config/openbox/joyful-desktop/wallpaper-set.sh#L16-L25) selectors,
+    as well as dunst [context-menu](./.config/dunst/mechanical.artistic.dunstrc#L41)
   - Better tint2 [horizontal panels](./.config/tint2) for Artistic Mode and the tooltips
 
 </details>
@@ -212,7 +215,7 @@ Everything done manually step-by-step. Let's learn.
 **Didn't know how to install packages?**
 
 ```sh
-💲 sudo apt install <pkg1> <pkg2> <..>
+💲 sudo apt install atom1 atom2 .. atomN
 ```
 
 ---
@@ -347,7 +350,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 **Didn't know how to install packages?**
 
 ```sh
-💲 sudo pacman -S <pkg1> <pkg2> <..>
+💲 sudo pacman -S atom1 atom2 .. atomN
 ```
 
 ---
@@ -488,14 +491,14 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 **Didn't know how to install packages?**
 
 ```sh
-💲 doas emerge -av <pkg1> <pkg2> <..>
+💲 doas emerge -av atom1 atom2 .. atomN
 ```
 
 > Note that some packages require accepting [arch~ keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS).
-  It's highly recommended.
+> It's highly recommended.
 
 > See also USE flags, it's complicated to explain.
-  [You might want to see mine](https://github.com/owl4ce/hmg/tree/main/etc/portage).
+> [You might want to see mine](https://github.com/owl4ce/hmg/tree/main/etc/portage).
 
 ---
 
@@ -642,8 +645,9 @@ Oops. Wrong One. ‘Do it yourself’.
 <details>
 <summary><b>Berkeley Software Distribution (BSD) variants</b></summary>
 
-The [BSD variants](https://en.wikipedia.org/wiki/Comparison_of_BSD_operating_systems) haven't been tested at all,
-probably some of the extensions are [GNU](https://gnu.org)'s.
+The [BSD variants](https://en.wikipedia.org/wiki/Comparison_of_BSD_operating_systems)
+haven't been tested at all, probably some of the extensions are [GNU](https://gnu.org)'s
+and [Linux-specific](https://refspecs.linuxfoundation.org/lsb.shtml).
 
 </details>
 
@@ -785,7 +789,7 @@ Optionally, install the noto family for broad support.
 ```
 
 **Why do I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?**  
-It's [required by dunst](https://github.com/owl4ce/dotfiles/commit/bdcadc5c1d869a073c5038bce4ef26d0340275a3)
+It's [required by dunst program](https://github.com/owl4ce/dotfiles/commit/bdcadc5c1d869a073c5038bce4ef26d0340275a3)
 to display icons of the notification that spawned by programs.
 
 </details>
@@ -803,8 +807,7 @@ to display icons of the notification that spawned by programs.
 > **DISCLAIMER!!!**  
 > I don't own the artworks (because I couldn't find the link to the originals),
 > so if you the owner of the artworks with proof and want me to remove it
-  [please let me know](./CODE_OF_CONDUCT.md#enforcement).
->
+> [please let me know](./CODE_OF_CONDUCT.md#enforcement).
 > - [桜セイバー沖田総司](https://pixiv.net/en/artworks/59740059)
 > - [桜](https://pixiv.net/en/artworks/80518034)
 > - [沖田総司](https://pixiv.net/en/artworks/62996457)
@@ -855,8 +858,8 @@ to display icons of the notification that spawned by programs.
 <summary><b>Synchronize minimal .files</b></summary>
 
 You can clone or [download as archive](https://github.com/owl4ce/dotfiles/releases/tag/ng).
-Then, put all the .files in the dotfiles directory into user's home directory.
-Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync program.
+Then, put all the .files in the dotfiles directory into user's home directory. Assume you
+clone it in the `~/Documents` directory. I recommend to synchronize with rsync program.
 
 ```sh
 💲 cd ~/Documents/
@@ -910,9 +913,9 @@ This ensures all existing caches are cleared and regenerated for all installed f
 <details>
 <summary><b>The step you're waiting for</b></summary>
 
-The final step is to login to the openbox-session, basically login from your display manager like lightdm, gdm, etc.
-If you're using [`~/.xinitrc`](https://wiki.archlinux.org/title/Xinit) without a display manager,
-simply add the following one-liner commands at the end.
+The final step is to login to the openbox-session, basically login from your display manager
+such as lightdm, gdm, etc. If you're using [`~/.xinitrc`](https://wiki.archlinux.org/title/Xinit)
+without a display manager, simply add the following one-liner commands at the end.
 
 **Systemd-based Linux distributions**
 
@@ -971,7 +974,7 @@ EXTRA_JOYFUL
 EXCLUDE
 ```
 
-> Use find program to check the *PATTERN*.
+> Use find program to check the *PATTERN* using [glob](https://en.wikipedia.org/wiki/Glob_(programming)).
 > ```sh
 > 💲 find dotfiles/ -iname 'PATTERN'
 > ```
@@ -1045,13 +1048,13 @@ Use `export` to set user's environment variables universally. Don't add any othe
 | *file_manager*   | *anything*                                                 | File Manager      |
 | *session_locker* | *anything*                                                 | Session Locker    |
 
-Terminal emulator and file manager are universally used, both for keybindings and
-context menus. Terminal emulator is actually freedom-of-choice, [but it's not integrated,
-it will display a notification message](./.config/openbox/joyful-desktop/terminal-set.sh#L26-L149).
-The music player [can be switched without modifying the configuration manually](./.scripts/music-controller.sh#L71-L86),
-via music control button in the tint2 panel, just hover it. The session locker is used by
-[xss-lock](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L29-L40) program (which enabled in
-[autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd events and
+Terminal emulator and file manager are universally used, both for keybindings and context menus.
+Terminal emulator is actually freedom-of-choice, [but it's not integrated, it will display a
+notification message](./.config/openbox/joyful-desktop/terminal-set.sh#L26-L149). The music player
+[can be switched without modifying the configuration manually](./.scripts/music-controller.sh#L71-L86),
+via music control button in the tint2 panel, just hover it. The session locker is [used by
+xss-lock program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L29-L40) (which [enabled
+in autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd events and
 [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
 
 </details>
@@ -1068,17 +1071,16 @@ Update the mpd database first, via mpc or by pressing <kbd>U</kbd> in ncmpcpp.
 Put the image files [matched to BRE](./.config/ncmpcpp/scripts/album-art.sh#L93-L99)
 `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory containing
 the album tracks. The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10).
-The recommended image size is 500px at ratio of 1:1 or more. So,
-assume you have a directory `~/Music/AlbumX` with lots of songs,
-you should put the image file to use as album-art (related to the songs) there.
-[This is for URxvt only](./.joyfuld#L144-L162).
+The recommended image size is 500px at ratio of 1:1 or more. So, assume you have a directory
+`~/Music/AlbumX` with lots of songs, you should put the image file to use as album-art
+(related to the songs) there. [This is for URxvt only](./.joyfuld#L144-L162).
 
 </details>
 
 <details>
 <summary><b>File manager side-pane and <a href="https://wiki.archlinux.org/title/XDG_user_directories">XDG user directories</a></b></summary>
 
-If you just installed thunar without XFCE, you might get a side-pane without XDG directories like **Documents**,
+If you just installed thunar without XFCE, you might get a side-pane without XDG directories such as **Documents**,
 **Downloads**, etc. Once you have created the directories, open thunar and select or block the directories,
 right click and click **Send To** 🡲 **Side Pane**. The following command generates those directories.
 
@@ -1245,25 +1247,25 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 
 </details>
 
-[Custom key](./EXTRA_JOYFUL/.config/mpv/input.conf)
-[Anime4K shaders](https://github.com/bloc97/Anime4K/blob/master/GLSL_Instructions.md) with
-[mpv](https://mpv.io/manual/master/#interactive-control). [Ncmpcpp](https://pkgbuild.com/~jelle/ncmpcpp).
-[Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts) with
-[custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
+[Anime4K shaders](https://github.com/bloc97/Anime4K/blob/master/GLSL_Instructions.md)
+via [mpv](https://mpv.io/manual/master/#interactive-control) with
+[custom key](./EXTRA_JOYFUL/.config/mpv/input.conf). [Ncmpcpp](https://pkgbuild.com/~jelle/ncmpcpp).
+[Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts)
+with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
 
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
 This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the
 story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year.
-My main philosophy in crafting this is as a minimal replacement for "bloated" Desktop Environment without any desktop
-decorations such as widgets, but customizable to users' taste with an overall theme based on my [unnamed color
+My main philosophy in crafting this is as a minimal replacement for "bloated" Desktop Environment without any
+desktop decorations such as widgets, but customizable to users' taste with an overall theme based on my [unnamed color
 palette](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) and easily switchable themes along with fashions.
 
 I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can
 learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software"
 completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's problem with the configuration (please check previous
+If you feel happy, give this a **star**. If there is problem with the configuration (please check previous
 issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to
 [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
 
