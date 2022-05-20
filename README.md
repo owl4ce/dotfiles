@@ -90,7 +90,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 Everything done manually step-by-step. Let's learn.
 
-### :blossom: ‎ <samp>INSTALLATION (DEPENDENCIES)</samp>
+### :blossom: ‎ <samp>INSTALLATION (<a href="./REPOLOGY.md">DEPENDENCIES</a>)</samp>
 
 <details>
 <summary><b>Debian-based Linux distributions</b></summary>
