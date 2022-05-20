@@ -112,6 +112,7 @@ URxvt.keysym.Control-Shift-Prior: tabbedex:move_tab_left
 *.foreground:                     white0
 *.background:                     black0
 *.cursorColor:                    white0
+*.borderColor:                    black0
 
 *.color0:                         black2
 *.color7:                         white1
@@ -122,6 +123,7 @@ URxvt.keysym.Control-Shift-Prior: tabbedex:move_tab_left
 !*.foreground:                     black0
 !*.background:                     white0
 !*.cursorColor:                    black0
+!*.borderColor:                    white0
 
 !*.color0:                         white1
 !*.color7:                         black2
