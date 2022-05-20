@@ -18,7 +18,7 @@ exec >/dev/null 2>&1
 { [ "$(joyd_launch_apps -g terminal)" = 'urxvtc' ] && urxvtd -f -q; } &
 
 # Run your preferred audio server here (init-freedom), there was once a pulseaudio here.
-#{ pidof -s pulseaudio -q || pulseaudio --start --log-target=syslog; } &
+{ pidof -s pulseaudio -q || pulseaudio --start --log-target=syslog; } &
 
 # Setup user interface using last applied themes configuration and user's tray programs.
 joyd_toggle_mode apply
