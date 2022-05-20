@@ -5,13 +5,10 @@ height = 222
 origin = bottom-center
 offset = 0x60
 
-progress_bar = true
 progress_bar_height = 5
 progress_bar_frame_width = 0
 
-transparency = 5
-separator_height = 2
-padding = 8
+transparency = 10
 horizontal_padding = 11
 frame_width = 6
 frame_color = "#f9f9f9"
@@ -26,11 +23,17 @@ show_age_threshold = 60
 icon_position = left
 max_icon_size = 80
 
-icon_path = "/usr/share/icons/Papirus-Custom/48x48/actions/:/usr/share/icons/Papirus-Custom/48x48/apps/:/usr/share/icons/Papirus-Custom/48x48/devices/:/usr/share/icons/Papirus-Custom/48x48/emblems/:/usr/share/icons/Papirus-Custom/48x48/emotes/:/usr/share/icons/Papirus-Custom/48x48/mimetypes/:/usr/share/icons/Papirus-Custom/48x48/places/:/usr/share/icons/Papirus-Custom/48x48/status/"
+#icon_path = "/usr/share/icons/Papirus-Custom/48x48/actions/:/usr/share/icons/Papirus-Custom/48x48/apps/:/usr/share/icons/Papirus-Custom/48x48/devices/:/usr/share/icons/Papirus-Custom/48x48/emblems/:/usr/share/icons/Papirus-Custom/48x48/emotes/:/usr/share/icons/Papirus-Custom/48x48/mimetypes/:/usr/share/icons/Papirus-Custom/48x48/places/:/usr/share/icons/Papirus-Custom/48x48/status/"
+
+# EXPERIMENTAL
+enable_recursive_icon_lookup = true
+icon_theme = "Papirus-Custom"
+icon_size = 48
+#
 
 sticky_history = false
 
-dmenu = "rofi -no-lazy-grab -dmenu -p 'Notification Context Menu' -theme themes/appsmenu.rasi"
+dmenu = "rofi -theme-str '@import "main.rasi"' -no-lazy-grab -no-plugins -no-show-icons -dmenu -mesg 'Notification Context Menu'"
 
 browser = "your_web_browser"
 
