@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=Play music on Ncmpcpp
+Terminal=false
+Name=Ncmpcpp
+GenericName=Music Player
+Categories=AudioVideo;Audio;Player;
+Exec=sh -c "${HOME}/.config/ncmpcpp/launch.sh"
+Type=Application
+Icon=musique
