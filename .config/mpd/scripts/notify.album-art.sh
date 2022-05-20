@@ -3,7 +3,7 @@
 # The MPD's track album-art notification-sender.
 # https://github.com/owl4ce/dotfiles
 
-# shellcheck disable=SC2166,SC2086
+# shellcheck disable=SC2166
 
 export LANG='POSIX'
 exec >/dev/null 2>&1
