@@ -74,7 +74,7 @@ URxvt.keysym.Control-Shift-Next:  tabbedex:move_tab_right
 URxvt.keysym.Control-Shift-Prior: tabbedex:move_tab_left
 
 ! Color schemes.
-#define black0                    [95]#373E4D
+#define black0                    [97]#373E4D
 #define black1                    #3B4252
 #define black2                    #434C5E
 #define black3                    #4C566A
