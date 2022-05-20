@@ -14,12 +14,8 @@ TEMPERATURE_DEVICE="${LINUX_THERMAL}/${TEMP_DEV}"
 if [ -f "${TEMPERATURE_DEVICE}/temp" ]; then
     IFS= read -r TEMP <"${TEMPERATURE_DEVICE}/temp"
     echo "$((${TEMP}/1000))˚C"
-elif [ ! -d "$TEMPERATURE_DEVICE" ]; then
-    echo "Invalid ${TEMP_DEV} device interface!"
-    false
-elif [ ! -d "$LINUX_THERMAL" ]; then
-    echo "Invalid ${LINUX_THERMAL} directory path!"
-    false
+else
+    echo "Invalid ${TEMPERATURE_DEVICE} interface!"
 fi
 
 exit ${?}
