@@ -39,7 +39,7 @@ case "${@}" in
     ;;
     "$D") joyd_music_controller stop
     ;;
-    "$E") mpc -p ${CHK_MPD_PORT} single -q
+    "$E") mpc -p "$CHK_MPD_PORT" single -q
     ;;
 esac
 
@@ -59,7 +59,7 @@ printf '%b\n' '\0use-hot-keys\037true' '\0markup-rows\037true' "\0message\037${M
 [ -n "$(joyd_music_controller status)" ] && P_A='1' || P_U='1'
 
 case "$MUSIC_PLAYER" in
-    mpd) STATUS="$(mpc -p ${CHK_MPD_PORT} status)"
+    mpd) STATUS="$(mpc -p "$CHK_MPD_PORT" status)"
          [ -n "${STATUS##*single:\ off*}" ] && S_A='4' || S_U='4'
     ;;
 esac
