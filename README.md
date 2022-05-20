@@ -109,6 +109,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 <details>
 <summary><b>Renovations</b></summary>
 
+- **GTK theme and icon updates and fixes**
 - **Reconfigure program configurations**
 - **Restructure git directory layouts**
 - **Rewrite shell-scripts completely**
@@ -1188,7 +1189,7 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 [![](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V05ZACS)
 [![](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/owl4ce/donate)
 
-## :four_leaf_clover: ‎ <samp>ACKNOWLEDGEMENTS</samp>
+## :bouquet: ‎ <samp>ACKNOWLEDGEMENTS</samp>
 
 |           |   | Inspiration and Resources                           |                                                                                                                                                             |            |
 |:---------:|:-:|:----------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
