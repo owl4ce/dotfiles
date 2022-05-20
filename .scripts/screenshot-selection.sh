@@ -14,7 +14,7 @@ exec >/dev/null 2>&1
 
     sleep .21s
 
-    [ "$SS_POINTER" != 'yes' ] || ARGS="${ARGS} -p"
+    [ "$SS_POINTER" != 'yes' ] || ARGS='-p'
 
     scrot ${ARGS} -b \
                   -e "mv -f \$f \"${TMP_DIR}/\"" \
@@ -45,21 +45,28 @@ exec >/dev/null 2>&1
                               histogram:info: \
                               | sort -nr | grep -m1 -Eo '[#][0-9a-fA-F]{1,}')"
 
-        elif echo "$SS_FRAME_COLOR" | grep -m1 -Eoq '^[#][0-9a-fA-F]{1,}$'; then
+        elif
+
+            grep -m1 -Eoq '^[#][0-9a-fA-F]{1,}$' <<- EOF
+				${SS_FRAME_COLOR}
+			EOF
+
+        then
             :
         else
+            PRESERVED_SFC="$SS_FRAME_COLOR"
             SS_FRAME_COLOR=
         fi
 
         if [ -n "$SS_FRAME_COLOR" ]; then
-            dunstify '' "Processing captured image ..\n<span size='small'>Applying ${SS_FRAME_COLOR} .. </span>" \
+            dunstify '' "Processing captured picture ..\n<span size='small'>Magick ${SS_FRAME_COLOR} ..</span>" \
                      -i  "$SCREENSHOT_ICON" -r 76 -t 1000
-        else
-            exec dunstify '' "Screenshot failed!\n<span size='small'>Check your <b>\$SS_FRAME_COLOR</b>!</span>" \
+        elif [ -n "$PRESERVED_SFC" ]; then
+            exec dunstify '' "Screenshot failed!\n<span size='small'><u>${PRESERVED_SFC}</u> isn't hex!</span>" \
                           -i  "$SCREENSHOT_ICON" -r 76 -u low
         fi
 
-        magick ephemeral:"${TMP_DIR}/${CURRENT}" \
+        magick "ephemeral:${TMP_DIR}/${CURRENT}" \
            '(' -clone 0 \
                -alpha extract \
                -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
@@ -116,7 +123,7 @@ exec >/dev/null 2>&1
         STS2='CLIPBOARD'
     fi
 
-    exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture acquired!" \
+    exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -i  "$SCREENSHOT_ICON" -r 76 -u low
 } &
 

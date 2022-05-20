@@ -33,14 +33,14 @@ exec >/dev/null 2>&1
         STS2='CLIPBOARD'
     fi
 
-    [ "$SS_POINTER" != 'yes' ] || ARGS="${ARGS} -p"
+    [ "$SS_POINTER" != 'yes' ] || ARGS='-p'
 
     scrot ${ARGS} -e "$EXEC" \
                   -q "${SS_QUALITY:-75}" \
                   -z \
     || exec dunstify '' 'Screenshot failed!' -i "$SCREENSHOT_ICON" -r 75 -u low
 
-    exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture acquired!" \
+    exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -i  "$SCREENSHOT_ICON" -r 75 -u low
 } &
 

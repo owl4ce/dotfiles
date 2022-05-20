@@ -33,9 +33,9 @@ exec >/dev/null 2>&1
         STS2='CLIPBOARD'
     fi
 
-    [ "$SS_POINTER" != 'yes' ] || ARGS="${ARGS} -p"
+    [ "$SS_POINTER" != 'yes' ] || ARGS='-p'
 
-    dunstify '' "In ${SS_COUNTDOWN_SECONDS:-5}s .." -i "$SCREENSHOT_ICON" -r 74 -t 1000
+    dunstify '' "Taken in ${SS_COUNTDOWN_SECONDS:-5}s .." -i "$SCREENSHOT_ICON" -r 74 -t 1000
 
     scrot ${ARGS} -d "${SS_COUNTDOWN_SECONDS:-5}" \
                   -e "$EXEC" \
@@ -43,7 +43,7 @@ exec >/dev/null 2>&1
                   -z \
     || exec dunstify '' 'Screenshot failed!' -i "$SCREENSHOT_ICON" -r 74 -u low
 
-    exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture acquired!" \
+    exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -i  "$SCREENSHOT_ICON" -r 74 -u low
 } &
 
