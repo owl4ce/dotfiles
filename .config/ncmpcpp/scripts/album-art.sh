@@ -13,52 +13,49 @@ exec 2>/dev/null
 
 w3m()
 {
-    if [ -x "$(command -v xprop)" -a -x "$(command -v xwininfo)" ]; then
+    [ -x "$(command -v xdotool)" ] || exec printf '\033c%s' 'error: xdotool is not installed!'
 
-        echo "${$}" >"$NCMPCPP_AA_PID"
+    TERMINAL_WINDOW="$(xdotool getactivewindow)"
 
-        WIN_ID="$(xprop -root _NET_ACTIVE_WINDOW)" WIN_ID="${WIN_ID##*\ #}"
+    echo "${$}" >"$NCMPCPP_AA_PID"
 
-        read -r W3M_IMG_DISPLAY <<- EOF
-			$(find ${LIBS_PATH} -type f -path '*/w3m/*' -iname 'w3mimgd*')
-		EOF
+    read -r W3M_IMG_DISPLAY <<- EOF
+		$(find ${LIBS_PATH} -type f -path '*/w3m/*' -iname 'w3mim*')
+	EOF
 
-        while IFS= read -r PID <"$NCMPCPP_AA_PID" && [ "${$}" -eq "${PID:-0}" ]; do
+    while IFS= read -r P <"$NCMPCPP_AA_PID" && [ "${P:-0}" -eq "${$}" ]; do
 
-            WIN_WIDTH="$(xwininfo -id "$WIN_ID" | sed -n -e 's|^[ ]*Width:[ ]*\([0-9]*\)$|\1|p')"
+        eval $(xdotool getwindowgeometry --shell "$TERMINAL_WINDOW")
 
-            if [ -n "$WIN_WIDTH" ]; then
+        if [ -n "$WIDTH" ]; then
 
-                WIDTH="$(printf '%.f\n' "$((${WIN_WIDTH}000000/${F_W}))e-3")"
+            WIDTH="$(printf '%.f\n' "$((${WIDTH}000000/${TDF}))e-3")"
 
-                ${W3M_IMG_DISPLAY:-break} >&2 <<- EOF
-					0;1;0;0;${WIDTH};${WIDTH};;;;;${NCMPCPP_AA_IMG}
-					3;
-					4
-				EOF
+            ${W3M_IMG_DISPLAY:-break} >&2 <<- EOF
+				0;1;0;0;${WIDTH};${WIDTH};;;;;${NCMPCPP_AA_IMG}
+				3;
+				4
+			EOF
 
-            else
-                sleep .25s
-                printf '\033c%s' 'error: invalid window width and/or height. Please relaunch!'
-            fi
+            WIDTH=
 
-        done
+        else
+            sleep .022s
+            printf '\033c%s' 'error: invalid window geometry. Relaunch!'
+        fi
 
-    else
-        sleep .25s
-        printf '\033c%s' 'error: `xorg-xprop` and/or `xorg-xwininfo` are not installed!'
-    fi
+    done
 }
 
-pixbuf() { printf "\033]20;${NCMPCPP_AA_IMG};${PX_G}x${PX_G}+${PX_O}+${PX_O}:op=keep-aspect\a"; }
+pixbuf() { printf "\033]20;${NCMPCPP_AA_IMG};${GPX}x${GPX}+${OFF}+${OFF}:op=keep-aspect\a"; }
 
 {
     case "${1}" in
         '') exit ${?}
         ;;
-        a*) F_W='3521' PX_G='67' PX_O='00'
+        a*) TDF='3521' GPX='67' OFF='00'
         ;;
-        s*) F_W='1166' PX_G='86' PX_O='04'
+        s*) TDF='1166' GPX='86' OFF='04'
         ;;
     esac
 
