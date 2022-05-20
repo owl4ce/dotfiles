@@ -39,7 +39,7 @@ if [ -f '/proc/version' -o -x "$(command -v uname)" ]; then
 fi
 
 if [ -f '/proc/uptime' -o -x "$(command -v uptime)" ]; then
-    IFS=. read -r S _ </proc/uptime
+    IFS='.' read -r S _ </proc/uptime
 
     D="$((S/60/60/24))"
     H="$((S/60/60%24))"
