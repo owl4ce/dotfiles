@@ -276,7 +276,7 @@ alias joyd_screenshot_selection='${SCRIPTS_DIR}/screenshot-selection.sh'
 
 joyd_cross_variables()
 {
-    UCTM="$(tr 'a-z' 'A-Z' <<- EOF
+    UCTM="$(tr '[:lower:]' '[:upper:]' <<- EOF
 				${CHK_THEME} ####### ${CHK_MODE}
 			EOF
           )"
