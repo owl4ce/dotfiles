@@ -11,10 +11,11 @@ exec 2>/dev/null
 
 PREF_TERM="$(joyd_launch_apps -g terminal)"
 
-[ -x "$(command -v "$PREF_TERM")" ] || exec dunstify "Install \`${PREF_TERM}\`!" -h string:synchronous:install-deps \
-                                                                                 -u low
+[ -x "$(command -v "${PREF_TERM%%\ *}")" ] || exec dunstify "Install \`${PREF_TERM%%\ *}\`!" \
+                                                            -h string:synchronous:install-deps \
+                                                            -u low
 
-if [ "$PREF_TERM" = 'urxvt' -o "$PREF_TERM" = 'urxvtc' ]; then
+if [ "${PREF_TERM%%\ *}" = 'urxvt' -o "${PREF_TERM%%\ *}" = 'urxvtc' ]; then
 
     FG_BLACK="$(grep -m1 -o '^\*.foreground:[ ]*black0' "$XRESOURCES_CONFIG")"
 
@@ -116,9 +117,9 @@ if [ "$PREF_TERM" = 'urxvt' -o "$PREF_TERM" = 'urxvtc' ]; then
     } &
 
 else
-    dunstify 'Terminal Emulator' "Unsupported <u>${PREF_TERM}</u>!" -h string:synchronous:terminal-set \
-                                                                    -i "$TERMINAL_ICON" \
-                                                                    -u low
+    dunstify 'Terminal Emulator' "Unsupported <u>${PREF_TERM%%\ *}</u>!" -h string:synchronous:terminal-set \
+                                                                         -i "$TERMINAL_ICON" \
+                                                                         -u low
 fi
 
 exit ${?}
