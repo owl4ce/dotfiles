@@ -136,18 +136,24 @@ BRIGHTNESS_DEVICE=''
 BRIGHTNESS_STEPS='5'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Ncmpcpp album-art image backend options                     ~ Auto-reconfigure ~ #
+# Ncmpcpp album-art options                                   ~ Auto-reconfigure ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# NCMPCPP_AA_BACKEND    || 1. Only supports 'w3m' and 'pixbuf' TE image backend.   #
-#                       || 2. Both backend on `rxvt-unicode` works like a charm.   #
-#                       || 3. 'pixbuf' backend isn't portable, so may not works.   #
+# NCMPCPP_AA_BACKEND    || Detail about supported image-backend described below.   #
+#                       || *) Only supports 'w3m' and 'pixbuf' TE image backend.   #
+#                       || *) Both backend on `rxvt-unicode` works like a charm.   #
+#                       || *) 'pixbuf' backend isn't portable, so may not works.   #
 #                       ||---------------------------------------------------------#
 # NCMPCPP_AA_NICENESS   || 0-19 or leave it blank, reduce 'w3m' loop CPU-cycles.   #
+#                       ||---------------------------------------------------------#
+# NCMPCPP_{,S}AA_LAU .. || Override ncmpcpp album-art (and single) geometry PXs.   #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 NCMPCPP_AA_BACKEND='w3m'
 
 NCMPCPP_AA_NICENESS='19'
+
+NCMPCPP_AA_LAUNCHER_GEOMETRY='84x13'
+NCMPCPP_SAA_LAUNCHER_GEOMETRY='47x18'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # The following are owl4ce/dotfiles environment variables which called in "*.sh".  #
