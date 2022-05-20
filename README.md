@@ -518,8 +518,6 @@ Download all the wallpapers above. Then, put the files as instructed into the `~
 
 ### :cherry_blossom: ‎ <samp>INSTALLATION (DOTFILES)</samp>
 
-> Work in progress.
-
 <details>
 <summary><b>Synchronize minimal .files</b></summary>
 
@@ -547,7 +545,7 @@ EXTRA_JOYFUL
 EXCLUDE
 ```
 
-> Ensure the rsync command must be correct as above.
+> Ensure the rsync command must be correct as above. Remove *EXTRA_JOYFUL*, for complete setup.
 
 > | Options                   | Description                                         |
 > |:--------------------------|:----------------------------------------------------|
@@ -599,7 +597,51 @@ Then you can proceed to [guides](#herb--guides). Explore!
 
 ### :sunflower: ‎ <samp>SYNC FOR UPDATES</samp>
 
-> Work in progress.
+<details>
+<summary><b>準備はいい？</b></summary>
+
+Since I recommend using rsync from the beginning,
+the easiest way is to list the files (via shell [heredocs](https://tldp.org/LDP/abs/html/here-docs.html)) that won't be updated to avoid replacing personal files with .files.
+First, update the local repository with the remote git repository.
+
+> Remember where you cloned the repository. We assumed that it was in `~/Documents` directory.
+
+```sh
+💲 cd ~/Documents/
+```
+
+```bash
+💲 pushd dotfiles/ && git pull --unshallow && popd
+```
+
+```sh
+💲 rsync -avxHAXP --exclude-from /dev/stdin dotfiles/ ~/ << "EXCLUDE"
+.git*
+LICENSE
+*.md
+*.joy
+settings.ini
+mpd.state
+autostart.sh
+environment
+tray
+eyecandy.rasi
+mechanical.rasi
+shared.rasi
+.nothing
+EXTRA_JOYFUL
+.gtkrc-2.0
+.joyfuld
+.Xresources
+EXCLUDE
+```
+
+> Use find command to check the *PATTERN*.
+> ```sh
+> 💲 find dotfiles/ -iname 'PATTERN'
+> ```
+
+</details>
 
 ## :herb: ‎ <samp>GUIDES</samp>
 
@@ -609,13 +651,16 @@ Then you can proceed to [guides](#herb--guides). Explore!
 
 > Work in progress.
 
+- [Telegram Desktop Theme](https://t.me/addtheme/nord_colors)
+- [Capitaine Cursors Theme](https://pling.com/p/1148692)
+
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
 This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year. My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any desktop decorations e.g icons and widgets, but customizable to users' taste with an overall theme based on my unnamed color palette and easily switchable themes along with fashion.
 
 I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software" completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thank you for your attention!
+If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
 
 <pre align="center">
 <a href="#maple_leaf--history">
@@ -629,7 +674,7 @@ If you enjoyed it and would like to show your appreciation, you may want to tip 
 
 It's never required but always wholeheartedly appreciated.
 
-Thank you so much from the bottom of my heart! ‎ :heartpulse:
+Thanks from the bottom of my heart! ‎ :heartpulse:
 
 [![](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V05ZACS)
 [![](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/owl4ce/donate)
