@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# The custom media modi inside rofi.
+# The custom media control modi inside rofi.
 # https://github.com/owl4ce/dotfiles
 
 # shellcheck disable=SC2086,SC2166
@@ -52,7 +52,7 @@ if [ "${AUDIO_VOLUME%%%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
     [ -z "$AUDIO_MUTED" ] || MUTED='---'
     A_=''
 elif [ "${AUDIO_VOLUME%%%}" -lt 30 ]; then
-    A_=''
+    A_=''
 elif [ "${AUDIO_VOLUME%%%}" -lt 70 ]; then
     A_=''
 else
