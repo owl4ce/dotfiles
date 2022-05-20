@@ -1,13 +1,14 @@
 #!/usr/bin/env sh
 
-# The device brightness changer via `brightnessctl`.
+# The display brightness changer via `brightnessctl`.
 # https://github.com/owl4ce/dotfiles
 
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-[ -x "$(command -v brightnessctl)" ] || exec dunstify 'Install `brightnessctl`!' -r 71 -u low
+[ -x "$(command -v brightnessctl)" ] || exec dunstify 'Install `brightnessctl`!' -h string:synchronous:install-deps \
+                                                                                 -u low
 
 [ -z "$BRIGHTNESS_DEVICE" ] || ARGS="-d ${BRIGHTNESS_DEVICE}"
 
@@ -32,6 +33,9 @@ else
     ICON='notification-display-brightness-full'
 fi
 
-exec dunstify "$BRIGHTNESS" -h "int:value:${BRIGHTNESS}" -i "$ICON" -r 71 -t 1000
+exec dunstify "$BRIGHTNESS" -h "int:value:${BRIGHTNESS}" \
+                            -h string:synchronous:display-brightness \
+                            -i "$ICON" \
+                            -t 1000
 
 exit ${?}

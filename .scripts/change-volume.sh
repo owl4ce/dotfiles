@@ -7,7 +7,8 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-[ -x "$(command -v amixer)" ] || exec dunstify 'Install `alsa-utils`!' -r 72 -u low
+[ -x "$(command -v amixer)" ] || exec dunstify 'Install `alsa-utils`!' -h string:synchronous:install-deps \
+                                                                       -u low
 
 [ -z "$AUDIO_DEVICE" ] || ARGS="-D ${AUDIO_DEVICE}"
 
@@ -36,6 +37,9 @@ else
     ICON='notification-audio-volume-high'
 fi
 
-exec dunstify ${MUTED:-"${AUDIO_VOLUME%%%}" -h "int:value:${AUDIO_VOLUME%%%}"} -i "$ICON" -r 72 -t 1000
+exec dunstify ${MUTED:-"${AUDIO_VOLUME%%%}" -h "int:value:${AUDIO_VOLUME%%%}"} \
+                                            -h string:synchronous:audio-volume \
+                                            -i "$ICON" \
+                                            -t 1000
 
 exit ${?}

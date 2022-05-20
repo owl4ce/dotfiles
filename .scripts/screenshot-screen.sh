@@ -7,7 +7,8 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-[ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -r 75 -u low
+[ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -h string:synchronous:install-deps \
+                                                                 -u low
 
 {
     [ -z "${1}" ] || sleep .21s
@@ -38,10 +39,14 @@ exec >/dev/null 2>&1
     scrot ${ARGS} -e "$EXEC" \
                   -q "${SS_QUALITY:-75}" \
                   -z \
-    || exec dunstify '' 'Screenshot failed!' -i "$SCREENSHOT_ICON" -r 75 -u low
+    || exec dunstify '' 'Screenshot failed!' -h string:synchronous:screenshot-screen \
+                                              -i "$SCREENSHOT_ICON" \
+                                              -u low
 
     exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
-                  -i  "$SCREENSHOT_ICON" -r 75 -u low
+                  -h string:synchronous:screenshot-screen \
+                  -i "$SCREENSHOT_ICON" \
+                  -u low
 } &
 
 exit ${?}

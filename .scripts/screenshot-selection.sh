@@ -7,7 +7,8 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-[ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -r 76 -u low
+[ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -h string:synchronous:install-deps \
+                                                                 -u low
 
 {
     rm -f "$TMP_DIR"/*_scrot*.* &
@@ -23,7 +24,9 @@ exec >/dev/null 2>&1
                   -l style=dash,width=3,color=#2be491 \
                   -s \
                   -z \
-    || exec dunstify '' 'Screenshot canceled!' -i "$SCREENSHOT_ICON" -r 76 -u low
+    || exec dunstify '' 'Screenshot canceled!' -h string:synchronous:screenshot-selection \
+                                                -i "$SCREENSHOT_ICON" \
+                                                -u low
 
     wait
 
@@ -60,10 +63,14 @@ exec >/dev/null 2>&1
 
         if [ -n "$SS_FRAME_COLOR" ]; then
             dunstify '' "Processing captured picture ..\n<span size='small'>Magick ${SS_FRAME_COLOR} ..</span>" \
-                     -i  "$SCREENSHOT_ICON" -r 76 -t 1000
+                     -h string:synchronous:screenshot-selection \
+                     -i "$SCREENSHOT_ICON" \
+                     -t 1000
         elif [ -n "$PRESERVED_SFC" ]; then
             exec dunstify '' "Screenshot failed!\n<span size='small'><u>${PRESERVED_SFC}</u> isn't hex!</span>" \
-                          -i  "$SCREENSHOT_ICON" -r 76 -u low
+                          -h string:synchronous:screenshot-selection \
+                          -i "$SCREENSHOT_ICON" \
+                          -u low
         fi
 
         magick "ephemeral:${TMP_DIR}/${CURRENT}" \
@@ -99,7 +106,9 @@ exec >/dev/null 2>&1
                -quality "${SS_QUALITY:-75}" \
         "${TMP_DIR}/${CURRENT}" \
         || exec dunstify '' "Screenshot failed!\n<span size='small'>Error occurred in ImageMagick!</span>" \
-                         -i  "$SCREENSHOT_ICON" -r 76 -u low
+                         -h string:synchronous:screenshot-selection \
+                         -i "$SCREENSHOT_ICON" \
+                         -u low
     fi
 
     while :; do
@@ -124,7 +133,9 @@ exec >/dev/null 2>&1
     fi
 
     exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
-                  -i  "$SCREENSHOT_ICON" -r 76 -u low
+                  -h string:synchronous:screenshot-selection \
+                  -i "$SCREENSHOT_ICON" \
+                  -u low
 } &
 
 exit ${?}

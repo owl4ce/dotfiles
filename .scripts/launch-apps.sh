@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# The user's preference applications launcher.
+# The user's preferred applications launcher.
 # https://github.com/owl4ce/dotfiles
 
 SYSTEM_LANG="$LANG"

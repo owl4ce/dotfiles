@@ -53,7 +53,9 @@ case "${1}" in
           for M in mpd spotify; do
               [ "$MUSIC_PLAYER" != "$M" ] || continue
               sed -e "/^music_player[ ]*/s|\".*\"$|\"${M}\"|" -i "$APPS_FILE"
-              dunstify 'Music Player' "Switched <u>${M}</u>" -i "$MUSIC_ICON" -r 73 -u low
+              dunstify 'Music Player' "Switched <u>${M}</u>" -h string:synchronous:music-player \
+                                                             -i "$MUSIC_ICON" \
+                                                             -u low
               break
           done
     ;;
