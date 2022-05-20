@@ -13,7 +13,7 @@ exec 2>/dev/null
 
 if GET_WL="$(iwgetid "$IFACE_WL")" && [ -n "$GET_WL" ]; then
 
-    ESSID="${GET_WL##*:\"}" ESSID="${ESSID%\"*}"
+    ESSID="${GET_WL##*:\"}" ESSID="${ESSID%\"}"
 
     if [ -n "$ESSID" ]; then
 

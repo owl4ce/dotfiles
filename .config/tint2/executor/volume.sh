@@ -14,14 +14,11 @@ exec 2>/dev/null
 [ -z "$AUDIO_DEVICE" ] || ARGS="-D ${AUDIO_DEVICE}"
 
 case "${1}" in
-    +) amixer ${ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
-       return ${?}
+    +) exec amixer ${ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
     ;;
-    -) amixer ${ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
-       return ${?}
+    -) exec amixer ${ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
     ;;
-    0) amixer ${ARGS} sset Master 1+ toggle -q
-       return ${?}
+    0) exec amixer ${ARGS} sset Master 1+ toggle -q
     ;;
 esac
 

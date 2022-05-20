@@ -7,9 +7,7 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
-LINUX_THERMAL='/sys/devices/virtual/thermal'
-
-TEMPERATURE_DEVICE="${LINUX_THERMAL}/${TEMP_DEV}"
+TEMPERATURE_DEVICE="/sys/devices/virtual/thermal/${TEMP_DEV}"
 
 if [ -f "${TEMPERATURE_DEVICE}/temp" ]; then
 
