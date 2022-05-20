@@ -66,4 +66,4 @@ highlight = "#44eb9f"
 
 [joyful_desktop]
 appname = "joyful_desktop"
-history_ignore = yes
+history_ignore = true
