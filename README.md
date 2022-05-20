@@ -447,6 +447,28 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 | [Iosevka Nerd Font Complete](#)                                                      | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                     |
 | [M+ 1mn Nerd Font Complete](#)                                                       | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                     |
 
+Download all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
+
+```bash
+💲 mkdir -pv ~/.fonts/{Cantarell,Comfortaa,IcoMoon-Custom,Nerd-Patched}
+```
+
+```sh
+💲 tar -xvf cantarell*.tar.xz --strip-components 2 --wildcards -C ~/.fonts/Cantarell/ \*/\*/Cantarell-VF.otf
+```
+
+```sh
+💲 unzip -j comfortaa*.zip \*/Comfortaa\*.ttf -d ~/.fonts/Comfortaa/
+```
+
+```bash
+💲 cp -fpv {Feather,Material}.ttf ~/.fonts/IcoMoon-Custom/
+```
+
+```bash
+💲 cp -fpv {Iosevka,M+\ 1mn}\ Nerd\ Font\ Complete*.ttf ~/.fonts/Nerd-Patched/
+```
+
 </details>
 
 <details>
@@ -458,10 +480,39 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 | [Papirus-Custom](#)      | GTK          | GPL-2.0    |
 | [Papirus-Dark-Custom](#) | GTK          | GPL-2.0    |
 
+Download all the icons above (and extract if archived). Then, put the files into the `~/.icons` directory.
+
+```sh
+💲 tar -xf Gladient_jfd.tar.xz -C ~/.icons/
+```
+
+```sh
+💲 tar -xf Papirus-Custom.tar.xz -C ~/.icons/
+```
+
+```sh
+💲 tar -xf Papirus-Dark-Custom.tar.xz -C ~/.icons/
+```
+
+```sh
+💲 sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/
+```
+
+```sh
+💲 sudo ln -vs ~/.icons/Papirus-Dark-Custom /usr/share/icons/
+```
+
+**Why do I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?**  
+It's required by `dunst` to display icons of the notification that spawned by programs.
+
 </details>
 
 <details>
 <summary><b>Wallpapers</b></summary>
+
+> This is actually optional, but recommended by default.
+
+Download all the wallpapers above. Then, put the files as instructed into the `~/.wallpapers` directory.
 
 </details>
 
@@ -476,14 +527,24 @@ You can clone or download as archive. Then, put all the .files in the dotfiles f
 Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync.
 
 ```sh
-💲 cd ~/Documents/ && git clone --depth 1 https://github.com/owl4ce/dotfiles.git
+💲 cd ~/Documents/
+```
+
+```sh
+💲 git clone --depth 1 --recurse-submodules https://github.com/owl4ce/dotfiles.git
 ```
 
 > - `cp` is for duplicating stuff and by default only ensures files have unique full pathnames.
-> - `rsync` is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced. It has more options and capabilities than **cp**.
+> - `rsync` is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced.
 
 ```sh
-💲 rsync -avxHAXP --exclude '.git*' --exclude 'LICENSE' --exclude '*.md' --exclude '.nothing' --exclude 'EXTRA_JOYFUL' dotfiles/ ~/
+💲 rsync -avxHAXP --exclude-from /dev/stdin dotfiles/ ~/ << "EXCLUDE"
+.git*
+LICENSE
+*.md
+.nothing
+EXTRA_JOYFUL
+EXCLUDE
 ```
 
 > Ensure the rsync command must be correct as above.
@@ -554,7 +615,7 @@ This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles
 
 I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software" completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thank you so much for reading!
+If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thank you for your attention!
 
 <pre align="center">
 <a href="#maple_leaf--history">
