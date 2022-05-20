@@ -17,52 +17,68 @@ if [ -f '/etc/os-release' ]; then
 fi
 
 if [ -f '/sys/devices/virtual/dmi/id/product_name' ]; then
-    read -r PRODUCT_NAME </sys/devices/virtual/dmi/id/product_name
+    IFS= read -r MACH_PRODUCT_NAME </sys/devices/virtual/dmi/id/product_name
 
-    B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   ${PRODUCT_NAME}"
+    B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   ${MACH_PRODUCT_NAME:-?}"
 fi
 
 if [ -f '/proc/version' -o -x "$(command -v uname)" ]; then
-    read -r VERSION </proc/version
+    IFS= read -r UNAME_R </proc/version
 
-    VERSION="${VERSION%%\ (*}" \
-    VERSION="${VERSION##*version\ }"
+    UNAME_R="${UNAME_R#*\ version\ }" \
+    UNAME_R="${UNAME_R%%\ *}"
 
-    C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   ${VERSION:-$(uname -r)}"
+    C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   ${UNAME_R:-$(uname -r)}"
 fi
 
-if [ -x "$(command -v uptime)" ]; then
-    UPTIME="$(uptime  -p)"
+if [ -f '/proc/uptime' -o -x "$(command -v uptime)" ]; then
+    IFS=. read -r S _ </proc/uptime
 
-    D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   ${UPTIME#*up\ }"
+    D="$((S/60/60/24))"
+    H="$((S/60/60%24))"
+    M="$((S/60%60))"
+
+    [ "$D" -lt 2 ] || DP='s'
+    [ "$H" -lt 2 ] || HP='s'
+    [ "$M" -lt 2 ] || MP='s'
+    [ "$S" -lt 2 ] || SP='s'
+
+    [ "$D" -eq 0 ] || UPTIME_P="${D} day${DP}, "
+    [ "$H" -eq 0 ] || UPTIME_P="${UPTIME_P}${H} hour${HP}, "
+    [ "$M" -eq 0 ] || UPTIME_P="${UPTIME_P}${M} minute${MP}"
+    [  -n  "$M"  ] || UPTIME_P="${UPTIME_P}${S} second${SP}"
+
+    UPTIME_P="${UPTIME_P%,\ }" \
+    UPTIME_P="${UPTIME_P:-$(uptime -p)}"
+
+    D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   ${UPTIME_P##*up\ }"
 fi
 
 if [ -x "$(command -v xrandr)" ]; then
     XRANDR_CURRENT="$(xrandr --nograb --current | sed -n -e 's|^[ ]*\(.*\)\*.*$|\1|p')" \
-    RES_REF_RATE="${XRANDR_CURRENT%%\ *} @ ${XRANDR_CURRENT##*\ }Hz"
+    RESOLUTION_RATE="${XRANDR_CURRENT%%\ *} @ ${XRANDR_CURRENT##*\ }Hz"
 
-    E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   ${RES_REF_RATE}"
+    E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   ${RESOLUTION_RATE}"
 fi
 
 if [ -x "$(command -v df)" ]; then
-    DF_DEV_ROOT="$(df -l -h --output='source,pcent,fstype' | sed -n -e '/\/dev\/root/s|%[ ]*.*$|\U&|' \
-                                                                    -e 's|^/dev/root[ ]*\(.*\)$|\1|p')" \
-    FS_DISK_INFO="${DF_DEV_ROOT%%\ *} @ ${DF_DEV_ROOT##*\ }"
+    DF_L_H="$(df -l -h --output='source,pcent,fstype' | sed -n -e '/\/dev\/root/s|%[ ]*.*$|\U&|' \
+                                                               -e 's|^/dev/root[ ]*\(.*\)$|\1|p')" \
+    FILESYSTEM_INFO="${DF_L_H%%\ *} @ ${DF_L_H##*\ }"
 
-    F_='' F="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${F_}</span>   ${FS_DISK_INFO}"
+    F_='' F="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${F_}</span>   ${FILESYSTEM_INFO}"
 fi
 
 if [ -x "$(command -v xprop)" ]; then
-    XPROP_ID="$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)" \
-    XPROP_WM="$(xprop -id "${XPROP_ID##*#\ }" -notype _NET_WM_NAME)" \
-    ACT_NET_WM_NAME="${XPROP_WM##*_NET_WM_NAME\ =\ \"}"
+    XPROP_NET_SUPPORTING_WM_CHECK="$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)" \
+    XPROP_NET_WM_NAME="$(xprop -id "${XPROP_NET_SUPPORTING_WM_CHECK##*#\ }" -notype _NET_WM_NAME)" \
+    _NET_WM_NAME="${XPROP_NET_WM_NAME#_NET_WM_NAME\ =\ \"}"
 
-    G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${ACT_NET_WM_NAME%%\"*}"
+    G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${_NET_WM_NAME%\"}"
 fi
 
 case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
-        return ${?}
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
     ;;
 esac
 

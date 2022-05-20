@@ -25,8 +25,7 @@ case "$MUSIC_PLAYER" in
 esac
 
 case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
-        return ${?}
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
     ;;
 esac
 

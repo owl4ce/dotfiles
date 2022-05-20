@@ -15,8 +15,7 @@ B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Sele
 C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   Countdown ${SS_COUNTDOWN_SECONDS:-5}s"
 
 case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
-        return ${?}
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
     ;;
 esac
 

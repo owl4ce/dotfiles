@@ -7,7 +7,6 @@
 
 export LANG='POSIX'
 exec 2>/dev/null
-. "${HOME}/.joyfuld"
 
 ROW_ICON_FONT='feather 12'
 MSG_ICON_FONT='feather 48'
@@ -35,8 +34,7 @@ prompt()
 }
 
 case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
-        return ${?}
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
     ;;
 esac
 
@@ -45,8 +43,7 @@ case "${@}" in
     ;;
     "$B"     ) prompt "$B_" 'loginctl --no-ask-password reboot'
     ;;
-    "$C"     ) loginctl --no-ask-password lock-session
-               return ${?}
+    "$C"     ) eval 'exec loginctl --no-ask-password lock-session >&2'
     ;;
     "$D"     ) prompt "$D_" 'loginctl --no-ask-password suspend'
     ;;
@@ -54,7 +51,7 @@ case "${@}" in
     ;;
     "$F"     ) prompt "$F_" 'loginctl --no-ask-password kill-user ${EUID:-$(id -u)} --signal=SIGKILL'
     ;;
-    "$Y"|"$Z") eval "exec ${ROFI_INFO#\#} >&2 &"
+    "$Y"|"$Z") eval "exec ${ROFI_INFO#\#} >&2"
     ;;
 esac
 

@@ -23,8 +23,7 @@ G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   Dim 
 [ -z "$BRIGHTNESS_DEVICE" ] || B_ARGS="-d ${BRIGHTNESS_DEVICE}"
 
 case "$ROFI_RETV" in
-    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
-        return ${?}
+    28) LANG="$SYSTEM_LANG" exec "${0%/*}/../rofi-main.sh"
     ;;
 esac
 
