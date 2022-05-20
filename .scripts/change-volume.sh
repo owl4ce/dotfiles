@@ -28,18 +28,18 @@ AUDIO_MUTED="${AUDIO_VOLUME##*\ \[on\]}"
 AUDIO_VOLUME="${AUDIO_VOLUME#*\ \[}" \
 AUDIO_VOLUME="${AUDIO_VOLUME%%\]\ *}"
 
-if [ "${AUDIO_VOLUME%%%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
+if [ "${AUDIO_VOLUME%\%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
     [ -z "$AUDIO_MUTED" ] || MUTED='Muted'
     ICON='notification-audio-volume-muted'
-elif [ "${AUDIO_VOLUME%%%}" -lt 30 ]; then
+elif [ "${AUDIO_VOLUME%\%}" -lt 30 ]; then
     ICON='notification-audio-volume-low'
-elif [ "${AUDIO_VOLUME%%%}" -lt 70 ]; then
+elif [ "${AUDIO_VOLUME%\%}" -lt 70 ]; then
     ICON='notification-audio-volume-medium'
 else
     ICON='notification-audio-volume-high'
 fi
 
-exec dunstify ${MUTED:-"${AUDIO_VOLUME%%%}" -h "int:value:${AUDIO_VOLUME%%%}"} \
+exec dunstify ${MUTED:-"${AUDIO_VOLUME%\%}" -h "int:value:${AUDIO_VOLUME%\%}"} \
                                             -h string:synchronous:audio-volume \
                                             -i "$ICON" \
                                             -t 1000
