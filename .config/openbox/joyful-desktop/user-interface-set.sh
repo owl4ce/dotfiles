@@ -49,11 +49,11 @@ LANG="$SYSTEM_LANG" dunst -config "${DUNST_DIR}/${CHK_THEME}.${CHK_MODE}.dunstrc
 # Execute terminal setup shell-script in the background, so it's parallelized (for performance reasons).
 joyd_terminal_set "$JOYD_TERMINAL_SET_ARGS" &
 
-# Avoid $JOYD_TERMINAL_SET_ARGS being preserved globally.
+# Avoid $JOYD_TERMINAL_SET_ARGS being preserved universally.
 unset JOYD_TERMINAL_SET_ARGS
 
-# Set X wallpaper for sure if no option is specified.
-[ -n "${1}" ] || ( nitrogen --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${CHK_WALLPAPER}" && wait )
+# Set X wallpaper if no option is specified.
+[ -n "${1}" ] || nitrogen --force-setter=xwindows --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${CHK_WALLPAPER}"
 
 # Execute the tint2 panel in the background conditionally.
 {

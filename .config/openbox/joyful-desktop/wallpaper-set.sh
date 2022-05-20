@@ -27,8 +27,8 @@ case "${1}" in
         # Ensure the user has selected the wallpaper.
         [ -n "$WALLPAPER" ] || exit ${?}
 
-        # Set X wallpaper for sure.
-        ( nitrogen --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${WALLPAPER}" && wait )
+        # Set X wallpaper.
+        nitrogen --force-setter=xwindows --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${WALLPAPER}"
 
         # Write configuration.
         sed -e "/^wallpaper.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"${WALLPAPER}\"|" -i "$THEME_FILE"
