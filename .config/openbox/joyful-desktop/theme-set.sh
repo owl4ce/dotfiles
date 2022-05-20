@@ -24,7 +24,7 @@ esac
 
 joyd_cross_variables
 
-install -m644 -t "${OBT_D}/" "${OB_BUTTON_STYLE_DIR}/${CHK_OB_BUTTON_STYLE}"/*.'xbm'
+cp -f "${OB_BUTTON_STYLE_DIR}/${CHK_OB_BUTTON_STYLE}"/*.'xbm' "${OBT_D}/"
 
 case "$CHK_OB_BUTTON_LOC" in
     l*) sed -e '/^[ ]*<titleLayout>/s|>[A-Z]*<|>CIML<|' -i "$OB_CONFIG"

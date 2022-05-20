@@ -28,7 +28,7 @@ case "${1}" in
 
         joyd_cross_variables
 
-        install -m644 -t "${OBT_D}/" "${OB_BUTTON_STYLE_DIR}/${BUTTON}"/*.'xbm'
+        cp -f "${OB_BUTTON_STYLE_DIR}/${BUTTON}"/*.'xbm' "${OBT_D}/"
 
         sed -e "/^ob_button_style.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"${BUTTON}\"|" -i "$THEME_FILE"
     ;;
