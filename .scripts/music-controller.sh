@@ -29,6 +29,8 @@ case "$MUSIC_PLAYER" in
              TITL="${TITL##*string\ \"}" \
              TITL="${TITL%\"*}"
     ;;
+    *      ) TITL="There's no MPD nor Spotify installed"
+    ;;
 esac
 
 case "${1}" in
@@ -42,9 +44,9 @@ case "${1}" in
     ;;
     sta*) echo "$STAT"
     ;;
-    tit*) echo "${TITL:-There's no MPD nor Spotify installed}"
+    tit*) echo "$TITL"
     ;;
-    ico*) [ -n "$STAT" ] && echo '' || echo ''
+    icon) [ -n "$STAT" ] && echo '' || echo ''
     ;;
     swi*) [ -z "$STAT" ] || ${TOGG} >&2 &
 
