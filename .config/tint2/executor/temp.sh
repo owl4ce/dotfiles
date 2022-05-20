@@ -13,7 +13,7 @@ TEMPERATURE_DEVICE="${LINUX_THERMAL}/${TEMP_DEV}"
 
 if [ -f "${TEMPERATURE_DEVICE}/temp" ]; then
     IFS= read -r TEMP <"${TEMPERATURE_DEVICE}/temp"
-    echo "$((${TEMP}/1000))˚C"
+    echo "$((TEMP/1000))˚C"
 else
     echo "Invalid ${TEMPERATURE_DEVICE} interface!"
 fi
