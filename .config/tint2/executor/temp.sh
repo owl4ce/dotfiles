@@ -11,7 +11,7 @@ LINUX_THERMAL='/sys/devices/virtual/thermal'
 
 TEMPERATURE_DEVICE="${LINUX_THERMAL}/${TEMP_DEV}"
 
-if [ -r "${TEMPERATURE_DEVICE}/temp" ]; then
+if [ -f "${TEMPERATURE_DEVICE}/temp" ]; then
     IFS= read -r TEMP <"${TEMPERATURE_DEVICE}/temp"
     echo "$((${TEMP}/1000))˚C"
 elif [ ! -d "$TEMPERATURE_DEVICE" ]; then
