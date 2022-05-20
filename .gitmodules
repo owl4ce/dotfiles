@@ -1,3 +1,4 @@
 [submodule "EXTRA_JOYFUL/.config/mpv/scripts"]
 	path = EXTRA_JOYFUL/.config/mpv/scripts
 	url = https://github.com/owl4ce/material-osc.git
+	branch = material-icomoon
