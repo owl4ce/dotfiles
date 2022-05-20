@@ -32,7 +32,7 @@ NEVER SKIP / IGNORE / AVOID README
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
 </a>
 
-You might be here looking for Linux rice references or to (full?) replicate my personal
+You might be here looking for (Linux) rice references or to (full?) replicate my personal
 configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
 
 Most were written from scratch. Some details:
@@ -76,7 +76,9 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   </tr>
   <tr>
     <td align="center">
-      <sup><sub><samp>THIS IS PURELY CONFIGURED AT 1366x768 WITH 96 DPI.</samp></sub></sup>
+      <a href="https://github.com/owl4ce/dotfiles/discussions/172">
+        <sup><sub><samp>PURELY CONFIGURED AT 1366x768 WITH 96 DPI</samp></sub></sup>
+      </a>
     </td>
   </tr>
   <tr>
@@ -196,7 +198,9 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 </details>
 
-## :ear_of_rice: ‎ <samp>INTRODUCTION OF LINUX RICE</samp>
+*.. and is still being improved.*
+
+## :ear_of_rice: ‎ <samp>INTRODUCTION OF (LINUX) RICE</samp>
 
 [~~Read here~~](https://owl4ce.github.io/iolr).
 [~~Also~~ Currently available in Bahasa Indonesia](https://owl4ce.github.io/id/iolr).
@@ -204,6 +208,9 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 ## :seedling: ‎ <samp>SETUP</samp>
 
 Everything done manually step-by-step. Let's learn.
+
+> **WATCH YOUR STEP!!!**  
+> [There's a critical warning for pragmatists](https://github.com/owl4ce/dotfiles/issues/178).
 
 ### :blossom: ‎ <samp>INSTALLATION (<a href="./REPOLOGY.md">DEPENDENCIES</a>)</samp>
 
@@ -738,12 +745,9 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 💲 tar -xvf cantarell*.tar.xz --strip-components 2 --wildcards -C ~/.fonts/Cantarell/ \*/\*/Cantarell-VF.otf
 ```
 
-Additionally, install the noto family for broad support.
-[Noto emoji takes precedence](https://github.com/owl4ce/dotfiles/issues/176),
-[required by rofi system-information](./.config/rofi/scripts/custom-modi/modi-sysinfo.sh#L180).
-[Debian](https://packages.debian.org/search?suite=sid&arch=amd64&searchon=names&keywords=fonts%20noto).
-[Arch](https://archlinux.org/packages/?q=fonts+noto).
-[Gentoo](https://packages.gentoo.org/packages/search?q=fonts+noto).
+Additionally, install the noto ([emoji takes precedence](https://github.com/owl4ce/dotfiles/issues/176)) fonts for
+broad support. [Debian](https://packages.debian.org/search?suite=sid&arch=amd64&searchon=names&keywords=fonts%20noto).
+[Arch](https://archlinux.org/packages/?q=fonts+noto). [Gentoo](https://packages.gentoo.org/packages/search?q=fonts+noto).
 
 </details>
 
