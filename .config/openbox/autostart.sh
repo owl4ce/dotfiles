@@ -5,11 +5,13 @@
 #
 # https://github.com/owl4ce/dotfiles
 #
-# shellcheck disable=SC2091,SC2086
+# shellcheck disable=SC3044,SC2091,SC2086
 # ---
 
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 # Run URxvt daemon if the user's current preferred terminal emulator is set to `urxvtc`.
 { [ "$(joyd_launch_apps -g terminal)" = 'urxvtc' ] && urxvtd -f -q; } &
