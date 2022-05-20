@@ -35,7 +35,7 @@ NEVER SKIP / IGNORE / AVOID README
 You might be here looking for Linux rice references or to (full?) replicate my personal
 configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
 
-Averages are written from scratch. Some of details:
+Most were written from scratch. Some details:
 
 - **Window Manager** :bento: [Openbox](http://openbox.org/wiki/Main_Page) dual themes!
 - **Openbox Menu** :cyclone: [obmenu-generator](https://github.com/trizen/obmenu-generator) for life!
@@ -1080,7 +1080,7 @@ The recommended image size is 500px at ratio of 1:1 or more. So, assume you have
 Also, I use [ALSA driver in the MPD](./.config/mpd/mpd.conf#L27-L38) to get [bit-perfect
 playback](https://mpd.readthedocs.io/en/stable/user.html#bit-perfect-playback).
 [It's disabled by default here](./.config/mpd/mpd.state#L2-L3), you need
-to disable (0) PulseAudio and enable (1) ALSA \[Bit-perfect\].
+to disable (0) **PulseAudio** and enable (1) **ALSA \[Bit-perfect\]**.
 
 </details>
 
@@ -1089,7 +1089,9 @@ to disable (0) PulseAudio and enable (1) ALSA \[Bit-perfect\].
 
 If you just installed thunar without XFCE, you might get a side-pane without XDG directories such as **Documents**,
 **Downloads**, etc. Once you have created the directories, open thunar and select or block the directories,
-right click and click **Send To** 🡲 **Side Pane**. The following command generates those directories.
+right click and click **Send To** 🡲 **Side Pane**. [Basically GTK3 bookmarks
+file](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_the_desktop_environment_in_rhel_8/managing-bookmarks-in-gnome_using-the-desktop-environment-in-rhel-8#bookmarks-in-gnome_managing-bookmarks-in-gnome).
+The following command generates those directories.
 
 ```sh
 💲 xdg-user-dirs-update
@@ -1107,6 +1109,7 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 ### :tanabata_tree: ‎ <samp>ADDITIONALS</samp>
 
 - [Capitaine Cursors Theme](https://pling.com/p/1148692)
+- [Do Live Calculations in Rofi!](https://github.com/svenstaro/rofi-calc)
 - [Telegram Desktop Nord Theme](https://t.me/addtheme/nord_colors)
 - [Recommended Modern Unix Utilities](https://github.com/ibraheemdev/modern-unix)
 - [Chrome-based Hardware Acceleration](https://linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html)
