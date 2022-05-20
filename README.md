@@ -34,7 +34,7 @@ NEVER SKIP / IGNORE / AVOID README
 
 You might be here looking for Linux Rice references or to (full?) replicate my personal configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
 
-Here are some details about my set-up.
+Averages are written from scratch. Some of details are:
 
 * **Window Manager**       :bento:                [Openbox](http://openbox.org/wiki/Main_Page) dual themes!
 * **Shell**                :shell:                [Zsh](https://zsh.org) with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
