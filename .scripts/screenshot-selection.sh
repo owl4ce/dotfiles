@@ -52,9 +52,9 @@ exec >/dev/null 2>&1
 
         elif
 
-            grep -m1 -Eoq '^[#][0-9a-fA-F]{1,}$' <<- EOF
+            grep -m1 -Eoq '^[#][0-9a-fA-F]{1,}$' <<- HEX
 				${SS_FRAME_COLOR}
-			EOF
+			HEX
 
         then
             :

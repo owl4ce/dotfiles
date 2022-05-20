@@ -3,7 +3,7 @@
 # The user's preferred applications launcher.
 # https://github.com/owl4ce/dotfiles
 
-# shellcheck disable=SC2145,SC3058,SC2294
+# shellcheck disable=SC3058
 
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
@@ -12,7 +12,7 @@ exec 2>/dev/null
 
 hold()
 {
-    APP="$(siq "${@}" "$APPS_FILE")"
+    APP="$(siq "${1}" "$APPS_FILE")"
     [ -n "$APP" ] || exit ${?}
 }
 
@@ -28,9 +28,9 @@ case "${1}" in
     -g) hold "${2}"
 
         if [ -z "${APP##*\"*\"*}" ]; then
-            ZAPP="$(sed -e '1s|"|\\"|g' <<- EOF
+            ZAPP="$(sed -e '1s|"|\\"|g' <<- APP
 						${APP}
-					EOF
+					APP
                   )"
         fi
 
@@ -38,7 +38,7 @@ case "${1}" in
     ;;
     **) hold "${1}"
 
-        eval "LANG=\"$SYSTEM_LANG\" exec ${APP} ${@#"${1}"} >&2 &"
+        eval "LANG=\"$SYSTEM_LANG\" exec ${APP} ${*#"${1}"} >&2 &"
     ;;
 esac
 

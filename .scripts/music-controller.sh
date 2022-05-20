@@ -16,7 +16,7 @@ case "$MUSIC_PLAYER" in
              NEXT="mpc -p \"$CHK_MPD_PORT\" next -q"
              STOP="mpc -p \"$CHK_MPD_PORT\" stop -q"
              TOGG="mpc -p \"$CHK_MPD_PORT\" toggle -q"
-             STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -F '[playing]')"
+             STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -Fo '[playing]')"
              TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
     ;;
     spotify) MP2P='org.mpris.MediaPlayer2.Player'
@@ -26,7 +26,7 @@ case "$MUSIC_PLAYER" in
              NEXT="${SEND} ${MP2P}.Next"
              STOP="${SEND} ${MP2P}.Stop"
              TOGG="${SEND} ${MP2P}.PlayPause"
-             STAT="$(${SEND} ${PROP} string:PlaybackStatus | grep -m1 -F '"Playing"')"
+             STAT="$(${SEND} ${PROP} string:PlaybackStatus | grep -m1 -Fo '"Playing"')"
              TITL="$(${SEND} ${PROP} string:Metadata | grep -m1 -A1 -F '"xesam:title"')" \
              TITL="${TITL##*string\ \"}" \
              TITL="${TITL%\"*}"
