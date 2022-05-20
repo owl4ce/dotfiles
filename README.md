@@ -82,8 +82,6 @@ Everything done manually step-by-step. Let's learn.
 <details>
 <summary><b>Debian-based Linux distributions</b></summary>
 
-<br>
-
 > Debian SID or Devuan Ceres recommended.
 
 **Didn't know how to install packages?**
@@ -182,8 +180,6 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [
 
 <details>
 <summary><b>Arch-based Linux distributions</b></summary>
-
-<br>
 
 > Arch Linux and Artix Linux recommended.
 
@@ -285,8 +281,6 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [
 
 <details>
 <summary><b>Gentoo source-based Linux distribution</b></summary>
-
-<br>
 
 > Gentoo Linux extremely recommended. Expert!
 
@@ -396,8 +390,6 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [
 <details>
 <summary><b>Another independent Linux distribution</b></summary>
 
-<br>
-
 > Need contributors to encapsulate dependencies.
 
 <pre align="center">
@@ -411,8 +403,6 @@ Oops. Wrong One. ‘Do it yourself’.
 
 <details>
 <summary><b>Optionally Z shell with OMZ plugins</b></summary>
-
-<br>
 
 Install zsh with system package-manager as described in the above-step before (or [OMZ wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)). Then OMZ.
 
@@ -437,6 +427,41 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 ```sh
 💲 git clone --depth 1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
+
+</details>
+
+### :hibiscus: ‎ <samp>INSTALLATION (PREREQUISITE)</samp>
+
+> Work in progress.
+
+<details>
+<summary><b>Fonts</b></summary>
+
+| Typeface                                                                             | License                                                                | The path of extracted file from the archive         |
+|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:----------------------------------------------------|
+| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303) | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf` |
+| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)             | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf`                          |
+|                                                                                      |                                                                        | `3.001/Comfortaa-Regular.ttf`                       |
+| [Feather Icomoon](#)                                                                 | [MIT](https://icomoon.io/#faq/license)                                 |                                                     |
+| [Material Icomoon](#)                                                                | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                     |
+| [Iosevka Nerd Font Complete](#)                                                      | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                     |
+| [M+ 1mn Nerd Font Complete](#)                                                       | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                     |
+
+</details>
+
+<details>
+<summary><b>Icons</b></summary>
+
+| Icons                    | Usability    | License    |
+|:-------------------------|:-------------|:-----------|
+| [Gladient](#)            | Openbox Menu | Propietary |
+| [Papirus-Custom](#)      | GTK          | GPL-2.0    |
+| [Papirus-Dark-Custom](#) | GTK          | GPL-2.0    |
+
+</details>
+
+<details>
+<summary><b>Wallpapers</b></summary>
 
 </details>
 
