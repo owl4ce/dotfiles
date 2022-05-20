@@ -1621,9 +1621,6 @@
   <resource identifier="Iosevka" checksum="(null)">
   </resource>
 
-  <resource identifier="Iosevka" checksum="(null)">
-  </resource>
-
   <resource identifier="Liberation Mono" checksum="(null)">
   </resource>
 
@@ -1742,9 +1739,6 @@
   </resource>
 
   <resource identifier="Monospace Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="mplus Nerd Font" checksum="(null)">
   </resource>
 
   <resource identifier="mplus Nerd Font Mono" checksum="(null)">
