@@ -63,9 +63,11 @@ if [ "$PREF_TERM" = 'urxvt' -o "$PREF_TERM" = 'urxvtc' ]; then
     xrdb_query()
     {
         while IFS=';' read -r STRING; do
-            [ "${1}" = "${STRING%%\	*}" ] || continue
-            echo "${STRING##*\	}"
-            break
+            case "${STRING%%\	*}" in
+                "${1}") echo "${STRING##*\	}"
+                        break
+                ;;
+            esac
         done <<- EOF
 			${XRDB_QUERY}
 		EOF
@@ -105,7 +107,6 @@ if [ "$PREF_TERM" = 'urxvt' -o "$PREF_TERM" = 'urxvtc' ]; then
 
         for PID in ${URXVT_PIDS}; do
             for CHILD_PID in $(pgrep -P "$PID"); do
-                [ -w "/proc/${CHILD_PID}/fd/0" ] || continue
                 printf "$OSC_SEQ" >>"/proc/${CHILD_PID}/fd/0"
             done
         done
