@@ -5,6 +5,8 @@
 
 # SPDX-License-Identifier: ISC
 
+# shellcheck disable=SC3044
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
@@ -20,6 +22,8 @@ MSG_ICON_FONT='feather 48'
 A_='' A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   Screen"
 B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Select or Draw"
 C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   Countdown ${SS_COUNTDOWN_SECONDS:-5}s"
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 case "${@}" in
     "$A") joyd_screenshot_screen

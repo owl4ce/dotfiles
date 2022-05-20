@@ -5,7 +5,7 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2059
+# shellcheck disable=SC3044,SC2059
 
 export LANG='POSIX'
 exec 2>/dev/null
@@ -23,6 +23,8 @@ A_='' A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   Prev
 B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Playback"
 C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   Next"
 D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   Stop"
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
