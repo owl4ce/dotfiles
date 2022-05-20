@@ -1,0 +1,11 @@
+#
+# These tray will be restarted after switching modes.
+# Each line parsed as individual execution processes,
+# don't use shell-syntaxis, only `command [options]`.
+#
+# aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
+# ---
+
+parcellite
+nm-applet
+xfce4-power-manager
