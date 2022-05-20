@@ -13,6 +13,7 @@ exec >/dev/null 2>&1
 
 [ -x "$(command -v mpd)" -a -x "$(command -v mpc)" ] || exec dunstify 'Install `mpd` and `mpc`!' \
                                                                       -h string:synchronous:install-deps \
+                                                                      -a joyful_desktop \
                                                                       -u low
 
 [ -z "$BASH" ] || shopt -s expand_aliases
@@ -22,6 +23,7 @@ exec >/dev/null 2>&1
 
     nice -n 1 mpd || mpd || exec dunstify 'Music Player' 'Failed to execute <u>mpd</u>!' \
                                           -h string:synchronous:music-player \
+                                          -a joyful_desktop \
                                           -i "$MUSIC_ICON" \
                                           -u low
 
