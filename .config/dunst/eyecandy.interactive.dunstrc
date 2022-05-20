@@ -1,0 +1,62 @@
+[global]
+follow = mouse
+width = (111, 444)
+height = 222
+origin = bottom-center
+offset = 0x60
+
+progress_bar = true
+progress_bar_height = 5
+progress_bar_frame_width = 0
+
+indicate_hidden = true
+transparency = 5
+separator_height = 2
+padding = 8
+horizontal_padding = 11
+frame_width = 6
+frame_color = "#f9f9f9"
+separator_color = "#f5f5f5"
+
+font = "mplus Nerd Font 10"
+
+format = "<span size='x-large' font_desc='Cantarell,mplus Nerd Font 9' weight='bold' foreground='#e88ef4'>%s</span>\n%b"
+
+idle_threshold = 120
+show_age_threshold = 60
+icon_position = left
+max_icon_size = 80
+
+icon_path = "/usr/share/icons/Papirus-Custom/48x48/actions/:/usr/share/icons/Papirus-Custom/48x48/apps/:/usr/share/icons/Papirus-Custom/48x48/devices/:/usr/share/icons/Papirus-Custom/48x48/emblems/:/usr/share/icons/Papirus-Custom/48x48/emotes/:/usr/share/icons/Papirus-Custom/48x48/mimetypes/:/usr/share/icons/Papirus-Custom/48x48/places/:/usr/share/icons/Papirus-Custom/48x48/status/"
+
+sticky_history = false
+
+dmenu = "rofi -no-lazy-grab -dmenu -p 'Notification Context Menu' -theme themes/appsmenu.rasi"
+
+browser = "brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder"
+
+mouse_left_click = close_current
+mouse_middle_click = do_action
+mouse_right_click = close_all
+
+alignment = center
+markup = full
+always_run_script = true
+
+[urgency_low]
+timeout = 3
+background = "#f9f9f9"
+foreground = "#373e4d"
+highlight = "#44eb9f"
+
+[urgency_normal]
+timeout = 6
+background = "#f9f9f9"
+foreground = "#373e4d"
+highlight = "#44eb9f"
+
+[urgency_critical]
+timeout = 0
+background = "#f9f9f9"
+foreground = "#373e4d"
+highlight = "#44eb9f"
