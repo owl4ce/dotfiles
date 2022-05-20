@@ -469,6 +469,73 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 
 > Work in progress.
 
+<details>
+<summary><b>Synchronize minimal .files</b></summary>
+
+You can clone or download as archive. Then, put all the .files in the dotfiles folder into user's home directory.
+Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync.
+
+```sh
+💲 cd ~/Documents/ && git clone --depth 1 https://github.com/owl4ce/dotfiles.git
+```
+
+> - `cp` is for duplicating stuff and by default only ensures files have unique full pathnames.
+> - `rsync` is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced. It has more options and capabilities than **cp**.
+
+```sh
+💲 rsync -avxHAXP --exclude '.git*' --exclude 'LICENSE' --exclude '*.md' --exclude '.nothing' --exclude 'EXTRA_JOYFUL' dotfiles/ ~/
+```
+
+> Ensure the rsync command must be correct as above.
+
+> | Options                   | Description                                         |
+> |:--------------------------|:----------------------------------------------------|
+> | `-a`, `--archive`         | archive mode; equals `-rlptgoD` (no `-H`,`-A`,`-X`) |
+> | `-v`, `--verbose`         | increase verbosity                                  |
+> | `-x`, `--one-file-system` | don't cross filesystem boundaries                   |
+> | `-H`, `--hard-links`      | preserve hard links                                 |
+> | `-A`, `--acls`            | preserve ACLs (implies `--perms`)                   |
+> | `-X`, `--xattrs`          | preserve extended attributes                        |
+> | `-P`                      | show progress during transfer                       |
+> | `--exclude` *PATTERN*     | exclude files matching *PATTERN*                    |
+
+I recommend not deleting the dotfiles directory after cloning to make [upgrading easier](#sunflower--sync-for-updates).
+
+</details>
+
+<details>
+<summary><b>Refresh fonts cache</b></summary>
+
+This ensures all existing caches are cleared and regenerated for all installed fonts.
+
+```sh
+💲 fc-cache -rv
+```
+
+</details>
+
+<details>
+<summary><b>The step you're waiting for</b></summary>
+
+The final step is to login to the openbox-session, basically login from your display manager like lightdm, gdm, etc.
+If you're using [`~/.xinitrc`](https://wiki.archlinux.org/title/Xinit) without a display manager, simply add the following one-liner commands at the end.
+
+**Systemd-based Linux distribution**
+
+```sh
+exec openbox-session
+```
+
+**[Init-freedom](https://devuan.org/os/init-freedom) Linux distribution**
+
+```sh
+exec dbus-launch --exit-with-x11 openbox-session
+```
+
+Then you can proceed to [guides](#herb--guides). Explore!
+
+</details>
+
 ### :sunflower: ‎ <samp>SYNC FOR UPDATES</samp>
 
 > Work in progress.
