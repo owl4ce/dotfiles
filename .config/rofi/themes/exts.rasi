@@ -24,6 +24,7 @@ mainbox {
 
 message {
   background-color: @background-light;
+  margin: @exts-message-margin;
   padding: @exts-message-padding;
   border-radius: @exts-message-border-radius;
 }
@@ -36,6 +37,7 @@ textbox {
 
 inputbar {
   children: [ mode-switcher ];
+  margin: @exts-inputbar-margin;
   orientation: vertical;
 }
 
