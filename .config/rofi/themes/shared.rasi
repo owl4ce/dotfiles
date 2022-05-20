@@ -20,7 +20,7 @@
 
   exts-textbox-font:          "Comfortaa Bold 48";
   exts-window-padding:        8% 4% 6% 4%;
-  exts-window-width:          25%;
+  exts-window-width:          26%;
   exts-window-height:         95%;
   exts-window-location:       south east;
   exts-window-border-radius:  60px 0px 0px 0px;
