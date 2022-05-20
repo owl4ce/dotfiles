@@ -4,6 +4,7 @@
 # You may place a similar script in "${HOME}/.config/openbox/autostart" to run user-specific things.
 #
 # https://github.com/owl4ce/dotfiles
+#
 # shellcheck disable=SC2091,SC2086
 # ---
 
