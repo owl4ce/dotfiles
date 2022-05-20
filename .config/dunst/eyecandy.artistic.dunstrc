@@ -32,7 +32,7 @@ sticky_history = false
 
 dmenu = "rofi -no-lazy-grab -dmenu -p 'Notification Context Menu' -theme themes/appsmenu.rasi"
 
-browser = "brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder"
+browser = "your_web_browser"
 
 mouse_left_click = close_current
 mouse_middle_click = context_all
