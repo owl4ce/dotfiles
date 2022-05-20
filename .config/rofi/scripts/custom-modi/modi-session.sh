@@ -26,7 +26,7 @@ prompt()
     printf '%b\n' "\0message\037${PROMPT}" "$Y" "$N"
 
     install -m400 /dev/stdin "$ROFI_EXTS_CMD" -- <<- EOF
-		#${2}
+		# ${2}
 	EOF
 
     exit ${?}
@@ -47,7 +47,7 @@ case "${@}" in
     "$F") prompt "$F_" 'loginctl --no-ask-password kill-user ${EUID:-$(id -u)} --signal=SIGKILL'
     ;;
     "$Y") IFS= read -r CMD <"$ROFI_EXTS_CMD"
-          eval ${CMD#\#}
+          eval "exec ${CMD#\#\ }"
     ;;
 esac
 
