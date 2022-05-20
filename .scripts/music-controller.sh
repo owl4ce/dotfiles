@@ -16,16 +16,32 @@ case "$MUSIC_PLAYER" in
              NEXT="mpc -p \"$CHK_MPD_PORT\" next -q"
              STOP="mpc -p \"$CHK_MPD_PORT\" stop -q"
              TOGG="mpc -p \"$CHK_MPD_PORT\" toggle -q"
-             STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -Fo '[playing]')"
-             TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
     ;;
     spotify) MP2P='org.mpris.MediaPlayer2.Player'
              SEND="dbus-send --print-reply --dest=${MP2P%.*}.spotify /org/mpris/MediaPlayer2"
-             PROP="org.freedesktop.DBus.Properties.Get string:${MP2P}"
              PREV="${SEND} ${MP2P}.Previous"
              NEXT="${SEND} ${MP2P}.Next"
              STOP="${SEND} ${MP2P}.Stop"
              TOGG="${SEND} ${MP2P}.PlayPause"
+    ;;
+esac
+
+case "${1}" in
+    prev) eval "exec ${PREV} >&2"
+    ;;
+    next) eval "exec ${NEXT} >&2"
+    ;;
+    stop) eval "exec ${STOP} >&2"
+    ;;
+    tog*) eval "exec ${TOGG} >&2"
+    ;;
+esac
+
+case "$MUSIC_PLAYER" in
+    mpd    ) STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -Fo '[playing]')"
+             TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
+    ;;
+    spotify) PROP="org.freedesktop.DBus.Properties.Get string:${MP2P}"
              STAT="$(${SEND} ${PROP} string:PlaybackStatus | grep -m1 -Fo '"Playing"')"
              TITL="$(${SEND} ${PROP} string:Metadata | grep -m1 -A1 -F '"xesam:title"')" \
              TITL="${TITL##*string\ \"}" \
@@ -36,14 +52,6 @@ case "$MUSIC_PLAYER" in
 esac
 
 case "${1}" in
-    prev) eval "${PREV} >&2 &"
-    ;;
-    next) eval "${NEXT} >&2 &"
-    ;;
-    stop) eval "${STOP} >&2 &"
-    ;;
-    tog*) eval "${TOGG} >&2 &"
-    ;;
     sta*) echo "$STAT"
     ;;
     tit*) echo "$TITL"

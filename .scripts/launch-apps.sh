@@ -19,10 +19,10 @@ hold()
 case "${1}" in
     '') X='\033[0m' g='\033[0;32m' m='\033[0;35m' r='\033[0;31m'
 
-        while IFS= read -r STRING; do
+        while IFS='"' read -r KEY VAL _; do
             N=$((N+1))
-            printf '%b\n' "${m}[${X}${N}${m}] ${r}${STRING%%\ *}${X}" \
-                          "-${g}x${X}- $("${0}" -g "${STRING%%\ *}")"
+            printf '%b\n' "${m}[${X}${N}${m}] ${r}${KEY%%\ *}${X}" \
+                          "-${g}x${X}- ${VAL}"
         done <"$APPS_FILE"
     ;;
     -g) hold "${2}"
