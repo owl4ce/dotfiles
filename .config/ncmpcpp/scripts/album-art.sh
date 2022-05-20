@@ -19,7 +19,9 @@ w3m()
 
         WIN_ID="$(xprop -root _NET_ACTIVE_WINDOW)" WIN_ID="${WIN_ID##*\ #}"
 
-        W3M_IMG_DISPLAY="$(find ${LIBS_PATH} -type f -path '*/w3m/*' -iname 'w3mimgd*' | sed 1q)"
+        read -r W3M_IMG_DISPLAY <<- EOF
+			$(find ${LIBS_PATH} -type f -path '*/w3m/*' -iname 'w3mimgd*')
+		EOF
 
         while IFS= read -r PID <"$NCMPCPP_AA_PID" && [ "${$}" -eq "${PID:-0}" ]; do
 
@@ -68,12 +70,13 @@ pixbuf() { printf "\033]20;${NCMPCPP_AA_IMG};${PX_G}x${PX_G}+${PX_O}+${PX_O}:op=
 
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
-    ALBUM_COVER="$(find "${CHK_MPD_MUSIC_DIR}/${ALBUM_DIR}" -type d \
-                                                            -exec find "{}" -maxdepth 1 \
-                                                                            -type f \
-                                                                            -iregex \
-                   ".*/.*\(${ALBUM}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \; \
-                   | sed 1q)"
+    read -r ALBUM_COVER <<- EOF
+		$(find "${CHK_MPD_MUSIC_DIR}/${ALBUM_DIR}"  -type d \
+													-exec find "{}" -maxdepth 1 \
+																	-type f \
+																	-iregex \
+		".*/.*\(${ALBUM}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \;)
+	EOF
 
     if [ -f "$ALBUM_COVER" ]; then
 
