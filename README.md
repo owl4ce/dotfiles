@@ -74,13 +74,18 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
     </th>
   </tr>
   <tr>
-    <td>
+    <td align="center">
       <sup><sub><samp>THIS IS PURELY CONFIGURED AT 1366x768 WITH 96 DPI.</samp></sub></sup>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <sup><sub><samp>Gentoo/Linux x86-64</samp></sub></sup>
     </td>
   </tr>
 </table>
 
-> Work in progress.
+> From the previous major version (0-3.x).
 
 <details>
 <summary><b>Innovations</b></summary>
