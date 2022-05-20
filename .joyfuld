@@ -276,9 +276,9 @@ alias joyd_screenshot_selection='${SCRIPTS_DIR}/screenshot-selection.sh'
 
 joyd_cross_variables()
 {
-    UCTM="$(tr '[:lower:]' '[:upper:]' <<- EOF
+    UCTM="$(tr '[:lower:]' '[:upper:]' <<- VAR
 				${CHK_THEME} ####### ${CHK_MODE}
-			EOF
+			VAR
           )"
 
     CUT4="$(printf '%.4s\n' "${UCTM%%\ #######\ *}")"
@@ -304,10 +304,10 @@ joyd_gtk_live_reload()
     [ -n "${2}" -a -x "$(command -v xsettingsd)" ] || return ${?}
 
     {
-        xsettingsd -c /dev/stdin <<- EOF
+        xsettingsd -c /dev/stdin <<- CFG
 			Net/IconThemeName    "${2}"
 			Net/ThemeName        "${1}"
-		EOF
+		CFG
     } &
 
     { sleep 2s; killall -9 xsettingsd -q; } &
