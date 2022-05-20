@@ -5,11 +5,11 @@ NEVER SKIP / IGNORE / AVOID README
 ```
 
 ```css
-      __/)                _      _          
-   .-(__(=:   |          | | o  | |         
-|\ |    \)  __|   __ _|_ | |    | |  _   ,  
-\ ||       /  |  /  \_|  |/  |  |/  |/  / \_
- \||       \_/|_/\__/ |_/|__/|_/|__/|__/ \/ 
+      __/)   ‌‌‌‌‬‬‬‍ ‌‌‌‌‌‬‌‌   ‌‌‌‌‌﻿‌‬ ‌‌‌‌‌﻿‌‌‌‌‌‌‌﻿‌‬        ‌‌‌‌‌﻿‌‬_      ‌‌‌‌‌‬‌‌_       ‌‌‌‌‍‬﻿﻿  ‌‌‌‌‍﻿‍﻿ 
+   .‌‌‌‌‍‬﻿‌-(_‌‌‌‌‌﻿‍‌_(=:   |   ‌‌‌‌‍‬‌﻿   ‌‌‌‌‍‬‍‍   ‌‌‌‌‌‬‌‌ | | o  | |     ‌‌‌‌‌﻿﻿‌    
+‌‌‌‌‍‬‌‍|\ |    \) ‌‌‌‌‍‬﻿‌ _‌‌‌‌‍﻿‍‌_| ‌‌‌‌‍‬‍‍  __ ‌‌‌‌‍﻿‌‬_|‌‌‌‌‍‬﻿‬_ | |‌‌‌‌‍‬‌‍    |‌‌‌‌‍﻿‍‌ |  _ ‌‌‌‌‍‬‍‍  , ‌‌‌‌‌‬﻿‍ 
+‌‌‌‌‍﻿‌﻿\‌‌‌‌‍‬‍‍ ||       / ‌‌‌‌‌﻿‍﻿ ‌‌‌‌‍‬‍‍|  /  \_|  |/‌‌‌‌‍‬﻿‬  |  |/  |/  / \‌‌‌‌‍‌‌‌‌‌‌‌‍﻿‌‌_
+ \||     ‌‌‌‌‍‬﻿‍  \_/|_/\__/ |_‌‌‌‌‌‬﻿‬/‌‌‌‌‍‬﻿‍|__/|_‌‌‌‌‍‬‍‍/|__/‌‌‌‌‌﻿﻿‬|__/ \/ 
   \|                     |\                 
    |  6F 77 6C 34 63 65  |/  with aesthetics
 ```
@@ -19,13 +19,16 @@ NEVER SKIP / IGNORE / AVOID README
 <pre align="center">
 <a href="#seedling--setup">SETUP</a> • <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">KEYBINDS</a> • <a href="">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
 </pre>
+
 <h1>
-  <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=000000&logo=github&logoColor=white&labelColor=000000"/>
+  <a href="#--------">
+    <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=000000&logo=github&logoColor=white&labelColor=000000"/>
+  </a>
 </h1>
 
 ### :octocat: ‎ <sup><sub><samp>HI THERE! THANKS FOR DROPPING BY!</samp></sub></sup>
 
-<a href="">
+<a href="#octocat--hi-there-thanks-for-dropping-by">
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
 </a>
 
@@ -47,7 +50,9 @@ Here are some details about my set-up.
 * **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win! :P
 
 <h1>
-  <img alt="" align="right" src="https://img.shields.io/github/commit-activity/m/owl4ce/dotfiles/ng?style=flat-square&label=&color=000000&logo=gitbook&logoColor=white&labelColor=000000"/>
+  <a href="#---------1">
+    <img alt="" align="right" src="https://img.shields.io/github/commit-activity/m/owl4ce/dotfiles/ng?style=flat-square&label=&color=000000&logo=gitbook&logoColor=white&labelColor=000000"/>
+  </a>
 </h1>
 
 <br>
@@ -62,49 +67,49 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 ## :fallen_leaf: ‎ <samp>CHANGELOGS</samp>
 
-Work in progress.
+> Work in progress.
 
 ## :ear_of_rice: ‎ <samp>INTRODUCTION OF LINUX RICE</samp>
 
-Work in progress.
+> Work in progress.
 
 ## :seedling: ‎ <samp>SETUP</samp>
 
-Work in progress.
+> Work in progress.
 
 ### :blossom: ‎ <samp>INSTALLATION (DEPENDENCIES)</samp>
 
-Work in progress.
+> Work in progress.
 
 ### :cherry_blossom: ‎ <samp>INSTALLATION (DOTFILES)</samp>
 
-Work in progress.
+> Work in progress.
 
 ### :sunflower: ‎ <samp>SYNC FOR UPDATES</samp>
 
-Work in progress.
+> Work in progress.
 
 ## :herb: ‎ <samp>GUIDES</samp>
 
-Work in progress.
+> Work in progress.
 
-### :tanabata_tree: ‎ <samp>ADDITIONAL</samp>
+### :tanabata_tree: ‎ <samp>ADDITIONALS</samp>
 
-Work in progress.
+> Work in progress.
 
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
-Work in progress.
+> Work in progress.
 
 <pre align="center">
-<a href="https://star-history.com/#owl4ce/dotfiles&Date">
+<a href="#maple_leaf--history">
 <img alt="" width="96%" src="https://api.star-history.com/svg?repos=owl4ce/dotfiles&type=Date"/>
 </a>
 </pre>
 
 ## :tulip: ‎ <samp>TIP JAR</samp>
 
-If you enjoy my dotfiles and would like to show your appreciation, you may want to tip me here.
+If you enjoyed it and would like to show your appreciation, you may want to tip me here.
 
 It's never required but always wholeheartedly appreciated.
 
@@ -115,27 +120,23 @@ Thank you so much from the bottom of my heart! ‎ :heartpulse:
 
 ## :four_leaf_clover: ‎ <samp>ACKNOWLEDGEMENTS</samp>
 
-Work in progress.
+> Work in progress.
 
-* **INSPIRATION AND RESOURCES**
-
-  * [Elena](https://github.com/elenapan)
-  * [Adhi Pambudi](https://github.com/addy-dclxvi)
-  * [Fikri Omar](https://github.com/fikriomar16)
-  * [Rizqi Nur Assyaufi](https://github.com/bandithijo)
-  * [Muktazam Hasbi Ashidiqi](https://github.com/reorr)
-  * [Galih Wisnuaji](https://github.com/nekonako)
-  * [Ghani Rafif](https://github.com/ekickx)
-  * [Dylan Araps](https://github.com/dylanaraps)
-  * ?
-
-* **CONTRIBUTORS**
-
-  <a href="https://github.com/owl4ce/dotfiles/graphs/contributors">
-    <img alt="" align="right" src="https://contrib.rocks/image?repo=owl4ce/dotfiles"/>
-  </a>
-
-  * [Ekaunt](https://github.com/ekaunt) - [Better rofi prompt-menu](https://github.com/owl4ce/dotfiles/pull/2) (obsolete)
-  * [HopeBaron](https://github.com/HopeBaron) - [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4) (obsolete)
-  * [Justin Faber](https://github.com/vredesbyyrd) - [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)
-  * [Vcyzteen](https://github.com/vcyzteen) - [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60)
+|           |   | **Inspiration and Resources**                       |                                                                                                                                                             |            |
+|:---------:|:-:|:----------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+|           | 1 | [Elena](https://github.com/elenapan)                |                                                                                                                                                             |            |
+|           | 2 | [Adhi Pambudi](https://github.com/addy-dclxvi)      |                                                                                                                                                             |            |
+|           | 3 | [Fikri Omar](https://github.com/fikriomar16)        |                                                                                                                                                             |            |
+|           | 4 | [Rizqi Nur Assyaufi](https://github.com/bandithijo) |                                                                                                                                                             |            |
+|           | 5 | [Muktazam Hasbi Ashidiqi](https://github.com/reorr) |                                                                                                                                                             |            |
+|           | 6 | [Galih Wisnuaji](https://github.com/nekonako)       |                                                                                                                                                             |            |
+|           | 7 | [Ghani Rafif](https://github.com/ekickx)            |                                                                                                                                                             |            |
+|           | 8 | [Dylan Araps](https://github.com/dylanaraps)        |                                                                                                                                                             |            |
+|           | 9 | ?                                                   |                                                                                                                                                             |            |
+|           |   |                                                     |                                                                                                                                                             |            |
+| **Group** |   | **Contributors**                                    | **Contributions**                                                                                                                                           | **Status** |
+| Unlisted  | 1 | [Ekaunt](https://github.com/ekaunt)                 | [Better rofi prompt-menu](https://github.com/owl4ce/dotfiles/pull/2)                                                                                        | Obsolete   |
+|           | 2 | [HopeBaron](https://github.com/HopeBaron)           | [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4)                                                                                          | Obsolete   |
+|           | 3 | [Justin Faber](https://github.com/vredesbyyrd)      | [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)                                                         | Used       |
+|           | 4 | [Vcyzteen](https://github.com/vcyzteen)             | [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60) | Used       |
+| Verified  | * | [![](https://contrib.rocks/image?repo=owl4ce/dotfiles)](https://github.com/owl4ce/dotfiles/graphs/contributors)                                                                                                                |
