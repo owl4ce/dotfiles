@@ -88,7 +88,7 @@ our $SCHEMA = [
     
     {sep       => undef},
     
-    {item      => ["loginctl --no-ask-password lock-session",                                                                   "Lockscreen",                        "$ENV{HOME}/.icons/Gladient/lock.png"]},
+    {item      => ["loginctl --no-ask-password lock-session",                                                                   "Lock",                              "$ENV{HOME}/.icons/Gladient/lock.png"]},
     
     {sep       => undef},
     
