@@ -11,10 +11,13 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
+# https://gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html#:~:text=expand_aliases
 [ -z "$BASH" ] || shopt -s expand_aliases
 
+# Get the current user's music player.
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
+# Commands condition of each supported music players.
 case "$MUSIC_PLAYER" in
     mpd    ) PREV="mpc -p \"$CHK_MPD_PORT\" prev -q"
              NEXT="mpc -p \"$CHK_MPD_PORT\" next -q"
@@ -30,6 +33,7 @@ case "$MUSIC_PLAYER" in
     ;;
 esac
 
+# Single-execution options to control events.
 case "${1}" in
     prev) eval "exec ${PREV} >&2"
     ;;
@@ -41,6 +45,7 @@ case "${1}" in
     ;;
 esac
 
+# State-parser condition of each supported music players.
 case "$MUSIC_PLAYER" in
     mpd    ) STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -Fo '[playing]')"
              TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
@@ -55,6 +60,7 @@ case "$MUSIC_PLAYER" in
     ;;
 esac
 
+# Single-execution options to display status to output.
 case "${1}" in
     sta*) echo "$STAT"
     ;;
@@ -62,11 +68,15 @@ case "${1}" in
     ;;
     icon) [ -n "$STAT" ] && echo '' || echo ''
     ;;
-    swi*) [ -z "$STAT" ] || eval "${TOGG} >&2 &"
+    swi*) # Pause the current user's music player song before switching.
+          [ -z "$STAT" ] || eval "${TOGG} >&2 &"
 
+          # Switch to one of the two supported music players.
           for M in mpd spotify; do
               [ "$MUSIC_PLAYER" != "$M" ] || continue
+              # Write configuration.
               sed -e "/^music_player[ ]*/s|\".*\"$|\"${M}\"|" -i "$APPS_FILE"
+              # Send notification.
               dunstify 'Music Player' "Switched <u>${M}</u>" -h string:synchronous:music-player \
                                                              -a joyful_desktop \
                                                              -i "$MUSIC_ICON" \
