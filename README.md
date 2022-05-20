@@ -24,7 +24,7 @@ NEVER SKIP / IGNORE / AVOID README
   <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=000000&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 </h1>
 
-### <img alt="" width="25px" align="absmiddle" src="https://github.githubassets.com/images/icons/emoji/octocat.png"/> ‎ <samp>Hi there! Thanks for dropping by!</samp>
+### :octocat: ‎ <sup><sub><samp>HI THERE! THANKS FOR DROPPING BY!</samp></sub></sup>
 
 <a href="">
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
@@ -46,3 +46,47 @@ Here are some details about my set-up.
 * **Media Player**         :city_sunset:          [mpv](https://mpv.io/) with modern OSC!
 * **Music Player**         :milky_way:            [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) with album-art!
 * **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win! :P
+
+## :fallen_leaf: ‎ <samp>CHANGELOGS</samp>
+
+Work in progress.
+
+## :ear_of_rice: ‎ <samp>INTRODUCTION OF LINUX RICE</samp>
+
+Work in progress.
+
+## :seedling: ‎ <samp>SETUP</samp>
+
+Work in progress.
+
+### :blossom: ‎ <samp>INSTALLATION (DEPENDENCIES)</samp>
+
+Work in progress.
+
+### :cherry_blossom: ‎ <samp>INSTALLATION (DOTFILES)</samp>
+
+Work in progress.
+
+### :sunflower: ‎ <samp>SYNC FOR UPDATES</samp>
+
+Work in progress.
+
+## :herb: ‎ <samp>GUIDES</samp>
+
+Work in progress.
+
+### :tanabata_tree: ‎ <samp>ADDITIONAL</samp>
+
+Work in progress.
+
+## :maple_leaf: ‎ <samp>HISTORY</samp>
+
+Work in progress.
+
+## :tulip: ‎ <samp>TIP JAR</samp>
+
+Work in progress.
+
+## :four_leaf_clover: ‎ <samp>ACKNOWLEDGEMENTS</samp>
+
+Work in progress.
