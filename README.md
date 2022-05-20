@@ -34,8 +34,8 @@ NEVER SKIP / IGNORE / AVOID README
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
 </a>
 
-You might be here looking for (Linux) rice references or to (full?) replicate my personal
-configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
+You might be here looking for (Linux) rice reference or to (full?) replicate my personal
+configuration of my favorite Openbox Window Manager and several apps as well. :snowman:
 
 Most were written from scratch. Some details:
 
@@ -213,12 +213,12 @@ Everything done manually step-by-step. Let's learn.
 
 > **WATCH YOUR STEP!!!**  
 > There's a [critical warning](https://github.com/owl4ce/dotfiles/issues/178) for pragmatists.
-> Read the [philosophy](#maple_leaf--philosophy).
+> [Read the philosophy](#maple_leaf--the-philosophy).
 
 ### :blossom: ‎ <samp>INSTALLATION (<a href="./REPOLOGY.md">DEPENDENCIES</a>)</samp>
 
 <details>
-<summary><b>Debian-based Linux distributions</b></summary>
+<summary><b>1. Debian-based Linux distributions</b></summary>
 
 [Debian SID](https://wiki.debian.org/DebianUnstable) or [Devuan (ceres?)](https://devuan.org/os/releases) recommended.
 
@@ -230,7 +230,7 @@ Everything done manually step-by-step. Let's learn.
 
 ---
 
-**X server and {it's,core} utilities. This is essentials.**
+**X.Org server and {it's,core} utilities. This is essentials.**
 
 ```sh
 xserver-xorg-core x11-xserver-utils psmisc
@@ -244,7 +244,7 @@ Contents of [1](https://packages.debian.org/sid/xserver-xorg-core),
 
 ---
 
-**Now, the UI kits and functionality. It's required.**
+**Now, the UI kits and functionality. This is required.**
 
 URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
@@ -265,9 +265,9 @@ Contents of [1](https://packages.debian.org/sid/dunst),
 
 ---
 
-**Audio-server and audio stuffs.**
+**Audio-server and audio stuff.**
 
-I personally use pulseaudio, mpd and ncmpcpp are recommended because integrated by default.
+I personally use pulseaudio, mpd and ncmpcpp are recommended as they are integrated by default.
 
 ```sh
 pulseaudio mpd mpc ncmpcpp
@@ -284,7 +284,7 @@ Spotify is also integrated but optional, [here to install](https://wiki.debian.o
 
 **Extended utilities. Required, but just as necessary.**
 
-All of the below if not installed, certain functionality will display a message when it's needed, some are not.
+All of the below if not installed, certain functionality will display a message when needed, some will not.
 
 ```sh
 alsa-utils brightnessctl imagemagick scrot w3m-img wireless-tools xclip xsettingsd xss-lock
@@ -318,7 +318,7 @@ Contents of [1](https://packages.debian.org/sid/thunar),
 [4](https://packages.debian.org/sid/ffmpegthumbnailer),
 [5](https://packages.debian.org/sid/tumbler).
 
-Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
+Gsimplecal was used to display calendar pop-ups from the tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
 ```sh
 geany geany-plugins gimp gsimplecal inkscape mpv parcellite pavucontrol viewnior xfce4-power-manager
@@ -335,7 +335,7 @@ Contents of [1](https://packages.debian.org/sid/geany),
 [9](https://packages.debian.org/sid/viewnior),
 [10](https://packages.debian.org/sid/xfce4-power-manager).
 
-I personally don't use neofetch anymore since already use system-information via rofi, it's already scripted.
+I personally don't use neofetch anymore and use system-information via rofi, it's already scripted.
 
 ```sh
 htop nano #neofetch
@@ -348,12 +348,12 @@ Contents of [1](https://packages.debian.org/sid/htop),
 [Here for improved nanorc with syntax-highlighting](https://github.com/scopatz/nanorc).
 
 I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
-[here is it](https://wiki.debian.org/NetworkManager).
+[here it is](https://wiki.debian.org/NetworkManager).
 
 </details>
 
 <details>
-<summary><b>Arch-based Linux distributions</b></summary>
+<summary><b>1. Arch-based Linux distributions</b></summary>
 
 [Arch Linux](https://archlinux.org) and [Artix Linux](https://artixlinux.org) recommended.
 
@@ -365,7 +365,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 
 ---
 
-**X server and {it's,core} utilities. This is essentials.**
+**X.Org server and {it's,core} utilities. This is essentials.**
 
 ```sh
 xorg-server xorg-xrandr xorg-xrdb psmisc
@@ -380,7 +380,7 @@ Contents of [1](https://archlinux.org/packages/extra/x86_64/xorg-server),
 
 ---
 
-**Now, the UI kits and functionality. It's required.**
+**Now, the UI kits and functionality. This is required.**
 
 URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
@@ -404,9 +404,9 @@ Contents of [1](https://archlinux.org/packages/community/x86_64/dunst),
 
 ---
 
-**Audio-server and audio stuffs.**
+**Audio-server and audio stuff.**
 
-I personally use pulseaudio, mpd and ncmpcpp are recommended because integrated by default.
+I personally use pulseaudio, mpd and ncmpcpp are recommended as they are integrated by default.
 
 ```sh
 pulseaudio pulseaudio-alsa mpd mpc ncmpcpp
@@ -424,7 +424,7 @@ Spotify is also integrated but optional, [here to install](https://wiki.archlinu
 
 **Extended utilities. Required, but just as necessary.**
 
-All of the below if not installed, certain functionality will display a message when it's needed, some are not.
+All of the below if not installed, certain functionality will display a message when needed, some will not.
 
 ```sh
 alsa-utils brightnessctl imagemagick scrot w3m wireless_tools xclip xsettingsd xss-lock
@@ -459,7 +459,7 @@ Contents of [1](https://archlinux.org/packages/extra/x86_64/thunar),
 [4](https://archlinux.org/packages/extra/x86_64/ffmpegthumbnailer),
 [5](https://archlinux.org/packages/extra/x86_64/tumbler).
 
-Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
+Gsimplecal was used to display calendar pop-ups from the tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
 ```sh
 geany geany-plugins gimp gsimplecal inkscape mpv parcellite pavucontrol viewnior xfce4-power-manager
@@ -476,7 +476,7 @@ Contents of [1](https://archlinux.org/packages/community/x86_64/geany),
 [9](https://archlinux.org/packages/community/x86_64/viewnior),
 [10](https://archlinux.org/packages/extra/x86_64/xfce4-power-manager).
 
-I personally don't use neofetch anymore since already use system-information via rofi, it's already scripted.
+I personally don't use neofetch anymore and use system-information via rofi, it's already scripted.
 
 ```sh
 htop nano #neofetch
@@ -489,12 +489,12 @@ Contents of [1](https://archlinux.org/packages/extra/x86_64/htop),
 [Here for improved nanorc with syntax-highlighting](https://github.com/scopatz/nanorc).
 
 I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
-[here is it](https://wiki.archlinux.org/title/NetworkManager#Front-ends).
+[here it is](https://wiki.archlinux.org/title/NetworkManager#Front-ends).
 
 </details>
 
 <details>
-<summary><b>Gentoo source-based Linux distributions</b></summary>
+<summary><b>1. Gentoo source-based Linux distributions</b></summary>
 
 [Gentoo Linux](https://gentoo.org) extremely recommended. Expert!
 
@@ -508,11 +508,11 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 > It's highly recommended.
 
 > See also USE flags, it's complicated to explain.
-> [You might want to see mine](https://github.com/owl4ce/hmg/tree/main/etc/portage).
+> [You may want to see mine](https://github.com/owl4ce/hmg/tree/main/etc/portage).
 
 ---
 
-**X server and it's utilities. This is essentials.**
+**X.Org server and it's utilities. This is essentials.**
 
 ```sh
 x11-base/xorg-server x11-apps/xrandr
@@ -523,11 +523,11 @@ Contents of [1](https://packages.gentoo.org/packages/x11-base/xorg-server),
 
 ---
 
-**Now, the UI kits and functionality. It's required.**
+**Now, the UI kits and functionality. This is required.**
 
 URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
-> My own portage overlay. [**Lilium Overlay**](https://github.com/owl4ce/lilium)  
+> My own [Lilium portage overlay](https://github.com/owl4ce/lilium) contains enhancements.  
 > `x11-terms/rxvt-unicode::lilium`
 
 ```sh
@@ -546,9 +546,9 @@ Contents of [1](https://packages.gentoo.org/packages/x11-misc/dunst),
 
 ---
 
-**Audio-server and audio stuffs.**
+**Audio-server and audio stuff.**
 
-I personally use pulseaudio, mpd and ncmpcpp are recommended because integrated by default.
+I personally use pulseaudio, mpd and ncmpcpp are recommended as they are integrated by default.
 
 ```sh
 media-sound/pulseaudio media-sound/mpd media-sound/mpc media-sound/ncmpcpp
@@ -565,10 +565,10 @@ Spotify is also integrated but optional, [here to install](https://wiki.gentoo.o
 
 **Extended utilities. Required, but just as necessary.**
 
-All of the below if not installed, certain functionality will display a message when it's needed, some are not.
+All of the below if not installed, certain functionality will display a message when needed, some will not.
 
-> I personally don't use this portage overlay and build manually instead.
-> [**GURU Overlay**](https://wiki.gentoo.org/wiki/Project:GURU)  
+> I personally don't use [GURU portage overlay](https://wiki.gentoo.org/wiki/Project:GURU)
+> and build manually instead.  
 > `app-misc/brightnessctl::guru`
 
 ```sh
@@ -603,10 +603,10 @@ Contents of [1](https://packages.gentoo.org/packages/xfce-base/thunar),
 [4](https://packages.gentoo.org/packages/media-video/ffmpegthumbnailer),
 [5](https://packages.gentoo.org/packages/xfce-extra/tumbler).
 
-Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
+Gsimplecal was used to display calendar pop-ups from the tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
-> I personally don't use this portage overlay and build manually instead.
-> [**Miramir's Overlay**](https://github.com/miramir/miramir-layman)  
+> I personally don't use [Miramir's portage overlay](https://github.com/miramir/miramir-layman)
+> and build manually instead.  
 > `x11-misc/gsimplecal::miramir`
 
 ```sh
@@ -624,7 +624,7 @@ Contents of [1](https://packages.gentoo.org/packages/dev-util/geany),
 [9](https://packages.gentoo.org/packages/media-gfx/viewnior),
 [10](https://packages.gentoo.org/packages/xfce-extra/xfce4-power-manager).
 
-I personally don't use neofetch anymore since already use system-information via rofi, it's already scripted.
+I personally don't use neofetch anymore and use system-information via rofi, it's already scripted.
 
 ```sh
 sys-process/htop #app-misc/neofetch
@@ -636,14 +636,14 @@ Contents of [1](https://packages.gentoo.org/packages/sys-process/htop),
 [Here for improved nanorc with syntax-highlighting](https://github.com/scopatz/nanorc).
 
 I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
-[here is it](https://wiki.gentoo.org/wiki/NetworkManager#GTK_GUIs).
+[here it is](https://wiki.gentoo.org/wiki/NetworkManager#GTK_GUIs).
 
 </details>
 
 <details>
-<summary><b>Another independent Linux distributions</b></summary>
+<summary><b>1. Another independent Linux distributions</b></summary>
 
-[Need contributors to encapsulate dependencies](#deciduous_tree--contributing).
+Need [contributors](#deciduous_tree--contributing) to encapsulate dependencies.
 
 <pre align="center">
 The Linux philosophy is ‘Laugh in the face of danger’.
@@ -655,7 +655,7 @@ Oops. Wrong One. ‘Do it yourself’.
 </details>
 
 <details>
-<summary><b>Berkeley Software Distribution (BSD) variants</b></summary>
+<summary><b>1. Berkeley Software Distribution (BSD) variants</b></summary>
 
 The [BSD variants](https://en.wikipedia.org/wiki/Comparison_of_BSD_operating_systems)
 haven't been tested at all, probably some of the extensions are [GNU](https://gnu.org)'s
@@ -664,16 +664,13 @@ and [Linux-specific](https://refspecs.linuxfoundation.org/lsb.shtml).
 </details>
 
 <details>
-<summary><b>Additionally Z shell with OMZ plugins</b></summary>
+<summary><b>2. Additionally Z shell with oh-my-zsh plugins</b></summary>
 
-Install zsh with system package manager as described in the above step before
-(or [OMZ wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)). Then OMZ.
+Ensure you have installed zsh with system package manager as per distribution.
 
 ```sh
 💲 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-
-Set zsh as default login shell if desired (via chsh) and install extremely useful OMZ plugins for the win.
 
 ```sh
 💲 sudo chsh -s $(command -v zsh)
@@ -696,7 +693,7 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 ### :hibiscus: ‎ <samp>INSTALLATION (PREREQUISITES)</samp>
 
 <details>
-<summary><b>Fonts</b></summary>
+<summary><b>1. Fonts</b></summary>
 
 | Typefaces                                                                                                                 | License                                                                         | The path of extracted files from the archive        |
 |:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:----------------------------------------------------|
@@ -710,7 +707,7 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 | [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
 | [GNU Unifont](https://unifoundry.com/pub/unifont/unifont-14.0.02/font-builds/unifont-14.0.02.ttf)                         | [LICENSE](https://unifoundry.com/LICENSE.txt)                                                                                         |
 
-**Wget** all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
+**Wget** all the above fonts (and extract if archived). Then, put them as instructed into the `~/.fonts` directory.
 
 ```bash
 💲 mkdir -pv ~/.fonts/{Cantarell,Comfortaa,IcoMoon-Custom,Nerd-Patched,Unifont}
@@ -755,7 +752,7 @@ broad support. [Debian](https://packages.debian.org/search?suite=sid&arch=amd64&
 </details>
 
 <details>
-<summary><b>Icons</b></summary>
+<summary><b>2. Icons</b></summary>
 
 | Icons                                                                                                     | License                                                                                     | Usability                   |
 |:----------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------|:----------------------------|
@@ -763,7 +760,7 @@ broad support. [Debian](https://packages.debian.org/search?suite=sid&arch=amd64&
 | [Papirus-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Custom.tar.xz)           | [GPL-3.0](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE) | Universal                   |
 | [Papirus-Dark-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Dark-Custom.tar.xz) | [GPL-3.0](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE) | Universal                   |
 
-**Wget** all the icons above (and extract if archived). Then, put the files into the `~/.icons` directory.
+**Wget** all the above icons (and extract if archived). Then, put them into the `~/.icons` directory.
 
 ```sh
 💲 mkdir -pv ~/.icons
@@ -801,12 +798,12 @@ broad support. [Debian](https://packages.debian.org/search?suite=sid&arch=amd64&
 
 **Why do I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?**  
 It's [required by dunst program](https://github.com/owl4ce/dotfiles/commit/bdcadc5c1d869a073c5038bce4ef26d0340275a3)
-to display icons of the notification that spawned by programs.
+to display the notification icon sent by the program.
 
 </details>
 
 <details>
-<summary><b>Wallpapers</b></summary>
+<summary><b>3. Wallpapers</b></summary>
 
 | Wallpapers                                                                                                 | License                                                              | The path where it will be put |
 |:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:------------------------------|
@@ -823,7 +820,7 @@ to display icons of the notification that spawned by programs.
 > - [桜](https://pixiv.net/en/artworks/80518034)
 > - [沖田総司](https://pixiv.net/en/artworks/62996457)
 
-**Wget** all the wallpapers above and put as instructed into the `~/.wallpapers` directory.
+**Wget** all the above wallpapers and put them as instructed into the `~/.wallpapers` directory.
 
 ```bash
 💲 wget --no-hsts -cNP ~/.wallpapers/mechanical/ https://github.com/owl4ce/dotfiles/releases/download/ng/{batik-1_4K,okita-souji_FHD}.jpg
@@ -833,19 +830,19 @@ to display icons of the notification that spawned by programs.
 💲 wget --no-hsts -cNP ~/.wallpapers/eyecandy/ https://github.com/owl4ce/dotfiles/releases/download/ng/{cherry-blossoms,floral-artistic-2}_FHD.jpg
 ```
 
-[Old wallpapers can be found here](https://github.com/owl4ce/depfiles/tree/3.2/.wallpaper).
+Old wallpapers [can be found here](https://github.com/owl4ce/depfiles/tree/3.2/.wallpaper).
 
 </details>
 
 <details>
-<summary><b>Extensions (URxvt)</b></summary>
+<summary><b>4. Extensions (URxvt)</b></summary>
 
 | Extensions                                                                                   | License                                                                           | Usability         |
 |:---------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:------------------|
 | [resize-font](https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font) | [ISC](https://github.com/simmel/urxvt-resize-font/blob/master/resize-font#L2-L15) | Font resizer      |
 | [tabbedex](https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex)          | [GPL-3.0](https://github.com/mina86/urxvt-tabbedex/blob/master/LICENSE)           | Tab functionality |
 
-**cURL** all the perl-scripts above and put into the `~/.urxvt/ext` directory.
+**cURL** all the above perl-scripts and put them into the `~/.urxvt/ext` directory.
 
 ```sh
 💲 mkdir -pv ~/.urxvt/ext
@@ -866,17 +863,17 @@ to display icons of the notification that spawned by programs.
 ### :cherry_blossom: ‎ <samp>INSTALLATION (DOTFILES)</samp>
 
 <details>
-<summary><b>Synchronize minimal .files</b></summary>
+<summary><b>1. Synchronize minimal .files</b></summary>
 
 You can clone or [download as archive](https://github.com/owl4ce/dotfiles/releases/tag/ng).
-Then, put all the .files in the dotfiles directory into user's home directory. Assume you
+Then, put all the .files in the dotfiles directory into the user's home directory. Assume you
 clone it in the `~/Documents` directory. I recommend to synchronize with rsync program.
 
 ```sh
 💲 cd ~/Documents/
 ```
 
-> **Mirror:** https://gitlab.com/owl4ce/dotfiles.git
+> This repository auto-mirrored to https://gitlab.com/owl4ce/dotfiles.git.
 
 ```sh
 💲 git clone --depth 1 --recurse-submodules https://github.com/owl4ce/dotfiles.git
@@ -892,10 +889,11 @@ LICENSE
 *.md
 .nothing
 EXTRA_JOYFUL
+neofetch
 EXCLUDE
 ```
 
-> Ensure the rsync command must be correct as above. Remove *EXTRA_JOYFUL*, for complete setup.
+> Ensure the rsync command must be correct as above. Remove *EXTRA_JOYFUL* for complete setup.
 
 > | Options                   | Description                                         |
 > |:--------------------------|:----------------------------------------------------|
@@ -913,9 +911,9 @@ I recommend not deleting the dotfiles directory after cloning to make [upgrading
 </details>
 
 <details>
-<summary><b>Regenerate font caches</b></summary>
+<summary><b>2. Regenerate the font caches</b></summary>
 
-This ensures all existing caches are cleared and regenerated for all installed fonts.
+This ensures all existing caches are cleaned and regenerated for all installed fonts.
 
 ```sh
 💲 fc-cache -rv
@@ -924,11 +922,11 @@ This ensures all existing caches are cleared and regenerated for all installed f
 </details>
 
 <details>
-<summary><b>The step you're waiting for</b></summary>
+<summary><b>3. The step you're waiting for</b></summary>
 
 The final step is to login to the openbox-session, basically login from your display manager
 such as lightdm, gdm, etc. If you're using [`~/.xinitrc`](https://wiki.archlinux.org/title/Xinit)
-without a display manager, simply add the following one-liner commands at the end.
+without a display manager, simply add the following one-liner command at the end.
 
 **Systemd-based Linux distributions**
 
@@ -955,7 +953,7 @@ Since I recommend using rsync from the beginning, the easiest way is to list the
 [heredocs](https://tldp.org/LDP/abs/html/here-docs.html)) that won't be updated to avoid replacing
 personal files with .files. First, update the local repository with the remote git repository.
 
-> Remember where you cloned the repository. We assumed that it was in `~/Documents` directory.
+> Remember where you cloned the repository. We assumed that it was in the `~/Documents` directory.
 
 ```sh
 💲 cd ~/Documents/
@@ -981,13 +979,14 @@ mechanical.rasi
 shared.rasi
 .nothing
 EXTRA_JOYFUL
+neofetch
 .gtkrc-2.0
 .joyfuld
 .Xresources
 EXCLUDE
 ```
 
-> Use find program to check the *PATTERN* using [glob](https://en.wikipedia.org/wiki/Glob_(programming)).
+> Use the find program to check the *PATTERN*. It's called [globbing](https://en.wikipedia.org/wiki/Glob_(programming)).
 > ```sh
 > 💲 find dotfiles/ -iname 'PATTERN'
 > ```
@@ -1027,7 +1026,7 @@ EndSection
 
 [`~/.config/openbox/autostart.sh`](./.config/openbox/autostart.sh)
 
-A unix-shell syntax, POSIX-compliant is highly recommended. Don't change the default, possibly broken.
+The unix-shell syntax, POSIX-compliant is highly recommended. Don't change the default, possibly broken.
 
 </details>
 
@@ -1061,13 +1060,13 @@ Use `export` to set user's environment variables universally. Don't add any othe
 | *file_manager*   | *anything*                                                 | File Manager      |
 | *session_locker* | *anything*                                                 | Session Locker    |
 
-Terminal emulator and file manager are universally used, both for keybindings and context menus.
-Terminal emulator is actually freedom-of-choice, [but it's not integrated, it will display a
-notification message](./.config/openbox/joyful-desktop/terminal-set.sh#L26-L149). The music player
-[can be switched without modifying the configuration manually](./.scripts/music-controller.sh#L71-L86),
-via music control button in the tint2 panel, just hover it. The session locker is [used by
-xss-lock program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L29-L40) (which [enabled
-in autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd events and
+Terminal emulator and file manager are used universally,
+both for keybindings and context menus. The terminal emulator is actually freedom-of-choice,
+but it's [not integrated](./.config/openbox/joyful-desktop/terminal-set.sh#L26-L149), it displays a notification message.
+The music player [can be switched](./.scripts/music-controller.sh#L71-L86) without modifying the configuration manually,
+via music control button on tint2 panel, just hover it. The session locker was [used by xss-lock
+program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L29-L40) (which [enabled in
+autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd events and
 [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
 
 </details>
@@ -1081,37 +1080,36 @@ Update the mpd database first, via mpc or by pressing <kbd>U</kbd> in ncmpcpp.
 💲 mpc -p 7777 update
 ```
 
-Put the image files [matched to BRE](./.config/ncmpcpp/scripts/album-art.sh#L93-L99)
+Put an image file that [matches BRE](./.config/ncmpcpp/scripts/album-art.sh#L93-L99)
 `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory containing
-the album tracks. The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10).
-The recommended image size is 500px at ratio of 1:1 or more. So, assume you have a directory
-`~/Music/AlbumX` with lots of songs, you should put the image file to use as album-art
-(related to the songs) there. [This is for URxvt only](./.joyfuld#L144-L162).
+album tracks. The directory is in the `~/Music` [by default](./.config/mpd/mpd.conf#L10).
+The recommended image size is 500px at ratio of 1:1 or more. So, assume you have `~/Music/YOUR_ALBUM`
+directory with lots of songs, you should put the image file to use as album-art
+(related to songs) there. [This is for URxvt only](./.joyfuld#L144-L162).
 
-Also, I use [ALSA driver in the MPD](./.config/mpd/mpd.conf#L27-L38) to get [bit-perfect
-playback](https://mpd.readthedocs.io/en/stable/user.html#bit-perfect-playback).
-[It's disabled by default here](./.config/mpd/mpd.state#L2-L3), you need
-to disable (0) **PulseAudio** and enable (1) **ALSA \[Bit-perfect\]**.
+Also, I use [ALSA driver in the MPD](./.config/mpd/mpd.conf#L27-L38) to get
+[bit-perfect playback](https://mpd.readthedocs.io/en/stable/user.html#bit-perfect-playback).
+It's [disabled by default](./.config/mpd/mpd.state#L2-L3), you need to switch it.
 
 </details>
 
 <details>
-<summary><b>File manager side-pane and <a href="https://wiki.archlinux.org/title/XDG_user_directories">XDG user directories</a></b></summary>
+<summary><b>File manager side-pane and XDG user directories</b></summary>
 
-If you just installed thunar without XFCE, you might get a side-pane without XDG directories such as **Documents**,
-**Downloads**, etc. Once you have created the directories, open thunar and select or block the directories,
-right click and click **Send To** 🡲 **Side Pane**. [Basically GTK3 bookmarks
-file](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_the_desktop_environment_in_rhel_8/managing-bookmarks-in-gnome_using-the-desktop-environment-in-rhel-8#bookmarks-in-gnome_managing-bookmarks-in-gnome).
+If you just installed thunar without XFCE, you may get side-pane without
+[XDG directories](https://wiki.archlinux.org/title/XDG_user_directories) such as Documents,
+Downloads, etc. After you created those directories, open thunar and select or block those directories.
+Then right click and click **Send To** 🡲 **Side Pane**. [It's basically plain configuration file](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_the_desktop_environment_in_rhel_8/managing-bookmarks-in-gnome_using-the-desktop-environment-in-rhel-8#bookmarks-in-gnome_managing-bookmarks-in-gnome).
 The following command generates those directories.
 
 ```sh
 💲 xdg-user-dirs-update
 ```
 
-If you want to get 100% thunar looks similar to my screenshots, ensure to copy my
-[thunar configurations](./EXTRA_JOYFUL/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml)
-(before opening for the first time). Then hide **Computer**, **Desktop**, **Recent**,
-or whatever you want by right clicking **Places** in thunar side-pane. By default,
+If you want to get 100% thunar looks similar to my screenshot, ensure to copy my
+[thunar configuration](./EXTRA_JOYFUL/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml)
+(before opening for the first time). Then hide Computer, Desktop, Recent,
+or whatever you want by right clicking **Places** on thunar side-pane. By default,
 my thunar side-pane configuration uses simple 16px icons. [Suggested by Papirus Development
 Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes).
 
@@ -1274,30 +1272,31 @@ via [mpv](https://mpv.io/manual/master/#interactive-control) with
 [Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts)
 with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
 
-## :maple_leaf: ‎ <samp>PHILOSOPHY</samp>
+## :maple_leaf: ‎ <samp>THE PHILOSOPHY</samp>
 
 Aesthetics doesn't only look at the beauty of the results. There's beauty, in a sense, users are expected to feel
-like they are part of how this was crafted, emotion and satisfaction, relatively. Ideally, the creator's idea is to
-use this as a "replacement" for bloated and complicated desktop environment. Pragmatically, what are the "benefits"
-in our everyday life, especially for low-end devices. Realistically, be "grateful" to accept the existence of
-lightweight and non-proprietary software, and use it.
+like they are part of how this was crafted. Emotion and satisfaction, relatively. Ideally, the creator's idea is to
+use this as a minimal "replacement" for bloated and complicated desktop environment. Pragmatically, what are the
+"benefits" in our daily life, especially for low-end devices. Realistically, be "grateful" to accept the existence
+of lightweight and non-proprietary software, and use it (instead of using pirated software).
 
-Started passively since 2018, then continued self-taught research months after the COVID-19 pandemic, manically. It was
-still only one, changing styles from one to another, manually. Until finally, combining multiple styles into a fashion
-(mode). The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a
-song composed by [KODOMOi](https://kodomoi.com) along with the creator's expression of wishing for love and happiness.
+Started [passively since 2018](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey).
+Then continued self-taught research months after COVID-19 pandemic, manically. It was still only one,
+manually changing styles from one to another. Until finally, combining multiple styles into multiple modes.
+The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a song
+composed by [KODOMOi](https://kodomoi.com) along with the creator's expression of wishing for love and happiness.
 
-There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`, the creator's
-nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value, whereas
-Interactive Mode is aimed for those who want the practical details of statistics. Initially, the dark theme (Fleon) was
-predominantly blue, and the light theme (Sweetly) was red, expressing a mixture of violet because they tends to be blue.
-However, over time since the release of [version 3.2](https://deviantart.com/owl4ce/art/Sakura-Saber-872360153), they
-tend to be red with [Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the creator's seeking
+There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`,
+the creator's nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value,
+whereas Interactive Mode is aimed for those who want the practical details of statistics. Initially, the dark theme
+(Fleon) was predominantly blue, and the light theme (Sweetly) was red, expressing a mixture of violet because they tends
+to be blue. However, over time since the release of [version 3.2](https://deviantart.com/owl4ce/art/Sakura-Saber-872360153),
+they tends to be red with [Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the creator's seeking
 peace or serenity, violet represents light-hearted and ambition, and red is aggressive action that reflects passion.
 
-Two themes are based on and aimed at the mood swings of the users. Initially since the release
-until [version 2](https://deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208), darkness was
-inspired by [Dystopia](https://en.wikipedia.org/wiki/Dystopia) (while the creator listened to
+Two themes are based on and aimed at the mood swings of users. Initially since the first release until
+[version 2](https://deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208), darkness was inspired by
+[Dystopia](https://en.wikipedia.org/wiki/Dystopia) (while the creator listened to
 [The Astonishing](https://en.wikipedia.org/wiki/The_Astonishing) by
 [Dream Theater](https://en.wikipedia.org/wiki/Dream_Theater)),
 a reflection of unhappiness and suffering. In contrast, natural scenery, a reflection of inner satisfaction.
@@ -1305,7 +1304,7 @@ Now since the pre-release [version 4](https://github.com/owl4ce/dotfiles/release
 [color scheme](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) from the previous release.
 
 <pre align="center">
-<a href="#maple_leaf--history">
+<a href="#maple_leaf--the-philosophy">
 <img alt="" align="center" width="96%" src="https://api.star-history.com/svg?repos=owl4ce/dotfiles&type=Date"/>
 </a>
 </pre>
@@ -1314,7 +1313,7 @@ Now since the pre-release [version 4](https://github.com/owl4ce/dotfiles/release
 
 If you enjoyed it and would like to show your appreciation, you may want to tip me here.
 
-It's never required but always wholeheartedly appreciated.
+It's never required, but always wholeheartedly appreciated.
 
 Thanks from the bottom of my heart! ‎ :heartpulse:
 
