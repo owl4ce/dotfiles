@@ -11,6 +11,7 @@ exec >/dev/null 2>&1
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
 if [ "$MUSIC_PLAYER" = 'mpd' ]; then
+
     case "${1}" in
         '') LANG="$SYSTEM_LANG" joyd_launch_apps terminal -e ncmpcpp -q
         ;;
@@ -23,6 +24,7 @@ if [ "$MUSIC_PLAYER" = 'mpd' ]; then
                                                                      -q
         ;;
     esac
+
 else
     dunstify 'Music Player' "Currently <u>${MUSIC_PLAYER}</u>!" -h string:synchronous:music-player \
                                                                 -i "$MUSIC_ICON" \
