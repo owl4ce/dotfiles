@@ -9,13 +9,11 @@ exec 2>/dev/null
 
 MESSAGE='^^'
 
-printf "\0message\037${MESSAGE}\n\0markup-rows\037true\n"
-
 ROW_ICON_FONT='feather 12'
 
-A="<span font_desc='${ROW_ICON_FONT}' weight='bold'></span>   Screen"
-B="<span font_desc='${ROW_ICON_FONT}' weight='bold'></span>   Select or Draw"
-C="<span font_desc='${ROW_ICON_FONT}' weight='bold'></span>   Countdown ${SS_COUNTDOWN_SECONDS:-5}s"
+A_='' A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   Screen"
+B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Select or Draw"
+C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   Countdown ${SS_COUNTDOWN_SECONDS:-5}s"
 
 case "${@}" in
     "$A") joyd_screenshot_screen
@@ -27,6 +25,7 @@ case "${@}" in
     ;;
 esac
 
+printf "\0message\037${MESSAGE}\n\0markup-rows\037true\n"
 printf '%b\n' "$A" "$B" "$C"
 
 exit ${?}
