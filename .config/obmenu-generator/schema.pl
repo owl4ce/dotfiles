@@ -30,7 +30,7 @@ my $editor = $CONFIG->{editor};
 
 our $SCHEMA = [
     {sep       => "QUICK START"},
-    
+
     #              COMMAND                                                              LABEL                          ICON
     {beg       => [                                                                     "Launch Apps",                 "$ENV{HOME}/.icons/Gladient/find.png"]},
     {cat       => ["utility",                                                           "Accessories",                 "applications-utilities"]},
@@ -45,29 +45,29 @@ our $SCHEMA = [
     {cat       => ["settings",                                                          "Settings",                    "applications-accessories"]},
     {cat       => ["system",                                                            "System",                      "applications-system"]},
     {end       => undef},
-    
+
     {sep       => undef},
-    
+
     {item      => ["$ENV{HOME}/.scripts/launch-apps.sh terminal",                       "Open Terminal",               "$ENV{HOME}/.icons/Gladient/terminal.png"]},
     {item      => ["$ENV{HOME}/.scripts/launch-apps.sh file_manager",                   "Open File Manager",           "$ENV{HOME}/.icons/Gladient/file-manager.png"]},
-    
+
     {sep       => undef},
-    
+
     {beg       => [                                                                     "Screenshot",                  "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {item      => ["$ENV{HOME}/.scripts/screenshot-screen.sh",                          "Screen",                      "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {item      => ["$ENV{HOME}/.scripts/screenshot-selection.sh",                       "Select or Draw",              "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {item      => ["$ENV{HOME}/.scripts/screenshot-countdown.sh",                       "Countdown ?s",                "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {end       => undef},
-    
+
     {sep       => undef},
-    
+
     {pipe      => ["$ENV{HOME}/.config/openbox/pipe-menu/ob-randr.py",                  "Monitor Settings",            "$ENV{HOME}/.icons/Gladient/monitor-settings.png"]},
     {obgenmenu => [                                                                     "Advanced Settings",           "$ENV{HOME}/.icons/Gladient/advanced-settings.png"]},
-    
+
     {sep       => undef},
-    
+
     {sep       =>                                                                       "SESSIONS"},
-    
+
     {beg       => [                                                                     "Appearance",                  "$ENV{HOME}/.icons/Gladient/appearance.png"]},
     {item      => ["$ENV{HOME}/.config/openbox/joyful-desktop/terminal-set.sh reverse", "Reverse Terminal BG/FG",      "$ENV{HOME}/.icons/Gladient/terminal-reverse-visual.png"]},
     {item      => ["$ENV{HOME}/.config/openbox/joyful-desktop/wallpaper-set.sh",        "Change X Wallpaper",          "$ENV{HOME}/.icons/Gladient/wallpaper.png"]},
@@ -78,16 +78,16 @@ our $SCHEMA = [
     {item      => ["$ENV{HOME}/.config/openbox/joyful-desktop/toggle-mode.sh mode",     "Toggle Mode",                 "$ENV{HOME}/.icons/Gladient/mode.png"]},
     {item      => ["$ENV{HOME}/.config/openbox/joyful-desktop/toggle-mode.sh",          "Switch Theme",                "$ENV{HOME}/.icons/Gladient/theme.png"]},
     {end       => undef},
-    
+
     {sep       => undef},
-    
+
     {item      => ["$ENV{HOME}/.config/openbox/joyful-desktop/toggle-mode.sh apply",    "Restart UI",                  "$ENV{HOME}/.icons/Gladient/restart-ui.png"]},
-    
+
     {sep       => undef},
-    
+
     {item      => ["loginctl --no-ask-password lock-session",                           "Lock",                        "$ENV{HOME}/.icons/Gladient/lock.png"]},
-    
+
     {sep       => undef},
-    
+
     {exit      => [                                                                     "Exit Openbox",                "$ENV{HOME}/.icons/Gladient/logout.png"]},
 ]
