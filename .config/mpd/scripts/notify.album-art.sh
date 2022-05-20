@@ -62,7 +62,7 @@ exec >/dev/null 2>&1
 
     exec dunstify '' "<span size='small'>${INFO%%\ /S/\ *}</span>\n${INFO##*\ /S/\ }" \
                   -h string:synchronous:ncmpcpp-album-art \
-                  -i "${MPD_NOTIFY_AA_IMG:-${MUSIC_ICON}}"
+                  -I "${MPD_NOTIFY_AA_IMG:-${MUSIC_ICON}}"
 } &
 
 exit ${?}
