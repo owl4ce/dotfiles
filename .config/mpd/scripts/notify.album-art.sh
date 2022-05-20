@@ -60,9 +60,9 @@ exec >/dev/null 2>&1
 
     [ -f "$MPD_NOTIFY_AA_IMG" ] || MPD_NOTIFY_AA_IMG=
 
-    INFO="$(mpc -p ${CHK_MPD_PORT} -f '%artist% /S/ [%title%|%file%]' current)"
+    INFO="$(mpc -p ${CHK_MPD_PORT} -f '%artist% ########## [%title%|%file%]' current)"
 
-    exec dunstify '' "<span size='small'>${INFO%%\ /S/\ *}</span>\n${INFO##*\ /S/\ }" \
+    exec dunstify '' "<span size='small'>${INFO%%\ #####\ *}</span>\n${INFO##*\ #####\ }" \
                   -h string:synchronous:ncmpcpp-album-art \
                   -I "${MPD_NOTIFY_AA_IMG:-${MUSIC_ICON}}"
 } &
