@@ -34,12 +34,12 @@ NEVER SKIP / IGNORE / AVOID README
 
 You might be here looking for Linux Rice references or to (full?) replicate my personal configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
 
-Averages are written from scratch. Some of details are:
+Averages are written from scratch. Some of details:
 
 * **Window Manager**       :bento:                [Openbox](http://openbox.org/wiki/Main_Page) dual themes!
 * **Shell**                :shell:                [Zsh](https://zsh.org) with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
 * **Terminal Emulator**    :leaves:               [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) which lighter! 
-* **Openbox Menu**         :cyclone:              [obmenu-generator](https://github.com/trizen/obmenu-generator) for lyfe!
+* **Openbox Menu**         :cyclone:              [obmenu-generator](https://github.com/trizen/obmenu-generator) for life!
 * **Panel**                :blossom:              [Tint2](https://gitlab.com/o9000/tint2) with material design and glyphs!
 * **Compositor**           :shaved_ice:           [Picom](https://github.com/yshui/picom) for perfection topping!
 * **Notification Daemon**  :herb:                 [Dunst](https://github.com/dunst-project/dunst) which minimalist!
@@ -47,7 +47,7 @@ Averages are written from scratch. Some of details are:
 * **File Manager**         :flower_playing_cards: [Thunar](https://github.com/xfce-mirror/thunar) customized side-pane!
 * **Media Player**         :city_sunset:          [mpv](https://mpv.io/) with modern OSC!
 * **Music Player**         :milky_way:            [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) with album-art!
-* **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win! :P
+* **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win!
 
 <h1>
   <a href="#---------1">
@@ -410,7 +410,7 @@ Install zsh with system package-manager as described in the above-step before (o
 💲 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Set zsh as default login shell if desired (via chsh) and install extremely useful OMZ plugins for the win. :D
+Set zsh as default login shell if desired (via chsh) and install extremely useful OMZ plugins for the win.
 
 ```sh
 💲 sudo chsh -s $(command -v zsh)
@@ -437,15 +437,14 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 <details>
 <summary><b>Fonts</b></summary>
 
-| Typeface                                                                             | License                                                                | The path of extracted file from the archive         |
-|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:----------------------------------------------------|
-| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303) | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf` |
-| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)             | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf`                          |
-|                                                                                      |                                                                        | `3.001/Comfortaa-Regular.ttf`                       |
-| [Feather Icomoon](#)                                                                 | [MIT](https://icomoon.io/#faq/license)                                 |                                                     |
-| [Material Icomoon](#)                                                                | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                     |
-| [Iosevka Nerd Font Complete](#)                                                      | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                     |
-| [M+ 1mn Nerd Font Complete](#)                                                       | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                     |
+| Typeface                                                                             | License                                                                | The path of extracted file from the archive              |
+|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------|
+| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303) | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
+| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)             | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
+| [Feather Icomoon](#)                                                                 | [MIT](https://icomoon.io/#faq/license)                                 |                                                          |
+| [Material Icomoon](#)                                                                | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                          |
+| [Iosevka Nerd Font Complete](#)                                                      | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
+| [M+ 1mn Nerd Font Complete](#)                                                       | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
 
 Download all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
 
@@ -503,14 +502,14 @@ Download all the icons above (and extract if archived). Then, put the files into
 ```
 
 **Why do I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?**  
-It's required by `dunst` to display icons of the notification that spawned by programs.
+It's required by dunst to display icons of the notification that spawned by programs.
 
 </details>
 
 <details>
 <summary><b>Wallpapers</b></summary>
 
-> This is actually optional, but recommended by default.
+> This is actually optional, but recommended.
 
 Download all the wallpapers above. Then, put the files as instructed into the `~/.wallpapers` directory.
 
@@ -522,7 +521,7 @@ Download all the wallpapers above. Then, put the files as instructed into the `~
 <summary><b>Synchronize minimal .files</b></summary>
 
 You can clone or download as archive. Then, put all the .files in the dotfiles folder into user's home directory.
-Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync.
+Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync program.
 
 ```sh
 💲 cd ~/Documents/
@@ -532,8 +531,8 @@ Assume you clone it in the `~/Documents` directory. I recommend to synchronize w
 💲 git clone --depth 1 --recurse-submodules https://github.com/owl4ce/dotfiles.git
 ```
 
-> - `cp` is for duplicating stuff and by default only ensures files have unique full pathnames.
-> - `rsync` is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced.
+> - **cp** is for duplicating stuff and by default only ensures files have unique full pathnames.
+> - **rsync** is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced.
 
 ```sh
 💲 rsync -avxHAXP --exclude-from /dev/stdin dotfiles/ ~/ << "EXCLUDE"
@@ -647,12 +646,101 @@ EXCLUDE
 
 > Work in progress.
 
+<details>
+<summary><b>Joyful Desktop environment variables</b></summary>
+
+[`~/.joyfuld`](./.joyfuld)
+
+Manage all your settings there. I hope all the comments there are easy to understand. ^^
+
+</details>
+
+<details>
+<summary><b>Touchpad tap-to-click (<a href="https://wiki.archlinux.org/title/Libinput#Tapping_button_re-mapping">libinput</a>)</b></summary>
+
+`/etc/X11/xorg.conf.d/30-touchpad.conf`
+
+```cfg
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lmr"
+EndSection
+```
+
+</details>
+
+<details>
+<summary><b>Openbox autostart</b></summary>
+
+[`~/.config/openbox/autostart.sh`](./.config/openbox/autostart.sh)
+
+A unix-shell syntax, POSIX-compliant is highly recommended. Don't change the default, possibly broken.
+
+</details>
+
+<details>
+<summary><b>User's tray icons</b></summary>
+
+[`~/.config/openbox/tray`](./.config/openbox/tray)
+
+One program (and if any, with arguments) for each line. It will be restarted after switching modes.
+
+</details>
+
+<details>
+<summary><b>User's environment variables</b></summary>
+
+[`~/.config/openbox/environment`](./.config/openbox/environment)
+
+Use `export` to set user's environment variables universally. Don't add any other syntax.
+
+</details>
+
+<details>
+<summary><b>User's preferred applications</b></summary>
+
+[`~/.scripts/db.apps.joy`](./.scripts/db.apps.joy)
+
+| Parameters       | Available       | Description       |
+|:-----------------|:----------------|:------------------|
+| *terminal*       | `urxvt`         | Terminal Emulator |
+| *music_player*   | `mpd` `spotify` | Music Player      |
+| *file_manager*   | *anything*      | File Manager      |
+| *session_locker* | *anything*      | Session Locker    |
+
+Terminal emulator and file manager are universally used, both for keybindings and context menus.
+Terminal emulator is actually freedom-of-choice, but it's not integrated, it will display a notification message.
+The music player can be switched without modifying the configuration manually, via music control button on the tint2 panel, just hover it.
+The session locker is used by xss-lock program (which enabled in [autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd-events and [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
+
+</details>
+
+<details>
+<summary><b>Ncmpcpp and the album-art image cover</b></summary>
+
+Update the mpd database first, via mpc or by pressing <kbd>U</kbd> in ncmpcpp.
+
+```sh
+💲 mpc -p 7777 update
+```
+
+Put the image files matched to REGEX `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the folder containing the album tracks.
+The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10). The recommended image size is 500 pixels at ratio of 1:1 or more. This is for URxvt only.
+
+</details>
+
 ### :tanabata_tree: ‎ <samp>ADDITIONALS</samp>
 
 > Work in progress.
 
-- [Telegram Desktop Theme](https://t.me/addtheme/nord_colors)
 - [Capitaine Cursors Theme](https://pling.com/p/1148692)
+- [Telegram Desktop Nord Theme](https://t.me/addtheme/nord_colors)
+- [Recommended Modern Unix Utilities](https://github.com/ibraheemdev/modern-unix)
+- [Chrome-based Hardware Acceleration](https://linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html)
+- [Automatic Tiling for EWMH-compliant WM](https://github.com/blrsn/zentile)
 
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
@@ -695,14 +783,14 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 |           |   |                                                     |                                                                                                                                                             |            |
 | **Group** |   | **Contributors**                                    | **Contributions**                                                                                                                                           | **Status** |
 | Unlisted  | 1 | [Ekaunt](https://github.com/ekaunt)                 | [Better rofi prompt-menu](https://github.com/owl4ce/dotfiles/pull/2)                                                                                        | Obsolete   |
-|           | 2 | [HopeBaron](https://github.com/HopeBaron)           | [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4)                                                                                          | Obsolete   |
-|           | 3 | [Justin Faber](https://github.com/vredesbyyrd)      | [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)                                                         | Used       |
-|           | 4 | [Vcyzteen](https://github.com/vcyzteen)             | [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60) | Used       |
+| Unlisted  | 2 | [HopeBaron](https://github.com/HopeBaron)           | [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4)                                                                                          | Obsolete   |
+| Unlisted  | 3 | [Justin Faber](https://github.com/vredesbyyrd)      | [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)                                                         | Used       |
+| Unlisted  | 4 | [Vcyzteen](https://github.com/vcyzteen)             | [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60) | Used       |
 | Verified  | * | [![](https://contrib.rocks/image?repo=owl4ce/dotfiles)](https://github.com/owl4ce/dotfiles/graphs/contributors)                                                                                                                |
 |           |   |                                                     |                                                                                                                                                             |            |
 | **Based** |   | **Community**                                       |                                                                                                                                                             |            |
 |:indonesia:| 1 | [Linuxer Desktop Art](https://facebook.com/groups/linuxart)                                                                                                                                                                    |
-|           | 2 | [@dotfiles_id](https://t.me/dotfiles_id)                                                                                                                                                                                       |
+|:indonesia:| 2 | [@dotfiles_id](https://t.me/dotfiles_id)                                                                                                                                                                                       |
 |:world_map:| 3 | [r/unixp*rn](https://reddit.com/r/unixporn)                                                                                                                                                                                    |
 
 ## :deciduous_tree: ‎ <samp>CONTRIBUTING</samp>
