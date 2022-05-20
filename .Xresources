@@ -1,0 +1,126 @@
+! # FILE: ~/.Xresources
+! # -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+! # DESC: X resource database.
+! # -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+! # aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
+
+! # URxvt configuration.
+URxvt.font:                       xft:mplus Nerd Font Mono:size=11:autohint=true,xft:Noto Color Emoji:pixelsize=12:antialias=false,xft:Monospace:size=11:autohint=true
+URxvt.geometry:                   84x16
+URxvt.internalBorder:             20
+URxvt.cursorBlink:                true
+URxvt.cursorUnderline:            true
+URxvt.saveLines:                  8192
+URxvt.scrollBar:                  false
+URxvt.scrollBar_right:            true
+URxvt.scrollBar_floating:         false
+URxvt.scrollstyle:                plain
+URxvt.scrollWithBuffer:           false
+URxvt.urgentOnBell:               false
+URxvt.depth:                      32
+URxvt.iso14755:                   false
+URxvt.iconFile:                   /home/username/.icons/Gladient/terminal.png
+
+! # Uncomment the following line if too much font spacing.
+!URxvt.letterSpace:               -1
+
+! # URxvt extensions.
+URxvt.perl-ext-common:            default,tabbedex,url-select
+URxvt.keysym.Control-Shift-C:     eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V:     eval:paste_clipboard
+URxvt.keysym.Control-Up:          eval:scroll_up 1
+URxvt.keysym.Control-Down:        eval:scroll_down 1
+URxvt.keysym.Control-Home:        eval:scroll_to_top
+URxvt.keysym.Control-End:         eval:scroll_to_bottom
+
+! # Tabbed-extended extension.
+URxvt.tabbedex.no-tabbedex-keys:  yes
+URxvt.tabbedex.new-button:        false
+URXvt.tabbedex.reopen-on-close:   yes
+URxvt.tabbedex.autohide:          yes
+URxvt.tabbedex.tabbar-fg:         5
+URxvt.tabbedex.tabbar-bg:         0
+URxvt.tabbedex.tab-fg:            10
+URxvt.tabbedex.tab-bg:            0
+URxvt.tabbedex.bell-fg:           0
+URxvt.tabbedex.bell-bg:           0
+URxvt.tabbedex.bell-tab-fg:       0
+URxvt.tabbedex.bell-tab-bg:       0
+URxvt.tabbedex.title-fg:          14
+URxvt.tabbedex.title-bg:          0
+URxvt.keysym.Control-Shift-T:     tabbedex:new_tab
+URxvt.keysym.Control-Shift-R:     tabbedex:rename_tab
+URxvt.keysym.Control-Shift-W:     tabbedex:kill_tab
+URxvt.keysym.Control-Next:        tabbedex:next_tab
+URxvt.keysym.Control-Prior:       tabbedex:prev_tab
+URxvt.keysym.Control-Shift-Next:  tabbedex:move_tab_right
+URxvt.keysym.Control-Shift-Prior: tabbedex:move_tab_left
+
+! # Resize-font extension.
+URxvt.resize-font.step:           1
+URxvt.keysym.Control-minus:       resize-font:smaller
+URxvt.keysym.Control-plus:        resize-font:bigger
+URxvt.keysym.Control-equal:       resize-font:reset
+URxvt.keysym.Control-question:    resize-font:show
+
+! # URL-select extension.
+URxvt.keysym.Control-Shift-U:     url-select:select_next
+URvxt.url-select.button:          2
+URxvt.url-select.launcher:        brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder
+URxvt.url-select.underline:       true
+
+! # Color schemes.
+#define black0                    [95]#373E4D
+#define black1                    #3B4252
+#define black2                    #434C5E
+#define black3                    #4C566A
+#define red0                      #FA5AA4
+#define red1                      #FA74B2
+#define green0                    #2BE491
+#define green1                    #44EB9F
+#define yellow0                   #FA946E
+#define yellow1                   #FAA687
+#define blue0                     #63C5EA
+#define blue1                     #7ACBEA
+#define magenta0                  #CF8EF4
+#define magenta1                  #D8A6F4
+#define cyan0                     #89CCF7
+#define cyan1                     #A1D5F7
+#define white0                    [100]#F9F9F9
+#define white1                    #F7F7F7
+#define white2                    #F4F4F4
+
+*.color1:                         red0
+*.color2:                         green0
+*.color3:                         yellow0
+*.color4:                         blue0
+*.color5:                         magenta0
+*.color6:                         cyan0
+
+*.color9:                         red1
+*.color10:                        green1
+*.color11:                        yellow1
+*.color12:                        blue1
+*.color13:                        magenta1
+*.color14:                        cyan1
+
+! # Used by `terminal-set.sh`, do not change the following configuration.
+*.foreground:                     white0
+*.background:                     black0
+*.cursorColor:                    white0
+
+*.color0:                         black2
+*.color7:                         white1
+
+*.color8:                         black3
+*.color15:                        white2
+
+!*.foreground:                     black0
+!*.background:                     white0
+!*.cursorColor:                    black0
+
+!*.color0:                         white1
+!*.color7:                         black2
+
+!*.color8:                         white2
+!*.color15:                        black3
