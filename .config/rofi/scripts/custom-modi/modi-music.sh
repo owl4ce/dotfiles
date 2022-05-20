@@ -17,9 +17,10 @@ D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   Stop
 
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
-if [ "$MUSIC_PLAYER" = 'mpd' ]; then
-    E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   Single"
-fi
+case "$MUSIC_PLAYER" in
+    mpd) E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   Single"
+    ;;
+esac
 
 case "${@}" in
     "$A") joyd_music_controller prev
@@ -47,13 +48,17 @@ fi
 printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
 printf '%b\n' "$A" "$B" "$C" "$D" "$E"
 
-[ -z "$(joyd_music_controller status)" ] && st_act='1' || st_urg='1'
+[ -n "$(joyd_music_controller status)" ] && st_act='1' || st_urg='1'
+
 printf "\0active\037${st_act}\n\0urgent\037${st_urg}\n"
 
-if [ "$MUSIC_PLAYER" = 'mpd' ]; then
-    STATUS="$(mpc -p ${CHK_MPD_PORT} status)"
-    [ -n "${STATUS##*\ single:\ off*}" ] && si_act='4' || si_urg='4'
-    printf "\0active\037${si_act}\n\0urgent\037${si_urg}\n"
-fi
+case "$MUSIC_PLAYER" in
+    mpd) STATUS="$(mpc -p ${CHK_MPD_PORT} status)"
+
+         [ -n "${STATUS##*\ single:\ off*}" ] && si_act='4' || si_urg='4'
+
+         printf "\0active\037${si_act}\n\0urgent\037${si_urg}\n"
+    ;;
+esac
 
 exit ${?}
