@@ -6,6 +6,10 @@
 export LANG='POSIX'
 exec 2>/dev/null
 
-MESSAGE='?'
+MSG_ICON_FONT='feather 48'
 
-printf "\0message\037${MESSAGE}\n\0markup-rows\037true\n"
+MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
+
+printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
+
+exit ${?}

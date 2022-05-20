@@ -8,6 +8,7 @@ exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
 ROW_ICON_FONT='feather 12'
+MSG_ICON_FONT='feather 48'
 
 B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Increase ${AUDIO_VOLUME_STEPS}%"
 C_='' C="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${C_}</span>   Decrease ${AUDIO_VOLUME_STEPS}%"
@@ -53,9 +54,9 @@ fi
 A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   ${MUTED-${AUDIO_VOLUME%%%}}"
 E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   ${BRIGHTNESS}"
 
-MESSAGE='ᗜ‿ᗜ'
+MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
 
-printf "\0message\037${MESSAGE}\n\0markup-rows\037true\n"
+printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
 printf '%b\n' "${A}\0nonselectable\037true\n" "$B" "$C" "$D" "${E}\0nonselectable\037true\n" "$F" "$G"
 
 exit ${?}

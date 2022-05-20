@@ -53,7 +53,7 @@ esac
 
 MESSAGE="$(date +%H %M)"
 
-printf "\0message\037${MESSAGE}\n\0markup-rows\037true\n"
+printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
 printf '%b\n' "$A" "$B" "$C" "$D" "$E" "$F"
 
 exit ${?}

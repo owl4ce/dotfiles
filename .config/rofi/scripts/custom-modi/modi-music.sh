@@ -8,6 +8,7 @@ exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
 ROW_ICON_FONT='feather 12'
+MSG_ICON_FONT='feather 48'
 
 A_='' A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   Previous"
 B_='' B="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${B_}</span>   Playback"
@@ -37,9 +38,13 @@ MESSAGE="$(joyd_music_controller title)"
 
 if [ "${#MESSAGE}" -gt 8 ]; then
     MESSAGE="<span size='xx-small'>$(printf '%.9s\n' "$MESSAGE")..</span>"
+elif [ "${#MESSAGE}" -gt 4 ]; then
+    MESSAGE="<span size='x-small'>${MESSAGE}</span>"
+elif [ -z "$MESSAGE" ]; then
+    MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
 fi
 
-printf "\0message\037${MESSAGE:-¨}\n\0markup-rows\037true\n"
+printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
 printf '%b\n' "$A" "$B" "$C" "$D" "$E"
 
 [ -z "$(joyd_music_controller status)" ] && st_act='1' || st_urg='1'
