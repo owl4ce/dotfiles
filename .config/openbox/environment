@@ -1,0 +1,16 @@
+#
+# Set system-wide environment variables here for Openbox.
+# User-specific variables should be placed in "${HOME}/.config/openbox/environment".
+#
+# aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
+# ---
+
+# Use "qtstyleplugins" for QT Themes, buggy when using dark themes.
+#export QT_QPA_PLATFORMTHEME='gtk2'
+
+# Make our environment identity considered as GNOME, `tdesktop` affected, so it will using GTK file chooser.
+# Better to modify ".desktop" file for each applications, for example `Exec=env VAR=value commands`.
+#export XDG_CURRENT_DESKTOP='gnome'
+
+# Avoid `less` from storing and regenerate history file.
+export LESSHISTFILE='/dev/null'
