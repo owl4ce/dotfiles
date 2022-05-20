@@ -1,0 +1,9 @@
+[Configuration]
+LastActiveMode=THUNAR_RENAMER_MODE_NAME
+LastActiveRenamer=ThunarSbrNumberRenamer
+
+[ThunarSbrNumberRenamer]
+TextMode=THUNAR_SBR_TEXT_MODE_TN
+Text=
+Mode=THUNAR_SBR_NUMBER_MODE_010203
+Start=01

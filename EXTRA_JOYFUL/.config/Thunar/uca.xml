@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <actions>
-<action>
-	<icon>utilities-terminal</icon>
-	<name>Open Terminal Here</name>
-	<submenu></submenu>
-	<unique-id>1613914055840245-1</unique-id>
-	<command>sh -c &quot;cd %F; ~/.scripts/launch-apps.sh terminal&quot;</command>
-	<description>Open Terminal Emulator from current directory</description>
-	<patterns>*</patterns>
-	<startup-notify/>
-	<directories/>
-</action>
+  <action>
+    <icon>utilities-terminal</icon>
+    <name>Open Terminal Here</name>
+    <submenu></submenu>
+    <unique-id>1613914055840245-1</unique-id>
+    <command>sh -c &quot;cd %F; ~/.scripts/launch-apps.sh terminal&quot;</command>
+    <description>Open Terminal Emulator from current directory</description>
+    <patterns>*</patterns>
+    <startup-notify/>
+    <directories/>
+  </action>
 </actions>
