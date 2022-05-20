@@ -33,7 +33,7 @@ icon_size = 48
 
 sticky_history = false
 
-dmenu = "rofi -theme-str '@import "main.rasi"' -no-lazy-grab -no-plugins -no-show-icons -dmenu -mesg 'Notification Context Menu'"
+dmenu = "rofi -theme-str '@import "action.rasi"' -no-show-icons -no-lazy-grab -no-plugins -dmenu -mesg 'Notification Context Menu'"
 
 browser = "your_web_browser"
 
