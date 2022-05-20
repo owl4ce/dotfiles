@@ -3,6 +3,8 @@
 # Get network status for tint2 panel.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2166,SC2016
 
 export LANG='POSIX'

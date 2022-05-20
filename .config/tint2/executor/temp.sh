@@ -3,6 +3,8 @@
 # Get hardware temperature for tint2 panel.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
