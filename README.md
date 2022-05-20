@@ -32,7 +32,8 @@ NEVER SKIP / IGNORE / AVOID README
   <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
 </a>
 
-You might be here looking for Linux Rice references or to (full?) replicate my personal configurations of my favorite Openbox Window Manager and some apps as well. :snowman:
+You might be here looking for Linux rice references or to (full?) replicate my personal configurations of my favorite
+Openbox Window Manager and some apps as well. :snowman:
 
 Averages are written from scratch. Some of details:
 
@@ -45,7 +46,7 @@ Averages are written from scratch. Some of details:
 * **Notification Daemon**  :herb:                 [Dunst](https://github.com/dunst-project/dunst) which minimalist!
 * **Application Launcher** :rocket:               [Rofi](https://github.com/davatorium/rofi) which blazing fast!
 * **File Manager**         :flower_playing_cards: [Thunar](https://github.com/xfce-mirror/thunar) customized side-pane!
-* **Media Player**         :city_sunset:          [mpv](https://mpv.io/) with modern OSC!
+* **Media Player**         :city_sunset:          [mpv](https://mpv.io) with modern OSC!
 * **Music Player**         :milky_way:            [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) with album-art!
 * **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win!
 
@@ -85,7 +86,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   </tr>
 </table>
 
-> From the previous major version (0-3.x).
+> From the previous major versions (0-3.x).
 
 <details>
 <summary><b>Innovations</b></summary>
@@ -100,7 +101,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   - [SECURITY.md](./SECURITY.md)
 - **User interface**
   - Rofi [main menu](./.config/rofi/scripts/rofi-main.sh) and panel (or control) [extensions menu](./.config/rofi/scripts/rofi-exts.sh)
-  - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox button and wallpaper selector
+  - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox button and wallpaper selectors
   - Better tint2 [horizontal panels](./.config/tint2) for Artistic Mode and the tooltips
 
 </details>
@@ -155,7 +156,9 @@ Everything done manually step-by-step. Let's learn.
 xserver-xorg-core x11-xserver-utils psmisc
 ```
 
-Contents of [1](https://packages.debian.org/sid/xserver-xorg-core), [2](https://packages.debian.org/sid/x11-xserver-utils), [3](https://packages.debian.org/sid/psmisc).
+Contents of [1](https://packages.debian.org/sid/xserver-xorg-core),
+[2](https://packages.debian.org/sid/x11-xserver-utils),
+[3](https://packages.debian.org/sid/psmisc).
 
 [Here for python (3) if not already installed](https://wiki.debian.org/Python).
 
@@ -169,7 +172,14 @@ URxvt is a highly recommended terminal emulator by default. Picom is optional, b
 dunst nitrogen openbox rofi rxvt-unicode tint2 picom libgtk3-perl #obmenu-generator
 ```
 
-Contents of [1](https://packages.debian.org/sid/dunst), [2](https://packages.debian.org/sid/nitrogen), [3](https://packages.debian.org/sid/openbox), [4](https://packages.debian.org/sid/rofi), [5](https://packages.debian.org/sid/rxvt-unicode), [6](https://packages.debian.org/sid/tint2), [7](https://packages.debian.org/sid/picom), [8](https://packages.debian.org/sid/libgtk3-perl).
+Contents of [1](https://packages.debian.org/sid/dunst),
+[2](https://packages.debian.org/sid/nitrogen),
+[3](https://packages.debian.org/sid/openbox),
+[4](https://packages.debian.org/sid/rofi),
+[5](https://packages.debian.org/sid/rxvt-unicode),
+[6](https://packages.debian.org/sid/tint2),
+[7](https://packages.debian.org/sid/picom),
+[8](https://packages.debian.org/sid/libgtk3-perl).
 
 [Here to install obmenu-generator](https://software.opensuse.org/download.html?project=home%3AHead_on_a_Stick%3Aobmenu-generator&package=obmenu-generator).
 
@@ -183,7 +193,10 @@ I personally use pulseaudio, mpd and ncmpcpp are recommended because integrated 
 pulseaudio mpd mpc ncmpcpp
 ```
 
-Contents of [1](https://packages.debian.org/sid/pulseaudio), [2](https://packages.debian.org/sid/mpd), [3](https://packages.debian.org/sid/mpc), [4](https://packages.debian.org/sid/ncmpcpp).
+Contents of [1](https://packages.debian.org/sid/pulseaudio),
+[2](https://packages.debian.org/sid/mpd),
+[3](https://packages.debian.org/sid/mpc),
+[4](https://packages.debian.org/sid/ncmpcpp).
 
 Spotify is also integrated but optional, [here to install](https://spotify.com/us/download/linux).
 
@@ -197,7 +210,15 @@ All of the below if not installed, certain functionality will display a message 
 alsa-utils brightnessctl imagemagick scrot w3m-img wireless-tools xclip xsettingsd xss-lock
 ```
 
-Contents of [1](https://packages.debian.org/sid/alsa-utils), [2](https://packages.debian.org/sid/brightnessctl), [3](https://packages.debian.org/sid/imagemagick), [4](https://packages.debian.org/sid/scrot), [5](https://packages.debian.org/sid/w3m-img), [6](https://packages.debian.org/sid/wireless-tools), [7](https://packages.debian.org/sid/xclip), [8](https://packages.debian.org/sid/xsettingsd), [9](https://packages.debian.org/sid/xss-lock).
+Contents of [1](https://packages.debian.org/sid/alsa-utils),
+[2](https://packages.debian.org/sid/brightnessctl),
+[3](https://packages.debian.org/sid/imagemagick),
+[4](https://packages.debian.org/sid/scrot),
+[5](https://packages.debian.org/sid/w3m-img),
+[6](https://packages.debian.org/sid/wireless-tools),
+[7](https://packages.debian.org/sid/xclip),
+[8](https://packages.debian.org/sid/xsettingsd),
+[9](https://packages.debian.org/sid/xss-lock).
 
 Choose your own polkit authentication-agent. [lxpolkit](https://packages.debian.org/sid/lxpolkit)?
 
@@ -211,7 +232,11 @@ Just like mpd and ncmpcpp, configurations are included as [EXTRA_JOYFUL](./EXTRA
 thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler
 ```
 
-Contents of [1](https://packages.debian.org/sid/thunar), [2](https://packages.debian.org/sid/thunar-archive-plugin), [3](https://packages.debian.org/sid/thunar-volman), [4](https://packages.debian.org/sid/ffmpegthumbnailer), [5](https://packages.debian.org/sid/tumbler).
+Contents of [1](https://packages.debian.org/sid/thunar),
+[2](https://packages.debian.org/sid/thunar-archive-plugin),
+[3](https://packages.debian.org/sid/thunar-volman),
+[4](https://packages.debian.org/sid/ffmpegthumbnailer),
+[5](https://packages.debian.org/sid/tumbler).
 
 Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
@@ -219,7 +244,16 @@ Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to
 geany geany-plugins gimp gsimplecal inkscape mpv parcellite pavucontrol viewnior xfce4-power-manager
 ```
 
-Contents of [1](https://packages.debian.org/sid/geany), [2](https://packages.debian.org/sid/geany-plugins), [3](https://packages.debian.org/sid/gimp), [4](https://packages.debian.org/sid/gsimplecal), [5](https://packages.debian.org/sid/inkscape), [6](https://packages.debian.org/sid/mpv), [7](https://packages.debian.org/sid/parcellite), [8](https://packages.debian.org/sid/pavucontrol), [9](https://packages.debian.org/sid/viewnior), [10](https://packages.debian.org/sid/xfce4-power-manager).
+Contents of [1](https://packages.debian.org/sid/geany),
+[2](https://packages.debian.org/sid/geany-plugins),
+[3](https://packages.debian.org/sid/gimp),
+[4](https://packages.debian.org/sid/gsimplecal),
+[5](https://packages.debian.org/sid/inkscape),
+[6](https://packages.debian.org/sid/mpv),
+[7](https://packages.debian.org/sid/parcellite),
+[8](https://packages.debian.org/sid/pavucontrol),
+[9](https://packages.debian.org/sid/viewnior),
+[10](https://packages.debian.org/sid/xfce4-power-manager).
 
 I personally don't use neofetch anymore since already use system-information via rofi, it's already scripted.
 
@@ -227,11 +261,14 @@ I personally don't use neofetch anymore since already use system-information via
 htop nano #neofetch
 ```
 
-Contents of [1](https://packages.debian.org/sid/htop), [2](https://packages.debian.org/sid/nano), [3](https://packages.debian.org/sid/neofetch).
+Contents of [1](https://packages.debian.org/sid/htop),
+[2](https://packages.debian.org/sid/nano),
+[3](https://packages.debian.org/sid/neofetch).
 
 [Here for improved nanorc with syntax-highlighting](https://github.com/scopatz/nanorc).
 
-I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [here is it](https://wiki.debian.org/NetworkManager).
+I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
+[here is it](https://wiki.debian.org/NetworkManager).
 
 </details>
 
@@ -254,7 +291,10 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [
 xorg-server xorg-xrandr xorg-xrdb psmisc
 ```
 
-Contents of [1](https://archlinux.org/packages/extra/x86_64/xorg-server), [2](https://archlinux.org/packages/extra/x86_64/xorg-xrandr), [3](https://archlinux.org/packages/extra/x86_64/xorg-xrdb), [4](https://archlinux.org/packages/core/x86_64/psmisc).
+Contents of [1](https://archlinux.org/packages/extra/x86_64/xorg-server),
+[2](https://archlinux.org/packages/extra/x86_64/xorg-xrandr),
+[3](https://archlinux.org/packages/extra/x86_64/xorg-xrdb),
+[4](https://archlinux.org/packages/core/x86_64/psmisc).
 
 [Here for python (3) if not already installed](https://wiki.archlinux.org/title/python).
 
@@ -272,7 +312,15 @@ URxvt is a highly recommended terminal emulator by default. Picom is optional, b
 dunst nitrogen openbox rofi rxvt-unicode-truecolor-wide-glyphs tint2 picom obmenu-generator perl-gtk3
 ```
 
-Contents of [1](https://archlinux.org/packages/community/x86_64/dunst), [2](https://archlinux.org/packages/extra/x86_64/nitrogen), [3](https://archlinux.org/packages/community/x86_64/openbox), [4](https://archlinux.org/packages/community/x86_64/rofi), [5](https://aur.archlinux.org/packages/rxvt-unicode-truecolor-wide-glyphs), [6](https://archlinux.org/packages/community/x86_64/tint2), [7](https://archlinux.org/packages/community/x86_64/picom), [8](https://aur.archlinux.org/packages/obmenu-generator), [9](https://archlinux.org/packages/community/any/perl-gtk3).
+Contents of [1](https://archlinux.org/packages/community/x86_64/dunst),
+[2](https://archlinux.org/packages/extra/x86_64/nitrogen),
+[3](https://archlinux.org/packages/community/x86_64/openbox),
+[4](https://archlinux.org/packages/community/x86_64/rofi),
+[5](https://aur.archlinux.org/packages/rxvt-unicode-truecolor-wide-glyphs),
+[6](https://archlinux.org/packages/community/x86_64/tint2),
+[7](https://archlinux.org/packages/community/x86_64/picom),
+[8](https://aur.archlinux.org/packages/obmenu-generator),
+[9](https://archlinux.org/packages/community/any/perl-gtk3).
 
 ---
 
@@ -284,7 +332,11 @@ I personally use pulseaudio, mpd and ncmpcpp are recommended because integrated 
 pulseaudio pulseaudio-alsa mpd mpc ncmpcpp
 ```
 
-Contents of [1](https://archlinux.org/packages/extra/x86_64/pulseaudio), [2](https://archlinux.org/packages/extra/x86_64/pulseaudio-alsa), [3](https://archlinux.org/packages/extra/x86_64/mpd), [4](https://archlinux.org/packages/extra/x86_64/mpc), [5](https://archlinux.org/packages/community/x86_64/ncmpcpp).
+Contents of [1](https://archlinux.org/packages/extra/x86_64/pulseaudio),
+[2](https://archlinux.org/packages/extra/x86_64/pulseaudio-alsa),
+[3](https://archlinux.org/packages/extra/x86_64/mpd),
+[4](https://archlinux.org/packages/extra/x86_64/mpc),
+[5](https://archlinux.org/packages/community/x86_64/ncmpcpp).
 
 Spotify is also integrated but optional, [here to install](https://wiki.archlinux.org/title/spotify).
 
@@ -298,9 +350,18 @@ All of the below if not installed, certain functionality will display a message 
 alsa-utils brightnessctl imagemagick scrot w3m wireless_tools xclip xsettingsd xss-lock
 ```
 
-Contents of [1](https://archlinux.org/packages/extra/x86_64/alsa-utils), [2](https://archlinux.org/packages/community/x86_64/brightnessctl), [3](https://archlinux.org/packages/extra/x86_64/imagemagick), [4](https://archlinux.org/packages/community/x86_64/scrot), [5](https://archlinux.org/packages/extra/x86_64/w3m), [6](https://archlinux.org/packages/core/x86_64/wireless_tools), [7](https://archlinux.org/packages/extra/x86_64/xclip), [8](https://archlinux.org/packages/community/x86_64/xsettingsd), [9](https://archlinux.org/packages/community/x86_64/xss-lock).
+Contents of [1](https://archlinux.org/packages/extra/x86_64/alsa-utils),
+[2](https://archlinux.org/packages/community/x86_64/brightnessctl),
+[3](https://archlinux.org/packages/extra/x86_64/imagemagick),
+[4](https://archlinux.org/packages/community/x86_64/scrot),
+[5](https://archlinux.org/packages/extra/x86_64/w3m),
+[6](https://archlinux.org/packages/core/x86_64/wireless_tools),
+[7](https://archlinux.org/packages/extra/x86_64/xclip),
+[8](https://archlinux.org/packages/community/x86_64/xsettingsd),
+[9](https://archlinux.org/packages/community/x86_64/xss-lock).
 
-Choose your own polkit authentication-agent. [polkit-gnome](https://archlinux.org/packages/community/x86_64/polkit-gnome)?
+Choose your own polkit authentication-agent.
+[polkit-gnome](https://archlinux.org/packages/community/x86_64/polkit-gnome)?
 
 ---
 
@@ -312,7 +373,11 @@ Just like mpd and ncmpcpp, configurations are included as [EXTRA_JOYFUL](./EXTRA
 thunar thunar-archive-plugin thunar-volman ffmpegthumbnailer tumbler
 ```
 
-Contents of [1](https://archlinux.org/packages/extra/x86_64/thunar), [2](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin), [3](https://archlinux.org/packages/extra/x86_64/thunar-volman), [4](https://archlinux.org/packages/extra/x86_64/ffmpegthumbnailer), [5](https://archlinux.org/packages/extra/x86_64/tumbler).
+Contents of [1](https://archlinux.org/packages/extra/x86_64/thunar),
+[2](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin),
+[3](https://archlinux.org/packages/extra/x86_64/thunar-volman),
+[4](https://archlinux.org/packages/extra/x86_64/ffmpegthumbnailer),
+[5](https://archlinux.org/packages/extra/x86_64/tumbler).
 
 Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
@@ -320,7 +385,16 @@ Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to
 geany geany-plugins gimp gsimplecal inkscape mpv parcellite pavucontrol viewnior xfce4-power-manager
 ```
 
-Contents of [1](https://archlinux.org/packages/community/x86_64/geany), [2](https://archlinux.org/packages/community/x86_64/geany-plugins), [3](https://archlinux.org/packages/extra/x86_64/gimp), [4](https://archlinux.org/packages/community/x86_64/gsimplecal), [5](https://archlinux.org/packages/extra/x86_64/inkscape), [6](https://archlinux.org/packages/community/x86_64/mpv), [7](https://archlinux.org/packages/community/x86_64/parcellite), [8](https://archlinux.org/packages/extra/x86_64/pavucontrol), [9](https://archlinux.org/packages/community/x86_64/viewnior), [10](https://archlinux.org/packages/extra/x86_64/xfce4-power-manager).
+Contents of [1](https://archlinux.org/packages/community/x86_64/geany),
+[2](https://archlinux.org/packages/community/x86_64/geany-plugins),
+[3](https://archlinux.org/packages/extra/x86_64/gimp),
+[4](https://archlinux.org/packages/community/x86_64/gsimplecal),
+[5](https://archlinux.org/packages/extra/x86_64/inkscape),
+[6](https://archlinux.org/packages/community/x86_64/mpv),
+[7](https://archlinux.org/packages/community/x86_64/parcellite),
+[8](https://archlinux.org/packages/extra/x86_64/pavucontrol),
+[9](https://archlinux.org/packages/community/x86_64/viewnior),
+[10](https://archlinux.org/packages/extra/x86_64/xfce4-power-manager).
 
 I personally don't use neofetch anymore since already use system-information via rofi, it's already scripted.
 
@@ -328,16 +402,19 @@ I personally don't use neofetch anymore since already use system-information via
 htop nano #neofetch
 ```
 
-Contents of [1](https://archlinux.org/packages/extra/x86_64/htop), [2](https://archlinux.org/packages/core/x86_64/nano), [3](https://archlinux.org/packages/community/any/neofetch).
+Contents of [1](https://archlinux.org/packages/extra/x86_64/htop),
+[2](https://archlinux.org/packages/core/x86_64/nano),
+[3](https://archlinux.org/packages/community/any/neofetch).
 
 [Here for improved nanorc with syntax-highlighting](https://github.com/scopatz/nanorc).
 
-I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [here is it](https://wiki.archlinux.org/title/NetworkManager#Front-ends).
+I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
+[here is it](https://wiki.archlinux.org/title/NetworkManager#Front-ends).
 
 </details>
 
 <details>
-<summary><b>Gentoo source-based Linux distribution</b></summary>
+<summary><b>Gentoo source-based Linux distributions</b></summary>
 
 > Gentoo Linux extremely recommended. Expert!
 
@@ -347,9 +424,11 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [
 💲 doas emerge -av <pkg1> <pkg2> <..>
 ```
 
-> Note that some packages require accepting [arch~ keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS). It's highly recommended.
+> Note that some packages require accepting [arch~ keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS).
+  It's highly recommended.
 
-> See also USE flags, it's complicated to explain. [You might want to see mine](https://github.com/owl4ce/hmg/tree/main/etc/portage).
+> See also USE flags, it's complicated to explain.
+  [You might want to see mine](https://github.com/owl4ce/hmg/tree/main/etc/portage).
 
 ---
 
@@ -359,7 +438,8 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [
 x11-base/xorg-server x11-apps/xrandr
 ```
 
-Contents of [1](https://packages.gentoo.org/packages/x11-base/xorg-server), [2](https://packages.gentoo.org/packages/x11-apps/xrandr).
+Contents of [1](https://packages.gentoo.org/packages/x11-base/xorg-server),
+[2](https://packages.gentoo.org/packages/x11-apps/xrandr).
 
 ---
 
@@ -374,7 +454,15 @@ URxvt is a highly recommended terminal emulator by default. Picom is optional, b
 x11-misc/dunst x11-misc/nitrogen x11-wm/openbox x11-misc/rofi =x11-terms/rxvt-unicode-9.26-r9:0::nelumbonaceae x11-misc/tint2 =x11-misc/picom-9999 x11-misc/obmenu-generator dev-perl/Gtk3
 ```
 
-Contents of [1](https://packages.gentoo.org/packages/x11-misc/dunst), [2](https://packages.gentoo.org/packages/x11-misc/nitrogen), [3](https://packages.gentoo.org/packages/x11-wm/openbox), [4](https://packages.gentoo.org/packages/x11-misc/rofi), [5](https://github.com/owl4ce/nelumbonaceae/tree/main/x11-terms/rxvt-unicode), [6](https://packages.gentoo.org/packages/x11-misc/tint2), [7](https://packages.gentoo.org/packages/x11-misc/picom), [8](https://packages.gentoo.org/packages/x11-misc/obmenu-generator), [9](https://packages.gentoo.org/packages/dev-perl/Gtk3).
+Contents of [1](https://packages.gentoo.org/packages/x11-misc/dunst),
+[2](https://packages.gentoo.org/packages/x11-misc/nitrogen),
+[3](https://packages.gentoo.org/packages/x11-wm/openbox),
+[4](https://packages.gentoo.org/packages/x11-misc/rofi),
+[5](https://github.com/owl4ce/nelumbonaceae/tree/main/x11-terms/rxvt-unicode),
+[6](https://packages.gentoo.org/packages/x11-misc/tint2),
+[7](https://packages.gentoo.org/packages/x11-misc/picom),
+[8](https://packages.gentoo.org/packages/x11-misc/obmenu-generator),
+[9](https://packages.gentoo.org/packages/dev-perl/Gtk3).
 
 ---
 
@@ -386,7 +474,10 @@ I personally use pulseaudio, mpd and ncmpcpp are recommended because integrated 
 media-sound/pulseaudio media-sound/mpd media-sound/mpc media-sound/ncmpcpp
 ```
 
-Contents of [1](https://packages.gentoo.org/packages/media-sound/pulseaudio), [2](https://packages.gentoo.org/packages/media-sound/mpd), [3](https://packages.gentoo.org/packages/media-sound/mpc), [4](https://packages.gentoo.org/packages/media-sound/ncmpcpp).
+Contents of [1](https://packages.gentoo.org/packages/media-sound/pulseaudio),
+[2](https://packages.gentoo.org/packages/media-sound/mpd),
+[3](https://packages.gentoo.org/packages/media-sound/mpc),
+[4](https://packages.gentoo.org/packages/media-sound/ncmpcpp).
 
 Spotify is also integrated but optional, [here to install](https://wiki.gentoo.org/wiki/Spotify).
 
@@ -403,9 +494,17 @@ All of the below if not installed, certain functionality will display a message 
 app-misc/brightnessctl media-gfx/imagemagick media-gfx/scrot www-client/w3m net-wireless/wireless-tools x11-misc/xclip x11-misc/xsettingsd x11-misc/xss-lock
 ```
 
-Contents of [1](https://gitweb.gentoo.org/repo/proj/guru.git/tree/app-misc/brightnessctl), [2](https://packages.gentoo.org/packages/media-gfx/imagemagick), [3](https://packages.gentoo.org/packages/media-gfx/scrot), [4](https://packages.gentoo.org/packages/www-client/w3m), [5](https://packages.gentoo.org/packages/net-wireless/wireless-tools), [6](https://packages.gentoo.org/packages/x11-misc/xclip), [7](https://packages.gentoo.org/packages/x11-misc/xsettingsd), [8](https://packages.gentoo.org/packages/x11-misc/xss-lock).
+Contents of [1](https://gitweb.gentoo.org/repo/proj/guru.git/tree/app-misc/brightnessctl),
+[2](https://packages.gentoo.org/packages/media-gfx/imagemagick),
+[3](https://packages.gentoo.org/packages/media-gfx/scrot),
+[4](https://packages.gentoo.org/packages/www-client/w3m),
+[5](https://packages.gentoo.org/packages/net-wireless/wireless-tools),
+[6](https://packages.gentoo.org/packages/x11-misc/xclip),
+[7](https://packages.gentoo.org/packages/x11-misc/xsettingsd),
+[8](https://packages.gentoo.org/packages/x11-misc/xss-lock).
 
-Choose your own polkit authentication-agent. [polkit-gnome](https://packages.gentoo.org/packages/gnome-extra/polkit-gnome)?
+Choose your own polkit authentication-agent.
+[polkit-gnome](https://packages.gentoo.org/packages/gnome-extra/polkit-gnome)?
 
 ---
 
@@ -417,7 +516,11 @@ Just like mpd and ncmpcpp, configurations are included as [EXTRA_JOYFUL](./EXTRA
 xfce-base/thunar xfce-extra/thunar-archive-plugin xfce-extra/thunar-volman media-video/ffmpegthumbnailer xfce-extra/tumbler
 ```
 
-Contents of [1](https://packages.gentoo.org/packages/xfce-base/thunar), [2](https://packages.gentoo.org/packages/xfce-extra/thunar-archive-plugin), [3](https://packages.gentoo.org/packages/xfce-extra/thunar-volman), [4](https://packages.gentoo.org/packages/media-video/ffmpegthumbnailer), [5](https://packages.gentoo.org/packages/xfce-extra/tumbler).
+Contents of [1](https://packages.gentoo.org/packages/xfce-base/thunar),
+[2](https://packages.gentoo.org/packages/xfce-extra/thunar-archive-plugin),
+[3](https://packages.gentoo.org/packages/xfce-extra/thunar-volman),
+[4](https://packages.gentoo.org/packages/media-video/ffmpegthumbnailer),
+[5](https://packages.gentoo.org/packages/xfce-extra/tumbler).
 
 Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
@@ -428,7 +531,16 @@ Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to
 dev-util/geany dev-util/geany-plugins media-gfx/gimp x11-misc/gsimplecal media-gfx/inkscape media-video/mpv x11-misc/parcellite media-sound/pavucontrol media-gfx/viewnior xfce-extra/xfce4-power-manager
 ```
 
-Contents of [1](https://packages.gentoo.org/packages/dev-util/geany), [2](https://packages.gentoo.org/packages/dev-util/geany-plugins), [3](https://packages.gentoo.org/packages/media-gfx/gimp), [4](https://github.com/miramir/miramir-layman/tree/master/x11-misc/gsimplecal), [5](https://packages.gentoo.org/packages/media-gfx/inkscape), [6](https://packages.gentoo.org/packages/media-video/mpv), [7](https://packages.gentoo.org/packages/x11-misc/parcellite), [8](https://packages.gentoo.org/packages/media-sound/pavucontrol), [9](https://packages.gentoo.org/packages/media-gfx/viewnior), [10](https://packages.gentoo.org/packages/xfce-extra/xfce4-power-manager).
+Contents of [1](https://packages.gentoo.org/packages/dev-util/geany),
+[2](https://packages.gentoo.org/packages/dev-util/geany-plugins),
+[3](https://packages.gentoo.org/packages/media-gfx/gimp),
+[4](https://github.com/miramir/miramir-layman/tree/master/x11-misc/gsimplecal),
+[5](https://packages.gentoo.org/packages/media-gfx/inkscape),
+[6](https://packages.gentoo.org/packages/media-video/mpv),
+[7](https://packages.gentoo.org/packages/x11-misc/parcellite),
+[8](https://packages.gentoo.org/packages/media-sound/pavucontrol),
+[9](https://packages.gentoo.org/packages/media-gfx/viewnior),
+[10](https://packages.gentoo.org/packages/xfce-extra/xfce4-power-manager).
 
 I personally don't use neofetch anymore since already use system-information via rofi, it's already scripted.
 
@@ -436,16 +548,18 @@ I personally don't use neofetch anymore since already use system-information via
 sys-process/htop #app-misc/neofetch
 ```
 
-Contents of [1](https://packages.gentoo.org/packages/sys-process/htop), [2](https://packages.gentoo.org/packages/app-misc/neofetch).
+Contents of [1](https://packages.gentoo.org/packages/sys-process/htop),
+[2](https://packages.gentoo.org/packages/app-misc/neofetch).
 
 [Here for improved nanorc with syntax-highlighting](https://github.com/scopatz/nanorc).
 
-I personally use NetworkManager (and IWD as wireless back-end) with nm-applet, [here is it](https://wiki.gentoo.org/wiki/NetworkManager#GTK_GUIs).
+I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
+[here is it](https://wiki.gentoo.org/wiki/NetworkManager#GTK_GUIs).
 
 </details>
 
 <details>
-<summary><b>Another independent Linux distribution</b></summary>
+<summary><b>Another independent Linux distributions</b></summary>
 
 > Need contributors to encapsulate dependencies.
 
@@ -461,7 +575,8 @@ Oops. Wrong One. ‘Do it yourself’.
 <details>
 <summary><b>Optionally Z shell with OMZ plugins</b></summary>
 
-Install zsh with system package-manager as described in the above-step before (or [OMZ wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)). Then OMZ.
+Install zsh with system package manager as described in the above step before
+(or [OMZ wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)). Then OMZ.
 
 ```sh
 💲 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -487,12 +602,12 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 
 </details>
 
-### :hibiscus: ‎ <samp>INSTALLATION (PREREQUISITE)</samp>
+### :hibiscus: ‎ <samp>INSTALLATION (PREREQUISITES)</samp>
 
 <details>
 <summary><b>Fonts</b></summary>
 
-| Typeface                                                                                                                          | License                                                                | The path of extracted file from the archive              |
+| Typefaces                                                                                                                         | License                                                                | The path of extracted files from the archive             |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------|
 | [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/LATEST-IS-0.303.1)                            | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
 | [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                          | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
@@ -567,7 +682,7 @@ It's required by dunst to display icons of the notification that spawned by prog
 
 > This is actually optional, but recommended.
 
-| Wallpaper                                                                                                  | License         | The path where it will be put |
+| Wallpapers                                                                                                 | License         | The path where it will be put |
 |:-----------------------------------------------------------------------------------------------------------|:----------------|:------------------------------|
 | [batik-1_4K](https://github.com/owl4ce/dotfiles/releases/download/ng/batik-1_4K.jpg)                       | CC BY-NC-SA 4.0 | `~/.wallpapers/mechanical`    |
 | [okita-souji_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/okita-souji_FHD.jpg)             | CC BY-NC-SA 4.0 | `~/.wallpapers/mechanical`    |
@@ -591,7 +706,7 @@ Download all the wallpapers above. Then, put the files as instructed into the `~
 <details>
 <summary><b>Synchronize minimal .files</b></summary>
 
-You can clone or download as archive. Then, put all the .files in the dotfiles folder into user's home directory.
+You can clone or download as archive. Then, put all the .files in the dotfiles directory into user's home directory.
 Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync program.
 
 ```sh
@@ -633,7 +748,7 @@ I recommend not deleting the dotfiles directory after cloning to make [upgrading
 </details>
 
 <details>
-<summary><b>Refresh fonts cache</b></summary>
+<summary><b>Regenerate font caches</b></summary>
 
 This ensures all existing caches are cleared and regenerated for all installed fonts.
 
@@ -647,15 +762,16 @@ This ensures all existing caches are cleared and regenerated for all installed f
 <summary><b>The step you're waiting for</b></summary>
 
 The final step is to login to the openbox-session, basically login from your display manager like lightdm, gdm, etc.
-If you're using [`~/.xinitrc`](https://wiki.archlinux.org/title/Xinit) without a display manager, simply add the following one-liner commands at the end.
+If you're using [`~/.xinitrc`](https://wiki.archlinux.org/title/Xinit) without a display manager,
+simply add the following one-liner commands at the end.
 
-**Systemd-based Linux distribution**
+**Systemd-based Linux distributions**
 
 ```sh
 exec openbox-session
 ```
 
-**[Init-freedom](https://devuan.org/os/init-freedom) Linux distribution**
+**[Init-freedom](https://devuan.org/os/init-freedom) Linux distributions**
 
 ```sh
 exec dbus-launch --exit-with-x11 openbox-session
@@ -671,7 +787,8 @@ Then you can proceed to [guides](#herb--guides). Explore!
 <summary><b>Click here to extend</b></summary>
 
 Since I recommend using rsync from the beginning,
-the easiest way is to list the files (via shell [heredocs](https://tldp.org/LDP/abs/html/here-docs.html)) that won't be updated to avoid replacing personal files with .files.
+the easiest way is to list the files (via shell [heredocs](https://tldp.org/LDP/abs/html/here-docs.html))
+that won't be updated to avoid replacing personal files with .files.
 First, update the local repository with the remote git repository.
 
 > Remember where you cloned the repository. We assumed that it was in `~/Documents` directory.
@@ -727,7 +844,7 @@ Manage all your settings there. I hope all the comments there are easy to unders
 <details>
 <summary><b>Touchpad tap-to-click (<a href="https://wiki.archlinux.org/title/Libinput#Tapping_button_re-mapping">libinput</a>)</b></summary>
 
-`/etc/X11/xorg.conf.d/30-touchpad.conf`
+[`/etc/X11/xorg.conf.d/30-touchpad.conf`](https://wiki.archlinux.org/title/libinput#Tips_and_tricks)
 
 ```cfg
 Section "InputClass"
@@ -755,7 +872,7 @@ A unix-shell syntax, POSIX-compliant is highly recommended. Don't change the def
 
 [`~/.config/openbox/tray`](./.config/openbox/tray)
 
-One program (and if any, with arguments) for each line. It will be restarted after switching modes.
+Single program (and if any, with arguments) for each line. It will be restarted after switching modes.
 
 </details>
 
@@ -781,9 +898,11 @@ Use `export` to set user's environment variables universally. Don't add any othe
 | *session_locker* | *anything*                                                 | Session Locker    |
 
 Terminal emulator and file manager are universally used, both for keybindings and context menus.
-Terminal emulator is actually freedom-of-choice, but it's not integrated, it will display a notification message.
-The music player can be switched without modifying the configuration manually, via music control button on the tint2 panel, just hover it.
-The session locker is used by xss-lock program (which enabled in [autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd-events and [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
+Terminal emulator is actually freedom-of-choice, but it's not integrated,
+it will display a notification message. The music player can be switched without modifying the configuration manually,
+via music control button in the tint2 panel, just hover it. The session locker is used by xss-lock program
+(which enabled in [autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd-events and
+[DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
 
 </details>
 
@@ -796,23 +915,24 @@ Update the mpd database first, via mpc or by pressing <kbd>U</kbd> in ncmpcpp.
 💲 mpc -p 7777 update
 ```
 
-Put the image files matched to REGEX `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the folder containing the album tracks.
-The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10). The recommended image size is 500 pixels at ratio of 1:1 or more. This is for URxvt only.
+Put the image files matched to REGEX `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory
+containing the album tracks. The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10).
+The recommended image size is 500 pixels at ratio of 1:1 or more. This is for URxvt only.
 
 </details>
 
 <details>
 <summary><b>File manager side-pane and <a href="https://wiki.archlinux.org/title/XDG_user_directories">XDG user directories</a></b></summary>
 
-If you just installed thunar without XFCE, you might get a side-pane without XDG directories like **Documents**, **Downloads**, etc.
-Once you have created the directories, open thunar and select or block the directories, right click and click **Send To** 🡲 **Side Pane**.
-The following command generates those directories.
+If you just installed thunar without XFCE, you might get a side-pane without XDG directories like **Documents**,
+**Downloads**, etc. Once you have created the directories, open thunar and select or block the directories,
+right click and click **Send To** 🡲 **Side Pane**. The following command generates those directories.
 
 ```sh
 💲 xdg-user-dirs-update
 ```
 
-If you want to get 100% thunar looks similar to my screenshot, ensure to copy my thunar configuration.
+If you want to get 100% thunar looks similar to my screenshots, ensure to copy my thunar configurations.
 Then hide **Computer**, **Desktop**, **Recent**, or whatever you want by right clicking **Places** in thunar side-pane.
 By default, my thunar side-pane configuration uses simple 16 pixels icons.
 
@@ -824,7 +944,7 @@ By default, my thunar side-pane configuration uses simple 16 pixels icons.
 - [Telegram Desktop Nord Theme](https://t.me/addtheme/nord_colors)
 - [Recommended Modern Unix Utilities](https://github.com/ibraheemdev/modern-unix)
 - [Chrome-based Hardware Acceleration](https://linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html)
-- [Automatic Tiling for EWMH-compliant WM](https://github.com/blrsn/zentile)
+- [Automatic Tiling for EWMH-compliant WMs](https://github.com/blrsn/zentile)
 
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
@@ -892,14 +1012,15 @@ By default, my thunar side-pane configuration uses simple 16 pixels icons.
 | <kbd>super</kbd> + <kbd>`scroll up`</kbd> / <kbd>`scroll down`</kbd>                                                                                        | Move desktop/workspace to previous or next        |
 |                                                                                                                                                             |                                                   |
 | **Cursor on Desktop**                                                                                                                                       |                                                   |
-| <kbd>`right Click`</kbd>                                                                                                                                    | Show desktop (root-)menu                          |
 | <kbd>`middle Click`</kbd>                                                                                                                                   | Show desktop/workspace lists                      |
+| <kbd>`right Click`</kbd>                                                                                                                                    | Show desktop (root-)menu                          |
 | <kbd>`scroll up`</kbd> / <kbd>`scroll down`</kbd>                                                                                                           | Move desktop/workspace to previous or next        |
 |                                                                                                                                                             |                                                   |
 | **Cursor on Window Titlebar**                                                                                                                               |                                                   |
 | <kbd>`left click`</kbd> (or simply hover)                                                                                                                   | Focus and raise window                            |
 | <kbd>`middle click`</kbd>                                                                                                                                   | Switch active window to previous or next window   |
 | <kbd>`right click`</kbd>                                                                                                                                    | Show (client-)menu of focused window              |
+| <kbd>`scroll up`</kbd> / <kbd>`scroll down`</kbd>                                                                                                           | Roll up or down focused window                    |
 
 > **LEGEND**  
 > [<kbd>super</kbd>](https://en.wikipedia.org/wiki/Super_key_(keyboard_button))
@@ -935,8 +1056,8 @@ By default, my thunar side-pane configuration uses simple 16 pixels icons.
 |                                                              |                                    |
 | **URL Selection (matcher)**                                  |                                    |
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>U</kbd>            | Activate URL selection             |
-| <kbd>⯇</kbd> / <kbd>⯅</kbd> / <kbd>⯈</kbd> / <kbd>⯆</kbd>  | Navigate URL selection             |
-| <kbd>enter</kbd> / <kbd>`middle click`</kbd>                 | Open selected URL                  |
+| <kbd>⯇</kbd> / <kbd>⯅</kbd> / <kbd>⯈</kbd> / <kbd>⯆</kbd> | Navigate URL selection             |
+| <kbd>enter</kbd> / <kbd>`left click`</kbd>                   | Open selected URL                  |
 | <kbd>esc</kbd>                                               | Deactivate URL selection           |
 |                                                              |                                    |
 | **Font Resizer**                                             |                                    |
@@ -967,17 +1088,27 @@ By default, my thunar side-pane configuration uses simple 16 pixels icons.
 
 </details>
 
-[Custom key](./EXTRA_JOYFUL/.config/mpv/input.conf) [Anime4K shaders](https://github.com/bloc97/Anime4K/blob/master/GLSL_Instructions.md) with [mpv](https://mpv.io/manual/master/#interactive-control).
-[Ncmpcpp](https://pkgbuild.com/~jelle/ncmpcpp).
-[Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts) with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
+[Custom key](./EXTRA_JOYFUL/.config/mpv/input.conf)
+[Anime4K shaders](https://github.com/bloc97/Anime4K/blob/master/GLSL_Instructions.md) with
+[mpv](https://mpv.io/manual/master/#interactive-control). [Ncmpcpp](https://pkgbuild.com/~jelle/ncmpcpp).
+[Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts) with
+[custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
 
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
-This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year. My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any desktop decorations such as widgets, but customizable to users' taste with an overall theme based on my unnamed color palette and easily switchable themes along with fashion.
+This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the
+story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year.
+My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any desktop
+decorations such as widgets, but customizable to users' taste with an overall theme based on my
+[unnamed color palette](./.Xresources#L76-L95) and easily switchable themes along with fashions.
 
-I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software" completely, which is in very poor condition, especially among Microsoft Windows consumers.
+I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can learn
+open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software" completely,
+which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
+If you feel happy, give this a **star**. If there's a problem with the configuration
+(please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues)
+or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
 
 <pre align="center">
 <a href="#maple_leaf--history">
@@ -1029,3 +1160,9 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 ## :jack_o_lantern: ‎ <samp>SECURITY POLICY</samp>
 
 [Read here](./SECURITY.md).
+
+<h1></h1>
+
+<pre align="center">
+<a href="#---------1">BACK TO TOP</a>
+</pre>
