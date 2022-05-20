@@ -3,6 +3,8 @@
 # The Joyful Desktop universal environment variables.
 # https://github.com/owl4ce/dotfiles
 
+unalias -a
+
 # How to restart UI?
 # Just switch modes or right-click on the desktop or press [SUPER] + [SHIFT] + [R].
 
@@ -64,6 +66,7 @@ EYEC_INT_OB_MENU_ITM="$EYEC_INT_ROFI_ACCNT2"     # Items color of Openbox menu
 
 # >~~~~~~~~~~~~~< 0 to 100 >~~~~~~~~~~~~~~~~~~~~~~~~~~~< Opacity Levels >~~~~~~~~< #
 DUNST_OPACITY='97'
+ROFI_OPACITY='97'
 URXVT_OPACITY='97'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
@@ -108,7 +111,7 @@ SS_POINTER='no'                                  # Universal or all modes
 SS_QUALITY='100'                                 # Universal or all modes
 
 SS_USE_FRAME='yes'                               # Selection or draw mode
-SS_FRAME_COLOR='auto' #434c5e (for terminal)     # Selection or draw mode w frame
+SS_FRAME_COLOR='auto' #434c5e: better 4 terminal # Selection or draw mode w frame
 SS_FRAME_PADDING='15'                            # Selection or draw mode w frame
 SS_FRAME_S_OPACITY='25'                          # Selection or draw mode w frame
 
@@ -153,11 +156,39 @@ NCMPCPP_AA_NICENESS='19'
 # ATTENTION: Do not change or re-arrange these variables unless you know!!! (^w^)  #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
+siq()
+{
+    [ -f "${2}" ] || return ${?}
+
+    while IFS= read -r STRING; do
+        [ "${STRING%%\ *}" = "${1}" ] || continue
+        STRING="${STRING##${1}}" STRING="${STRING#*\"}"
+        echo "${STRING%\"*}"
+        break
+    done <"${2}"
+}
+
+#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
+
 OB_MARGIN='10'
 MECH_GTK='Fleon'
 EYEC_GTK='Sweetly'
 MECH_ICON='Papirus-Dark-Custom'
 EYEC_ICON='Papirus-Custom'
+
+LIBS_PATH=" \
+/usr/lib \
+/usr/lib64 \
+/usr/libexec \
+/usr/libexec64 \
+/usr/local/lib \
+/usr/local/lib64 \
+/usr/local/libexec \
+/usr/local/libexec64 \
+${HOME}/.nix-profile/lib \
+${HOME}/.nix-profile/lib64 \
+${HOME}/.nix-profile/libexec \
+${HOME}/.nix-profile/libexec64 "
 
 CONFIG_DIR="${HOME}/.config"
 ICONS_DIR="${HOME}/.icons"
@@ -193,21 +224,17 @@ APPS_FILE="${SCRIPTS_DIR}/db.apps.joy"
 GTK2_CONFIG="${HOME}/.gtkrc-2.0"
 XRESOURCES_CONFIG="${HOME}/.Xresources"
 
-CHK_MPD_PORT="$(sed -e 's|^port[ ]*"\(.*\)"|\1|p' -n "$MPD_CONFIG")"
-CHK_MPD_MUSIC_DIR="$(sed -e "/~\//s|~|${HOME}|" -e 's|^music_directory[ ]*"\(.*\)"|\1|p' -n "$MPD_CONFIG")"
-CHK_OB_THEME_LINE="$(grep -m1 -Fno '<theme>' "$OB_CONFIG")" \
-CHK_OB_THEME_LINE="$((${CHK_OB_THEME_LINE%%:*}+1))"
-CHK_OB_DECOR_LINE="$(grep -m1 -Fno '<application class="*" type="normal">' "$OB_CONFIG")" \
-CHK_OB_DECOR_LINE="$((${CHK_OB_DECOR_LINE%%:*}+1))"
-CHK_OB_DECOR_STAT="$(sed -e "${CHK_OB_DECOR_LINE}s|[ ]*<decor>\(.*\)</decor>|\1|p" -n "$OB_CONFIG")"
-CHK_THEME="$(sed -e 's|^current_theme[ ]*"\(.*\)"|\1|p' -n "$MODE_FILE")"
-CHK_MODE="$(sed -e 's|^current_mode[ ]*"\(.*\)"|\1|p' -n "$MODE_FILE")"
-CHK_PANEL_ORT="$(sed -e "s|^panel_orientation.artistic[ ]*\"\(.*\)\"|\1|p" -n "$MODE_FILE")"
-CHK_PANEL_ORT_V="$(sed -e "s|^vertical_panel.artistic[ ]*\"\(.*\)\"|\1|p" -n "$MODE_FILE")"
-CHK_PANEL_ORT_H="$(sed -e "s|^horizontal_panel.artistic[ ]*\"\(.*\)\"|\1|p" -n "$MODE_FILE")"
-CHK_OB_BUTTON_STYLE="$(sed -e "s|^ob_button_style.${CHK_THEME}.${CHK_MODE}[ ]*\"\(.*\)\"|\1|p" -n "$THEME_FILE")"
-CHK_OB_BUTTON_LOC="$(sed -e "s|^ob_button_location.${CHK_THEME}.${CHK_MODE}[ ]*\"\(.*\)\"|\1|p" -n "$THEME_FILE")"
-CHK_WALLPAPER="$(sed -e "s|^wallpaper.${CHK_THEME}.${CHK_MODE}[ ]*\"\(.*..*\)\"|\1|p" -n "$THEME_FILE")"
+CHK_MPD_PORT="$(siq 'port' "$MPD_CONFIG")"
+CHK_MPD_MUSIC_DIR="$(siq 'music_directory' "$MPD_CONFIG")"
+
+CHK_THEME="$(siq 'current_theme' "$MODE_FILE")"
+CHK_MODE="$(siq 'current_mode' "$MODE_FILE")"
+CHK_PANEL_ORT="$(siq 'panel_orientation.artistic' "$MODE_FILE")"
+CHK_PANEL_ORT_V="$(siq 'vertical_panel.artistic' "$MODE_FILE")"
+CHK_PANEL_ORT_H="$(siq 'horizontal_panel.artistic' "$MODE_FILE")"
+CHK_OB_BUTTON_STYLE="$(siq "ob_button_style.${CHK_THEME}.${CHK_MODE}" "$THEME_FILE")"
+CHK_OB_BUTTON_LOC="$(siq "ob_button_location.${CHK_THEME}.${CHK_MODE}" "$THEME_FILE")"
+CHK_WALLPAPER="$(siq "wallpaper.${CHK_THEME}.${CHK_MODE}" "$THEME_FILE")"
 
 WALLPAPER_DIR="${WALLPAPERS_DIR}/${CHK_THEME}"
 
@@ -220,25 +247,8 @@ WALLPAPER_ICON="${GLADIENT_ICON_DIR}/wallpaper.png"
 MPD_NOTIFY_AA_IMG="${TMP_DIR}/mpd.notify.album-art.png"
 NCMPCPP_AA_IMG="${TMP_DIR}/ncmpcpp.album-art.png"
 NCMPCPP_AA_PID="${NCMPCPP_AA_IMG%.*}.pid"
-
 ROFI_EXTS_CMD="${TMP_DIR}/rofi-exts.cmd"
 
-LIBS_PATH=" \
-/usr/local/lib \
-/usr/local/libexec \
-/usr/local/lib64 \
-/usr/local/libexec64 \
-/usr/lib \
-/usr/libexec \
-/usr/lib64 \
-/usr/libexec64 \
-${HOME}/.nix-profile/lib \
-${HOME}/.nix-profile/libexec \
-${HOME}/.nix-profile/lib64 \
-${HOME}/.nix-profile/libexec64 "
-
-#-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# ^ALIASES FUNCTIONS ALIASES FUNCTIONS ALIASES FUNCTIONS ALIASES FUNCTIONS ALIASES #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 alias joyd_mpd_notifier="${MPD_SCRIPTS_DIR}/mpd-notifier.sh"
@@ -256,56 +266,56 @@ alias joyd_screenshot_countdown="${SCRIPTS_DIR}/screenshot-countdown.sh"
 alias joyd_screenshot_screen="${SCRIPTS_DIR}/screenshot-screen.sh"
 alias joyd_screenshot_selection="${SCRIPTS_DIR}/screenshot-selection.sh"
 
-joyd_tray_programs()
+joyd_cross_variables()
 {
-    if [ -n "${1}" ]; then
-        grep -Fv '#' "$OB_TRAY" | while IFS= read -r TRAY; do
+    U4T="$(echo "$CHK_THEME" | cut -c1-4 | tr '[a-z]' '[A-Z]')"
+    U3M="$(echo "$CHK_MODE"  | cut -c1-3 | tr '[a-z]' '[A-Z]')"
 
-            [ -x "$(command -v "${TRAY%%\ *}")" ] || continue
-
-            case "${1}" in
-                exec) pgrep "${TRAY%%\ *}" \
-                      || eval "\"$TRAY\"  >/dev/null  2>&1 &"
-                ;;
-                kill) pgrep "${TRAY%%\ *}" \
-                      && eval "killall -9 \"${TRAY%%\ *}\" &"
-                ;;
-            esac
-
-        done
-    fi
+    eval "
+                GTK_T=\"\$${U4T}_GTK\"
+                ICON_T=\"\$${U4T}_ICON\"
+                OBT_D=\"\$${U4T}_OB_THEME_DIR\"
+                OBT_IT=\"\$${U4T}_${U3M}_OB_MENU_ITM\"
+                OBT_TT=\"\$${U4T}_${U3M}_OB_MENU_TTL\"
+                ROFI_A1=\"\$${U4T}_${U3M}_ROFI_ACCNT1\"
+                ROFI_A2=\"\$${U4T}_${U3M}_ROFI_ACCNT2\"
+                DUNST_FG=\"\$${U4T}_${U3M}_DUNST_SMMRY\"
+                DUNST_PB=\"\$${U4T}_${U3M}_DUNST_PRGBR\"
+                TINT2_G1=\"\$${U4T}_${U3M}_TINT2_GRAD1\"
+                TINT2_G2=\"\$${U4T}_${U3M}_TINT2_GRAD2\"
+                TINT2_SB=\"\$${U4T}_${U3M}_TINT2_BUTTON\"
+                                                              "
 }
 
 joyd_gtk_live_reload()
 {
-    if [ -n "${2}" -a -x "$(command -v xsettingsd)" ]; then
-        {
-            xsettingsd -c /dev/stdin <<- EOF
-				Net/IconThemeName    "${2}"
-				Net/ThemeName        "${1}"
-			EOF
-        } &
-        { sleep 2s; killall -9 xsettingsd; } &
-    fi
+    [ -n "${2}" -a -x "$(command -v xsettingsd)" ] || return ${?}
+
+    {
+        xsettingsd -c /dev/stdin <<- EOF
+			Net/IconThemeName    "${2}"
+			Net/ThemeName        "${1}"
+		EOF
+    } &
+
+    { sleep 2s; killall -9 xsettingsd; } &
 }
 
-joyd_cross_variables()
+joyd_tray_programs()
 {
-    U4T="$(echo "$CHK_THEME" | cut -b1-4 | sed -e '1s|.*|\U&|')"
-    U3M="$(echo "$CHK_MODE"  | cut -b1-3 | sed -e '1s|.*|\U&|')"
+    [ -n "${1}" ] || return ${?}
 
-    eval " GTK_T=\"\$${U4T}_GTK\"
-           ICON_T=\"\$${U4T}_ICON\"
-           OBT_D=\"\$${U4T}_OB_THEME_DIR\"
-           OBT_IT=\"\$${U4T}_${U3M}_OB_MENU_ITM\"
-           OBT_TT=\"\$${U4T}_${U3M}_OB_MENU_TTL\"
-           ROFI_A1=\"\$${U4T}_${U3M}_ROFI_ACCNT1\"
-           ROFI_A2=\"\$${U4T}_${U3M}_ROFI_ACCNT2\"
-           DUNST_FG=\"\$${U4T}_${U3M}_DUNST_SMMRY\"
-           DUNST_PB=\"\$${U4T}_${U3M}_DUNST_PRGBR\"
-           TINT2_G1=\"\$${U4T}_${U3M}_TINT2_GRAD1\"
-           TINT2_G2=\"\$${U4T}_${U3M}_TINT2_GRAD2\"
-           TINT2_SB=\"\$${U4T}_${U3M}_TINT2_BUTTON\" "
+    grep -Fv '#' "$OB_TRAY" | while IFS= read -r TRAY; do
+        [ -x "$(command -v "${TRAY%%\ *}")" ] || continue
+        case "${1}" in
+            exec) pgrep "${TRAY%%\ *}" \
+                  || eval "\"$TRAY\"  >/dev/null  2>&1 &"
+            ;;
+            kill) pgrep "${TRAY%%\ *}" \
+                  && eval "killall -9 \"${TRAY%%\ *}\" &"
+            ;;
+        esac
+    done
 }
 
 return ${?}
