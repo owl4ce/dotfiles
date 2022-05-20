@@ -33,16 +33,16 @@ MECH_ART_TINT2_GRAD1="$COL_RED_MAGENTA"          # Tint2 button gradient color #
 MECH_ART_TINT2_GRAD2="$COL_RED"                  # Tint2 button gradient color #2
 MECH_ART_ROFI_ACCNT1="$MECH_ART_TINT2_GRAD1"     # Rofi accent color (buttons) #1
 MECH_ART_ROFI_ACCNT2="$MECH_ART_TINT2_GRAD2"     # Rofi accent color (buttons) #2
-MECH_ART_DUNST_SMMRY="$COL_WHITE"                # Title/summary color on dunst
-MECH_ART_DUNST_PRGBR="$MECH_ART_TINT2_GRAD1"     # Progress bar color on dunst
+MECH_ART_DUNST_SMMRY="$COL_WHITE"                # Dunst title / summary color
+MECH_ART_DUNST_PRGBR="$MECH_ART_TINT2_GRAD1"     # Dunst progress bar fg color
 MECH_ART_OB_MENU_TTL="$MECH_ART_TINT2_GRAD2"     # Title color of Openbox menu
 MECH_ART_OB_MENU_ITM="$MECH_ART_TINT2_GRAD1"     # Items color of Openbox menu
 
 # >~~~~~~~~~~~~< Mechanical >~~~~~~~~~~~~~~~~~~~~~~~~~< Interactive Mode >~~~~~~~< #
 MECH_INT_ROFI_ACCNT1="$COL_WHITE"                # Rofi accent color (buttons) #1
 MECH_INT_ROFI_ACCNT2="$MECH_INT_ROFI_ACCNT1"     # Rofi accent color (buttons) #2
-MECH_INT_DUNST_SMMRY="$MECH_INT_ROFI_ACCNT2"     # Title/summary color on dunst
-MECH_INT_DUNST_PRGBR="$MECH_INT_ROFI_ACCNT2"     # Progress bar color on dunst
+MECH_INT_DUNST_SMMRY="$MECH_INT_ROFI_ACCNT2"     # Dunst title / summary color
+MECH_INT_DUNST_PRGBR="$MECH_INT_ROFI_ACCNT2"     # Dunst progress bar fg color
 MECH_INT_OB_MENU_TTL="$MECH_INT_ROFI_ACCNT2"     # Title color of Openbox menu
 MECH_INT_OB_MENU_ITM="$COL_BLUE"                 # Items color of Openbox menu
 
@@ -51,16 +51,16 @@ EYEC_ART_TINT2_GRAD1="$COL_RED"                  # Tint2 button gradient color #
 EYEC_ART_TINT2_GRAD2="$COL_RED_VIOLET"           # Tint2 button gradient color #2
 EYEC_ART_ROFI_ACCNT1="$EYEC_ART_TINT2_GRAD1"     # Rofi accent color (buttons) #1
 EYEC_ART_ROFI_ACCNT2="$EYEC_ART_TINT2_GRAD2"     # Rofi accent color (buttons) #2
-EYEC_ART_DUNST_SMMRY="$COL_BLUE"                 # Title/summary color on dunst
-EYEC_ART_DUNST_PRGBR="$EYEC_ART_TINT2_GRAD1"     # Progress bar color on dunst
+EYEC_ART_DUNST_SMMRY="$COL_BLUE"                 # Dunst title / summary color
+EYEC_ART_DUNST_PRGBR="$EYEC_ART_TINT2_GRAD1"     # Dunst progress bar fg color
 EYEC_ART_OB_MENU_TTL="$EYEC_ART_DUNST_SMMRY"     # Title color of Openbox menu
 EYEC_ART_OB_MENU_ITM="$EYEC_ART_TINT2_GRAD1"     # Items color of Openbox menu
 
 # >~~~~~~~~~~~~~< EyeCandy >~~~~~~~~~~~~~~~~~~~~~~~~~~< Interactive Mode >~~~~~~~< #
 EYEC_INT_ROFI_ACCNT1="$COL_RED"                  # Rofi accent color (buttons) #1
 EYEC_INT_ROFI_ACCNT2="$COL_RED_VIOLET"           # Rofi accent color (buttons) #2
-EYEC_INT_DUNST_SMMRY="$EYEC_INT_ROFI_ACCNT2"     # Title/summary color on dunst
-EYEC_INT_DUNST_PRGBR="$COL_GREEN"                # Progress bar color on dunst
+EYEC_INT_DUNST_SMMRY="$EYEC_INT_ROFI_ACCNT2"     # Dunst title / summary color
+EYEC_INT_DUNST_PRGBR="$COL_GREEN"                # Dunst progress bar fg color
 EYEC_INT_OB_MENU_TTL="$EYEC_INT_ROFI_ACCNT1"     # Title color of Openbox menu
 EYEC_INT_OB_MENU_ITM="$EYEC_INT_ROFI_ACCNT2"     # Items color of Openbox menu
 
@@ -80,15 +80,17 @@ WEB_BROWSER='your_web_browser'
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # IFACE_ET              || Ethernet interface, run `ifconfig` or `ip link` to see. #
 # IFACE_WL              || Wireless interface, run `ifconfig` or `ip link` to see. #
+#                       ||---------------------------------------------------------#
 # TEMP_DEV              || Temperature device, see "/sys/devices/virtual/thermal". #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 IFACE_ET='enp4s0'
 IFACE_WL='wlan0'
+
 TEMP_DEV='thermal_zone0'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# SCReenshOT options                                          ~ Auto-reconfigure ~ #
+# Screenshot options                                          ~ Auto-reconfigure ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # SS_SAVE               || Save screenshots? If not then it's copied to clipboard. #
 # SS_SVDIR              || Directory to save screenshots, "$SS_SVDIR/Screenshots". #
@@ -256,10 +258,7 @@ alias joyd_mpd_notify_albumart="${MPD_SCRIPTS_DIR}/notify.album-art.sh"
 alias joyd_layout_set="${JOYD_DIR}/layout-set.sh"
 alias joyd_terminal_set="${JOYD_DIR}/terminal-set.sh"
 alias joyd_theme_set="${JOYD_DIR}/theme-set.sh"
-alias joyd_toggle_mode="${JOYD_DIR}/toggle-mode.sh"
 alias joyd_user_interface_set="${JOYD_DIR}/user-interface-set.sh"
-alias joyd_change_brightness="${SCRIPTS_DIR}/change-brightness.sh"
-alias joyd_change_volume="${SCRIPTS_DIR}/change-volume.sh"
 alias joyd_launch_apps="${SCRIPTS_DIR}/launch-apps.sh"
 alias joyd_music_controller="${SCRIPTS_DIR}/music-controller.sh"
 alias joyd_screenshot_countdown="${SCRIPTS_DIR}/screenshot-countdown.sh"
