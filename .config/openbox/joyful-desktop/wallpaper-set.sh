@@ -63,46 +63,43 @@ case "${1}" in
                     RES='_ULTRA'
                 fi
 
-                if [ "$CHK_THEME" = 'mechanical' ]; then
-
-                    magick "$RAW" \
-                           -gravity center \
-                           -crop 16:9 \
-                       '(' -clone 0 \
-                           -fill '#4c566a' \
-                           -colorize 50% \
-                       ')' -gravity center \
-                           -compose lighten \
-                           -composite \
-                       '(' -clone 0 \
-                           -fill '#4c566a' \
-                           -colorize 20% \
-                       ')' -gravity center \
-                           -compose darken \
-                           -composite \
-                           -quality 100% \
-                    "${WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
-                    || continue
-
-                elif [ "$CHK_THEME" = 'eyecandy' ]; then
-
-                    magick "$RAW" \
-                           -gravity center \
-                           -crop 16:9 \
-                       '(' -clone 0 \
-                           -fill white \
-                           -colorize 20% \
-                           -modulate 100,127,97 \
-                       ')' -fill black \
-                           -colorize 2.2% \
-                           -gravity center \
-                           -compose lighten \
-                           -composite \
-                           -quality 100% \
-                    "${WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
-                    || continue
-
-                fi
+                case "$CHK_THEME" in
+                    mech*) magick "$RAW" \
+                                  -gravity center \
+                                  -crop 16:9 \
+                              '(' -clone 0 \
+                                  -fill '#4c566a' \
+                                  -colorize 50% \
+                              ')' -gravity center \
+                                  -compose lighten \
+                                  -composite \
+                              '(' -clone 0 \
+                                  -fill '#4c566a' \
+                                  -colorize 20% \
+                              ')' -gravity center \
+                                  -compose darken \
+                                  -composite \
+                                  -quality 100% \
+                           "${WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
+                           || continue
+                    ;;
+                    eyec*) magick "$RAW" \
+                                  -gravity center \
+                                  -crop 16:9 \
+                              '(' -clone 0 \
+                                  -fill white \
+                                  -colorize 20% \
+                                  -modulate 100,127,97 \
+                              ')' -fill black \
+                                  -colorize 2.2% \
+                                  -gravity center \
+                                  -compose lighten \
+                                  -composite \
+                                  -quality 100% \
+                           "${WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
+                           || continue
+                    ;;
+                esac
 
                 dunstify '' "Successfully generated!\n<span size='small'>Now it's time to change X wallpaper</span>" \
                          -i  "$WALLPAPER_ICON" -r 82 -u low
