@@ -35,6 +35,7 @@ wait
     dunstctl set-paused false
 
     dunstify 'Session Manager' "Welcome back <u>${USER:-$(id -nu)}</u>" -h string:synchronous:session-manager \
+                                                                        -a joyful_desktop \
                                                                         -i "$LOGOUT_ICON"
 } &
 

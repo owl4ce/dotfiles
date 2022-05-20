@@ -42,6 +42,7 @@ setup_ui()
     esac
 
     dunstify "$SUMMARY" "$BODY" -h string:synchronous:toggle-mode \
+                                -a joyful_desktop \
                                 -i "${GLADIENT_ICON_DIR}/${1}.${2}.png" \
                                 -u low
 }

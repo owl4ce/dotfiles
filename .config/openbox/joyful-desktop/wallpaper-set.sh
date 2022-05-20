@@ -30,10 +30,12 @@ case "${1}" in
 
         dunstify '' "<span size='small'><u>${WALLPAPER}</u></span>\nSuccessfully applied!" \
                  -h string:synchronous:wallpaper-set \
+                 -a joyful_desktop \
                  -i "$WALLPAPER_ICON" \
                  -u low
     ;;
     g*) [ -x "$(command -v magick)" ] || exec dunstify 'Install `imagemagick`!' -h string:synchronous:install-deps \
+                                                                                -a joyful_desktop \
                                                                                 -u low
 
         cd -- "$WALLPAPERS_DIR" || exit ${?}
@@ -43,6 +45,7 @@ case "${1}" in
 
                 dunstify '' "Generating X wallpaper ..\n<span size='small'><u>${RAW}</u></span>" \
                          -h string:synchronous:wallpaper-set \
+                         -a joyful_desktop \
                          -i "$WALLPAPER_ICON" \
                          -t 1000
 
@@ -108,6 +111,7 @@ case "${1}" in
 
                 dunstify '' "Successfully generated!\n<span size='small'>Now it's time to change X wallpaper</span>" \
                          -h string:synchronous:wallpaper-set \
+                         -a joyful_desktop \
                          -i "$WALLPAPER_ICON" \
                          -u low
 
@@ -116,6 +120,7 @@ case "${1}" in
             else
                 dunstify '' "Nothing to generate!\n<span size='small'>Puts in <u>~/${WALLPAPERS_DIR##*/}</u></span>" \
                          -h string:synchronous:wallpaper-set \
+                         -a joyful_desktop \
                          -i "$WALLPAPER_ICON" \
                          -u low
             fi
