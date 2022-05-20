@@ -17,11 +17,10 @@ NEVER SKIP / IGNORE / AVOID README
 </div>
 
 <pre align="center">
-<a href="">SETUP</a> • <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">KEYBINDS</a> • <a href="">GALLERY</a> • <a href="">GUIDE</a>
+<a href="#seedling--setup">SETUP</a> • <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">KEYBINDS</a> • <a href="">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
 </pre>
-
 <h1>
-  <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=000000&logo=GitHub&logoColor=white&labelColor=373e4d"/>
+  <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/dotfiles?style=flat-square&label=&color=000000&logo=github&logoColor=white&labelColor=000000"/>
 </h1>
 
 ### :octocat: ‎ <sup><sub><samp>HI THERE! THANKS FOR DROPPING BY!</samp></sub></sup>
@@ -46,6 +45,20 @@ Here are some details about my set-up.
 * **Media Player**         :city_sunset:          [mpv](https://mpv.io/) with modern OSC!
 * **Music Player**         :milky_way:            [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) with album-art!
 * **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win! :P
+
+<h1>
+  <img alt="" align="right" src="https://img.shields.io/github/commit-activity/m/owl4ce/dotfiles/ng?style=flat-square&label=&color=000000&logo=gitbook&logoColor=white&labelColor=000000"/>
+</h1>
+
+<br>
+
+<div align="center">
+
+```ocaml
+CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
+```
+
+</div>
 
 ## :fallen_leaf: ‎ <samp>CHANGELOGS</samp>
 
@@ -83,10 +96,46 @@ Work in progress.
 
 Work in progress.
 
+<pre align="center">
+<a href="https://star-history.com/#owl4ce/dotfiles&Date">
+<img alt="" width="96%" src="https://api.star-history.com/svg?repos=owl4ce/dotfiles&type=Date"/>
+</a>
+</pre>
+
 ## :tulip: ‎ <samp>TIP JAR</samp>
 
-Work in progress.
+If you enjoy my dotfiles and would like to show your appreciation, you may want to tip me here.
+
+It's never required but always wholeheartedly appreciated.
+
+Thank you so much from the bottom of my heart! ‎ :heartpulse:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V05ZACS)
+[![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/owl4ce/donate)
 
 ## :four_leaf_clover: ‎ <samp>ACKNOWLEDGEMENTS</samp>
 
 Work in progress.
+
+* **INSPIRATION AND RESOURCES**
+
+  * [Elena](https://github.com/elenapan)
+  * [Adhi Pambudi](https://github.com/addy-dclxvi)
+  * [Fikri Omar](https://github.com/fikriomar16)
+  * [Rizqi Nur Assyaufi](https://github.com/bandithijo)
+  * [Muktazam Hasbi Ashidiqi](https://github.com/reorr)
+  * [Galih Wisnuaji](https://github.com/nekonako)
+  * [Ghani Rafif](https://github.com/ekickx)
+  * [Dylan Araps](https://github.com/dylanaraps)
+  * ?
+
+* **CONTRIBUTORS**
+
+  <a href="https://github.com/owl4ce/dotfiles/graphs/contributors">
+    <img alt="" align="right" src="https://contrib.rocks/image?repo=owl4ce/dotfiles"/>
+  </a>
+
+  * [Ekaunt](https://github.com/ekaunt) - [Better rofi prompt-menu](https://github.com/owl4ce/dotfiles/pull/2) (obsolete)
+  * [HopeBaron](https://github.com/HopeBaron) - [Termite configuration](https://github.com/owl4ce/dotfiles/pull/4) (obsolete)
+  * [Justin Faber](https://github.com/vredesbyyrd) - [Rofi matched-lines indicator](https://github.com/owl4ce/dotfiles/issues/33#issuecomment-753399179)
+  * [Vcyzteen](https://github.com/vcyzteen) - [URxvt copy-paste with eval](https://github.com/owl4ce/dotfiles/pull/67/files#diff-76ca8b85960fd14348e9caa3ebabe00c3cf21593a94036f4ba3305c262809a34R59-R60)
