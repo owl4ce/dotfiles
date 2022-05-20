@@ -5,8 +5,8 @@
 
 # SPDX-License-Identifier: ISC
 
-# Sequential tests 1000 times, calculated fastest with Debian Almquist shell 0.009s.
-# https://i.imgur.com/TtpJEmk.png
+# Sequential tests 293 times, calculated fastest with Debian Almquist shell 0.0078s.
+# https://i.imgur.com/MsiO3Vn.png
 
 # shellcheck disable=SC2034,SC2166
 
