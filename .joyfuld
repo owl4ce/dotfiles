@@ -11,8 +11,8 @@ unalias -a
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # Appearance options                                          ~ Needs Restart UI ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# ?_ART_TINT2_GLYPH     || TH?ME panel button glyphs, copy-paste from `gucharmap`. #
-# ?_?_?_?               || Partial user-interface colors. Just customize yourself. #
+# ?_ART_TINT2_GLYPH     || Th?me panel button glyphs, copy-paste from `gucharmap`. #
+# ?_?_?_?               || Partial user interface colors. Just custom by yourself. #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 # >~~~~~~~~< Color template, your changeable variable names and values. >~~~~~~~~< #
@@ -31,36 +31,36 @@ EYEC_ART_TINT2_GLYPH=''                        #   
 # >~~~~~~~~~~~~< Mechanical >~~~~~~~~~~~~~~~~~~~~~~~~~~~< Artistic Mode >~~~~~~~~< #
 MECH_ART_TINT2_GRAD1="$COL_RED_MAGENTA"          # Tint2 button gradient color #1
 MECH_ART_TINT2_GRAD2="$COL_RED"                  # Tint2 button gradient color #2
-MECH_ART_ROFI_ACCNT1="$MECH_ART_TINT2_GRAD1"     # Rofi accent color (buttons) #1
-MECH_ART_ROFI_ACCNT2="$MECH_ART_TINT2_GRAD2"     # Rofi accent color (buttons) #2
+MECH_ART_ROFI_ACCNT1="$MECH_ART_TINT2_GRAD1"     # Rofi (buttons) accent color #1
+MECH_ART_ROFI_ACCNT2="$MECH_ART_TINT2_GRAD2"     # Rofi (buttons) accent color #2
 MECH_ART_DUNST_SMMRY="$COL_WHITE"                # Dunst title / summary color
-MECH_ART_DUNST_PRGBR="$MECH_ART_TINT2_GRAD1"     # Dunst progress bar fg color
+MECH_ART_DUNST_PRGBR="$MECH_ART_TINT2_GRAD1"     # Dunst progress-bar FG color
 MECH_ART_OB_MENU_TTL="$MECH_ART_TINT2_GRAD2"     # Title color of Openbox menu
 MECH_ART_OB_MENU_ITM="$MECH_ART_TINT2_GRAD1"     # Items color of Openbox menu
 
 # >~~~~~~~~~~~~< Mechanical >~~~~~~~~~~~~~~~~~~~~~~~~~< Interactive Mode >~~~~~~~< #
-MECH_INT_ROFI_ACCNT1="$COL_WHITE"                # Rofi accent color (buttons) #1
-MECH_INT_ROFI_ACCNT2="$MECH_INT_ROFI_ACCNT1"     # Rofi accent color (buttons) #2
+MECH_INT_ROFI_ACCNT1="$COL_WHITE"                # Rofi (buttons) accent color #1
+MECH_INT_ROFI_ACCNT2="$MECH_INT_ROFI_ACCNT1"     # Rofi (buttons) accent color #2
 MECH_INT_DUNST_SMMRY="$MECH_INT_ROFI_ACCNT2"     # Dunst title / summary color
-MECH_INT_DUNST_PRGBR="$MECH_INT_ROFI_ACCNT2"     # Dunst progress bar fg color
+MECH_INT_DUNST_PRGBR="$MECH_INT_ROFI_ACCNT2"     # Dunst progress-bar FG color
 MECH_INT_OB_MENU_TTL="$MECH_INT_ROFI_ACCNT2"     # Title color of Openbox menu
 MECH_INT_OB_MENU_ITM="$COL_BLUE"                 # Items color of Openbox menu
 
 # >~~~~~~~~~~~~~< EyeCandy >~~~~~~~~~~~~~~~~~~~~~~~~~~~~< Artistic Mode >~~~~~~~~< #
 EYEC_ART_TINT2_GRAD1="$COL_RED"                  # Tint2 button gradient color #1
 EYEC_ART_TINT2_GRAD2="$COL_RED_VIOLET"           # Tint2 button gradient color #2
-EYEC_ART_ROFI_ACCNT1="$EYEC_ART_TINT2_GRAD1"     # Rofi accent color (buttons) #1
-EYEC_ART_ROFI_ACCNT2="$EYEC_ART_TINT2_GRAD2"     # Rofi accent color (buttons) #2
+EYEC_ART_ROFI_ACCNT1="$EYEC_ART_TINT2_GRAD1"     # Rofi (buttons) accent color #1
+EYEC_ART_ROFI_ACCNT2="$EYEC_ART_TINT2_GRAD2"     # Rofi (buttons) accent color #2
 EYEC_ART_DUNST_SMMRY="$COL_BLUE"                 # Dunst title / summary color
-EYEC_ART_DUNST_PRGBR="$EYEC_ART_TINT2_GRAD1"     # Dunst progress bar fg color
+EYEC_ART_DUNST_PRGBR="$EYEC_ART_TINT2_GRAD1"     # Dunst progress-bar FG color
 EYEC_ART_OB_MENU_TTL="$EYEC_ART_DUNST_SMMRY"     # Title color of Openbox menu
 EYEC_ART_OB_MENU_ITM="$EYEC_ART_TINT2_GRAD1"     # Items color of Openbox menu
 
 # >~~~~~~~~~~~~~< EyeCandy >~~~~~~~~~~~~~~~~~~~~~~~~~~< Interactive Mode >~~~~~~~< #
-EYEC_INT_ROFI_ACCNT1="$COL_RED"                  # Rofi accent color (buttons) #1
-EYEC_INT_ROFI_ACCNT2="$COL_RED_VIOLET"           # Rofi accent color (buttons) #2
+EYEC_INT_ROFI_ACCNT1="$COL_RED"                  # Rofi (buttons) accent color #1
+EYEC_INT_ROFI_ACCNT2="$COL_RED_VIOLET"           # Rofi (buttons) accent color #2
 EYEC_INT_DUNST_SMMRY="$EYEC_INT_ROFI_ACCNT2"     # Dunst title / summary color
-EYEC_INT_DUNST_PRGBR="$COL_GREEN"                # Dunst progress bar fg color
+EYEC_INT_DUNST_PRGBR="$COL_GREEN"                # Dunst progress-bar FG color
 EYEC_INT_OB_MENU_TTL="$EYEC_INT_ROFI_ACCNT1"     # Title color of Openbox menu
 EYEC_INT_OB_MENU_ITM="$EYEC_INT_ROFI_ACCNT2"     # Items color of Openbox menu
 
@@ -96,10 +96,10 @@ TEMP_DEV='thermal_zone0'
 # SS_SVDIR              || Directory to save screenshots, "$SS_SVDIR/Screenshots". #
 # SS_CP2CLP             || Copy to clipboard? Automatically 'yes' if SS_SAVE='no'. #
 # SS_POINTER            || Capture cursor (known as "pointer") in the screenshots? #
-# SS_QUALITY            || 0-100, high value means high-size with low-compression. #
+# SS_QUALITY            || 0-100, high value means high size with low compression. #
 #                       ||---------------------------------------------------------#
-# SS_USE_FRAME          || Use frame in the selection or draw mode?  (MacOS-like)  #
-# SS_FRAME_COLOR        || Hexa, RGBA supports. Fill 'auto' to use dominant color. #
+# SS_USE_FRAME          || Use frame in the selection (or draw) mode? (MacOS-like) #
+# SS_FRAME_COLOR        || Hexs, RGBA supports. Fill 'auto' to use dominant color. #
 # SS_FRAME_PADDING      || Any number value, frame-padding in pixel for all sides. #
 # SS_FRAME_S_OPACITY    || 0-100, shadows opacity, high value means thick shadows. #
 #                       ||---------------------------------------------------------#
@@ -123,10 +123,10 @@ SS_COUNTDOWN_SECONDS='5'                         # Countdown timer or delay mode
 # Display brightness and audio-volume steps level options     ~ Auto-reconfigure ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # AUDIO_DEVICE          || Run `aplay -L` for available PCMs or leave it blank.    #
-# AUDIO_VOLUME_STEPS    || 0-100, real value without audio boost (100+).           #
+# AUDIO_VOLUME_STEPS    || 0-100, this is real value, without audio boost 100+.    #
 #                       ||---------------------------------------------------------#
 # BRIGHTNESS_DEVICE     || Run `brightnessctl -l` for available or leave it blank. #
-# BRIGHTNESS_STEPS      || 0-100, percentages of value with range 0-255.           #
+# BRIGHTNESS_STEPS      || 0-100, this is percentage of value with specific range. #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 AUDIO_DEVICE='pulse'
@@ -138,14 +138,14 @@ BRIGHTNESS_STEPS='5'
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # Ncmpcpp album-art options                                   ~ Auto-reconfigure ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# NCMPCPP_AA_BACKEND    || Detail about supported image-backend described below.   #
-#                       || *) Only supports 'w3m' and 'pixbuf' TE image backend.   #
-#                       || *) Both backend on `rxvt-unicode` works like a charm.   #
-#                       || *) 'pixbuf' backend isn't portable, so may not works.   #
+# NCMPCPP_AA_BACKEND    || Details about supported image backend described below.  #
+#                       || *) Only supports 'w3m' and 'pixbuf' TE image backends.  #
+#                       || *) Both backends on `rxvt-unicode` works like a charm.  #
+#                       || *) 'pixbuf' backend is not portable, so may not works.  #
 #                       ||---------------------------------------------------------#
-# NCMPCPP_AA_NICENESS   || 0-19 or leave it blank, reduce 'w3m' loop CPU-cycles.   #
+# NCMPCPP_AA_NICENESS   || 0-19 or leave it blank, it reduces CPU% of 'w3m' loop.  #
 #                       ||---------------------------------------------------------#
-# NCMPCPP_{,S}AA_LAU .. || Override ncmpcpp album-art (and single) geometry PXs.   #
+# NCMPCPP_{,S}AA_LAU .. || Override ncmpcpp and single album-art geometry pixels.  #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 NCMPCPP_AA_BACKEND='w3m'
@@ -158,10 +158,10 @@ NCMPCPP_SAA_LAUNCHER_GEOMETRY='47x18'
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # The following are owl4ce/dotfiles environment variables which called in "*.sh".  #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Doesn't affect to all files, "*.dunstrc", "*.tint2rc", "rc.xml", "schema.pl", .. #
-# use absolute path (from "/") and/or use "~/" directly with shebang each "*.sh".  #
+# Doesn't affect to all files. For example "*.tint2rc", "rc.xml", "schema.pl", ..  #
+# are use absolute path and hardcoded. The shell-scripts are executed by shebang.  #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# ATTENTION: Do not change or re-arrange these variables unless you know!!! (^w^)  #
+# ATTENTION: Don't change or re-arrange these variables unless you know !!! (^w^)  #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 siq()
