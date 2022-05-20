@@ -5,11 +5,15 @@
 
 # SPDX-License-Identifier: ISC
 
+# shellcheck disable=SC3044
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 sed -e "/^@import[ ]*/s|schemes/[a-z]*.rasi|schemes/${CHK_THEME}.rasi|" -i "$ROFI_CONFIG"
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 case "$CHK_PANEL_ORT" in
     vert*) joyd_layout_set "vertical_${CHK_PANEL_ORT_V}"

@@ -5,11 +5,15 @@
 
 # SPDX-License-Identifier: ISC
 
+# shellcheck disable=SC3044
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 trap 'kill %%' TERM INT
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 {
     [ -z "$(joyd_music_controller status)" ] || joyd_music_controller toggle

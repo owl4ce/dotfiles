@@ -5,7 +5,7 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2166
+# shellcheck disable=SC2166,SC3044
 
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
@@ -15,6 +15,8 @@ exec >/dev/null 2>&1
 [ -n "${1}" -a "$CHK_MODE" = 'artistic' ] || exit ${?}
 
 killall tint2 dunst -q &
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 case "${1}" in
     l*) case "$CHK_PANEL_ORT" in

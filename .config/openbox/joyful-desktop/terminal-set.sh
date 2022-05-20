@@ -5,11 +5,13 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2166,SC3028
+# shellcheck disable=SC3044,SC2166,SC3028
 
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 PREF_TERM="$(joyd_launch_apps -g terminal)"
 

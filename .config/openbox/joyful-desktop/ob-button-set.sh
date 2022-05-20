@@ -5,6 +5,8 @@
 
 # SPDX-License-Identifier: ISC
 
+# shellcheck disable=SC3044
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
@@ -21,6 +23,8 @@ case "${1}" in
                          -mesg 'Select Window Button-Style')"
 
         [ -n "$BUTTON" ] || exit ${?}
+
+        [ -z "$BASH" ] || shopt -s expand_aliases
 
         joyd_cross_variables
 

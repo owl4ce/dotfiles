@@ -5,12 +5,16 @@
 
 # SPDX-License-Identifier: ISC
 
+# shellcheck disable=SC3044
+
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 killall tint2 dunst -q &
+
+[ -z "$BASH" ] || shopt -s expand_aliases
 
 setup_ui()
 {
