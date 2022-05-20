@@ -34,9 +34,7 @@ else
 fi
 
 # Run session-locker daemon, required by `loginctl` (systemd events) to manage sessions.
-if [ -x "$(command -v xss-lock)" ]; then
-    xss-lock -q -l -- "${JOYD_DIR}/xss-lock-tsl.sh" &
-fi
+{ [ -x "$(command -v xss-lock)" ] && xss-lock -q -l "${JOYD_DIR}/xss-lock-tsl.sh"; } &
 
 # Run Music Player Daemon with album-art notification-sender whenever track was changed.
 joyd_mpd_notifier
