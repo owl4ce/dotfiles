@@ -25,29 +25,25 @@ D_='' D="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${D_}</span>   Togg
 F_='' F="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${F_}</span>   Brighten ${BRIGHTNESS_STEPS}%"
 G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   Dim ${BRIGHTNESS_STEPS}%"
 
-[ -z "$AUDIO_DEVICE" ] || A_ARGS="-D ${AUDIO_DEVICE}"
-
-[ -z "$BRIGHTNESS_DEVICE" ] || B_ARGS="-d ${BRIGHTNESS_DEVICE}"
-
 case "${@}" in
-    "$B") amixer ${A_ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
+    "$B") amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
     ;;
-    "$C") amixer ${A_ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
+    "$C") amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
     ;;
-    "$D") amixer ${A_ARGS} sset Master 1+ toggle -q
+    "$D") amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sset Master 1+ toggle -q
     ;;
-    "$F") brightnessctl ${B_ARGS} set "${BRIGHTNESS_STEPS:-5}%+" -q
+    "$F") brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} set "${BRIGHTNESS_STEPS:-5}%+" -q
     ;;
-    "$G") brightnessctl ${B_ARGS} set "${BRIGHTNESS_STEPS:-5}%-" -q
+    "$G") brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} set "${BRIGHTNESS_STEPS:-5}%-" -q
     ;;
 esac
 
-AUDIO_VOLUME="$(amixer ${A_ARGS} sget Master)"
+AUDIO_VOLUME="$(amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sget Master)"
 AUDIO_MUTED="${AUDIO_VOLUME##*\ \[on\]}"
 AUDIO_VOLUME="${AUDIO_VOLUME#*\ \[}" \
 AUDIO_VOLUME="${AUDIO_VOLUME%%\]\ *}"
 
-BRIGHTNESS="$(brightnessctl ${B_ARGS} get -P)"
+BRIGHTNESS="$(brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} get -P)"
 
 if [ "${AUDIO_VOLUME%\%}" -eq 0 -o -n "$AUDIO_MUTED" ]; then
     [ -z "$AUDIO_MUTED" ] || MUTED='---'
