@@ -1,3 +1,6 @@
+# User's dunst configuration. Mechanical artistic.
+# https://github.com/owl4ce/dotfiles
+
 [global]
 follow = mouse
 width = (111, 444)
