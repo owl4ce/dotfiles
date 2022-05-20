@@ -38,7 +38,9 @@ sed -e "/^format[ ]*/s|foreground='[#][0-9a-fA-F]*'|foreground='${DUNST_FG}'|" \
 
 LANG="$SYSTEM_LANG" dunst -config "${DUNST_DIR}/${CHK_THEME}.${CHK_MODE}.dunstrc" &
 
-joyd_terminal_set &
+joyd_terminal_set "$JOYD_TERMINAL_SET_ARGS" &
+
+unset JOYD_TERMINAL_SET_ARGS
 
 [ -n "${1}" ] || ( nitrogen --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${CHK_WALLPAPER}" && wait )
 

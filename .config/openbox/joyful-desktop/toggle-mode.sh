@@ -24,7 +24,8 @@ setup_ui()
 
     joyd_theme_set
 
-    LANG="$SYSTEM_LANG" joyd_user_interface_set
+    JOYD_TERMINAL_SET_ARGS="${3%%_*}" LANG="$SYSTEM_LANG" \
+    joyd_user_interface_set
 
     case "${1}" in
         mech*) BODY='Mechanical Theme'
@@ -50,7 +51,7 @@ case "${1}" in
 
         for T in mechanical eyecandy; do
             [ "$CHK_THEME" != "$T" ] || continue
-            setup_ui "$T" "$CHK_MODE"
+            setup_ui "$T" "$CHK_MODE" reverse_terminal_bg_fg
             break
         done
 
