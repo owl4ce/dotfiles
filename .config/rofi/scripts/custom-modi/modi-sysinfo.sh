@@ -177,7 +177,7 @@ G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   ${PK
 #fi
 
 # Message to display.
-MESSAGE='ᓚᘏᗢ'
+MESSAGE='🌸'
 
 # Display the information via rofi-specific escape sequences.
 printf '%b\n' '\0use-hot-keys\037true' '\0markup-rows\037true' "\0message\037${MESSAGE}"
