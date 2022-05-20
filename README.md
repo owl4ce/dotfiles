@@ -1,3 +1,5 @@
+<div align="justify">
+
 <div align="center">
 
 ```ocaml
@@ -1347,3 +1349,5 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 <pre align="center">
 <a href="#readme">BACK TO TOP</a>
 </pre>
+
+</div>
