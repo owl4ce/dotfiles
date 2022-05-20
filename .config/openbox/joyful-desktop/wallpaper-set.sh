@@ -32,7 +32,7 @@ case "${1}" in
     g*) [ -x "$(command -v magick)" ] || exec dunstify 'Install `imagemagick`!' -h string:synchronous:install-deps \
                                                                                 -u low
 
-        cd -- "$WALLPAPERS_DIR"
+        cd -- "$WALLPAPERS_DIR" || exit ${?}
 
         for RAW in *.*; do
             if [ -f "$RAW" ]; then

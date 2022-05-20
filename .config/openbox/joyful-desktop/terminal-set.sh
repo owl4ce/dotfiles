@@ -101,14 +101,14 @@ if [ "$PREF_TERM" = 'urxvt' -o "$PREF_TERM" = 'urxvtc' ]; then
 					;;
 				esac
 
-				printf "\033]${SEQ};${GET_HEX}\007"
+				printf '\033]%b;%b\007' "$SEQ" "$GET_HEX"
 
 			done)
 		EOF
 
         for PID in ${URXVT_PIDS}; do
             for CHILD_PID in $(pgrep -P "$PID"); do
-                printf "$OSC_SEQ" >>"/proc/${CHILD_PID}/fd/0"
+                printf '%b' "$OSC_SEQ" >>"/proc/${CHILD_PID}/fd/0"
             done
         done
     } &
