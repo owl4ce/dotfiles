@@ -639,6 +639,11 @@ Download all the fonts above (and extract if archived). Then, put the files as i
 💲 cp -fpv {Iosevka,M+\ 1mn}\ Nerd\ Font\ Complete*.ttf ~/.fonts/Nerd-Patched/
 ```
 
+Optionally, install the noto family for broad support.
+[Debian](https://packages.debian.org/search?suite=sid&arch=amd64&searchon=names&keywords=fonts%20noto).
+[Arch](https://archlinux.org/packages/?q=fonts+noto).
+[Gentoo](https://packages.gentoo.org/packages/search?q=fonts+noto).
+
 </details>
 
 <details>
