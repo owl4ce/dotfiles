@@ -10,7 +10,7 @@
 (pattern "Pine")
 (gradient "FG to Transparent")
 (palette "Default")
-(font "Standard Symbols L")
+(font "Standard")
 (tool-preset "Core Pointer")
 
 # end of user context

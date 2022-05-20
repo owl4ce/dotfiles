@@ -26,8 +26,8 @@
     (mapping
         (map "cursor-right-alt" "tools-value-1-increase")
         (map "cursor-left-shift" "view-scroll-page-left")
-        (map "cursor-down-control" "view-scroll-bottom-border")
         (map "cursor-up-control" "view-scroll-top-border")
+        (map "cursor-down-control" "view-scroll-bottom-border")
         (map "cursor-right-shift" "view-scroll-page-right")
         (map "cursor-up-shift" "view-scroll-page-up")
         (map "cursor-left-control" "view-scroll-left-border")
