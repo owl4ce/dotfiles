@@ -3,6 +3,8 @@
 # The display brightness changer via `brightnessctl`.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2016,SC2086
 
 export LANG='POSIX'

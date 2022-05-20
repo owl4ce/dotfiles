@@ -3,6 +3,8 @@
 # The user's preferred applications launcher.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC3058
 
 SYSTEM_LANG="$LANG"

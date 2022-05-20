@@ -3,6 +3,8 @@
 # The MPD (via `mpc`) or Spotify (via D-Bus) controller.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2086
 
 export LANG='POSIX'

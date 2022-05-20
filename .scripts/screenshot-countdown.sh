@@ -3,6 +3,8 @@
 # Take screenshot by countdown in seconds of available screens.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # shellcheck disable=SC2016,SC2166
 
 export LANG='POSIX'
