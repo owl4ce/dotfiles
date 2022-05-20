@@ -517,7 +517,7 @@ Contents of [1](https://packages.gentoo.org/packages/x11-base/xorg-server),
 
 URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
-> My own portage overlay. **Nelumbonaceae Overlay**  
+> My own portage overlay. [**Nelumbonaceae Overlay**](https://github.com/owl4ce/nelumbonaceae)  
 > `=x11-terms/rxvt-unicode-9.26-r9:0::nelumbonaceae`
 
 ```sh
@@ -557,7 +557,8 @@ Spotify is also integrated but optional, [here to install](https://wiki.gentoo.o
 
 All of the below if not installed, certain functionality will display a message when it's needed, some are not.
 
-> I personally don't use this portage overlay and build manually instead. **GURU Overlay**  
+> I personally don't use this portage overlay and build manually instead.
+> [**GURU Overlay**](https://wiki.gentoo.org/wiki/Project:GURU)  
 > `app-misc/brightnessctl`
 
 ```sh
@@ -594,7 +595,8 @@ Contents of [1](https://packages.gentoo.org/packages/xfce-base/thunar),
 
 Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to control pulseaudio-sinks.
 
-> I personally don't use this portage overlay and build manually instead. **Miramir's Overlay**  
+> I personally don't use this portage overlay and build manually instead.
+> [**Miramir's Overlay**](https://github.com/miramir/miramir-layman)  
 > `x11-misc/gsimplecal`
 
 ```sh
@@ -1075,6 +1077,11 @@ The recommended image size is 500px at ratio of 1:1 or more. So, assume you have
 `~/Music/AlbumX` with lots of songs, you should put the image file to use as album-art
 (related to the songs) there. [This is for URxvt only](./.joyfuld#L144-L162).
 
+Also, I use [ALSA driver in the MPD](./.config/mpd/mpd.conf#L27-L38) to get [bit-perfect
+playback](https://mpd.readthedocs.io/en/stable/user.html#bit-perfect-playback).
+[It's disabled by default here](./.config/mpd/mpd.state#L2-L3), you need
+to disable (0) PulseAudio and enable (1) ALSA \[Bit-perfect\].
+
 </details>
 
 <details>
@@ -1255,8 +1262,8 @@ with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
 
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
-This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the
-story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year.
+This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey)
+the story is too long, what's clear is that I always improvise everything from day-to-day by self-taught research.
 My main philosophy in crafting this is as a minimal replacement for "bloated" Desktop Environment without any
 desktop decorations such as widgets, but customizable to users' taste with an overall theme based on my [unnamed color
 palette](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) and easily switchable themes along with fashions.
@@ -1265,9 +1272,11 @@ I learned a lot about \*NIX because of this too, so I'm really grateful for that
 learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software"
 completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there is problem with the configuration (please check previous
-issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to
-[discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
+If you feel happy, give this a **star**. If there's problem with the configuration (please check previous
+issues if relevant), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want
+to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
+
+**Modular operating system supremacy.**
 
 <pre align="center">
 <a href="#maple_leaf--history">
