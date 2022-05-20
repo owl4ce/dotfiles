@@ -14,7 +14,7 @@ exec >/dev/null 2>&1
 {
     FILE="$(mpc -p "$CHK_MPD_PORT" -f '%file% ########## %album%' current)"
 
-    [ -n "${FILE%/*}" ] || exit ${?}
+    [ -n "${FILE%/*\ #####\ *}" ] || exit ${?}
 
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
