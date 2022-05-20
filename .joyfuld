@@ -3,7 +3,7 @@
 # The Joyful Desktop universal environment variables.
 # https://github.com/owl4ce/dotfiles
 
-# shellcheck disable=SC2034,SC2018,SC2019,SC2166
+# shellcheck disable=SC2034,SC2166
 
 unalias -a
 
