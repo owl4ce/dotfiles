@@ -87,7 +87,7 @@ case "${1}" in
                                   -compose darken \
                                   -composite \
                                   -quality 100% \
-                           "${CHK_WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
+                           "${CHK_WALLPAPER_DIR}/${RAW%.*}${RES}.jpg" \
                            || continue
                     ;;
                     eyec*) magick "$RAW" \
@@ -103,7 +103,7 @@ case "${1}" in
                                   -compose lighten \
                                   -composite \
                                   -quality 100% \
-                           "${CHK_WALLPAPER_DIR}/${RAW%%.*}${RES}.jpg" \
+                           "${CHK_WALLPAPER_DIR}/${RAW%.*}${RES}.jpg" \
                            || continue
                     ;;
                 esac

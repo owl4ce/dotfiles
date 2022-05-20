@@ -12,8 +12,8 @@ killall tint2 dunst -q &
 
 setup_ui()
 {
-    sed -e "/^current_theme[ ]*/s|\".*\"$|\"${1}\"|" \
-        -e "/^current_mode[ ]*/s|\".*\"$|\"${2}\"|" \
+    sed -e "/^current_theme[ ]*/s|\"[a-z]*\"$|\"${1}\"|" \
+        -e "/^current_mode[ ]*/s|\"[a-z]*\"$|\"${2}\"|" \
         -i "$MODE_FILE"
 
     joyd_theme_set
@@ -34,8 +34,9 @@ setup_ui()
         ;;
     esac
 
-    dunstify "$SUMMARY" "$BODY" -i "${GLADIENT_ICON_DIR}/${1}.${2}.png" -h string:synchronous:toggle-mode \
-                                                                        -u low
+    dunstify "$SUMMARY" "$BODY" -h string:synchronous:toggle-mode \
+                                -i "${GLADIENT_ICON_DIR}/${1}.${2}.png" \
+                                -u low
 }
 
 case "${1}" in

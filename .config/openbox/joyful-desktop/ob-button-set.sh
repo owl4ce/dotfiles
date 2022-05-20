@@ -28,10 +28,10 @@ case "${1}" in
     ;;
     s*) if [ "$CHK_OB_BUTTON_LOC" != 'left' ]; then
             sed -e '/^[ ]*<titleLayout>/s|>[A-Z]*<|>CIML<|' -i "$OB_CONFIG"
-            sed -e "/^ob_button_location.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"left\"|" -i "$THEME_FILE"
+            sed -e "/^ob_button_location.${CHK_THEME}.${CHK_MODE}[ ]*/s|\"[a-z]*\"$|\"left\"|" -i "$THEME_FILE"
         elif [ "$CHK_OB_BUTTON_LOC" != 'right' ]; then
             sed -e '/^[ ]*<titleLayout>/s|>[A-Z]*<|>LIMC<|' -i "$OB_CONFIG"
-            sed -e "/^ob_button_location.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"right\"|" -i "$THEME_FILE"
+            sed -e "/^ob_button_location.${CHK_THEME}.${CHK_MODE}[ ]*/s|\"[a-z]*\"$|\"right\"|" -i "$THEME_FILE"
         fi
     ;;
     d*) CHK_OB_DECOR_LINE="$(grep -m1 -Fno '<application class="*" type="normal">' "$OB_CONFIG")" \
