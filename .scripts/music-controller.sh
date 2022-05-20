@@ -12,12 +12,12 @@ exec 2>/dev/null
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
 case "$MUSIC_PLAYER" in
-    mpd    ) PREV="mpc -p ${CHK_MPD_PORT} prev -q"
-             NEXT="mpc -p ${CHK_MPD_PORT} next -q"
-             STOP="mpc -p ${CHK_MPD_PORT} stop -q"
-             TOGG="mpc -p ${CHK_MPD_PORT} toggle -q"
-             STAT="$(mpc -p ${CHK_MPD_PORT} status | grep -m1 -F '[playing]')"
-             TITL="$(mpc -p ${CHK_MPD_PORT} -f '[%title%|%file%]' current)"
+    mpd    ) PREV="mpc -p \"$CHK_MPD_PORT\" prev -q"
+             NEXT="mpc -p \"$CHK_MPD_PORT\" next -q"
+             STOP="mpc -p \"$CHK_MPD_PORT\" stop -q"
+             TOGG="mpc -p \"$CHK_MPD_PORT\" toggle -q"
+             STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -F '[playing]')"
+             TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
     ;;
     spotify) MP2P='org.mpris.MediaPlayer2.Player'
              SEND="dbus-send --print-reply --dest=${MP2P%.*}.spotify /org/mpris/MediaPlayer2"
@@ -36,13 +36,13 @@ case "$MUSIC_PLAYER" in
 esac
 
 case "${1}" in
-    prev) ${PREV} >&2 &
+    prev) eval "$PREV" >&2 &
     ;;
-    next) ${NEXT} >&2 &
+    next) eval "$NEXT" >&2 &
     ;;
-    stop) ${STOP} >&2 &
+    stop) eval "$STOP" >&2 &
     ;;
-    tog*) ${TOGG} >&2 &
+    tog*) eval "$TOGG" >&2 &
     ;;
     sta*) echo "$STAT"
     ;;
@@ -50,7 +50,7 @@ case "${1}" in
     ;;
     icon) [ -n "$STAT" ] && echo '' || echo ''
     ;;
-    swi*) [ -z "$STAT" ] || ${TOGG} >&2 &
+    swi*) [ -z "$STAT" ] || eval "$TOGG" >&2 &
 
           for M in mpd spotify; do
               [ "$MUSIC_PLAYER" != "$M" ] || continue
