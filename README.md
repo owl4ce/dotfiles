@@ -17,7 +17,7 @@ NEVER SKIP / IGNORE / AVOID README
 </div>
 
 <pre align="center">
-<a href="#seedling--setup">SETUP</a> • <a href="#four_leaf_clover--key-bindings">KEYBINDS</a> • <a href="">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
+<a href="#seedling--setup">SETUP</a> • <a href="#four_leaf_clover--key-bindings">KEYBINDS</a> • <a href="#pre-release">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
 </pre>
 
 <h1>
@@ -524,18 +524,18 @@ Contents of [1](https://packages.gentoo.org/packages/x11-base/xorg-server),
 
 URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
-> My own portage overlay. [**Nelumbonaceae Overlay**](https://github.com/owl4ce/nelumbonaceae)  
-> `=x11-terms/rxvt-unicode-9.26-r9:0::nelumbonaceae`
+> My own portage overlay. [**Lilium Overlay**](https://github.com/owl4ce/lilium)  
+> `x11-terms/rxvt-unicode::lilium`
 
 ```sh
-x11-misc/dunst x11-misc/nitrogen x11-wm/openbox x11-misc/rofi =x11-terms/rxvt-unicode-9.26-r9:0::nelumbonaceae x11-misc/tint2 =x11-misc/picom-9999 x11-misc/obmenu-generator dev-perl/Gtk3
+x11-misc/dunst x11-misc/nitrogen x11-wm/openbox x11-misc/rofi x11-terms/rxvt-unicode::lilium x11-misc/tint2 \=x11-misc/picom-9999 x11-misc/obmenu-generator dev-perl/Gtk3
 ```
 
 Contents of [1](https://packages.gentoo.org/packages/x11-misc/dunst),
 [2](https://packages.gentoo.org/packages/x11-misc/nitrogen),
 [3](https://packages.gentoo.org/packages/x11-wm/openbox),
 [4](https://packages.gentoo.org/packages/x11-misc/rofi),
-[5](https://github.com/owl4ce/nelumbonaceae/tree/main/x11-terms/rxvt-unicode),
+[5](https://github.com/owl4ce/lilium/tree/main/x11-terms/rxvt-unicode),
 [6](https://packages.gentoo.org/packages/x11-misc/tint2),
 [7](https://packages.gentoo.org/packages/x11-misc/picom),
 [8](https://packages.gentoo.org/packages/x11-misc/obmenu-generator),
@@ -566,10 +566,10 @@ All of the below if not installed, certain functionality will display a message 
 
 > I personally don't use this portage overlay and build manually instead.
 > [**GURU Overlay**](https://wiki.gentoo.org/wiki/Project:GURU)  
-> `app-misc/brightnessctl`
+> `app-misc/brightnessctl::guru`
 
 ```sh
-app-misc/brightnessctl media-gfx/imagemagick media-gfx/scrot www-client/w3m net-wireless/wireless-tools x11-misc/xclip x11-misc/xsettingsd x11-misc/xss-lock
+app-misc/brightnessctl::guru media-gfx/imagemagick media-gfx/scrot www-client/w3m net-wireless/wireless-tools x11-misc/xclip x11-misc/xsettingsd x11-misc/xss-lock
 ```
 
 Contents of [1](https://gitweb.gentoo.org/repo/proj/guru.git/tree/app-misc/brightnessctl),
@@ -604,10 +604,10 @@ Gsimplecal used to display calender pop-ups from tint2 panel, and pavucontrol to
 
 > I personally don't use this portage overlay and build manually instead.
 > [**Miramir's Overlay**](https://github.com/miramir/miramir-layman)  
-> `x11-misc/gsimplecal`
+> `x11-misc/gsimplecal::miramir`
 
 ```sh
-dev-util/geany dev-util/geany-plugins media-gfx/gimp x11-misc/gsimplecal media-gfx/inkscape media-video/mpv x11-misc/parcellite media-sound/pavucontrol media-gfx/viewnior xfce-extra/xfce4-power-manager
+dev-util/geany dev-util/geany-plugins media-gfx/gimp x11-misc/gsimplecal::miramir media-gfx/inkscape media-video/mpv x11-misc/parcellite media-sound/pavucontrol media-gfx/viewnior xfce-extra/xfce4-power-manager
 ```
 
 Contents of [1](https://packages.gentoo.org/packages/dev-util/geany),
