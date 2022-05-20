@@ -389,34 +389,14 @@
       </action>
     </keybind>
     <!-- rofi-menu scripts -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <command>~/.scripts/launch-apps.sh file_manager</command>
-      </action>
-    </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>sh -c '~/.config/rofi/scripts/$(~/.scripts/launch-apps.sh -g music_player).sh'</command>
-      </action>
-    </keybind>
-    <keybind key="W-Next">
-      <action name="Execute">
-        <command>~/.config/rofi/scripts/volume.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-Prior">
-      <action name="Execute">
-        <command>~/.config/rofi/scripts/brightness.sh</command>
-      </action>
-    </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>~/.config/rofi/scripts/apps.sh</command>
+        <command>~/.config/rofi/scripts/rofi-main.sh</command>
       </action>
     </keybind>
     <keybind key="W-S-e">
       <action name="Execute">
-        <command>~/.config/rofi/scripts/power.sh</command>
+        <command>~/.config/rofi/scripts/rofi-exts.sh</command>
       </action>
     </keybind>
     <!-- screenshots -->
@@ -427,17 +407,12 @@
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>~/.config/rofi/scripts/screenshot.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-Print">
-      <action name="Execute">
-        <command>~/.scripts/screenshot-timer.sh</command>
+        <command>~/.scripts/screenshot-draw.sh</command>
       </action>
     </keybind>
     <keybind key="W-S-Print">
       <action name="Execute">
-        <command>~/.scripts/screenshot-draw.sh</command>
+        <command>~/.scripts/screenshot-timer.sh</command>
       </action>
     </keybind>
     <!-- dunst-specific -->
@@ -462,15 +437,15 @@
       </action>
     </keybind>
     <!-- misc -->
+    <keybind key="W-e">
+      <action name="Execute">
+        <command>~/.scripts/launch-apps.sh file_manager</command>
+      </action>
+    </keybind>
     <keybind key="W-l">
       <action name="Execute">
         <command>loginctl --no-ask-password lock-session</command>
       </action>
-    </keybind>
-    <keybind key="W-F12">
-        <action name="Execute">
-          <command>~/.local/bin/networkmanager_dmenu.py</command>
-        </action>
     </keybind>
     <keybind key="W-S-r">
       <action name="Execute">
@@ -914,19 +889,16 @@
          </application>
         
     end of the example -->
-    <!-- all normal windows -->
     <application class="*" type="normal">
       <decor>yes</decor>
       <focus>yes</focus>
     </application>
-    <!-- all dialog windows -->
     <application class="*" type="dialog">
       <position>
         <x>center</x>
         <y>center</y>
       </position>
     </application>
-    <!-- place your stuff here -->
     <application class="mpv" type="normal">
       <position>
         <x>center</x>
