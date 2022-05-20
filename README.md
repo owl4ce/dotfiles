@@ -37,18 +37,18 @@ Openbox Window Manager and some apps as well. :snowman:
 
 Averages are written from scratch. Some of details:
 
-* **Window Manager**       :bento:                [Openbox](http://openbox.org/wiki/Main_Page) dual themes!
-* **Shell**                :shell:                [Zsh](https://zsh.org) with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
-* **Terminal Emulator**    :leaves:               [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) which lighter! 
-* **Openbox Menu**         :cyclone:              [obmenu-generator](https://github.com/trizen/obmenu-generator) for life!
-* **Panel**                :blossom:              [Tint2](https://gitlab.com/o9000/tint2) with material design and glyphs!
-* **Compositor**           :shaved_ice:           [Picom](https://github.com/yshui/picom) for perfection topping!
-* **Notification Daemon**  :herb:                 [Dunst](https://github.com/dunst-project/dunst) which minimalist!
-* **Application Launcher** :rocket:               [Rofi](https://github.com/davatorium/rofi) which blazing fast!
-* **File Manager**         :flower_playing_cards: [Thunar](https://github.com/xfce-mirror/thunar) customized side-pane!
-* **Media Player**         :city_sunset:          [mpv](https://mpv.io) with modern OSC!
-* **Music Player**         :milky_way:            [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) with album-art!
-* **GUI Basic-IDE**        :space_invader:        [Geany](https://geany.org) for the win!
+- **Window Manager** :bento: [Openbox](http://openbox.org/wiki/Main_Page) dual themes!
+- **Openbox Menu** :cyclone: [obmenu-generator](https://github.com/trizen/obmenu-generator) for life!
+- **Panel** :blossom: [Tint2](https://gitlab.com/o9000/tint2) with material design and glyphs!
+- **Application Launcher** :rocket: [Rofi](https://github.com/davatorium/rofi) which blazing fast!
+- **Desktop Notification** :herb: [Dunst](https://github.com/dunst-project/dunst) which minimalist!
+- **Terminal Emulator** :leaves: [URxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) which lightest!
+- **Shell** :shell: [Zsh](https://zsh.org) with [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
+- **Compositor** :shaved_ice: [Picom](https://github.com/yshui/picom) for perfection topping!
+- **File Manager** :flower_playing_cards: [Thunar](https://docs.xfce.org/xfce/thunar/start) customized side-pane!
+- **Media Player** :city_sunset: [mpv](https://mpv.io) with modern OSC!
+- **Music Player** :milky_way: [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) with album-art!
+- **GUI (Basic) IDE** :space_invader: [Geany](https://geany.org) for the win!
 
 <h1>
   <a href="#---------1">
@@ -81,7 +81,9 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   </tr>
   <tr>
     <td align="center">
-      <sup><sub><samp>Gentoo/Linux x86-64</samp></sub></sup>
+      <a href="https://wiki.gentoo.org/wiki/Benefits_of_Gentoo">
+        <sup><sub><samp>Powered by Gentoo/Linux x86_64</samp></sub></sup>
+      </a>
     </td>
   </tr>
 </table>
@@ -100,7 +102,8 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   - [REPOLOGY.md](./REPOLOGY.md)
   - [SECURITY.md](./SECURITY.md)
 - **User interface**
-  - Rofi [main menu](./.config/rofi/scripts/rofi-main.sh) and panel (or control) [extensions menu](./.config/rofi/scripts/rofi-exts.sh)
+  - Rofi [main menu](./.config/rofi/scripts/rofi-main.sh) and panel (or control)
+    [extensions menu](./.config/rofi/scripts/rofi-exts.sh)
   - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox button and wallpaper selectors
   - Better tint2 [horizontal panels](./.config/tint2) for Artistic Mode and the tooltips
 
@@ -110,6 +113,68 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 <summary><b>Renovations</b></summary>
 
 - **GTK theme and icon updates and fixes**
+  - [Papirus-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Custom_JfD.tar.xz) and
+    [Papirus-Dark-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Dark-Custom_JfD.tar.xz)
+    patches
+    - 16x16
+      - apps
+        - diodon.svg
+      - devices
+        - drive-harddisk.svg
+        - drive-removable-media-usb.svg
+        - phone.svg
+      - places
+        - folder.svg
+        - folder-documents.svg 🡲 folder.svg
+        - folder-download.svg 🡲 folder.svg
+        - folder-music.svg 🡲 folder.svg
+        - folder-network.svg
+        - folder-pictures.svg 🡲 folder.svg
+        - folder-video.svg 🡲 folder.svg
+    - 48x48
+      - status
+        - battery-ac-adapter.svg
+        - battery-caution-charging.svg
+        - battery-caution.svg
+        - battery-empty-charging.svg
+        - battery-empty.svg
+        - battery-full-charged.svg
+        - battery-full-charging.svg
+        - battery-full.svg
+        - battery-good-charging.svg
+        - battery-good.svg
+        - battery-low-charging.svg
+        - battery-low.svg
+        - battery-missing.svg
+        - bluetooth-active.svg
+        - bluetooth-disabled.svg
+        - bluetooth.svg
+        - dialog-error.svg
+        - dialog-information.svg
+        - dialog-question.svg
+        - dialog-warning.svg
+        - network-error.svg
+        - network-offline.svg
+        - network-wired-disconnected.svg
+        - network-wireless-encrypted.svg
+        - nm-signal-100.svg
+        - nm-signal-25.svg
+        - nm-signal-50.svg
+        - nm-signal-75.svg
+        - notification-audio-volume-high.svg
+        - notification-audio-volume-low.svg
+        - notification-audio-volume-medium.svg
+        - notification-audio-volume-muted.svg
+        - notification-battery-low.svg
+        - notification-device-eject.svg
+        - notification-display-brightness-full.svg
+        - notification-display-brightness-high.svg
+        - notification-display-brightness-low.svg
+        - notification-display-brightness-medium.svg
+        - notification-display-brightness-off.svg
+        - notification-network-ethernet-connected.svg
+        - notification-network-wireless-disconnected.svg
+        - notification-network-wireless.svg
 - **Reconfigure program configurations**
 - **Restructure git directory layouts**
 - **Rewrite shell-scripts completely**
@@ -130,7 +195,8 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 ## :ear_of_rice: ‎ <samp>INTRODUCTION OF LINUX RICE</samp>
 
-[Read here](https://owl4ce.github.io/iolr). [Also available in Bahasa Indonesia](https://owl4ce.github.io/id/iolr).
+[~~Read here~~](https://owl4ce.github.io/iolr).
+[~~Also~~ Currently available in Bahasa Indonesia](https://owl4ce.github.io/id/iolr).
 
 ## :seedling: ‎ <samp>SETUP</samp>
 
@@ -141,7 +207,7 @@ Everything done manually step-by-step. Let's learn.
 <details>
 <summary><b>Debian-based Linux distributions</b></summary>
 
-> Debian SID or Devuan Ceres recommended.
+[Debian SID](https://wiki.debian.org/DebianUnstable) or [Devuan (ceres?)](https://devuan.org/os/releases) recommended.
 
 **Didn't know how to install packages?**
 
@@ -167,7 +233,7 @@ Contents of [1](https://packages.debian.org/sid/xserver-xorg-core),
 
 **Now, the UI kits and functionality. It's required.**
 
-URxvt is a highly recommended terminal emulator by default. Picom is optional, but recommended.
+URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
 ```sh
 dunst nitrogen openbox rofi rxvt-unicode tint2 picom libgtk3-perl #obmenu-generator
@@ -199,7 +265,7 @@ Contents of [1](https://packages.debian.org/sid/pulseaudio),
 [3](https://packages.debian.org/sid/mpc),
 [4](https://packages.debian.org/sid/ncmpcpp).
 
-Spotify is also integrated but optional, [here to install](https://spotify.com/us/download/linux).
+Spotify is also integrated but optional, [here to install](https://wiki.debian.org/spotify).
 
 ---
 
@@ -276,7 +342,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 <details>
 <summary><b>Arch-based Linux distributions</b></summary>
 
-> Arch Linux and Artix Linux recommended.
+[Arch Linux](https://archlinux.org) and [Artix Linux](https://artixlinux.org) recommended.
 
 **Didn't know how to install packages?**
 
@@ -303,7 +369,7 @@ Contents of [1](https://archlinux.org/packages/extra/x86_64/xorg-server),
 
 **Now, the UI kits and functionality. It's required.**
 
-URxvt is a highly recommended terminal emulator by default. Picom is optional, but recommended.
+URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
 > **AUR**  
 > `rxvt-unicode-truecolor-wide-glyphs`  
@@ -417,7 +483,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 <details>
 <summary><b>Gentoo source-based Linux distributions</b></summary>
 
-> Gentoo Linux extremely recommended. Expert!
+[Gentoo Linux](https://gentoo.org) extremely recommended. Expert!
 
 **Didn't know how to install packages?**
 
@@ -446,7 +512,7 @@ Contents of [1](https://packages.gentoo.org/packages/x11-base/xorg-server),
 
 **Now, the UI kits and functionality. It's required.**
 
-URxvt is a highly recommended terminal emulator by default. Picom is optional, but recommended.
+URxvt is highly recommended terminal emulator by default. Picom is optional, but recommended.
 
 > My own portage overlay. **Nelumbonaceae Overlay**  
 > `=x11-terms/rxvt-unicode-9.26-r9:0::nelumbonaceae`
@@ -562,7 +628,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 <details>
 <summary><b>Another independent Linux distributions</b></summary>
 
-> Need contributors to encapsulate dependencies.
+[Need contributors to encapsulate dependencies](#deciduous_tree--contributing).
 
 <pre align="center">
 The Linux philosophy is ‘Laugh in the face of danger’.
@@ -570,6 +636,14 @@ Oops. Wrong One. ‘Do it yourself’.
 
 - Linus Torvalds
 </pre>
+
+</details>
+
+<details>
+<summary><b>Berkeley Software Distribution (BSD) variants</b></summary>
+
+The [BSD variants](https://en.wikipedia.org/wiki/Comparison_of_BSD_operating_systems) haven't been tested at all,
+probably some of the extensions are [GNU](https://gnu.org)'s.
 
 </details>
 
@@ -709,14 +783,13 @@ Optionally, install the noto family for broad support.
 ```
 
 **Why do I need to link icons to [/usr](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html)?**  
-It's required by dunst to display icons of the notification that spawned by programs.
+It's [required by dunst](https://github.com/owl4ce/dotfiles/commit/bdcadc5c1d869a073c5038bce4ef26d0340275a3)
+to display icons of the notification that spawned by programs.
 
 </details>
 
 <details>
 <summary><b>Wallpapers</b></summary>
-
-Actually optional, but recommended by default.
 
 | Wallpapers                                                                                                 | License                                                              | The path where it will be put |
 |:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:------------------------------|
@@ -724,6 +797,15 @@ Actually optional, but recommended by default.
 | [okita-souji_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/okita-souji_FHD.jpg)             | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/mechanical`    |
 | [cherry-blossoms_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/cherry-blossoms_FHD.jpg)     | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/eyecandy`      |
 | [floral-artistic-2_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/floral-artistic-2_FHD.jpg) | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/eyecandy`      |
+
+> **DISCLAIMER!!!**  
+> I don't own the artworks (because I couldn't find the link to the originals),
+> so if you the owner of the artworks with proof and want me to remove it
+  [please let me know](./CODE_OF_CONDUCT.md#enforcement).
+>
+> - [桜セイバー沖田総司](https://pixiv.net/en/artworks/59740059)
+> - [桜](https://pixiv.net/en/artworks/80518034)
+> - [沖田総司](https://pixiv.net/en/artworks/62996457)
 
 **Wget** all the wallpapers above and put as instructed into the `~/.wallpapers` directory.
 
@@ -734,6 +816,8 @@ Actually optional, but recommended by default.
 ```bash
 💲 wget --no-hsts -cNP ~/.wallpapers/eyecandy/ https://github.com/owl4ce/dotfiles/releases/download/ng/{cherry-blossoms,floral-artistic-2}_FHD.jpg
 ```
+
+[Old wallpapers can be found here](https://github.com/owl4ce/depfiles/tree/3.2/.wallpaper).
 
 </details>
 
@@ -768,7 +852,8 @@ Actually optional, but recommended by default.
 <details>
 <summary><b>Synchronize minimal .files</b></summary>
 
-You can clone or download as archive. Then, put all the .files in the dotfiles directory into user's home directory.
+You can clone or [download as archive](https://github.com/owl4ce/dotfiles/releases/tag/ng).
+Then, put all the .files in the dotfiles directory into user's home directory.
 Assume you clone it in the `~/Documents` directory. I recommend to synchronize with rsync program.
 
 ```sh
@@ -848,10 +933,9 @@ Then you can proceed to [guides](#herb--guides). Explore!
 <details>
 <summary><b>Click or tap to extend</b></summary>
 
-Since I recommend using rsync from the beginning,
-the easiest way is to list the files (via shell [heredocs](https://tldp.org/LDP/abs/html/here-docs.html))
-that won't be updated to avoid replacing personal files with .files.
-First, update the local repository with the remote git repository.
+Since I recommend using rsync from the beginning, the easiest way is to list the files (via shell
+[heredocs](https://tldp.org/LDP/abs/html/here-docs.html)) that won't be updated to avoid replacing
+personal files with .files. First, update the local repository with the remote git repository.
 
 > Remember where you cloned the repository. We assumed that it was in `~/Documents` directory.
 
@@ -885,7 +969,7 @@ EXTRA_JOYFUL
 EXCLUDE
 ```
 
-> Use find command to check the *PATTERN*.
+> Use find program to check the *PATTERN*.
 > ```sh
 > 💲 find dotfiles/ -iname 'PATTERN'
 > ```
@@ -959,11 +1043,13 @@ Use `export` to set user's environment variables universally. Don't add any othe
 | *file_manager*   | *anything*                                                 | File Manager      |
 | *session_locker* | *anything*                                                 | Session Locker    |
 
-Terminal emulator and file manager are universally used, both for keybindings and context menus.
-Terminal emulator is actually freedom-of-choice, but it's not integrated,
-it will display a notification message. The music player can be switched without modifying the configuration manually,
-via music control button in the tint2 panel, just hover it. The session locker is used by xss-lock program
-(which enabled in [autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd-events and
+Terminal emulator and file manager are universally used, both for keybindings and
+context menus. Terminal emulator is actually freedom-of-choice, [but it's not integrated,
+it will display a notification message](./.config/openbox/joyful-desktop/terminal-set.sh#L26-L149).
+The music player [can be switched without modifying the configuration manually](./.scripts/music-controller.sh#L71-L86),
+via music control button in the tint2 panel, just hover it. The session locker is used by
+[xss-lock](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L29-L40) program (which enabled in
+[autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd events and
 [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
 
 </details>
@@ -977,9 +1063,13 @@ Update the mpd database first, via mpc or by pressing <kbd>U</kbd> in ncmpcpp.
 💲 mpc -p 7777 update
 ```
 
-Put the image files matched to REGEX `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory
-containing the album tracks. The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10).
-The recommended image size is 500 pixels at ratio of 1:1 or more. This is for URxvt only.
+Put the image files [matched to BRE](./.config/ncmpcpp/scripts/album-art.sh#L93-L99)
+`(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory containing
+the album tracks. The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10).
+The recommended image size is 500px at ratio of 1:1 or more. So,
+assume you have a directory `~/Music/AlbumX` with lots of songs,
+you should put the image file to use as album-art (related to the songs) there.
+[This is for URxvt only](./.joyfuld#L144-L162).
 
 </details>
 
@@ -994,9 +1084,12 @@ right click and click **Send To** 🡲 **Side Pane**. The following command gene
 💲 xdg-user-dirs-update
 ```
 
-If you want to get 100% thunar looks similar to my screenshots, ensure to copy my thunar configurations.
-Then hide **Computer**, **Desktop**, **Recent**, or whatever you want by right clicking **Places** in thunar side-pane.
-By default, my thunar side-pane configuration uses simple 16 pixels icons.
+If you want to get 100% thunar looks similar to my screenshots, ensure to copy my
+[thunar configurations](./EXTRA_JOYFUL/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml)
+(before opening for the first time). Then hide **Computer**, **Desktop**, **Recent**,
+or whatever you want by right clicking **Places** in thunar side-pane. By default,
+my thunar side-pane configuration uses simple 16px icons. [Suggested by Papirus Development
+Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes).
 
 </details>
 
@@ -1160,17 +1253,17 @@ By default, my thunar side-pane configuration uses simple 16 pixels icons.
 
 This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the
 story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year.
-My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any desktop
-decorations such as widgets, but customizable to users' taste with an overall theme based on my
+My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any
+desktop decorations such as widgets, but customizable to users' taste with an overall theme based on my
 [unnamed color palette](./.Xresources#L76-L95) and easily switchable themes along with fashions.
 
-I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can learn
-open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software" completely,
-which is in very poor condition, especially among Microsoft Windows consumers.
+I learned a lot about \*NIX because of this too, so I'm really grateful for that. I really hope that everyone can
+learn open-source especially in \*NIX environment such as GNU/Linux and can leave the world of "pirated software"
+completely, which is in very poor condition, especially among Microsoft Windows consumers.
 
-If you feel happy, give this a **star**. If there's a problem with the configuration
-(please check previous issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues)
-or if you want to [discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
+If you feel happy, give this a **star**. If there's a problem with the configuration (please check previous
+issues if any), you can create an [issue](https://github.com/owl4ce/dotfiles/issues) or if you want to
+[discuss](https://github.com/owl4ce/dotfiles/discussions). Thanks for your attention!
 
 <pre align="center">
 <a href="#maple_leaf--history">
