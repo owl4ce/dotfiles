@@ -715,12 +715,12 @@ Use `export` to set user's environment variables universally. Don't add any othe
 
 [`~/.scripts/db.apps.joy`](./.scripts/db.apps.joy)
 
-| Parameters       | Available       | Description       |
-|:-----------------|:----------------|:------------------|
-| *terminal*       | `urxvt`         | Terminal Emulator |
-| *music_player*   | `mpd` `spotify` | Music Player      |
-| *file_manager*   | *anything*      | File Manager      |
-| *session_locker* | *anything*      | Session Locker    |
+| Parameters       | Available                                                  | Description       |
+|:-----------------|:-----------------------------------------------------------|:------------------|
+| *terminal*       | `urxvt` [`urxvtc`](./.config/openbox/autostart.sh#L17-L18) | Terminal Emulator |
+| *music_player*   | `mpd` `spotify`                                            | Music Player      |
+| *file_manager*   | *anything*                                                 | File Manager      |
+| *session_locker* | *anything*                                                 | Session Locker    |
 
 Terminal emulator and file manager are universally used, both for keybindings and context menus.
 Terminal emulator is actually freedom-of-choice, but it's not integrated, it will display a notification message.
