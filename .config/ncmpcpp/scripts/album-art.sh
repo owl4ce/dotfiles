@@ -3,6 +3,8 @@
 # The ncmpcpp album-art executor.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2166,SC2086,SC2046
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
