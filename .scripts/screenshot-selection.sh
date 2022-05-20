@@ -12,6 +12,7 @@ exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 [ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -h string:synchronous:install-deps \
+                                                                 -a joyful_desktop \
                                                                  -u low
 
 {
@@ -29,6 +30,7 @@ exec >/dev/null 2>&1
                   -s \
                   -z \
     || exec dunstify '' 'Screenshot canceled!' -h string:synchronous:screenshot-selection \
+                                                -a joyful_desktop \
                                                 -i "$SCREENSHOT_ICON" \
                                                 -u low
 
@@ -68,11 +70,13 @@ exec >/dev/null 2>&1
         if [ -n "$SS_FRAME_COLOR" ]; then
             dunstify '' "Processing captured picture ..\n<span size='small'>Magick ${SS_FRAME_COLOR} ..</span>" \
                      -h string:synchronous:screenshot-selection \
+                     -a joyful_desktop \
                      -i "$SCREENSHOT_ICON" \
                      -t 1000
         elif [ -n "$PRESERVED_SFC" ]; then
             exec dunstify '' "Screenshot failed!\n<span size='small'><u>${PRESERVED_SFC}</u> isn't hex!</span>" \
                           -h string:synchronous:screenshot-selection \
+                          -a joyful_desktop \
                           -i "$SCREENSHOT_ICON" \
                           -u low
         fi
@@ -111,6 +115,7 @@ exec >/dev/null 2>&1
         "${TMP_DIR}/${CURRENT}" \
         || exec dunstify '' "Screenshot failed!\n<span size='small'>Error occurred in ImageMagick!</span>" \
                          -h string:synchronous:screenshot-selection \
+                         -a joyful_desktop \
                          -i "$SCREENSHOT_ICON" \
                          -u low
     fi
@@ -138,6 +143,7 @@ exec >/dev/null 2>&1
 
     exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -h string:synchronous:screenshot-selection \
+                  -a joyful_desktop \
                   -i "$SCREENSHOT_ICON" \
                   -u low
 } &

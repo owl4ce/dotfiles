@@ -12,6 +12,7 @@ exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 [ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -h string:synchronous:install-deps \
+                                                                 -a joyful_desktop \
                                                                  -u low
 
 {
@@ -44,11 +45,13 @@ exec >/dev/null 2>&1
                   -q "${SS_QUALITY:-75}" \
                   -z \
     || exec dunstify '' 'Screenshot failed!' -h string:synchronous:screenshot-screen \
+                                              -a joyful_desktop \
                                               -i "$SCREENSHOT_ICON" \
                                               -u low
 
     exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -h string:synchronous:screenshot-screen \
+                  -a joyful_desktop \
                   -i "$SCREENSHOT_ICON" \
                   -u low
 } &

@@ -68,6 +68,7 @@ case "${1}" in
               [ "$MUSIC_PLAYER" != "$M" ] || continue
               sed -e "/^music_player[ ]*/s|\".*\"$|\"${M}\"|" -i "$APPS_FILE"
               dunstify 'Music Player' "Switched <u>${M}</u>" -h string:synchronous:music-player \
+                                                             -a joyful_desktop \
                                                              -i "$MUSIC_ICON" \
                                                              -u low
               break

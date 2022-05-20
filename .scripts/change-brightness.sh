@@ -12,6 +12,7 @@ exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
 [ -x "$(command -v brightnessctl)" ] || exec dunstify 'Install `brightnessctl`!' -h string:synchronous:install-deps \
+                                                                                 -a joyful_desktop \
                                                                                  -u low
 
 case "${1}" in
@@ -37,6 +38,7 @@ esac
     fi
 
     exec dunstify "$BRIGHTNESS" -h "int:value:${BRIGHTNESS}" \
+                                -a joyful_desktop \
                                 -h string:synchronous:display-brightness \
                                 -i "$ICON" \
                                 -t 1000
