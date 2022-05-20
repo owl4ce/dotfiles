@@ -54,7 +54,7 @@ our $SCHEMA = [
     {sep       => undef},
 
     {beg       => [                                                                     "Screenshot",                  "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
-    {item      => ["$ENV{HOME}/.scripts/screenshot-screen.sh",                          "Screen",                      "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
+    {item      => ["$ENV{HOME}/.scripts/screenshot-screen.sh delay",                    "Screen",                      "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {item      => ["$ENV{HOME}/.scripts/screenshot-selection.sh",                       "Select or Draw",              "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {item      => ["$ENV{HOME}/.scripts/screenshot-countdown.sh",                       "Countdown ?s",                "$ENV{HOME}/.icons/Gladient/screenshot.png"]},
     {end       => undef},
