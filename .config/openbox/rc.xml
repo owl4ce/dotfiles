@@ -935,11 +935,5 @@
     <application class="*" type="normal">
       <decor>yes</decor>
     </application>
-    <application class="*" type="dialog">
-      <position>
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
   </applications>
 </openbox_config>
