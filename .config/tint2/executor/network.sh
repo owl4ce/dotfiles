@@ -3,6 +3,8 @@
 # Get network status for tint2 panel.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2166,SC2016
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"

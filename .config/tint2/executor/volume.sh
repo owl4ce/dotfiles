@@ -3,6 +3,8 @@
 # Get status or control audio-volume via `amixer`.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2016,SC2086,SC2166
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
