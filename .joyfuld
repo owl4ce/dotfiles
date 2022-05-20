@@ -120,7 +120,7 @@ SS_FRAME_S_OPACITY='25'                          # Selection or draw mode w fram
 SS_COUNTDOWN_SECONDS='5'                         # Countdown timer or delay mode
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# Device brightness and audio-volume steps level options      ~ Auto-reconfigure ~ #
+# Display brightness and audio-volume steps level options     ~ Auto-reconfigure ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # AUDIO_DEVICE          || Run `aplay -L` for available PCMs or leave it blank.    #
 # AUDIO_VOLUME_STEPS    || 0-100, real value without audio boost (100+).           #
