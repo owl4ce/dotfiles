@@ -13,18 +13,16 @@ exec 2>/dev/null
 
 [ -x "$(command -v amixer)" ] || exec echo 'Install `alsa-utils`!'
 
-[ -z "$AUDIO_DEVICE" ] || ARGS="-D ${AUDIO_DEVICE}"
-
 case "${1}" in
-    +) exec amixer ${ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
+    +) exec amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
     ;;
-    -) exec amixer ${ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
+    -) exec amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sset Master "${AUDIO_VOLUME_STEPS:-5}%-" on -q
     ;;
-    0) exec amixer ${ARGS} sset Master 1+ toggle -q
+    0) exec amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sset Master 1+ toggle -q
     ;;
 esac
 
-AUDIO_VOLUME="$(amixer ${ARGS} sget Master)"
+AUDIO_VOLUME="$(amixer ${AUDIO_DEVICE:+-D "$AUDIO_DEVICE"} sget Master)"
 AUDIO_MUTED="${AUDIO_VOLUME##*\ \[on\]}"
 AUDIO_VOLUME="${AUDIO_VOLUME#*\ \[}" \
 AUDIO_VOLUME="${AUDIO_VOLUME%%\]\ *}"
