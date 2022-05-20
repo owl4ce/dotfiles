@@ -64,11 +64,11 @@ pixbuf()
         ;;
     esac
 
-    FILE="$(mpc -p ${CHK_MPD_PORT} -f '%file%' current)" ALBUM_DIR="${FILE%/*}"
+    FILE="$(mpc -p "$CHK_MPD_PORT" -f '%file%' current)" ALBUM_DIR="${FILE%/*}"
 
     [ -n "$ALBUM_DIR" ] || exit ${?}
 
-    ALBUM="$(mpc -p ${CHK_MPD_PORT} -f '%album%' current)"
+    ALBUM="$(mpc -p "$CHK_MPD_PORT" -f '%album%' current)"
 
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
