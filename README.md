@@ -609,7 +609,7 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 
 | Typefaces                                                                                                                 | License                                                                | The path of extracted files from the archive             |
 |:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------|
-| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/LATEST-IS-0.303.1)                    | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
+| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz)       | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
 | [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                  | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
 | [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://icomoon.io/#faq/license)                                 |                                                          |
 | [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                          |
@@ -617,11 +617,35 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 | [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
 | [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
 
-Download all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
+**Wget** all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
 
 ```bash
 💲 mkdir -pv ~/.fonts/{Cantarell,Comfortaa,IcoMoon-Custom,Nerd-Patched}
 ```
+
+---
+
+```bash
+💲 wget --no-hsts -cNP ~/.fonts/IcoMoon-Custom/ https://github.com/owl4ce/dotfiles/releases/download/ng/{Feather,Material}.ttf
+```
+
+```sh
+💲 wget --no-hsts -cNP ~/.fonts/Nerd-Patched/ https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf
+```
+
+```bash
+💲 wget --no-hsts -cNP ~/.fonts/Nerd-Patched/ https://github.com/owl4ce/dotfiles/releases/download/ng/{M+.1mn,Iosevka}.Nerd.Font.Complete.Mono.ttf
+```
+
+```sh
+💲 wget --no-hsts -cN https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz
+```
+
+```sh
+💲 # For cantarell from deviantart, it has to be downloaded manually.
+```
+
+---
 
 ```sh
 💲 tar -xvf cantarell*.tar.xz --strip-components 2 --wildcards -C ~/.fonts/Cantarell/ \*/\*/Cantarell-VF.otf
@@ -629,14 +653,6 @@ Download all the fonts above (and extract if archived). Then, put the files as i
 
 ```sh
 💲 unzip -j comfortaa*.zip \*/Comfortaa\*.ttf -d ~/.fonts/Comfortaa/
-```
-
-```bash
-💲 cp -fpv {Feather,Material}.ttf ~/.fonts/IcoMoon-Custom/
-```
-
-```bash
-💲 cp -fpv {Iosevka,M+.1mn}.Nerd.Font.Complete*.ttf ~/.fonts/Nerd-Patched/
 ```
 
 Optionally, install the noto family for broad support.
@@ -655,7 +671,19 @@ Optionally, install the noto family for broad support.
 | [Papirus-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Custom.tar.xz)           | GPL-2.0    | GTK          |
 | [Papirus-Dark-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Dark-Custom.tar.xz) | GPL-2.0    | GTK          |
 
-Download all the icons above (and extract if archived). Then, put the files into the `~/.icons` directory.
+**Wget** all the icons above (and extract if archived). Then, put the files into the `~/.icons` directory.
+
+```sh
+💲 mkdir -pv ~/.icons
+```
+
+---
+
+```bash
+💲 wget --no-hsts -cN https://github.com/owl4ce/dotfiles/releases/download/ng/{Gladient_JfD,Papirus{,-Dark}-Custom}.tar.xz
+```
+
+---
 
 ```sh
 💲 tar -xf Gladient_JfD.tar.xz -C ~/.icons/
@@ -668,6 +696,8 @@ Download all the icons above (and extract if archived). Then, put the files into
 ```sh
 💲 tar -xf Papirus-Dark-Custom.tar.xz -C ~/.icons/
 ```
+
+---
 
 ```sh
 💲 sudo ln -vs ~/.icons/Papirus-Custom /usr/share/icons/
@@ -685,7 +715,7 @@ It's required by dunst to display icons of the notification that spawned by prog
 <details>
 <summary><b>Wallpapers</b></summary>
 
-> This is actually optional, but recommended.
+Actually optional, but recommended by default.
 
 | Wallpapers                                                                                                 | License         | The path where it will be put |
 |:-----------------------------------------------------------------------------------------------------------|:----------------|:------------------------------|
@@ -694,14 +724,40 @@ It's required by dunst to display icons of the notification that spawned by prog
 | [cherry-blossoms_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/cherry-blossoms_FHD.jpg)     | CC BY-NC-SA 4.0 | `~/.wallpapers/eyecandy`      |
 | [floral-artistic-2_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/floral-artistic-2_FHD.jpg) | CC BY-NC-SA 4.0 | `~/.wallpapers/eyecandy`      |
 
-Download all the wallpapers above. Then, put the files as instructed into the `~/.wallpapers` directory.
+**Wget** all the wallpapers above and put as instructed into the `~/.wallpapers` directory.
 
 ```bash
-💲 cp -fpv {batik-1_4K,okita-souji_FHD}.jpg ~/.wallpapers/mechanical/
+💲 wget --no-hsts -cNP ~/.wallpapers/mechanical/ https://github.com/owl4ce/dotfiles/releases/download/ng/{batik-1_4K,okita-souji_FHD}.jpg
 ```
 
 ```bash
-💲 cp -fpv {cherry-blossoms,floral-artistic-2}_FHD.jpg ~/.wallpapers/eyecandy/
+💲 wget --no-hsts -cNP ~/.wallpapers/eyecandy/ https://github.com/owl4ce/dotfiles/releases/download/ng/{cherry-blossoms,floral-artistic-2}_FHD.jpg
+```
+
+</details>
+
+<details>
+<summary><b>Extensions (URxvt)</b></summary>
+
+| Extensions                                                                                   | License | Usability         |
+|:---------------------------------------------------------------------------------------------|:--------|:------------------|
+| [resize-font](https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font) | ISC     | Font resizer      |
+| [tabbedex](https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex)          | GPL-3.0 | Tab functionality |
+
+**cURL** all the perl-scripts above and put into the `~/.urxvt/ext` directory.
+
+```sh
+💲 mkdir -pv ~/.urxvt/ext
+```
+
+---
+
+```sh
+💲 (cd ~/.urxvt/ext/; curl -LO https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font)
+```
+
+```sh
+💲 (cd ~/.urxvt/ext/; curl -LO https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex)
 ```
 
 </details>
@@ -802,8 +858,8 @@ First, update the local repository with the remote git repository.
 💲 cd ~/Documents/
 ```
 
-```bash
-💲 pushd dotfiles/ && git pull --depth 1 --recurse-submodules --rebase && popd
+```sh
+💲 (cd dotfiles/; git pull --depth 1 --recurse-submodules --rebase)
 ```
 
 ```sh
