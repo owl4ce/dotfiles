@@ -9,9 +9,6 @@ SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec >/dev/null 2>&1
 
-# Ensure no rofi windows are running before.
-! pidof -s rofi -q || ( killall -9 rofi -q && wait )
-
 # Custom modi glyphs.
 SYSINFO=''
 SCREENSHOT=''
