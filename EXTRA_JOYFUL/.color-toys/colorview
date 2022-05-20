@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Original: http://frexx.de/xterm-256-notes/data/colortable16.sh
+# Modified by Aaron Griffin and further by Kazuo Teramoto.
+# The last, modified by owl4ce.
+
+FGNAMES=(' black ' '  red  ' ' green ' ' yellow' '  blue ' 'magenta' '  cyan ' ' white ')
+BGNAMES=('   NONE' '  BLACK' '    RED' '  GREEN' ' YELLOW' '   BLUE' 'MAGENTA' '   CYAN' '  WHITE')
+
+echo "         ┌──────────────────────────────────────────────────────────────────────────┐"
+for b in {0..8}; do
+    ((b>0)) && bg=$((b+39))
+    
+    printf "\033[0m ${BGNAMES[b]} │ "
+    
+    for f in {0..7}; do
+    printf "\033[${bg}m\033[$((f+30))m ${FGNAMES[f]} "
+    done
+    
+    printf "\033[0m │"
+    printf "\033[0m\n\033[0m         │ "
+    
+    for f in {0..7}; do
+    printf "\033[${bg}m\033[1;$((f+30))m ${FGNAMES[f]} "
+    done
+    
+    printf "\033[0m │"
+    printf "\033[0m\n"
+    
+    ((b<8)) && \
+    echo "         ├──────────────────────────────────────────────────────────────────────────┤"
+done
+echo "         └──────────────────────────────────────────────────────────────────────────┘"
