@@ -1,30 +1,27 @@
-# FILE: ~/.nanorc
-# -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-# DESC: Nano text-editor initialization.
-# -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-# aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
+# Nano text-editor initialization.
+# https://github.com/owl4ce/dotfiles
 
-# FUNCTIONS
+# OPTIONS
 # ---
 set autoindent
-#set backup
-#set backupdir "/home/username/nano-backups"
 #set casesensitive
-#set historylog
+set guidestripe 125
+set linenumbers
+#set mouse
+set noconvert
 #set nohelp
+set softwrap
 set tabsize 4
 set tabstospaces
-#set mouse
-set linenumbers
-set softwrap
 
 # COLOR SCHEMES
 # ---
-set titlecolor black,red
-set statuscolor magenta
-set keycolor blue
 set functioncolor white
+set keycolor blue
 set numbercolor white
+set statuscolor magenta
+set stripecolor ,black
+set titlecolor black,red
 
 # SYNTAX HIGHLIGHTING
 # ---
