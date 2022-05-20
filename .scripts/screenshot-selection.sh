@@ -90,7 +90,7 @@ exec >/dev/null 2>&1
            ')' -alpha off \
                -compose CopyOpacity \
                -composite \
-               -quality 100% \
+               -quality 100 \
         miff:- \
         | magick - \
            '(' -clone 0 \
@@ -100,7 +100,7 @@ exec >/dev/null 2>&1
                -background none \
                -layers merge \
                +repage \
-               -quality 100% \
+               -quality 100 \
         miff:- \
         | magick - \
                -bordercolor "$SS_FRAME_COLOR" \
