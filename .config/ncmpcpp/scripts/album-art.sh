@@ -64,20 +64,18 @@ pixbuf()
         ;;
     esac
 
-    FILE="$(mpc -p "$CHK_MPD_PORT" -f '%file%' current)" ALBUM_DIR="${FILE%/*}"
+    FILE="$(mpc -p "$CHK_MPD_PORT" -f '%file% ########## %album%' current)"
 
-    [ -n "$ALBUM_DIR" ] || exit ${?}
-
-    ALBUM="$(mpc -p "$CHK_MPD_PORT" -f '%album%' current)"
+    [ -n "${FILE%/*}" ] || exit ${?}
 
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
     read -r ALBUM_COVER <<- EOF
-		$(find "${CHK_MPD_MUSIC_DIR}/${ALBUM_DIR}"  -type d \
+		$(find  "${CHK_MPD_MUSIC_DIR}/${FILE%/*}"   -type d \
 													-exec find "{}" -maxdepth 1 \
 																	-type f \
 																	-iregex \
-		".*/.*\(${ALBUM}\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \;)
+		".*/.*\(${FILE##*\ #####\ }\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \;)
 	EOF
 
     if [ -f "$ALBUM_COVER" ]; then
