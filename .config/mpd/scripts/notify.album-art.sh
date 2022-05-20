@@ -12,11 +12,11 @@ exec >/dev/null 2>&1
 [ -x "$(command -v mpd)" -a -x "$(command -v mpc)" -a -x "$(command -v magick)" ] || exit ${?}
 
 {
-    FILE="$(mpc -p ${CHK_MPD_PORT} -f '%file%' current)" ALBUM_DIR="${FILE%/*}"
+    FILE="$(mpc -p "$CHK_MPD_PORT" -f '%file%' current)" ALBUM_DIR="${FILE%/*}"
 
     [ -n "$ALBUM_DIR" ] || exit ${?}
 
-    ALBUM="$(mpc -p ${CHK_MPD_PORT} -f '%album%' current)"
+    ALBUM="$(mpc -p "$CHK_MPD_PORT" -f '%album%' current)"
 
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
@@ -60,7 +60,7 @@ exec >/dev/null 2>&1
 
     [ -f "$MPD_NOTIFY_AA_IMG" ] || MPD_NOTIFY_AA_IMG=
 
-    INFO="$(mpc -p ${CHK_MPD_PORT} -f '%artist% ########## [%title%|%file%]' current)"
+    INFO="$(mpc -p "$CHK_MPD_PORT" -f '%artist% ########## [%title%|%file%]' current)"
 
     exec dunstify '' "<span size='small'>${INFO%%\ #####\ *}</span>\n${INFO##*\ #####\ }" \
                   -h string:synchronous:ncmpcpp-album-art \

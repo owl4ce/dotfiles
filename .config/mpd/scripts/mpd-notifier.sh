@@ -22,9 +22,9 @@ exec >/dev/null 2>&1
                                           -u low
 
     while :; do
-        LAST_PLAYED_TRACK="$(mpc -p ${CHK_MPD_PORT} -f '%file%' current)"
-        nice -n 19 mpc -p ${CHK_MPD_PORT} idle || mpc -p ${CHK_MPD_PORT} idle
-        [ "$LAST_PLAYED_TRACK" = "$(mpc -p ${CHK_MPD_PORT} -f '%file%' current)" ] || joyd_mpd_notify_albumart
+        LAST_PLAYED_TRACK="$(mpc -p "$CHK_MPD_PORT" -f '%file%' current)"
+        nice -n 19 mpc -p "$CHK_MPD_PORT" idle || mpc -p "$CHK_MPD_PORT" idle
+        [ "$LAST_PLAYED_TRACK" = "$(mpc -p "$CHK_MPD_PORT" -f '%file%' current)" ] || joyd_mpd_notify_albumart
     done
 } &
 
