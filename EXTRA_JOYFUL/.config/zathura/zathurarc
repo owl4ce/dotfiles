@@ -1,0 +1,23 @@
+# FILE: ~/.config/zathura/zathurarc
+# -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+# DESC: Zathura document-viewer initialization.
+# -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+# aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
+
+# GENERAL
+# ---
+set selection-clipboard clipboard
+set adjust-open "best-fit"
+set pages-per-row 1
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 50
+set zoom-min 10
+set guioptions ""
+set render-loading "false"
+
+# KEYBINDS
+# ---
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
