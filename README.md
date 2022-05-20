@@ -608,15 +608,15 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 <details>
 <summary><b>Fonts</b></summary>
 
-| Typefaces                                                                                                                 | License                                                                | The path of extracted files from the archive             |
-|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------|
-| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz)       | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
-| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                  | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
-| [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://icomoon.io/#faq/license)                                 |                                                          |
-| [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                          |
-| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
-| [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
-| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
+| Typefaces                                                                                                                 | License                                                                         | The path of extracted files from the archive             |
+|:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:---------------------------------------------------------|
+| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz)       | [OFL-1.1](https://gitlab.gnome.org/GNOME/cantarell-fonts/-/blob/master/COPYING) | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
+| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                  | OFL-1.1                                                                         | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
+| [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://github.com/feathericons/feather/blob/master/LICENSE) ([FAQ](https://icomoon.io/#faq/license))                                |
+| [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE)                                                             |
+| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
+| [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
+| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
 
 **Wget** all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
 
@@ -643,7 +643,7 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 ```
 
 ```sh
-💲 # For cantarell from deviantart, it has to be downloaded manually.
+💲 # For comfortaa from deviantart, it has to be downloaded manually.
 ```
 
 ---
@@ -653,7 +653,7 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 ```
 
 ```sh
-💲 unzip -j comfortaa*.zip \*/Comfortaa\*.ttf -d ~/.fonts/Comfortaa/
+💲 unzip -j comfortaa*.zip \*/Comfortaa-\*l\*.ttf -d ~/.fonts/Comfortaa/
 ```
 
 Optionally, install the noto family for broad support.
@@ -666,11 +666,11 @@ Optionally, install the noto family for broad support.
 <details>
 <summary><b>Icons</b></summary>
 
-| Icons                                                                                                     | License    | Usability    |
-|:----------------------------------------------------------------------------------------------------------|:-----------|:-------------|
-| [Gladient](https://github.com/owl4ce/dotfiles/releases/download/ng/Gladient_JfD.tar.xz)                   | Propietary | Openbox Menu |
-| [Papirus-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Custom.tar.xz)           | GPL-2.0    | GTK          |
-| [Papirus-Dark-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Dark-Custom.tar.xz) | GPL-2.0    | GTK          |
+| Icons                                                                                                     | License                                                                                     | Usability                   |
+|:----------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------|:----------------------------|
+| [Gladient](https://github.com/owl4ce/dotfiles/releases/download/ng/Gladient_JfD.tar.xz)                   | PROPIETARY ([?](https://play.google.com/store/apps/details?id=com.maxghani.gladient))       | Openbox desktop (root-)menu |
+| [Papirus-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Custom.tar.xz)           | [GPL-3.0](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE) | Universal                   |
+| [Papirus-Dark-Custom](https://github.com/owl4ce/dotfiles/releases/download/ng/Papirus-Dark-Custom.tar.xz) | [GPL-3.0](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE) | Universal                   |
 
 **Wget** all the icons above (and extract if archived). Then, put the files into the `~/.icons` directory.
 
@@ -718,12 +718,12 @@ It's required by dunst to display icons of the notification that spawned by prog
 
 Actually optional, but recommended by default.
 
-| Wallpapers                                                                                                 | License         | The path where it will be put |
-|:-----------------------------------------------------------------------------------------------------------|:----------------|:------------------------------|
-| [batik-1_4K](https://github.com/owl4ce/dotfiles/releases/download/ng/batik-1_4K.jpg)                       | CC BY-NC-SA 4.0 | `~/.wallpapers/mechanical`    |
-| [okita-souji_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/okita-souji_FHD.jpg)             | CC BY-NC-SA 4.0 | `~/.wallpapers/mechanical`    |
-| [cherry-blossoms_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/cherry-blossoms_FHD.jpg)     | CC BY-NC-SA 4.0 | `~/.wallpapers/eyecandy`      |
-| [floral-artistic-2_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/floral-artistic-2_FHD.jpg) | CC BY-NC-SA 4.0 | `~/.wallpapers/eyecandy`      |
+| Wallpapers                                                                                                 | License                                                              | The path where it will be put |
+|:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:------------------------------|
+| [batik-1_4K](https://github.com/owl4ce/dotfiles/releases/download/ng/batik-1_4K.jpg)                       | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/mechanical`    |
+| [okita-souji_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/okita-souji_FHD.jpg)             | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/mechanical`    |
+| [cherry-blossoms_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/cherry-blossoms_FHD.jpg)     | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/eyecandy`      |
+| [floral-artistic-2_FHD](https://github.com/owl4ce/dotfiles/releases/download/ng/floral-artistic-2_FHD.jpg) | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) | `~/.wallpapers/eyecandy`      |
 
 **Wget** all the wallpapers above and put as instructed into the `~/.wallpapers` directory.
 
@@ -740,10 +740,10 @@ Actually optional, but recommended by default.
 <details>
 <summary><b>Extensions (URxvt)</b></summary>
 
-| Extensions                                                                                   | License | Usability         |
-|:---------------------------------------------------------------------------------------------|:--------|:------------------|
-| [resize-font](https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font) | ISC     | Font resizer      |
-| [tabbedex](https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex)          | GPL-3.0 | Tab functionality |
+| Extensions                                                                                   | License                                                                           | Usability         |
+|:---------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:------------------|
+| [resize-font](https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font) | [ISC](https://github.com/simmel/urxvt-resize-font/blob/master/resize-font#L2-L15) | Font resizer      |
+| [tabbedex](https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex)          | [GPL-3.0](https://github.com/mina86/urxvt-tabbedex/blob/master/LICENSE)           | Tab functionality |
 
 **cURL** all the perl-scripts above and put into the `~/.urxvt/ext` directory.
 
