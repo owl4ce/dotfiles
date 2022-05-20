@@ -11,6 +11,7 @@
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
+# https://gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html#:~:text=expand_aliases
 [ -z "$BASH" ] || shopt -s expand_aliases
 
 # Run URxvt daemon if the user's current preferred terminal emulator is set to `urxvtc`.
