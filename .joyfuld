@@ -257,7 +257,6 @@ WALLPAPER_ICON="${GLADIENT_ICON_DIR}/wallpaper.png"
 MPD_NOTIFY_AA_IMG="${TMP_DIR}/mpd.notify.album-art.png"
 NCMPCPP_AA_IMG="${TMP_DIR}/ncmpcpp.album-art.png"
 NCMPCPP_AA_PID="${NCMPCPP_AA_IMG%.*}.pid"
-ROFI_EXTS_CMD="${TMP_DIR}/rofi-exts.cmd"
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
