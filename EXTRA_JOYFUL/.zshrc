@@ -5,11 +5,11 @@
 # ---
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.color-toys:${PATH}"
 
-export GPG_TTY="$(tty)"
+export ZSH="${HOME}/.oh-my-zsh"
 
 export BAT_THEME='base16'
 
-export ZSH="${HOME}/.oh-my-zsh"
+export GPG_TTY="$(tty)"
 
 # OH-MY-ZSH
 # ---
@@ -20,7 +20,7 @@ DISABLE_AUTO_UPDATE='true'
 COMPLETION_WAITING_DOTS='true'
 DISABLE_UNTRACKED_FILES_DIRTY='true'
 
-plugins=( "zsh-autosuggestions" "zsh-completions" "zsh-syntax-highlighting" "bgnotify" )
+plugins=( 'zsh-autosuggestions' 'zsh-completions' 'zsh-syntax-highlighting' 'bgnotify' )
 
 # Always append history.
 setopt INC_APPEND_HISTORY
@@ -61,7 +61,7 @@ alias nanosu="${PRIV} nano"
 alias nvimsu="${PRIV} nvim"
 
 # Page caches cleaner alias.
-alias cleanup_ram="${PRIV} sh -c 'sync && echo 3 > /proc/sys/vm/drop_caches'"
+alias cleanup_ram="${PRIV} sh -c 'sync; echo 3 >/proc/sys/vm/drop_caches'"
 
 # Exa (modern `ls` replacement) aliases.
 if [ -x "$(command -v exa)" ]; then
