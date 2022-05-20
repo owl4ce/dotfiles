@@ -63,8 +63,8 @@ EYEC_INT_OB_MENU_TTL="$EYEC_INT_ROFI_ACCNT1"     # Title color of Openbox menu
 EYEC_INT_OB_MENU_ITM="$EYEC_INT_ROFI_ACCNT2"     # Items color of Openbox menu
 
 # >~~~~~~~~~~~~~< 0 to 100 >~~~~~~~~~~~~~~~~~~~~~~~~~~~< Opacity Levels >~~~~~~~~< #
-DUNST_OPACITY='95'
-URXVT_OPACITY='95'
+DUNST_OPACITY='97'
+URXVT_OPACITY='97'
 
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # Dunst notification-daemon and URxvt URL-launcher options    ~ Needs Restart UI ~ #
