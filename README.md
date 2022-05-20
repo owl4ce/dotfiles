@@ -682,16 +682,17 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 <details>
 <summary><b>Fonts</b></summary>
 
-| Typefaces                                                                                                                 | License                                                                         | The path of extracted files from the archive             |
-|:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:---------------------------------------------------------|
-| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz)       | [OFL-1.1](https://gitlab.gnome.org/GNOME/cantarell-fonts/-/blob/master/COPYING) | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
-| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                  | OFL-1.1                                                                         | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
-| [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://github.com/feathericons/feather/blob/master/LICENSE) ([FAQ](https://icomoon.io/#faq/license))                                |
-| [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE)                                                             |
-| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
-| [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
-| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                     |
-| [GNU Unifont](https://unifoundry.com/pub/unifont/unifont-14.0.02/font-builds/unifont-14.0.02.ttf)                         | [LICENSE](https://unifoundry.com/LICENSE.txt)                                                                                              |
+| Typefaces                                                                                                                 | License                                                                         | The path of extracted files from the archive        |
+|:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:----------------------------------------------------|
+| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz)       | [OFL-1.1](https://gitlab.gnome.org/GNOME/cantarell-fonts/-/blob/master/COPYING) | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf` |
+| [Google Comfortaa Regular](https://raw.githubusercontent.com/googlefonts/comfortaa/main/fonts/OTF/Comfortaa-Regular.otf)  | [OFL-1.1](https://github.com/googlefonts/comfortaa/blob/main/OFL.txt)                                                                 |
+| [Google Comfortaa Bold](https://raw.githubusercontent.com/googlefonts/comfortaa/main/fonts/OTF/Comfortaa-Bold.otf)        | [OFL-1.1](https://github.com/googlefonts/comfortaa/blob/main/OFL.txt)                                                                 |
+| [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://github.com/feathericons/feather/blob/master/LICENSE) ([FAQ](https://icomoon.io/#faq/license))                           |
+| [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE)                                                        |
+| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
+| [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
+| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
+| [GNU Unifont](https://unifoundry.com/pub/unifont/unifont-14.0.02/font-builds/unifont-14.0.02.ttf)                         | [LICENSE](https://unifoundry.com/LICENSE.txt)                                                                                         |
 
 **Wget** all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
 
@@ -700,6 +701,10 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 ```
 
 ---
+
+```bash
+💲 wget --no-hsts -cNP ~/.fonts/Comfortaa/ https://raw.githubusercontent.com/googlefonts/comfortaa/main/fonts/OTF/Comfortaa-{Bold,Regular}.otf
+```
 
 ```bash
 💲 wget --no-hsts -cNP ~/.fonts/IcoMoon-Custom/ https://github.com/owl4ce/dotfiles/releases/download/ng/{Feather,Material}.ttf
@@ -721,18 +726,10 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 💲 wget --no-hsts -cN https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/cantarell-fonts-0.303.1.tar.xz
 ```
 
-```sh
-💲 # For comfortaa from deviantart, it has to be downloaded manually.
-```
-
 ---
 
 ```sh
 💲 tar -xvf cantarell*.tar.xz --strip-components 2 --wildcards -C ~/.fonts/Cantarell/ \*/\*/Cantarell-VF.otf
-```
-
-```sh
-💲 unzip -j comfortaa*.zip \*/Comfortaa-\*l\*.ttf -d ~/.fonts/Comfortaa/
 ```
 
 Optionally, install the noto family for broad support.
