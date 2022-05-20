@@ -1,0 +1,112 @@
+// Rofi main theme configuration.
+// https://github.com/owl4ce/dotfiles
+
+@import "shared.rasi"
+
+* {
+  font: @text-font;
+  text-color: @foreground-list;
+  vertical-align: @center-align;
+}
+
+window {
+  background-color: @background-alpha;
+  padding: @window-padding;
+}
+
+inputbar {
+  children: [ mode-switcher, entry, indicator ];
+}
+
+mode-switcher, button,
+entry,
+indicator, num-filtered-rows, textbox-sep, num-rows {
+  background-color: @background-light;
+  text-color: @accent1;
+  horizontal-align: @center-align;
+}
+
+button {
+  font: @icon-font;
+  padding: @button-padding;
+}
+
+button.selected {
+  background-image: @button-gradient;
+  text-color: @background-light;
+}
+
+entry {
+  padding: @entry-padding;
+  placeholder: "FILTER";
+  placeholder-color: @background-focus;
+}
+
+indicator {
+  children: [ num-filtered-rows, textbox-sep, num-rows ];
+  expand: false;
+  orientation: horizontal;
+  padding: @indicator-padding;
+}
+
+num-filtered-rows,
+textbox-sep,
+num-rows {
+  str: "/";
+}
+
+listview {
+  columns: 3;
+}
+
+element {
+  padding: @element-padding;
+  border: @element-border;
+}
+
+element.normal.normal,
+element.alternate.normal {
+  background-color: @background-light;
+  text-color: inherit;
+  border-color: @background-light;
+}
+
+element.normal.active,
+element.normal.urgent,
+element.alternate.active,
+element.alternate.urgent,
+element.selected.normal,
+element.selected.active,
+element.selected.urgent {
+  background-color: @background-focus;
+  text-color: inherit;
+}
+
+element.selected.normal,
+element.selected.active,
+element.selected.urgent {
+  border-color: @accent2;
+}
+
+element.normal.active,
+element.alternate.active {
+  border-color: @on;
+}
+
+element.normal.urgent,
+element.alternate.urgent {
+  border-color: @urgent;
+}
+
+element-icon {
+  margin: @element-icon-margin;
+}
+
+message {
+  background-color: @background-light;
+  padding: @message-padding;
+}
+
+textbox {
+  background-color: inherit;
+}

@@ -1,0 +1,67 @@
+// Rofi action theme configuration.
+// https://github.com/owl4ce/dotfiles
+
+@import "shared.rasi"
+
+* {
+  font: @text-font;
+  text-color: @foreground-list;
+  vertical-align: @center-align;
+}
+
+window {
+  background-color: @background-alpha;
+  padding: @window-padding;
+}
+
+mainbox {
+  children: [ listview, message ];
+}
+
+element {
+  padding: @element-padding;
+  border: @element-border;
+}
+
+element.normal.normal,
+element.alternate.normal {
+  background-color: @background-light;
+  text-color: inherit;
+  border-color: @background-light;
+}
+
+element.normal.active,
+element.normal.urgent,
+element.alternate.active,
+element.alternate.urgent,
+element.selected.normal,
+element.selected.active,
+element.selected.urgent {
+  background-color: @background-focus;
+  text-color: inherit;
+}
+
+element.selected.normal,
+element.selected.active,
+element.selected.urgent {
+  border-color: @accent2;
+}
+
+element.normal.active,
+element.alternate.active {
+  border-color: @on;
+}
+
+element.normal.urgent,
+element.alternate.urgent {
+  border-color: @urgent;
+}
+
+message {
+  background-color: @background-light;
+  padding: @message-padding;
+}
+
+textbox {
+  background-color: inherit;
+}

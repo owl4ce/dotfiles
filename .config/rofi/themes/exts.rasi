@@ -1,0 +1,108 @@
+// Rofi extended theme configuration.
+// https://github.com/owl4ce/dotfiles
+
+@import "shared.rasi"
+
+* {
+  font: @text-font;
+  text-color: @foreground-list;
+  vertical-align: @center-align;
+}
+
+window {
+  background-color: @background-alpha;
+  padding: @exts-window-padding;
+  width: @exts-window-width;
+  height: @exts-window-height;
+  location: @exts-window-location;
+  border-radius: @exts-window-border-radius;
+}
+
+mainbox {
+  children: [ message, inputbar, listview, button-custom ];
+}
+
+message {
+  background-color: @background-light;
+  padding: @exts-message-padding;
+  border-radius: @exts-message-border-radius;
+}
+
+textbox {
+  background-color: inherit;
+  font: @exts-textbox-font;
+  horizontal-align: @center-align;
+}
+
+inputbar {
+  children: [ mode-switcher ];
+  orientation: vertical;
+}
+
+mode-switcher, button,
+button-custom {
+  background-color: @background-light;
+  font: @icon-font;
+  text-color: @accent1;
+}
+
+button {
+  padding: @button-padding;
+  horizontal-align: @center-align;
+}
+
+button.selected {
+  background-image: @button-gradient;
+  text-color: @background-light;
+}
+
+listview {
+  columns: 1;
+}
+
+element {
+  padding: @element-padding;
+  border: @element-border;
+}
+
+element.normal.normal,
+element.alternate.normal {
+  background-color: @background-light;
+  text-color: inherit;
+  border-color: @background-light;
+}
+
+element.normal.active,
+element.normal.urgent,
+element.alternate.active,
+element.alternate.urgent,
+element.selected.normal,
+element.selected.active,
+element.selected.urgent {
+  background-color: @background-focus;
+  text-color: inherit;
+}
+
+element.selected.normal,
+element.selected.active,
+element.selected.urgent {
+  border-color: @accent2;
+}
+
+element.normal.active,
+element.alternate.active {
+  border-color: @on;
+}
+
+element.normal.urgent,
+element.alternate.urgent {
+  border-color: @urgent;
+}
+
+button-custom {
+  expand: false;
+  margin: @exts-button-custom-margin;
+  padding: @exts-button-custom-padding;
+  content: "";
+  action: "kb-cancel";
+}
