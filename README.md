@@ -607,15 +607,15 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 <details>
 <summary><b>Fonts</b></summary>
 
-| Typefaces                                                                                                                         | License                                                                | The path of extracted files from the archive             |
-|:----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------|
-| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/LATEST-IS-0.303.1)                            | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
-| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                          | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
-| [Feather Icomoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                            | [MIT](https://icomoon.io/#faq/license)                                 |                                                          |
-| [Material Icomoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                          | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                          |
-| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka%20Nerd%20Font%20Complete%20Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
-| [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+%201mn%20Nerd%20Font%20Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
-| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+%201mn%20Nerd%20Font%20Complete%20Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
+| Typefaces                                                                                                                 | License                                                                | The path of extracted files from the archive             |
+|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------|
+| [GNOME Cantarell](https://download-fallback.gnome.org/sources/cantarell-fonts/0.303/LATEST-IS-0.303.1)                    | OFL-1.1                                                                | `cantarell-fonts-0.303.1/prebuilt/Cantarell-VF.otf`      |
+| [Comfortaa](https://deviantart.com/aajohan/art/Comfortaa-font-105395949)                                                  | OFL-1.1                                                                | `3.001/Comfortaa-Bold.ttf` `3.001/Comfortaa-Regular.ttf` |
+| [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://icomoon.io/#faq/license)                                 |                                                          |
+| [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://icomoon.io/#faq/license)                          |                                                          |
+| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
+| [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
+| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) |                                                          |
 
 Download all the fonts above (and extract if archived). Then, put the files as instructed into the `~/.fonts` directory.
 
@@ -636,7 +636,7 @@ Download all the fonts above (and extract if archived). Then, put the files as i
 ```
 
 ```bash
-💲 cp -fpv {Iosevka,M+\ 1mn}\ Nerd\ Font\ Complete*.ttf ~/.fonts/Nerd-Patched/
+💲 cp -fpv {Iosevka,M+.1mn}.Nerd.Font.Complete*.ttf ~/.fonts/Nerd-Patched/
 ```
 
 Optionally, install the noto family for broad support.
