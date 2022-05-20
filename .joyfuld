@@ -169,10 +169,12 @@ siq()
     [ -f "${2}" ] || return ${?}
 
     while IFS= read -r STRING; do
-        [ "${STRING%%\ *}" = "${1}" ] || continue
-        STRING="${STRING##${1}}" STRING="${STRING#*\"}"
-        echo "${STRING%\"*}"
-        break
+        case "${STRING%%\ *}" in
+            "${1}") STRING="${STRING#${1}*\"}"
+                    echo "${STRING%\"*}"
+                    break
+            ;;
+        esac
     done <"${2}"
 }
 
