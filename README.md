@@ -294,7 +294,7 @@ Choose your own polkit authentication-agent. [lxpolkit](https://packages.debian.
 
 ---
 
-**Optionals for completion of desktop compositions.**
+**Additionals for completion of desktop compositions.**
 
 Just like mpd and ncmpcpp, configurations are included as [EXTRA_JOYFUL](./EXTRA_JOYFUL), some are integrated.
 
@@ -435,7 +435,7 @@ Choose your own polkit authentication-agent.
 
 ---
 
-**Optionals for completion of desktop compositions.**
+**Additionals for completion of desktop compositions.**
 
 Just like mpd and ncmpcpp, configurations are included as [EXTRA_JOYFUL](./EXTRA_JOYFUL), some are integrated.
 
@@ -579,7 +579,7 @@ Choose your own polkit authentication-agent.
 
 ---
 
-**Optionals for completion of desktop compositions.**
+**Additionals for completion of desktop compositions.**
 
 Just like mpd and ncmpcpp, configurations are included as [EXTRA_JOYFUL](./EXTRA_JOYFUL), some are integrated.
 
@@ -654,7 +654,7 @@ and [Linux-specific](https://refspecs.linuxfoundation.org/lsb.shtml).
 </details>
 
 <details>
-<summary><b>Optionally Z shell with OMZ plugins</b></summary>
+<summary><b>Additionally Z shell with OMZ plugins</b></summary>
 
 Install zsh with system package manager as described in the above step before
 (or [OMZ wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)). Then OMZ.
@@ -738,7 +738,9 @@ Set zsh as default login shell if desired (via chsh) and install extremely usefu
 💲 tar -xvf cantarell*.tar.xz --strip-components 2 --wildcards -C ~/.fonts/Cantarell/ \*/\*/Cantarell-VF.otf
 ```
 
-Optionally, install the noto family for broad support.
+Additionally, install the noto family for broad support.
+[Noto emoji takes precedence](https://github.com/owl4ce/dotfiles/issues/176),
+[required by rofi system-information](./.config/rofi/scripts/custom-modi/modi-sysinfo.sh#L180).
 [Debian](https://packages.debian.org/search?suite=sid&arch=amd64&searchon=names&keywords=fonts%20noto).
 [Arch](https://archlinux.org/packages/?q=fonts+noto).
 [Gentoo](https://packages.gentoo.org/packages/search?q=fonts+noto).
