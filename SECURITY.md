@@ -13,6 +13,5 @@ The *binary* ones is **reversible**, let alone the *source-code*.
 
 ## Reporting a Vulnerability
 
-Please [open the discussion](https://github.com/owl4ce/dotfiles/discussions)
-first to discuss mitigating exploitable vulnerabilities or bugs in shell-scripts
-or otherwise.
+Please [open the discussion](https://github.com/owl4ce/dotfiles/discussions) first to discuss
+mitigating exploitable vulnerabilities or bugs in shell-scripts or otherwise.
