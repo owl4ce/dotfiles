@@ -36,11 +36,13 @@ if [ "$MUSIC_PLAYER" = 'mpd' ]; then
     esac
 
 else
+
     # Send fails notification.
     dunstify 'Music Player' "Currently <u>${MUSIC_PLAYER}</u>!" -h string:synchronous:music-player \
                                                                 -a joyful_desktop \
                                                                 -i "$MUSIC_ICON" \
                                                                 -u low
+
 fi
 
 exit ${?}
