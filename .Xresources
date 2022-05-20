@@ -21,17 +21,37 @@ URxvt.depth:                      32
 URxvt.iso14755:                   false
 URxvt.iconFile:                   /home/username/.icons/Gladient/terminal.png
 
-! # Uncomment the following line if too much font spacing.
-!URxvt.letterSpace:               -1
+! # Uncomment below if too much font spacing, and fix glyphs performance issues.
+!URxvt.letterSpace:                -1
+!URxvt.skipBuiltinGlyphs:          true
+
+! # Disable printing the terminal contents when pressing PrintScreen.
+! # The strings will be interpreted as if typed into the shell as-is.
+URxvt.print-pipe:                 "cat >/dev/null"
 
 ! # URxvt extensions.
-URxvt.perl-ext-common:            default,tabbedex,url-select
+URxvt.perl-ext-common:            default,matcher,resize-font,tabbedex
+
+! # Eval built-in extension.
 URxvt.keysym.Control-Shift-C:     eval:selection_to_clipboard
 URxvt.keysym.Control-Shift-V:     eval:paste_clipboard
 URxvt.keysym.Control-Up:          eval:scroll_up 1
 URxvt.keysym.Control-Down:        eval:scroll_down 1
 URxvt.keysym.Control-Home:        eval:scroll_to_top
 URxvt.keysym.Control-End:         eval:scroll_to_bottom
+
+! # Matcher built-in extension.
+URxvt.keysym.Control-Shift-U:     matcher:select
+URxvt.url-launcher:               your_web_browser
+URxvt.matcher.button:             1
+URxvt.matcher.rend.0:             Uline Bold fg7
+
+! # Resize-font extension.
+URxvt.keysym.Control-minus:       resize-font:smaller
+URxvt.keysym.Control-plus:        resize-font:bigger
+URxvt.keysym.Control-equal:       resize-font:reset
+URxvt.keysym.Control-question:    resize-font:show
+URxvt.resize-font.step:           1
 
 ! # Tabbed-extended extension.
 URxvt.tabbedex.no-tabbedex-keys:  yes
@@ -55,19 +75,6 @@ URxvt.keysym.Control-Next:        tabbedex:next_tab
 URxvt.keysym.Control-Prior:       tabbedex:prev_tab
 URxvt.keysym.Control-Shift-Next:  tabbedex:move_tab_right
 URxvt.keysym.Control-Shift-Prior: tabbedex:move_tab_left
-
-! # Resize-font extension.
-URxvt.resize-font.step:           1
-URxvt.keysym.Control-minus:       resize-font:smaller
-URxvt.keysym.Control-plus:        resize-font:bigger
-URxvt.keysym.Control-equal:       resize-font:reset
-URxvt.keysym.Control-question:    resize-font:show
-
-! # URL-select extension.
-URxvt.keysym.Control-Shift-U:     url-select:select_next
-URvxt.url-select.button:          2
-URxvt.url-select.launcher:        brave-bin --use-gl=desktop --enable-features=VaapiVideoDecoder
-URxvt.url-select.underline:       true
 
 ! # Color schemes.
 #define black0                    [95]#373E4D
