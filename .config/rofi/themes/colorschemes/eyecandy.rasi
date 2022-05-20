@@ -2,7 +2,7 @@
   accent1:          #fa74b2;
   accent2:          #e88ef4;
   button-gradient:  linear-gradient(90, #fa74b2, #e88ef4);
-  background-alpha: #f9f9f9f7; // Opacity 97%
+  background-alpha: #f9f9f9f7;
   background:       #f9f9f9;
   background-light: #f4f4f4;
   background-focus: #efefef;
