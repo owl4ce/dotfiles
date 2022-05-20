@@ -19,11 +19,10 @@ exec >/dev/null 2>&1
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#*~/}"
 
     read -r ALBUM_COVER <<- EOF
-		$(find "${CHK_MPD_MUSIC_DIR}/${FILE%/*\ #####\ *}"  -type d \
-															-exec find "{}" -maxdepth 1 \
-																			-type f \
-																			-iregex \
-		".*/.*\(${FILE##*\ #####\ }\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)" \;)
+		$(find "${CHK_MPD_MUSIC_DIR}/${FILE%/*\ #####\ *}/" -maxdepth 1 \
+															-type f \
+															-iregex \
+		".*/.*\(${FILE##*\ #####\ }\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)")
 	EOF
 
     if [ -f "$ALBUM_COVER" ]; then
@@ -31,8 +30,6 @@ exec >/dev/null 2>&1
         magick "$ALBUM_COVER" \
                -strip \
                -interlace Plane \
-               -sampling-factor 4:2:0 \
-               -define jpeg:dct-method=float \
                -scale 120x120\! \
                -depth 8 \
            '(' -clone 0 \
@@ -49,14 +46,13 @@ exec >/dev/null 2>&1
            ')' -alpha off \
                -compose CopyOpacity \
                -composite \
-               -quality 85% \
-        "$MPD_NOTIFY_AA_IMG"
+               -quality 9 \
+        "$MPD_NOTIFY_AA_IMG" \
+        || MPD_NOTIFY_AA_IMG=
 
-    elif [ -f "$MPD_NOTIFY_AA_IMG" ]; then
-        rm -f "$MPD_NOTIFY_AA_IMG"
+    else
+        MPD_NOTIFY_AA_IMG=
     fi
-
-    [ -f "$MPD_NOTIFY_AA_IMG" ] || MPD_NOTIFY_AA_IMG=
 
     INFO="$(mpc -p "$CHK_MPD_PORT" -f '%artist% ########## [%title%|%file%]' current)"
 
