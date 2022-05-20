@@ -50,9 +50,9 @@ else
 fi
 
 case "${1}" in
-    i*) echo "$ICON"
+    icon) echo "$ICON"
     ;;
-    s*) echo "$STAT"
+    sta*) echo "$STAT"
     ;;
 esac
 

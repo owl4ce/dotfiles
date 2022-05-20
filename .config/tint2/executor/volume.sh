@@ -40,9 +40,9 @@ else
 fi
 
 case "${1}" in
-    i*) echo "${ICON:-?}"
+    icon) echo "${ICON:-?}"
     ;;
-    p*) echo "${MUTED:-${AUDIO_VOLUME}}"
+    per*) echo "${MUTED:-${AUDIO_VOLUME}}"
     ;;
 esac
 
