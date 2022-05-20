@@ -49,7 +49,7 @@ case "$MUSIC_PLAYER" in
              STAT="$(${SEND} ${PROP} string:PlaybackStatus | grep -m1 -Fo '"Playing"')"
              TITL="$(${SEND} ${PROP} string:Metadata | grep -m1 -A1 -F '"xesam:title"')" \
              TITL="${TITL##*string\ \"}" \
-             TITL="${TITL%\"*}"
+             TITL="${TITL%%\"*}"
     ;;
     *      ) TITL="There's no MPD nor Spotify installed"
     ;;

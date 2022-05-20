@@ -5,7 +5,7 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC2016,SC2086
+# shellcheck disable=SC2016
 
 export LANG='POSIX'
 exec >/dev/null 2>&1

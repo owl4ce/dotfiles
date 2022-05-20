@@ -5,8 +5,6 @@
 
 # SPDX-License-Identifier: ISC
 
-# shellcheck disable=SC3058
-
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec 2>/dev/null
@@ -19,14 +17,6 @@ hold()
 }
 
 case "${1}" in
-    '') X='\033[0m' g='\033[0;32m' m='\033[0;35m' r='\033[0;31m'
-
-        while IFS='"' read -r KEY VAL _; do
-            N=$((N+1))
-            printf '%b\n' "${m}[${X}${N}${m}] ${r}${KEY%%\ *}${X}" \
-                          "-${g}x${X}- ${VAL}"
-        done <"$APPS_FILE"
-    ;;
     -g) hold "${2}"
 
         if [ -z "${APP##*\"*\"*}" ]; then
@@ -38,9 +28,9 @@ case "${1}" in
 
         eval "echo \"${ZAPP:-${APP}}\""
     ;;
-    **) hold "${1}"
+    * ) hold "${1}"
 
-        eval "LANG=\"$SYSTEM_LANG\" exec ${APP} ${*#"${1}"} >&2 &"
+        eval "LANG=\"$SYSTEM_LANG\" exec ${APP} \${*#\"${1}\"} >&2 &"
     ;;
 esac
 
