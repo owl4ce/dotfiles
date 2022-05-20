@@ -3,6 +3,8 @@
 # The custom session control modi inside rofi.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2016
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"

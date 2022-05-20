@@ -3,6 +3,8 @@
 # The custom system info modi inside rofi.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2166,SC2034
+
 export LANG='POSIX'
 exec 2>/dev/null
 

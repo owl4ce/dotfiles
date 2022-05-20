@@ -3,6 +3,8 @@
 # The custom music controller modi inside rofi.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2086,SC2059
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
