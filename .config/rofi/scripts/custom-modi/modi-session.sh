@@ -31,6 +31,9 @@ Y_='' Y="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${Y_}</span>   Conf
 N_='' N="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${N_}</span>   Cancel"
 Z_='' Z="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${Z_}</span>   Firmware Setup"
 
+# Determine if `systemctl` is available on the system.
+SYSTEMCTL="$(command -v systemctl)" # owl4ce/dotfiles #180.
+
 # Nested options.
 prompt()
 {
@@ -50,15 +53,15 @@ prompt()
 
 # Single-execution options.
 case "${@}" in
-    "$A"     ) prompt "$A_" 'loginctl --no-ask-password poweroff'
+    "$A"     ) prompt "$A_" "${SYSTEMCTL:-loginctl} --no-ask-password poweroff"
     ;;
-    "$B"     ) prompt "$B_" 'loginctl --no-ask-password reboot'
+    "$B"     ) prompt "$B_" "${SYSTEMCTL:-loginctl} --no-ask-password reboot"
     ;;
     "$C"     ) eval 'exec loginctl --no-ask-password lock-session >&2'
     ;;
-    "$D"     ) prompt "$D_" 'loginctl --no-ask-password suspend'
+    "$D"     ) prompt "$D_" "${SYSTEMCTL:-loginctl} --no-ask-password suspend"
     ;;
-    "$E"     ) prompt "$E_" 'loginctl --no-ask-password hibernate'
+    "$E"     ) prompt "$E_" "${SYSTEMCTL:-loginctl} --no-ask-password hibernate"
     ;;
     "$F"     ) prompt "$F_" 'loginctl --no-ask-password kill-user ${EUID:-$(id -u)} --signal=SIGKILL'
     ;;
