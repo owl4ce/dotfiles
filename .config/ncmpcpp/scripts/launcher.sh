@@ -24,7 +24,9 @@ if [ "$MUSIC_PLAYER" = 'mpd' ]; then
         ;;
     esac
 else
-    dunstify 'Music Player' "Currently <u>${MUSIC_PLAYER}</u>!" -i "$MUSIC_ICON" -r 79 -u low
+    dunstify 'Music Player' "Currently <u>${MUSIC_PLAYER}</u>!" -h string:synchronous:music-player \
+                                                                -i "$MUSIC_ICON" \
+                                                                -u low
 fi
 
 exit ${?}
