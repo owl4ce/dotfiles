@@ -14,17 +14,15 @@ exec >/dev/null 2>&1
 [ -x "$(command -v brightnessctl)" ] || exec dunstify 'Install `brightnessctl`!' -h string:synchronous:install-deps \
                                                                                  -u low
 
-[ -z "$BRIGHTNESS_DEVICE" ] || ARGS="-d ${BRIGHTNESS_DEVICE}"
-
 case "${1}" in
-    +) brightnessctl ${ARGS} set "${BRIGHTNESS_STEPS:-5}%+" -q
+    +) brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} set "${BRIGHTNESS_STEPS:-5}%+" -q
     ;;
-    -) brightnessctl ${ARGS} set "${BRIGHTNESS_STEPS:-5}%-" -q
+    -) brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} set "${BRIGHTNESS_STEPS:-5}%-" -q
     ;;
 esac
 
 {
-    BRIGHTNESS="$(brightnessctl ${ARGS} get -P)"
+    BRIGHTNESS="$(brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} get -P)"
 
     if [ "$BRIGHTNESS" -eq 0 ]; then
         ICON='notification-display-brightness-off'
