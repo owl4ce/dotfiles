@@ -26,9 +26,18 @@ case "${1}" in
         done <"$APPS_FILE"
     ;;
     -g) hold "${2}"
-        eval "echo \"$APP\""
+
+        if [ -z "${APP##*\"*\"*}" ]; then
+            ZAPP="$(sed -e '1s|"|\\"|g' <<- EOF
+						${APP}
+					EOF
+                  )"
+        fi
+
+        eval "echo \"${ZAPP:-${APP}}\""
     ;;
     **) hold "${1}"
+
         eval "LANG=\"$SYSTEM_LANG\" exec ${APP} ${@#"${1}"} >&2 &"
     ;;
 esac
