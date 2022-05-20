@@ -7,7 +7,7 @@
 # aHR0cHM6Ly9naXRodWIuY29tL293bDRjZS9kb3RmaWxlcwo=
 
 # If you come from bash you might have to change your PATH.
-export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.color-toys:${PATH}"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
@@ -142,19 +142,4 @@ fi
 if [ -x "$(command -v rc-service)" ]; then
     alias rc-service="${PRIV} rc-service"
     alias rc-update="${PRIV} rc-update"
-fi
-
-# Color-toys aliases.
-COLOR_TOYS_DIR="${HOME}/.color-toys"
-if [ -d "$COLOR_TOYS_DIR" -o  -L "$COLOR_TOYS_DIR" ]; then
-    alias 256colors2="${COLOR_TOYS_DIR}/256colors2.pl"
-    alias bloks="${COLOR_TOYS_DIR}/bloks"
-    alias colortest="${COLOR_TOYS_DIR}/colortest"
-    alias colortest-slim="${COLOR_TOYS_DIR}/colortest-slim"
-    alias colorview="${COLOR_TOYS_DIR}/colorview"
-    alias colorbars="${COLOR_TOYS_DIR}/colorbars"
-    alias panes="${COLOR_TOYS_DIR}/panes"
-    alias pipes1="${COLOR_TOYS_DIR}/pipes1"
-    alias pipes2="${COLOR_TOYS_DIR}/pipes2"
-    alias pipes2-slim="${COLOR_TOYS_DIR}/pipes2-slim"
 fi
