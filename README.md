@@ -67,6 +67,19 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 ## :fallen_leaf: ‎ <samp>CHANGELOGS</samp>
 
+<table align="right">
+  <tr>
+    <th align="center">
+      <sup><sub>:warning:</sub></sup>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <sup><sub><samp>THIS IS PURELY CONFIGURED AT 1366x768 WITH 96 DPI.</samp></sub></sup>
+    </td>
+  </tr>
+</table>
+
 > Work in progress.
 
 ## :ear_of_rice: ‎ <samp>INTRODUCTION OF LINUX RICE</samp>
@@ -644,8 +657,6 @@ EXCLUDE
 
 ## :herb: ‎ <samp>GUIDES</samp>
 
-> Work in progress.
-
 <details>
 <summary><b>Joyful Desktop environment variables</b></summary>
 
@@ -732,9 +743,24 @@ The directory is in `~/Music` [by default](./.config/mpd/mpd.conf#L10). The reco
 
 </details>
 
-### :tanabata_tree: ‎ <samp>ADDITIONALS</samp>
+<details>
+<summary><b>File manager side-pane and <a href="https://wiki.archlinux.org/title/XDG_user_directories">XDG user directories</a></b></summary>
 
-> Work in progress.
+If you just installed thunar without XFCE, you might get a side-pane without XDG directories like **Documents**, **Downloads**, etc.
+Once you have created the directories, open thunar and select or block the directories, right click and click **Send To** 🡲 **Side Pane**.
+The following command generates those directories.
+
+```sh
+💲 xdg-user-dirs-update
+```
+
+If you want to get 100% thunar looks similar to my screenshot, ensure to copy my thunar configuration.
+Then hide **Computer**, **Desktop**, **Recent**, or whatever you want by right clicking **Places** in thunar side-pane.
+By default, my thunar side-pane configuration uses simple 16 pixels icons.
+
+</details>
+
+### :tanabata_tree: ‎ <samp>ADDITIONALS</samp>
 
 - [Capitaine Cursors Theme](https://pling.com/p/1148692)
 - [Telegram Desktop Nord Theme](https://t.me/addtheme/nord_colors)
