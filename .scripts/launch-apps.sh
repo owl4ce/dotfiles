@@ -3,6 +3,8 @@
 # The user's preferred applications launcher.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2068,SC3058
+
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec 2>/dev/null

@@ -3,6 +3,8 @@
 # The audio-volume changer via `amixer`.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2016,SC2086,SC2166
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"

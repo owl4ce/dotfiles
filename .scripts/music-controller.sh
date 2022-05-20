@@ -3,6 +3,8 @@
 # The MPD (via `mpc`) or Spotify (via D-Bus) controller.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2086
+
 export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"

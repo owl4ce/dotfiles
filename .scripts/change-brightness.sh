@@ -3,6 +3,8 @@
 # The display brightness changer via `brightnessctl`.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2016,SC2086
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
