@@ -3,6 +3,8 @@
 # The transfer sleep lock wrapper for `xss-lock`.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC3022
+
 export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"

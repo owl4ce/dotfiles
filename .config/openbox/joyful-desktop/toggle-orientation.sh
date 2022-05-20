@@ -3,6 +3,8 @@
 # Toggle UI orientation for Artistic Mode.
 # https://github.com/owl4ce/dotfiles
 
+# shellcheck disable=SC2166
+
 SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec >/dev/null 2>&1
