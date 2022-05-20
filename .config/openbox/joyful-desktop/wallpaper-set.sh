@@ -11,8 +11,10 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
+# Single-execution options.
 case "${1}" in
-    '') WALLPAPER="$(for LS in "$CHK_WALLPAPER_DIR"/*.*; do
+    '') # Rofi interface of wallpaper selector.
+        WALLPAPER="$(for LS in "$CHK_WALLPAPER_DIR"/*.*; do
                          [ ! -f "$LS" ] || echo "${LS##*/}"
                      done \
                      | rofi -theme-str '@import "action.rasi"' \
@@ -22,33 +24,45 @@ case "${1}" in
                             -dmenu \
                             -mesg 'Select X Wallpaper')"
 
+        # Ensure the user has selected the wallpaper.
         [ -n "$WALLPAPER" ] || exit ${?}
 
+        # Set X wallpaper for sure.
         ( nitrogen --set-zoom-fill --save "${CHK_WALLPAPER_DIR}/${WALLPAPER}" && wait )
 
+        # Write configuration.
         sed -e "/^wallpaper.${CHK_THEME}.${CHK_MODE}[ ]*/s|\".*\"$|\"${WALLPAPER}\"|" -i "$THEME_FILE"
 
+        # Send notification.
         dunstify '' "<span size='small'><u>${WALLPAPER}</u></span>\nSuccessfully applied!" \
                  -h string:synchronous:wallpaper-set \
                  -a joyful_desktop \
                  -i "$WALLPAPER_ICON" \
                  -u low
     ;;
-    g*) [ -x "$(command -v magick)" ] || exec dunstify 'Install `imagemagick`!' -h string:synchronous:install-deps \
+    g*) # Ensure `magick` already installed for safety and performance reasons.
+        [ -x "$(command -v magick)" ] || exec dunstify 'Install `imagemagick`!' -h string:synchronous:install-deps \
                                                                                 -a joyful_desktop \
                                                                                 -u low
 
+        # Enters the raw wallpapers directory.
         cd -- "$WALLPAPERS_DIR" || exit ${?}
 
+        # Loop condition of raw wallpaper picker.
         for RAW in *.*; do
+
+            # Ensure to pick image-type file, skip if the directory exists,
+            # or fallback to fails notification if none of the files exist.
             if [ -f "$RAW" ] && GET_WP_SIZE="$(identify -format %w "$RAW")" && [ -n "$GET_WP_SIZE" ]; then
 
+                # Send process-state notification.
                 dunstify '' "Generating X wallpaper ..\n<span size='small'><u>${RAW}</u></span>" \
                          -h string:synchronous:wallpaper-set \
                          -a joyful_desktop \
                          -i "$WALLPAPER_ICON" \
                          -t 1000
 
+                # Resolutions selector condition.
                 if [ "$GET_WP_SIZE" -lt 1920 ]; then
                     RES='_HD'
                 elif [ "$GET_WP_SIZE" -lt 2048 ]; then
@@ -71,6 +85,7 @@ case "${1}" in
                     RES='_ULTRA'
                 fi
 
+                # Process the raw wallpaper with `imagemagick`, fallback to end current iteration.
                 case "$CHK_THEME" in
                     mech*) magick "$RAW" \
                                   -gravity center \
@@ -109,6 +124,7 @@ case "${1}" in
                     ;;
                 esac
 
+                # Send successful notification.
                 dunstify '' "Successfully generated!\n<span size='small'>Now it's time to change X wallpaper</span>" \
                          -h string:synchronous:wallpaper-set \
                          -a joyful_desktop \
@@ -116,14 +132,21 @@ case "${1}" in
                          -u low
 
             elif [ -d "$RAW" ]; then
+
+                # Skip current directory iteration.
                 continue
+
             else
+
+                # Send fails notification.
                 dunstify '' "Nothing to generate!\n<span size='small'>Puts in <u>~/${WALLPAPERS_DIR##*/}</u></span>" \
                          -h string:synchronous:wallpaper-set \
                          -a joyful_desktop \
                          -i "$WALLPAPER_ICON" \
                          -u low
+
             fi
+
         done
     ;;
 esac
