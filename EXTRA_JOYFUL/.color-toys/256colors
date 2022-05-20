@@ -18,7 +18,7 @@ def get_width(default=80):
             _, columns = subprocess.check_output(['stty', 'size']).split()
         except OSError:
             columns = os.environ.get('COLUMNS', default)
-            
+
     columns = int(columns) - 77
     # Since we have 6 columns with 1 space on each side,
     # we can increment the size for every 12 extra columns.
@@ -58,15 +58,15 @@ for i, (r, g, b) in enumerate(colored_palette + grayscale_palette, 16):
     context = dict(i=i, r=r, g=g, b=b, color=r + g + b, **base_context)
     context.update(bold=bold.format(**context))
     context.update(background=background.format(**context))
-    
+
     # Change text color from black to white when it might become unreadable.
     if max(r, g, b) > 0xCC:
         context.update(normal=normal.format(i=0))
     else:
         context.update(normal=normal.format(i=255))
-        
+
     print(pattern.format(**context), end='')
-    
+
     # Print newlines when needed.
     if i % 6 == 3:
         print()
