@@ -20,6 +20,12 @@ G_='' G="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${G_}</span>   Dim 
 
 [ -z "$BRIGHTNESS_DEVICE" ] || B_ARGS="-d ${BRIGHTNESS_DEVICE}"
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
+        return ${?}
+    ;;
+esac
+
 case "${@}" in
     "$B") amixer ${A_ARGS} sset Master "${AUDIO_VOLUME_STEPS:-5}%+" on -q
     ;;
@@ -56,7 +62,7 @@ E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   ${BR
 
 MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
 
-printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
-printf '%b\n' "${A}\0nonselectable\037true\n" "$B" "$C" "$D" "${E}\0nonselectable\037true\n" "$F" "$G"
+printf '%b\n' "\0use-hot-keys\037true" "\0markup-rows\037true" "\0message\037${MESSAGE}" \
+              "${A}\0nonselectable\037true" "$B" "$C" "$D" "${E}\0nonselectable\037true" "$F" "$G"
 
 exit ${?}

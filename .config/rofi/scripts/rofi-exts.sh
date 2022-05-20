@@ -1,26 +1,29 @@
 #!/usr/bin/env sh
 
-# Run rofi-extended menu with custom modi.
+# Run rofi-extensions menu with custom modi.
 # https://github.com/owl4ce/dotfiles
 
+SYSTEM_LANG="$LANG"
 export LANG='POSIX'
 exec >/dev/null 2>&1
 
-UNKNOWN=''
+! pidof -s rofi -q || ( killall -9 rofi -q && wait )
+
+SYSINFO=''
 SCREENSHOT=''
 SESSION=''
 MEDIA=''
 MUSIC=''
 
 CUSTOM_MODI="\
-${UNKNOWN}:${0%/*}/custom-modi/modi-unknown.sh,\
+${SYSINFO}:${0%/*}/custom-modi/modi-sysinfo.sh,\
 ${SCREENSHOT}:${0%/*}/custom-modi/modi-screenshot.sh,\
 ${SESSION}:${0%/*}/custom-modi/modi-session.sh,\
 ${MEDIA}:${0%/*}/custom-modi/modi-media.sh,\
 ${MUSIC}:${0%/*}/custom-modi/modi-music.sh"
 
 case "${1}" in
-    unk*) MODI="$UNKNOWN"
+    sys*) MODI="$SYSINFO"
     ;;
     scr*) MODI="$SCREENSHOT"
     ;;
@@ -32,11 +35,17 @@ case "${1}" in
     ;;
 esac
 
+SYSTEM_LANG="$SYSTEM_LANG" \
 exec rofi -theme-str '@import "exts.rasi"' \
           -modi "$CUSTOM_MODI" \
           -no-show-icons \
           -no-lazy-grab \
           -no-plugins \
-          -show "${MODI:-${SESSION}}"
+          -kb-custom-19 '' \
+          -kb-move-char-back '' \
+          -kb-move-char-forward '' \
+          -kb-mode-previous 'Left' \
+          -kb-mode-next 'Right' \
+          -show "${MODI:-${SYSINFO}}"
 
 exit ${?}

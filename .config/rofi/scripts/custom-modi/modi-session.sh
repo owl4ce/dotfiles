@@ -18,42 +18,47 @@ E_='' E="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${E_}</span>   Hibe
 F_='' F="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${F_}</span>   Logout"
 Y_='' Y="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${Y_}</span>   Confirm"
 N_='' N="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${N_}</span>   Cancel"
+Z_='' Z="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${Z_}</span>   Firmware Setup"
 
 prompt()
 {
+    [ "${1}" = "$B_" ] || Z=
+
     PROMPT="<span font_desc='${MSG_ICON_FONT}' weight='bold'>${1}</span>"
 
-    printf '%b\n' "\0message\037${PROMPT}" "$Y" "$N"
-
-    install -m400 /dev/stdin "$ROFI_EXTS_CMD" -- <<- EOF
-		# ${2}
-	EOF
+    printf '%b\n' "\0message\037${PROMPT}" \
+                  "${Y}\0info\037#${2}" "$N" "${Z}\0info\037#${2} --firmware-setup"
 
     exit ${?}
 }
 
-case "${@}" in
-    "$A") prompt "$A_" 'loginctl --no-ask-password poweroff'
-    ;;
-    "$B") prompt "$B_" 'loginctl --no-ask-password reboot'
-    ;;
-    "$C") loginctl --no-ask-password lock-session
-          return ${?}
-    ;;
-    "$D") prompt "$D_" 'loginctl --no-ask-password suspend'
-    ;;
-    "$E") prompt "$E_" 'loginctl --no-ask-password hibernate'
-    ;;
-    "$F") prompt "$F_" 'loginctl --no-ask-password kill-user ${EUID:-$(id -u)} --signal=SIGKILL'
-    ;;
-    "$Y") IFS= read -r CMD <"$ROFI_EXTS_CMD"
-          eval "exec ${CMD#\#\ }"
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
+        return ${?}
     ;;
 esac
 
-MESSAGE="$(date +%H %M)"
+case "${@}" in
+    "$A"     ) prompt "$A_" 'loginctl --no-ask-password poweroff'
+    ;;
+    "$B"     ) prompt "$B_" 'loginctl --no-ask-password reboot'
+    ;;
+    "$C"     ) loginctl --no-ask-password lock-session
+               return ${?}
+    ;;
+    "$D"     ) prompt "$D_" 'loginctl --no-ask-password suspend'
+    ;;
+    "$E"     ) prompt "$E_" 'loginctl --no-ask-password hibernate'
+    ;;
+    "$F"     ) prompt "$F_" 'loginctl --no-ask-password kill-user ${EUID:-$(id -u)} --signal=SIGKILL'
+    ;;
+    "$Y"|"$Z") eval "exec ${ROFI_INFO#\#}"
+    ;;
+esac
 
-printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
-printf '%b\n' "$A" "$B" "$C" "$D" "$E" "$F"
+MESSAGE=" $(date +%H %M) "
+
+printf '%b\n' "\0use-hot-keys\037true" "\0markup-rows\037true" "\0message\037${MESSAGE}" \
+              "$A" "$B" "$C" "$D" "$E" "$F"
 
 exit ${?}

@@ -22,6 +22,12 @@ case "$MUSIC_PLAYER" in
     ;;
 esac
 
+case "$ROFI_RETV" in
+    28) LANG="$SYSTEM_LANG" "${0%/*}/../rofi-main.sh"
+        return ${?}
+    ;;
+esac
+
 case "${@}" in
     "$A") joyd_music_controller prev
     ;;
@@ -45,20 +51,17 @@ elif [ -z "$MESSAGE" ]; then
     MESSAGE="<span font_desc='${MSG_ICON_FONT}' weight='bold'></span>"
 fi
 
-printf "\0markup-rows\037true\n\0message\037${MESSAGE}\n"
-printf '%b\n' "$A" "$B" "$C" "$D" "$E"
+printf '%b\n' "\0use-hot-keys\037true" "\0markup-rows\037true" "\0message\037${MESSAGE}" \
+              "$A" "$B" "$C" "$D" "$E"
 
-[ -n "$(joyd_music_controller status)" ] && st_act='1' || st_urg='1'
-
-printf "\0active\037${st_act}\n\0urgent\037${st_urg}\n"
+[ -n "$(joyd_music_controller status)" ] && P_A='1' || P_U='1'
 
 case "$MUSIC_PLAYER" in
     mpd) STATUS="$(mpc -p ${CHK_MPD_PORT} status)"
-
-         [ -n "${STATUS##*\ single:\ off*}" ] && si_act='4' || si_urg='4'
-
-         printf "\0active\037${si_act}\n\0urgent\037${si_urg}\n"
+         [ -n "${STATUS##*single:\ off*}" ] && S_A='4' || S_U='4'
     ;;
 esac
+
+printf "\0active\037${P_A}\n\0urgent\037${P_U}\n\0active\037${S_A}\n\0urgent\037${S_U}\n"
 
 exit ${?}
