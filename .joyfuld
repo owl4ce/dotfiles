@@ -236,7 +236,6 @@ XRESOURCES_CONFIG="${HOME}/.Xresources"
 
 CHK_MPD_PORT="$(siq 'port' "$MPD_CONFIG")"
 CHK_MPD_MUSIC_DIR="$(siq 'music_directory' "$MPD_CONFIG")"
-
 CHK_THEME="$(siq 'current_theme' "$MODE_FILE")"
 CHK_MODE="$(siq 'current_mode' "$MODE_FILE")"
 CHK_PANEL_ORT="$(siq 'panel_orientation.artistic' "$MODE_FILE")"
@@ -245,8 +244,7 @@ CHK_PANEL_ORT_H="$(siq 'horizontal_panel.artistic' "$MODE_FILE")"
 CHK_OB_BUTTON_STYLE="$(siq "ob_button_style.${CHK_THEME}.${CHK_MODE}" "$THEME_FILE")"
 CHK_OB_BUTTON_LOC="$(siq "ob_button_location.${CHK_THEME}.${CHK_MODE}" "$THEME_FILE")"
 CHK_WALLPAPER="$(siq "wallpaper.${CHK_THEME}.${CHK_MODE}" "$THEME_FILE")"
-
-WALLPAPER_DIR="${WALLPAPERS_DIR}/${CHK_THEME}"
+CHK_WALLPAPER_DIR="${WALLPAPERS_DIR}/${CHK_THEME}"
 
 LOGOUT_ICON="${GLADIENT_ICON_DIR}/logout.png"
 MUSIC_ICON="${GLADIENT_ICON_DIR}/music.png"
