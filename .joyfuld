@@ -11,7 +11,7 @@ unalias -a
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 # Appearance options                                          ~ Needs Restart UI ~ #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
-# ?_ART_TINT2_BUTTON    || TH?ME panel button glyphs, copy-paste from `gucharmap`. #
+# ?_ART_TINT2_GLYPH     || TH?ME panel button glyphs, copy-paste from `gucharmap`. #
 # ?_?_?_?               || Partial user-interface colors. Just customize yourself. #
 #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~--~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
@@ -25,8 +25,8 @@ COL_BLUE_VIOLET='#ac8ef4'                        # Blue mix Violet
 COL_GREEN='#44eb9f'                              # Green
 
 # >~< Don't change the variable name, the value is okay, use comments instead. >~< #
-MECH_ART_TINT2_BUTTON=''                       #   
-EYEC_ART_TINT2_BUTTON=''                       #   
+MECH_ART_TINT2_GLYPH=''                        #   
+EYEC_ART_TINT2_GLYPH=''                        #   
 
 # >~~~~~~~~~~~~< Mechanical >~~~~~~~~~~~~~~~~~~~~~~~~~~~< Artistic Mode >~~~~~~~~< #
 MECH_ART_TINT2_GRAD1="$COL_RED_MAGENTA"          # Tint2 button gradient color #1
@@ -268,23 +268,28 @@ alias joyd_screenshot_selection="${SCRIPTS_DIR}/screenshot-selection.sh"
 
 joyd_cross_variables()
 {
-    U4T="$(echo "$CHK_THEME" | cut -c1-4 | tr '[a-z]' '[A-Z]')"
-    U3M="$(echo "$CHK_MODE"  | cut -c1-3 | tr '[a-z]' '[A-Z]')"
+    UP4T="$(printf '%.4s\n' "$(tr '[a-z]' '[A-Z]' <<- EOF
+				${CHK_THEME}
+			EOF
+            )")"
 
-    eval "
-                GTK_T=\"\$${U4T}_GTK\"
-                ICON_T=\"\$${U4T}_ICON\"
-                OBT_D=\"\$${U4T}_OB_THEME_DIR\"
-                OBT_IT=\"\$${U4T}_${U3M}_OB_MENU_ITM\"
-                OBT_TT=\"\$${U4T}_${U3M}_OB_MENU_TTL\"
-                ROFI_A1=\"\$${U4T}_${U3M}_ROFI_ACCNT1\"
-                ROFI_A2=\"\$${U4T}_${U3M}_ROFI_ACCNT2\"
-                DUNST_FG=\"\$${U4T}_${U3M}_DUNST_SMMRY\"
-                DUNST_PB=\"\$${U4T}_${U3M}_DUNST_PRGBR\"
-                TINT2_G1=\"\$${U4T}_${U3M}_TINT2_GRAD1\"
-                TINT2_G2=\"\$${U4T}_${U3M}_TINT2_GRAD2\"
-                TINT2_SB=\"\$${U4T}_${U3M}_TINT2_BUTTON\"
-                                                              "
+    UP3M="$(printf '%.3s\n' "$(tr '[a-z]' '[A-Z]' <<- EOF
+				${CHK_MODE}
+			EOF
+            )")"
+
+    eval "  GTK_T=\"\$${UP4T}_GTK\"
+            ICON_T=\"\$${UP4T}_ICON\"
+            OBT_D=\"\$${UP4T}_OB_THEME_DIR\"
+            OBT_IT=\"\$${UP4T}_${UP3M}_OB_MENU_ITM\"
+            OBT_TT=\"\$${UP4T}_${UP3M}_OB_MENU_TTL\"
+            ROFI_A1=\"\$${UP4T}_${UP3M}_ROFI_ACCNT1\"
+            ROFI_A2=\"\$${UP4T}_${UP3M}_ROFI_ACCNT2\"
+            DUNST_FG=\"\$${UP4T}_${UP3M}_DUNST_SMMRY\"
+            DUNST_PB=\"\$${UP4T}_${UP3M}_DUNST_PRGBR\"
+            TINT2_G1=\"\$${UP4T}_${UP3M}_TINT2_GRAD1\"
+            TINT2_G2=\"\$${UP4T}_${UP3M}_TINT2_GRAD2\"
+            TINT2_SB=\"\$${UP4T}_${UP3M}_TINT2_GLYPH\"  "
 }
 
 joyd_gtk_live_reload()
@@ -298,7 +303,7 @@ joyd_gtk_live_reload()
 		EOF
     } &
 
-    { sleep 2s; killall -9 xsettingsd; } &
+    { sleep 2s; killall -9 xsettingsd -q; } &
 }
 
 joyd_tray_programs()
@@ -308,11 +313,11 @@ joyd_tray_programs()
     grep -Fv '#' "$OB_TRAY" | while IFS= read -r TRAY; do
         [ -x "$(command -v "${TRAY%%\ *}")" ] || continue
         case "${1}" in
-            exec) pgrep "${TRAY%%\ *}" \
-                  || eval "\"$TRAY\"  >/dev/null  2>&1 &"
+            exec) pidof -s "${TRAY%%\ *}" -q \
+                  || eval "\${TRAY}   >/dev/null  2>&1 &"
             ;;
-            kill) pgrep "${TRAY%%\ *}" \
-                  && eval "killall -9 \"${TRAY%%\ *}\" &"
+            kill) pidof -s "${TRAY%%\ *}" -q \
+                  && eval "killall -9 \${TRAY%%\ *} -q &"
             ;;
         esac
     done
