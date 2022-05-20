@@ -3,6 +3,8 @@
 # The Joyful Desktop universal environment variables.
 # https://github.com/owl4ce/dotfiles
 
+# SPDX-License-Identifier: ISC
+
 # Sequential tests 1000 times, calculated fastest with Debian Almquist shell 0.009s.
 # https://i.imgur.com/TtpJEmk.png
 
@@ -254,7 +256,6 @@ MUSIC_ICON="${GLADIENT_ICON_DIR}/music.png"
 SCREENSHOT_ICON="${GLADIENT_ICON_DIR}/screenshot.png"
 TERMINAL_ICON="${GLADIENT_ICON_DIR}/terminal.png"
 WALLPAPER_ICON="${GLADIENT_ICON_DIR}/wallpaper.png"
-
 MPD_NOTIFY_AA_IMG="${TMP_DIR}/mpd.notify.album-art.png"
 NCMPCPP_AA_IMG="${TMP_DIR}/ncmpcpp.album-art.png"
 NCMPCPP_AA_PID="${NCMPCPP_AA_IMG%.*}.pid"
@@ -282,7 +283,6 @@ joyd_cross_variables()
           )"
 
     CUT4="$(printf '%.4s\n' "${UCTM%%\ #######\ *}")"
-
     CUT3="$(printf '%.3s\n' "${UCTM##*\ #######\ }")"
 
     eval "GTK_T=\"\$${CUT4}_GTK\"
