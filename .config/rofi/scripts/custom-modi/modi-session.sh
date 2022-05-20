@@ -7,8 +7,6 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
-MESSAGE="$(date +%H %M)"
-
 ROW_ICON_FONT='feather 12'
 MSG_ICON_FONT='feather 48'
 
@@ -27,7 +25,7 @@ prompt()
 
     printf '%b\n' "\0message\037${PROMPT}" "$Y" "$N"
 
-    install -m400 /dev/stdin "$ROFI_EXTS_CMD" <<- EOF
+    install -m400 /dev/stdin "$ROFI_EXTS_CMD" -- <<- EOF
 		${2}
 	EOF
 
@@ -52,6 +50,8 @@ case "${@}" in
           eval \${CMD}
     ;;
 esac
+
+MESSAGE="$(date +%H %M)"
 
 printf "\0message\037${MESSAGE}\n\0markup-rows\037true\n"
 printf '%b\n' "$A" "$B" "$C" "$D" "$E" "$F"

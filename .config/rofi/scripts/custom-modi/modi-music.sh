@@ -7,8 +7,6 @@ export LANG='POSIX'
 exec 2>/dev/null
 . "${HOME}/.joyfuld"
 
-MESSAGE="$(joyd_music_controller title)"
-
 ROW_ICON_FONT='feather 12'
 
 A_='' A="<span font_desc='${ROW_ICON_FONT}' weight='bold'>${A_}</span>   Previous"
@@ -35,8 +33,10 @@ case "${@}" in
     ;;
 esac
 
-if [ -n "$MESSAGE" -a "$(printf "$MESSAGE" | wc -m)" -gt 6 ]; then
-    MESSAGE="<span size='xx-small'>$(printf "$MESSAGE" | cut -c1-6)..</span>"
+MESSAGE="$(joyd_music_controller title)"
+
+if [ -n "$MESSAGE" -a "$(printf "$MESSAGE" | wc -m)" -gt 8 ]; then
+    MESSAGE="<span size='xx-small'>$(printf "$MESSAGE" | cut -c1-9)..</span>"
 fi
 
 printf "\0message\037${MESSAGE:-¨}\n\0markup-rows\037true\n"
