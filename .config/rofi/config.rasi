@@ -11,7 +11,7 @@ configuration {
   disable-history:     true;
   hover-select:        true;
   show-icons:          true;
-  steal-focus:         true;
+  steal-focus:         false;
   window-thumbnail:    true;
 
   monitor:             "-4";
