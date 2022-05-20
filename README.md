@@ -17,7 +17,7 @@ NEVER SKIP / IGNORE / AVOID README
 </div>
 
 <pre align="center">
-<a href="#seedling--setup">SETUP</a> • <a href="https://github.com/owl4ce/dotfiles/wiki/Keybinds">KEYBINDS</a> • <a href="">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
+<a href="#seedling--setup">SETUP</a> • <a href="#four_leaf_clover--key-bindings">KEYBINDS</a> • <a href="">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
 </pre>
 
 <h1>
@@ -649,7 +649,7 @@ Then you can proceed to [guides](#herb--guides). Explore!
 ### :sunflower: ‎ <samp>SYNC FOR UPDATES</samp>
 
 <details>
-<summary><b>準備はいい？</b></summary>
+<summary><b>Click here to extend</b></summary>
 
 Since I recommend using rsync from the beginning,
 the easiest way is to list the files (via shell [heredocs](https://tldp.org/LDP/abs/html/here-docs.html)) that won't be updated to avoid replacing personal files with .files.
@@ -807,6 +807,151 @@ By default, my thunar side-pane configuration uses simple 16 pixels icons.
 - [Chrome-based Hardware Acceleration](https://linuxuprising.com/2021/01/how-to-enable-hardware-accelerated.html)
 - [Automatic Tiling for EWMH-compliant WM](https://github.com/blrsn/zentile)
 
+## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
+
+<details>
+<summary><b>Openbox (<a href="./.config/openbox/rc.xml#L175-L827">rc.xml</a>)</b></summary>
+
+| Key                                                                                                                                                         | Action                                            |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|
+|                                                                                                                                                             |                                                   |
+| **Window Management and more**                                                                                                                              |                                                   |
+| <kbd>super</kbd> + <kbd>⯇</kbd>                                                                                                                            | Move window focus to left-side                    |
+| <kbd>super</kbd> + <kbd>⯈</kbd>                                                                                                                            | Move window focus to right-side                   |
+| <kbd>super</kbd> + <kbd>⯅</kbd>                                                                                                                            | Move window focus to up-side                      |
+| <kbd>super</kbd> + <kbd>⯆</kbd>                                                                                                                            | Move window focus to down-side                    |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>⯇</kbd>                                                                                                         | Move focused window to left-side                  |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>⯈</kbd>                                                                                                         | Move focused window to right-side                 |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>⯅</kbd>                                                                                                         | Move focused window to up-side                    |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>⯆</kbd>                                                                                                         | Move focused window to down-side                  |
+| <kbd>super</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd> / <kbd>4</kbd> / <kbd>5</kbd> / <kbd>6</kbd> / <kbd>7</kbd> / <kbd>8</kbd>                    | Move to N desktop/workspace                       |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd> / <kbd>4</kbd> / <kbd>5</kbd> / <kbd>6</kbd> / <kbd>7</kbd> / <kbd>8</kbd> | Move focused window to N desktop/workspace        |
+| <kbd>alt</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                                         | Show (client-)menu of focused window              |
+| <kbd>super</kbd> + <kbd>C</kbd>                                                                                                                             | Close/kill focused window                         |
+| <kbd>super</kbd> + <kbd>D</kbd>                                                                                                                             | Toggle show desktop                               |
+| <kbd>super</kbd> + <kbd>F</kbd>                                                                                                                             | Toggle fullscreen for focused window              |
+| <kbd>super</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                                       | Show desktop (root-)menu                          |
+| <kbd>super</kbd> + <kbd>T</kbd>                                                                                                                             | Toggle decorations of focused window              |
+| <kbd>super</kbd> + <kbd>X</kbd>                                                                                                                             | Toggle maximize for focused window                |
+| <kbd>super</kbd> + <kbd>Z</kbd>                                                                                                                             | Toggle iconify (or minimize) for focused window   |
+| <kbd>alt</kbd> + <kbd>tab</kbd>                                                                                                                             | Switch active window to next window               |
+| <kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>tab</kbd>                                                                                                          | Switch active window to previous window           |
+| <kbd>super</kbd> + <kbd>esc</kbd>                                                                                                                           | Open rofi extensions menu                         |
+| <kbd>super</kbd> + <kbd>prt sc</kbd>                                                                                                                        | Open rofi screenshots menu                        |
+| <kbd>super</kbd> + <kbd>R</kbd>                                                                                                                             | Open rofi main menu                               |
+| <kbd>prt sc</kbd>                                                                                                                                           | Screenshot                                        |
+| <kbd>ctrl</kbd> + <kbd>prt sc</kbd>                                                                                                                         | Countdown screenshot                              |
+| <kbd>shift</kbd> + <kbd>prt sc</kbd>                                                                                                                        | Selection screenshot                              |
+| <kbd>ctrl</kbd> + <kbd>esc</kbd>                                                                                                                            | Pop-up notification history                       |
+| <kbd>ctrl</kbd> + <kbd>enter</kbd>                                                                                                                          | Open current notification context-menu            |
+| <kbd>ctrl</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                                        | Close current notification                        |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                     | Close all notifications                           |
+| <kbd>super</kbd> + <kbd>E</kbd>                                                                                                                             | Open user's preferred file manager                |
+| <kbd>super</kbd> + <kbd>L</kbd>                                                                                                                             | Lock current session with user's preferred locker |
+| <kbd>super</kbd> + <kbd>enter</kbd>                                                                                                                         | Open user's preferred terminal emulator           |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>enter</kbd>                                                                                                      | Reverse terminal emulator background-foreground   |
+| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>R</kbd>                                                                                                          | Restart UI                                        |
+|                                                                                                                                                             |                                                   |
+| **Brightness Control**                                                                                                                                      |                                                   |
+| <kbd>🔆+</kbd>                                                                                                                                              | Increase brightness by N%                         |
+| <kbd>🔆-</kbd>                                                                                                                                              | Decrease brightness by N%                         |
+|                                                                                                                                                             |                                                   |
+| **Audio-volume Control**                                                                                                                                    |                                                   |
+| <kbd>🔊+</kbd>                                                                                                                                              | Increase audio-volume by N%                       |
+| <kbd>🔊-</kbd>                                                                                                                                              | Decrease audio-volume by N%                       |
+| <kbd>🔇</kbd>                                                                                                                                               | Toggle mute                                       |
+|                                                                                                                                                             |                                                   |
+| **Media Control**                                                                                                                                           |                                                   |
+| <kbd>⏮</kbd>                                                                                                                                               | Previous song                                     |
+| <kbd>⏭</kbd>                                                                                                                                               | Next song                                         |
+| <kbd>⏹</kbd>                                                                                                                                               | Stop playing songs                                |
+| <kbd>⏯</kbd>                                                                                                                                               | Toggle play/pause                                 |
+|                                                                                                                                                             |                                                   |
+| **Combo Keyboard and Pointing Device**                                                                                                                      |                                                   |
+| <kbd>super</kbd> + <kbd>`left click`</kbd> (hold)                                                                                                           | Move focused window freely                        |
+| <kbd>super</kbd> + <kbd>`right click`</kbd> (hold)                                                                                                          | Resize focused window freely                      |
+| <kbd>super</kbd> + <kbd>`scroll up`</kbd> / <kbd>`scroll down`</kbd>                                                                                        | Move desktop/workspace to previous or next        |
+|                                                                                                                                                             |                                                   |
+| **Cursor on Desktop**                                                                                                                                       |                                                   |
+| <kbd>`right Click`</kbd>                                                                                                                                    | Show desktop (root-)menu                          |
+| <kbd>`middle Click`</kbd>                                                                                                                                   | Show desktop/workspace lists                      |
+| <kbd>`scroll up`</kbd> / <kbd>`scroll down`</kbd>                                                                                                           | Move desktop/workspace to previous or next        |
+|                                                                                                                                                             |                                                   |
+| **Cursor on Window Titlebar**                                                                                                                               |                                                   |
+| <kbd>`left click`</kbd> (or simply hover)                                                                                                                   | Focus and raise window                            |
+| <kbd>`middle click`</kbd>                                                                                                                                   | Switch active window to previous or next window   |
+| <kbd>`right click`</kbd>                                                                                                                                    | Show (client-)menu of focused window              |
+
+> **LEGEND**  
+> [<kbd>super</kbd>](https://en.wikipedia.org/wiki/Super_key_(keyboard_button))
+
+</details>
+
+<details>
+<summary><b>Parcellite (<a href="./EXTRA_JOYFUL/.config/parcellite/parcelliterc#L38-L41">parcelliterc</a>)</b></summary>
+
+| Key                                             | Action                       |
+|:------------------------------------------------|:-----------------------------|
+| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>P</kbd> | Show menu                    |
+| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>H</kbd> | Show history menu            |
+| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>X</kbd> | Show persistent history menu |
+| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>A</kbd> | Show action menu             |
+
+</details>
+
+<details>
+<summary><b>URxvt (<a href="./.Xresources">.Xresources</a>)</b></summary>
+
+| Key                                                          | Action                             |
+|:-------------------------------------------------------------|:-----------------------------------|
+|                                                              |                                    |
+| **Built-in**                                                 |                                    |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>C</kbd>            | Copy selection to clipboard        |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>V</kbd>            | Paste clipboard                    |
+| <kbd>ctrl</kbd> + <kbd>⯅</kbd>                              | Scroll up by line                  |
+| <kbd>ctrl</kbd> + <kbd>⯆</kbd>                              | Scroll down by line                |
+| <kbd>ctrl</kbd> + <kbd>home</kbd>                            | Scroll up to top                   |
+| <kbd>ctrl</kbd> + <kbd>end</kbd>                             | Scroll down to bottom              |
+| <kbd>ctrl</kbd> + <kbd>`right click`</kbd> (hold)            | Show context-menu                  |
+|                                                              |                                    |
+| **URL Selection (matcher)**                                  |                                    |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>U</kbd>            | Activate URL selection             |
+| <kbd>⯇</kbd> / <kbd>⯅</kbd> / <kbd>⯈</kbd> / <kbd>⯆</kbd>  | Navigate URL selection             |
+| <kbd>enter</kbd> / <kbd>`middle click`</kbd>                 | Open selected URL                  |
+| <kbd>esc</kbd>                                               | Deactivate URL selection           |
+|                                                              |                                    |
+| **Font Resizer**                                             |                                    |
+| <kbd>ctrl</kbd> + <kbd>+</kbd>                               | Increase font size by Npx          |
+| <kbd>ctrl</kbd> + <kbd>-</kbd>                               | Decrease font size by Npx          |
+| <kbd>ctrl</kbd> + <kbd>=</kbd>                               | Reset font size to default         |
+| <kbd>ctrl</kbd> + <kbd>?</kbd>                               | Show font information              |
+|                                                              |                                    |
+| **Tabbed Extended**                                          |                                    |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>T</kbd>            | New tab                            |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>R</kbd>            | Rename current tab                 |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>W</kbd>            | Close/kill current tab             |
+| <kbd>ctrl</kbd> + <kbd>pg up</kbd>                           | Jump to next tab                   |
+| <kbd>ctrl</kbd> + <kbd>pg dn</kbd>                           | Jump to previous tab               |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg up</kbd>        | Move current tab to next order     |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pp dn</kbd>        | Move current tab to previous order |
+
+</details>
+
+<details>
+<summary><b>Dunst (<a href="./.config/dunst/mechanical.artistic.dunstrc#L45-L47">dunstrc</a>)</b></summary>
+
+| Key                       | Action                          |
+|:--------------------------|:--------------------------------|
+| <kbd>`left click`</kbd>   | Close current notification      |
+| <kbd>`middle click`</kbd> | Open notifications context-menu |
+| <kbd>`right click`</kbd>  | Close all notifications         |
+
+</details>
+
+[Custom key](./EXTRA_JOYFUL/.config/mpv/input.conf) [Anime4K shaders](https://github.com/bloc97/Anime4K/blob/master/GLSL_Instructions.md) with [mpv](https://mpv.io/manual/master/#interactive-control).
+[Ncmpcpp](https://pkgbuild.com/~jelle/ncmpcpp).
+[Thunar](https://docs.xfce.org/xfce/thunar/faq#how_do_i_assign_different_keyboard_shortcuts) with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
+
 ## :maple_leaf: ‎ <samp>HISTORY</samp>
 
 This started since the COVID-19 pandemic [..](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey) the story is too long, what's clear is that I always improvise everything from day-to-day, month-to-month, and year-to-year. My main philosophy in building this is as a minimal replacement for "bloated" Desktop Environment without any desktop decorations e.g icons and widgets, but customizable to users' taste with an overall theme based on my unnamed color palette and easily switchable themes along with fashion.
@@ -834,7 +979,7 @@ Thanks from the bottom of my heart! ‎ :heartpulse:
 
 ## :four_leaf_clover: ‎ <samp>ACKNOWLEDGEMENTS</samp>
 
-|           |   | **Inspiration and Resources**                       |                                                                                                                                                             |            |
+|           |   | Inspiration and Resources                           |                                                                                                                                                             |            |
 |:---------:|:-:|:----------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
 |           | 1 | [Elena](https://github.com/elenapan)                |                                                                                                                                                             |            |
 |           | 2 | [Adhi Pambudi](https://github.com/addy-dclxvi)      |                                                                                                                                                             |            |
