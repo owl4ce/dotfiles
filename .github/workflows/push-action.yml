@@ -1,0 +1,64 @@
+# This is a push-triggered workflow.
+
+name: Push Action
+
+# Controls when the workflow will run.
+on:
+  # Triggers the workflow on push events but only for the 4.0_WIP branch.
+  push:
+    branches: [ 4.0_WIP ]
+
+  # Allows you to run this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
+jobs:
+  # This workflow contains a single job called "ShellCheck".
+  shellcheck:
+    name: ShellCheck
+    # The type of runner that the job will run on.
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job.
+    steps:
+      # Checks-out your repository under "$GITHUB_WORKSPACE", so your job can access it.
+      - uses: actions/checkout@v2
+
+      # Runs `shellcheck` command against `sh` shell.
+      - name: Bourne shell (sh)
+        uses: ludeeus/action-shellcheck@master
+        env:
+            SHELLCHECK_OPTS: --norc -ax -s sh
+        with:
+            additional_files: .joyfuld
+            ignore_names: .zshrc
+
+      # Runs `shellcheck` command against `dash` shell.
+      - name: Debian Almquist shell (dash)
+        if: always()
+        uses: ludeeus/action-shellcheck@master
+        env:
+            SHELLCHECK_OPTS: --norc -ax -s dash
+        with:
+            additional_files: .joyfuld
+            ignore_names: .zshrc
+
+      # Runs `shellcheck` command against `bash` shell.
+      - name: Bourne Again Shell (bash)
+        if: always()
+        uses: ludeeus/action-shellcheck@master
+        env:
+            SHELLCHECK_OPTS: --norc -ax -s bash
+        with:
+            additional_files: .joyfuld
+            ignore_names: .zshrc
+
+      # Runs `shellcheck` command against `ksh` shell.
+      - name: KornShell (ksh)
+        if: always()
+        uses: ludeeus/action-shellcheck@master
+        env:
+            SHELLCHECK_OPTS: --norc -ax -s ksh
+        with:
+            additional_files: .joyfuld
+            ignore_names: .zshrc
