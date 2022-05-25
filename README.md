@@ -882,21 +882,27 @@ clone it in the `~/Documents` directory. I recommend to synchronize with rsync p
 💲 git clone --depth 1 --recurse-submodules https://github.com/owl4ce/dotfiles.git
 ```
 
-> - **cp** is for duplicating stuff and by default only ensures files have unique full pathnames.
-> - **rsync** is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced.
-
 ```sh
-💲 rsync -avxHAXP --exclude-from /dev/stdin dotfiles/ ~/ << "EXCLUDE"
+💲 rsync -avxHAXP --exclude-from=- dotfiles/. ~/ << "EXCLUDE"
 .git*
 LICENSE
 *.md
 .nothing
 EXTRA_JOYFUL
+EXCLUDE
+```
+
+> Ensure the rsync command must be correct as above. The following is for completion of desktop compositions.
+
+```sh
+💲 rsync -avxHAXP --exclude-from=- dotfiles/EXTRA_JOYFUL/. ~/ << "EXCLUDE"
+.git*
 neofetch
 EXCLUDE
 ```
 
-> Ensure the rsync command must be correct as above. Remove *EXTRA_JOYFUL* for complete setup.
+> - **cp** is for duplicating stuff and by default only ensures files have unique full pathnames.
+> - **rsync** is for synchronizing stuff and uses size and timestamp of files to decide if they should be replaced.
 
 > | Options                   | Description                                         |
 > |:--------------------------|:----------------------------------------------------|
@@ -967,7 +973,7 @@ personal files with .files. First, update the local repository with the remote g
 ```
 
 ```sh
-💲 rsync -avxHAXP --exclude-from /dev/stdin dotfiles/ ~/ << "EXCLUDE"
+💲 rsync -avxHAXP --exclude-from=- dotfiles/. ~/ << "EXCLUDE"
 .git*
 LICENSE
 *.md
@@ -982,7 +988,6 @@ mechanical.rasi
 shared.rasi
 .nothing
 EXTRA_JOYFUL
-neofetch
 .gtkrc-2.0
 .joyfuld
 .Xresources
