@@ -19,7 +19,7 @@ NEVER SKIP / IGNORE / AVOID README
 </div>
 
 <pre align="center">
-<a href="#seedling--setup">SETUP</a> • <a href="#four_leaf_clover--key-bindings">KEYBINDS</a> • <a href="#pre-release">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
+<a href="#seedling--setup">SETUP</a> • <a href="#four_leaf_clover--key-bindings">KEYBINDS</a> • <a href="https://deviantart.com/owl4ce/art/Sakura-Saber-872360153">GALLERY</a> • <a href="#herb--guides">GUIDES</a>
 </pre>
 
 <h1>
@@ -31,7 +31,10 @@ NEVER SKIP / IGNORE / AVOID README
 ### :octocat: ‎ <sup><sub><samp>HI THERE! THANKS FOR DROPPING BY!</samp></sub></sup>
 
 <a href="#octocat--hi-there-thanks-for-dropping-by">
-  <img alt="" align="right" width="400px" src="https://i.imgur.com/JhcL3k6.png"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" alt="" align="right" width="400px" srcset="https://i.imgur.com/7pWg4vR.jpg"/>
+    <img alt="" align="right" width="400px" src="https://i.imgur.com/VMiaVX3.jpg"/>
+  </picture>
 </a>
 
 You might be here looking for (Linux) rice reference or to (full?) replicate my personal
@@ -1286,13 +1289,13 @@ manually changing styles from one to another. Until finally, combining multiple 
 The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a song
 composed by [KODOMOi](https://kodomoi.com) along with the creator's expression of wishing for love and happiness.
 
-There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`,
-the creator's nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value,
-whereas Interactive Mode is aimed for those who want the practical details of statistics. Initially, the dark theme
-(Fleon) was predominantly blue, and the light theme (Sweetly) was red, expressing a mixture of violet because they tends
-to be blue. However, over time since the release of [version 3.2](https://deviantart.com/owl4ce/art/Sakura-Saber-872360153),
-they tends to be red with [Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the creator's seeking
-peace or serenity, violet represents light-hearted and ambition, and red is aggressive action that reflects passion.
+There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`, the
+creator's nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value,
+whereas Interactive Mode is aimed for those who want the practical details of statistics. Initially, the dark
+theme (Fleon) was predominantly blue, and the light theme (Sweetly) was red, expressing a mixture of violet
+because they tends to be blue. However, over time since the release of version 3.2, they tends to be red with
+[Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the creator's seeking peace or
+serenity, violet represents light-hearted and ambition, and red is aggressive action that reflects passion.
 
 Two themes are based on and aimed at the mood swings of users. Initially since the first release until
 [version 2](https://deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208), darkness was inspired by
