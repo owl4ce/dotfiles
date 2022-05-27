@@ -826,6 +826,12 @@ to display the notification icon sent by the program.
 **Wget** all the above wallpapers and put them as instructed into the `~/.wallpapers` directory.
 
 ```bash
+💲 mkdir -pv ~/.wallpapers/{mechanical,eyecandy}
+```
+
+---
+
+```bash
 💲 wget --no-hsts -cNP ~/.wallpapers/mechanical/ https://github.com/owl4ce/dotfiles/releases/download/ng/{batik-1_4K,okita-souji_FHD}.jpg
 ```
 
@@ -887,7 +893,6 @@ clone it in the `~/Documents` directory. I recommend to synchronize with rsync p
 .git*
 LICENSE
 *.md
-.nothing
 EXTRA_JOYFUL
 EXCLUDE
 ```
@@ -986,7 +991,6 @@ tray
 eyecandy.rasi
 mechanical.rasi
 shared.rasi
-.nothing
 EXTRA_JOYFUL
 .gtkrc-2.0
 .joyfuld
