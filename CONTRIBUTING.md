@@ -8,10 +8,10 @@ method with the owner or maintainers of this repository before making a change. 
 ## Pull Request Process
 
 1. Fork this repository.
-2. Create a new branch in your fork repository such as **patch-1**.
-3. Make changes with clear commit description as in
-   [**bdcadc5**](https://github.com/owl4ce/dotfiles/commit/bdcadc5c1d869a073c5038bce4ef26d0340275a3).
+2. Create a new branch in your fork repository, for example **patch-1**.
+3. Make changes with clear commit description, for reference
+   [**bc95b80**](https://github.com/owl4ce/dotfiles/commit/bc95b80d789b11287c6ab53f99fd552e678b2643.patch).
 4. Open a new pull request in this repository, would be better if explained.
-5. Wait for the owner or maintainers to review, just relax while drinking coffee.
-6. If it's worth, your contributions are merged.
-7. Thanks for your contributions!
+5. Wait for the owner or maintainers to review, just relax.
+6. If it's worth it, your contributions are merged.
+7. Thanks for your contributions! ^^
