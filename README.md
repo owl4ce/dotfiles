@@ -918,7 +918,7 @@ EXCLUDE
 > | `-A`, `--acls`            | preserve ACLs (implies `--perms`)                   |
 > | `-X`, `--xattrs`          | preserve extended attributes                        |
 > | `-P`                      | show progress during transfer                       |
-> | `--exclude` *PATTERN*     | exclude files matching *PATTERN*                    |
+> | `--exclude-from=-`        | read exclude patterns from FILE (stdin)             |
 
 I recommend not deleting the dotfiles directory after cloning to make [upgrading easier](#sunflower--sync-for-updates).
 
@@ -998,7 +998,7 @@ EXTRA_JOYFUL
 EXCLUDE
 ```
 
-> Use the find program to check the *PATTERN*. It's called [globbing](https://en.wikipedia.org/wiki/Glob_(programming)).
+> Use the find program to check the pattern. It's called [globbing](https://en.wikipedia.org/wiki/Glob_(programming)).
 > ```sh
 > 💲 find dotfiles/ -iname 'PATTERN'
 > ```
@@ -1096,8 +1096,8 @@ Put an image file that [matches BRE](./.config/ncmpcpp/scripts/album-art.sh#L93-
 `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory containing
 album tracks. The directory is in the `~/Music` [by default](./.config/mpd/mpd.conf#L10).
 The recommended image size is 500px at ratio of 1:1 or more. So, assume you have `~/Music/YOUR_ALBUM`
-directory with lots of songs, you should put the image file to use as album-art
-(related to songs) there. [This is for URxvt only](./.joyfuld#L144-L162).
+directory with lots of tracks, you should put the image file to use as album-art
+(related to tracks) there. [This is for URxvt only](./.joyfuld#L144-L162).
 
 Also, I use [ALSA driver in the MPD](./.config/mpd/mpd.conf#L27-L38) to get
 [bit-perfect playback](https://mpd.readthedocs.io/en/stable/user.html#bit-perfect-playback).
@@ -1191,9 +1191,9 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 | <kbd>🔇</kbd>                                                                                                                                               | Toggle mute                                       |
 |                                                                                                                                                             |                                                   |
 | **Media Control**                                                                                                                                           |                                                   |
-| <kbd>⏮</kbd>                                                                                                                                               | Previous song                                     |
-| <kbd>⏭</kbd>                                                                                                                                               | Next song                                         |
-| <kbd>⏹</kbd>                                                                                                                                               | Stop playing songs                                |
+| <kbd>⏮</kbd>                                                                                                                                               | Previous track                                    |
+| <kbd>⏭</kbd>                                                                                                                                               | Next track                                        |
+| <kbd>⏹</kbd>                                                                                                                                               | Stop playing music                                |
 | <kbd>⏯</kbd>                                                                                                                                               | Toggle play/pause                                 |
 |                                                                                                                                                             |                                                   |
 | **Combo Keyboard and Pointing Device**                                                                                                                      |                                                   |
@@ -1295,7 +1295,7 @@ of lightweight and non-proprietary software, and use it (instead of using pirate
 Started [passively since 2018](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey).
 Then continued self-taught research months after COVID-19 pandemic, manically. It was still only one,
 manually changing styles from one to another. Until finally, combining multiple styles into multiple modes.
-The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a song
+The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a music
 composed by [KODOMOi](https://kodomoi.com) along with the creator's expression of wishing for love and happiness.
 
 There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`, the
@@ -1313,7 +1313,7 @@ Two themes are based on and aimed at the mood swings of users. Initially since t
 [Dream Theater](https://en.wikipedia.org/wiki/Dream_Theater)),
 a reflection of unhappiness and suffering. In contrast, natural scenery, a reflection of inner satisfaction.
 Now since the pre-release [version 4](https://github.com/owl4ce/dotfiles/releases/tag/ng) has adopted the same
-[color scheme](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) from the previous release.
+theme and [color scheme](./EXTRA_JOYFUL/.config/inkscape/palettes/Joyful-Desktop.gpl) from the previous release.
 
 <pre align="center">
 <a href="#maple_leaf--the-philosophy">
