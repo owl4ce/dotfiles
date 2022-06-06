@@ -203,7 +203,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 </details>
 
-*.. and is still being improved.*
+*..., and is still being improved.*
 
 ## :ear_of_rice: ‎ <samp>INTRODUCTION OF (LINUX) RICE</samp>
 
@@ -228,7 +228,7 @@ Everything done manually step-by-step. Let's learn.
 **Didn't know how to install packages?**
 
 ```sh
-💲 sudo apt install atom1 atom2 .. atomN
+💲 sudo apt install atom1 atom2 ... atomN
 ```
 
 ---
@@ -363,7 +363,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 **Didn't know how to install packages?**
 
 ```sh
-💲 sudo pacman -S atom1 atom2 .. atomN
+💲 sudo pacman -S atom1 atom2 ... atomN
 ```
 
 ---
@@ -504,7 +504,7 @@ I personally use NetworkManager (and IWD as wireless back-end) with nm-applet,
 **Didn't know how to install packages?**
 
 ```sh
-💲 doas emerge -av atom1 atom2 .. atomN
+💲 doas emerge -av atom1 atom2 ... atomN
 ```
 
 > Note that some packages require accepting [arch~ keywords](https://wiki.gentoo.org/wiki/ACCEPT_KEYWORDS).
@@ -705,9 +705,9 @@ Ensure you have installed zsh with system package manager as per distribution.
 | [Google Comfortaa Bold](https://raw.githubusercontent.com/googlefonts/comfortaa/main/fonts/OTF/Comfortaa-Bold.otf)        | [OFL-1.1](https://github.com/googlefonts/comfortaa/blob/main/OFL.txt)                                                                 |
 | [Feather IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Feather.ttf)                                    | [MIT](https://github.com/feathericons/feather/blob/master/LICENSE) ([FAQ](https://icomoon.io/#faq/license))                           |
 | [Material IcoMoon](https://github.com/owl4ce/dotfiles/releases/download/ng/Material.ttf)                                  | [Apache-2.0](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE)                                                        |
-| [Iosevka Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
+| [Iosevka Nerd Font ... Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/Iosevka.Nerd.Font.Complete.Mono.ttf) | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
 | [M+ 1mn Nerd Font Complete](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.ttf)        | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
-| [M+ 1mn Nerd Font C.. Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
+| [M+ 1mn Nerd Font ... Mono](https://github.com/owl4ce/dotfiles/releases/download/ng/M+.1mn.Nerd.Font.Complete.Mono.ttf)   | [LICENSE](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE)                                                                |
 | [GNU Unifont](https://unifoundry.com/pub/unifont/unifont-14.0.02/font-builds/unifont-14.0.02.ttf)                         | [LICENSE](https://unifoundry.com/LICENSE.txt)                                                                                         |
 
 **Wget** all the above fonts (and extract if archived). Then, put them as instructed into the `~/.fonts` directory.
