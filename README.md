@@ -101,7 +101,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 <summary><b>Innovations</b></summary>
 
 - **Functionality**
-  - [Live reloader](./.config/openbox/joyful-desktop/terminal-set.sh#L74-L139) for rxvt-unicode color scheme
+  - [Live reloader](./.config/openbox/joyful-desktop/terminal-set.sh#L66-L123) for rxvt-unicode color scheme
 - **Git repository**
   - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
   - [CONTRIBUTING.md](./CONTRIBUTING.md)
@@ -112,8 +112,8 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   - Rofi [main menu](./.config/rofi/scripts/rofi-main.sh) and panel (or control)
     [extensions menu](./.config/rofi/scripts/rofi-exts.sh)
   - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox
-    [button](./.config/openbox/joyful-desktop/ob-button-set.sh#L16-L25) and X
-    [wallpaper](./.config/openbox/joyful-desktop/wallpaper-set.sh#L16-L25) selectors,
+    [button](./.config/openbox/joyful-desktop/ob-button-set.sh#L16-L24) and X
+    [wallpaper](./.config/openbox/joyful-desktop/wallpaper-set.sh#L16-L24) selectors,
     as well as dunst [context-menu](./.config/dunst/mechanical.artistic.dunstrc#L41)
   - Better tint2 [horizontal panels](./.config/tint2) for Artistic Mode and the tooltips
 
@@ -1065,20 +1065,20 @@ Use `export` to set user's environment variables universally. Don't add any othe
 
 [`~/.scripts/db.apps.joy`](./.scripts/db.apps.joy)
 
-| Parameters       | Available                                                  | Description       |
-|:-----------------|:-----------------------------------------------------------|:------------------|
-| *terminal*       | `urxvt` [`urxvtc`](./.config/openbox/autostart.sh#L17-L18) | Terminal Emulator |
-| *music_player*   | `mpd` `spotify`                                            | Music Player      |
-| *file_manager*   | *anything*                                                 | File Manager      |
-| *session_locker* | *anything*                                                 | Session Locker    |
+| Parameters       | Available                                              | Description       |
+|:-----------------|:-------------------------------------------------------|:------------------|
+| *terminal*       | `urxvt` [`urxvtc`](./.config/openbox/autostart.sh#L17) | Terminal Emulator |
+| *music_player*   | `mpd` `spotify`                                        | Music Player      |
+| *file_manager*   | *anything*                                             | File Manager      |
+| *session_locker* | *anything*                                             | Session Locker    |
 
 Terminal emulator and file manager are used universally,
 both for keybindings and context menus. The terminal emulator is actually freedom-of-choice,
-but it's [not integrated](./.config/openbox/joyful-desktop/terminal-set.sh#L26-L149), it displays a notification message.
-The music player [can be switched](./.scripts/music-controller.sh#L71-L86) without modifying the configuration manually,
+but it's [not integrated](./.config/openbox/joyful-desktop/terminal-set.sh#L25-L132), it displays a notification message.
+The music player [can be switched](./.scripts/music-controller.sh#L67-L78) without modifying the configuration manually,
 via music control button on tint2 panel, just hover it. The session locker was [used by xss-lock
-program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L29-L40) (which [enabled in
-autostart](./.config/openbox/autostart.sh#L37-L38)), triggered by systemd events and
+program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L26-L36) (which [enabled in
+autostart](./.config/openbox/autostart.sh#L32)), triggered by systemd events and
 [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
 
 </details>
@@ -1092,7 +1092,7 @@ Update the mpd database first, via mpc or by pressing <kbd>U</kbd> in ncmpcpp.
 💲 mpc -p 7777 update
 ```
 
-Put an image file that [matches BRE](./.config/ncmpcpp/scripts/album-art.sh#L93-L99)
+Put an image file that [matches BRE](./.config/ncmpcpp/scripts/album-art.sh#L79)
 `(album|cover|folder|artwork|front).*[.](jpe?g|png|gif|bmp)` into the directory containing
 album tracks. The directory is in the `~/Music` [by default](./.config/mpd/mpd.conf#L10).
 The recommended image size is 500px at ratio of 1:1 or more. So, assume you have `~/Music/YOUR_ALBUM`
