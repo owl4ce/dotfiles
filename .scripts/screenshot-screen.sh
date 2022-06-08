@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
-# Take screenshot of all available screens.
-# https://github.com/owl4ce/dotfiles
+# Desc:   Take screenshot of all available screens.
+# Author: Harry Kurn <alternate-se7en@pm.me>
+# URL:    https://github.com/owl4ce/dotfiles/tree/ng/.scripts/screenshot-screen.sh
 
 # SPDX-License-Identifier: ISC
 
@@ -11,17 +12,14 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-# Ensure `scrot` already installed for safety and performance reasons.
 [ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -h string:synchronous:install-deps \
                                                                  -a joyful_desktop \
                                                                  -u low
 
-# Process as a background task.
 {
-    # Add 210ms delay to trick the compositor fade animation if an option specified.
+    # Add 210ms delay to trick compositor fade animation if an option specified.
     [ -z "${1}" ] || sleep .21s
 
-    # Loop condition of copy-to-clipboard, still depend on `xclip`.
     while :; do
         if [ "$SS_CP2CLP" = 'yes' -a -x "$(command -v xclip)" ]; then
             CLIP='xclip -selection clipboard -target image/png -i $f;'
@@ -34,7 +32,6 @@ exec >/dev/null 2>&1
         fi
     done
 
-    # Condition of both execution-argument and notification.
     if [ "$SS_SAVE" = 'yes' ]; then
         [ -d "${SS_SVDIR}/Screenshots" ] || mkdir -p "${SS_SVDIR}/Screenshots"
         EXEC="${CLIP} mv -f \$f \"${SS_SVDIR}/Screenshots/\""
@@ -44,10 +41,8 @@ exec >/dev/null 2>&1
         STS2='CLIPBOARD'
     fi
 
-    # Add `-p` argument if $SS_POINTER is set to 'yes'.
     [ "$SS_POINTER" != 'yes' ] || ARGS='-p'
 
-    # Capture the screens, fallback to fails notification.
     scrot ${ARGS} -e "$EXEC" \
                   -q "${SS_QUALITY:-75}" \
                   -z \
@@ -56,7 +51,6 @@ exec >/dev/null 2>&1
                                               -i "$SCREENSHOT_ICON" \
                                               -u low
 
-    # Send successful notification.
     exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -h string:synchronous:screenshot-screen \
                   -a joyful_desktop \

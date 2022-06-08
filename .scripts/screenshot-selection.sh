@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
-# Take screenshot by select the visible window or draw.
-# https://github.com/owl4ce/dotfiles
+# Desc:   Take screenshot by select the visible window or draw.
+# Author: Harry Kurn <alternate-se7en@pm.me>
+# URL:    https://github.com/owl4ce/dotfiles/tree/ng/.scripts/screenshot-selection.sh
 
 # SPDX-License-Identifier: ISC
 
@@ -11,23 +12,18 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-# Ensure `scrot` already installed for safety and performance reasons.
 [ -x "$(command -v scrot)" ] || exec dunstify 'Install `scrot`!' -h string:synchronous:install-deps \
                                                                  -a joyful_desktop \
                                                                  -u low
 
-# Process as a background task.
 {
-    # Ensure all previously captured screens are removed from the temporary directory.
     rm -f "$TMP_DIR"/*_scrot*.* &
 
-    # Add 210ms delay to trick the compositor fade animation.
+    # Add 210ms delay to trick compositor fade animation.
     sleep .21s
 
-    # Add `-p` argument if $SS_POINTER is set to 'yes'.
     [ "$SS_POINTER" != 'yes' ] || ARGS='-p'
 
-    # Capture the screens and save to temporary directory, fallback to fails notification.
     scrot ${ARGS} -b \
                   -e "mv -f \$f \"${TMP_DIR}/\"" \
                   -f \
@@ -40,20 +36,17 @@ exec >/dev/null 2>&1
                                                 -i "$SCREENSHOT_ICON" \
                                                 -u low
 
-    # Ensure all background tasks of the current process have been completed.
     wait
 
-    # Set the captured screens from the temporary directory as $CURRENT.
     for CURRENT in "$TMP_DIR"/*_scrot*.*; do
         CURRENT="${CURRENT##*/}"
         break
     done
 
-    # Use-frame condition.
     if [ "$SS_USE_FRAME" = 'yes' ]; then
 
-        # Use `imagemagick` to determine the dominant colors of the captured screens,
-        # and ensure all hexadecimal colors are valid through Extended Regular Expressions.
+        # Use `imagemagick` to determine the dominant color of the captured image, and
+        # ensure all hexadecimal colors are valid through Extended Regular Expression.
         if [ "$SS_FRAME_COLOR" = 'auto' ]; then
 
             SS_FRAME_COLOR="$(magick "${TMP_DIR}/${CURRENT}" \
@@ -79,7 +72,6 @@ exec >/dev/null 2>&1
             SS_FRAME_COLOR=
         fi
 
-        # Send process-state or fails notification.
         if [ -n "$SS_FRAME_COLOR" ]; then
             dunstify '' "Processing captured picture ..\n<span size='small'>Magick ${SS_FRAME_COLOR} ..</span>" \
                      -h string:synchronous:screenshot-selection \
@@ -94,7 +86,6 @@ exec >/dev/null 2>&1
                           -u low
         fi
 
-        # Process the captured screens with `imagemagick`, fallback to fails notification.
         magick "ephemeral:${TMP_DIR}/${CURRENT}" \
            '(' -clone 0 \
                -alpha extract \
@@ -135,7 +126,6 @@ exec >/dev/null 2>&1
 
     fi
 
-    # Loop condition of copy-to-clipboard, still depend on `xclip`.
     while :; do
         if [ "$SS_CP2CLP" = 'yes' -a -x "$(command -v xclip)" ]; then
             xclip -selection clipboard -target image/png -i "${TMP_DIR}/${CURRENT}"
@@ -148,7 +138,6 @@ exec >/dev/null 2>&1
         fi
     done
 
-    # Condition of both execution and notification.
     if [ "$SS_SAVE" = 'yes' ]; then
         [ -d "${SS_SVDIR}/Screenshots" ] || mkdir -p "${SS_SVDIR}/Screenshots"
         mv -f "${TMP_DIR}/${CURRENT}" "${SS_SVDIR}/Screenshots/"
@@ -158,7 +147,6 @@ exec >/dev/null 2>&1
         STS2='CLIPBOARD'
     fi
 
-    # Send successful notification.
     exec dunstify '' "<span size='small'><u>${STS1}</u><i>${STS2}</i></span>\nPicture obtained!" \
                   -h string:synchronous:screenshot-selection \
                   -a joyful_desktop \
