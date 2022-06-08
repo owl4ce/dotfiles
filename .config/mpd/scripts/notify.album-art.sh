@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
-# The MPD's track album-art notification-sender.
-# https://github.com/owl4ce/dotfiles
+# Desc:   MPD track notification-sender.
+# Author: Harry Kurn <alternate-se7en@pm.me>
+# URL:    https://github.com/owl4ce/dotfiles/tree/ng/.config/mpd/scripts/notify.album-art.sh
 
 # SPDX-License-Identifier: ISC
 
@@ -11,21 +12,15 @@ export LANG='POSIX'
 exec >/dev/null 2>&1
 . "${HOME}/.joyfuld"
 
-# Ensure `mpd`, `mpc`, and `magick` already installed for safety and performance reasons.
 [ -x "$(command -v mpd)" -a -x "$(command -v mpc)" -a -x "$(command -v magick)" ] || exit ${?}
 
-# Process as a background task.
 {
-    # Get file path, merge with album-name of current track.
     FILE="$(mpc -p "$CHK_MPD_PORT" -f '%file% ########## %album%' current)"
 
-    # Ensure the file path is valid.
     [ -n "${FILE%/*\ #####\ *}" ] || exit ${?}
 
-    # Update $CHK_MPD_MUSIC_DIR if in the mpd configuration contains tilde. This is bug fix.
     [ -n "${CHK_MPD_MUSIC_DIR%%~*}" ] || CHK_MPD_MUSIC_DIR="${HOME}/${CHK_MPD_MUSIC_DIR#~*/}"
 
-    # Get single album-art image.
     read -r ALBUM_COVER <<- EOF
 		$(find "${CHK_MPD_MUSIC_DIR}/${FILE%/*\ #####\ *}/" -maxdepth 1 \
 															-type f \
@@ -33,7 +28,6 @@ exec >/dev/null 2>&1
 		".*/.*\(${FILE##*\ #####\ }\|cover\|folder\|artwork\|front\).*[.]\(jpe?g\|png\|gif\|bmp\)")
 	EOF
 
-    # Rescale and convert album-art image into rounded corners.
     if [ -f "$ALBUM_COVER" ]; then
 
         magick "$ALBUM_COVER" \
@@ -63,10 +57,8 @@ exec >/dev/null 2>&1
         MPD_NOTIFY_AA_IMG=
     fi
 
-    # Get current track artist, merge with title, fallback to file path.
     INFO="$(mpc -p "$CHK_MPD_PORT" -f '%artist% ########## [%title%|%file%]' current)"
 
-    # Send notification with album-art image as raw icon.
     exec dunstify '' "<span size='small'>${INFO%%\ #####\ *}</span>\n${INFO##*\ #####\ }" \
                   -h string:synchronous:ncmpcpp-album-art \
                   -I "${MPD_NOTIFY_AA_IMG:-${MUSIC_ICON}}"
