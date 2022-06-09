@@ -71,6 +71,10 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 </div>
 
+<p align="right">
+  [<a href="https://gitlab.com/owl4ce/dotfiles">mirror</a>]
+</p>
+
 ## :fallen_leaf: ‎ <samp>CHANGELOGS</samp>
 
 <table align="right">
