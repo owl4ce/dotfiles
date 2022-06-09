@@ -80,10 +80,8 @@ blocks()
                                     "${WHITE}████${RESET}${WHITE_BOLD}████${RESET}" ''
 }
 
-# Clear screen.
 printf '\033c'
 
-# Single-execution options.
 case "${1}" in
     b*) blocks
     ;;
