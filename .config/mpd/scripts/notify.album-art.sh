@@ -61,7 +61,8 @@ exec >/dev/null 2>&1
 
     exec dunstify '' "<span size='small'>${INFO%%\ #####\ *}</span>\n${INFO##*\ #####\ }" \
                   -h string:synchronous:ncmpcpp-album-art \
-                  -I "${MPD_NOTIFY_AA_IMG:-${MUSIC_ICON}}"
+                  -I "${MPD_NOTIFY_AA_IMG:-${MUSIC_ICON}}" \
+                  -r 1061 # https://github.com/dunst-project/dunst/issues/1061
 } &
 
 exit ${?}
