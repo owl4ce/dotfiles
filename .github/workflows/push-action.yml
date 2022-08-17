@@ -7,6 +7,10 @@ on:
   # Triggers the workflow on push events but only for the ng branch.
   push:
     branches: [ ng ]
+  # Triggers the workflow on pull request events when code review requested.
+  pull_request:
+    branches: [ ng ]
+    types: [ opened, review_requested ]
 
   # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
