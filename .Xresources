@@ -29,6 +29,9 @@ URxvt.iconFile:                   /home/username/.icons/Gladient/terminal.png
 ! The strings will be interpreted as if typed into the shell as-is.
 URxvt.print-pipe:                 "cat >/dev/null"
 
+! Clear the scrollback buffer cleanly, the shell built-in sequence replacement.
+URxvt.keysym.Control-Shift-L:     command:\033c
+
 ! URxvt extensions.
 URxvt.perl-ext-common:            default,matcher,resize-font,tabbedex
 
