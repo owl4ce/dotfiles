@@ -118,7 +118,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
   - Rofi [action menu](./.config/rofi/themes/action.rasi) for openbox
     [button](./.config/openbox/joyful-desktop/ob-button-set.sh#L16-L24) and X
     [wallpaper](./.config/openbox/joyful-desktop/wallpaper-set.sh#L16-L24) selectors,
-    as well as dunst [context-menu](./.config/dunst/mechanical.artistic.dunstrc#L41)
+    as well as dunst [context-menu](./.config/dunst/mechanical.artistic.dunstrc#L40)
   - Better tint2 [horizontal panels](./.config/tint2) for Artistic Mode and the tooltips
 
 </details>
@@ -536,6 +536,8 @@ URxvt is highly recommended terminal emulator by default. Picom is optional, but
 
 > My own [Lilium portage overlay](https://github.com/owl4ce/lilium) contains enhancements.  
 > `x11-terms/rxvt-unicode::lilium`
+
+> For pixel-perfect, subtract 1px in [`~/.Xresources`](./.Xresources#L9) and [`~/.joyfuld`](./.joyfuld#L161-L162).
 
 ```sh
 x11-misc/dunst x11-misc/nitrogen x11-wm/openbox x11-misc/rofi x11-terms/rxvt-unicode::lilium x11-misc/tint2 \=x11-misc/picom-9999 x11-misc/obmenu-generator dev-perl/Gtk3
@@ -1240,6 +1242,7 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 |:-------------------------------------------------------------|:-----------------------------------|
 |                                                              |                                    |
 | **Built-in**                                                 |                                    |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>L</kbd>            | Clear scrollback buffer cleanly    |
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>C</kbd>            | Copy selection to clipboard        |
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>V</kbd>            | Paste clipboard                    |
 | <kbd>ctrl</kbd> + <kbd>⯅</kbd>                              | Scroll up by line                  |
@@ -1269,10 +1272,17 @@ Team](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme#manual-fixes)
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg up</kbd>        | Move current tab to next order     |
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg dn</kbd>        | Move current tab to previous order |
 
+> **SHELL**  
+> Most shells use the readline([3](https://www.man7.org/linux/man-pages/man3/readline.3.html#EDITING_COMMANDS)) library.
+> In addition, provided by shell plugins.
+> ```sh
+> 💲 man 3 readline | less +/EDITING\ COMMANDS
+> ```
+
 </details>
 
 <details>
-<summary><b>Dunst (<a href="./.config/dunst/mechanical.artistic.dunstrc#L45-L47">dunstrc</a>)</b></summary>
+<summary><b>Dunst (<a href="./.config/dunst/mechanical.artistic.dunstrc#L44-L46">dunstrc</a>)</b></summary>
 
 | Key                       | Action                          |
 |:--------------------------|:--------------------------------|
