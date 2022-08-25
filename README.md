@@ -1301,7 +1301,7 @@ with [custom action key](./EXTRA_JOYFUL/.config/Thunar/accels.scm).
 ## :maple_leaf: ‎ <samp>THE PHILOSOPHY</samp>
 
 Aesthetics doesn't only look at the beauty of the results. There's beauty, in a sense, users are expected to feel
-like they are part of how this was crafted. Emotion and satisfaction, relatively. Ideally, the creator's idea is to
+like they are part of how this was crafted. Emotion and satisfaction, relatively. Ideally, the author's idea is to
 use this as a minimal "replacement" for bloated and complicated desktop environment. Pragmatically, what are the
 "benefits" in our daily life, especially for low-end devices. Realistically, be "grateful" to accept the existence
 of lightweight and non-proprietary software, and use it (instead of using pirated software).
@@ -1309,20 +1309,20 @@ of lightweight and non-proprietary software, and use it (instead of using pirate
 Started [passively since 2018](https://github.com/owl4ce/dotfiles/wiki/My-Linux-Ricing-Journey).
 Then continued self-taught research months after COVID-19 pandemic, manically. It was still only one,
 manually changing styles from one to another. Until finally, combining multiple styles into multiple modes.
-The creator named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a music
-composed by [KODOMOi](https://kodomoi.com) along with the creator's expression of wishing for love and happiness.
+The author named it **Joyful** (IPA: `/ˈdʒɔɪfəl/`) **Desktop**. The name isn't random, it was inspired by a music
+composed by [KODOMOi](https://kodomoi.com) along with the author's expression of wishing for love and happiness.
 
 There are two modes with two themes totaling four, illogically representing the number in `/owl·4·ce/`, the
-creator's nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value,
+author's nickname. Although both are functional, the Artistic Mode is expressed as a decorative aesthetic value,
 whereas Interactive Mode is aimed for those who want the practical details of statistics. Initially, the dark
 theme (Fleon) was predominantly blue, and the light theme (Sweetly) was red, expressing a mixture of violet
 because they tends to be blue. However, over time since the release of version 3.2, they tends to be red with
-[Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the creator's seeking peace or
+[Cherry Blossom](https://en.wikipedia.org/wiki/Cherry_blossom). Blue expresses the author's seeking peace or
 serenity, violet represents light-hearted and ambition, and red is aggressive action that reflects passion.
 
 Two themes are based on and aimed at the mood swings of users. Initially since the first release until
 [version 2](https://deviantart.com/owl4ce/art/Joyful-Desktop-v2-858107208), darkness was inspired by
-[Dystopia](https://en.wikipedia.org/wiki/Dystopia) (while the creator listened to
+[Dystopia](https://en.wikipedia.org/wiki/Dystopia) (while the author listened to
 [The Astonishing](https://en.wikipedia.org/wiki/The_Astonishing) by
 [Dream Theater](https://en.wikipedia.org/wiki/Dream_Theater)),
 a reflection of unhappiness and suffering. In contrast, natural scenery, a reflection of inner satisfaction.
