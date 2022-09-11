@@ -24,7 +24,9 @@ case "${1}" in
 esac
 
 {
-    BRIGHTNESS="$(brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} get -P)"
+    BRIGHTNESS="$(brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} info)" \
+    BRIGHTNESS="${BRIGHTNESS#*\ \(}" \
+    BRIGHTNESS="${BRIGHTNESS%%\%\)*}"
 
     if [ "$BRIGHTNESS" -eq 0 ]; then
         ICON='notification-display-brightness-off'
