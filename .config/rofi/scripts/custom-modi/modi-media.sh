@@ -44,7 +44,9 @@ AUDIO_MUTED="${AUDIO_VOLUME##*\ \[on\]}"
 AUDIO_VOLUME="${AUDIO_VOLUME#*\ \[}" \
 AUDIO_VOLUME="${AUDIO_VOLUME%%\%\]\ *}"
 
-BRIGHTNESS="$(brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} get -P)"
+BRIGHTNESS="$(brightnessctl ${BRIGHTNESS_DEVICE:+-d "$BRIGHTNESS_DEVICE"} info)" \
+BRIGHTNESS="${BRIGHTNESS#*\ \(}" \
+BRIGHTNESS="${BRIGHTNESS%%\%\)*}"
 
 if [ "$AUDIO_VOLUME" -eq 0 -o -n "$AUDIO_MUTED" ]; then
     [ -z "$AUDIO_MUTED" ] || MUTED='---'
