@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Desc:   MPD (via `mpc`) or Spotify (via D-Bus) controller.
+# Desc:   MPD (via `mpc`) and MPRIS-enabled media players (via D-Bus) controller.
 # Author: Harry Kurn <alternate-se7en@pm.me>
 # URL:    https://github.com/owl4ce/dotfiles/tree/ng/.scripts/music-controller.sh
 
@@ -18,17 +18,23 @@ exec 2>/dev/null
 MUSIC_PLAYER="$(joyd_launch_apps -g music_player)"
 
 case "$MUSIC_PLAYER" in
-    mpd    ) PREV="mpc -p \"$CHK_MPD_PORT\" prev -q"
-             NEXT="mpc -p \"$CHK_MPD_PORT\" next -q"
-             STOP="mpc -p \"$CHK_MPD_PORT\" stop -q"
-             TOGG="mpc -p \"$CHK_MPD_PORT\" toggle -q"
+    mpd  ) PREV="mpc -p \"$CHK_MPD_PORT\" prev -q"
+           NEXT="mpc -p \"$CHK_MPD_PORT\" next -q"
+           STOP="mpc -p \"$CHK_MPD_PORT\" stop -q"
+           TOGG="mpc -p \"$CHK_MPD_PORT\" toggle -q"
     ;;
-    spotify) MP2P='org.mpris.MediaPlayer2.Player'
-             SEND="dbus-send --print-reply --dest=${MP2P%.*}.spotify /org/mpris/MediaPlayer2"
-             PREV="${SEND} ${MP2P}.Previous"
-             NEXT="${SEND} ${MP2P}.Next"
-             STOP="${SEND} ${MP2P}.Stop"
-             TOGG="${SEND} ${MP2P}.PlayPause"
+    MPRIS) DBUS='org.freedesktop.DBus'
+           MP2P='org.mpris.MediaPlayer2.Player'
+
+           PREF="$(dbus-send --print-reply --dest=${DBUS} /org/freedesktop/DBus ${DBUS}.ListNames)" \
+           PREF="${PREF#*.MediaPlayer2.}"
+
+           SEND="dbus-send --print-reply --dest=${MP2P%.*}.${PREF%%\"*} /org/mpris/MediaPlayer2"
+
+           PREV="${SEND} ${MP2P}.Previous"
+           NEXT="${SEND} ${MP2P}.Next"
+           STOP="${SEND} ${MP2P}.Stop"
+           TOGG="${SEND} ${MP2P}.PlayPause"
     ;;
 esac
 
@@ -44,16 +50,16 @@ case "${1}" in
 esac
 
 case "$MUSIC_PLAYER" in
-    mpd    ) STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -Fo '[playing]')"
-             TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
+    mpd  ) STAT="$(mpc -p "$CHK_MPD_PORT" status | grep -m1 -Fo '[playing]')"
+           TITL="$(mpc -p "$CHK_MPD_PORT" -f '[%title%|%file%]' current)"
     ;;
-    spotify) PROP="org.freedesktop.DBus.Properties.Get string:${MP2P}"
-             STAT="$(${SEND} ${PROP} string:PlaybackStatus | grep -m1 -Fo '"Playing"')"
-             TITL="$(${SEND} ${PROP} string:Metadata | grep -m1 -A1 -F '"xesam:title"')" \
-             TITL="${TITL##*string\ \"}" \
-             TITL="${TITL%%\"*}"
+    MPRIS) PROP="${DBUS}.Properties.Get string:${MP2P}"
+           STAT="$(${SEND} ${PROP} string:PlaybackStatus | grep -m1 -Fo '"Playing"')"
+           TITL="$(${SEND} ${PROP} string:Metadata | grep -m1 -A1 -F '"xesam:title"')" \
+           TITL="${TITL##*string\ \"}" \
+           TITL="${TITL%%\"*}"
     ;;
-    *      ) TITL="There's no MPD nor Spotify installed"
+    *    ) TITL='Neither MPD nor MPRIS-enabled media player installed'
     ;;
 esac
 
@@ -66,7 +72,7 @@ case "${1}" in
     ;;
     swi*) [ -z "$STAT" ] || eval "${TOGG} >&2 &"
 
-          for M in mpd spotify; do
+          for M in mpd MPRIS; do
               [ "$MUSIC_PLAYER" != "$M" ] || continue
               sed -e "/^music_player[ ]*/s|\".*\"$|\"${M}\"|" -i "$APPS_FILE"
               dunstify 'Music Player' "Switched <u>${M}</u>" -h string:synchronous:music-player \
