@@ -285,7 +285,7 @@ Contents of [1](https://packages.debian.org/sid/pulseaudio),
 [3](https://packages.debian.org/sid/mpc),
 [4](https://packages.debian.org/sid/ncmpcpp).
 
-Spotify is also integrated but optional, [here to install](https://wiki.debian.org/spotify).
+MPRIS-enabled media players are also integrated, such as [spotify](https://wiki.debian.org/spotify).
 
 ---
 
@@ -425,7 +425,7 @@ Contents of [1](https://archlinux.org/packages/extra/x86_64/pulseaudio),
 [4](https://archlinux.org/packages/extra/x86_64/mpc),
 [5](https://archlinux.org/packages/community/x86_64/ncmpcpp).
 
-Spotify is also integrated but optional, [here to install](https://wiki.archlinux.org/title/spotify).
+MPRIS-enabled media players are also integrated, such as [spotify](https://wiki.archlinux.org/title/spotify).
 
 ---
 
@@ -568,7 +568,7 @@ Contents of [1](https://packages.gentoo.org/packages/media-sound/pulseaudio),
 [3](https://packages.gentoo.org/packages/media-sound/mpc),
 [4](https://packages.gentoo.org/packages/media-sound/ncmpcpp).
 
-Spotify is also integrated but optional, [here to install](https://wiki.gentoo.org/wiki/Spotify).
+MPRIS-enabled media players are also integrated, such as [spotify](https://wiki.gentoo.org/wiki/Spotify).
 
 ---
 
@@ -1071,20 +1071,20 @@ Use `export` to set user's environment variables universally. Don't add any othe
 
 [`~/.scripts/db.apps.joy`](./.scripts/db.apps.joy)
 
-| Parameters       | Available                                              | Description       |
-|:-----------------|:-------------------------------------------------------|:------------------|
-| *terminal*       | `urxvt` [`urxvtc`](./.config/openbox/autostart.sh#L17) | Terminal Emulator |
-| *music_player*   | `mpd` `spotify`                                        | Music Player      |
-| *file_manager*   | *anything*                                             | File Manager      |
-| *session_locker* | *anything*                                             | Session Locker    |
+| Parameters       | Available                                                                 | Description        |
+|:-----------------|:--------------------------------------------------------------------------|:-------------------|
+| *terminal*       | `urxvt` [`urxvtc`](./.config/openbox/autostart.sh#L17)                    | Terminal Emulator  |
+| *music_player*   | `mpd` [`MPRIS`](https://wiki.archlinux.org/title/MPRIS#Supported_clients) | Music/Media Player |
+| *file_manager*   | *anything*                                                                | File Manager       |
+| *session_locker* | *anything*                                                                | Session Locker     |
 
 Terminal emulator and file manager are used universally,
 both for keybindings and context menus. The terminal emulator is actually freedom-of-choice,
-but it's [not integrated](./.config/openbox/joyful-desktop/terminal-set.sh#L25-L132), it displays a notification message.
-The music player [can be switched](./.scripts/music-controller.sh#L67-L78) without modifying the configuration manually,
-via music control button on tint2 panel, just hover it. The session locker was [used by xss-lock
-program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L26-L36) (which [enabled in
-autostart](./.config/openbox/autostart.sh#L32)), triggered by systemd events and
+but it's [not integrated](./.config/openbox/joyful-desktop/terminal-set.sh#L25-L132), it displays a
+notification message. The music player [can be switched](./.scripts/music-controller.sh#L73-L84) without
+modifying the configuration manually, via music control button on tint2 panel, just hover it. The session
+locker was [used by xss-lock program](./.config/openbox/joyful-desktop/xss-lock-tsl.sh#L26-L36) (which
+[enabled in autostart](./.config/openbox/autostart.sh#L32)), triggered by systemd events and
 [DPMS](https://wiki.archlinux.org/title/Display_Power_Management_Signaling).
 
 </details>
