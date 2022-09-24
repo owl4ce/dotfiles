@@ -209,18 +209,9 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 *..., and is still being improved.*
 
-## :ear_of_rice: ‎ <samp>INTRODUCTION OF (LINUX) RICE</samp>
-
-[~~Read here~~](https://owl4ce.github.io/iolr).
-[~~Also~~ Currently available in Bahasa Indonesia](https://owl4ce.github.io/id/iolr).
-
 ## :seedling: ‎ <samp>SETUP</samp>
 
 Everything done manually step-by-step. Let's learn.
-
-> **WATCH YOUR STEP!!!**  
-> There's a [critical warning](https://github.com/owl4ce/dotfiles/issues/178) for pragmatists.
-> [Read the philosophy](#maple_leaf--the-philosophy).
 
 ### :blossom: ‎ <samp>INSTALLATION (<a href="./REPOLOGY.md">DEPENDENCIES</a>)</samp>
 
