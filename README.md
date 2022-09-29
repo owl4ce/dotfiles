@@ -211,7 +211,7 @@ CLICK OR TAP ❲☰❳ TO SHOW TABLE-OF-CONTENTS
 
 ## :seedling: ‎ <samp>SETUP</samp>
 
-Everything done manually step-by-step. Let's learn.
+Everything done manually step-by-step. Let's learn. [中文教程](https://www.maredevi.fun/OpenBox-%E7%BE%8E%E5%8C%96/)
 
 ### :blossom: ‎ <samp>INSTALLATION (<a href="./REPOLOGY.md">DEPENDENCIES</a>)</samp>
 
